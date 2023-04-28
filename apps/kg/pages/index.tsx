@@ -1,6 +1,5 @@
-import { FC, Fragment, ReactElement } from 'react';
 import { Navbar } from '@mknows-frontend-services/components/molecules';
-
+import { FC, Fragment, ReactElement } from 'react';
 const _navbar = [
   {
     name: 'Home',
