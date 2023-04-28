@@ -1,31 +1,31 @@
+// import './styles.css';
+import 'tailwindcss/tailwind.css';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
 import { RecoilRoot } from 'recoil';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { Source_Sans_Pro } from 'next/font/google';
 
 const queryClient = new QueryClient();
 
+const source_sans_pro = Source_Sans_Pro({
+  weight: '400',
+  subsets: ['latin'],
+});
 function CustomApp({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
-    <>
-      <Head>
-        <title>Welcome to kg!</title>
-      </Head>
-      <main className="app">
-        <QueryClientProvider client={queryClient}>
-          <SessionProvider session={session}>
-            <RecoilRoot>
-              <Component {...pageProps} />
-            </RecoilRoot>
-          </SessionProvider>
-        </QueryClientProvider>
-      </main>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider session={session}>
+        <RecoilRoot>
+          <main className={source_sans_pro.className}>
+            <Component {...pageProps} />
+          </main>
+        </RecoilRoot>
+      </SessionProvider>
+    </QueryClientProvider>
   );
 }
 

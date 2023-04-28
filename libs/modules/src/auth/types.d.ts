@@ -8,4 +8,5 @@ export type TAuthLayoutProps = {
   linkText?: string;
   to?: string;
   img?: string | StaticImageData;
+  h?: string;
 };
