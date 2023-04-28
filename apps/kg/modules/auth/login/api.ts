@@ -12,7 +12,7 @@ export const loginByGoogleRequest = async (
   payload: TLoginByGooglePayload
 ): Promise<TLoginResponse> => {
   const { data } = await api.post<TLoginResponse>(
-    '/auth/login-by-google',
+    '/auth/login/google/callback',
     payload
   );
   return data;
