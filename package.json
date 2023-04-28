@@ -2,7 +2,14 @@
   "name": "mknows-frontend-services",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "kg:serve" : "yarn nx serve kg",
+    "lxp:serve" : "yarn nx serve lxp",
+    "cs:serve" : "yarn nx serve lxp",
+    "kg:build" : "yarn nx build kg",
+    "lxp:build" : "yarn nx build lxp",
+    "cs:build" : "yarn nx build cs"
+  },
   "private": true,
   "dependencies": {
     "@nx/next": "16.0.0",
