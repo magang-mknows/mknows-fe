@@ -108,14 +108,21 @@ export const AuthLayout: FC<TAuthLayoutProps> = ({
   title,
   description,
   children,
-  h,
+  h = 'screen',
+  error,
 }): ReactElement => {
+  const [getError, setError] = useState(error);
   return (
-    <section className="w-full bg-gray-100 flex justify-center items-center lg:py-10 lg:px-14 md:p-8 sm:p-6 p-4 h-screen dark:bg-gray-900">
+    <section
+      className={`w-full bg-neutral-100 flex justify-center items-center lg:py-10 lg:px-14 md:p-8 sm:p-6 p-4 h-${h} dark:bg-gray-900`}
+    >
       <section className="flex items-center bg-white w-full h-auto rounded-lg shadow-lg">
         <SliderLayout />
         <div className="flex-col md:gap-y-[57px] gap-y-6 items-center justify-center p-6 flex h-full w-1/2">
-          <div className="flex flex-col w-full justify-center items-center md:items-start md:justify-start gap-y-1">
+          <div
+            className="flex flex-col
+           w-full justify-center items-center md:items-start md:justify-start gap-y-1"
+          >
             <h1 className="md:text-[36px] text-2xl font-[700] text-[#171717]">
               {title}
             </h1>
@@ -123,7 +130,15 @@ export const AuthLayout: FC<TAuthLayoutProps> = ({
               {description}
             </p>
           </div>
-          <div className="flex w-full items-start justify-start">
+          <div className="flex flex-col w-full items-start justify-start">
+            {getError && (
+              <span className="bg-error-100 mb-4 text-error-600 w-full font-[700] text-1xl p-4 rounded-lg border-2 border-error-500 flex justify-between">
+                <strong>{error}</strong>
+                <span onClick={() => setError('')} className="text-right">
+                  x
+                </span>
+              </span>
+            )}
             {children}
           </div>
         </div>

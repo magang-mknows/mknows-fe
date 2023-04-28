@@ -9,4 +9,5 @@ export type TAuthLayoutProps = {
   to?: string;
   img?: string | StaticImageData;
   h?: string;
+  error?: string;
 };
