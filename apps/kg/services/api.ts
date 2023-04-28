@@ -9,14 +9,14 @@ const config: AxiosRequestConfig = {
 
 const api = axios.create(config);
 
-// Request Interceptor
 api.interceptors.request.use(
   async (config) => {
     const session = await getSession();
 
-    const token = session?.access_token;
+    const token = session?.user?.token?.access_token;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      config.headers['Content-Type'] = 'application/json';
     }
     return config;
   },

@@ -4,12 +4,15 @@ import {
   TextField,
 } from '@mknows-frontend-services/components/atoms';
 import { useForm } from 'react-hook-form';
-import { FC, ReactElement, Suspense } from 'react';
+import { FC, ReactElement, Suspense, useEffect, useState } from 'react';
 import { lazily } from 'react-lazily';
 import { ErrorBoundary } from 'react-error-boundary';
 import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import api from '../../../services/api';
 
 const { AuthLayout } = lazily(
   () => import('@mknows-frontend-services/modules')
@@ -25,10 +28,14 @@ const validationSchema = z.object({
 
 type ValidationSchema = z.infer<typeof validationSchema>;
 
-export const LoginModuleKg: FC = (): ReactElement => {
+export const LoginModule: FC = (): ReactElement => {
+  const router = useRouter();
+  const { data: session } = useSession();
+  const [getError, setError] = useState<string | undefined>(undefined);
   const {
     control,
     formState: { isValid, errors },
+    handleSubmit,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
@@ -37,15 +44,46 @@ export const LoginModuleKg: FC = (): ReactElement => {
       password: '',
     },
   });
+
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await signIn('login', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+      if (response?.ok) {
+        router.push('/');
+      } else {
+        setError('Error was Happen and i dont know why?');
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  const onGoogleLogin = async () => {
+    await signIn('google', {
+      redirect: false,
+    });
+  };
+
+  useEffect(() => {
+    setError(router.query.error as string);
+  }, [router.query.error]);
+
   return (
-    <ErrorBoundary fallback={<>Error</>}>
+    <ErrorBoundary fallback={<>{getError}</>}>
       <Suspense fallback={'Loading..'}>
         <AuthLayout
-          error="Waduh Error"
+          error={getError}
           title="Masuk"
           description="Selamat datang silahkan masuk"
         >
-          <form className="flex flex-col w-full justify-start">
+          <form
+            onSubmit={onSubmit}
+            className="flex flex-col w-full justify-start"
+          >
             <TextField
               type="email"
               variant="lg"
@@ -74,7 +112,7 @@ export const LoginModuleKg: FC = (): ReactElement => {
             </div>
             <div className="flex flex-col my-4">
               <Button
-                type="button"
+                type="submit"
                 disabled={!isValid}
                 className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
               >
@@ -84,6 +122,7 @@ export const LoginModuleKg: FC = (): ReactElement => {
               <DashedText text="Atau" />
 
               <Button
+                onClick={onGoogleLogin}
                 type="button"
                 className="w-auto h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
               >

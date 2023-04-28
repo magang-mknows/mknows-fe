@@ -2,12 +2,12 @@ import type { User } from 'next-auth';
 import type { TMetaResponseSingle } from '@mknows-frontend-services/utils';
 
 export type TLoginPayload = {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 };
 
 export type TLoginByGooglePayload = {
-  access_token: string;
+  access_token?: string;
 };
 
 export type TLoginData = {
@@ -15,4 +15,4 @@ export type TLoginData = {
   refresh_token: string;
 } & User;
 
-export type TLoginResponse = TMetaResponseSingle<TLoginData>;
+export type TLoginResponse = TLoginData;

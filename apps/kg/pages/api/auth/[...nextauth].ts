@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -19,10 +20,13 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials): Promise<TLoginData> {
         try {
-          const { data } = await loginRequest(credentials);
-
+          const data = await loginRequest({
+            email: credentials?.email,
+            password: credentials?.password,
+          });
+          console.log(data);
           return data;
-        } catch (error) {
+        } catch (error: any) {
           if (error.response.status === 422) {
             throw new Error(error.response.data.errors[0]?.message[0]);
           }
@@ -51,12 +55,11 @@ export const authOptions: NextAuthOptions = {
           const response = await loginByGoogleRequest({
             access_token: account.access_token,
           });
-          account.access_token = response.data.access_token;
-          user.phone = response.data.user.phone;
-          user.role = response.data.user.role;
-          user.name = response.data.user.name;
-          user.email = response.data.user.email;
-        } catch (error) {
+          account.access_token = response.access_token;
+          account.refresh_token = response.refresh_token;
+          user.name = response.name;
+          user.email = response.email;
+        } catch (error: any) {
           return `/auth/login?error=${error.response.data?.message}`;
         }
       }
@@ -66,26 +69,31 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user, account }) {
       const currentUser = user as unknown as TLoginData;
-      // Persist the OAuth access_token to the token right after signin
       if (account?.provider === 'google' && account) {
         token.access_token = account.access_token;
       } else if (account?.provider === 'login' && currentUser) {
         token.access_token = currentUser.access_token;
-        currentUser.name = user.user.name;
-        currentUser.email = user.user.email;
-        currentUser.phone = user.user.phone;
-        currentUser.role = user.user.role;
+        token.refresh_token = currentUser.refresh_token;
+        currentUser.name = user.name;
+        currentUser.email = user.email;
       }
 
       return { ...token, ...currentUser };
     },
     async session({ session, token }) {
-      session.user.name = token.name;
-      session.user.email = token.email;
-      session.user.phone = token.phone;
-      session.user.role = token.role;
-      session.access_token = token?.access_token;
-      session.expires_at = token?.expires_at;
+      const jwt_token = {
+        access_token: token?.access_token,
+        refresh_token: token?.refresh_token,
+      };
+      session = {
+        expires: token?.expires as string,
+        user: {
+          id: 'w',
+          name: token.name,
+          email: token.email,
+          token: jwt_token,
+        },
+      };
       return session;
     },
   },

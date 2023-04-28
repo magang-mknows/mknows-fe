@@ -1,9 +1,9 @@
-import { LoginModuleKg } from '../../modules/auth/login/module';
+import { LoginModule } from '../../modules/auth/login/module';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const LoginPages: NextPage = (): ReactElement => {
-  return <LoginModuleKg />;
+  return <LoginModule />;
 };
 
 export default LoginPages;
