@@ -38,16 +38,16 @@ export const LoginModuleKg: FC = (): ReactElement => {
               label="Kata Sandi"
               status="none"
             />
-            <div className="flex w-full gap-x-4">
+            <div className="flex w-full gap-x-[400px]">
               <span>Sudah punya akun?</span>
-              <Link className="text-blue-400" href={'/auth/register'}>
+              <Link className="text-error-base" href={'/auth/register'}>
                 Daftar Sekarang
               </Link>
             </div>
             <div className="flex flex-col">
               <Button
                 type="button"
-                className="w-auto h-auto p-4 rounded-lg border-2 border-error-500 appearance-none bg-primary-base font-[700]"
+                className="w-auto h-auto text-[18px] text-white p-4 rounded-lg border-2 border-error-500 appearance-none bg-primary-200 font-[700]"
               >
                 Masuk
               </Button>
@@ -56,7 +56,7 @@ export const LoginModuleKg: FC = (): ReactElement => {
 
               <Button
                 type="button"
-                className="w-auto h-auto p-4 rounded-lg border-2 border-error-500 appearance-none bg-primary-base font-[700]"
+                className="w-auto h-auto p-4 rounded-lg border-2 border-error-500 bg-primary-800 font-[700]"
               >
                 Masuk Dengan Google
               </Button>
