@@ -14,7 +14,38 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mknows-frontend-services/components/atoms": [
+        "libs/components/atoms/src/index.ts"
+      ],
+      "@mknows-frontend-services/components/atoms/server": [
+        "libs/components/atoms/src/server.ts"
+      ],
+      "@mknows-frontend-services/components/molecules": [
+        "libs/components/molecules/src/index.ts"
+      ],
+      "@mknows-frontend-services/components/molecules/server": [
+        "libs/components/molecules/src/server.ts"
+      ],
+      "@mknows-frontend-services/components/organisms": [
+        "libs/components/organisms/src/index.ts"
+      ],
+      "@mknows-frontend-services/components/organisms/server": [
+        "libs/components/organisms/src/server.ts"
+      ],
+      "@mknows-frontend-services/modules": ["libs/modules/src/index.ts"],
+      "@mknows-frontend-services/modules/server": [
+        "libs/modules/src/server.ts"
+      ],
+      "@mknows-frontend-services/ui": ["libs/ui/src/index.ts"],
+      "@mknows-frontend-services/ui/atoms": ["libs/ui/atoms/src/index.ts"],
+      "@mknows-frontend-services/ui/atoms/server": [
+        "libs/ui/atoms/src/server.ts"
+      ],
+      "@mknows-frontend-services/ui/server": ["libs/ui/src/server.ts"],
+      "@mknows-frontend-services/utils": ["libs/utils/src/index.ts"],
+      "@mknows-frontend-services/utils/server": ["libs/utils/src/server.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
