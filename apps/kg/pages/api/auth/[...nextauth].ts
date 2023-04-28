@@ -24,7 +24,6 @@ export const authOptions: NextAuthOptions = {
             email: credentials?.email,
             password: credentials?.password,
           });
-          console.log(data);
           return data;
         } catch (error: any) {
           if (error.response.status === 422) {
@@ -44,8 +43,6 @@ export const authOptions: NextAuthOptions = {
     signIn: '/auth/login',
   },
   session: {
-    //TODO handle Remember me
-    // maxAge: req.body.rememberMe === 'true' ? 30 * 24 * 60 * 60 : 2 * 60 * 60,
     maxAge: 2 * 60 * 60,
   },
   callbacks: {
