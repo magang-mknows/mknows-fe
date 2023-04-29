@@ -3,6 +3,8 @@ import NextImage from 'next/image';
 import { TNavbarProps, TPopUpProps } from '../../types';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
+import { IconFeature, IconRing } from '../icons';
+import Image from 'next/image';
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, listStyle }): ReactElement => {
   return (
@@ -25,10 +27,12 @@ export const TopNav: FC<TNavbarProps> = ({
   logo,
   logoStyle,
   button,
+  avatar,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
   const [getPopUp, setPopUp] = useState(false);
+
   return (
     <header className="flex w-full justify-between px-[72px] py-[17px] bg-white">
       <figure className="flex items-center">
@@ -43,19 +47,22 @@ export const TopNav: FC<TNavbarProps> = ({
         />
       </figure>
       <nav className="flex items-center gap-x-6">
-        <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
-        <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
+        <div className="flex bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
+          <IconFeature />
+        </div>
         {!session ? (
           <div className="flex gap-x-4">{button}</div>
         ) : (
-          <div className="flex items-center gap-x-4 relative">
-            <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
-            <div
+          <div className="flex items-center gap-x-6 relative">
+            <div className="flex bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
+              <IconRing />
+            </div>
+            <Image
+              src={avatar}
+              alt={'user avatar'}
               onClick={() => setPopUp(!getPopUp)}
               className="bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
-            >
-              MS
-            </div>
+            />
             {getPopUp && <PopUpMenu {...props} />}
           </div>
         )}
