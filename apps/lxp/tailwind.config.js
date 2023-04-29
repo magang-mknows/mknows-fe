@@ -5,7 +5,7 @@ module.exports = {
   content: [
     join(
       __dirname,
-      '{src,pages,components}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+      '{src,pages,components,modules}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
@@ -21,6 +21,18 @@ module.exports = {
         700: '#709312',
         800: '#475D0C',
         900: '#2B3807',
+      },
+      error: {
+        base: '#F4677F',
+        100: '#FEDBD7',
+        200: '#FDB1AF',
+        300: '#F9868F',
+        400: '#F4677F',
+        500: '#ED3768',
+        600: '#CB2864',
+        700: '#AA1B5D',
+        800: '#891154',
+        900: '#710A4E',
       },
 
       blue: {
@@ -86,7 +98,6 @@ module.exports = {
         500: '#F26800',
       },
     },
-    extend: {},
   },
   plugins: [],
 };
