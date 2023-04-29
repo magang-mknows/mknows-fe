@@ -18,7 +18,7 @@ type TUserMajor = {
   student_id: string;
   major_id: string;
   status: string;
-  major: Major;
+  major: TMajor;
 };
 
 type TMajor = {
