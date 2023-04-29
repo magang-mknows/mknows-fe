@@ -60,8 +60,10 @@ export const TopNav: FC<TNavbarProps> = ({
             <Image
               src={avatar}
               alt={'user avatar'}
+              width={26}
+              height={26}
               onClick={() => setPopUp(!getPopUp)}
-              className="bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+              className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
             />
             {getPopUp && <PopUpMenu {...props} />}
           </div>
