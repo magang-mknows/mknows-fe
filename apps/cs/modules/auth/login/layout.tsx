@@ -4,8 +4,8 @@ import { TLoginProps } from './types';
 
 export const LoginLayout: FC<TLoginProps> = ({ children }): ReactElement => {
   return (
-    <section className="flex ">
-      <div className="p-8 w-full">
+    <section className="flex overflow-hidden">
+      <div className="p-8 w-full ">
         <Image
           src="/assets/auth/logo.svg"
           alt="logo"
