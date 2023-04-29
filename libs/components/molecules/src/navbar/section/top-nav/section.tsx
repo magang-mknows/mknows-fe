@@ -46,7 +46,7 @@ export const TopNav: FC<TNavbarProps> = ({
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
         {!session ? (
-          <Fragment>
+          <div className="flex gap-x-4">
             <Button
               type="button"
               className="w-auto h-auto px-4 py-1.5 rounded-lg border-primary-base border-2 text-primary-base font-[700]"
@@ -59,7 +59,7 @@ export const TopNav: FC<TNavbarProps> = ({
             >
               Daftar
             </Button>
-          </Fragment>
+          </div>
         ) : (
           <div className="flex items-center gap-x-4 relative">
             <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
