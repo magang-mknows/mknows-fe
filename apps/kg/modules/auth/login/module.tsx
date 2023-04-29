@@ -56,7 +56,7 @@ export const LoginModule: FC = (): ReactElement => {
       if (response?.ok) {
         router.push('/');
       } else {
-        setError('Error was Happen and i dont know why?');
+        setError(response?.error);
       }
     } catch (e) {
       console.log(e);
