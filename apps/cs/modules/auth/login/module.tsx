@@ -7,9 +7,9 @@ import {
 import { useForm } from 'react-hook-form';
 import { lazily } from 'react-lazily';
 import { ErrorBoundary } from 'react-error-boundary';
-import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useLogin } from './hook';
 
 const { LoginLayout } = lazily(() => import('./layout'));
 
@@ -26,6 +26,7 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 export const LoginModule: FC = (): ReactElement => {
   const {
     control,
+    handleSubmit,
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -35,11 +36,22 @@ export const LoginModule: FC = (): ReactElement => {
       password: '',
     },
   });
+
+  const { mutate } = useLogin();
+  const onSubmit = handleSubmit((data) => {
+    mutate(data, {
+      onError: (e) => console.log(e),
+      onSuccess: () => console.log('sucecss'),
+    });
+  });
   return (
     <ErrorBoundary fallback={<h1>Error nih</h1>}>
       <Suspense fallback={'Loading..'}>
         <LoginLayout>
-          <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm">
+          <form
+            onSubmit={onSubmit}
+            className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[100%] h-auto rounded-sm "
+          >
             <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
               Masuk
             </h1>
@@ -74,16 +86,15 @@ export const LoginModule: FC = (): ReactElement => {
                 label="Ingatkan Saya"
               />
             </div>
-            <Link href={'/dashboard/home'}>
-              <Button
-                type="submit"
-                disabled={!isValid}
-                className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
-              >
-                Masuk
-              </Button>
-            </Link>
-          </section>
+
+            <Button
+              type="submit"
+              disabled={!isValid}
+              className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
+            >
+              Masuk
+            </Button>
+          </form>
         </LoginLayout>
       </Suspense>
     </ErrorBoundary>

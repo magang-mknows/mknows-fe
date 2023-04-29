@@ -7,7 +7,7 @@ export const BottomNav: FC<TBottomNavProps> = ({
   bottomNavItems,
 }): ReactElement => {
   return (
-    <nav className="flex items-center border-t-[1px] border-neutral-200 px-[75px] bg-white py-[20px]">
+    <nav className="flex items-center gap-x-6 border-t-[1px] border-neutral-200 px-[75px] bg-white py-[20px]">
       {bottomNavItems.map((nav, key) => (
         <Link href={nav.link} key={key} className={bottomNavItemStyle}>
           {nav.name}

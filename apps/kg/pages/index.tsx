@@ -22,6 +22,14 @@ const Landing: FC = (): ReactElement => {
       name: 'Dashboard',
       link: '/dashboard',
     },
+    {
+      name: 'Studi Ku',
+      link: '/studi-ku',
+    },
+    {
+      name: 'Penugasan',
+      link: '/penugasan',
+    },
   ];
   return (
     <Fragment>
