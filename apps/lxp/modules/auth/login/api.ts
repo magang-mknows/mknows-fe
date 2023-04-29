@@ -1,6 +1,6 @@
 import { TMetaItem } from '@mknows-frontend-services/utils';
 import { TLoginPayload } from './types';
-import api from '../../../services/api';
+import api from '../../../../lxp/services/api';
 
 export const loginRequest = async (
   payload: TLoginPayload
