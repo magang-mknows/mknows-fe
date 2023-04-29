@@ -1,7 +1,6 @@
 import { FC, ReactElement, useState } from 'react';
 import NextImage from 'next/image';
 import { TNavbarProps, TPopUpProps } from '../../types';
-import { Button } from '@mknows-frontend-services/components/atoms';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
 
