@@ -1,7 +1,7 @@
 import { TMetaItem } from '@mknows-frontend-services/utils';
-import { TRegisterPayload } from './types';
+import { TLoginPayload } from './types';
 import api from '../../../services/api';
 
-export const registerRequest = async (
-  payload: TRegisterPayload
+export const loginRequest = async (
+  payload: TLoginPayload
 ): Promise<TMetaItem> => await api.post('/auth/login', payload);

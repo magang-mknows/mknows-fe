@@ -13,7 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { useRegister } from './hook';
+import { useLogin } from './hook';
 import { IconGoogle } from '../icons/ic-google';
 
 const { AuthLayout } = lazily(
@@ -45,7 +45,7 @@ export const LoginModule: FC = (): ReactElement => {
     },
   });
 
-  const { mutate, isLoading } = useRegister();
+  const { mutate, isLoading } = useLogin();
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {

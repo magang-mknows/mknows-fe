@@ -1,15 +1,15 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { TRegisterPayload } from './types';
+import { TLoginPayload } from './types';
 import { TMetaErrorResponse, TMetaItem } from '@mknows-frontend-services/utils';
-import { registerRequest } from './api';
+import { loginRequest } from './api';
 
-export const useRegister = (): UseMutationResult<
+export const useLogin = (): UseMutationResult<
   TMetaItem,
   TMetaErrorResponse,
-  TRegisterPayload,
+  TLoginPayload,
   unknown
 > =>
   useMutation({
     mutationKey: ['key'],
-    mutationFn: async (payload) => await registerRequest(payload),
+    mutationFn: async (payload) => await loginRequest(payload),
   });
