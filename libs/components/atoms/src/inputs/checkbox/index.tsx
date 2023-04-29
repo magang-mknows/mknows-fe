@@ -12,7 +12,7 @@ export const Checkbox: FC<ICheckbox> = ({
       htmlFor={props.name}
       className={`
        ${props.className} 
-       ${props.disabled && 'text-grey-500'}
+       ${props.disabled && 'text-neutral-500'}
        ${variant === 'lg' && 'text-[18px]'}
        ${variant === 'md' && 'text-[16px]'}
        ${variant === 'sm' && 'text-[14px]'}
