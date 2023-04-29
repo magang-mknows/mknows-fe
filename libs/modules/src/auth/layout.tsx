@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Slide1 from './assets/slider-1.svg';
 import Slide2 from './assets/slider-2.svg';
@@ -111,17 +111,23 @@ export const AuthLayout: FC<TAuthLayoutProps> = ({
   h = 'screen',
   error,
 }): ReactElement => {
-  const [getError, setError] = useState(error);
+  const [getError, setError] = useState('');
+
+  useEffect(() => {
+    setError(error as string);
+  }, [error]);
   return (
     <section
-      className={`w-full bg-neutral-100 flex justify-center items-center lg:py-10 lg:px-14 md:p-8 sm:p-6 p-4 h-${h} dark:bg-gray-900`}
+      className={`w-full bg-neutral-100 flex justify-center items-center lg:py-10 lg:px-14 md:p-8 sm:p-6 p-4 ${
+        h === 'full' ? 'h-full' : 'h-screen'
+      }`}
     >
       <section className="flex items-center bg-white w-full h-auto rounded-lg shadow-lg">
         <SliderLayout />
-        <div className="flex-col md:gap-y-[57px] gap-y-6 items-center justify-center p-6 flex h-full w-1/2">
+        <div className="flex-col md:gap-y-[57px] gap-y-6 items-center justify-center p-6 flex h-full w-full lg:w-1/2">
           <div
             className="flex flex-col
-           w-full justify-center items-center md:items-start md:justify-start gap-y-1"
+           w-full justify-center pt-[47px] items-center md:items-start md:justify-start gap-y-1"
           >
             <h1 className="md:text-[36px] text-2xl font-[700] text-[#171717]">
               {title}
@@ -130,7 +136,7 @@ export const AuthLayout: FC<TAuthLayoutProps> = ({
               {description}
             </p>
           </div>
-          <div className="flex flex-col w-full items-start justify-start">
+          <div className="flex flex-col w-full items-start pb-[37px] justify-start">
             {getError && (
               <span className="bg-error-100 mb-4 text-error-600 w-full font-[700] text-1xl p-4 rounded-lg border-2 border-error-500 flex justify-between">
                 <strong>{error}</strong>

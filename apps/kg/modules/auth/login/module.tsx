@@ -13,6 +13,7 @@ import { z } from 'zod';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import api from '../../../services/api';
+import { IconGoogle } from '../icons/ic-google';
 
 const { AuthLayout } = lazily(
   () => import('@mknows-frontend-services/modules')
@@ -76,9 +77,10 @@ export const LoginModule: FC = (): ReactElement => {
     <ErrorBoundary fallback={<>{getError}</>}>
       <Suspense fallback={'Loading..'}>
         <AuthLayout
+          h="screen"
           error={getError}
           title="Masuk"
-          description="Selamat datang silahkan masuk"
+          description="Silahkan masuk menggunakan email dan kata sandi yang terdaftar"
         >
           <form
             onSubmit={onSubmit}
@@ -104,12 +106,6 @@ export const LoginModule: FC = (): ReactElement => {
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
             />
-            <div className="flex w-full gap-x-4 mb-4">
-              <span>Sudah punya akun?</span>
-              <Link className="text-primary-base" href={'/auth/register'}>
-                Daftar Sekarang
-              </Link>
-            </div>
             <div className="flex flex-col my-4">
               <Button
                 type="submit"
@@ -124,10 +120,16 @@ export const LoginModule: FC = (): ReactElement => {
               <Button
                 onClick={onGoogleLogin}
                 type="button"
-                className="w-auto h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
+                className="w-auto h-auto text-[18px] text-black p-3 rounded-lg border-2 border-neutral-300 appearance-none bg-white font-[700] flex items-center justify-center gap-x-4"
               >
-                Masuk Dengan Google
+                <IconGoogle /> <span>Masuk Dengan Google</span>
               </Button>
+              <div className="flex w-full items-center justify-center my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
+                <span>Belum punya akun?</span>
+                <Link className="text-primary-600" href={'/auth/register'}>
+                  Daftar Disini
+                </Link>
+              </div>
             </div>
           </form>
         </AuthLayout>

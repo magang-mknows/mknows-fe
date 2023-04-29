@@ -4,7 +4,6 @@ import { getSession } from 'next-auth/react';
 
 const config: AxiosRequestConfig = {
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  withCredentials: true,
 };
 
 const api = axios.create(config);

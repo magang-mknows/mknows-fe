@@ -1,5 +1,6 @@
 import { Navbar } from '@mknows-frontend-services/components/molecules';
 import { FC, Fragment, ReactElement } from 'react';
+import api from '../services/api';
 const _navbar = [
   {
     name: 'Home',
@@ -8,6 +9,7 @@ const _navbar = [
 ];
 
 const Landing: FC = (): ReactElement => {
+  api.get('/user/profile/me');
   return (
     <Fragment>
       <Navbar navItems={_navbar} navItemStyle="text-neutral-400 font-medium" />

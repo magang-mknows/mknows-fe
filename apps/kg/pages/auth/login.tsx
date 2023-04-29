@@ -1,4 +1,4 @@
-import { LoginModule } from '../../modules/auth/login/module';
+import { LoginModule } from '../../modules/';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

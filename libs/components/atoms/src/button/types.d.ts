@@ -1,7 +1,7 @@
 import { ReactNode, ButtonHTMLAttributes } from 'react';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  loading?: boolean;
+  loading?: string;
   href?: string;
   children: ReactNode;
   disabled?: boolean;

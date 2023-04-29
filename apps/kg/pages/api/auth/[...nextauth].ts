@@ -41,6 +41,7 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: '/auth/login',
+    signOut: '/auth/logout',
   },
   session: {
     maxAge: 2 * 60 * 60,
@@ -50,8 +51,9 @@ export const authOptions: NextAuthOptions = {
       if (account?.provider === 'google' && account) {
         try {
           const response = await loginByGoogleRequest({
-            access_token: account.access_token,
+            credential: account.access_token,
           });
+          console.log(response);
           account.access_token = response.access_token;
           account.refresh_token = response.refresh_token;
           user.name = response.name;
@@ -64,10 +66,12 @@ export const authOptions: NextAuthOptions = {
       if (user) return true;
       return false;
     },
+
     async jwt({ token, user, account }) {
       const currentUser = user as unknown as TLoginData;
       if (account?.provider === 'google' && account) {
         token.access_token = account.access_token;
+        token.refresh_token = account.refresh_token;
       } else if (account?.provider === 'login' && currentUser) {
         token.access_token = currentUser.access_token;
         token.refresh_token = currentUser.refresh_token;

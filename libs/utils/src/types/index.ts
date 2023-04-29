@@ -1,9 +1,9 @@
 import { AxiosError } from 'axios';
 
 export type TMetaItem = {
-  code: 200;
-  status: 'OK';
-  message: 'Success login';
+  code: number;
+  status: string;
+  message: string;
 };
 
 export type TMetaResponse<T> = {
