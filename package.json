@@ -5,7 +5,7 @@
   "scripts": {
     "kg:serve": "yarn nx serve kg",
     "lxp:serve": "yarn nx serve lxp",
-    "cs:serve": "yarn nx serve lxp",
+    "cs:serve": "yarn nx serve cs",
     "kg:build": "yarn nx build kg",
     "lxp:build": "yarn nx build lxp",
     "cs:build": "yarn nx build cs"

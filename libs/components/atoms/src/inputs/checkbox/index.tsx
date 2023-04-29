@@ -1,11 +1,11 @@
-import { FC, ReactElement } from 'react';
-import { ICheckbox } from './types';
-import { useController } from 'react-hook-form';
+import { ReactElement } from 'react';
+import { TCheckbox } from './types';
+import { FieldValues, useController } from 'react-hook-form';
 
-export const Checkbox: FC<ICheckbox> = ({
+export const Checkbox = <T extends FieldValues>({
   variant = 'lg',
   ...props
-}): ReactElement => {
+}: TCheckbox<T>): ReactElement => {
   const { field } = useController(props);
   return (
     <label
