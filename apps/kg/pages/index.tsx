@@ -3,6 +3,7 @@ import { FC, Fragment, ReactElement } from 'react';
 import { logoutRequest } from '../modules/auth/logout/api';
 import { useSession } from 'next-auth/react';
 import { Button } from '@mknows-frontend-services/components/atoms';
+import { useProfile } from '../modules/profile/hooks';
 
 const Landing: FC = (): ReactElement => {
   const { data } = useSession();
@@ -31,10 +32,15 @@ const Landing: FC = (): ReactElement => {
       link: '/penugasan',
     },
   ];
+
+  const { data: profileData } = useProfile();
   return (
     <Fragment>
       <Navbar
         items={_pop_up_menu}
+        avatar={
+          profileData?.data.user.avatar || '/assets/images/avatar-dummy.png'
+        }
         logo={'/assets/icons/ic-logo-blue.svg'}
         logoStyle="w-auto h-auto"
         bottomNavItems={_bottom_nav_items}
