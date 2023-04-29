@@ -1,8 +1,7 @@
 import { NextPage } from 'next';
 import { Fragment, ReactElement } from 'react';
-import { signOut } from 'next-auth/react';
-import { logoutRequest } from '../../modules';
 import { useSession } from 'next-auth/react';
+import { logoutRequest } from '../../modules/auth/logout/api';
 
 const ProfilePage: NextPage = (): ReactElement => {
   const { data } = useSession();
@@ -14,7 +13,6 @@ const ProfilePage: NextPage = (): ReactElement => {
           await logoutRequest({
             refresh_token: data?.user?.token?.refresh_token as string,
           });
-          signOut();
         }}
       >
         Logout

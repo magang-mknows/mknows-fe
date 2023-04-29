@@ -11,9 +11,11 @@ export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
       <Suspense fallback={<LTopNav />}>
         <TopNav {...props} />
       </Suspense>
-      <Suspense fallback={<LBottomNav />}>
-        <BottomNav />
-      </Suspense>
+      {props.showBottomNav && (
+        <Suspense fallback={<LBottomNav />}>
+          <BottomNav />
+        </Suspense>
+      )}
     </Fragment>
   );
 };

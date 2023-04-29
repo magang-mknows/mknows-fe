@@ -4,8 +4,9 @@ type TNavbarItem = {
 };
 
 export type TNavbarProps = {
-  navItems: Array<TNavbarItem>;
+  navItems?: Array<TNavbarItem>;
   navItemStyle?: string;
-  logo?: string | StaticImport;
+  logo: string;
   logoStyle?: string;
+  showBottomNav?: boolean;
 };

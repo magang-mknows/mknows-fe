@@ -10,9 +10,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import api from '../../../services/api';
 import { IconGoogle } from '../icons/ic-google';
 
 const { AuthLayout } = lazily(
