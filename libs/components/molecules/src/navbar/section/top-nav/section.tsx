@@ -60,8 +60,8 @@ export const TopNav: FC<TNavbarProps> = ({
             <Image
               src={avatar}
               alt={'user avatar'}
-              width={26}
-              height={26}
+              width={36}
+              height={36}
               onClick={() => setPopUp(!getPopUp)}
               className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
             />

@@ -4,6 +4,7 @@ import { logoutRequest } from '../modules/auth/logout/api';
 import { useSession } from 'next-auth/react';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { useProfile } from '../modules/profile/hooks';
+import { LandingModule } from '../modules';
 
 const Landing: FC = (): ReactElement => {
   const { data } = useSession();
@@ -66,7 +67,9 @@ const Landing: FC = (): ReactElement => {
           </Fragment>
         }
       />
-      <section className="h-screen bg-neutral-200 w-full"></section>
+      <section className="h-full flex-col flex bg-neutral-200 w-full">
+        <LandingModule />
+      </section>
     </Fragment>
   );
 };
