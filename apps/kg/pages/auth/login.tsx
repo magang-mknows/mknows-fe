@@ -1,5 +1,6 @@
 import { LoginModule } from '../../modules/';
 import { NextPage } from 'next';
+import { GetSessionParams, getSession } from 'next-auth/react';
 import { ReactElement } from 'react';
 
 const LoginPages: NextPage = (): ReactElement => {
@@ -7,3 +8,22 @@ const LoginPages: NextPage = (): ReactElement => {
 };
 
 export default LoginPages;
+
+export async function getServerSideProps(
+  context: GetSessionParams | undefined
+) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}

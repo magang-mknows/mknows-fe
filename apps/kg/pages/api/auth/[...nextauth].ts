@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
           return data;
         } catch (error: any) {
           if (error.response.status === 422) {
-            throw new Error(error.response.data.errors[0]?.message[0]);
+            throw new Error(error.response.data.message);
           }
 
           throw new Error(

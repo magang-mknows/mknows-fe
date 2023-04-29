@@ -1,4 +1,5 @@
-export interface ICheckbox {
+import { FieldValues, UseControllerProps } from 'react-hook-form';
+export type TCheckbox<T extends FieldValues> = UseControllerProps<T> & {
   label?: string;
   name: string;
   placeholder?: string;
@@ -10,4 +11,4 @@ export interface ICheckbox {
   warning?: string;
   variant: 'lg' | 'md' | 'sm';
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+};
