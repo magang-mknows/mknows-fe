@@ -48,12 +48,14 @@ export const TopNav: FC<TNavbarProps> = ({
         {!session ? (
           <div className="flex gap-x-4">
             <Button
+              href="/auth/login"
               type="button"
               className="w-auto h-auto px-4 py-1.5 rounded-lg border-primary-base border-2 text-primary-base font-[700]"
             >
               Masuk
             </Button>
             <Button
+              href="/auth/register"
               type="button"
               className="w-auto h-auto px-4 py-2 rounded-lg bg-primary-500 text-white font-[700]"
             >
