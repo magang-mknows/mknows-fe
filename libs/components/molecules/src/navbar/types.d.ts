@@ -1,5 +1,5 @@
 import { TPopUpProps } from './section';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 type TNavbarItem = {
   name: string;
@@ -20,4 +20,5 @@ export type TNavbarProps = {
   logo: string;
   logoStyle?: string;
   showBottomNav?: boolean;
+  button?: ReactNode;
 } & TPopUpProps;
