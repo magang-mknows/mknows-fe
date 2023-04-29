@@ -1,19 +1,34 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement, useState } from 'react';
 import NextImage from 'next/image';
-import { TNavbarProps } from '../../types';
+import { TNavbarProps, TPopUpProps } from '../../types';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { useSession } from 'next-auth/react';
+import { motion } from 'framer-motion';
 
-const PopUpMenu: FC = (): ReactElement => {
+const PopUpMenu: FC<TPopUpProps> = ({ items, listStyle }): ReactElement => {
   return (
-    <section className="flex bg-white absolute top-10 rounded-lg left-12 shadow-lg p-4">
-      <span>Logout</span>
-    </section>
+    <motion.section
+      initial={{ opacity: '20%', top: 30 }}
+      animate={{ opacity: '100%', top: 50 }}
+      exit={{ opacity: '100%', top: 100 }}
+      className="flex flex-col font-bold gap-y-3 w-auto bg-white absolute top-10 rounded-lg left-12 shadow-lg p-4"
+    >
+      {items.map((item, key) => (
+        <span key={key} onClick={item.onClick} className={listStyle}>
+          {item.name}
+        </span>
+      ))}
+    </motion.section>
   );
 };
 
-export const TopNav: FC<TNavbarProps> = ({ logo, logoStyle }): ReactElement => {
+export const TopNav: FC<TNavbarProps> = ({
+  logo,
+  logoStyle,
+  ...props
+}): ReactElement => {
   const { data: session } = useSession();
+  const [getPopUp, setPopUp] = useState(false);
   return (
     <header className="flex w-full justify-between px-[72px] py-[17px] bg-white">
       <figure className="flex items-center">
@@ -30,7 +45,7 @@ export const TopNav: FC<TNavbarProps> = ({ logo, logoStyle }): ReactElement => {
       <nav className="flex items-center gap-x-6">
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
-        {session ? (
+        {!session ? (
           <Fragment>
             <Button
               type="button"
@@ -48,10 +63,13 @@ export const TopNav: FC<TNavbarProps> = ({ logo, logoStyle }): ReactElement => {
         ) : (
           <div className="flex items-center gap-x-4 relative">
             <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
-            <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]">
+            <div
+              onClick={() => setPopUp(!getPopUp)}
+              className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+            >
               MS
             </div>
-            <PopUpMenu />
+            {getPopUp && <PopUpMenu {...props} />}
           </div>
         )}
       </nav>
