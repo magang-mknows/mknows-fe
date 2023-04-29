@@ -89,7 +89,7 @@ export const LoginModule: FC = (): ReactElement => {
           >
             <TextField
               type="email"
-              variant="lg"
+              variant="md"
               control={control}
               name={'email'}
               placeholder="maulana@sodiqin.com"
@@ -99,7 +99,7 @@ export const LoginModule: FC = (): ReactElement => {
             />
             <TextField
               type="password"
-              variant="lg"
+              variant="md"
               control={control}
               name={'password'}
               placeholder="************"
