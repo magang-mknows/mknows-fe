@@ -31,7 +31,7 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 
 export const LoginModule: FC = (): ReactElement => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
   const [getError, setError] = useState<string | undefined>(undefined);
   const {
     control,
@@ -47,6 +47,7 @@ export const LoginModule: FC = (): ReactElement => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
     try {
       const response = await signIn('login', {
         email: data.email,
@@ -61,6 +62,7 @@ export const LoginModule: FC = (): ReactElement => {
     } catch (e) {
       console.log(e);
     }
+    setLoading(false);
   });
 
   const onGoogleLogin = async () => {
@@ -110,6 +112,7 @@ export const LoginModule: FC = (): ReactElement => {
               <Button
                 type="submit"
                 disabled={!isValid}
+                loading={loading ? 'Sedang Masuk..' : ''}
                 className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
               >
                 Masuk
