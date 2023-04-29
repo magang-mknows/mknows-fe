@@ -25,6 +25,7 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, listStyle }): ReactElement => {
 export const TopNav: FC<TNavbarProps> = ({
   logo,
   logoStyle,
+  button,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
@@ -46,28 +47,13 @@ export const TopNav: FC<TNavbarProps> = ({
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
         <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
         {!session ? (
-          <div className="flex gap-x-4">
-            <Button
-              href="/auth/login"
-              type="button"
-              className="w-auto h-auto px-4 py-1.5 rounded-lg border-primary-base border-2 text-primary-base font-[700]"
-            >
-              Masuk
-            </Button>
-            <Button
-              href="/auth/register"
-              type="button"
-              className="w-auto h-auto px-4 py-2 rounded-lg bg-primary-500 text-white font-[700]"
-            >
-              Daftar
-            </Button>
-          </div>
+          <div className="flex gap-x-4">{button}</div>
         ) : (
           <div className="flex items-center gap-x-4 relative">
             <div className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg"></div>
             <div
               onClick={() => setPopUp(!getPopUp)}
-              className="flex bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+              className="bg-neutral-200 w-[36px] h-[36px] rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
             >
               MS
             </div>
