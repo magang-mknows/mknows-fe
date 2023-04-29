@@ -91,7 +91,7 @@ export const RegisterModule: FC = (): ReactElement => {
           >
             <TextField
               type="text"
-              variant="lg"
+              variant="md"
               control={control}
               name={'full_name'}
               placeholder="Maulana Sodiqin"
@@ -101,7 +101,7 @@ export const RegisterModule: FC = (): ReactElement => {
             />
             <TextField
               type="text"
-              variant="lg"
+              variant="md"
               control={control}
               name={'user_name'}
               placeholder="maul_ganteng123"
@@ -111,7 +111,7 @@ export const RegisterModule: FC = (): ReactElement => {
             />
             <TextField
               type="email"
-              variant="lg"
+              variant="md"
               control={control}
               name={'email'}
               placeholder="maulana@sodiqin.com"
@@ -121,7 +121,7 @@ export const RegisterModule: FC = (): ReactElement => {
             />
             <TextField
               type="password"
-              variant="lg"
+              variant="md"
               control={control}
               name={'password'}
               placeholder="************"
@@ -131,7 +131,7 @@ export const RegisterModule: FC = (): ReactElement => {
             />
             <TextField
               type="password"
-              variant="lg"
+              variant="md"
               control={control}
               name={'password_confirmation'}
               placeholder="************"
