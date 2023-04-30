@@ -29,9 +29,9 @@ export const HeroSection: FC = (): ReactElement => {
         </Button>
       </div>
       <div className="flex w-1/2 justify-end relative">
-        <RandomShit1 className="absolute top-[160px] lg:left-[200px] 2xl:left-[400px]" />
-        <RandomShit2 className="absolute top-[120px] lg:left-[440px] 2xl:left-[640px]" />
-        <RandomShit3 className="absolute bottom-[-120px] z-0 lg:left-20 2xl:left-[200px]" />
+        <RandomShit1 className="absolute top-[160px] lg:left-[200px] xl:left-[200px] 2xl:left-[400px]" />
+        <RandomShit2 className="absolute top-[120px] lg:left-[400px] xl:left-[400px] 2xl:left-[640px]" />
+        <RandomShit3 className="absolute bottom-[-120px] z-0 lg:left-[-46px] xl:left-20 2xl:left-[200px]" />
         <HoverCard />
         <Image
           src={'/assets/images/landing/girl-holding-book.png'}
