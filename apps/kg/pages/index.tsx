@@ -5,8 +5,9 @@ import { useSession } from 'next-auth/react';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { useProfile } from '../modules/profile/hooks';
 import { LandingModule } from '../modules';
+import Head from 'next/head';
 
-const Landing: FC = (): ReactElement => {
+const LandingPage: FC = (): ReactElement => {
   const { data } = useSession();
   const _pop_up_menu = [
     {
@@ -35,8 +36,12 @@ const Landing: FC = (): ReactElement => {
   ];
 
   const { data: profileData } = useProfile();
+
   return (
     <Fragment>
+      <Head>
+        <title>Kampus Gratis - Home Page</title>
+      </Head>
       <Navbar
         items={_pop_up_menu}
         avatar={
@@ -67,11 +72,11 @@ const Landing: FC = (): ReactElement => {
           </Fragment>
         }
       />
-      <section className="h-full flex-col flex bg-neutral-200 w-full">
+      <section className="h-full flex-col flex bg-neutral-100 w-full">
         <LandingModule />
       </section>
     </Fragment>
   );
 };
 
-export default Landing;
+export default LandingPage;
