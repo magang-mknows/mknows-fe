@@ -65,7 +65,7 @@ const LandingPage: FC = (): ReactElement => {
             <Button
               href="/auth/register"
               type="button"
-              className="text-white px-4 py-1.5 rounded-lg w-auto h-auto bg-primary-500"
+              className="text-white px-4 py-1.5 border-2 border-primary-500 rounded-lg w-auto h-auto bg-primary-500"
             >
               Daftar
             </Button>

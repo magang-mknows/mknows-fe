@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { Source_Sans_Pro } from 'next/font/google';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 const queryClient = new QueryClient();
 

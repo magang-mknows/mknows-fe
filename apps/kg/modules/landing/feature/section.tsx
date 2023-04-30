@@ -1,5 +1,11 @@
 import { FC, Fragment, ReactElement } from 'react';
-import { FeatureIcon1 } from '../icons';
+import {
+  FeatureIcon1,
+  FeatureIcon2,
+  FeatureIcon3,
+  FeatureIcon4,
+  FeatureIcon5,
+} from '../icons';
 
 export const FeatureSection: FC = (): ReactElement => {
   const _feature = [
@@ -9,19 +15,19 @@ export const FeatureSection: FC = (): ReactElement => {
     },
     {
       title: 'Perencanaan Studi & Karir',
-      icon: <FeatureIcon1 />,
+      icon: <FeatureIcon2 />,
     },
     {
       title: 'Assetment Kompetensi',
-      icon: <FeatureIcon1 />,
+      icon: <FeatureIcon3 />,
     },
     {
       title: 'Penyaluran Kerja',
-      icon: <FeatureIcon1 />,
+      icon: <FeatureIcon4 />,
     },
     {
       title: '50.000 Peserta',
-      icon: <FeatureIcon1 />,
+      icon: <FeatureIcon5 />,
     },
   ];
   return (

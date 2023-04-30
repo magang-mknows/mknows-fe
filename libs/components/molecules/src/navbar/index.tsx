@@ -9,7 +9,7 @@ const { BottomNav, TopNav } = lazily(() => import('./section'));
 export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
   const { data: session } = useSession();
   return (
-    <header className="flex w-full items-center sticky top-0">
+    <header className="flex w-full items-center sticky top-0 z-20">
       <Suspense fallback={<LTopNav />}>
         <TopNav {...props} />
       </Suspense>
