@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement, Suspense } from 'react';
+import { FC, ReactElement, Suspense } from 'react';
 import { TNavbarProps } from './types';
 import { lazily } from 'react-lazily';
 import { LBottomNav, LTopNav } from './section';
@@ -9,7 +9,7 @@ const { BottomNav, TopNav } = lazily(() => import('./section'));
 export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
   const { data: session } = useSession();
   return (
-    <Fragment>
+    <header className="flex w-full items-center sticky top-0">
       <Suspense fallback={<LTopNav />}>
         <TopNav {...props} />
       </Suspense>
@@ -18,6 +18,6 @@ export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
           <BottomNav {...props} />
         </Suspense>
       )}
-    </Fragment>
+    </header>
   );
 };
