@@ -26,7 +26,6 @@ const validationSchema = z
       message: 'Email harus valid',
     }),
     full_name: z.string().min(2, { message: 'Nama Lengkap harus diisi' }),
-    user_name: z.string().min(2, { message: 'Nama User harus diisi' }),
     password: z.string().min(1, { message: 'Password harus diisi' }),
     password_confirmation: z
       .string()
@@ -52,7 +51,6 @@ export const RegisterModule: FC = (): ReactElement => {
     defaultValues: {
       email: '',
       full_name: '',
-      user_name: '',
       password: '',
       password_confirmation: '',
     },
@@ -98,16 +96,6 @@ export const RegisterModule: FC = (): ReactElement => {
               label="Nama Lengkap"
               status={errors.full_name ? 'error' : 'none'}
               message={errors.full_name?.message}
-            />
-            <TextField
-              type="text"
-              variant="md"
-              control={control}
-              name={'user_name'}
-              placeholder="maul_ganteng123"
-              label="Nama User"
-              status={errors.user_name ? 'error' : 'none'}
-              message={errors.user_name?.message}
             />
             <TextField
               type="email"
