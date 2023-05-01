@@ -7,10 +7,26 @@ type TNavbarItem = {
 };
 
 export type TPopUpProps = {
+  avatar: string;
   listStyle?: string;
+  userData: {
+    full_name: string;
+    email: string;
+    avatar: string;
+  };
   items: Array<{
     name: string;
-    onClick: MouseEventHandler<HTMLSpanElement>;
+    icon: ReactNode;
+    onClick: MouseEventHandler<HTMLDivElement>;
+  }>;
+};
+
+export type TPopUpAllFeaturesProps = {
+  listStyle?: string;
+  features: Array<{
+    name: string;
+    link: string;
+    icon: ReactNode;
   }>;
 };
 
@@ -23,4 +39,5 @@ export type TNavbarProps = {
   button?: ReactNode;
   avatar?: string;
 } & TPopUpProps &
-  TBottomNavProps;
+  TBottomNavProps &
+  TPopUpAllFeaturesProps;

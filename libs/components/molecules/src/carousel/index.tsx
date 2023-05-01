@@ -1,6 +1,5 @@
-import { ReactElement, FC, useRef, ReactNode } from 'react';
+import { ReactElement, FC, ReactNode, RefObject } from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 export const Carousel: FC<{
   children: ReactNode[];
@@ -8,24 +7,20 @@ export const Carousel: FC<{
   infinite?: boolean;
   single?: boolean;
   speed?: number;
+  carouselRef: RefObject<AliceCarousel>;
 }> = ({
   children,
   autoPlay = true,
   infinite = true,
   speed = 1000,
   single,
+  carouselRef,
 }): ReactElement => {
-  const carousel = useRef<AliceCarousel>(null);
   return (
-    <div className="flex w-full h-full relative items-center px-[80px]">
-      <MdChevronLeft
-        onClick={(e) => carousel?.current?.slideNext(e)}
-        size={40}
-        className="bg-white rounded-lg h-[60px] shadow-lg absolute left-0 z-10"
-      />
+    <div className="flex w-full h-full relative items-center">
       <AliceCarousel
         key="carousel"
-        ref={carousel}
+        ref={carouselRef}
         animationDuration={speed}
         autoPlay={autoPlay}
         infinite={infinite}
@@ -43,18 +38,13 @@ export const Carousel: FC<{
                 1024: { items: 1 },
               }
             : {
-                0: { items: 1 },
-                568: { items: 2 },
-                1024: { items: 3 },
+                0: { items: 2 },
+                568: { items: 3 },
+                1024: { items: 5 },
               }
         }
         mouseTracking
         items={children}
-      />
-      <MdChevronRight
-        onClick={(e) => carousel?.current?.slidePrev(e)}
-        size={40}
-        className="bg-white rounded-lg h-[60px] shadow-lg absolute right-0 z-10"
       />
     </div>
   );
