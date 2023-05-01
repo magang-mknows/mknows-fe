@@ -6,7 +6,10 @@ import { Button } from '@mknows-frontend-services/components/atoms';
 import { useProfile } from '../modules/profile/hooks';
 import { LandingModule } from '../modules';
 import Head from 'next/head';
-import { Md18UpRating } from 'react-icons/md';
+import { useRouter } from 'next/router';
+import { MdLogout, MdDashboard } from 'react-icons/md';
+import { FcDocument } from 'react-icons/fc';
+import { FaRegUserCircle } from 'react-icons/fa';
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -28,10 +31,27 @@ const AuthButton: FC = (): ReactElement => (
 );
 
 const LandingPage: FC = (): ReactElement => {
+  const router = useRouter();
   const { data } = useSession();
   const _pop_up_menu = [
     {
+      name: 'Dashboard',
+      onClick: () => router.push('/dashboard'),
+      icon: <MdDashboard size={20} className="text-primary-base" />,
+    },
+    {
+      name: 'Profile',
+      onClick: () => router.push('/user/profile'),
+      icon: <FaRegUserCircle size={20} className="text-warning-base" />,
+    },
+    {
+      name: 'Administrasi',
+      icon: <FcDocument size={20} className="text-success-base" />,
+      onClick: () => router.push('/administrasi'),
+    },
+    {
       name: 'Logout',
+      icon: <MdLogout size={20} className="text-error-base" />,
       onClick: async () => {
         await logoutRequest({
           refresh_token: data?.user?.token?.refresh_token as string,
@@ -63,7 +83,7 @@ const LandingPage: FC = (): ReactElement => {
     {
       name: 'Feature 1',
       link: '/feature-1',
-      icon: <Md18UpRating />,
+      icon: <MdDashboard />,
     },
   ];
 
@@ -75,6 +95,12 @@ const LandingPage: FC = (): ReactElement => {
     '/penugasan',
     '/nilai-sertifikat',
   ];
+
+  const _profile_user = {
+    email: profileData?.data?.user?.email,
+    full_name: profileData?.data?.user?.full_name,
+    avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+  };
 
   return (
     <Fragment>
@@ -89,6 +115,7 @@ const LandingPage: FC = (): ReactElement => {
         }
         logo={'/assets/icons/ic-logo-blue.svg'}
         logoStyle="w-auto h-auto"
+        userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
         bottomNavRules={_nav_rules}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}

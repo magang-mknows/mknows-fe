@@ -5,7 +5,7 @@ import AliceCarousel from 'react-alice-carousel';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 export const PartnerSection: FC = (): ReactElement => {
-  const ref = useRef<AliceCarousel>(null);
+  const carousel = useRef<AliceCarousel>(null);
   const loadPath = (val: number): string =>
     `/assets/images/landing/partner-${val}.png`;
   const _partner_logo = [
@@ -15,7 +15,6 @@ export const PartnerSection: FC = (): ReactElement => {
     loadPath(4),
     loadPath(5),
   ];
-  console.log(_partner_logo);
   return (
     <section className="flex flex-col gap-y-[64px] items-center py-[118px] justify-center">
       <h1 className="text-[44px] font-[700] text-black">
@@ -23,11 +22,11 @@ export const PartnerSection: FC = (): ReactElement => {
       </h1>
       <div className="flex w-full px-[196px]">
         <MdChevronLeft
-          onClick={(e) => ref?.current?.slideNext(e)}
+          onClick={(e) => carousel?.current?.slideNext(e)}
           size={40}
           className="rounded-lg h-[60px] absolute text-primary-600 left-10 z-10"
         />
-        <Carousel ref={ref}>
+        <Carousel carouselRef={carousel}>
           {_partner_logo.map((logo, key) => (
             <Image
               key={key}
@@ -42,7 +41,7 @@ export const PartnerSection: FC = (): ReactElement => {
           ))}
         </Carousel>
         <MdChevronRight
-          onClick={(e) => ref?.current?.slidePrev(e)}
+          onClick={(e) => carousel?.current?.slidePrev(e)}
           size={40}
           className="rounded-lg h-[60px] text-primary-600 absolute right-10 z-10"
         />

@@ -7,20 +7,20 @@ export const Carousel: FC<{
   infinite?: boolean;
   single?: boolean;
   speed?: number;
-  ref: RefObject<AliceCarousel>;
+  carouselRef: RefObject<AliceCarousel>;
 }> = ({
   children,
   autoPlay = true,
   infinite = true,
   speed = 1000,
   single,
-  ref,
+  carouselRef,
 }): ReactElement => {
   return (
     <div className="flex w-full h-full relative items-center">
       <AliceCarousel
         key="carousel"
-        ref={ref}
+        ref={carouselRef}
         animationDuration={speed}
         autoPlay={autoPlay}
         infinite={infinite}
