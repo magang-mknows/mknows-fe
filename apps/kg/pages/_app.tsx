@@ -1,12 +1,15 @@
+<<<<<<< HEAD
 import './styles.css';
+=======
+>>>>>>> 7d7311668729a88712bbd0946209431ab910e4a6
 import 'tailwindcss/tailwind.css';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { Source_Sans_Pro } from 'next/font/google';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import { Suspense, useLayoutEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
 
 const queryClient = new QueryClient();
@@ -21,7 +24,7 @@ function CustomApp({
   pageProps: { session, ...pageProps },
 }: AppProps) {
   const [mount, setMount] = useState(false);
-  useLayoutEffect(() => {
+  useEffect(() => {
     setMount(true);
   }, []);
 

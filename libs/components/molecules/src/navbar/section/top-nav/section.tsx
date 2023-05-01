@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { IconFeature, IconRing } from '../icons';
 import Image from 'next/image';
 import { Button } from '@mknows-frontend-services/components/atoms';
+import Link from 'next/link';
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
@@ -36,7 +37,7 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
           <div
             key={key}
             onClick={item.onClick}
-            className={'flex items-center gap-x-3'}
+            className={'flex items-center gap-x-3 cursor-pointer'}
           >
             {item.icon}
             <span>{item.name}</span>
@@ -79,7 +80,9 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
         ))}
       </div>
       <div className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full">
-        <span className="text-neutral-base">Lihat Semua</span>
+        <Link href={'/semua-fitur'} className="text-neutral-base">
+          Lihat Semua
+        </Link>
       </div>
     </motion.section>
   );

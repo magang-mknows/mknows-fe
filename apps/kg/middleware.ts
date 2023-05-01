@@ -13,4 +13,6 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ['/dashboard', '/profile', '/mitra'] };
+export const config = {
+  matcher: ['/dashboard', '/profile', '/mitra', '/administrasi'],
+};

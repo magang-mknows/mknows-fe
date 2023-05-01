@@ -7,6 +7,11 @@ export type T = {
   category: string;
 };
 
+export type TStatusReturnAdministration = {
+  setAdministrationStatus: (val: string) => void;
+  getAdministrationStatus: string;
+};
+
 export type TBiodataAdm = {
   gender: string;
   phone: string;
