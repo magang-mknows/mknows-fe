@@ -32,17 +32,17 @@ export const SelectField = <T extends FieldValues>({
           <Listbox.Button
             as="button"
             className={`
-              px-4  outline-none focus:outline-none w-full bg-neutral-100
+              px-4  outline-none focus:outline-none w-full bg-white
 
               ${props.disabled && `bg-neutral-100 ring-neutral-400`}
-              ${props.success && `ring-success-base`}
-              ${props.error && `ring-error-base`}
-              ${props.warning && `ring-warning-base`}
+              ${props.success && `ring-success-base ring-1`}
+              ${props.error && `ring-error-base ring-1`}
+              ${props.warning && `ring-warning-base ring-1`}
               ${
                 !props.success &&
                 !props.error &&
                 !props.warning &&
-                `ring-neutral-500`
+                `ring-primary-400 ring-1`
               }
               
               ${variant === 'lg' && `py-4 rounded-lg`}
@@ -59,7 +59,7 @@ export const SelectField = <T extends FieldValues>({
                       ${variant === 'sm' && 'text-[10px]'}
                       `}
                 >
-                  {getLabel(data.value)}
+                  {getLabel(data.value) || props.placeholder}
                 </span>
                 <ChevronDown />
               </div>

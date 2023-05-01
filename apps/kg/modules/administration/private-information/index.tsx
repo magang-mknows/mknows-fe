@@ -35,7 +35,7 @@ export const PrivateInformation: FC = (): ReactElement => {
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
     watch,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -70,10 +70,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 label="Jenis Kelamin"
                 name="gender"
-                defaultValue="Pilih jenis kelamin"
+                placeholder="Pilih jenis kelamin"
                 required={true}
                 options={optionsGender}
                 variant={'lg'}
+                error={errors.gender?.message}
               />
             </div>
             <div className="form-label">
@@ -85,8 +86,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name="birthplace"
                 placeholder={'Masukkan tempat lahir'}
                 required
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                status={errors.birthplace ? 'error' : 'none'}
+                message={errors.birthplace?.message}
               />
             </div>
             <div className="form-label">
@@ -98,8 +99,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'address'}
                 placeholder={'Masukkan alamat lengkap'}
                 required={true}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                status={errors.address ? 'error' : 'none'}
+                message={errors.address?.message}
               />
             </div>
             <div className="form-label">
@@ -111,8 +112,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'nim'}
                 placeholder={'masukkan NIM atau NPM (optional)'}
                 required={false}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                status={errors.nim ? 'error' : 'none'}
+                message={errors.nim?.message}
               />
             </div>
             <div className="form-label">
@@ -124,8 +125,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'major'}
                 placeholder={'Masukkan Program Studi (optional)'}
                 required={false}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                status={errors.major ? 'error' : 'none'}
+                message={errors.major?.message}
               />
             </div>
           </div>
@@ -139,6 +140,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'phone'}
                 placeholder={'Masukkan nomor handphone'}
                 required={true}
+                status={errors.phone ? 'error' : 'none'}
+                message={errors.phone?.message}
               />
             </div>
             <div className="form-label">
@@ -150,17 +153,20 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'birthdate'}
                 placeholder={'Masukkan tanggal lahir'}
                 required={true}
+                status={errors.birthdate ? 'error' : 'none'}
+                message={errors.birthdate?.message}
               />
             </div>
             <div className="form-label">
               <SelectField
+                placeholder="Pilih pendidikan terakhir"
                 control={control}
                 label="Pendidikan Terakhir"
                 name="last_education"
-                defaultValue="Pilih pendidikan terakhir"
                 required={true}
                 options={optionsLastEducation}
                 variant={'lg'}
+                error={errors.last_education?.message}
               />
             </div>
             <div className="form-label">
@@ -172,6 +178,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'university'}
                 placeholder={'Masukkan universitas asal'}
                 required={false}
+                status={errors.university ? 'error' : 'none'}
+                message={errors.university?.message}
               />
             </div>
             <div className="form-label">
@@ -183,6 +191,8 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name={'semester'}
                 placeholder={'Masukkan pendidikan terakhir'}
                 required={false}
+                status={errors.semester ? 'error' : 'none'}
+                message={errors.semester?.message}
               />
             </div>
             <div className="flex w-full my-8 justify-end">

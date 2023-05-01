@@ -330,10 +330,6 @@ export const rescheduleSimulationBreadCumbs = [
 // private information section
 export const optionsGender = [
   {
-    value: 'pilih',
-    label: 'Pilih jenis kelamin',
-  },
-  {
     value: 'P',
     label: 'Perempuan',
   },
@@ -344,10 +340,6 @@ export const optionsGender = [
 ];
 
 export const optionsLastEducation = [
-  {
-    value: 'pilih',
-    label: 'Pilih pendidikan terakhir',
-  },
   {
     value: 'NA',
     label: 'Tidak lulus SD / belum tamat SD',

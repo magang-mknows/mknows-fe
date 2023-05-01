@@ -10,6 +10,10 @@ import { MdDashboard, MdLogout } from 'react-icons/md';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { TBaseLayoutProps } from './types';
 import Head from 'next/head';
+import { DiscussionRoomIcon } from '../../assets/icons/ic-disccussion-room';
+import { CareerPlanIcon } from '../../assets/icons/ic-career-plan';
+import { ConsultationIcon } from '../../assets/icons/ic-consultation';
+import { WorkOpportunityIcon } from '../../assets/icons/ic-work';
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -85,24 +89,24 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
 
   const _features = [
     {
-      name: 'Feature 1',
-      link: '/feature-1',
-      icon: <MdDashboard size={36} />,
+      name: 'Ruang Diskusi',
+      link: '/ruang-diskusi',
+      icon: <DiscussionRoomIcon />,
     },
     {
-      name: 'Feature 1',
-      link: '/feature-1',
-      icon: <MdDashboard size={36} />,
+      name: 'Perencanaan Karir',
+      link: '/perencanaan-karir',
+      icon: <CareerPlanIcon />,
     },
     {
-      name: 'Feature 1',
-      link: '/feature-1',
-      icon: <MdDashboard size={36} />,
+      name: 'Konsultasi & Layanan',
+      link: '/konsultasi-dan-layanan',
+      icon: <ConsultationIcon />,
     },
     {
-      name: 'Feature 1',
-      link: '/feature-1',
-      icon: <MdDashboard size={36} />,
+      name: 'Penyaluran Kerja',
+      link: '/penyaluran-kerja',
+      icon: <WorkOpportunityIcon />,
     },
   ];
 
