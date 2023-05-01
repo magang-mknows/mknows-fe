@@ -1,3 +1,5 @@
+import { TMetaResponse } from '@mknows-frontend-services/utils';
+
 type TCalendarItems = {
   id: string;
   startAt: string;
@@ -14,4 +16,4 @@ type TCalendar = {
   data: TCalendarItems[];
 };
 
-export type TCalendarResponse = TMetaResponseSingle<TCalendar>;
+export type TCalendarResponse = TMetaResponse<TCalendar>;
