@@ -1,0 +1,111 @@
+import { FC, ReactElement, Fragment, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../../assets/logo.webp';
+import User from '../../assets/user.png';
+import IconDashboard from '../../icons/ic-dashboard';
+import IconUser from '../../icons/ic-user';
+import IconRequest from '../../icons/ic-request';
+import IconReport from '../../icons/ic-report';
+import IconQuota from '../../icons/ic-quota';
+import IconToggle from '../../icons/ic-toggle';
+import IconLogout from '../../icons/ic-logout';
+
+const Sidebar: FC = (): ReactElement => {
+  const DataSidebar = [
+    {
+      title: 'Dashboard',
+      path: '/dashboard/home',
+      icon: <IconDashboard />,
+    },
+    {
+      title: 'User',
+      path: '/dashboard/user',
+      icon: <IconUser />,
+    },
+    {
+      title: 'Permintaan',
+      path: '/dashboard/request',
+      icon: <IconRequest />,
+    },
+    {
+      title: 'Laporan',
+      path: '/dashboard/report/',
+      icon: <IconReport />,
+    },
+    {
+      title: 'Kuota',
+      path: '/dashboard/quota',
+      icon: <IconQuota />,
+    },
+  ];
+  //   const activeLink =
+  //     'flex rounded-md cursor-pointer gap-2 p-2 items-center bg-primary-400 text-[#ffffff]';
+  //   const normalLink =
+  //     'flex rounded-md cursor-pointer gap-2 p-2 items-center bg-white text-[#9E9E9E] hover:bg-neutral-300 hover:text-[#ffffff]';
+  const [open, setOpen] = useState(true);
+  const toggleSidebar = (): void => {
+    setOpen(!open);
+  };
+  return (
+    <Fragment>
+      <button
+        type="button"
+        className="z-50 fixed bottom-10 shadow-md right-10 inline-flex items-center p-2 mt-2 ml-3 bg-[#ffffff] text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        onClick={toggleSidebar}
+      >
+        <IconToggle />
+      </button>
+
+      <aside
+        id="separator-sidebar"
+        className={` ${
+          open ? '  -translate-x-full' : ' sm:translate-x-0 '
+        } absolute lg:relative top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-full transition-transform text-black bg-[#ffffff] `}
+        aria-label="Sidebar"
+      >
+        <div className="h-screen px-3 py-4  text-black bg-white border-b">
+          <div>
+            <Image src={Logo} alt="logo" width={150} height={150} />
+          </div>
+
+          <div className="pt-4 font-medium w-full border-[#F5F5F5] ">
+            <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
+              <a href="">
+                <div className=" rounded-full border-[#4AC1A2] border-2 items-center flex">
+                  <Image src={User} width={30} height={30} alt="user" />
+                </div>
+              </a>
+              <div className="font-semibold text-sm text-neutral-500">
+                Fatwa Nasution
+              </div>
+            </div>
+            {DataSidebar.map((x, i) => {
+              return (
+                <div key={i} className="my-4">
+                  <Link
+                    href={x.path}
+                    className="flex rounded-md cursor-pointer gap-2 p-2 items-center bg-white text-[#9E9E9E] hover:bg-neutral-300 hover:text-[#ffffff]"
+                  >
+                    <span className="p-1">{x.icon}</span>
+                    <span>{x.title}</span>
+                  </Link>
+                </div>
+              );
+            })}
+            <Link href={'/'}>
+              <div className="flex h-full gap-2 p-5 rounded-md text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
+                <span>
+                  <IconLogout />
+                </span>
+                <span className="flex justify-center ">Keluar</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </aside>
+    </Fragment>
+  );
+};
+
+export default Sidebar;

@@ -1,5 +1,5 @@
-import { LoginModule } from '../modules/auth/login';
 import { FC, Fragment, ReactElement } from 'react';
+import { LoginModule } from '../modules/auth/login';
 import Head from 'next/head';
 
 const Login: FC = (): ReactElement => {
@@ -8,7 +8,8 @@ const Login: FC = (): ReactElement => {
       <Head>
         <title>Credit Scoring</title>
       </Head>
-      <LoginModule />;
+
+      <LoginModule />
     </Fragment>
   );
 };
