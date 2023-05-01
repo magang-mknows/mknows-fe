@@ -1,4 +1,4 @@
-import { FC, ReactElement, Suspense } from 'react';
+import { FC, ReactElement, Suspense, useState } from 'react';
 import {
   Button,
   TextField,
@@ -11,6 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useLogin } from './hook';
 import { LoadingLogin } from './loading';
+import { useRouter } from 'next/router';
 
 const { LoginLayout } = lazily(() => import('./layout'));
 
@@ -38,17 +39,24 @@ export const LoginModule: FC = (): ReactElement => {
     },
   });
 
+  const [getError, setError] = useState<string | undefined>('');
+
   const { mutate } = useLogin();
+  const router = useRouter();
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onError: (e) => console.log(e),
-      onSuccess: () => console.log('sucecss'),
+      onError: (e) => setError(e.response?.data?.message),
+      onSuccess: () => router.push('/dashboard'),
     });
   });
+
   return (
     <ErrorBoundary fallback={<h1>Error nih</h1>}>
       <Suspense fallback={<LoadingLogin />}>
         <LoginLayout>
+          <span className="text-error-600 my-6 text-center justify-center p-4 rounded-lg bg-error-100 font-[700] text-base w-full">
+            {getError}
+          </span>
           <form
             onSubmit={onSubmit}
             className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[100%] h-auto rounded-sm "
