@@ -6,12 +6,12 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  if (req.method == 'GET') {
+  if (req.method == 'PUT') {
     res.status(STATUS_CODE).json(
-    {
+        {
             code: 200,
             status: "OK",
-            message: "Assignment in session 6bc3b730-8c7d-41f0-a1dc-03bac621a825 successfully retrieved",
+            message: "Submission progress successfully updated",
             data: {
               assignment: {
                 id: "49068205-c715-4009-9b8f-ddcd4126fbf4",
@@ -45,7 +45,7 @@ export default function handler(
                 deadline: "2023-05-04 15:08:22"
               }
             }
-    }
+          }
     );
   }
 }
