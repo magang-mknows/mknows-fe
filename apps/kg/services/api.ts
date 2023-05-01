@@ -3,7 +3,10 @@ import type { AxiosRequestConfig } from 'axios';
 import { getSession } from 'next-auth/react';
 
 const config: AxiosRequestConfig = {
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL:
+    process.env.NEXT_PUBLIC_ENV === 'local'
+      ? 'http://localhost:4200'
+      : process.env.NEXT_PUBLIC_API_URL,
 };
 
 const api = axios.create(config);
