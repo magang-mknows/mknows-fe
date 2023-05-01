@@ -1,3 +1,4 @@
+import './styles.css';
 import 'tailwindcss/tailwind.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { AppProps } from 'next/app';

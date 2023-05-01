@@ -1,4 +1,4 @@
-import api from '../../../services/api';
+import api from '../../../../services/api';
 import { TCalendarResponse } from './types';
 
 export const calendarScheduleRequest = async (): Promise<TCalendarResponse> => {
