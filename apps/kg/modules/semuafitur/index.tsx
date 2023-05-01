@@ -5,7 +5,7 @@ import React, { FC, Fragment, ReactElement, lazy } from 'react';
 
 const Features = lazy(() => import('./section/Features'));
 
-const AllFeatures: FC = (): ReactElement => {
+export const AllFeatures: FC = (): ReactElement => {
   return (
     <div>
       {/* <SuspenseError loadingFallback={<SemuaFiturSkeleton/>}> */}
@@ -19,4 +19,3 @@ const AllFeatures: FC = (): ReactElement => {
   );
 };
 
-export default AllFeatures;
