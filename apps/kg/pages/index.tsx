@@ -83,7 +83,22 @@ const LandingPage: FC = (): ReactElement => {
     {
       name: 'Feature 1',
       link: '/feature-1',
-      icon: <MdDashboard />,
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
     },
   ];
 
