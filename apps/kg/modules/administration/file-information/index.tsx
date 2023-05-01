@@ -1,7 +1,4 @@
 import { FC, ReactElement } from 'react';
-import Accordion from '@/components/Administration/Accordion';
-import Button from '@/components/Common/Button';
-import ControlledUploadField from '@/components/ControlledInputs/ControlledUploadField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -11,8 +8,13 @@ import {
   usePrivateInformationStatus,
   useJobInformationStatus,
 } from './hooks';
+import {
+  Button,
+  UploadField,
+} from '@mknows-frontend-services/components/atoms';
+import { Accordion } from '@mknows-frontend-services/components/molecules';
 
-const FileInformation: FC = (): ReactElement => {
+export const FileInformation: FC = (): ReactElement => {
   const { setAdministrationStatus } = useAdministrationStatus();
   const { setFileStatus, getFileStatus } = useFileInformationStatus();
 
@@ -165,7 +167,7 @@ const FileInformation: FC = (): ReactElement => {
         }
       >
         <form onSubmit={onSubmit}>
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -174,7 +176,7 @@ const FileInformation: FC = (): ReactElement => {
             label={'Kartu Tanda Penduduk (KTP)'}
           />
 
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -182,7 +184,7 @@ const FileInformation: FC = (): ReactElement => {
             accepted=".pdf"
             label={'Ijazah terakhir'}
           />
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -191,7 +193,7 @@ const FileInformation: FC = (): ReactElement => {
             label={'Kartu Keluarga (KK)'}
           />
 
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -199,7 +201,7 @@ const FileInformation: FC = (): ReactElement => {
             accepted=".jpg, .jpeg, .pdf"
             label={'Pas Foto'}
           />
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -207,7 +209,7 @@ const FileInformation: FC = (): ReactElement => {
             accepted=".pdf"
             label={'Transkrip Nilai Terbaru'}
           />
-          <ControlledUploadField
+          <UploadField
             hasLabel
             control={control}
             required
@@ -220,14 +222,13 @@ const FileInformation: FC = (): ReactElement => {
             <Button
               disabled={!isValid}
               className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
-              text={'Simpan Informasi Berkas'}
               type={'submit'}
-            />
+            >
+              Simpan Informasi Berkas
+            </Button>
           </div>
         </form>
       </Accordion>
     </>
   );
 };
-
-export default FileInformation;

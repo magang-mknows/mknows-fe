@@ -1,13 +1,13 @@
 import { ReactElement } from 'react';
-import FileInformation from '../FileInformation';
-import JobsInformation from '../JobsInformation';
-import PrivateInformationAccordion from '../PrivateInformationAccordion';
 import { Stepper } from '../common';
 import { Card } from '../components';
+import { FileInformation } from '../file-information';
+import { JobsInformation } from '../jobs-information';
+import { PrivateInformation } from '../private-information';
 
-const index = (): ReactElement => {
+export const ContentAdministration = (): ReactElement => {
   return (
-    <section className="mt-[40px] lg:px-[70px] md:px-[60px] px-[20px]">
+    <section className="mt-[40px] lg:px-[70px] md:px-[60px] px-[20px] flex flex-col">
       <div className="flex justify-center">
         <Card
           hasImage={false}
@@ -15,7 +15,7 @@ const index = (): ReactElement => {
         >
           <div className="w-full relative">
             <Stepper />
-            <PrivateInformationAccordion />
+            <PrivateInformation />
             <JobsInformation />
             <FileInformation />
           </div>
@@ -24,5 +24,3 @@ const index = (): ReactElement => {
     </section>
   );
 };
-
-export default index;
