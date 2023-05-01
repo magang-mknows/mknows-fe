@@ -33,6 +33,7 @@ const AuthButton: FC = (): ReactElement => (
 const LandingPage: FC = (): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
+
   const _pop_up_menu = [
     {
       name: 'Dashboard',
