@@ -36,9 +36,13 @@ export const PrivateInformation: FC = (): ReactElement => {
     control,
     handleSubmit,
     formState: { isValid },
+    watch,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
+    defaultValues: {
+      gender: '',
+    },
   });
 
   const onSubmit = handleSubmit((PayloadData) => {
@@ -49,6 +53,8 @@ export const PrivateInformation: FC = (): ReactElement => {
       setPrivateStatus(false);
     }
   });
+
+  console.log(watch());
 
   return (
     <Accordion
@@ -62,19 +68,17 @@ export const PrivateInformation: FC = (): ReactElement => {
             <div className="form-label">
               <SelectField
                 control={control}
-                hasLabel
                 label="Jenis Kelamin"
                 name="gender"
                 defaultValue="Pilih jenis kelamin"
                 required={true}
                 options={optionsGender}
-                className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
-                labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
+                variant={'lg'}
               />
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type="text"
                 label={'Tempat Lahir'}
@@ -87,7 +91,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type="text"
                 label={'Alamat Lengkap'}
@@ -100,7 +104,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type={'text'}
                 label={'NIM atau NPM (optional)'}
@@ -113,7 +117,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type={'text'}
                 label={'Program Studi (optional)'}
@@ -126,24 +130,11 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
-            {/* <div className="form-label">
-              <TextField
-                hasLabel
-                control={control}
-                type={"email"}
-                label={"Alamat Email"}
-                name="HURUNG ANAAA"
-                placeholder={"Masukkan alamat email"}
-                required={true}
-                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-              />
-            </div> */}
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
-                type={'text'}
+                type={'number'}
                 label={'Nomor Handphone'}
                 name={'phone'}
                 placeholder={'Masukkan nomor handphone'}
@@ -152,7 +143,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type={'text'}
                 label={'Tanggal Lahir'}
@@ -164,19 +155,19 @@ export const PrivateInformation: FC = (): ReactElement => {
             <div className="form-label">
               <SelectField
                 control={control}
-                hasLabel
                 label="Pendidikan Terakhir"
                 name="last_education"
                 defaultValue="Pilih pendidikan terakhir"
                 required={true}
                 options={optionsLastEducation}
+                variant={'lg'}
               />
             </div>
             <div className="form-label">
               <TextField
                 control={control}
                 type="text"
-                variant="md"
+                variant="lg"
                 label={'Universitas Asal (optional)'}
                 name={'university'}
                 placeholder={'Masukkan universitas asal'}
@@ -185,7 +176,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
             <div className="form-label">
               <TextField
-                variant="md"
+                variant="lg"
                 control={control}
                 type="text"
                 label={'Semester (optional)'}
@@ -197,7 +188,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             <div className="flex w-full my-8 justify-end">
               <Button
                 disabled={!isValid}
-                className="my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+                className="my-4 w-[211px] rounded-[8px] disabled:bg-neutral-base disabled:text-neutral-200 bg-primary-base text-white font-bold p-3 text-1xl"
                 type={'submit'}
               >
                 Simpan Informasi Pribadi

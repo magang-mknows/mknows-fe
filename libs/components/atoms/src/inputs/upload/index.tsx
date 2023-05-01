@@ -1,11 +1,12 @@
 import { ReactElement } from 'react';
 import { AiFillWarning } from 'react-icons/ai';
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, useController } from 'react-hook-form';
 import { TUploadFieldProps } from './types';
 
 export const UploadField = <T extends FieldValues>(
   props: TUploadFieldProps<T>
 ): ReactElement => {
+  const { field } = useController(props);
   return (
     <section className="flex flex-col mb-6">
       {props.hasLabel && (
@@ -59,6 +60,8 @@ export const UploadField = <T extends FieldValues>(
 
       <input
         {...props}
+        {...field}
+        onChange={(event) => field.onChange(event.target.files)}
         id={props.name}
         type="file"
         className={`${

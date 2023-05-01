@@ -2,7 +2,7 @@ import { ChangeEventHandler, ReactNode } from 'react';
 import { FieldValues, UseControllerProps } from 'react-hook-form';
 
 export type TTextFieldProps<T extends FieldValues> = UseControllerProps<T> & {
-  type?: 'text' | 'password' | 'email';
+  type?: 'text' | 'password' | 'email' | 'number';
   label?: string;
   name: string;
   placeholder?: string;

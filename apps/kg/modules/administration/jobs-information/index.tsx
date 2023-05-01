@@ -71,7 +71,7 @@ export const JobsInformation: FC = (): ReactElement => {
       idAccordion={getJobStatus ? '' : 'privat-information'}
       disabled={getPrivateStatus ? (getJobStatus ? true : false) : true}
     >
-      <form onSubmit={onSubmit}>
+      <form className="flex w-full flex-col" onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px] ">
           <div className="w-full">
             <TextField
@@ -79,7 +79,7 @@ export const JobsInformation: FC = (): ReactElement => {
               control={control}
               label={'Nama Ayah'}
               type={'text'}
-              variant="md"
+              variant="lg"
               required
               placeholder={'Masukan nama ayah'}
               className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
@@ -89,7 +89,7 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'mother_name'}
               control={control}
               label={'Nama Ibu'}
-              variant="md"
+              variant="lg"
               type={'text'}
               required
               placeholder={'Masukan nama ibu'}
@@ -98,58 +98,44 @@ export const JobsInformation: FC = (): ReactElement => {
           </div>
           <div className="w-full mt-2">
             <SelectField
+              variant="lg"
               control={control}
               options={optionFatherJob}
               name={'father_occupation'}
               label={'Pekerjaan Ayah'}
-              hasLabel
-              labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               required
               defaultValue="Pilih pekerjaan ayah"
-              className=" rounded-lg md:mb-5 mb-2 py-2 md:py-3 px-2  outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
 
             <SelectField
+              variant="lg"
               control={control}
               options={optionMotherJob}
               name={'mother_occupation'}
               label={'Pekerjaan Ibu'}
-              hasLabel
-              labelClassName={
-                'block mb-1 dark:text-white text-sm font-medium text-gray-900'
-              }
               required
               defaultValue="Pilih pekerjaan ibu"
-              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
           <div className="w-full mt-2">
             <SelectField
+              variant="lg"
               control={control}
               options={optionFatherIncome}
               name={'father_salary'}
               label={'Penghasilan Ayah'}
-              hasLabel
-              labelClassName={
-                'block mb-1 dark:text-white text-sm font-medium text-gray-900'
-              }
               required
               defaultValue="Pilih penghasilan ayah"
-              className=" rounded-lg md:mb-5 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
 
             <SelectField
+              variant="lg"
               control={control}
               options={optionMotherIncome}
               name={'mother_salary'}
               label={'Penghasilan Ibu'}
-              hasLabel
-              labelClassName={
-                'block mb-1 dark:text-white text-sm font-medium text-gray-900'
-              }
               required
               defaultValue="Pilih penghasilan ibu"
-              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
         </div>
@@ -157,48 +143,38 @@ export const JobsInformation: FC = (): ReactElement => {
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <SelectField
+              variant="lg"
               control={control}
               options={optionOwnIncome}
               name={'self_salary'}
               label={'Pekerjaan Sendiri'}
-              hasLabel
-              labelClassName="block mb-1 dark:text-white text-sm font-medium text-gray-900 "
               required
               defaultValue="Pilih pekerjaan sendiri"
-              className=" rounded-lg md:mb-5 py-2 md:py-3 px-2  outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
             <SelectField
+              variant="lg"
               control={control}
               options={optionLiveWith}
               name={'live_with'}
               label={'Tinggal Dengan'}
-              hasLabel
-              labelClassName={
-                'block mb-1 dark:text-white text-sm font-medium text-gray-900'
-              }
               required
               defaultValue="Pilih tinggal dengan"
-              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
           </div>
           <div className="w-full">
             <SelectField
+              variant="lg"
               control={control}
               options={optionCollegeFeesPaid}
               name={'tuition_payer'}
               label={'Biaya Kuliah Ditanggung Oleh'}
-              hasLabel
-              labelClassName={
-                'block mb-1 dark:text-white text-sm font-medium text-gray-900'
-              }
               required
               defaultValue="Masukan biaya kuliah ditanggung oleh"
-              className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
             />
             <div className="flex w-full my-8 justify-end">
               <Button
                 disabled={!isValid}
-                className="my-4 w-[252px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 bg-blue-600 text-white font-bold p-3 text-1xl"
+                className="my-4 w-[211px] rounded-[8px] disabled:bg-neutral-base disabled:text-neutral-200 bg-primary-base text-white font-bold p-3 text-1xl"
                 type={'submit'}
               >
                 Simpan Informasi Pekerjaan

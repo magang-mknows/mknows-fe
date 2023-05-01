@@ -1,4 +1,4 @@
-import { AllFeatures } from 'apps/kg/modules/semuafitur'; 
+import { AllFeatures } from '../../modules/semuafitur';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

@@ -129,6 +129,7 @@ export const FileInformation: FC = (): ReactElement => {
     control,
     handleSubmit,
     formState: { isValid },
+    watch,
   } = useForm<ValidationSchema>({
     mode: 'all',
     resolver: zodResolver(validationSchema),
@@ -150,6 +151,8 @@ export const FileInformation: FC = (): ReactElement => {
       setFileStatus(false);
     }
   });
+
+  console.log(watch());
 
   return (
     <>

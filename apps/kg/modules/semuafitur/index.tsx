@@ -1,4 +1,7 @@
-import React, { FC, Fragment, ReactElement, lazy } from 'react';
+import React, { FC, ReactElement, lazy } from 'react';
+import { BaseLayout } from '../common';
+import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
+import { allFeatures } from '../administration/constant';
 // import BaseLayouts from "@/layouts/Base";
 // import SuspenseError from "../Common/SuspenseError";
 // import SemuaFiturSkeleton from "@/components/Loading/SemuaFitur/SemuaFiturSkeleton";
@@ -9,13 +12,11 @@ export const AllFeatures: FC = (): ReactElement => {
   return (
     <div>
       {/* <SuspenseError loadingFallback={<SemuaFiturSkeleton/>}> */}
-      {/* <BaseLayouts> */}
-      <Fragment>
+      <BaseLayout title="Semua Fitur">
+        <BreadCrumb items={allFeatures} />
         <Features />
-      </Fragment>
-      {/* </BaseLayouts> */}
+      </BaseLayout>
       {/* </SuspenseError> */}
     </div>
   );
 };
-

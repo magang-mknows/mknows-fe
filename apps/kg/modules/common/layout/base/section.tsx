@@ -139,7 +139,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
       />
-      <section className="flex flex-col">{children}</section>
+      <section className="flex flex-col h-full">{children}</section>
     </Fragment>
   );
 };
