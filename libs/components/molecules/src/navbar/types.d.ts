@@ -14,6 +14,15 @@ export type TPopUpProps = {
   }>;
 };
 
+export type TPopUpAllFeaturesProps = {
+  listStyle?: string;
+  features: Array<{
+    name: string;
+    link: string;
+    icon: ReactNode;
+  }>;
+};
+
 export type TNavbarProps = {
   navItems?: Array<TNavbarItem>;
   navItemStyle?: string;
@@ -23,4 +32,5 @@ export type TNavbarProps = {
   button?: ReactNode;
   avatar?: string;
 } & TPopUpProps &
-  TBottomNavProps;
+  TBottomNavProps &
+  TPopUpAllFeaturesProps;
