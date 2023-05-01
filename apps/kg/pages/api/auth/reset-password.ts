@@ -8,8 +8,7 @@ export default function handler(
 ) {
   if (req.method == 'POST') {
     res.status(STATUS_CODE).json({
-      access_token: 'access-token',
-      refresh_token: 'refresh-token',
+      message: 'berhasil reset',
     });
   }
 }

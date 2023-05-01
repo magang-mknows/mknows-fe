@@ -1,5 +1,10 @@
 import api from '../../../services/api';
-import { TLoginResponse, TLoginPayload, TLoginByGooglePayload } from './types';
+import {
+  TLoginResponse,
+  TLoginPayload,
+  TLoginByGooglePayload,
+  TLoginByGoogleResponse,
+} from './types';
 
 export const loginRequest = async (
   payload?: TLoginPayload
@@ -10,8 +15,8 @@ export const loginRequest = async (
 
 export const loginByGoogleRequest = async (
   payload: TLoginByGooglePayload
-): Promise<TLoginResponse> => {
-  const { data } = await api.post<TLoginResponse>(
+): Promise<TLoginByGoogleResponse> => {
+  const { data } = await api.post<TLoginByGoogleResponse>(
     '/auth/login/google/callback',
     payload
   );
