@@ -5,3 +5,8 @@ export type TProgress = {
   totalPertemuan: number;
   pertemuanDone: number;
 };
+
+export type TProgressReturnTypes = {
+  setProgress: (val: Array<Progress>) => void;
+  getProgress: Array<Progress>;
+};
