@@ -1,4 +1,4 @@
-// import './styles.css';
+import './styles.css';
 import 'tailwindcss/tailwind.css';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';

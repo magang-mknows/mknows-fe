@@ -10,7 +10,7 @@ const montserrat = Montserrat({
   weight: '500',
 });
 
-const MyCalendarSection: FC = (): ReactElement => {
+export const CalendarSection: FC = (): ReactElement => {
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth() + 1;
@@ -26,12 +26,10 @@ const MyCalendarSection: FC = (): ReactElement => {
 
   return (
     <section
-      className={`${montserrat.className} w-full text-neutral-900 dark:bg-[#1B1E21]  bg-white h-fit px-7 py-12 rounded-md`}
+      className={`${montserrat.className} w-full text-neutral-900 bg-white h-fit px-7 py-12 rounded-md`}
     >
-      <header className="flex justify-between  items-center">
-        <h1 className="text-lg font-bold text-neutral-900 dark:text-white">
-          Kalender Saya
-        </h1>
+      <header className="flex justify-between items-center">
+        <h1 className="text-lg font-bold text-neutral-900 ">Kalender Saya</h1>
         <Link
           passHref
           href={'/'}
@@ -54,7 +52,7 @@ const MyCalendarSection: FC = (): ReactElement => {
                   date.getDate() == selectDate.getDate()
                     ? 'bg-primary-500 text-white'
                     : ''
-                } text-sm text-center cursor-pointer border-2 border-yellow-50/0  hover:border-yellow-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md w-fit`}
+                } text-sm text-center cursor-pointer border-2 border-white hover:border-yellow-500 group px-3 py-3 transition-colors ease-in-out duration-300 rounded-md w-fit`}
               >
                 <p
                   className={`${
@@ -69,7 +67,7 @@ const MyCalendarSection: FC = (): ReactElement => {
                   className={`${
                     date.getDate() === selectDate.getDate()
                       ? 'text-white'
-                      : 'text-neutral-500 dark:text-white'
+                      : 'text-neutral-500'
                   }  text-neutral-800 font-bold`}
                 >
                   {index + 1}
@@ -84,16 +82,16 @@ const MyCalendarSection: FC = (): ReactElement => {
           <p className="mb-1 text-neutral-800 dark:text-white text-xs md:text-sm">
             14:30 - 15:30 pm
           </p>
-          <p className="font-bold  dark:text-white text-neutral-800 text-xs md:text-sm">
+          <p className="font-bold text-neutral-800 text-xs md:text-sm">
             Introduction to Japanese Culture
           </p>
           <p className="text-neutral-500 text-xs md:text-sm">Pertemuan 1</p>
         </div>
-        <div className="border-l-4  cursor-pointer hover:border-yellow-700 transition-all ease-in-out duration-300 group py-3 hover:shadow-lg border-yellow-500 px-3 rounded-md mb-4">
-          <p className="mb-1 text-neutral-800 dark:text-white text-xs md:text-sm">
+        <div className="border-l-4 cursor-pointer hover:border-yellow-700 transition-all ease-in-out duration-300 group py-3 hover:shadow-lg border-yellow-500 px-3 rounded-md mb-4">
+          <p className="mb-1 text-neutral-800 text-xs md:text-sm">
             14:30 - 15:30 pm
           </p>
-          <p className="font-bold dark:text-white text-neutral-800 text-xs md:text-sm ">
+          <p className="font-bold text-neutral-800 text-xs md:text-sm ">
             Introduction to Japanese Culture
           </p>
           <p className="text-neutral-500 text-xs md:text-sm">Pertemuan 1</p>
@@ -102,5 +100,3 @@ const MyCalendarSection: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default MyCalendarSection;

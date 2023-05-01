@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 
-import penugasan from '@/assets/dashboard/penugasan.svg';
-import acara from '@/assets/dashboard/acara.svg';
+import penugasan from '../../../assets/penugasan.svg';
+import acara from '../../../assets/acara.svg';
 import Image from 'next/image';
 
 import { MdNavigateNext } from 'react-icons/md';
@@ -11,7 +11,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { useSelectedEvent } from './hooks';
 
-const EventCarouselSection: FC = (): ReactElement => {
+export const EventSection: FC = (): ReactElement => {
   const { setSelectedEvent, getSelectedEvent } = useSelectedEvent();
 
   const dummyEvent = [
@@ -47,7 +47,7 @@ const EventCarouselSection: FC = (): ReactElement => {
     },
   ];
   return (
-    <div className="bg-white dark:bg-[#1B1E21] p-7 rounded-md shadow-sm w-full flex overflow-hidden">
+    <div className="bg-white p-7 rounded-md shadow-sm w-full flex overflow-hidden">
       {/* <section className="relative">
         <section className="flex gap-1 absolute top-3 right-0">
           {dummyEvent.map((item, index) => {
@@ -94,7 +94,7 @@ const EventCarouselSection: FC = (): ReactElement => {
           return (
             <div key={index} className="">
               <section className="text-neutral-900 mb-4 flex flex-col w-full">
-                <h1 className="text-lg font-bold text-neutral-900 dark:text-white w-fit">
+                <h1 className="text-lg font-bold text-neutral-900 w-fit">
                   Acara Kampus
                 </h1>
                 <p className="text-sm text-neutral-500 w-fit">
@@ -106,7 +106,7 @@ const EventCarouselSection: FC = (): ReactElement => {
                   <Image src={item.image} alt="test" />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h1 className="mb-2 text-neutral-900 dark:text-white text-start">
+                  <h1 className="mb-2 text-neutral-900 text-start">
                     {item.topic}
                   </h1>
                   <section className="flex gap-2 xl:gap-4  flex-wrap xl:flex-nowrap">
@@ -161,5 +161,3 @@ const EventCarouselSection: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default EventCarouselSection;

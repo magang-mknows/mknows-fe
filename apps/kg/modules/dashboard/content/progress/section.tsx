@@ -1,11 +1,11 @@
 import { FC, ReactElement, useState } from 'react';
 import Image from 'next/image';
-import dummyImg from '@/assets/dashboard/dummyCourse.png';
-import moreIcon from '@/assets/dashboard/LihatSemua.svg';
+import dummyImg from '../../assets/dummyCourse.png';
+import moreIcon from '../../assets/LihatSemua.svg';
 import { useRecoilValue } from 'recoil';
 import { ProgressState, progressSectionDummyData as dataDummy } from './store';
 
-const ProgressSection: FC = (): ReactElement => {
+export const ProgressSection: FC = (): ReactElement => {
   const getProgress = useRecoilValue(ProgressState);
   const [more, setMore] = useState(false);
   let lengthData = 0;
@@ -19,13 +19,11 @@ const ProgressSection: FC = (): ReactElement => {
     console.log(more);
   };
   return (
-    <section className="bg-white dark:bg-[#1B1E21] w-full pt-[28px] px-[24px] rounded-md pb-[44px] mb-[48px]">
-      <p className="font-semibold text-xl text-[#171717] dark:text-white mb-[8px] ">
+    <section className="bg-white w-full pt-[28px] px-[24px] rounded-md pb-[44px] mb-[48px]">
+      <p className="font-semibold text-xl text-[#171717] mb-[8px] ">
         Lanjutkan Mata Kuliah Kamu
       </p>
-      <p className="text-sm font-normal text-[#171717] dark:text-white/80">
-        Semester 1
-      </p>
+      <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
         {getProgress.slice(0, lengthData).map((dummy, i) => {
           const percent = Math.floor(
@@ -35,7 +33,7 @@ const ProgressSection: FC = (): ReactElement => {
           return (
             <div
               key={i}
-              className="progressBox bg-white dark:bg-[#222529] w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] dark:border-[#222529] border-[1px] border-solid"
+              className="progressBox bg-white w-full relative grid grid-cols-12 gap-x-4 gap-y-[20px] rounded-lg px-5 py-5 border-[#F5F5F5] border-[1px] border-solid"
             >
               <Image
                 className=" lg:col-span-2 rounded-lg w-[100px] h-[100px] object-cover md:col-span-12 col-span-12"
@@ -51,7 +49,7 @@ const ProgressSection: FC = (): ReactElement => {
                   <div className="bg-[#D9D9D9] w-[200px] md:w-[300px] rounded-lg h-[10px] lg:inline-block md:inline-block lg:relative lg:bottom-2 md:relative md:bottom-2 mt-0 mr-[12px] mb-0">
                     <div
                       style={{ width: classDiv }}
-                      className="bg-[#106FA4] dark:bg-[#17A2B8]  rounded-lg h-[10px] text-[0px]"
+                      className="bg-[#106FA4] rounded-lg h-[10px] text-[0px]"
                     >
                       .
                     </div>
@@ -62,13 +60,13 @@ const ProgressSection: FC = (): ReactElement => {
                   </p>
                 </div>
                 {percent != '100' ? (
-                  <button className="bg-primary-500 dark:bg-[#17A2B8] h-fit  text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors lg:w-[200px] ease-in-out duration-300 rounded-md w-full">
+                  <button className="bg-primary-500 h-fit text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors lg:w-[200px] ease-in-out duration-300 rounded-md w-full">
                     Lanjut Belajar
                   </button>
                 ) : (
                   <button
                     disabled
-                    className="bg-neutral-300 dark:text-neutral-200 dark:bg-neutral-700 h-fit lg:w-[200px] text-neutral-200 text-sm px-6 py-3 rounded-md w-full"
+                    className="bg-neutral-300 h-fit lg:w-[200px] text-neutral-200 text-sm px-6 py-3 rounded-md w-full"
                   >
                     Complete
                   </button>
@@ -91,5 +89,3 @@ const ProgressSection: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default ProgressSection;
