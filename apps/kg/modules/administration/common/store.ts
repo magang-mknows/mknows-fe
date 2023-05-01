@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 export const PrivateInformationState = atom({
-  key: 'private-information-state',
+  key: 'private-information-state-babi',
   default: false,
 });
 export const JobInformationState = atom({

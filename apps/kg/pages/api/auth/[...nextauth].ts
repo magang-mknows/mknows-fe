@@ -48,16 +48,15 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user, account }) {
+      console.log(account);
       if (account?.provider === 'google' && account) {
         try {
           const response = await loginByGoogleRequest({
             credential: account.id_token,
           });
           console.log(response);
-          account.access_token = response.access_token;
-          account.refresh_token = response.refresh_token;
-          user.name = response.name;
-          user.email = response.email;
+          account.access_token = response.data?.token?.access_token;
+          account.refresh_token = response.data?.token?.refresh_token;
         } catch (error: any) {
           return `/auth/login?error=${error.response.data?.message}`;
         }
