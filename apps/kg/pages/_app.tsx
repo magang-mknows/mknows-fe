@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import './styles.css';
-=======
->>>>>>> 7d7311668729a88712bbd0946209431ab910e4a6
 import 'tailwindcss/tailwind.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { AppProps } from 'next/app';
