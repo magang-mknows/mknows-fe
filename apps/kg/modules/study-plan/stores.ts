@@ -113,3 +113,8 @@ export const dataTableState = atom<Array<DataTable>>({
     },
   ],
 });
+
+export const PopupModalConfirmCard = atom({
+  key: 'modal-popup-confirm',
+  default: false,
+});

@@ -1,12 +1,12 @@
 import { FC, ReactElement, useState } from 'react';
 import Image from 'next/image';
-
 import { useRouter } from 'next/router';
+
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { filterOptionSubject, queryOptionSubject } from './stores';
 import Card from './components/Card';
 
-import DefaultView from './assets/DataKosong.png';
+import DefaultView from './assets/data-kosong.png';
 import Search from './assets/search.svg';
 
 const StudyProgram: FC = (): ReactElement => {
