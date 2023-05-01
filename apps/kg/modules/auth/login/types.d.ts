@@ -7,7 +7,7 @@ export type TLoginPayload = {
 };
 
 export type TLoginByGooglePayload = {
-  credential?: string;
+  credential: string;
 };
 
 export type TLoginData = {

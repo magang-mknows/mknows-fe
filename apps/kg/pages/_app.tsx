@@ -2,7 +2,7 @@ import './styles.css';
 import 'tailwindcss/tailwind.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { AppProps } from 'next/app';
-import { RecoilRoot } from 'recoil';
+import { RecoilEnv, RecoilRoot } from 'recoil';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { Source_Sans_Pro } from 'next/font/google';
@@ -20,6 +20,7 @@ function CustomApp({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
+  RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
   const [mount, setMount] = useState(false);
   useEffect(() => {
     setMount(true);

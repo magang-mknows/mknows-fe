@@ -51,12 +51,11 @@ export const authOptions: NextAuthOptions = {
       console.log(account);
       if (account?.provider === 'google' && account) {
         try {
-          const response = await loginByGoogleRequest({
-            credential: account.id_token,
+          const { data } = await loginByGoogleRequest({
+            credential: account.id_token as string,
           });
-          console.log(response);
-          account.access_token = response.data?.token?.access_token;
-          account.refresh_token = response.data?.token?.refresh_token;
+          account.access_token = data?.token?.access_token;
+          account.refresh_token = data?.token?.refresh_token;
         } catch (error: any) {
           return `/auth/login?error=${error.response.data?.message}`;
         }
