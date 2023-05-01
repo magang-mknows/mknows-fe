@@ -1,4 +1,5 @@
 import { FC, ReactElement, useState } from 'react';
+
 import { Assigment } from '../../component/assignment-card';
 import AssigmentAssigned from '../../assets/assigned-assigment.svg';
 import AssigmentDone from '../../assets/assigned-done.svg';
@@ -23,9 +24,9 @@ export const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == 'semua-tugas'
-                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2'
+                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D]  `}
                   aria-current="page"
                   onClick={() => setactive('semua-tugas')}
                 >
@@ -38,9 +39,9 @@ export const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == 'ditugaskan'
-                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2'
+                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-white `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-[#0B568D] `}
                   aria-current="page"
                   onClick={() => setactive('ditugaskan')}
                 >
@@ -53,9 +54,9 @@ export const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == 'terlambat'
-                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2'
+                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D]  `}
                   aria-current="page"
                   onClick={() => setactive('terlambat')}
                 >
@@ -68,9 +69,9 @@ export const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == 'sedang-dinilai'
-                      ? 'text-[#0B568D] border-[#ffff] dark:text-[#ffff] dark:border-[#ffff] border-b-2'
+                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white `}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D] `}
                   aria-current="page"
                   onClick={() => setactive('sedang-dinilai')}
                 >
@@ -83,9 +84,9 @@ export const ContentSection: FC = (): ReactElement => {
                 <a
                   className={`inline-block p-4 ${
                     active == 'selesai'
-                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2'
+                      ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
-                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white`}
+                  }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D]`}
                   aria-current="page"
                   onClick={() => setactive('selesai')}
                 >
