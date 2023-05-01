@@ -51,7 +51,7 @@ export const authOptions: NextAuthOptions = {
       if (account?.provider === 'google' && account) {
         try {
           const response = await loginByGoogleRequest({
-            credential: account.access_token,
+            credential: account.id_token,
           });
           console.log(response);
           account.access_token = response.access_token;

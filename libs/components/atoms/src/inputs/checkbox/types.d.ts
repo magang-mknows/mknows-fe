@@ -1,4 +1,5 @@
 import { FieldValues, UseControllerProps } from 'react-hook-form';
+
 export type TCheckbox<T extends FieldValues> = UseControllerProps<T> & {
   label?: string;
   name: string;
