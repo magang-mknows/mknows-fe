@@ -10,6 +10,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useLogin } from './hook';
+import { LoadingLogin } from './loading';
 
 const { LoginLayout } = lazily(() => import('./layout'));
 
@@ -46,7 +47,7 @@ export const LoginModule: FC = (): ReactElement => {
   });
   return (
     <ErrorBoundary fallback={<h1>Error nih</h1>}>
-      <Suspense fallback={'Loading..'}>
+      <Suspense fallback={<LoadingLogin />}>
         <LoginLayout>
           <form
             onSubmit={onSubmit}
