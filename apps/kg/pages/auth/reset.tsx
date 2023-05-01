@@ -1,13 +1,13 @@
-import { ForgotModule } from '../../modules/auth/forgot';
+import { ResetModule } from '../../modules/';
 import { NextPage } from 'next';
 import { GetSessionParams, getSession } from 'next-auth/react';
 import { ReactElement } from 'react';
 
-const ForgotPages: NextPage = (): ReactElement => {
-  return <ForgotModule />;
+const ResetPages: NextPage = (): ReactElement => {
+  return <ResetModule />;
 };
 
-export default ForgotPages;
+export default ResetPages;
 
 export async function getServerSideProps(
   context: GetSessionParams | undefined

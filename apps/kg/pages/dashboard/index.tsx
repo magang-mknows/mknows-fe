@@ -112,7 +112,7 @@ const DashboardPage: FC = (): ReactElement => {
   return (
     <Fragment>
       <Head>
-        <title>Kampus Gratis - Home Page</title>
+        <title>Kampus Gratis - Dahsboard Page</title>
       </Head>
       <Navbar
         items={_pop_up_menu}

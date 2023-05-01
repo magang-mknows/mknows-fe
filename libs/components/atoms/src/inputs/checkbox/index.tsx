@@ -19,8 +19,8 @@ export const Checkbox = <T extends FieldValues>({
        `}
     >
       <input
-        {...field}
         {...props}
+        {...field}
         type="checkbox"
         id={props.name}
         className="mr-2 accent-primary-base"
