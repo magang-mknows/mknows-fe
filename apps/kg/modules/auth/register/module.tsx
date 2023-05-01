@@ -2,6 +2,7 @@
 import {
   Button,
   DashedText,
+  LoadingSpinner,
   TextField,
 } from '@mknows-frontend-services/components/atoms';
 import { useForm } from 'react-hook-form';
@@ -76,7 +77,7 @@ export const RegisterModule: FC = (): ReactElement => {
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
-      <Suspense fallback={'Loading..'}>
+      <Suspense fallback={<LoadingSpinner />}>
         <AuthLayout
           h="full"
           error={getError}
