@@ -7,17 +7,13 @@ import { IconFeature, IconRing } from '../icons';
 import Image from 'next/image';
 import { Button } from '@mknows-frontend-services/components/atoms';
 
-const PopUpMenu: FC<TPopUpProps> = ({
-  items,
-  listStyle,
-  userData,
-}): ReactElement => {
+const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
     <motion.section
       initial={{ opacity: '20%', top: 30 }}
       animate={{ opacity: '100%', top: 50 }}
       exit={{ opacity: '100%', top: 100 }}
-      className="flex flex-col font-bold gap-y-3 p-4 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-10 shadow-lg p-4"
+      className="flex flex-col font-bold gap-y-3 p-4 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
     >
       <div className="flex gap-x-4 items-center">
         <Image
@@ -35,16 +31,18 @@ const PopUpMenu: FC<TPopUpProps> = ({
         </div>
       </div>
       <hr className="w-full text-neutral-base" />
-      {items.map((item, key) => (
-        <div
-          key={key}
-          onClick={item.onClick}
-          className={'flex items-center gap-x-3'}
-        >
-          {item.icon}
-          <span>{item.name}</span>
-        </div>
-      ))}
+      <div className="flex flex-col gap-y-[26px]">
+        {items.map((item, key) => (
+          <div
+            key={key}
+            onClick={item.onClick}
+            className={'flex items-center gap-x-3'}
+          >
+            {item.icon}
+            <span>{item.name}</span>
+          </div>
+        ))}
+      </div>
     </motion.section>
   );
 };
@@ -57,18 +55,32 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
       initial={{ opacity: '20%', top: 30 }}
       animate={{ opacity: '100%', top: 50 }}
       exit={{ opacity: '100%', top: 100 }}
-      className="flex flex-col font-bold gap-y-3 w-auto bg-white absolute top-10 rounded-lg right-[76px] shadow-lg p-4"
+      className="flex flex-col bg-white font-bold gap-y-3 w-auto absolute items-center w-[274px] top-0 rounded-lg right-[180px] shadow-lg"
     >
-      {features.map((item, key) => (
-        <Button
-          type="button"
-          href={item.link}
-          key={key}
-          className={'flex flex-col gap-y-2'}
-        >
-          <span>{item.name}</span> {item.icon}
-        </Button>
-      ))}
+      <div className="flex w-full h-[91px] rounded-tl-lg rounded-tr-lg flex-col p-[16px] justify-center items-center bg-yellow-200">
+        <h1 className="text-[20px]">Fitur</h1>
+        <div className="flex bg-yellow-500 text-white p-2 rounded-lg">
+          Total 16 Fitur
+        </div>
+      </div>
+      <div className="grid grid-rows-2 gap-4 p-4 grid-cols-2 items-center justify-center place-items-center">
+        {features.map((item, key) => (
+          <Button
+            type="button"
+            href={item.link}
+            key={key}
+            className={
+              'flex flex-col justify-center items-center gap-y-2 w-[137px] h-[116px]'
+            }
+          >
+            <div>{item.icon}</div>
+            <span>{item.name}</span>
+          </Button>
+        ))}
+      </div>
+      <div className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full">
+        <span className="text-neutral-base">Lihat Semua</span>
+      </div>
     </motion.section>
   );
 };
@@ -85,7 +97,7 @@ export const TopNav: FC<TNavbarProps> = ({
   const [getPopUpAllFeature, setPopUpAllFeature] = useState(false);
 
   return (
-    <header className="flex w-full justify-between px-[72px] py-[17px] bg-white">
+    <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
       <figure className="flex items-center">
         <NextImage
           src={logo}
@@ -99,7 +111,10 @@ export const TopNav: FC<TNavbarProps> = ({
       </figure>
       <nav className="flex items-center gap-x-6">
         <div
-          onClick={() => setPopUpAllFeature(!getPopUpAllFeature)}
+          onClick={() => {
+            setPopUp(false);
+            setPopUpAllFeature(!getPopUpAllFeature);
+          }}
           className="flex bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg"
         >
           <IconFeature />
@@ -116,14 +131,17 @@ export const TopNav: FC<TNavbarProps> = ({
               alt={'user avatar'}
               width={36}
               height={36}
-              onClick={() => setPopUp(!getPopUp)}
+              onClick={() => {
+                setPopUpAllFeature(false);
+                setPopUp(!getPopUp);
+              }}
               className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
             />
-            {getPopUp && <PopUpMenu {...props} avatar={props.avatar} />}
-            {getPopUpAllFeature && <PopUpAllFeature {...props} />}
+            {getPopUp && <PopUpMenu {...props} />}
           </div>
         )}
       </nav>
+      {getPopUpAllFeature && <PopUpAllFeature {...props} />}
     </header>
   );
 };

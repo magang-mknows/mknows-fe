@@ -33,6 +33,7 @@ const AuthButton: FC = (): ReactElement => (
 const LandingPage: FC = (): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
+
   const _pop_up_menu = [
     {
       name: 'Dashboard',
@@ -83,7 +84,22 @@ const LandingPage: FC = (): ReactElement => {
     {
       name: 'Feature 1',
       link: '/feature-1',
-      icon: <MdDashboard />,
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
+    },
+    {
+      name: 'Feature 1',
+      link: '/feature-1',
+      icon: <MdDashboard size={36} />,
     },
   ];
 

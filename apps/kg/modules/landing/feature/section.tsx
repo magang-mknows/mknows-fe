@@ -32,7 +32,7 @@ export const FeatureSection: FC = (): ReactElement => {
   ];
   return (
     <section className="flex z-10 w-full items-center h-[140px] px-[112px] justify-between bg-primary-500">
-      <div className="flex gap-x-4 items-center w-full">
+      <div className="flex gap-x-4 items-center justify-center gap-x-4 w-full">
         {_feature.map((feat, key) => (
           <Fragment key={key}>
             <div className="flex items-center justify-center w-[70px] h-[58px] rounded-full bg-primary-base bg-opacity-70">
