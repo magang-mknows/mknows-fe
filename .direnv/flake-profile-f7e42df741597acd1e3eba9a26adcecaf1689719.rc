@@ -41,7 +41,7 @@ NIX_ENFORCE_NO_NATIVE='1'
 export NIX_ENFORCE_NO_NATIVE
 NIX_HARDENING_ENABLE='fortify stackprotector pic strictoverflow format relro bindnow'
 export NIX_HARDENING_ENABLE
-NIX_LDFLAGS='-rpath /mnt/home/ms/Development/mknows-frontend-services/outputs/out/lib64 -rpath /mnt/home/ms/Development/mknows-frontend-services/outputs/out/lib  -L/nix/store/fgrj06y1x83fwh8hqgg02v9abc7a7b65-openssl-3.0.8/lib -L/nix/store/fgrj06y1x83fwh8hqgg02v9abc7a7b65-openssl-3.0.8/lib'
+NIX_LDFLAGS='-rpath /home/ms/Development/mknows-fe/outputs/out/lib64 -rpath /home/ms/Development/mknows-fe/outputs/out/lib  -L/nix/store/fgrj06y1x83fwh8hqgg02v9abc7a7b65-openssl-3.0.8/lib -L/nix/store/fgrj06y1x83fwh8hqgg02v9abc7a7b65-openssl-3.0.8/lib'
 export NIX_LDFLAGS
 NIX_LIB64_IN_SELF_RPATH='1'
 NIX_NO_SELF_RPATH='1'
@@ -134,7 +134,7 @@ name='nix-shell-env'
 export name
 nativeBuildInputs='/nix/store/fpdh42qz9l2k670a0x92vy8j50462xil-bash-interactive-5.2-p15-dev'
 export nativeBuildInputs
-out='/mnt/home/ms/Development/mknows-frontend-services/outputs/out'
+out='/home/ms/Development/mknows-fe/outputs/out'
 export out
 outputBin='out'
 outputDev='out'
@@ -164,7 +164,7 @@ declare -a preConfigureHooks=('_multioutConfig' )
 declare -a preFixupHooks=('_moveToShare' '_multioutDocs' '_multioutDevs' )
 preferLocalBuild='1'
 export preferLocalBuild
-prefix='/mnt/home/ms/Development/mknows-frontend-services/outputs/out'
+prefix='/home/ms/Development/mknows-fe/outputs/out'
 declare -a propagatedBuildDepFiles=('propagated-build-build-deps' 'propagated-native-build-inputs' 'propagated-build-target-deps' )
 propagatedBuildInputs=''
 export propagatedBuildInputs
