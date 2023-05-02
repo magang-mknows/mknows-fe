@@ -1556,12 +1556,12 @@
   dependencies:
     "@nx/eslint-plugin" "16.0.0"
 
-"@nrwl/jest@16.0.0":
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-16.0.0.tgz#05e086da8cd54a1f94334486cb2a2bb4289f849e"
-  integrity sha512-3EOp1Sa9ZSKuqJIC9zYzwBuitvmXC9nn0BVCqv6NgfdXRzQgA7+RFObE+Zym/nejF0ZMGIvZnXZFMT/z6Cbczw==
+"@nrwl/jest@16.0.1":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-16.0.1.tgz#230a2b267c7af6b4b0b3ae19967457ab710f5fae"
+  integrity sha512-RCTEziX6PKsAAd95FevcWoRfb1cR6i5494nuRY9Krc9AAFYTz6YGaaGgRgKvHaTIfNY3Nl2Hgojhq5v5FzXaUA==
   dependencies:
-    "@nx/jest" "16.0.0"
+    "@nx/jest" "16.0.1"
 
 "@nrwl/js@16.0.0":
   version "16.0.0"
@@ -1712,16 +1712,16 @@
     confusing-browser-globals "^1.0.9"
     semver "7.3.4"
 
-"@nx/jest@16.0.0":
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@nx/jest/-/jest-16.0.0.tgz#f82c272d1718e38a487bbb0e0ba14c6fe525a658"
-  integrity sha512-WbZ+msoi69kUkMR73nr+aLLTZnHy+XjkaBYCzu/9xdGF99ZYReBy2peHHxWVJSmZ8u7HgYZHuv4h3vEQuEiFdw==
+"@nx/jest@16.0.1":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@nx/jest/-/jest-16.0.1.tgz#94b5bae1b6eeaa41c9a8f89b204445dd0d28670a"
+  integrity sha512-7WtNioN3+GMAv57zIncgnjMev/8dEIO1AiDYmwD7FtseZ8NZ1ndDDM0XZt/7NsWC1YiTJY3S3Ggr7yf4vYh3ug==
   dependencies:
     "@jest/reporters" "^29.4.1"
     "@jest/test-result" "^29.4.1"
-    "@nrwl/jest" "16.0.0"
-    "@nx/devkit" "16.0.0"
-    "@nx/js" "16.0.0"
+    "@nrwl/jest" "16.0.1"
+    "@nx/devkit" "16.0.1"
+    "@nx/js" "16.0.1"
     "@phenomnomnominal/tsquery" "~5.0.1"
     chalk "^4.1.0"
     dotenv "~10.0.0"
