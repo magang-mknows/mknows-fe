@@ -114,7 +114,7 @@ export const ClienProvider: FC<TProviderProps> = ({
   };
   return (
     <div className={`${montserrat.className} max-w-[2200px] container mx-auto`}>
-      <Navbar
+      {/* <Navbar
         items={_pop_up_menu}
         features={_features}
         avatar={
@@ -127,9 +127,8 @@ export const ClienProvider: FC<TProviderProps> = ({
         bottomNavRules={_nav_rules}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
-      />
-      {/* <section className={`pt-[74px] bg-neutral-100 ${className}`}></section> */}
-      {children}
+      /> */}
+      <section className={'bg-neutral-100 '}>{children}</section>
     </div>
   );
 };
