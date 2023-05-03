@@ -16,4 +16,21 @@ export type TUser = {
   };
 };
 
+export type TAvatarItem = {
+  avatar: string;
+};
+
+export type TAvatarPayload = {
+  avatar?: File;
+};
+
+export type TProfilePayload = {
+  full_name: string;
+  user_name: string;
+  email?: string;
+  gender?: string;
+  phone_number: string;
+};
+
 export type TUserDetailResponse = TMetaResponseSingle<TUser>;
+export type TAvatarResponse = TMetaResponseSingle<TAvatarItem>;
