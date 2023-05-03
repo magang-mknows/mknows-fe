@@ -1,3 +1,6 @@
 export * from './auth';
-export * from './administration';
 export * from './landing';
+export * from './about';
+export * from './analytic';
+export * from './contact';
+export * from './features';
