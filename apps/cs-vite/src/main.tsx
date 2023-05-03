@@ -1,16 +1,16 @@
 import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import { routes } from './routers';
 
-import App from './app/app';
+const htmlElement = document.getElementById('root') as HTMLElement;
+const root = createRoot(htmlElement);
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
 root.render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RecoilRoot>
+      <RouterProvider router={routes} />
+    </RecoilRoot>
   </StrictMode>
 );
