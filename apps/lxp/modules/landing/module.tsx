@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { HeroSection } from './hero';
-import { ClienProvider } from '../common/provider';
+import { ClientProvider } from '../common/provider';
 import { PartnerSection } from './partner';
 import { CatalogSection } from './catalog';
 import { BenefitSection } from './benefit/benefit';
@@ -10,7 +10,7 @@ import { LayoutFooter } from '../common/footer/footer-layout';
 
 export const LandingModule: FC = (): ReactElement => {
   return (
-    <ClienProvider>
+    <ClientProvider>
       <HeroSection />
       <PartnerSection />
       <CatalogSection />
@@ -18,6 +18,6 @@ export const LandingModule: FC = (): ReactElement => {
       <ArticleSection />
       <OfferSection />
       <LayoutFooter />
-    </ClienProvider>
+    </ClientProvider>
   );
 };
