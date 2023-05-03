@@ -1,4 +1,4 @@
-import { MaintnenceModule } from '../../../modules/common/maintnence';
+import { MaintnenceModule } from '../../../../modules/common/maintnence';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
