@@ -1,33 +1,33 @@
-import { FC, Fragment, ReactElement, useState } from "react";
-import SuspenseError from "@/modules/common/suspense-error";
-import { ErrorRequest } from "@/modules/request/error";
-import LoadingRequest from "@/modules/request/loading";
-import Card from "@/components/molecules/card";
-import { Tab } from "@headlessui/react";
+import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
+import LoadingRequest from '../../modules/request/loading';
+import Card from '../../components/molecules/card';
+import { Tab } from '@headlessui/react';
 
-import AlokasiKuota from "./alocation-quota";
-import RiwayatAlokasi from "./history-alocation";
+import AlokasiKuota from './alocation-quota';
+import RiwayatAlokasi from './history-alocation';
 
 const QuotaPage: FC = (): ReactElement => {
-  const [active, setActive] = useState("alokasi");
+  const [active, setActive] = useState('alokasi');
   return (
-    <SuspenseError error={<ErrorRequest />} loading={<LoadingRequest />}>
+    <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
         <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
-                style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
+                style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' }}
               >
                 <Tab as={Fragment}>
                   <button>
                     <a
                       className={`inline-block p-4 ${
-                        active == "alokasi" ? "text-primary-400 border-b-4 border-primary-400" : ""
+                        active === 'alokasi'
+                          ? 'text-primary-400 border-b-4 border-primary-400'
+                          : ''
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
-                      onClick={() => setActive("alokasi")}
+                      onClick={() => setActive('alokasi')}
                     >
                       Alokasi Kuota
                     </a>
@@ -37,10 +37,12 @@ const QuotaPage: FC = (): ReactElement => {
                   <button>
                     <a
                       className={`inline-block p-4 ${
-                        active == "riwayat" ? "text-primary-400 border-b-4 border-primary-400" : ""
+                        active === 'riwayat'
+                          ? 'text-primary-400 border-b-4 border-primary-400'
+                          : ''
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive("riwayat")}
+                      onClick={() => setActive('riwayat')}
                     >
                       Riwayat Alokasi Kuota
                     </a>
@@ -63,7 +65,7 @@ const QuotaPage: FC = (): ReactElement => {
           </Card>
         </section>
       </Tab.Group>
-    </SuspenseError>
+    </Suspense>
   );
 };
 

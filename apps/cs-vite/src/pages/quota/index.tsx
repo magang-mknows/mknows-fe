@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, lazy } from 'react';
 
-import QuotaPage from "@/modules/quota";
+const QuotaPage = lazy(() => import('../../modules/quota'));
 
 const QuotaPages: FC = (): ReactElement => {
   return (

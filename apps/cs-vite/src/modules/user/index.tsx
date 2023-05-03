@@ -1,9 +1,9 @@
-import { FC, ReactElement } from "react";
-import Table from "./table";
-import { useUserQuery } from "./hooks";
-import { DateInput } from "@/components/molecules/inputs/date-input";
-import Search from "@/components/atoms/search";
-import Pagination from "@/components/atoms/pagination";
+import { FC, ReactElement } from 'react';
+import Table from './table';
+import { useUserQuery } from './hooks';
+import { DateInput } from '../../components/molecules/input/date-input';
+import Search from '../../components/atoms/search';
+import Pagination from '../../components/atoms/pagination';
 
 const UserModules: FC = (): ReactElement => {
   const { setUserQuery, getUserQuery } = useUserQuery();
@@ -13,7 +13,12 @@ const UserModules: FC = (): ReactElement => {
       <div className="flex flex-col lg:flex-row gap-y-2 justify-between lg:p-8 pt-12">
         <DateInput />
         <div className="flex gap-2">
-          <Search value={getUserQuery} onChange={(e) => setUserQuery(e.target.value)} />
+          <Search
+            value={getUserQuery}
+            onChange={(e: { target: { value: string } }) =>
+              setUserQuery(e.target.value)
+            }
+          />
           <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
             + Tambah Data
           </button>

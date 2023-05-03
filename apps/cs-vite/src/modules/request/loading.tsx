@@ -1,12 +1,9 @@
-import { FC, ReactElement } from "react";
-import SuspenseError from "@/modules/common/suspense-error";
-import { ErrorHome } from "@/modules/home/error";
-import { BaseLayoutSkeleton } from "@/layouts/base/base-skeleton";
-import Card from "@/components/molecules/card";
+import { FC, ReactElement, Suspense } from 'react';
+import Card from '../../components/molecules/card';
 
 const LoadingRequest: FC = (): ReactElement => {
   return (
-    <SuspenseError error={<ErrorHome />} loading={<BaseLayoutSkeleton />}>
+    <Suspense fallback={<h1>Loading ...</h1>}>
       <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
         <Card className="w-full h-fit rounded-lg bg-white">
           <div className="mx-11 my-4 flex flex-col w-full ">
@@ -38,7 +35,7 @@ const LoadingRequest: FC = (): ReactElement => {
           </div>
         </Card>
       </section>
-    </SuspenseError>
+    </Suspense>
   );
 };
 

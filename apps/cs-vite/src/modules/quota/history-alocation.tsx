@@ -1,14 +1,16 @@
-import { FC, ReactElement } from "react";
-import Search from "@/components/atoms/search";
-import { useResultQuery } from "../request/hooks";
-import { DateInput } from "@/components/molecules/inputs/date-input";
-import Table from "./table";
+import { FC, ReactElement } from 'react';
+import Search from '../../components/atoms/search';
+import { useResultQuery } from '../request/hooks';
+import { DateInput } from '../../components/molecules/input/date-input';
+import Table from './table';
 
 const RiwayatAlokasi: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
   return (
     <section className="my-14 ml-10 w-full">
-      <div className="font-bold text-2xl text-[#444444]">Riwayat Alokasi Kuota</div>
+      <div className="font-bold text-2xl text-[#444444]">
+        Riwayat Alokasi Kuota
+      </div>
       <div className="flex lg:flex-row flex-col my-10">
         <div className="w-full">
           <DateInput />
@@ -27,7 +29,12 @@ const RiwayatAlokasi: FC = (): ReactElement => {
             </select>
           </div>
           <div className="w-full">
-            <Search value={getResultQuery} onChange={(e) => setResultQuery(e.target.value)} />
+            <Search
+              value={getResultQuery}
+              onChange={(e: { target: { value: string } }) =>
+                setResultQuery(e.target.value)
+              }
+            />
           </div>
         </div>
       </div>

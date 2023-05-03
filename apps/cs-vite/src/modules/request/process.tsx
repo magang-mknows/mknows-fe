@@ -1,7 +1,7 @@
-import { ReactElement, FC, useState } from "react";
-import { useResultData, useResultQuery } from "./hooks";
-import Search from "@/components/atoms/search";
-import Pagination from "@/components/atoms/pagination";
+import { ReactElement, FC } from 'react';
+import { useResultData, useResultQuery } from './hooks';
+import Search from '../../components/atoms/search';
+import Pagination from '../../components/atoms/pagination';
 
 const ProsesPage: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
@@ -10,7 +10,9 @@ const ProsesPage: FC = (): ReactElement => {
   return (
     <section>
       <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
-        <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">Permintaan Hari ini</p>
+        <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">
+          Permintaan Hari ini
+        </p>
         <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0">
           <div className="w-[40%]">
             <select
@@ -25,7 +27,12 @@ const ProsesPage: FC = (): ReactElement => {
             </select>
           </div>
           <div className="w-full">
-            <Search value={getResultQuery} onChange={(e) => setResultQuery(e.target.value)} />
+            <Search
+              value={getResultQuery}
+              onChange={(e: { target: { value: string } }) =>
+                setResultQuery(e.target.value)
+              }
+            />
           </div>
         </div>
       </div>
@@ -37,25 +44,37 @@ const ProsesPage: FC = (): ReactElement => {
               <th scope="col" className="px-6 py-2 cursor-default w-[40%]">
                 <div className="flex gap-5 justify-center items-center">
                   <p>No. Permintaan</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                  <img
+                    src="/assets/request-page/markdown-icon.svg"
+                    alt="markdown icon"
+                  />
                 </div>
               </th>
               <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>NIK</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                  <img
+                    src="/assets/request-page/markdown-icon.svg"
+                    alt="markdown icon"
+                  />
                 </div>
               </th>
               <th scope="col" className="w-[40%] px-6 py-2 cursor-default">
                 <div className=" flex gap-2 justify-center items-center">
                   <p>Nama</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                  <img
+                    src="/assets/request-page/markdown-icon.svg"
+                    alt="markdown icon"
+                  />
                 </div>
               </th>
               <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>Tanggal Permintaan</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                  <img
+                    src="/assets/request-page/markdown-icon.svg"
+                    alt="markdown icon"
+                  />
                 </div>
               </th>
               <th scope="col" className="px-6 py-2 cursor-default w-full">
@@ -66,7 +85,10 @@ const ProsesPage: FC = (): ReactElement => {
               <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>Skor</p>
-                  <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                  <img
+                    src="/assets/request-page/markdown-icon.svg"
+                    alt="markdown icon"
+                  />
                 </div>
               </th>
             </tr>
@@ -75,21 +97,25 @@ const ProsesPage: FC = (): ReactElement => {
             {getResultData.map((item, key) => {
               return (
                 <tr key={key} className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-10 py-3 text-[#262626] flex justify-center">{item.no}</td>
+                  <td className="px-10 py-3 text-[#262626] flex justify-center">
+                    {item.no}
+                  </td>
                   <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
                     {item.nama}
                   </td>
                   <td className="px-6 py-3">{item.tggl_permintaan}</td>
-                  <td className="px-6 py-3 flex justify-start">{item.kendala_proses}</td>
+                  <td className="px-6 py-3 flex justify-start">
+                    {item.kendala_proses}
+                  </td>
                   <td className="px-6 py-3 bg-green-400">
                     <button
                       className={` ${
-                        item.skor === "Sangat Baik"
-                          ? "bg-success-400"
-                          : item.skor === "Cukup Buruk"
-                          ? "bg-warning-500"
-                          : "bg-error-400"
+                        item.skor === 'Sangat Baik'
+                          ? 'bg-success-400'
+                          : item.skor === 'Cukup Buruk'
+                          ? 'bg-warning-500'
+                          : 'bg-error-400'
                       } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {item.skor}
@@ -102,11 +128,13 @@ const ProsesPage: FC = (): ReactElement => {
         </table>
       </div>
       <div className="lg:text-xs text-[10px]  flex flex-row justify-between my-3">
-        <div className=" text-neutral-400 font-base">Menampilkan 1-10 dari 110 hasil</div>
+        <div className=" text-neutral-400 font-base">
+          Menampilkan 1-10 dari 110 hasil
+        </div>
         <div className="font-semibold text-neutral-500">
-          Untuk melihat riwayat permintaan sebelumnya{" "}
+          Untuk melihat riwayat permintaan sebelumnya{' '}
           <span className="text-blue-600">
-            {" "}
+            {' '}
             <a href="">Klik Disini</a>
           </span>
         </div>
