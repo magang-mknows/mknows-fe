@@ -110,15 +110,15 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
   ];
 
-  const { data: profileData } = useProfile();
-
+  
   const _nav_rules = [
     '/dashboard',
     '/studi-ku',
     '/penugasan',
     '/nilai-sertifikat',
   ];
-
+  
+  const { data: profileData } = useProfile();
   const _profile_user = {
     email: profileData?.data?.user?.email,
     full_name: profileData?.data?.user?.full_name,
