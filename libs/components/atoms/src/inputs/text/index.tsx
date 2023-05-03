@@ -45,6 +45,7 @@ export const TextField = <T extends FieldValues>({
   variant = 'lg',
   type = 'text',
   status = 'none',
+  isTextArea = false,
   ...props
 }: TTextFieldProps<T>): ReactElement => {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,17 +57,17 @@ export const TextField = <T extends FieldValues>({
   const { field } = useController(props);
 
   return (
-    <section className="flex flex-col gap-y-2 my-2 w-auto">
+    <section className="flex flex-col gap-y-2 my-1 w-auto">
       {props.label && (
         <label
           htmlFor={props.name}
-          className={`font-sans text-black ${
+          className={`text-black ${
             variant === 'lg'
-              ? 'text-[18px]'
+              ? 'text-[18px] font-bold'
               : variant === 'md'
-              ? 'text-[16px]'
+              ? 'text-[16px] font-bold'
               : variant === 'sm'
-              ? 'text-[14px]'
+              ? 'text-[14px] font-bold'
               : ''
           }`}
         >
@@ -86,13 +87,14 @@ export const TextField = <T extends FieldValues>({
             {props.prepend}
           </label>
         )}
-        <input
-          type={type === 'password' ? (!showPassword ? type : 'text') : type}
-          {...{ ...props, ...field }}
-          className={`w-full  ${
-            status === 'error' &&
-            'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
-          }
+        {!isTextArea ? (
+          <input
+            type={type === 'password' ? (!showPassword ? type : 'text') : type}
+            {...{ ...props, ...field }}
+            className={`w-full  ${
+              status === 'error' &&
+              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
+            }
 
           ${
             status === 'success' &&
@@ -107,7 +109,7 @@ export const TextField = <T extends FieldValues>({
           ${
             !status ||
             (status === 'none' &&
-              'ring-gray-300 ring-1 focus:ring-primary-base bg-gray-100')
+              `ring-gray-300 ring-1 focus:ring-primary-base bg-gray-100 ${props.className}`)
           }
 
              ${
@@ -119,10 +121,36 @@ export const TextField = <T extends FieldValues>({
                  ? 'p-1 rounded-md'
                  : ''
              } outline-none focus:outline-none ${
-            props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'
-          }
+              props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'
+            }
                 `}
-        />
+          />
+        ) : (
+          <textarea
+            rows={12}
+            {...{ ...props, ...field }}
+            className={`w-full  ${
+              status === 'error' &&
+              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
+            }
+        ${
+          status === 'success' &&
+          'focus:ring-1 focus:ring-success-base bg-success-100'
+        }
+
+        ${
+          status === 'warning' &&
+          'focus:ring-1 focus:ring-warning-base bg-warning-100'
+        }
+
+        ${
+          !status ||
+          (status === 'none' &&
+            `focus:outline-none  bg-gray-100 resize-none ${props.className}`)
+        }
+       `}
+          />
+        )}
 
         <div className="absolute flex right-4 top-1/2 transform -translate-y-1/2 space-x-2">
           {status === 'success' && (

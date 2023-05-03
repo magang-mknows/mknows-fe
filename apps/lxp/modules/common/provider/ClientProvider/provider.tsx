@@ -39,7 +39,7 @@ const AuthButton: FC = (): ReactElement => (
   </Fragment>
 );
 
-export const ClienProvider: FC<TProviderProps> = ({
+export const ClientProvider: FC<TProviderProps> = ({
   children,
 }): ReactElement => {
   const router = useRouter();
