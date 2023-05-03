@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { FeaturesList } from './const';
+import { LXPFeaturesList } from './const';
 
 export const UserSearchState = atom({
   key: 'userSearchState',
@@ -8,7 +8,7 @@ export const UserSearchState = atom({
 
 export const FeaturesListState = atom({
   key: 'FeaturesListState',
-  default: FeaturesList,
+  default: LXPFeaturesList,
 });
 
 export const FilteredFeatures = selector({

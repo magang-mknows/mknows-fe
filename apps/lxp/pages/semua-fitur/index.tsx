@@ -1,9 +1,9 @@
-import { FeaturesModule } from '@mknows-frontend-services/modules';
+import { LXPFeaturesModule } from '../../modules/features';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const FeaturesPage: NextPage = (): ReactElement => {
-  return <FeaturesModule />;
+  return <LXPFeaturesModule />;
 };
 
 export default FeaturesPage;

@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useUserSearch } from './hook';
 import Image from 'next/image';
@@ -14,7 +14,7 @@ export const ContentSection: FC = (): ReactElement => {
   const { setUserSearch, getUserSearch } = useUserSearch();
   const filteredFeatures = useRecoilValue(FilteredFeatures);
   return (
-    <Fragment>
+    <section className="relative z-40">
       <section className="mx-8 md:mx-14 shadow-md lg:mx-72 xl:mx-80 px-4 py-3 flex items-center gap-2 bg-[#eeeeee] rounded-md mb-10 md:mb-14 lg:mb-16 xl:mb-20 relative">
         <AiOutlineSearch className="text-neutral-400 text-lg" />
         <input
@@ -27,7 +27,7 @@ export const ContentSection: FC = (): ReactElement => {
         <Image
           src={circle1}
           alt="feature-view"
-          className="h-36 w-36 lg:h-52 lg:w-52 mb-2 absolute -top-28 -left-28 -z-40"
+          className="h-36 w-36 lg:h-52 lg:w-52 mb-2 absolute -top-28 -left-28 -z-20"
           height={30}
           width={30}
           loading="eager"
@@ -73,6 +73,6 @@ export const ContentSection: FC = (): ReactElement => {
           }
         )}
       </section>
-    </Fragment>
+    </section>
   );
 };
