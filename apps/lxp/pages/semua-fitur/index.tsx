@@ -1,4 +1,4 @@
-import { LXPFeaturesModule } from '../../modules/features';
+import { LXPFeaturesModule } from '../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
