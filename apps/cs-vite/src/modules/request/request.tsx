@@ -1,9 +1,9 @@
-import { FC, ReactElement, useState } from "react";
-import Card from "@/components/molecules/card";
-import { Dialog } from "@headlessui/react";
-import Button from "@/components/atoms/button";
-import { useRequestData } from "./hooks";
-import IconWarning from "@/components/atoms/icons/ic-warning";
+import { FC, ReactElement, useState } from 'react';
+import Card from '../../components/molecules/card';
+import { Button } from '@mknows-frontend-services/components/atoms';
+import { Dialog } from '@headlessui/react';
+import { useRequestData } from './hooks';
+import IconWarning from '../../components/atoms/icons/ic-warning';
 
 const PermintaanPage: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -26,7 +26,11 @@ const PermintaanPage: FC = (): ReactElement => {
             >
               <div className="flex flex-row w-full h-full space-x-[10px]">
                 <div>
-                  <img src={item.icon} alt="icon" className="w-16 hidden md:flex" />
+                  <img
+                    src={item.icon}
+                    alt="icon"
+                    className="w-16 hidden md:flex"
+                  />
                 </div>
 
                 <div className="flex-col w-full space-y-1">
@@ -45,10 +49,10 @@ const PermintaanPage: FC = (): ReactElement => {
       </div>
       <div className="flex justify-center w-full my-4 pt-4">
         <Button
+          type="button"
           onClick={() => setisOpen(true)}
           className="w-1/3 h-10"
           color="primary"
-          text="Lihat Hasil"
         >
           Link Hasil
         </Button>
@@ -95,18 +99,23 @@ const PermintaanPage: FC = (): ReactElement => {
                 </div>
                 <p className="font-semibold text-sm">Something went wrong!</p>
                 <p className="font-base text-xs text-neutral-400">
-                  Maaf, saat ini anda tidak dapat melanjutkan proses permintaan. Anda belum
-                  melengkapi data yang dibutuhkan.
+                  Maaf, saat ini anda tidak dapat melanjutkan proses permintaan.
+                  Anda belum melengkapi data yang dibutuhkan.
                 </p>
                 <div className="flex flex-row w-full gap gap-x-3">
                   <Button
+                    type="button"
                     className="w-full text-sm py-1"
                     color="borderWarning"
                     onClick={() => setisOpen(false)}
                   >
                     Kembali
                   </Button>
-                  <Button className="w-full text-sm py-1" color="warning">
+                  <Button
+                    type="button"
+                    className="w-full text-sm py-1"
+                    color="warning"
+                  >
                     Lengkapi Data
                   </Button>
                 </div>

@@ -1,28 +1,24 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { AuthLayout } from '@/layouts/auth';
-import { BaseLayout } from '@/layouts/base';
-import Spinner from '@/components/atoms/loading/spinner';
-import { LoadingGrafik } from '@/modules/report/grafik/loading';
-import { LoadingReport } from '@/modules/report/loading';
-import SuspenseError from '@/modules/common/suspense-error';
+import Spinner from '../components/atoms/loading/spinner';
+import { AuthLayout } from '../layouts/auth';
+import { BaseLayout } from '../layouts/base';
+import { ErrorLogin } from '../modules/auth/login/error-login';
+import { ErrorModules } from '../modules/common/errorpage';
+import { ErrorHome } from '../modules/home/error';
+import ChartReport from '../modules/report/grafik';
+import { LoadingGrafik } from '../modules/report/grafik/loading';
+import { LoadingReport } from '../modules/report/loading';
+import ReportModules from '../modules/report/report';
+import { LoadingUser } from '../modules/user/loading';
+import ReportPages from '../pages/report';
 
-import { BaseLayoutSkeleton } from '@/layouts/base/base-skeleton';
-import { AuthSkeleton } from '@/layouts/auth/auth-skeleton';
-import { ErrorHome } from '@/modules/home/error';
-import { ErrorModules } from '@/modules/common/errorpage';
-import { ErrorLogin } from '@/modules/auth/login/error-login';
-import ReportPages from '@/pages/report';
-import ReportModules from '@/modules/report/report';
-import ChartReport from '@/modules/report/grafik';
-import { LoadingUser } from '@/modules/user/loading';
-
-const LoginPages = lazy(() => import('@/pages/auth/login'));
-const HomePages = lazy(() => import('@/pages/home'));
-const UserPages = lazy(() => import('@/pages/user'));
-const AddDataPages = lazy(() => import('@/pages/user/add-data'));
-const RequestPages = lazy(() => import('@/pages/request'));
-const QuotaPages = lazy(() => import('@/pages/quota'));
+const LoginPages = lazy(() => import('../pages/auth/login'));
+const HomePages = lazy(() => import('../pages/home'));
+const UserPages = lazy(() => import('../pages/user'));
+const AddDataPages = lazy(() => import('../pages/user/add-data'));
+const RequestPages = lazy(() => import('../pages/request'));
+const QuotaPages = lazy(() => import('../pages/quota'));
 
 export const routes = createBrowserRouter([
   {
@@ -32,9 +28,9 @@ export const routes = createBrowserRouter([
       {
         path: '/',
         element: (
-          <SuspenseError loading={<AuthSkeleton />} error={<ErrorLogin />}>
+          <Suspense fallback={<ErrorLogin />}>
             <LoginPages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
     ],
@@ -42,66 +38,66 @@ export const routes = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <SuspenseError loading={<BaseLayoutSkeleton />} error={<ErrorHome />}>
+      <Suspense fallback={<ErrorHome />}>
         <BaseLayout />
-      </SuspenseError>
+      </Suspense>
     ),
     errorElement: <ErrorModules />,
     children: [
       {
         path: '/dashboard/home',
         element: (
-          <SuspenseError loading={<Spinner />} error={<ErrorHome />}>
+          <Suspense fallback={<ErrorHome />}>
             <HomePages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
       {
         path: '/dashboard/user',
         element: (
-          <SuspenseError loading={<Spinner />} error={'..ini error'}>
+          <Suspense fallback={<Spinner />}>
             <UserPages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
       {
         path: '/dashboard/user/add-data',
         element: (
-          <SuspenseError loading={<LoadingUser />} error={'..ini error'}>
+          <Suspense fallback={<LoadingUser />}>
             <AddDataPages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
       {
         path: '/dashboard/request',
         element: (
-          <SuspenseError loading={<Spinner />} error={'..ini error'}>
+          <Suspense fallback={<Spinner />}>
             <RequestPages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
       {
         path: '/dashboard/report',
         element: (
-          <SuspenseError loading={<Spinner />} error={'..ini error'}>
+          <Suspense fallback={<Spinner />}>
             <ReportPages />
-          </SuspenseError>
+          </Suspense>
         ),
         children: [
           {
             path: '/dashboard/report',
             element: (
-              <SuspenseError loading={<LoadingReport />} error={'..ini error'}>
+              <Suspense fallback={<LoadingReport />}>
                 <ReportModules />
-              </SuspenseError>
+              </Suspense>
             ),
           },
           {
             path: '/dashboard/report/grafik',
             element: (
-              <SuspenseError loading={<LoadingGrafik />} error={'..ini error'}>
+              <Suspense fallback={<LoadingGrafik />}>
                 <ChartReport />
-              </SuspenseError>
+              </Suspense>
             ),
           },
         ],
@@ -109,9 +105,9 @@ export const routes = createBrowserRouter([
       {
         path: '/dashboard/quota',
         element: (
-          <SuspenseError loading={<Spinner />} error={'..ini error'}>
+          <Suspense fallback={<Spinner />}>
             <QuotaPages />
-          </SuspenseError>
+          </Suspense>
         ),
       },
     ],

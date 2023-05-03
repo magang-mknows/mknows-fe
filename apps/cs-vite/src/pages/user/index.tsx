@@ -1,15 +1,13 @@
-import { FC, lazy, ReactElement } from "react";
-import SuspenseError from "@/modules/common/suspense-error";
-import { LoadingUser } from "@/modules/user/loading";
-import { ErrorUser } from "@/modules/user/error";
+import { FC, lazy, ReactElement, Suspense } from 'react';
+import { LoadingUser } from '../../modules/user/loading';
 
-const UserModules = lazy(() => import("@/modules/user"));
+const UserModules = lazy(() => import('../../modules/user'));
 
 const UserPages: FC = (): ReactElement => {
   return (
-    <SuspenseError error={<ErrorUser />} loading={<LoadingUser />}>
+    <Suspense fallback={<LoadingUser />}>
       <UserModules />
-    </SuspenseError>
+    </Suspense>
   );
 };
 

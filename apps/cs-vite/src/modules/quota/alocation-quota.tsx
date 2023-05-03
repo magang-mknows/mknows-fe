@@ -1,12 +1,12 @@
-import { FC, ReactElement, useState } from "react";
-import Card from "@/components/molecules/card";
-import { useRequestData } from "../request/hooks";
-import Button from "@/components/atoms/button";
+import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement, useState } from 'react';
+import Card from '../../components/molecules/card';
+import { useRequestData } from '../request/hooks';
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
   const [Quota, setQuota] = useState<number>(0);
-  const [ProductName, setProductName] = useState<string>("default");
+  const [ProductName, setProductName] = useState<string>('default');
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleQuotaChange = (event: { target: { value: string } }) => {
@@ -15,7 +15,7 @@ const AlokasiKuota: FC = (): ReactElement => {
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       setQuota(0);
     }
   };
@@ -62,8 +62,12 @@ const AlokasiKuota: FC = (): ReactElement => {
         {/* content 1 */}
         <div className="flex flex-col">
           <div className="flex flex-col gap gap-y-2">
-            <span className="font-semibold text-base text-[#262626]">Jenis Produk</span>
-            <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
+            <span className="font-semibold text-base text-[#262626]">
+              Jenis Produk
+            </span>
+            <span className="font-semibold text-sm text-neutral-400">
+              Pilih satu jenis
+            </span>
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
@@ -76,7 +80,11 @@ const AlokasiKuota: FC = (): ReactElement => {
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
-                        <img src={item.icon} alt="icon" className="w-16 hidden md:flex" />
+                        <img
+                          src={item.icon}
+                          alt="icon"
+                          className="w-16 hidden md:flex"
+                        />
                       </div>
 
                       <div className="flex-col w-full space-y-1">
@@ -91,11 +99,16 @@ const AlokasiKuota: FC = (): ReactElement => {
               })}
             </div>
             <div className="flex flex-col pt-6 pb-3 gap gap-y-2">
-              <span className="font-semibold text-base text-[#262626]">Jumlah Kuota</span>
-              <span className="font-semibold text-sm text-neutral-400">Pilih Jumlah Kuota</span>
+              <span className="font-semibold text-base text-[#262626]">
+                Jumlah Kuota
+              </span>
+              <span className="font-semibold text-sm text-neutral-400">
+                Pilih Jumlah Kuota
+              </span>
             </div>
             <div className="flex justify-center items-center -space-x-.5">
               <Button
+                type="button"
                 className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-l-md !rounded-r-none"
                 onClick={handleKurang}
               >
@@ -109,6 +122,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 className="flex items-center justify-center text-center w-[20%] h-10 border-[1px] border-[#EBEBEB] text-[#000000] text-md font-bold"
               />
               <Button
+                type="button"
                 className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-r-md !rounded-l-none"
                 onClick={handleTambah}
               >
@@ -145,7 +159,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         </div>
 
         {/* content 2 */}
-        {ProductName === "default" ? (
+        {ProductName === 'default' ? (
           <div className="w-[70%] mr-8"></div>
         ) : (
           <div className="lg:w-[70%] w-full lg:my-0 my-14 mr-8 shadow-lg">
@@ -161,7 +175,9 @@ const AlokasiKuota: FC = (): ReactElement => {
                       alt="information"
                       className="w-fit h-fit"
                     />
-                    <span className="w-full lg:text-lg text-sm font-semibold">{ProductName}</span>
+                    <span className="w-full lg:text-lg text-sm font-semibold">
+                      {ProductName}
+                    </span>
                     <span className="flex items-center md:w-[20%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
                       x {Quota}
                     </span>
@@ -178,8 +194,8 @@ const AlokasiKuota: FC = (): ReactElement => {
                 </div>
                 <div className="pt-20 w-full flex justify-center">
                   <Button type="button" className="py-3 px-7">
-                    {" "}
-                    Confirm Request{" "}
+                    {' '}
+                    Confirm Request{' '}
                   </Button>
                 </div>
               </div>

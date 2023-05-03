@@ -1,9 +1,9 @@
-import { lazy, FC, ReactElement } from "react";
+import { lazy, FC, ReactElement } from 'react';
 
-const TambahData = lazy(() => import("@/modules/user/add-data"));
+const AddData = lazy(() => import('../../modules/user/add-data'));
 
-const TambahDataPage: FC = (): ReactElement => {
-  return <TambahData />;
+const AddDataPage: FC = (): ReactElement => {
+  return <AddData />;
 };
 
-export default TambahDataPage;
+export default AddDataPage;

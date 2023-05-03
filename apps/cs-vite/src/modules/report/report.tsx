@@ -1,9 +1,9 @@
-import { FC, ReactElement } from "react";
-import { useReportQuery } from "./hooks";
-import Search from "@/components/atoms/search";
-import Pagination from "@/components/atoms/pagination";
-import { DateInput } from "@/components/molecules/inputs/date-input";
-import Table from "./table";
+import { FC, ReactElement } from 'react';
+import { useReportQuery } from './hooks';
+import Search from '../../components/atoms/search';
+import Pagination from '../../components/atoms/pagination';
+import { DateInput } from '../../components/molecules/input/date-input';
+import Table from './table';
 
 const ReportModules: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
@@ -23,7 +23,12 @@ const ReportModules: FC = (): ReactElement => {
             <option value="FR">AI Condition Analysis</option>
             <option value="DE">AI Location & Movement</option>
           </select>
-          <Search value={getReportQuery} onChange={(e) => setReportQuery(e.target.value)} />
+          <Search
+            value={getReportQuery}
+            onChange={(e: { target: { value: string } }) =>
+              setReportQuery(e.target.value)
+            }
+          />
         </div>
       </div>
 
