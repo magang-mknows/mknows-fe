@@ -1,8 +1,8 @@
 import { atom, selectorFamily } from 'recoil';
 import { DataCard, DataTable, OptionFaculty, OptionSubject } from './types';
-import ImgChoiceFaculty2 from '@/assets/StudyPlan/choicefaculty2.svg';
-import Example1 from '@/assets/StudyPlan/example1.svg';
-import Example2 from '@/assets/StudyPlan/example2.svg';
+import ImgChoiceFaculty2 from './assets/choicefaculty2.svg';
+import Example1 from './assets/example1.svg';
+import Example2 from './assets/example2.svg';
 
 export const optionFacultyState = atom<Array<OptionFaculty>>({
   key: 'option-faculty-state',
