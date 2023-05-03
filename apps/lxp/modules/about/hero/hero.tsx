@@ -14,6 +14,7 @@ export const HeroSection: FC = (): ReactElement => {
           width={1500}
           height={1500}
           loading="eager"
+          priority
         />
       </div>
       <div className=" relative z-10 lg:col-span-2 col-span-3 flex items-center">

@@ -2,8 +2,8 @@ import { AboutModule } from '../../modules/about';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
-const ABoutPage: NextPage = (): ReactElement => {
+const AboutPage: NextPage = (): ReactElement => {
   return <AboutModule />;
 };
 
-export default ABoutPage;
+export default AboutPage;
