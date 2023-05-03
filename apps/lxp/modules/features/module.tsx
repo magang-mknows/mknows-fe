@@ -6,7 +6,7 @@ import { LayoutFooter } from '../common/footer/footer-layout';
 export const LXPFeaturesModule = () => {
   return (
     <ClientProvider>
-      <FeaturesModule accessFrom="KG" />
+      <FeaturesModule accessFrom="LXP" />
       <LayoutFooter />
     </ClientProvider>
   );
