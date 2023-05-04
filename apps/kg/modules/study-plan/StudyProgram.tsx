@@ -17,7 +17,7 @@ const StudyProgram: FC = (): ReactElement => {
   const [query, setQuery] = useRecoilState(queryOptionSubject);
   const [isClose, setClose] = useState(false);
   return (
-    <div>
+    <div className='bg-white'>
       <div className="flex flex-col items-center justify-center p-8">
         <div className="bg-gray-200 dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex py-4 ml-5">
