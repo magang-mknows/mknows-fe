@@ -1,15 +1,13 @@
-import { FC, ReactElement } from "react";
-import SuspenseError from "@/modules/common/suspense-error";
-import { ErrorRequest } from "@/modules/request/error";
-import LoadingRequest from "@/modules/request/loading";
+import { FC, ReactElement, Suspense, lazy } from 'react';
+import LoadingRequest from '../../modules/request/loading';
 
-import RequestPage from "@/modules/request";
+const RequestPage = lazy(() => import('../../modules/request'));
 
 const RequestPages: FC = (): ReactElement => {
   return (
-    <SuspenseError error={<ErrorRequest />} loading={<LoadingRequest />}>
+    <Suspense fallback={<LoadingRequest />}>
       <RequestPage />
-    </SuspenseError>
+    </Suspense>
   );
 };
 

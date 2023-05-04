@@ -7,6 +7,7 @@ import { FooterDesc } from './desc';
 import { FooterIcons } from './icons';
 import { FooterLinks } from './links';
 import { FooterAddress } from './address';
+import { AiFillCopyrightCircle } from 'react-icons/ai';
 
 export const LayoutFooter: FC = (): ReactElement => {
   return (
@@ -29,6 +30,12 @@ export const LayoutFooter: FC = (): ReactElement => {
       <section className="flex gap-x-20 gap-y-10 flex-wrap xl:flex-nowrap col-span-3 lg:col-span-2">
         <FooterLinks />
         <FooterAddress />
+      </section>
+      <section className="flex gap-2 items-center">
+        <AiFillCopyrightCircle className="text-xl" />
+        <h1 className="text-xs md:text-sm">
+          2023 - Disusun oleh tim Kampus Gratis
+        </h1>
       </section>
     </div>
   );

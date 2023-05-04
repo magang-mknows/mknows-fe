@@ -1,7 +1,7 @@
-import { FC, ReactElement } from "react";
-import IconDropdown from "@/components/atoms/icons/ic-dropdown";
-import IconTable from "@/components/atoms/icons/ic-table";
-import { useResultData } from "./hooks";
+import { FC, ReactElement } from 'react';
+import IconDropdown from '../../components/atoms/icons/ic-dropdown';
+import IconTable from '../../components/atoms/icons/ic-table';
+import { useResultData } from './hooks';
 
 const Table: FC = (): ReactElement => {
   const { getResultData } = useResultData();
@@ -45,7 +45,10 @@ const Table: FC = (): ReactElement => {
             <th scope="col" className="px-6 py-2 cursor-default">
               <div className="flex gap-2 justify-center items-center">
                 <p>Status</p>
-                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
+                <img
+                  src="/assets/request-page/markdown-icon.svg"
+                  alt="markdown icon"
+                />
               </div>
             </th>
           </tr>
@@ -57,7 +60,9 @@ const Table: FC = (): ReactElement => {
                 <td className="px-4">
                   <IconTable />
                 </td>
-                <td className=" py-7 text-[#262626] flex justify-center">{key + 1}</td>
+                <td className=" py-7 text-[#262626] flex justify-center">
+                  {key + 1}
+                </td>
                 <td className="px-6 py-3 text-[#262626] ">{item.no}</td>
                 <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                 <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
@@ -68,11 +73,11 @@ const Table: FC = (): ReactElement => {
                 <td className="px-6 py-3 bg-green-400">
                   <button
                     className={` ${
-                      item.skor === "Sangat Baik"
-                        ? "bg-success-400"
-                        : item.skor === "Cukup Buruk"
-                        ? "bg-warning-500"
-                        : "bg-error-400"
+                      item.skor === 'Sangat Baik'
+                        ? 'bg-success-400'
+                        : item.skor === 'Cukup Buruk'
+                        ? 'bg-warning-500'
+                        : 'bg-error-400'
                     } text-white w-[100px] text-sm py-2 rounded-md cursor-default`}
                   >
                     {item.skor}

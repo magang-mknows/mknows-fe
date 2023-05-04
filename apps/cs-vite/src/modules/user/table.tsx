@@ -1,10 +1,10 @@
-import { FC, ReactElement, useState } from "react";
-import { useUserData } from "./hooks";
-import Card from "@/components/molecules/card";
-import { Dialog } from "@headlessui/react";
-import { IConDelete } from "@/components/atoms/icons/ic-delete";
-import { IconEdit } from "@/components/atoms/icons/ic-edit";
-import IconDropdown from "@/components/atoms/icons/ic-dropdown";
+import { FC, ReactElement, useState } from 'react';
+import { useUserData } from './hooks';
+import Card from '../../components/molecules/card';
+import { Dialog } from '@headlessui/react';
+import { IConDelete } from '../../components/atoms/icons/ic-delete';
+import { IconEdit } from '../../components/atoms/icons/ic-edit';
+import IconDropdown from '../../components/atoms/icons/ic-dropdown';
 
 const Table: FC = (): ReactElement => {
   const { getUserData } = useUserData();
@@ -57,12 +57,22 @@ const Table: FC = (): ReactElement => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b ">
-                <td className="px-6 py-4 text-[#262626] cursor-default">{key + 1}</td>
-                <td className="px-6 py-4 text-[#262626] cursor-default">{item.nik}</td>
-                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">{item.nama}</td>
-                <td className="px-6 py-4 text-[#262626] cursor-default">{item.tanggal}</td>
+                <td className="px-6 py-4 text-[#262626] cursor-default">
+                  {key + 1}
+                </td>
+                <td className="px-6 py-4 text-[#262626] cursor-default">
+                  {item.nik}
+                </td>
+                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">
+                  {item.nama}
+                </td>
+                <td className="px-6 py-4 text-[#262626] cursor-default">
+                  {item.tanggal}
+                </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
-                  <span className="text-[#3D628D] cursor-pointer ">Lihat Detail</span>
+                  <span className="text-[#3D628D] cursor-pointer ">
+                    Lihat Detail
+                  </span>
                 </td>
                 <td>
                   <div className="flex gap-2">

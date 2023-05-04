@@ -1,18 +1,20 @@
-import { FC, ReactElement } from "react";
-import TextField from "@/components/molecules/inputs/text-field";
-import Button from "@/components/atoms/button";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckboxField } from "@/components/molecules/inputs/checkbox-field";
+import { FC, ReactElement } from 'react';
+import {
+  Button,
+  TextField,
+  Checkbox,
+} from '@mknows-frontend-services/components/atoms';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const LoginModules: FC = (): ReactElement => {
   const validationSchema = z.object({
-    email: z.string().min(1, { message: "Email harus diisi" }).email({
-      message: "Email harus valid",
+    email: z.string().min(1, { message: 'Email harus diisi' }).email({
+      message: 'Email harus valid',
     }),
-    password: z.string().min(1, { message: "Password harus diisi" }),
+    password: z.string().min(1, { message: 'Password harus diisi' }),
     remember: z.boolean().optional(),
   });
 
@@ -20,17 +22,19 @@ const LoginModules: FC = (): ReactElement => {
 
   const { control, formState } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: "all",
+    mode: 'all',
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       remember: false,
     },
   });
 
   return (
     <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm">
-      <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">Masuk</h1>
+      <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
+        Masuk
+      </h1>
       <p className="text-base text-gray-400 text-center">
         Silahkan masuk dengan email dan kata sandi anda
       </p>
@@ -40,7 +44,7 @@ const LoginModules: FC = (): ReactElement => {
         name="email"
         control={control}
         placeholder="msdqn@psu.org"
-        status={formState.errors.email ? "error" : "none"}
+        status={formState.errors.email ? 'error' : 'none'}
         message={formState.errors.email?.message}
         variant="md"
         required
@@ -53,7 +57,7 @@ const LoginModules: FC = (): ReactElement => {
         label="Password"
         name="password"
         required
-        status={formState.errors.password ? "error" : "none"}
+        status={formState.errors.password ? 'error' : 'none'}
         message={formState.errors.password?.message}
         rules={{
           required: true,
@@ -62,10 +66,19 @@ const LoginModules: FC = (): ReactElement => {
         control={control}
         variant="md"
       />
-      <CheckboxField name="remember" variant="md" control={control} label="Ingatkan Saya" />
+      <Checkbox
+        name="remember"
+        variant="md"
+        control={control}
+        label="Ingatkan Saya"
+      />
       <div className="flex flex-col mt-6">
-        <Link to={"/dashboard/home"}>
-          <Button className="w-full p-3 rounded-md" disabled={!formState.isValid}>
+        <Link to={'/dashboard/home'}>
+          <Button
+            type="button"
+            className="w-full p-3 rounded-md"
+            disabled={!formState.isValid}
+          >
             Masuk
           </Button>
         </Link>

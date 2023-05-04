@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { EventModule } from '../../modules/event';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
-const CampusProgramPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+const EventPage: NextPage = (): ReactElement => {
+  return <EventModule />;
 };
 
-export default CampusProgramPage;
+export default EventPage;
