@@ -25,7 +25,7 @@ const CardSection: FC = (): ReactElement => {
         <Card
           hasButton={true}
           buttonText="Lihat Detail"
-          buttonClassName={`flex py-1 justify-end items-end my-2 ${x.bgButton} w-full`}
+          buttonClassName={`flex py-1 justify-center text-white items-end my-2 ${x.bgButton} w-full`}
           className="w-full m-3 h-auto absolute shadow-md px-4"
         >
           <div className="flex flex-row w-full h-full space-x-[10px] py-4">
