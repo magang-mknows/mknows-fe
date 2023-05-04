@@ -1,5 +1,6 @@
 import { ReactElement, FC } from 'react';
 import { Link } from 'react-router-dom';
+import AiIdentityScoring from './ai-identity-scoring';
 
 const TambahData: FC = (): ReactElement => {
   return (
@@ -50,21 +51,7 @@ const TambahData: FC = (): ReactElement => {
           Ai Automation
         </div>
         <div className="w-full h-fit">
-          <div className="w-full h-fit bg-neutral-100 py-4 flex justify-between px-5 rounded-md text-base">
-            <p className="font-bold">AI Identity Scoring</p>
-            <svg
-              width="25"
-              height="24"
-              viewBox="0 0 25 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.0901 15L12.5001 10.42L7.91006 15L6.50006 13.59L12.5001 7.59L18.5001 13.59L17.0901 15Z"
-                fill="#737373"
-              />
-            </svg>
-          </div>
+          <AiIdentityScoring />
         </div>
       </div>
     </div>
