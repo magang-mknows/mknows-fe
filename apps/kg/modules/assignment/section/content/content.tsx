@@ -95,7 +95,7 @@ export const ContentSection: FC = (): ReactElement => {
             </li>
           </ul>
         </div>
-        <div className=" pb-8">
+        <div className=" pb-8 ">
           {active === 'semua-tugas' ? (
             getAssigment.map((item: T) => (
               <Assigment
@@ -107,24 +107,24 @@ export const ContentSection: FC = (): ReactElement => {
                 time={item.time}
                 bgLine={
                   item.category === 'ditugaskan'
-                    ? 'bg-primary-600'
+                    ? 'bg-[#0B568D]'
                     : item.category === 'terlambat'
-                    ? 'bg-secondary-yellow-600'
+                    ? 'bg-[#D79210]'
                     : item.category === 'selesai'
-                    ? 'bg-secondary-green-500'
+                    ? 'bg-[#2D9A41]'
                     : item.category === 'sedang-dinilai'
-                    ? 'bg-neautral-500'
+                    ? 'bg-[#737373]'
                     : ''
                 }
                 classNameCategory={
                   item.category === 'ditugaskan'
-                    ? 'text-primary-600'
+                    ? 'text-[#0B568D]'
                     : item.category === 'terlambat'
-                    ? 'text-secondary-yellow-600'
+                    ? 'text-[#D79210]'
                     : item.category === 'selesai'
-                    ? 'text-secondary-green-500'
+                    ? 'text-[#2D9A41]'
                     : item.category === 'sedang-dinilai'
-                    ? 'text-neautral-500'
+                    ? 'text-[#737373]'
                     : ''
                 }
                 imgAssigment={
@@ -158,24 +158,24 @@ export const ContentSection: FC = (): ReactElement => {
                   time={'20:00:00'}
                   bgLine={
                     item.category === 'ditugaskan'
-                      ? 'bg-primary-600'
+                      ? 'bg-[#0B568D]'
                       : item.category === 'terlambat'
-                      ? 'bg-secondary-yellow-600'
+                      ? 'bg-[#D79210]'
                       : item.category === 'selesai'
-                      ? 'bg-secondary-green-500'
+                      ? 'bg-[#2D9A41]'
                       : item.category === 'sedang-dinilai'
-                      ? 'bg-neautral-500'
+                      ? 'bg-[#737373]'
                       : ''
                   }
                   classNameCategory={
                     item.category === 'ditugaskan'
-                      ? 'text-primary-600'
+                      ? 'text-[#0B568D]'
                       : item.category === 'terlambat'
-                      ? 'text-secondary-yellow-600'
+                      ? 'text-[#D79210]'
                       : item.category === 'selesai'
-                      ? 'text-secondary-green-500'
+                      ? 'text-[#2D9A41]'
                       : item.category === 'sedang-dinilai'
-                      ? 'text-neautral-500'
+                      ? 'text-[#737373]'
                       : ''
                   }
                   imgAssigment={
