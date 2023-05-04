@@ -1,9 +1,13 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { optionsGender, optionsLastEducation } from '../constant';
-import { usePrivateInformationStatus, useAdministrationStatus } from '../hooks';
+import {
+  usePrivateInformationStatus,
+  useAdministrationStatus,
+  usePrivateInformation,
+} from '../hooks';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
 import {
   SelectField,
@@ -32,6 +36,8 @@ export const PrivateInformation: FC = (): ReactElement => {
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
 
+  const { mutate } = usePrivateInformation();
+
   const {
     control,
     handleSubmit,
@@ -42,19 +48,45 @@ export const PrivateInformation: FC = (): ReactElement => {
     mode: 'all',
     defaultValues: {
       gender: '',
+      phone: '',
+      birthdate: '',
+      birthplace: '',
+      address: '',
+      last_education: '',
+      nim: '',
+      university: '',
+      major: '',
+      semester: '',
     },
   });
 
-  const onSubmit = handleSubmit((PayloadData) => {
+  const onSubmit = handleSubmit((data) => {
     try {
-      setPrivateStatus(true);
-      setAdministrationStatus('onProgress');
+      mutate(
+        {
+          ...data,
+          birthdate: new Date(data.birthdate).toISOString(),
+        },
+        {
+          onSuccess: () => {
+            setPrivateStatus(true);
+            setAdministrationStatus('onProgress');
+          },
+        }
+      );
     } catch (err) {
       setPrivateStatus(false);
     }
   });
 
   console.log(watch());
+
+  // useEffect(() => {
+  //   if (data) {
+  //     setPrivateStatus(true);
+  //     setAdministrationStatus('onProgress');
+  //   }
+  // }, [data]);
 
   return (
     <Accordion
@@ -75,12 +107,14 @@ export const PrivateInformation: FC = (): ReactElement => {
                 options={optionsGender}
                 variant={'lg'}
                 error={errors.gender?.message}
+                className=" rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300 w-full mt-1"
               />
             </div>
             <div className="form-label">
               <TextField
                 variant="lg"
                 control={control}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 type="text"
                 label={'Tempat Lahir'}
                 name="birthplace"
@@ -94,6 +128,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="lg"
                 control={control}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 type="text"
                 label={'Alamat Lengkap'}
                 name={'address'}
@@ -108,6 +143,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 variant="lg"
                 control={control}
                 type={'text'}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 label={'NIM atau NPM (optional)'}
                 name={'nim'}
                 placeholder={'masukkan NIM atau NPM (optional)'}
@@ -120,6 +156,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="lg"
                 control={control}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 type={'text'}
                 label={'Program Studi (optional)'}
                 name={'major'}
@@ -135,6 +172,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="lg"
                 control={control}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 type={'number'}
                 label={'Nomor Handphone'}
                 name={'phone'}
@@ -148,7 +186,8 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="lg"
                 control={control}
-                type={'text'}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
+                type={'date'}
                 label={'Tanggal Lahir'}
                 name={'birthdate'}
                 placeholder={'Masukkan tanggal lahir'}
@@ -173,6 +212,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 control={control}
                 type="text"
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 variant="lg"
                 label={'Universitas Asal (optional)'}
                 name={'university'}
@@ -186,6 +226,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="lg"
                 control={control}
+                className="rounded-lg md:mb-2 py-2 md:py-3 px-2 ring-1 ring-[#DDE0E3]"
                 type="text"
                 label={'Semester (optional)'}
                 name={'semester'}
