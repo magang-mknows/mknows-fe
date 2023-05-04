@@ -1,9 +1,9 @@
-import { ProfileModule } from '../../modules';
+import { EditProfileModule } from '../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const ProfilePage: NextPage = (): ReactElement => {
-  return <ProfileModule />;
+  return <EditProfileModule />;
 };
 
 export default ProfilePage;

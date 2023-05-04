@@ -5,13 +5,13 @@ import { AppProps } from 'next/app';
 import { RecoilEnv, RecoilRoot } from 'recoil';
 import { SessionProvider } from 'next-auth/react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { Source_Sans_Pro } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import { Suspense, useEffect, useState } from 'react';
 import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
 
 const queryClient = new QueryClient();
 
-const source_sans_pro = Source_Sans_Pro({
+const montserrat = Montserrat({
   weight: '400',
   subsets: ['latin'],
 });
@@ -31,7 +31,7 @@ function CustomApp({
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
         <RecoilRoot>
-          <main className={source_sans_pro.className}>
+          <main className={montserrat.className}>
             <Suspense fallback={<LoadingSpinner />}>
               <Component {...pageProps} />
             </Suspense>
