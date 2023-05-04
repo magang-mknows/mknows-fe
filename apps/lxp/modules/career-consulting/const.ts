@@ -1,4 +1,4 @@
-export const DocServiceBreadCumbs = [
+export const CareerConsultingBreadCumbs = [
   {
     name: 'Home',
     link: '/',
@@ -8,7 +8,7 @@ export const DocServiceBreadCumbs = [
     link: '/konsultasi-layanan',
   },
   {
-    name: 'Dokumen',
-    link: '/dokumen',
+    name: 'Konsultasi Karir & Cita-cita',
+    link: '/konsultasi-karir',
   },
 ];

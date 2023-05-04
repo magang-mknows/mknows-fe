@@ -128,9 +128,7 @@ export const ClientProvider: FC<TProviderProps> = ({
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
       /> */}
-      <section className={'bg-neutral-100 min-h-[120vh] pb-20 '}>
-        {children}
-      </section>
+      <section className={'bg-neutral-100 min-h-[120vh] '}>{children}</section>
     </div>
   );
 };
