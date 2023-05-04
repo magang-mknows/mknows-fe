@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { ProfileModule } from '../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const ProfilePage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <ProfileModule />;
 };
 
 export default ProfilePage;

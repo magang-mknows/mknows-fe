@@ -18,11 +18,16 @@ export const Accordion: FC<TAccordionProps> = ({
             isOpen === '' ? setIsOpen(`${idAccordion}`) : setIsOpen('')
           }
           type="button"
-          className="flex items-center justify-between w-full p-5 font-medium text-left rounded-xl  bg-[#F5F5F5]"
+          className="flex items-center justify-between w-full p-4 font-medium text-left rounded-xl  bg-[#F5F5F5]"
           disabled={disabled}
         >
           <div className="text-[16px] font-[500] text-[#262626]">{title}</div>
-          <Image src={accordionIcon} alt={'accordion-image'} />
+          <Image
+            width={16}
+            height={16}
+            src={accordionIcon}
+            alt={'accordion-image'}
+          />
         </button>
       </h2>
       {isOpen === `${idAccordion}` ? (

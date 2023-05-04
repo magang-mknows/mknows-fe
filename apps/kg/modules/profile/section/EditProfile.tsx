@@ -12,13 +12,13 @@ import {
   Button,
 } from '@mknows-frontend-services/components/atoms';
 
-import { useProfile, useUpdateUserProfile } from './hooks';
-import { TAvatarPayload, TProfilePayload } from './types';
+import { useProfile, useUpdateUserProfile } from '../hooks';
+import { TAvatarPayload, TProfilePayload } from '../types';
 
 import userProfileImg from '@/assets/profile/profile-user-img.svg';
 import camera from '@/assets/profile/camera-1.svg';
 
-const EditProfile: FC = (): ReactElement => {
+export const EditProfile: FC = (): ReactElement => {
   const { data } = useProfile();
 
   const { mutate, isLoading } = useUpdateUserProfile();
@@ -231,5 +231,3 @@ const EditProfile: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default EditProfile;
