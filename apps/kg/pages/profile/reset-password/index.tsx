@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../../modules/common/maintnence';
+import ResetPassword from '../../../modules/profile/section/reset-password/ResetPassword';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const ProfileEditPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <ResetPassword />;
 };
 
 export default ProfileEditPage;

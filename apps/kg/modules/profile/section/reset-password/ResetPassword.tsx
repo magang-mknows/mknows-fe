@@ -28,17 +28,33 @@ const ResetPassword: FC = (): ReactElement => {
         Profile
       </div>
       <div className="flex flex-col lg:flex-row w-full mb-[30px]">
-        <div className="w-full lg:w-[600px]  justify-center dark:bg-gray-900 bg-white rounded-lg h-[50%] my-2 lg:my-0">
+        <div className="w-full lg:w-[600px] dark:bg-gray-900 bg-white rounded-lg h-[50%] my-2 lg:my-0">
           <div className="mx-4 my-4 space-y-4 lg:space-y-2">
             <Button
+              href="/profile"
               type="button"
-              className=" !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+            >
+              View Profile
+            </Button>
+            <Button
+              href="/profile"
+              type="button"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
             >
               Edit Profile
             </Button>
             <Button
+              href="/profile"
               type="button"
-              className=" bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+            >
+              CV & Portofolio
+            </Button>
+            <Button
+              type="button"
+              href="profile/reset-password"
+              className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] flex !items-center !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
             >
               Reset Password
             </Button>
