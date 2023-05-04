@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { DrillSimulasiModule } from '../../modules/drill-simulasi';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const DrilSimulationAndAssestment: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <DrillSimulasiModule />;
 };
 
 export default DrilSimulationAndAssestment;
