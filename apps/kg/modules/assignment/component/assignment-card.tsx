@@ -13,7 +13,7 @@ export const Assigment: FC<AssigmentProps> = ({
   imgAssigment,
 }): ReactElement => {
   return (
-    <div className="px-12 py-4">
+    <div className="lg:px-12 md:px-10 px-8 pb-4">
       <div className="flex flex-col md:flex-row bg-[#ffffff] dark:bg-gray-600 rounded-lg drop-shadow-md relative p-0 justify-between   ">
         <div
           data-testid={bgLine}
@@ -35,7 +35,9 @@ export const Assigment: FC<AssigmentProps> = ({
             priority
             src={imgAssigment as StaticImageData}
           />
-          <p className={`mt-2 text-[16px] font-[600] ${classNameCategory}`}>
+          <p
+            className={`mt-2 text-[16px] font-[600] uppercase ${classNameCategory}`}
+          >
             {category}
           </p>
           <div className="flex flex-row dark:text-[#262626]  text-[16px] font-[400]">
