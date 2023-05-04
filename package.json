@@ -7,8 +7,8 @@
     "kg:build": "yarn nx build kg",
     "lxp:serve": "yarn nx serve lxp",
     "lxp:build": "yarn nx build lxp",
-    "cs:serve": "yarn nx serve cs",
-    "cs:build": "yarn nx build cs"
+    "cs:serve": "yarn nx serve cs-vite",
+    "cs:build": "yarn nx build cs-vite"
   },
   "private": true,
   "dependencies": {
