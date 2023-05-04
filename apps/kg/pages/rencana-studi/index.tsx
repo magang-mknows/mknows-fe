@@ -5,7 +5,7 @@ import { BaseLayout } from '../../modules/common/layout/base/section';
 
 const StudyPlanPage: NextPage = (): ReactElement => {
   return (
-    <BaseLayout>
+    <BaseLayout title="Piih Fakultas">
       <StudyPlan />
     </BaseLayout>
   );

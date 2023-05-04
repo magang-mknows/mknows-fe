@@ -1,4 +1,4 @@
-import { AboutModule } from '../../modules/about';
+import { AboutModule } from '../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
