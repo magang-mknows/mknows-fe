@@ -1,5 +1,5 @@
-import { ReactElement, FC } from "react";
-import { Link } from "react-router-dom";
+import { ReactElement, FC } from 'react';
+import { Link } from 'react-router-dom';
 
 const TambahData: FC = (): ReactElement => {
   return (
@@ -18,14 +18,16 @@ const TambahData: FC = (): ReactElement => {
           />
         </svg>
 
-        <div>Harap mengisi semua bagian untuk melanjutkan ke tahapan selanjutnya </div>
+        <div>
+          Harap mengisi semua bagian untuk melanjutkan ke tahapan selanjutnya{' '}
+        </div>
       </div>
 
       {/* content */}
       <div className="bg-white w-full h-full px-8 flex flex-col">
         <div className="flex flex-row gap gap-x-6 items-center border-b w-full h-fit p-6 text-primary-400 font-bold text-base">
           <div>
-            <Link to={"/dashboard/user"}>
+            <Link to={'/dashboard/user'}>
               <svg
                 width="8"
                 height="12"
@@ -40,7 +42,7 @@ const TambahData: FC = (): ReactElement => {
               </svg>
             </Link>
           </div>
-          <Link to={"/dashboard/user"}>
+          <Link to={'/dashboard/user'}>
             <div className="hover:opacity-[50%]">Kembali</div>
           </Link>
         </div>

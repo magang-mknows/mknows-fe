@@ -1,5 +1,6 @@
 import { FC, ReactElement } from 'react';
 import Table from './table';
+import { Link } from 'react-router-dom';
 import { useUserQuery } from './hooks';
 import { DateInput } from '../../components/molecules/input/date-input';
 import Search from '../../components/atoms/search';
@@ -19,9 +20,11 @@ const UserModules: FC = (): ReactElement => {
               setUserQuery(e.target.value)
             }
           />
-          <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
-            + Tambah Data
-          </button>
+          <Link to={'/dashboard/user/add-data'}>
+            <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
+              + Tambah Data
+            </button>
+          </Link>
         </div>
       </div>
       <div className="flex flex-col justify-between">
