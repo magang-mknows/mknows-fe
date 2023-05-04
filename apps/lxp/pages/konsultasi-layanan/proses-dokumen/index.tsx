@@ -1,9 +1,9 @@
-import { DocumentServiceModule } from '../../../modules';
+import { DocumentProcessModule } from '../../../modules';
 import { NextPage } from 'next';
 import React, { ReactElement } from 'react';
 
 const DocumentServicePage: NextPage = (): ReactElement => {
-  return <DocumentServiceModule />;
+  return <DocumentProcessModule />;
 };
 
 export default DocumentServicePage;
