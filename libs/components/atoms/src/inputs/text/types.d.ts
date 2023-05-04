@@ -22,4 +22,5 @@ export type TTextFieldProps<T extends FieldValues> = UseControllerProps<T> & {
   appendColor?: string;
   hint?: string;
   isTextArea?: boolean;
+  textAreaRow?: number;
 };
