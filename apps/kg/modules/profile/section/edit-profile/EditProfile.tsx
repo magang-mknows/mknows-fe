@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { z } from 'zod';
+import { Menu, Transition } from '@headlessui/react';
 // import { Menu, Transition } from '@headlessui/react';
 
 import {
@@ -15,10 +16,10 @@ import {
 import { useProfile, useUpdateUserProfile } from './hooks';
 import { TAvatarPayload, TProfilePayload } from './types';
 
-import userProfileImg from '@/assets/profile/profile-user-img.svg';
-import camera from '@/assets/profile/camera-1.svg';
+import userProfileImg from '../../assets/cewe-cantik.webp';
+import camera from '../../assets/camera-ojan.webp';
 
-const EditProfile: FC = (): ReactElement => {
+export const EditProfileModule: FC = (): ReactElement => {
   const { data } = useProfile();
 
   const { mutate, isLoading } = useUpdateUserProfile();
@@ -107,15 +108,34 @@ const EditProfile: FC = (): ReactElement => {
       <div className="flex flex-col lg:flex-row w-full mb-[30px]">
         <div className="w-full lg:w-[600px] lg:h-[50%] space-y-2 justify-center dark:bg-gray-900 bg-white rounded-lg my-2 lg:my-0">
           <div className="mx-4 my-4 ">
-            <button className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]">
+            <Button
+              href="/profile"
+              type="button"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+            >
+              View Profile
+            </Button>
+            <Button
+              href="/profile"
+              type="button"
+              className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] flex !items-center !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+            >
               Edit Profile
-            </button>
-            <button
-              className="!text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-              // to="ubah-password"
+            </Button>
+            <Button
+              href="/profile"
+              type="button"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
+            >
+              CV & Portofolio
+            </Button>
+            <Button
+              type="button"
+              href="profile/reset-password"
+              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
             >
               Reset Password
-            </button>
+            </Button>
           </div>
         </div>
         <div className="flex flex-col w-full mx-0 bg-white rounded-lg dark:bg-gray-900 lg:mx-9">
@@ -124,20 +144,25 @@ const EditProfile: FC = (): ReactElement => {
             <div className="relative w-full my-[16px] border-y">
               <div className="flex justify-center py-5 ">
                 <div>
-                  <form>
-                    <img
+                  <form className="h-fit">
+                    <Image
+                      src={userProfileImg}
+                      alt="user profile img"
+                      className="md:w-[100px] md:h-[100px] w-[75px] h-[75px] z-20"
+                    />
+                    {/* <img
                       src={userData?.avatar}
                       alt="user profile img"
                       className="w-[100px] h-[100px] z-20"
-                    />
-                    {/* 
+                    /> */}
+
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
-                        <Menu.Button className="absolute ml-[66px] top-[-40px] bottom-[4px] rounded-full w-[32px] flex justify-center bg-yellow-100 h-[32px] z-50">
+                        <Menu.Button className="absolute md:ml-[66px] ml-[50px] top-[-40px] bottom-[4px] rounded-full md:w-[32px] w-[26px] h-[26px] flex justify-center bg-yellow-100 z-50">
                           <Image
                             src={camera}
                             alt="camera"
-                            className="w-[15px] h-[11px] mt-[10px]"
+                            className="w-full p-0 md:p-1"
                           ></Image>
                         </Menu.Button>
                       </div>
@@ -156,7 +181,7 @@ const EditProfile: FC = (): ReactElement => {
                           </div>
                         </Menu.Items>
                       </Transition>
-                    </Menu> */}
+                    </Menu>
 
                     <div className="my-2">
                       <p className="text-lg font-semibold">
@@ -171,7 +196,7 @@ const EditProfile: FC = (): ReactElement => {
 
             <form onSubmit={onSubmit}>
               <div className="flex flex-col my-4 gap-x-4 lg:flex-row">
-                <div className="flex flex-col w-full mt-0 mr-0 gap-y-2 lg:mr-2 lg:mt-3">
+                <div className="grid justify-between w-full grid-cols-1 sm:grid-cols-2 gap-x-4">
                   <TextField
                     control={control}
                     placeholder="Masukkan Email"
@@ -180,6 +205,16 @@ const EditProfile: FC = (): ReactElement => {
                     name="email"
                     className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                     variant={'lg'}
+                  />
+                  <SelectField
+                    control={control}
+                    label="Jenis Kelamin"
+                    className="!h-100px !mt-1 !py-1 bg-white  placeholder-slate-400 focus:outline-none focus:border-sky-500 sm:text-sm focus:ring-1"
+                    defaultValue="Laki-Laki"
+                    options={options}
+                    value={''}
+                    name={'gender'}
+                    variant={'md'}
                   />
                   <TextField
                     control={control}
@@ -190,20 +225,15 @@ const EditProfile: FC = (): ReactElement => {
                     className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                     variant={'lg'}
                   />
-                </div>
-
-                <div className="flex flex-col gap-y-2 mr-0 lg:mr-2 w-full mt-0 lg:mt-[26px]">
-                  <SelectField
+                  {/* <TextField
                     control={control}
-                    label="Jenis Kelamin"
-                    className="mt-1 px-3 py-2 lg:pt-[-10px] bg-white dark:bg-[#222529] dark:border-2 shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm !h-200px border  focus:outline-none focus:border-sky-500 focus:ring-sky-500  focus:ring-1"
-                    defaultValue="Laki-Laki"
-                    options={options}
-                    value={''}
-                    name={'gender'}
+                    placeholder="Masukkan Nomor Handphone"
+                    label="Nomor Handphone"
+                    type={'text'}
+                    name="phone_number"
+                    className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                     variant={'lg'}
-                  />
-
+                  /> */}
                   <TextField
                     control={control}
                     placeholder="Masukkan Nomor Handphone"
@@ -213,16 +243,16 @@ const EditProfile: FC = (): ReactElement => {
                     className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                     variant={'lg'}
                   />
-                  <div className="flex justify-center w-full lg:justify-end">
-                    <Button
-                      type={'submit'}
-                      disabled={!isValid}
-                      className="rounded-[8px] !w-[95px] !h-[36px]  disabled:bg-gray-400 disabled:text-gray-200"
-                    >
-                      {isLoading ? 'Sedang Masuk...' : 'Simpan'}
-                    </Button>
-                  </div>
                 </div>
+              </div>
+              <div className="flex justify-center w-full my-2 lg:justify-end">
+                <Button
+                  type={'submit'}
+                  disabled={!isValid}
+                  className="rounded-[8px] !w-[95px] !h-[36px]  disabled:bg-gray-400 disabled:text-gray-200"
+                >
+                  {isLoading ? 'Sedang Masuk...' : 'Simpan'}
+                </Button>
               </div>
             </form>
           </div>
@@ -231,5 +261,3 @@ const EditProfile: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default EditProfile;

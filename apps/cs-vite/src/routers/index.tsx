@@ -3,14 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import Spinner from '../components/atoms/loading/spinner';
 import { AuthLayout } from '../layouts/auth';
 import { BaseLayout } from '../layouts/base';
-import { ErrorLogin } from '../modules/auth/login/error-login';
 import { ErrorModules } from '../modules/common/errorpage';
-import { ErrorHome } from '../modules/home/error';
 import ChartReport from '../modules/report/grafik';
-import { LoadingGrafik } from '../modules/report/grafik/loading';
-import { LoadingReport } from '../modules/report/loading';
 import ReportModules from '../modules/report/report';
-import { LoadingUser } from '../modules/user/loading';
 import ReportPages from '../pages/report';
 
 const LoginPages = lazy(() => import('../pages/auth/login'));
@@ -28,7 +23,7 @@ export const routes = createBrowserRouter([
       {
         path: '/',
         element: (
-          <Suspense fallback={<ErrorLogin />}>
+          <Suspense fallback={<Spinner />}>
             <LoginPages />
           </Suspense>
         ),
@@ -38,7 +33,7 @@ export const routes = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <Suspense fallback={<ErrorHome />}>
+      <Suspense fallback={<Spinner />}>
         <BaseLayout />
       </Suspense>
     ),
@@ -47,7 +42,7 @@ export const routes = createBrowserRouter([
       {
         path: '/dashboard/home',
         element: (
-          <Suspense fallback={<ErrorHome />}>
+          <Suspense fallback={<Spinner />}>
             <HomePages />
           </Suspense>
         ),
@@ -63,7 +58,7 @@ export const routes = createBrowserRouter([
       {
         path: '/dashboard/user/add-data',
         element: (
-          <Suspense fallback={<LoadingUser />}>
+          <Suspense fallback={<Spinner />}>
             <AddDataPages />
           </Suspense>
         ),
@@ -87,7 +82,7 @@ export const routes = createBrowserRouter([
           {
             path: '/dashboard/report',
             element: (
-              <Suspense fallback={<LoadingReport />}>
+              <Suspense fallback={<Spinner />}>
                 <ReportModules />
               </Suspense>
             ),
@@ -95,7 +90,7 @@ export const routes = createBrowserRouter([
           {
             path: '/dashboard/report/grafik',
             element: (
-              <Suspense fallback={<LoadingGrafik />}>
+              <Suspense fallback={<Spinner />}>
                 <ChartReport />
               </Suspense>
             ),

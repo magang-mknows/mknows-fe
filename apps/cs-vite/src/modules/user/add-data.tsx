@@ -1,5 +1,6 @@
-import { ReactElement, FC } from "react";
-import { Link } from "react-router-dom";
+import { ReactElement, FC } from 'react';
+import { Link } from 'react-router-dom';
+import AiIdentityScoring from './ai-identity-scoring';
 
 const TambahData: FC = (): ReactElement => {
   return (
@@ -18,14 +19,16 @@ const TambahData: FC = (): ReactElement => {
           />
         </svg>
 
-        <div>Harap mengisi semua bagian untuk melanjutkan ke tahapan selanjutnya </div>
+        <div>
+          Harap mengisi semua bagian untuk melanjutkan ke tahapan selanjutnya{' '}
+        </div>
       </div>
 
       {/* content */}
       <div className="bg-white w-full h-full px-8 flex flex-col">
         <div className="flex flex-row gap gap-x-6 items-center border-b w-full h-fit p-6 text-primary-400 font-bold text-base">
           <div>
-            <Link to={"/dashboard/user"}>
+            <Link to={'/dashboard/user'}>
               <svg
                 width="8"
                 height="12"
@@ -40,7 +43,7 @@ const TambahData: FC = (): ReactElement => {
               </svg>
             </Link>
           </div>
-          <Link to={"/dashboard/user"}>
+          <Link to={'/dashboard/user'}>
             <div className="hover:opacity-[50%]">Kembali</div>
           </Link>
         </div>
@@ -48,21 +51,7 @@ const TambahData: FC = (): ReactElement => {
           Ai Automation
         </div>
         <div className="w-full h-fit">
-          <div className="w-full h-fit bg-neutral-100 py-4 flex justify-between px-5 rounded-md text-base">
-            <p className="font-bold">AI Identity Scoring</p>
-            <svg
-              width="25"
-              height="24"
-              viewBox="0 0 25 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.0901 15L12.5001 10.42L7.91006 15L6.50006 13.59L12.5001 7.59L18.5001 13.59L17.0901 15Z"
-                fill="#737373"
-              />
-            </svg>
-          </div>
+          <AiIdentityScoring />
         </div>
       </div>
     </div>

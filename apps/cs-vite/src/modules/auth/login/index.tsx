@@ -76,7 +76,7 @@ const LoginModules: FC = (): ReactElement => {
         <Link to={'/dashboard/home'}>
           <Button
             type="button"
-            className="w-full p-3 rounded-md"
+            className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
             disabled={!formState.isValid}
           >
             Masuk

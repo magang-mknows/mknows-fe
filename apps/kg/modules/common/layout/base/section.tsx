@@ -1,6 +1,5 @@
 import { Navbar } from '@mknows-frontend-services/components/molecules';
 import { logoutRequest } from '../../../auth/logout/api';
-import { useProfile } from '../../../profile/hooks';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { FC, Fragment, ReactElement } from 'react';
@@ -14,6 +13,7 @@ import { DiscussionRoomIcon } from '../../assets/icons/ic-disccussion-room';
 import { CareerPlanIcon } from '../../assets/icons/ic-career-plan';
 import { ConsultationIcon } from '../../assets/icons/ic-consultation';
 import { WorkOpportunityIcon } from '../../assets/icons/ic-work';
+import { useProfile } from '../../../../modules/profile/section/edit-profile';
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -110,14 +110,13 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
   ];
 
-  
   const _nav_rules = [
     '/dashboard',
     '/studi-ku',
     '/penugasan',
     '/nilai-sertifikat',
   ];
-  
+
   const { data: profileData } = useProfile();
   const _profile_user = {
     email: profileData?.data?.user?.email,
