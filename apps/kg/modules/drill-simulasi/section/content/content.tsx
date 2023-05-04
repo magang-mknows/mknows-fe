@@ -3,7 +3,7 @@ import { Tab } from '@headlessui/react';
 // import SimulationSubmission from './SimulationSubmission';
 // import SimulationHistory from './SimulationHistory';
 
-const Content: FC = (): ReactElement => {
+export const ContentSection: FC = (): ReactElement => {
   return (
     <Tab.Group>
       <Tab.List
@@ -44,5 +44,3 @@ const Content: FC = (): ReactElement => {
     </Tab.Group>
   );
 };
-
-export default Content;
