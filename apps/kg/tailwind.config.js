@@ -9,6 +9,7 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  darkMode: 'none',
 
   theme: {
     fontFamily: {
