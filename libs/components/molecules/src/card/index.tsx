@@ -3,7 +3,7 @@ import { CardProps } from './type';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Card: FC<CardProps> = ({
+export const Card: FC<CardProps> = ({
   className,
   children,
   title,
@@ -62,4 +62,3 @@ const Card: FC<CardProps> = ({
   );
 };
 
-export default Card;

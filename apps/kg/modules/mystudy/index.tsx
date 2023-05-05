@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement } from "react";
 import Image from "next/image";
 import Dummy from "./assets/Dummy.svg";
-import Card from "../../../../libs/components/molecules/src/card";
+import { Card } from "@mknows-frontend-services/components/molecules";
 // import CardStudy from "./CardMatkul/Card";
 import { useDataCard } from "./hooks";
 
