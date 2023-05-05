@@ -7,7 +7,7 @@ import AiCapabilityScoring from './ai-capability-scoring';
 const TambahData: FC = (): ReactElement => {
   return (
     <div className="my-8 space-y-4 w-full h-full">
-      <div className="flex flex-row w-full h-fit py-3 bg-warning-100 rounded-md px-4 text-warning-500 font-bold text-xs items-center gap gap-x-3">
+      <div className="flex flex-row w-full h-fit py-3 bg-warning-100 rounded-md px-4 text-warning-500 font-bold text-xs items-center gap gap-x-1">
         <svg
           width="24"
           height="24"

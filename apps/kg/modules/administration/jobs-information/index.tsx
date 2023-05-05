@@ -2,7 +2,11 @@ import { FC, ReactElement } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useJobInformationStatus, usePrivateInformationStatus } from '../hooks';
+import {
+  useFamilyInformation,
+  useJobInformationStatus,
+  usePrivateInformationStatus,
+} from '../hooks';
 import {
   optionFatherJob,
   optionMotherJob,
@@ -11,6 +15,7 @@ import {
   optionOwnIncome,
   optionCollegeFeesPaid,
   optionLiveWith,
+  optionOwnJob,
 } from '../constant';
 import {
   Button,
@@ -40,11 +45,14 @@ export const JobsInformation: FC = (): ReactElement => {
       .min(1, { message: 'Penghasilan sendiri harus diisi' }),
     live_with: z.string().min(1, { message: 'Tinggal dengan harus diisi' }),
     tuition_payer: z.string().min(1, { message: 'Biaya kuliah harus diisi' }),
-    // self_occupation: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
+    self_occupation: z
+      .string()
+      .min(1, { message: 'Pekerjaan sendiri harus diisi' }),
   });
 
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
   const { getPrivateStatus } = usePrivateInformationStatus();
+  const { mutate } = useFamilyInformation();
 
   type ValidationSchema = z.infer<typeof schema>;
 
@@ -55,11 +63,26 @@ export const JobsInformation: FC = (): ReactElement => {
   } = useForm<ValidationSchema>({
     resolver: zodResolver(schema),
     mode: 'all',
+    defaultValues: {
+      father_name: '',
+      father_occupation: '',
+      father_salary: '',
+      mother_name: '',
+      mother_occupation: '',
+      mother_salary: '',
+      self_salary: '',
+      live_with: '',
+      tuition_payer: '',
+    },
   });
 
-  const onSubmit = handleSubmit((PayloadData) => {
+  const onSubmit = handleSubmit((data) => {
     try {
-      setJobStatus(true);
+      mutate(data, {
+        onSuccess: () => {
+          setJobStatus(true);
+        },
+      });
     } catch (err) {
       setJobStatus(false);
     }
@@ -168,6 +191,15 @@ export const JobsInformation: FC = (): ReactElement => {
               options={optionCollegeFeesPaid}
               name={'tuition_payer'}
               label={'Biaya Kuliah Ditanggung Oleh'}
+              required
+              defaultValue="Masukan biaya kuliah ditanggung oleh"
+            />
+            <SelectField
+              variant="lg"
+              control={control}
+              options={optionOwnJob}
+              name={'self_occupation'}
+              label={'Penghasilan Sendiri'}
               required
               defaultValue="Masukan biaya kuliah ditanggung oleh"
             />

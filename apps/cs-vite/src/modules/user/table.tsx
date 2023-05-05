@@ -1,5 +1,6 @@
 import { FC, ReactElement, useState } from 'react';
 import { useUserData } from './hooks';
+import { Link } from 'react-router-dom';
 import Card from '../../components/molecules/card';
 import { Dialog } from '@headlessui/react';
 import { IConDelete } from '../../components/atoms/icons/ic-delete';
@@ -76,9 +77,11 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td>
                   <div className="flex gap-2">
-                    <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
-                      <IconEdit />
-                    </div>
+                    <Link to={'/dashboard/user/edit-data'}>
+                      <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
+                        <IconEdit />
+                      </div>
+                    </Link>
                     <button
                       className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
                       onClick={() => setisOpen(true)}
