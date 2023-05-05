@@ -1,15 +1,12 @@
-import { FC, ReactElement } from "react";
-
-import Modal from "@/components/Common/Modal";
-
-import GlobalButton from "@/components/Common/GlobalButton";
-
-import { PopupModalProps } from "@/components/Common/types";
-import { usePopupSuccessDiscussionStatus } from "@/hooks/Discussion/usePopupSuccessDiscussionStatus";
-import Form from "@/components/Form";
+import { FC, ReactElement } from 'react';
+import { PopupModalProps } from '../study-plan/components/types';
+import { usePopupSuccessDiscussionStatus } from './hooks/usePopupSuccessDiscussionStatus';
+import { Modal } from '@mknows-frontend-services/components/molecules';
+import { Button } from '@mknows-frontend-services/components/atoms';
 
 const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupSuccessStatus, getPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
+  const { setPopupSuccessStatus, getPopupSuccessStatus } =
+    usePopupSuccessDiscussionStatus();
 
   return (
     <Modal
@@ -18,9 +15,9 @@ const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={"!w-full md:!w-2/5"}
+      widthModal={'!w-full md:!w-2/5'}
     >
-      <Form>
+      <form>
         <div className="flex flex-col justify-center w-full gap-4 text-center bg-white rounded-lg">
           <div className="grid gap-3 text-center">
             <svg
@@ -50,17 +47,21 @@ const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
           </div>
 
           <section className="flex flex-col gap-4">
-            <h1 className="text-[20px] font-semibold">Terimakasih telah memberi tahu kami</h1>
+            <h1 className="text-[20px] font-semibold">
+              Terimakasih telah memberi tahu kami
+            </h1>
             <p>
-              Masukan dari Anda sangat penting untuk membantu kami menjaga komunitas Kampus Gratis
-              agar tetap aman.
+              Masukan dari Anda sangat penting untuk membantu kami menjaga
+              komunitas Kampus Gratis agar tetap aman.
             </p>
           </section>
           <div className="flex justify-end">
-            <GlobalButton className="!w-full" text={"Tutup"} color="blue" />
+            <Button className="!w-full" color="blue" type={'button'}>
+              Tutup
+            </Button>
           </div>
         </div>
-      </Form>
+      </form>
     </Modal>
   );
 };
