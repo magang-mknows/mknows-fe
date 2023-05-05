@@ -6,7 +6,6 @@ import { Card } from "@mknows-frontend-services/components/molecules";
 
 // import CardStudy from "./CardMatkul/Card";
 import { useDataCard } from './hooks';
-import { Card } from '@mknows-frontend-services/components/molecules';
 
 const MyStudy: FC = (): ReactElement => {
   //api
