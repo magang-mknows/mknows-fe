@@ -62,7 +62,7 @@ export const TextField = <T extends FieldValues>({
       {props.label && (
         <label
           htmlFor={props.name}
-          className={`text-black ${
+          className={`text-[#000] ${
             variant === 'lg'
               ? 'text-[18px] font-bold'
               : variant === 'md'
@@ -74,7 +74,7 @@ export const TextField = <T extends FieldValues>({
         >
           {props.label}
           {props.required && (
-            <span className="text-error-base font-bold ml-1">*</span>
+            <span className=" text-error-600 font-bold ml-1">*</span>
           )}
         </label>
       )}
@@ -92,7 +92,7 @@ export const TextField = <T extends FieldValues>({
           <input
             type={type === 'password' ? (!showPassword ? type : 'text') : type}
             {...{ ...props, ...field }}
-            className={`w-full  ${
+            className={`w-full text-[#000]  ${
               status === 'error' &&
               'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
             }
