@@ -1,12 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { FC, ReactElement, useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
 import { TsubjectItems } from './types';
-import { showDetailTraining, showSelectedDetail } from './store';
-import TrainingDetail from '../detail/detail';
 
-export const TrainingInformationTable: FC = (): ReactElement => {
+export const TrainingContractTable: FC = (): ReactElement => {
   const subjects = [
     {
       id: '9abad3e2-ed12-4968-a3dd-4c759f368620',
@@ -30,10 +27,6 @@ export const TrainingInformationTable: FC = (): ReactElement => {
       slug: 'jembotos',
     },
   ];
-
-  const [isShowDetail, setShowDetail] = useRecoilState(showDetailTraining);
-  const [selectedDetail, setSelectedDetail] =
-    useRecoilState(showSelectedDetail);
 
   const [isMounted, setMounted] = useState(false);
 
@@ -94,22 +87,11 @@ export const TrainingInformationTable: FC = (): ReactElement => {
               <tbody className=" text-center   text-neutral-800 ">
                 {subjects?.map((subject: TsubjectItems, index: number) => {
                   return (
-                    <tr
-                      className="bg-neutral-100/80"
-                      key={index}
-                      onClick={() => {
-                        setSelectedDetail(subject.id);
-                      }}
-                    >
+                    <tr className="bg-neutral-100/80" key={index}>
                       <td className="px-6 py-4  border-b-2 border-neutral-200 dark:border-r-white whitespace-nowrap text-sm text-neutral-800 ">
                         {index + 1}
                       </td>
-                      <td
-                        className="px-6 py-4 cursor-pointer  border-b-2 border-neutral-200 dark:border-r-white whitespace-nowrap text-sm text-neutral-800"
-                        onClick={() => {
-                          setShowDetail(!isShowDetail);
-                        }}
-                      >
+                      <td className="px-6 py-4 cursor-pointer  border-b-2 border-neutral-200 dark:border-r-white whitespace-nowrap text-sm text-neutral-800">
                         <section className="flex gap-4 items-center">
                           <figure className="h-16 w-16">
                             <Image
@@ -142,23 +124,6 @@ export const TrainingInformationTable: FC = (): ReactElement => {
                       </td>
                       <td className="px-6 py-4  border-b-2 border-neutral-200 dark:border-r-white whitespace-nowrap text-sm">
                         {subject?.session_total_number} Pertemuan
-                      </td>
-                      <td
-                        className={`${
-                          isShowDetail ? ' top-0 bottom-0 ' : ' -bottom-[200%]'
-                        } ${
-                          selectedDetail === subject.id ? '' : 'hidden'
-                        }  transition-all left-0 right-0 bg-neutral-600/20 ease-in-out  flex justify-center items-end duration-300  z-50 lg:px-48  flex-wrap absolute `}
-                      >
-                        <TrainingDetail
-                          name={subject.name}
-                          basic_competencies={subject?.basic_competencies}
-                          session_total_number={subject?.session_total_number}
-                          indicator={subject?.indicator}
-                          teaching_materials={subject?.teaching_materials}
-                          tools_needed={subject?.tools_needed}
-                          study_experience={subject?.study_experience}
-                        />
                       </td>
                     </tr>
                   );

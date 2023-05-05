@@ -11,3 +11,5 @@ export * from './document-service';
 export * from './document-status';
 export * from './career-consulting';
 export * from './training-plan';
+export * from './training-information';
+export * from './training-contract';

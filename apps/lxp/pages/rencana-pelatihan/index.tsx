@@ -1,4 +1,4 @@
-import { TrainingPlanModule } from 'apps/lxp/modules';
+import { TrainingPlanModule } from '../../modules';
 import { FC, ReactElement } from 'react';
 
 const TrainingPlanPage: FC = (): ReactElement => {
