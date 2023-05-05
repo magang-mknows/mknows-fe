@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { userFilter, userSearch } from "./store";
-import { TUserDataResponse, TUserQueryResponse } from "./types";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { userFilter, userSearch } from './store';
+import { TUserDataResponse, TUserQueryResponse } from './types';
 
 export const useUserData = (): TUserDataResponse => {
   const get = useRecoilValue(userFilter);
