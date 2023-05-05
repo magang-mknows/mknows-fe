@@ -6,6 +6,7 @@ import {
   usePrivateInformationStatus,
   useAdministrationStatus,
   useGetAllAdministration,
+  usePrivateInformation,
 } from '../hooks';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
 import { Button, TextField } from '@mknows-frontend-services/components/atoms';
@@ -29,7 +30,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
-
+  const { mutate } = usePrivateInformation();
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
 
@@ -50,14 +51,21 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const onSubmit = handleSubmit((data) => {
     try {
-      setPrivateStatus(true);
-      setAdministrationStatus('finished');
-      console.log('sukses');
+      mutate(
+        {
+          ...data,
+        },
+        {
+          onSuccess: () => {
+            setPrivateStatus(true);
+            setAdministrationStatus('finished');
+          },
+        }
+      );
     } catch (err) {
       setPrivateStatus(false);
-      throw err;
     }
   });
 
@@ -81,8 +89,8 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block  mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.email ? 'error' : 'none'}
-                message={errors.email?.message}
+                status={errors.fullname ? 'error' : 'none'}
+                message={errors.fullname?.message}
               />
             </div>
             <div className="form-label">
@@ -96,8 +104,8 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.email ? 'error' : 'none'}
-                message={errors.email?.message}
+                status={errors.nip ? 'error' : 'none'}
+                message={errors.nip?.message}
               />
             </div>
             <div className="form-label">
@@ -128,8 +136,8 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.email ? 'error' : 'none'}
-                message={errors.email?.message}
+                status={errors.companyName ? 'error' : 'none'}
+                message={errors.companyName?.message}
               />
             </div>
             <div className="form-label">
@@ -143,8 +151,8 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.email ? 'error' : 'none'}
-                message={errors.email?.message}
+                status={errors.department ? 'error' : 'none'}
+                message={errors.department?.message}
               />
             </div>
             <div className="form-label">
@@ -158,15 +166,15 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
                 labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.email ? 'error' : 'none'}
-                message={errors.email?.message}
+                status={errors.leaderDivision ? 'error' : 'none'}
+                message={errors.leaderDivision?.message}
               />
             </div>
             <div className="flex w-full my-8 justify-end">
               <Button
-                className={`my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 ${
-                  isValid ? 'bg-[#F26800]' : ' bg-neutral-200'
-                } font-bold p-3 text-1xl text-[#FFFF] `}
+                className={`my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 
+                  bg-[#F26800]
+                 font-bold p-3 text-1xl text-[#FFFF] disabled:bg-neutral-200 `}
                 type={'submit'}
                 disabled={!isValid}
               >

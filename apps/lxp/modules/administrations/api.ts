@@ -6,3 +6,11 @@ export const getAdministrationRequest =
     const { data } = await api.get('/administrations/me');
     return data;
   };
+
+  export const privateInformationRequest = async (
+    payload: TAdministrationResponse
+  ): Promise<TAdministrationResponse> => {
+    const { data } = await api.post('/administrations', payload);
+    return data;
+  };
+

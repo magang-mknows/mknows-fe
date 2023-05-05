@@ -5,8 +5,13 @@ import {
   StatusReturnTypesAdministration,
   TAdministrationResponse,
 } from './type';
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { getAdministrationRequest } from './api';
+import {
+  UseMutationResult,
+  UseQueryResult,
+  useMutation,
+  useQuery,
+} from '@tanstack/react-query';
+import { getAdministrationRequest, privateInformationRequest } from './api';
 // import { AdministrationService } from "./api";
 
 export const usePrivateInformationStatus =
@@ -33,3 +38,13 @@ export const useGetAllAdministration = (): UseQueryResult<
     queryKey: ['get-all-administration'],
     queryFn: async () => await getAdministrationRequest(),
   });
+
+export const usePrivateInformation = (): UseMutationResult<
+  TAdministrationResponse,
+  unknown
+> => {
+  return useMutation({
+    mutationKey: ['private-information-post'],
+    mutationFn: async (payload) => await privateInformationRequest(payload),
+  });
+};
