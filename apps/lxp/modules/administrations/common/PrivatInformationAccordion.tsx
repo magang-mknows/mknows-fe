@@ -172,7 +172,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
             </div>
             <div className="flex w-full my-8 justify-end">
               <Button
-                className={`my-4 w-[211px] rounded-[8px] disabled:bg-gray-400 disabled:text-gray-200 
+                className={`my-4 w-[211px] rounded-[8px] disabled:bg-gray-400  
                   bg-[#F26800]
                  font-bold p-3 text-1xl text-[#FFFF] disabled:bg-neutral-200 `}
                 type={'submit'}
