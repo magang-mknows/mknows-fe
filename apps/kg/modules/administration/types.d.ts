@@ -60,3 +60,5 @@ export type TFileAdm = {
 };
 
 export type TBiodataResponse = TMetaResponseSingle<TBiodataAdm>;
+export type TFamilyResponse = TMetaResponseSingle<TFamilyAdm>;
+export type TFileResponse = TMetaResponseSingle<TFileAdm>;
