@@ -1,6 +1,8 @@
 import { ReactElement, FC } from 'react';
 import { Link } from 'react-router-dom';
 import AiIdentityScoring from './ai-identity-scoring';
+import AiCharacterScoring from './ai-character-scoring';
+import AiCapabilityScoring from './ai-capability-scoring';
 
 const TambahData: FC = (): ReactElement => {
   return (
@@ -52,6 +54,8 @@ const TambahData: FC = (): ReactElement => {
         </div>
         <div className="w-full h-fit">
           <AiIdentityScoring />
+          <AiCharacterScoring />
+          <AiCapabilityScoring />
         </div>
       </div>
     </div>

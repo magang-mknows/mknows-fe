@@ -31,7 +31,7 @@ const LoginModules: FC = (): ReactElement => {
   });
 
   return (
-    <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm">
+    <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm overflow-hidden">
       <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
         Masuk
       </h1>
