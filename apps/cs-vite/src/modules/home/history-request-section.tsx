@@ -56,6 +56,7 @@ const CardSection: FC = (): ReactElement => {
     autoPlay: true,
     autoPlayInterval: 3000,
     animationDuration: 1000,
+    Infinity: true,
     renderPrevButton: () => {
       return <div className="absolute top-[35%] left-0">{prevButton}</div>;
     },
