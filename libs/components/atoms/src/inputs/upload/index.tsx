@@ -8,7 +8,7 @@ export const UploadField = <T extends FieldValues>(
 ): ReactElement => {
   const { field } = useController(props);
   return (
-    <section className="flex flex-col mb-6">
+    <section className="flex w-full flex-col mb-6">
       {props.hasLabel && (
         <label
           htmlFor={props.name}

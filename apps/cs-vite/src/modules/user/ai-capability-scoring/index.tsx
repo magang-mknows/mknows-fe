@@ -8,18 +8,11 @@ import {
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
 
-const AiIdentityScoring: FC = (): ReactElement => {
+const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
   const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png'];
   const validationSchema = z.object({
     image_ktp: z
-      .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
-      .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
-        'Only .jpg, .jpeg, and .png formats are supported'
-      ),
-    image_selfie: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
@@ -68,6 +61,22 @@ const AiIdentityScoring: FC = (): ReactElement => {
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
+
+    image_creditApplicant: z
+      .any()
+      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+      .refine(
+        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        'Only .jpg, .jpeg, and .png formats are supported'
+      ),
+
+    image_laporanKeuangan: z
+      .any()
+      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+      .refine(
+        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        'Only .jpg, .jpeg, and .png formats are supported'
+      ),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -81,47 +90,28 @@ const AiIdentityScoring: FC = (): ReactElement => {
     mode: 'all',
     defaultValues: {
       image_ktp: '',
-      image_selfie: '',
       image_suratIzinUsahaPerdagangan: '',
       image_suratKeteranganDomisiliUsaha: '',
       image_suratNomorAktaNotaris: '',
       image_suratNomorIndukBerusaha: '',
       image_suratNomorPokokWajibPajak: '',
       image_suratTandaDaftarPerusahaan: '',
+      image_creditApplicant: '',
+      image_laporanKeuangan: '',
     },
   });
   return (
     <div>
-      <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
-        <div className="flex gap-4">
-          <div className="flex w-full">
-            <UploadField
-              name={'image_ktp'}
-              hasLabel
-              control={control}
-              required
-              accepted=".jpg, .jpeg, .png"
-              label={'Kartu Tanda Penduduk (KTP)'}
-            />
-          </div>
-          <div className="flex group flex-col gap-2">
-            <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-              ?
-            </button>
-            <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-              Lihat Contoh
-            </p>
-          </div>
-        </div>
-
+      <Accordion title="Ai Capability Scoring" idAccordion={'file information'}>
         <UploadField
-          name={'image_selfie'}
+          name={'image_ktp'}
           hasLabel
           control={control}
           required
           accepted=".jpg, .jpeg, .png"
-          label={'Foto Selfi Diri'}
+          label={'Kartu Tanda Penduduk (KTP)'}
         />
+
         <UploadField
           name={'image_suratNomorIndukBerusaha'}
           hasLabel
@@ -170,6 +160,24 @@ const AiIdentityScoring: FC = (): ReactElement => {
           accepted=".jpg, .jpeg, .png"
           label={'Surat Tanda Daftar Perusahaan'}
         />
+
+        <UploadField
+          name={'image_creditApplicant'}
+          hasLabel
+          control={control}
+          required
+          accepted=".jpg, .jpeg, .png"
+          label={'Form Credit Applicant'}
+        />
+
+        <UploadField
+          name={'image_laporanKeuangan'}
+          hasLabel
+          control={control}
+          required
+          accepted=".jpg, .jpeg, .png"
+          label={'Nota Kepemilikan Saham/Dana Tabungan'}
+        />
         <div className="flex w-full my-8 justify-end">
           <Button
             disabled={!isValid}
@@ -184,4 +192,4 @@ const AiIdentityScoring: FC = (): ReactElement => {
   );
 };
 
-export default AiIdentityScoring;
+export default AiCapabilityScoring;
