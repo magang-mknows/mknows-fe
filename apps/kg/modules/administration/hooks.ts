@@ -4,6 +4,8 @@ import {
   TBiodataResponse,
   TFamilyAdm,
   TFamilyResponse,
+  TFileAdm,
+  TFileResponse,
   TStatusReturnAdministration,
 } from './types';
 import { AdministrationStatusState } from './store';
@@ -13,7 +15,11 @@ import {
   useMutation,
 } from '@tanstack/react-query';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { familyInformationRequest, privateInformationRequest } from './api';
+import {
+  familyInformationRequest,
+  fileInformationRequest,
+  privateInformationRequest,
+} from './api';
 
 export * from './common/hooks';
 
@@ -46,6 +52,18 @@ export const useFamilyInformation = (): UseMutationResult<
   return useMutation({
     mutationKey: ['family-information-post'],
     mutationFn: async (payload) => await familyInformationRequest(payload),
+  });
+};
+
+export const useFileInformation = (): UseMutationResult<
+  TFileResponse,
+  TMetaErrorResponse,
+  TFileAdm,
+  unknown
+> => {
+  return useMutation({
+    mutationKey: ['file-information-post'],
+    mutationFn: async (payload) => await fileInformationRequest(payload),
   });
 };
 
