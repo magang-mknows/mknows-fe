@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from 'react';
 import { TCardProps } from './types';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ export const Card: FC<TCardProps> = ({
 }): ReactElement => {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
+    <Fragment>
       {href ? (
         <Link href={`${href}`}>
           <div
@@ -59,6 +59,6 @@ export const Card: FC<TCardProps> = ({
           <section className="flex">{children}</section>
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
