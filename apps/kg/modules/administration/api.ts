@@ -1,5 +1,10 @@
 import api from '../../services/api';
-import { TBiodataAdm, TBiodataResponse } from './types';
+import {
+  TBiodataAdm,
+  TBiodataResponse,
+  TFamilyAdm,
+  TFamilyResponse,
+} from './types';
 
 export const privateInformationRequest = async (
   payload: TBiodataAdm
@@ -13,3 +18,10 @@ export const privateInformationGetRequest =
     const { data } = await api.get('/administration');
     return data;
   };
+
+export const familyInformationRequest = async (
+  payload: TFamilyAdm
+): Promise<TFamilyResponse> => {
+  const { data } = await api.post('/administration/familial', payload);
+  return data;
+};
