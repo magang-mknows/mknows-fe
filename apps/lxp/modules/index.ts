@@ -10,3 +10,4 @@ export * from './assigment';
 export * from './document-service';
 export * from './document-status';
 export * from './career-consulting';
+export * from './administrations';
