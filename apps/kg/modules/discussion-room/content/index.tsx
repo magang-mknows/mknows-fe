@@ -1,8 +1,7 @@
 import { FC, ReactElement } from 'react';
-import Post from './post';
-import Comment from './post/coment';
-
 import Search from './Search';
+import Post from './post';
+import { Comment } from './post/coment';
 
 const Content: FC = (): ReactElement => {
   return (

@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { setid } from '../content/post/coment/stores';
+import { setid } from './stores';
 
 type returnTypes = {
   setDiscussionId: (val: string) => void;

@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { PopupModalDeleteDiscussion } from "@/stores/Discussion";
+import { PopupModalDeleteDiscussion } from "../stores";
 
 type ReturnTypes = {
   setPopupDeleteStatus: (val: boolean) => void;

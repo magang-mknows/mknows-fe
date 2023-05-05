@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { PopupModalEditDiscussion } from "@/stores/Discussion";
+import { PopupModalEditDiscussion } from "../stores";
 
 type ReturnTypes = {
   setPopupEditStatus: (val: boolean) => void;

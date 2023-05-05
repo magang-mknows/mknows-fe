@@ -4,9 +4,9 @@ import Image from 'next/image';
 import userIcon from '@/assets/discussionRoom/userIcon.svg';
 import { AiFillCloseCircle, AiFillLike } from 'react-icons/ai';
 import { GoCommentDiscussion } from 'react-icons/go';
-import { TCommentCardProps } from './coment/type';
 
 import dummyCourse from '@/assets/dashboard/dummyCourse.png';
+import { TCommentCardProps } from './coment/type';
 
 const CommentCard: FC<TCommentCardProps> = ({
   hasImage,

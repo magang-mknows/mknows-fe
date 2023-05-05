@@ -1,15 +1,13 @@
-import React, { FC, lazy, ReactElement } from "react";
+import { Button } from '@mknows-frontend-services/components/atoms';
+import React, { FC, lazy, ReactElement } from 'react';
 
-import { AiOutlineSearch } from "react-icons/ai";
-import { IoMdAddCircleOutline } from "react-icons/io";
+import { AiOutlineSearch } from 'react-icons/ai';
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import { usePopupCreateDiscussionStatus } from '../hooks/usePopupCreateDiscussionStatus';
 
-import Button from "@/components/Common/Button";
 const PopupModalCreateDiscussion = lazy(
-  () => import("@/modules/DiscussionRoom/PopupModalCreateDiscussion"),
+  () => import('../PopupModalCreateDiscussion')
 );
-
-import { usePopupCreateDiscussionStatus } from "@/hooks/Discussion/usePopupCreateDiscussionStatus";
-import SuspenseError from "@/modules/Common/SuspenseError";
 
 const Search: FC = (): ReactElement => {
   const { setPopupCreateStatus } = usePopupCreateDiscussionStatus();
@@ -29,16 +27,17 @@ const Search: FC = (): ReactElement => {
       </label>
       <section className="w-full md:w-[200px] lg:w-[200px] h-[42px] lg:h-[50px] flex justify-start md:justify-end">
         <Button
-          text={"Buat Diskusi"}
-          icon={<IoMdAddCircleOutline color="" className="text-lg text-white" />}
+          // icon={
+          //   <IoMdAddCircleOutline color="" className="text-lg text-white" />
+          // }
           type="button"
           className="flex items-center px-4 lg:px-6 gap-3 bg-primary-500 dark:bg-[#17A2B8] hover:bg-primary-600 dark:hover:bg-[#0f8c9f] text-white text-xs rounded-md shadow-sm transition-colors ease-in-out duration-300"
           onClick={() => setPopupCreateStatus(true)}
-        />
+        >
+          Buat Diskusi
+        </Button>
       </section>
-      <SuspenseError>
-        <PopupModalCreateDiscussion />
-      </SuspenseError>
+      <PopupModalCreateDiscussion />
     </section>
   );
 };
