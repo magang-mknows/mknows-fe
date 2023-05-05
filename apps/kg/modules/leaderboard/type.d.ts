@@ -1,19 +1,18 @@
-import { TMetaResponse } from "../../services/types";
+import { TMetaResponse } from '@mknows-frontend-services/utils';
 
 export type ReturnTypesPopupProfil = {
-    getPopupLeaderboardStatus: boolean;
-    setPopupLeaderboardStatus: (val: boolean) => void;
-  };
+  getPopupLeaderboardStatus: boolean;
+  setPopupLeaderboardStatus: (val: boolean) => void;
+};
 
 export type ReturnTypesPopupGetUser = {
-    setPopupUser: (val: TLeaderboard) => void;
-    getPopupUser: TLeaderboard;
-  };
+  setPopupUser: (val: TLeaderboard) => void;
+  getPopupUser: TLeaderboard;
+};
 
 export type TLeaderboardItem = {
-    student_name: string
-    subjectCount: string
-    averageScore: number
+  student_name: string;
+  subjectCount: string;
+  averageScore: number;
 };
-export type TLeaderboardResponse = TMetaResponse<TLeaderboard>;
-
+export type TLeaderboardResponse = TMetaResponse<TLeaderboardItem>;

@@ -1,8 +1,14 @@
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { useRecoilState } from "recoil";
-import { PopupProfilLeaderborad, popupGetUser } from "./store";
-import { ReturnTypesPopupProfil, ReturnTypesPopupGetUser, TLeaderboardItem, TLeaderboardResponse } from "./type";
-import LeaderboardService from "./service";
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import { useRecoilState } from 'recoil';
+import { PopupProfilLeaderborad, popupGetUser } from './store';
+import {
+  ReturnTypesPopupProfil,
+  ReturnTypesPopupGetUser,
+  TLeaderboardItem,
+  TLeaderboardResponse,
+} from './type';
+import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { leaderboardGetRequest } from './api';
 
 export const usePopupProfilLeaderboard = (): ReturnTypesPopupProfil => {
   const [get, set] = useRecoilState(PopupProfilLeaderborad);
@@ -20,9 +26,11 @@ export const usePopupGetUser = (): ReturnTypesPopupGetUser => {
   };
 };
 
-export const useGetAllLeaderboard = (): UseQueryResult<TLeaderboardResponse, unknown> =>
-  useQuery<TLeaderboardResponse>({
-    queryKey: ["get-all-leaderboard"],
-    queryFn: async () => await LeaderboardService.GetAllLeaderboard(),
+export const useGetLeaderboard = (): UseQueryResult<
+  TLeaderboardResponse,
+  TMetaErrorResponse
+> =>
+  useQuery({
+    queryKey: ['get-leader-board'],
+    queryFn: async () => await leaderboardGetRequest(),
   });
-

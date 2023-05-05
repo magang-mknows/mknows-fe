@@ -9,15 +9,14 @@ import Avatar from '../assets/avatar.svg';
 import {
   usePopupProfilLeaderboard,
   usePopupGetUser,
-  useGetAllLeaderboard,
+  useGetLeaderboard,
 } from './hooks';
 import PopupProfil from './components/popup-profil';
 import { Pagination } from '@mknows-frontend-services/components/molecules';
 import { RankingSection } from './ranking-section';
 
 const ContentSection = (): ReactElement => {
-  const { data } = useGetAllLeaderboard();
-  console.log('tes', data?.data);
+  const { data } = useGetLeaderboard();
   const getRank = data?.data;
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } =
     usePopupProfilLeaderboard();
@@ -34,10 +33,10 @@ const ContentSection = (): ReactElement => {
         </div>
         <div className="w-full flex justify-center items-end flex-row mt-10 md:px-0">
           {getRank
-            ?.sort((a: any, b: any) => {
+            ?.sort((a, b) => {
               return b.averageScore - a.averageScore;
             })
-            ?.map((item: any, index: any) => {
+            ?.map((item, index) => {
               return index == 1 ? (
                 <div className="relative lg:-top-72 md:-top-60 sm:-top-52 -top-44 order-1">
                   <div className="bg-[#FEEAA2] dark:bg-[#17A2B8] lg:h-[209px] lg:w-[190px] md:h-[180px] md:w-[165px] sm:h-[145px] sm:w-[150px] h-[125px] w-[120px] text-center rounded-tr-[8px] rounded-tl-[8px]">
