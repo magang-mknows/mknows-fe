@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const QuizScore: FC = (): ReactElement => {
+export const QuizScoreModule: FC = (): ReactElement => {
   const data = {
     labels: ['Your Score'],
     datasets: [
@@ -77,5 +77,3 @@ const QuizScore: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default QuizScore;
