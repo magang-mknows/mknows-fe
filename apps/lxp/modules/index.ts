@@ -15,3 +15,5 @@ export * from './training-information';
 export * from './training-contract';
 export * from './administrations';
 export * from './score-sertificate';
+export * from './mytraining-module';
+export * from './mytraining-course';
