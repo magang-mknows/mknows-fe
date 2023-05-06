@@ -3,16 +3,12 @@ import { FC, ReactElement } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-// import DetailCard from "./DetailCard";
-// import Button from "@/components/Common/Button";
-// import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
+import { DetailCard } from './components/detail-card';
+import Link from 'next/link';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const QuizScore: FC = (): ReactElement => {
-  // const { data: quizReviewDatas } = useGetQuizReview();
-  // console.log("tes", quizReviewDatas?.quizReviewDatas);
-
   const data = {
     labels: ['Your Score'],
     datasets: [
@@ -50,28 +46,32 @@ const QuizScore: FC = (): ReactElement => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 ">
-          {/* <DetailCard type="trueAnswer" value="9" /> */}
-          {/* <DetailCard type="falseAnswer" value="1" /> */}
-          {/* <DetailCard type="timeFinished" value="7 Hari 7 Malam" /> */}
-          {/* <DetailCard type="totalQuestions" value="10" /> */}
+          <DetailCard type="trueAnswer" value="9" />
+          <DetailCard type="falseAnswer" value="1" />
+          <DetailCard type="timeFinished" value="7 Hari 7 Malam" />
+          <DetailCard type="totalQuestions" value="10" />
         </div>
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">
         <div className="w-full lg:w-80 ">
-          {/* <Button
-            text={"Riwayat Quiz"}
-            page="/"
-            type="button"
-            className="text-primary-500 dark:text-[#17A2B8] border-2 dark:border-[#17A2B8] border-primary-500 bg-white dark:hover:bg-neutral-100 hover:bg-neutral-50 w-full   h-12 rounded-md shadow-sm font-bold transition-colors ease-out duration-300"
-          /> */}
+          <Link href="/">
+            <button
+              type="button"
+              className="text-primary-500 dark:text-[#17A2B8] border-2 dark:border-[#17A2B8] border-primary-500 bg-white dark:hover:bg-neutral-100 hover:bg-neutral-50 w-full h-12 rounded-md shadow-sm font-bold transition-colors ease-out duration-300"
+            >
+              Riwayat Quiz
+            </button>
+          </Link>
         </div>
         <div className="w-full lg:w-80 ">
-          {/* <Button
-            text={"Coba Kembali (Sisa 2)"}
-            page="/studi-ku/course/quiz/mulai-quiz"
-            type="button"
-            className="bg-primary-500 dark:bg-[#17A2B8] border-2 border-primary-500 text-white hover:bg-primary-600  dark:hover:bg-neutral-100  w-full   h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"
-          /> */}
+          <Link href="">
+            <button
+              type="button"
+              className="bg-primary-500 dark:bg-[#17A2B8] border-2 border-primary-500 text-white hover:bg-primary-600  dark:hover:bg-neutral-100  w-full   h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"
+            >
+              Coba Kembali (Sisa 2)
+            </button>
+          </Link>
         </div>
       </section>
     </div>
