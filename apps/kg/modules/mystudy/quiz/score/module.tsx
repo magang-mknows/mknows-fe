@@ -3,7 +3,7 @@ import { FC, ReactElement } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DetailCard } from './components/detail-card';
+import { DetailCard } from '../common/components/detail-card';
 import Link from 'next/link';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
