@@ -69,7 +69,7 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
                   <Link
                     href={`${
                       items.schedules.length !== 0
-                        ? `/perubahan-jadwal/${items.topic}`
+                        ? `/simulasi-drill-dan-assestment/perubahan-jadwal/${items.topic}`
                         : ''
                     } `}
                   >
