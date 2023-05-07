@@ -117,8 +117,9 @@ const DateTime: FC = (): ReactElement => {
               }).format(stringToDate);
               return x.times
                 .filter(() => Day.includes(active))
-                .map((time: TSimulationItem, i: any) => {
-                  const TimeShort = time.slice(0, 5);
+                .map((time: any, i: any) => {
+                  // const TimeShort = time.slice(0, 5);
+                  const TimeShort = time;
                   return (
                     <button
                       key={i}
