@@ -1,7 +1,9 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import profileDummy from '/public/assets/pelatihanku/profile-dummy.svg';
-import { CardAuthor, CardComment } from './common';
+import profileDummy from '../assets/profile-dummy.svg';
+import { CardAuthor, CardComment } from '../common';
+import Down from '../assets/down.svg';
+import Redo from '../assets/redo.svg';
 
 const Content: FC = (): ReactElement => {
   return (
@@ -18,7 +20,7 @@ const Content: FC = (): ReactElement => {
       <div className="flex flex-row gap-4">
         <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
         <Image
-          src={'/assets/pelatihanku/down.svg'}
+          src={Down}
           className="w-auto"
           width={100}
           height={100}
@@ -41,7 +43,7 @@ const Content: FC = (): ReactElement => {
       <div className="flex flex-row gap-4 ml-14">
         <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
         <Image
-          src={'/assets/pelatihanku/down.svg'}
+          src={Down}
           className="w-auto"
           width={100}
           height={100}
@@ -64,7 +66,7 @@ const Content: FC = (): ReactElement => {
       {/* redo*/}
       <div className="flex flex-row gap-4 ml-28">
         <Image
-          src={'/assets/pelatihanku/redo.svg'}
+          src={Redo}
           className="w-auto"
           width={100}
           height={100}

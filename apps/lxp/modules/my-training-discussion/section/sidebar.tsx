@@ -1,7 +1,7 @@
 import { FC, ReactElement, useState } from 'react';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { useChooseSidebar, useSidebar } from './hooks';
+import { useChooseSidebar, useSidebar } from '../hooks';
 
 const Sidebar: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState('');
@@ -12,14 +12,14 @@ const Sidebar: FC = (): ReactElement => {
 
   return (
     <>
-      <div className="py-6 px-5 bg-[#FFFF] rounded-[8px] dark:bg-[#1B1E21]">
+      <div className="py-6 px-5 bg-[#FFFF] rounded-[8px] ">
         {getDiscussion.map((items, i) => (
           <div key={i}>
             <div
               className="flex flex-row justify-between items-center mb-3 mt-3 cursor-pointer"
               onClick={() => setIsOpen(isOpen == '' ? items.id : '')}
             >
-              <h1 className="text-[#737373] dark:text-white/80 text-[14px] font-[600]">
+              <h1 className="text-[#737373]  text-[14px] font-[600]">
                 {items.session}
               </h1>
               <div className="text-[#9CA3AF]">

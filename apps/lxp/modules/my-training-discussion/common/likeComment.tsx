@@ -1,6 +1,7 @@
 import { FC, ReactElement, useState } from "react";
 import { AiFillLike } from "react-icons/ai";
 import Image from "next/image";
+import Comment from '../assets/comment.svg';
 
 export const LikeComment: FC = (): ReactElement => {
   const [liked, setLiked] = useState(false);
@@ -19,7 +20,7 @@ export const LikeComment: FC = (): ReactElement => {
         </div>
         <p className="flex flex-row mt-8 gap-1 items-center">
           <Image
-            src={'/assets/pelatihanku/comment.svg'}
+            src={Comment}
             width={100}
             height={100}
             className="w-auto"

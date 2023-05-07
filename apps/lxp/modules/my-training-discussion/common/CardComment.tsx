@@ -1,10 +1,10 @@
 import { FC, ReactElement, useState } from 'react';
 import Image from 'next/image';
-import circle from '../../../../public/assets/pelatihanku/circle.svg';
-import edit from '/public/assets/pelatihanku/edit.svg';
+import circle from '../assets/circle.svg';
+import edit from '../assets/edit.svg';
 import { MdDelete } from 'react-icons/md';
 import { RiPencilFill } from 'react-icons/ri';
-import more from '/public/assets/pelatihanku/more.svg';
+import more from '../assets/more.svg';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { cardAuthor } from '../type';
 import { usePopupDeleteDiscussion, usePopupEditDiscussion } from '../hooks';
@@ -26,7 +26,7 @@ export const CardComment: FC<cardAuthor> = ({
   return (
     <>
       <div
-        className={`card px-10 py-8 bg-[#F5F5F5] rounded-[8px] ml-14 mb-4 mt-8 relative dark:bg-[#1B1E21] dark:border-[#1B1E21] ${styleCard}`}
+        className={`card px-10 py-8 bg-[#FFF] rounded-[8px] ml-14 mb-4 mt-8 relative  ${styleCard}`}
       >
         <div className="flex flex-row items-center justify-between gap-5 profile">
           <div className="flex flex-row gap-4 kiri">
@@ -35,7 +35,7 @@ export const CardComment: FC<cardAuthor> = ({
               <h1 className="text-[##171717] font-[600] text-[14px]">
                 Komentar: {title}
               </h1>
-              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
+              <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 ">
                 oleh{' '}
                 <span className="text-[#2D9A41] dark:text-yellow-500">
                   {author} <span>({role})</span>
@@ -54,7 +54,7 @@ export const CardComment: FC<cardAuthor> = ({
         </div>
         {open && (
           <div className="absolute flex justify-end w-full -ml-20 min-w-max ">
-            <div className=" bg-white px-6 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px] dark:bg-[#222529] dark:text-white/80">
+            <div className=" bg-white px-6 py-4 rounded-[8px] flex flex-col gap-2 text-[#171717] font-[400] text-[16px]">
               <button
                 className="flex flex-row justify-start gap-1 mb-2"
                 onClick={() => setPopupEditStatus(true)}
@@ -73,7 +73,7 @@ export const CardComment: FC<cardAuthor> = ({
           </div>
         )}
 
-        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] dark:text-white/80">
+        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] ">
           {content}
         </p>
         <LikeComment />
