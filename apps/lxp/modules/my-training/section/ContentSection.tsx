@@ -13,7 +13,7 @@ const ContentSection = (): ReactElement => {
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/modul/1',
+      slug: '/pelatihanku/kursus/1',
     },
     {
       src: ChoiceFaculty,
@@ -22,7 +22,7 @@ const ContentSection = (): ReactElement => {
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/modul/1',
+      slug: '/pelatihanku/kursus/1',
     },
     {
       src: ChoiceFaculty,
@@ -31,7 +31,7 @@ const ContentSection = (): ReactElement => {
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/modul/1',
+      slug: '/pelatihanku/kursus/1',
     },
     {
       src: ChoiceFaculty,
@@ -40,7 +40,7 @@ const ContentSection = (): ReactElement => {
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/modul/1',
+      slug: '/pelatihanku/kursus/1',
     },
   ];
   return (
