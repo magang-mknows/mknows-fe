@@ -14,7 +14,7 @@ export const MtTrainingModuleMain: FC = (): ReactElement => {
           <Card
             hasImage={false}
             className="border-[#E5E5E5] border-2 text-start rounded-lg shadow-sm"
-            href="/pelatihanku/modul/modul-video/test"
+            href="/pelatihanku/modul/video-module/1"
           >
             <div className="flex flex-col p-4">
               <h1 className="font-bold text-[18px]">
