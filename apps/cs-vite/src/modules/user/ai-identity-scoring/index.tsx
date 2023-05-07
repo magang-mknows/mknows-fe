@@ -70,195 +70,105 @@ const AiIdentityScoring: FC = (): ReactElement => {
       ),
   });
 
-  type ValidationSchema = z.infer<typeof validationSchema>;
-
   const {
     control,
     handleSubmit,
     formState: { isValid },
-  } = useForm<ValidationSchema>({
+  } = useForm({
     resolver: zodResolver(validationSchema),
     mode: 'all',
-    defaultValues: {
-      image_ktp: '',
-      image_selfie: '',
-      image_suratIzinUsahaPerdagangan: '',
-      image_suratKeteranganDomisiliUsaha: '',
-      image_suratNomorAktaNotaris: '',
-      image_suratNomorIndukBerusaha: '',
-      image_suratNomorPokokWajibPajak: '',
-      image_suratTandaDaftarPerusahaan: '',
-    },
   });
 
   const onSubmit = handleSubmit(() => {
     console.log('ok');
   });
 
+  const upload = [
+    {
+      name: 'image_ktp',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Kartu Tanda Penduduk (KTP)',
+    },
+    {
+      name: 'image_selfie',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Foto Selfi Diri',
+    },
+    {
+      name: 'image_suratNomorIndukBerusaha',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Induk Berusaha',
+    },
+    {
+      name: 'image_suratIzinUsahaPerdagangan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Izin Usaha Perdagangan',
+    },
+    {
+      name: 'image_suratNomorAktaNotaris',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Akta Notaris',
+    },
+    {
+      name: 'image_suratKeteranganDomisiliUsaha',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Keterangan Domisili Usaha',
+    },
+    {
+      name: 'image_suratNomorPokokWajibPajak',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Pokok Wajib Pajak',
+    },
+    {
+      name: 'image_suratTandaDaftarPerusahaan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Tanda Daftar Perusahaan',
+    },
+  ];
+
   return (
     <div>
       <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
         <form onSubmit={onSubmit}>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_ktp'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Kartu Tanda Penduduk (KTP)'}
-              />
+          {upload.map((x, i) => (
+            <div key={i} className="flex gap-4">
+              <div className="flex w-full">
+                <UploadField {...x} />
+              </div>
+              <div className="flex group flex-col gap-2">
+                <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
+                  ?
+                </button>
+                <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
+                  Lihat Contoh
+                </p>
+              </div>
             </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_selfie'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Foto Selfi Diri'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratNomorIndukBerusaha'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Nomor Induk Berusaha'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratIzinUsahaPerdagangan'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Izin Usaha Perdagangan'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratNomorAktaNotaris'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Nomor Akta Notaris'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratKeteranganDomisiliUsaha'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Keterangan Domisili Usaha'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratNomorPokokWajibPajak'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Nomor Pokok Wajib Pajak'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex w-full">
-              <UploadField
-                name={'image_suratTandaDaftarPerusahaan'}
-                hasLabel
-                control={control}
-                required
-                accepted=".jpg, .jpeg, .png"
-                label={'Surat Tanda Daftar Perusahaan'}
-              />
-            </div>
-            <div className="flex group flex-col gap-2">
-              <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                ?
-              </button>
-              <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                Lihat Contoh
-              </p>
-            </div>
-          </div>
+          ))}
 
           <div className="flex w-full my-8 justify-end">
             <Button

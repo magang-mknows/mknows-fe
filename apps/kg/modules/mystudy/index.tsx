@@ -1,9 +1,11 @@
-import { FC, Fragment, ReactElement } from 'react';
-import Image from 'next/image';
-import Dummy from '@/assets/myStudy/Dummy.svg';
+
+import { FC, Fragment, ReactElement } from "react";
+import Image from "next/image";
+import Dummy from "./assets/Dummy.svg";
+import { Card } from "@mknows-frontend-services/components/molecules";
+
 // import CardStudy from "./CardMatkul/Card";
 import { useDataCard } from './hooks';
-import { Card } from '@mknows-frontend-services/components/molecules';
 
 const MyStudy: FC = (): ReactElement => {
   //api

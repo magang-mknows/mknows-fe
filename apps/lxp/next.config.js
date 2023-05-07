@@ -12,6 +12,10 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    domains: ['i.ytimg.com', 'res.cloudinary.com'],
+    // formats: ["image/jpg"],
+  },
 };
 
 const plugins = [
