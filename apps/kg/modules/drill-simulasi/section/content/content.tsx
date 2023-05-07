@@ -1,5 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { Tab } from '@headlessui/react';
+import { SubmissonSimulasion } from './submission';
 // import SimulationSubmission from './SimulationSubmission';
 // import SimulationHistory from './SimulationHistory';
 
@@ -38,7 +39,9 @@ export const ContentSection: FC = (): ReactElement => {
         </Tab>
       </Tab.List>
       <Tab.Panels>
-        <Tab.Panel>{/* <SimulationSubmission /> */}</Tab.Panel>
+        <Tab.Panel>
+          <SubmissonSimulasion />
+        </Tab.Panel>
         <Tab.Panel>{/* <SimulationHistory /> */}</Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
