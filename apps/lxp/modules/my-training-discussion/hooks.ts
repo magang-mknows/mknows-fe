@@ -1,6 +1,10 @@
 import { useRecoilState } from "recoil";
-import { chooseSidebar, discussionSidebar } from "./store";
-import { Sidebar } from "./type";
+import {
+  PopupModalDeleteDiscussion,
+  chooseSidebar,
+  discussionSidebar,
+} from './store';
+import { Sidebar } from './type';
 
 type ChooseSidebar = {
   setChoose: (val: string) => void;
@@ -25,5 +29,18 @@ export const useSidebar = (): DiscussionTypes => {
   return {
     setDiscussion: (val: Array<Sidebar>) => setDiscussion(val),
     getDiscussion: getDiscussion,
+  };
+};
+
+type ReturnTypes = {
+  setPopupDeleteStatus: (val: boolean) => void;
+  getPopupDeleteStatus: boolean;
+};
+
+export const usePopupDeleteDiscussion = (): ReturnTypes => {
+  const [get, set] = useRecoilState(PopupModalDeleteDiscussion);
+  return {
+    setPopupDeleteStatus: (val: boolean) => set(val),
+    getPopupDeleteStatus: get,
   };
 };
