@@ -4,4 +4,5 @@ export interface TAccordionProps {
   children: React.ReactNode;
   disabled?: boolean;
   className?: string;
+  classNameChildren?: string;
 }

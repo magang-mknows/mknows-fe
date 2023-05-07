@@ -76,7 +76,7 @@ const DateTime: FC = (): ReactElement => {
                 className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
                   getChooseSimulation === Day
                     ? 'bg-[#3EB449] dark:bg-[#17A2B8] border-none'
-                    : ''
+                    : 'border-2 border-[#737373]'
                 } `}
                 key={y}
                 onClick={() => {
@@ -102,11 +102,12 @@ const DateTime: FC = (): ReactElement => {
       <Accordion
         title="Sore"
         // iconImage={afternoon}
-        className="bg-[#ffff] drop-shadow-lg"
+        className="bg-[#ffff] drop-shadow-xl border-2 border-[#dedcdc] rounded-tb-xl "
         idAccordion={isOpen === '' ? 'open' : ''}
         disabled={getChooseSimulation === '' ? true : false}
+        classNameChildren="rounded-2 rounded-xl drop-shadow-xl bg-white border border-[#dedcdc]"
       >
-        <div className="flex gap-5">
+        <div className="flex gap-5 ">
           {getSchedule?.map((item: TSimulationItem) =>
             item.schedules?.map((x: any) => {
               const stringToDate = new Date(x.date);
@@ -120,20 +121,20 @@ const DateTime: FC = (): ReactElement => {
                   return (
                     <button
                       key={i}
-                      className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px] border ${
+                      className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px]  ${
                         getChooseTimeSimulation === TimeShort
-                          ? 'bg-[#3EB449] dark:bg-[#17A2B8]'
-                          : ''
+                          ? 'bg-[#3EB449] dark:bg-[#17A2B8] border border-[#3EB449]'
+                          : 'border border-[#737373]'
                       } `}
                       onClick={() => {
                         setChooseTimeSimulation(TimeShort);
                       }}
                     >
                       <div
-                        className={`flex items-center gap-2 text-[#525252] dark:text-white ${
+                        className={`flex items-center gap-2  dark:text-white ${
                           getChooseTimeSimulation === TimeShort
-                            ? ' text-white dark:text-white'
-                            : ''
+                            ? ' text-white '
+                            : 'text-[#525252]'
                         }`}
                       >
                         <AiOutlineCheck className=" text-sm font-bold" />

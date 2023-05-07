@@ -9,6 +9,7 @@ export const Accordion: FC<TAccordionProps> = ({
   children,
   disabled,
   className,
+  classNameChildren,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState('');
   return (
@@ -33,7 +34,9 @@ export const Accordion: FC<TAccordionProps> = ({
       </h2>
       {isOpen === `${idAccordion}` ? (
         <div>
-          <div className="p-6 text-[14px] font-[400 text-[#262626] dark:text-[#fff]">
+          <div
+            className={`p-6 text-[14px] font-[400] text-[#262626] dark:text-[#fff] ${classNameChildren}`}
+          >
             {children}
           </div>
         </div>
