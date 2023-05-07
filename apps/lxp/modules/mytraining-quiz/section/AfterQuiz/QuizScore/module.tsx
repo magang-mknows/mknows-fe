@@ -8,6 +8,7 @@ import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { myTrainingQuizBreadCumbs } from '../../../constant';
 // import Button from "@/components/Common/Button";
 // import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
+import { ClientProvider } from '../../../../common/provider';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -35,7 +36,7 @@ export const QuizScore: FC = (): ReactElement => {
   };
 
   return (
-    <Fragment>
+    <ClientProvider>
       <BreadCrumb items={myTrainingQuizBreadCumbs} />
       <div className="px-6 md:px-8 lg:px-16 xl:px-40 py-14 w-full flex flex-col  min-h-screen">
         <section className="bg-primary-600-500 w-full py-14 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 items-center justify-center">
@@ -75,6 +76,6 @@ export const QuizScore: FC = (): ReactElement => {
           </div>
         </section>
       </div>
-    </Fragment>
+    </ClientProvider>
   );
 };
