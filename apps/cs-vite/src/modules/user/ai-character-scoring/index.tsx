@@ -222,9 +222,16 @@ const AiCharacterScoring: FC = (): ReactElement => {
             <span className="text-gray-500">or drag and drop</span>
           </div>
         </div>
-        <div className="flex gap-2 py-2 pb-10">
-          <IconDownload />
-          <p className="text-[#3D628D] font-bold">Unduh templete dokumen</p>
+        <div className="flex justify-between gap-2 py-2 pb-10">
+          <div className="flex">
+            <IconDownload />
+            <p className="text-[#3D628D] font-bold">Unduh templete dokumen</p>
+          </div>
+          <div>
+            <p className="text-xs py-2 text-gray-500">
+              XLS, XLSX(MAXIMUM SIZE:50 MB)
+            </p>
+          </div>
         </div>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
