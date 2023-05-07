@@ -39,3 +39,7 @@ export const chooseSidebar = atom({
   key: "choose-sidebar",
   default: "",
 });
+export const chooseSidebar = atom({
+  key: 'choose-sidebar',
+  default: '',
+});
