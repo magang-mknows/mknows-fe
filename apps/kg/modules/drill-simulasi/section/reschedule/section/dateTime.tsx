@@ -42,7 +42,8 @@ const DateTime: FC = (): ReactElement => {
     } else {
       setCategorySimulation('Reschedule');
     }
-    setPopupStatus(true), setScheduleSimulation(true);
+    setPopupStatus(true);
+    setScheduleSimulation(true);
   };
 
   return (
@@ -153,9 +154,8 @@ const DateTime: FC = (): ReactElement => {
       <div className="flex justify-end mt-3">
         <button
           onClick={() => {
-            getChooseSimulation != '' || getChooseTimeSimulation != ''
-              ? onSucces()
-              : '';
+            getChooseSimulation !== '' ||
+              (getChooseTimeSimulation !== '' && onSucces());
           }}
           className={` text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4 ${
             getCategorySimulation === 'Active'
