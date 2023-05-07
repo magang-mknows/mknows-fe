@@ -1,8 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { Tab } from '@headlessui/react';
 import { SubmissonSimulasion } from './simulasion';
-// import SimulationSubmission from './SimulationSubmission';
-// import SimulationHistory from './SimulationHistory';
 
 export const ContentSection: FC = (): ReactElement => {
   return (
