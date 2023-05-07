@@ -155,16 +155,23 @@ const AiIdentityScoring: FC = (): ReactElement => {
       <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
-            <div key={i} className="flex gap-4">
-              <div className="flex w-full">
-                <UploadField {...x} />
+            <div key={i} className="flex flex-col py-4">
+              <div className="flex gap-4">
+                <div className="flex w-full">
+                  <UploadField {...x} />
+                </div>
+                <div className="flex group flex-col gap-2">
+                  <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
+                    ?
+                  </button>
+                  <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
+                    Lihat Contoh
+                  </p>
+                </div>
               </div>
-              <div className="flex group flex-col gap-2">
-                <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
-                  ?
-                </button>
-                <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
-                  Lihat Contoh
+              <div className="flex absolute  pt-20 my-2">
+                <p className="text-xs text-gray-400">
+                  *Pastikan ktp terlihat jelas
                 </p>
               </div>
             </div>
