@@ -1,6 +1,7 @@
 import { useRecoilState } from "recoil";
 import {
   PopupModalDeleteDiscussion,
+  PopupModalEditDiscussion,
   chooseSidebar,
   discussionSidebar,
 } from './store';
@@ -44,3 +45,17 @@ export const usePopupDeleteDiscussion = (): ReturnTypes => {
     getPopupDeleteStatus: get,
   };
 };
+
+type ReturnPopupEditTypes = {
+  setPopupEditStatus: (val: boolean) => void;
+  getPopupEditStatus: boolean;
+};
+
+export const usePopupEditDiscussion = (): ReturnPopupEditTypes => {
+  const [get, set] = useRecoilState(PopupModalEditDiscussion);
+  return {
+    setPopupEditStatus: (val: boolean) => set(val),
+    getPopupEditStatus: get,
+  };
+};
+
