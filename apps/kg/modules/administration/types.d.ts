@@ -1,3 +1,5 @@
+import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+
 export type T = {
   title: string;
   course: string;
@@ -12,6 +14,17 @@ export type TStatusReturnAdministration = {
   getAdministrationStatus: string;
 };
 
+export type TAdministrationItem = {
+  id: string;
+  user_id: string;
+  status: string;
+  type: string;
+  action_by: string;
+  biodata: TBiodataAdm;
+  familial: TFamilyAdm;
+  file: TFileAdm;
+};
+
 export type TBiodataAdm = {
   gender: string;
   phone: string;
@@ -19,10 +32,10 @@ export type TBiodataAdm = {
   birthplace: string;
   address: string;
   last_education: string;
-  nim: string;
-  university: string;
-  major: string;
-  semester: string;
+  nim?: string;
+  university?: string;
+  major?: string;
+  semester?: string;
 };
 
 export type TFamilyAdm = {
@@ -36,3 +49,16 @@ export type TFamilyAdm = {
   live_with: string;
   tuition_payer: string;
 };
+
+export type TFileAdm = {
+  id_card: File;
+  diploma_certificate: File;
+  family_card: File;
+  photo: File;
+  transcript: File;
+  letter_of_recommendation: File;
+};
+
+export type TBiodataResponse = TMetaResponseSingle<TBiodataAdm>;
+export type TFamilyResponse = TMetaResponseSingle<TFamilyAdm>;
+export type TFileResponse = TMetaResponseSingle<TFileAdm>;

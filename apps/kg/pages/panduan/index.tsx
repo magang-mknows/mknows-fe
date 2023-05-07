@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { GuideModule } from '../../modules/guide';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const GuidePage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <GuideModule />;
 };
 
 export default GuidePage;

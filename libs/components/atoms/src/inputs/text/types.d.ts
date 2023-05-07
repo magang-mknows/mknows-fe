@@ -2,7 +2,7 @@ import { ChangeEventHandler, ReactNode } from 'react';
 import { FieldValues, UseControllerProps } from 'react-hook-form';
 
 export type TTextFieldProps<T extends FieldValues> = UseControllerProps<T> & {
-  type?: 'text' | 'password' | 'email' | 'number';
+  type?: 'text' | 'password' | 'email' | 'number' | 'date';
   label?: string;
   name: string;
   placeholder?: string;
@@ -21,4 +21,6 @@ export type TTextFieldProps<T extends FieldValues> = UseControllerProps<T> & {
   prependColor?: string;
   appendColor?: string;
   hint?: string;
+  isTextArea?: boolean;
+  textAreaRow?: number;
 };

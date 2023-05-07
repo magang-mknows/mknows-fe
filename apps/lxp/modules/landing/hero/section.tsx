@@ -17,6 +17,7 @@ export const HeroSection: FC = (): ReactElement => {
           width={800}
           height={800}
           loading="eager"
+          priority
         />
       </div>
       {/* <LandingHeroHeadlineTitle /> */}

@@ -8,14 +8,16 @@ export const UploadField = <T extends FieldValues>(
 ): ReactElement => {
   const { field } = useController(props);
   return (
-    <section className="flex flex-col mb-6">
+    <section className="flex w-full flex-col mb-6">
       {props.hasLabel && (
         <label
           htmlFor={props.name}
           className={'font-medium text-neutral-800 text-sm'}
         >
           {props.label}{' '}
-          {props.required && <span className="text-red-700 font-bold">*</span>}
+          {props.required && (
+            <span className="text-error-700 font-bold">*</span>
+          )}
         </label>
       )}
 
@@ -25,8 +27,8 @@ export const UploadField = <T extends FieldValues>(
             props.error && ' border-error-400'
           } flex overflow-hidden border rounded-lg mt-4 mb-2`}
         >
-          <div className="w-full flex items-center">
-            <h1 className="bg-primary-500 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">
+          <div className="w-full flex items-center ">
+            <h1 className="bg-primary-400 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">
               Pilih File
             </h1>
             <p
