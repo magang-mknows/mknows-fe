@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState } from 'react';
-// import afternoon from '@/assets/rescheduleSimulasi/afternoon.svg';
+import afternoon from '../assets/afternoon.svg';
 import warning from '../assets/warning.svg';
 import pengajuan from '../assets/pengajuan.svg';
 import checked from '../assets/checked.svg';
@@ -101,7 +101,8 @@ const DateTime: FC = (): ReactElement => {
       </div>
       <Accordion
         title="Sore"
-        // iconImage={afternoon}
+        hasImage
+        src={afternoon}
         className="bg-[#ffff] drop-shadow-xl border-2 border-[#dedcdc] rounded-tb-xl "
         idAccordion={isOpen === '' ? 'open' : ''}
         disabled={getChooseSimulation === '' ? true : false}
