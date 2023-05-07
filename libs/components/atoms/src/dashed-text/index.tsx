@@ -5,12 +5,9 @@ export const DashedText: FC<TDashedTextProps> = ({
   text = 'Atau',
 }): ReactElement => {
   return (
-    <div
-      data-testid="dashed-line"
-      className="inline-flex items-center justify-center w-full"
-    >
-      <hr className="w-full h-px my-8 bg-neutral-200 border-0 dark:bg-gray-700" />
-      <span className="absolute px-3 font-medium text-gray-400 bg-white dark:text-white dark:bg-gray-800">
+    <div className="inline-flex items-center justify-center w-full">
+      <hr className="w-full h-px my-6 bg-[#D9D9D9] border-0 dark:bg-gray-700" />
+      <span className="absolute px-8 font-medium text-neutral-500 bg-neutral-50 text-sm">
         {text}
       </span>
     </div>

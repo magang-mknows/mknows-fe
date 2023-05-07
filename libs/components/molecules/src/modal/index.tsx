@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FC, Fragment, ReactElement } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { TModalProps } from './types';
+import { Button } from '@mknows-frontend-services/components/atoms';
 
 export const Modal: FC<TModalProps> = ({
   title,
@@ -19,7 +20,7 @@ export const Modal: FC<TModalProps> = ({
     <Fragment>
       {lookup && (
         <div
-          className="relative z-[999999999] "
+          className="relative z-50 "
           aria-labelledby="modal-title"
           role="dialog"
           aria-modal="true"
@@ -28,7 +29,7 @@ export const Modal: FC<TModalProps> = ({
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex items-center justify-center w-full min-h-full p-4 text-center sm:items-center sm:p-0">
               <div
-                className={`relative w-auto overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 ${widthModal} `}
+                className={`relative w-auto overflow-hidden text-left transition-all transform bg-neutral-50 rounded-lg shadow-xl sm:my-8 ${widthModal} `}
               >
                 <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
                   <div
@@ -46,11 +47,12 @@ export const Modal: FC<TModalProps> = ({
                       />
                     )}
                     {withClose && (
-                      <AiOutlineClose
-                        role="button"
-                        onClick={onClose}
-                        className="text-2xl font-bold text-neutral-400 cursor-pointer"
-                      />
+                      <Button type="button" onClick={onClose} className="p-2">
+                        <AiOutlineClose
+                          role="button"
+                          className="text-2xl font-bold text-neutral-400 cursor-pointer"
+                        />
+                      </Button>
                     )}
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:text-left">

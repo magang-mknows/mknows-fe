@@ -4,3 +4,4 @@ export * from './module';
 export * from './types.d';
 export * from './error';
 export * from './loading';
+export * from './login-popup';
