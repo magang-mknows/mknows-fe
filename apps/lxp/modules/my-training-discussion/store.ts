@@ -39,7 +39,8 @@ export const chooseSidebar = atom({
   key: "choose-sidebar",
   default: "",
 });
-export const chooseSidebar = atom({
-  key: 'choose-sidebar',
-  default: '',
+
+export const PopupModalSuccessOpen = atom({
+  key: 'modal-popup-success',
+  default: false,
 });
