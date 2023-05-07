@@ -44,3 +44,8 @@ export const PopupModalSuccessOpen = atom({
   key: 'modal-popup-success',
   default: false,
 });
+
+export const PopupModalScheduleOpen = atom({
+  key: 'modal-popup-schedule',
+  default: false,
+});
