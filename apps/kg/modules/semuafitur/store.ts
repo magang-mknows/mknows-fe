@@ -69,7 +69,7 @@ export const semuaFiturState = atom<Array<T>>({
       namaFitur: 'Simulasi, Drill & Assessmen',
       icon: icon6,
       warna: '#E9F6FD',
-      slug: '/drill-simulasi',
+      slug: '/simulasi-drill-dan-assestment',
     },
     {
       id: 9,
