@@ -7,6 +7,8 @@ import {
   Button,
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
+import IconDownload from '../../../components/atoms/icons/ic-download';
+import IconUpload from '../../../components/atoms/icons/ic-upload';
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -169,6 +171,28 @@ const AiCapabilityScoring: FC = (): ReactElement => {
   return (
     <div>
       <Accordion title="Ai Capability Scoring" idAccordion={'file information'}>
+        <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
+          <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
+            <IconUpload />
+          </div>
+          <div className="flex gap-2 py-2 cursor-pointer">
+            <p className=" underline">Click to upload</p>
+            <span className="text-gray-500">or drag and drop</span>
+          </div>
+        </div>
+        <div className="flex justify-between gap-2 py-2 pb-10">
+          <div className="flex cursor-pointer">
+            <IconDownload />
+            <p className="text-[#3D628D] font-bold cursor-auto">
+              Unduh templete dokumen
+            </p>
+          </div>
+          <div>
+            <p className="text-xs py-2 text-gray-500">
+              XLS, XLSX(MAXIMUM SIZE:50 MB)
+            </p>
+          </div>
+        </div>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
             <div key={i} className="flex gap-4">
