@@ -27,7 +27,7 @@ export const ContentSection: FC = (): ReactElement => {
           />
           <PanelSection
             title="Quiz"
-            href="/pelatihanku/kuis"
+            href="/pelatihanku/quiz"
             icon={<MdOutlineQuiz className="text-xl text-[#FAB317]" />}
           />
           <PanelSection
