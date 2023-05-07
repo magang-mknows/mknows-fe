@@ -79,114 +79,123 @@ const AiCapabilityScoring: FC = (): ReactElement => {
       ),
   });
 
-  type ValidationSchema = z.infer<typeof validationSchema>;
-
   const {
     control,
     handleSubmit,
     formState: { isValid },
-  } = useForm<ValidationSchema>({
+  } = useForm({
     resolver: zodResolver(validationSchema),
     mode: 'all',
-    defaultValues: {
-      image_ktp: '',
-      image_suratIzinUsahaPerdagangan: '',
-      image_suratKeteranganDomisiliUsaha: '',
-      image_suratNomorAktaNotaris: '',
-      image_suratNomorIndukBerusaha: '',
-      image_suratNomorPokokWajibPajak: '',
-      image_suratTandaDaftarPerusahaan: '',
-      image_creditApplicant: '',
-      image_laporanKeuangan: '',
-    },
   });
+
+  const onSubmit = handleSubmit(() => {
+    console.log('ok');
+  });
+
+  const upload = [
+    {
+      name: 'image_ktp',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Kartu Tanda Penduduk (KTP)',
+    },
+    {
+      name: 'image_suratNomorIndukBerusaha',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Induk Berusaha',
+    },
+    {
+      name: 'image_suratIzinUsahaPerdagangan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Izin Usaha Perdagangan',
+    },
+    {
+      name: 'image_suratNomorAktaNotaris',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Akta Notaris',
+    },
+    {
+      name: 'image_suratKeteranganDomisiliUsaha',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Keterangan Domisili Usaha',
+    },
+    {
+      name: 'image_suratNomorPokokWajbPajak',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Nomor Pokok Wajib Pajak',
+    },
+    {
+      name: 'image_suratTandaDaftarPerusahaan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Tanda Daftar Perusahaan',
+    },
+    {
+      name: 'image_creditApplicant',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Form Credit Applicant',
+    },
+    {
+      name: 'image_laporanKeuangan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Laporan Keuangan',
+    },
+  ];
   return (
     <div>
       <Accordion title="Ai Capability Scoring" idAccordion={'file information'}>
-        <UploadField
-          name={'image_ktp'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Kartu Tanda Penduduk (KTP)'}
-        />
+        <form onSubmit={onSubmit}>
+          {upload.map((x, i) => (
+            <div key={i} className="flex gap-4">
+              <div className="flex w-full">
+                <UploadField {...x} />
+              </div>
+              <div className="flex group flex-col gap-2">
+                <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
+                  ?
+                </button>
+                <p className="text-[10px] p-1 font-bold bg-white group-hover:bg-primary-300 text-white rounded-md w-[80px] text-center justify-center ">
+                  Lihat Contoh
+                </p>
+              </div>
+            </div>
+          ))}
 
-        <UploadField
-          name={'image_suratNomorIndukBerusaha'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Nomor Induk Berusaha'}
-        />
-        <UploadField
-          name={'image_suratIzinUsahaPerdagangan'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Izin Usaha Perdagangan'}
-        />
-        <UploadField
-          name={'image_suratNomorAktaNotaris'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Nomor Akta Notaris'}
-        />
-        <UploadField
-          name={'image_suratKeteranganDomisiliUsaha'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Keterangan Domisili Usaha'}
-        />
-        <UploadField
-          name={'image_suratNomorPokokWajibPajak'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Nomor Pokok Wajib Pajak'}
-        />
-        <UploadField
-          name={'image_suratTandaDaftarPerusahaan'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Surat Tanda Daftar Perusahaan'}
-        />
-
-        <UploadField
-          name={'image_creditApplicant'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Form Credit Applicant'}
-        />
-
-        <UploadField
-          name={'image_laporanKeuangan'}
-          hasLabel
-          control={control}
-          required
-          accepted=".jpg, .jpeg, .png"
-          label={'Nota Kepemilikan Saham/Dana Tabungan'}
-        />
-        <div className="flex w-full my-8 justify-end">
-          <Button
-            disabled={!isValid}
-            className="my-4 w-[200px] rounded-[8px] disabled:bg-gray-300 disabled:text-gray-100 bg-primary-300 text-white font-bold p-3 text-1xl"
-            type={'submit'}
-          >
-            Simpan
-          </Button>
-        </div>
+          <div className="flex w-full my-8 justify-end">
+            <Button
+              disabled={!isValid}
+              className="my-4 w-[200px] rounded-[8px] disabled:bg-gray-300 disabled:text-gray-100 bg-primary-300 text-white font-bold p-3 text-1xl"
+              type={'submit'}
+            >
+              Simpan
+            </Button>
+          </div>
+        </form>
       </Accordion>
     </div>
   );

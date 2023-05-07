@@ -217,15 +217,17 @@ const AiCharacterScoring: FC = (): ReactElement => {
           <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
             <IconUpload />
           </div>
-          <div className="flex gap-2 py-2">
+          <div className="flex gap-2 py-2 cursor-pointer">
             <p className=" underline">Click to upload</p>
             <span className="text-gray-500">or drag and drop</span>
           </div>
         </div>
         <div className="flex justify-between gap-2 py-2 pb-10">
-          <div className="flex">
+          <div className="flex cursor-pointer">
             <IconDownload />
-            <p className="text-[#3D628D] font-bold">Unduh templete dokumen</p>
+            <p className="text-[#3D628D] font-bold cursor-auto">
+              Unduh templete dokumen
+            </p>
           </div>
           <div>
             <p className="text-xs py-2 text-gray-500">
