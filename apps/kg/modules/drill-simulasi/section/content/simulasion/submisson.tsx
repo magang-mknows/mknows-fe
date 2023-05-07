@@ -6,22 +6,23 @@ import Link from 'next/link';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { useGetAllSimulation } from '../../../hooks';
 import { Card } from '@mknows-frontend-services/components/molecules';
+import { TSimulationItem } from '../../../type';
 
 export const SubmissonSimulasion: FC = (): ReactElement => {
   const { data } = useGetAllSimulation();
-  const getSchedule = data?.data;
-  console.log('cek', getSchedule);
+  const getSubmission = data?.data;
+  console.log('getSubmission', getSubmission);
 
   return (
     <>
-      {getSchedule?.length === 0 ? (
+      {getSubmission?.length === 0 ? (
         <div className="flex flex-col align-center items-center">
           <Image src={simulasiNull} alt="simulasi-null" />
           <h1 className="text-black">Belum ada simulasi yang tersedia.</h1>
         </div>
       ) : (
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20 gap-5">
-          {getSchedule?.map((items: any, i: any) => (
+          {getSubmission?.map((items: TSimulationItem, i: any) => (
             <Card
               key={i}
               hasImage

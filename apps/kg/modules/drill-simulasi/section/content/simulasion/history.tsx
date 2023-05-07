@@ -6,18 +6,23 @@ import drillDummy from '../../../assets/dummy-drill.svg';
 import simulasiNull from '../../../assets/simualasi-null.svg';
 import simulasiDone from '../../../assets/simulasi-done.svg';
 import simulasiChecked from '../../../assets/simulasi-checked.svg';
-import { useGetAllSimulation, usePopupSubmissionStatus } from '../../../hooks';
+import {
+  useGetHistorySimulation,
+  usePopupSubmissionStatus,
+} from '../../../hooks';
 import { PopupModal } from '@mknows-frontend-services/components/molecules';
+import { THistoryItem } from '../../../type';
 
-const SimulationHistory: FC = (): ReactElement => {
-  const { data } = useGetAllSimulation();
-  const getHistorySimulation = data?.data;
+export const HistorySimulasion: FC = (): ReactElement => {
+  const { data } = useGetHistorySimulation();
+  const getHistory = data?.data;
+  console.log('history: ', getHistory);
   const { setPopupStatus, getPopupStatus } = usePopupSubmissionStatus();
 
   return (
     <div className="md:px-6 py-0 mb-20">
       <>
-        {getHistorySimulation.length === 0 ? (
+        {getHistory.length === 0 ? (
           <div className="flex flex-col align-center items-center">
             <Image src={simulasiNull} alt="simulasi-null" />
             <h1 className="text-black">
@@ -26,22 +31,22 @@ const SimulationHistory: FC = (): ReactElement => {
           </div>
         ) : (
           <>
-            {getHistorySimulation.map((items: any, i: any) => (
+            {getHistory.map((items: THistoryItem, i: any) => (
               <>
                 <div
                   key={i}
                   className={`flex flex-col md:flex-row dark:bg-[#1B1E21] bg-[#ffffff] rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center ${
-                    items.status === 'selesai' ? 'cursor-pointer' : ''
+                    items.status === 'FINISHED' ? 'cursor-pointer' : ''
                   }`}
                   onClick={
-                    items.status === 'selesai'
+                    items.status === 'FINISHED'
                       ? () => setPopupStatus(true)
                       : () => setPopupStatus(false)
                   }
                 >
                   <div
                     className={`flex absolute -left-0 top-0 rounded-tl-lg rounded-bl-lg h-full w-2 ${
-                      items.status === 'selesai'
+                      items.status === 'FINISHED'
                         ? 'bg-[#3EB449]'
                         : 'bg-[#FAB317]'
                     }`}
@@ -62,7 +67,7 @@ const SimulationHistory: FC = (): ReactElement => {
                     </div>
                   </div>
                   <div className="flex flex-col md:items-center items-start mr-6 md:mr-0 md:px-8 px-5 mb-7 md:py-0 md:mt-3">
-                    {items.status === 'selesai' ? (
+                    {items.status === 'FINISHED' ? (
                       <div className="flex md:flex-col flex-row gap-3 md:gap-0 items-center ">
                         <Image
                           alt="Image"
@@ -75,7 +80,7 @@ const SimulationHistory: FC = (): ReactElement => {
                         </p>
                       </div>
                     ) : (
-                      <Link href={`/perubahan-jadwal/${items.title}`}>
+                      <Link href={`/perubahan-jadwal/${items.topic}`}>
                         <button className="bg-[#FAB317] text-white md:text-[14px] text-[12px] font-[600] rounded-[8px] px-4 py-2 md:w-[230px] w-[200px] md:h-[36px] h-[30px] md:mt-3 mt-0">
                           Ajukan Perubahan Jadwal
                         </button>
@@ -83,9 +88,9 @@ const SimulationHistory: FC = (): ReactElement => {
                     )}
 
                     <div className="flex flex-row text-[#262626] dark:text-[#A3A3A3] md:text-[16px] text-[14px] font-[400] mt-2  ">
-                      <p>{items.date}</p>
-                      <p className="px-2">|</p>
-                      <p>{items.time}</p>
+                      <p>{items.picked_schedule}</p>
+                      {/* <p className="px-2">|</p>
+                      <p>{items.time}</p> */}
                     </div>
                   </div>
                 </div>
@@ -104,7 +109,7 @@ const SimulationHistory: FC = (): ReactElement => {
                     <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
                       Kamu telah melakukan simulasi di hari{' '}
                       <span className="text-[#737373]">
-                        {items.date} Pukul {items.time} WIB.
+                        {items.picked_schedule} WIB
                       </span>
                     </p>
                   </PopupModal>
@@ -117,5 +122,3 @@ const SimulationHistory: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default SimulationHistory;
