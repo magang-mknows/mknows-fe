@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FC, Fragment, ReactElement } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { TModalProps } from './types';
+import { Button } from '@mknows-frontend-services/components/atoms';
 
 export const Modal: FC<TModalProps> = ({
   title,
@@ -46,11 +47,12 @@ export const Modal: FC<TModalProps> = ({
                       />
                     )}
                     {withClose && (
-                      <AiOutlineClose
-                        role="button"
-                        onClick={onClose}
-                        className="text-2xl font-bold text-neutral-400 cursor-pointer"
-                      />
+                      <Button type="button" onClick={onClose} className="p-2">
+                        <AiOutlineClose
+                          role="button"
+                          className="text-2xl font-bold text-neutral-400 cursor-pointer"
+                        />
+                      </Button>
                     )}
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:text-left">
