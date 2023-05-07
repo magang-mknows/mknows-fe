@@ -146,7 +146,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
-      label: 'Surat Tanda Daftar Perusahaan',
+      label: 'Surat Tanda Daftar Perusahaan ',
     },
   ];
 
