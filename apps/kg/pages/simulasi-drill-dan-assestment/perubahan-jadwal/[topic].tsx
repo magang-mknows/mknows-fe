@@ -1,4 +1,4 @@
-import { RescheduleModule } from 'apps/kg/modules/drill-simulasi/section/reschedule';
+import { RescheduleModule } from '../../../modules/drill-simulasi/section/reschedule';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
