@@ -16,7 +16,7 @@ export const Checkbox = <T extends FieldValues>({
        ${variant === 'lg' && 'text-[18px]'}
        ${variant === 'md' && 'text-[16px]'}
        ${variant === 'sm' && 'text-[14px]'}
-       `}
+      flex items-center`}
     >
       <input
         {...props}

@@ -14,7 +14,7 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
       initial={{ opacity: '20%', top: 30 }}
       animate={{ opacity: '100%', top: 50 }}
       exit={{ opacity: '100%', top: 100 }}
-      className="flex flex-col font-bold gap-y-3 p-4 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
+      className="flex flex-col font-bold gap-y-3 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
     >
       <div className="flex gap-x-4 items-center">
         <Image
@@ -56,7 +56,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
       initial={{ opacity: '20%', top: 30 }}
       animate={{ opacity: '100%', top: 50 }}
       exit={{ opacity: '100%', top: 100 }}
-      className="flex flex-col bg-white font-bold gap-y-3 w-auto absolute items-center w-[274px] top-0 rounded-lg right-[180px] shadow-lg"
+      className="flex flex-col bg-white font-bold gap-y-3  absolute items-center w-[274px] top-0 rounded-lg right-[180px] shadow-lg"
     >
       <div className="flex w-full h-[91px] rounded-tl-lg rounded-tr-lg flex-col p-[16px] justify-center items-center bg-yellow-200">
         <h1 className="text-[20px]">Fitur</h1>
@@ -118,15 +118,15 @@ export const TopNav: FC<TNavbarProps> = ({
             setPopUp(false);
             setPopUpAllFeature(!getPopUpAllFeature);
           }}
-          className="flex bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg"
+          className=" bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg"
         >
           <IconFeature />
         </div>
         {!session ? (
-          <div className="flex gap-x-4">{button}</div>
+          <div className="lg:flex gap-x-4 hidden">{button}</div>
         ) : (
           <div className="flex items-center gap-x-6 relative">
-            <div className="flex bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
+            <div className=" bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
               <IconRing />
             </div>
             <Image

@@ -70,7 +70,7 @@ export const TextField = <T extends FieldValues>({
               : variant === 'sm'
               ? 'text-[14px] font-bold'
               : ''
-          }`}
+          } ${props.labelClassName}`}
         >
           {props.label}
           {props.required && (
@@ -94,24 +94,20 @@ export const TextField = <T extends FieldValues>({
             {...{ ...props, ...field }}
             className={`w-full text-[#000]  ${
               status === 'error' &&
-              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
+              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
             }
 
           ${
             status === 'success' &&
-            'focus:ring-1 focus:ring-success-base bg-success-100'
+            'focus:ring-1 focus:ring-success-base bg-success-100 '
           }
 
           ${
             status === 'warning' &&
-            'focus:ring-1 focus:ring-warning-base bg-warning-100'
+            'focus:ring-1 focus:ring-warning-base bg-warning-100 '
           }
 
-          ${
-            !status ||
-            (status === 'none' &&
-              `ring-gray-300 ring-1 focus:ring-primary-base bg-gray-100 ${props.className}`)
-          }
+          ${!status || (status === 'none' && ` ${props.className}`)}
 
              ${
                variant === 'lg'
@@ -186,7 +182,7 @@ export const TextField = <T extends FieldValues>({
       <div className="flex flex-col items-start w-full gap-x-1">
         <span className="text-grey-600">{props.hint}</span>
         <span
-          className={
+          className={`${
             status === 'error'
               ? 'text-error-base'
               : status === 'success'
@@ -194,7 +190,7 @@ export const TextField = <T extends FieldValues>({
               : status === 'warning'
               ? 'text-warning-base'
               : ''
-          }
+          } text-xs`}
         >
           {props.message}
         </span>
