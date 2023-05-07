@@ -171,7 +171,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
-            <div key={i} className="flex flex-col py-4">
+            <div key={i} className="flex relative w-full flex-col py-4">
               <div className="flex gap-4">
                 <div className="flex w-full">
                   <UploadField {...x} />
@@ -185,8 +185,23 @@ const AiIdentityScoring: FC = (): ReactElement => {
                   </p>
                 </div>
               </div>
-              <div className="flex absolute  pt-20 my-2">
+              <div className="flex order-2 absolute w-[88%] justify-between pt-20 my-2 text-gray-500">
                 <p className="text-xs">{x.notif}</p>
+                <div className="flex gap-2">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.99974 0.333008C3.31974 0.333008 0.333069 3.31967 0.333069 6.99967C0.333069 10.6797 3.31974 13.6663 6.99974 13.6663C10.6797 13.6663 13.6664 10.6797 13.6664 6.99967C13.6664 3.31967 10.6797 0.333008 6.99974 0.333008ZM7.6664 10.333H6.33307V6.33301H7.6664V10.333ZM7.6664 4.99967H6.33307V3.66634H7.6664V4.99967Z"
+                      fill="#787878"
+                    />
+                  </svg>
+                  <p className="text-xs font-bold ">Max 3.MB</p>
+                </div>
               </div>
             </div>
           ))}
