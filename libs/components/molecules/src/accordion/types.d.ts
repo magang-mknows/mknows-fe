@@ -3,4 +3,5 @@ export interface TAccordionProps {
   idAccordion: string;
   children: React.ReactNode;
   disabled?: boolean;
+  className?: string;
 }

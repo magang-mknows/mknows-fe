@@ -8,6 +8,7 @@ export const Accordion: FC<TAccordionProps> = ({
   idAccordion,
   children,
   disabled,
+  className,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState('');
   return (
@@ -18,7 +19,7 @@ export const Accordion: FC<TAccordionProps> = ({
             isOpen === '' ? setIsOpen(`${idAccordion}`) : setIsOpen('')
           }
           type="button"
-          className="flex items-center justify-between w-full p-4 font-medium text-left rounded-xl  bg-[#F5F5F5]"
+          className={`flex items-center justify-between w-full p-4 font-medium text-left rounded-xl  bg-[#F5F5F5] ${className} `}
           disabled={disabled}
         >
           <div className="text-[16px] font-[500] text-[#262626]">{title}</div>

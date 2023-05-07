@@ -65,7 +65,7 @@ const DateTime: FC = (): ReactElement => {
         Pilih tanggal dan waktu Simulasi
       </p>
 
-      <div className="flex md:flex-row flex-col md:gap-4 gap-0 ">
+      <div className="flex md:flex-row flex-col md:gap-4 gap-0 mb-5">
         {getSchedule?.map((item: TSimulationItem) =>
           item.schedules.map((x, y) => {
             const Day = new Intl.DateTimeFormat('id', {
@@ -102,6 +102,7 @@ const DateTime: FC = (): ReactElement => {
       <Accordion
         title="Sore"
         // iconImage={afternoon}
+        className="bg-[#ffff] drop-shadow-lg"
         idAccordion={isOpen === '' ? 'open' : ''}
         disabled={getChooseSimulation === '' ? true : false}
       >
