@@ -1,13 +1,15 @@
 import { FC, ReactElement } from 'react';
-import { z } from 'zod';
-import { usePopupCreateDiscussionStatus } from './hooks/usePopupCreateDiscussionStatus';
-import { PopupModalProps } from '../study-plan/components/types';
-import { useCreateDiscussion } from './hooks/useCreateDiscussion';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { TDiscussionPayload } from './types';
+
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button, TextField } from '@mknows-frontend-services/components/atoms';
+
+import { usePopupCreateDiscussionStatus } from '../hooks/usePopupCreateDiscussionStatus';
+import { useCreateDiscussion } from '../hooks/useCreateDiscussion';
+import { PopupModalProps } from '../../study-plan/components/types';
+import { TDiscussionPayload } from './types';
 
 const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupCreateStatus, getPopupCreateStatus } =

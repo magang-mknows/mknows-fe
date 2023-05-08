@@ -6,7 +6,7 @@ import { IoMdAddCircleOutline } from 'react-icons/io';
 import { usePopupCreateDiscussionStatus } from '../hooks/usePopupCreateDiscussionStatus';
 
 const PopupModalCreateDiscussion = lazy(
-  () => import('../PopupModalCreateDiscussion')
+  () => import('../component/PopupModalCreateDiscussion')
 );
 
 const Search: FC = (): ReactElement => {
