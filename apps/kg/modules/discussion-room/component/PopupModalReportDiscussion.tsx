@@ -1,9 +1,11 @@
 import { FC, ReactElement } from 'react';
-import { usePopupReportDiscussionStatus } from './hooks/usePopupReportDiscussionStatus';
-import { usePopupSuccessDiscussionStatus } from './hooks/usePopupSuccessDiscussionStatus';
-import { PopupModalProps } from '../study-plan/components/types';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button } from '@mknows-frontend-services/components/atoms';
+
+import { usePopupReportDiscussionStatus } from '../hooks/usePopupReportDiscussionStatus';
+import { usePopupSuccessDiscussionStatus } from '../hooks/usePopupSuccessDiscussionStatus';
+
+import { PopupModalProps } from '../types';
 
 const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupReportStatus, getPopupReportStatus } =

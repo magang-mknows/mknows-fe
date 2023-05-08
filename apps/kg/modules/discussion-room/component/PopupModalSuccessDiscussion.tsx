@@ -1,8 +1,10 @@
 import { FC, ReactElement } from 'react';
-import { PopupModalProps } from '../study-plan/components/types';
-import { usePopupSuccessDiscussionStatus } from './hooks/usePopupSuccessDiscussionStatus';
+
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button } from '@mknows-frontend-services/components/atoms';
+
+import { usePopupSuccessDiscussionStatus } from '../hooks/usePopupSuccessDiscussionStatus';
+import { PopupModalProps } from '../types';
 
 const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupSuccessStatus, getPopupSuccessStatus } =
