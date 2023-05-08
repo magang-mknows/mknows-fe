@@ -92,7 +92,7 @@ export const TextField = <T extends FieldValues>({
           <input
             type={type === 'password' ? (!showPassword ? type : 'text') : type}
             {...{ ...props, ...field }}
-            className={`w-full border text-[#000]  ${
+            className={`w-full border border-gray-200 text-[#000]  ${
               status === 'error' &&
               'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
             }

@@ -26,42 +26,42 @@ const AiIdentityScoring: FC = (): ReactElement => {
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorIndukBerusaha: z
+    image_surat_nomor_induk_berusaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratIzinUsahaPerdagangan: z
+    image_surat_izin_usaha_perdagangan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorAktaNotaris: z
+    image_surat_nomor_akta_notaris: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratKeteranganDomisiliUsaha: z
+    image_surat_keterangan_domisili_usaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorPokokWajibPajak: z
+    image_surat_nomor_pokok_wajib_pajak: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratTandaDaftarPerusahaan: z
+    image_surat_tanda_daftar_perusahaan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
@@ -105,7 +105,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan wajah Anda dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorIndukBerusaha',
+      name: 'image_surat_nomor_induk_berusaha',
       hasLabel: true,
       control,
       required: true,
@@ -115,7 +115,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratIzinUsahaPerdagangan',
+      name: 'image_surat_izin_usaha_perdagangan',
       hasLabel: true,
       control,
       required: true,
@@ -125,7 +125,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorAktaNotaris',
+      name: 'image_surat_nomor_akta_notaris',
       hasLabel: true,
       control,
       required: true,
@@ -135,7 +135,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Nomor Akta Notaris dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratKeteranganDomisiliUsaha',
+      name: 'image_surat_keterangan_domisili_usaha',
       hasLabel: true,
       control,
       required: true,
@@ -145,7 +145,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Keterangan Domisili Usaha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorPokokWajibPajak',
+      name: 'image_surat_nomor_pokok_wajib_pajak',
       hasLabel: true,
       control,
       required: true,
@@ -155,7 +155,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratTandaDaftarPerusahaan',
+      name: 'image_surat_tanda_daftar_perusahaan',
       hasLabel: true,
       control,
       required: true,
@@ -186,7 +186,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
                 </div>
               </div>
               <div className="flex order-2 absolute w-[88%] justify-between pt-20 my-2 text-gray-500">
-                <p className="text-xs">{x.notif}</p>
+                <p className="text-xs"></p>
                 <div className="flex gap-2">
                   <svg
                     width="14"
