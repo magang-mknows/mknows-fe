@@ -1,8 +1,8 @@
 import { ReactElement, FC } from 'react';
 import { Link } from 'react-router-dom';
-import AiIdentityScoring from '../add-data/ai-identity-scoring';
-import AiCharacterScoring from '../add-data/ai-character-scoring';
-import AiCapabilityScoring from '../add-data/ai-capability-scoring';
+import AiIdentityScoring from './ai-identity-scoring';
+import AiCharacterScoring from './ai-character-scoring';
+import AiCapabilityScoring from './ai-capability-scoring';
 
 const EditData: FC = (): ReactElement => {
   return (
