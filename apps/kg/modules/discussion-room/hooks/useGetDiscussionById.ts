@@ -1,5 +1,5 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { TDiscussionResponse } from '../types';
+import { TDiscussionResponse } from '../component/types';
 
 export const useGetDiscussionById = (
   id: string

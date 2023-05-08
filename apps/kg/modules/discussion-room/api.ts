@@ -3,7 +3,7 @@ import {
   TDiscussionPayload,
   TDiscussionResponse,
   TDiscussionSingleResponse,
-} from './types';
+} from './component/types';
 
 export const createDisscussionRequest = async (
   payload: TDiscussionPayload

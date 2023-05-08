@@ -1,9 +1,11 @@
 import { FC, ReactElement } from 'react';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { BaseLayout } from '../common';
-import HeroSection from './hero-section';
-import Content from './content';
+
 import { discussionRoomBreadCumbs } from '../administration/constant';
+import { BaseLayout } from '../common';
+
+import HeroSection from './hero-section';
+import Content from './content-section';
 
 const DiscussionModules: FC = (): ReactElement => {
   return (

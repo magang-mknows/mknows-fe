@@ -1,5 +1,7 @@
 import { atom } from 'recoil';
-import { TDiscussionItem } from './types';
+import { TDiscussionItem } from './component/types';
+
+// Popup Stores
 
 export const PopupModalCreateDiscussion = atom({
   key: 'modal-popup-create-discussion',
@@ -21,6 +23,8 @@ export const PopupModalSuccessDiscussion = atom({
   key: 'modal-popup-success-discussion',
   default: false,
 });
+
+// Api Stores
 
 export const popupGetUser = atom<TDiscussionItem>({
   key: 'popup-get-user',

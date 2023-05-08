@@ -1,6 +1,10 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { TDiscussionPayload, TDiscussionSingleResponse } from '../types';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+
+import {
+  TDiscussionPayload,
+  TDiscussionSingleResponse,
+} from '../component/types';
 import { createDisscussionRequest } from '../api';
 
 export const useCreateDiscussion = (): UseMutationResult<

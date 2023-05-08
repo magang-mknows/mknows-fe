@@ -1,6 +1,6 @@
-import { useRecoilState } from "recoil";
-import { TDiscussionItem } from "../types";
-import { popupGetUser } from "../stores";
+import { useRecoilState } from 'recoil';
+import { TDiscussionItem } from '../component/types';
+import { popupGetUser } from '../stores';
 
 // import { TLeaderboardResponse } from "@/services/Leaderboard/types";
 
