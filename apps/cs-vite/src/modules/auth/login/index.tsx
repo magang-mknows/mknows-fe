@@ -1,15 +1,17 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useState } from 'react';
 import {
   Button,
   TextField,
   Checkbox,
 } from '@mknows-frontend-services/components/atoms';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useLogin } from './hooks';
 
 const LoginModules: FC = (): ReactElement => {
+  const navigate = useNavigate();
   const validationSchema = z.object({
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
@@ -20,7 +22,7 @@ const LoginModules: FC = (): ReactElement => {
 
   type ValidationSchema = z.infer<typeof validationSchema>;
 
-  const { control, formState } = useForm<ValidationSchema>({
+  const { control, formState, handleSubmit } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
@@ -30,8 +32,27 @@ const LoginModules: FC = (): ReactElement => {
     },
   });
 
+  const { mutate, isLoading } = useLogin();
+  const [getError, setError] = useState<string | undefined>('');
+
+  const onSubmit = handleSubmit((data) => {
+    mutate(data, {
+      onSuccess: () => {
+        navigate('/dashboard/home');
+        console.log('berhasil masuk');
+      },
+      onError: (e) => {
+        setError(e.response?.data.message);
+      },
+    });
+  });
+
   return (
-    <section className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm overflow-hidden">
+    <form
+      onSubmit={onSubmit}
+      className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm overflow-hidden"
+    >
+      {getError}
       <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
         Masuk
       </h1>
@@ -73,17 +94,16 @@ const LoginModules: FC = (): ReactElement => {
         label="Ingatkan Saya"
       />
       <div className="flex flex-col mt-6">
-        <Link to={'/dashboard/home'}>
-          <Button
-            type="button"
-            className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
-            disabled={!formState.isValid}
-          >
-            Masuk
-          </Button>
-        </Link>
+        <Button
+          type="submit"
+          loading={isLoading ? 'Sedang Masuk...' : undefined}
+          className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
+          disabled={!formState.isValid}
+        >
+          Masuk
+        </Button>
       </div>
-    </section>
+    </form>
   );
 };
 

@@ -128,14 +128,18 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Kartu Tanda Penduduk (KTP)',
+      notif:
+        '*Pastikan foto KTP dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratIzinUsahaPerdagangan',
+      name: 'image_suratNomorIndukBerusaha',
       hasLabel: true,
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
-      label: 'Surat Izin Usaha Perdagangan',
+      label: 'Surat Nomor Induk Berusaha',
+      notif:
+        '*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_suratNomorAktaNotaris',
