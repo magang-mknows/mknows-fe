@@ -1,15 +1,16 @@
 import { FC, ReactElement, useState } from 'react';
 import Image from 'next/image';
-import circle from '@/assets/diskusi/circle.svg';
-import edit from '@/assets/diskusi/edit.svg';
-import deleteICon from '@/assets/diskusi/delete.svg';
 import { MdDelete } from 'react-icons/md';
 import { RiPencilFill } from 'react-icons/ri';
 import { cardAuthor } from '../type';
-import more from '@/assets/diskusi/more.svg';
 import { PopupModal } from '../../modal/pop-up';
 import { usePopupEditDiscussion, usePopupDeleteDiscussion } from './hooks';
 import { LikeComment } from '../../like-comment';
+
+import more from '../../../assets/more.svg';
+import edit from '../../../assets/edit.svg';
+import deleteICon from '../../../assets/delete.svg';
+import circle from '../../../assets/circle.svg';
 
 export const CardComment: FC<cardAuthor> = ({
   title,

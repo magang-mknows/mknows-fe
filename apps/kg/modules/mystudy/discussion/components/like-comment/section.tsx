@@ -1,6 +1,6 @@
 import { FC, ReactElement, useState } from 'react';
 import { AiFillLike } from 'react-icons/ai';
-import comment from '@/assets/diskusi/comment.svg';
+import comment from '../../assets/comment.svg';
 import Image from 'next/image';
 
 export const LikeComment: FC = (): ReactElement => {

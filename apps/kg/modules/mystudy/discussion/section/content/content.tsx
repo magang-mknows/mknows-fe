@@ -1,10 +1,11 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import profileDummy from '@/assets/diskusi/profile-dummy.svg';
-import down from '@/assets/diskusi/down.svg';
-import redo from '@/assets/diskusi/redo.svg';
 import { CardDiscussion as CardAuthor } from '../../components/card/discussion';
 import { CardComment } from '../../components/card/comment';
+
+import profileDummy from '../../assets/profile-dummy.svg';
+import down from '../../assets/down.svg';
+import redo from '../../assets/redo.svg';
 
 export const ContentSection: FC = (): ReactElement => {
   return (
