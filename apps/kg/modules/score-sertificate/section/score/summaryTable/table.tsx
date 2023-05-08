@@ -105,7 +105,7 @@ export const SummaryTable: FC = (): ReactElement => {
         }}
       >
         <Button
-          className=" bg-green-500 hover:bg-green-600 cursor-pointer transition-colors ease-in-out duration-300 shadow-md text-sm flex relative items-center justify-center text-white dark:bg-primary-500 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium"
+          className=" bg-[#3EB449] hover:bg-[#339c3e] cursor-pointer transition-colors ease-in-out duration-300 shadow-md text-sm rounded-lg flex relative items-center justify-center text-white dark:bg-primary-500 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium"
           type={'button'}
         >
           Lihat Detail Nilai
