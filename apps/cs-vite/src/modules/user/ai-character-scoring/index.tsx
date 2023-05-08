@@ -148,6 +148,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Izin Usaha Perdagangan',
+      notif:
+        '*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_surat_nomor_akta_notaris',
@@ -156,6 +158,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Nomor Akta Notaris',
+      notif:
+        '*Pastikan foto Surat Nomor Akta Notaris dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_surat_keterangan_domisili_usaha',
@@ -164,6 +168,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Keterangan Domisili Usaha',
+      notif:
+        '*Pastikan foto Surat Keterangan Domisili Usaha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_surat_nomor_pokok_wajib_pajak',
@@ -172,6 +178,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Nomor Pokok Wajib Pajak',
+      notif:
+        '*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baiks',
     },
     {
       name: 'image_surat_tanda_daftar_perusahaan',
@@ -180,6 +188,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Tanda Daftar Perusahaan',
+      notif:
+        '*Pastikan foto Surat Tanda Daftar Perusahaan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_selfie',
@@ -188,6 +198,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Foto Selfi Diri',
+      notif:
+        '*Pastikan Foto Selfie Diri dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_surat_laporan_keuangan',
@@ -196,6 +208,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Laporan Keuangan',
+      notif:
+        '*Pastikan Foto Selfie Diri dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_credit_applicant',
@@ -204,6 +218,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Form Credit Applicant',
+      notif:
+        '*Pastikan foto Form Credit Applicant dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_surat_kepemilikan_kendaraan',
@@ -212,6 +228,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Kepemilikan Kendaraan',
+      notif:
+        '*Pastikan foto Surat Kepemilikan Kendaraan dapat terlihat dengan jelas dan pencahayaan yang baiks',
     },
     {
       name: 'image_surat_kepemilikan_rumah',
@@ -220,6 +238,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Sertifikat Kepemilikan Rumah',
+      notif:
+        '*Pastikan foto Sertifikat Kepemilikan Rumah dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_nota_saham',
@@ -228,6 +248,8 @@ const AiCharacterScoring: FC = (): ReactElement => {
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Nota Kepemilikan Saham/Dana Tabungan',
+      notif:
+        '*Pastikan foto Nota Kepemilikan Saham/Dana Tabungan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
   ];
   return (
