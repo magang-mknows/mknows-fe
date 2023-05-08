@@ -4,7 +4,7 @@ import { BaseLayout } from '../../../../modules/common/layout/base';
 
 const MyStudyDiscussionPage: FC = (): ReactElement => {
   return (
-    <BaseLayout title="Kuis dimulai">
+    <BaseLayout title="Diskusi Mata Kuliah">
       <DiscussionMyStudyModule />
     </BaseLayout>
   );
