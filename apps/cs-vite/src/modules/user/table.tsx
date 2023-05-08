@@ -71,9 +71,11 @@ const Table: FC = (): ReactElement => {
                   {item.tanggal}
                 </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
-                  <span className="text-[#3D628D] cursor-pointer ">
-                    Lihat Detail
-                  </span>
+                  <Link to={'/dashboard/user/detail-data'}>
+                    <span className="text-[#3D628D] cursor-pointer ">
+                      Lihat Detail
+                    </span>
+                  </Link>
                 </td>
                 <td>
                   <div className="flex gap-2">

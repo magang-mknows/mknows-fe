@@ -4,14 +4,19 @@ import { RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { routes } from './routers';
 import './styles.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const htmlElement = document.getElementById('root') as HTMLElement;
 const root = createRoot(htmlElement);
 
+const queryClient = new QueryClient();
+
 root.render(
   <StrictMode>
     <RecoilRoot>
-      <RouterProvider router={routes} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={routes} />
+      </QueryClientProvider>
     </RecoilRoot>
   </StrictMode>
 );
