@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { filterOptionSubject, queryOptionSubject } from './stores';
-import Card from './components/Card';
+import { filterOptionSubject, queryOptionSubject } from '../stores';
+import Card from '../components/Card';
 
-import DefaultView from './assets/data-kosong.png';
-import Search from './assets/search.svg';
+import DefaultView from '../assets/data-kosong.png';
+import Search from '../assets/search.svg';
 
 const StudyProgram: FC = (): ReactElement => {
   const { query: q } = useRouter();
@@ -17,7 +17,7 @@ const StudyProgram: FC = (): ReactElement => {
   const [query, setQuery] = useRecoilState(queryOptionSubject);
   const [isClose, setClose] = useState(false);
   return (
-    <div className='bg-white'>
+    <div className="bg-white">
       <div className="flex flex-col items-center justify-center p-8">
         <div className="bg-gray-200 dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex py-4 ml-5">

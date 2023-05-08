@@ -1,10 +1,10 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
 
-import { useOptionFaculty } from './hooks';
-import Card from './components/Card';
+import { useOptionFaculty } from '../hooks';
+import Card from '../components/Card';
 
-import DefaultView from './assets/data-kosong.png';
+import DefaultView from '../assets/data-kosong.png';
 
 const StudyPlan: FC = (): ReactElement => {
   const { getOptionFaculty } = useOptionFaculty();

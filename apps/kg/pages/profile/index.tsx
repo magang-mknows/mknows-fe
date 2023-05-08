@@ -1,9 +1,13 @@
-import { EditProfileModule } from '../../modules';
+import { BaseLayout, EditProfileModule } from '../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const ProfilePage: NextPage = (): ReactElement => {
-  return <EditProfileModule />;
+  return (
+    <BaseLayout title="Ubah Profile">
+      <EditProfileModule />
+    </BaseLayout>
+  );
 };
 
 export default ProfilePage;
