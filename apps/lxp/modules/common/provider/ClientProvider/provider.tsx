@@ -70,6 +70,7 @@ export const ClientProvider: FC<TProviderProps> = ({
     full_name: profileData?.data?.user?.full_name,
     avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
   };
+
   return (
     <div className={`${montserrat.className} max-w-[2200px] container mx-auto`}>
       <Navbar
