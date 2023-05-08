@@ -13,7 +13,7 @@ const MyStudy: FC = (): ReactElement => {
 
   return (
     <Fragment>
-      <div className="flex lg:flex-row flex-col w-screen lg:px-24 px-2 py-8">
+      <div className="flex lg:flex-row flex-col w-screen lg:px-24 px-2 py-8 bg-white">
         <div>
           <Image
             width={400}
