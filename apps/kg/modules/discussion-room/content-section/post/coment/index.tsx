@@ -1,11 +1,12 @@
 import { FC, Fragment, ReactElement } from 'react';
 
-import PostCard from '../PostCard';
-
-import dummyCourse from '@/assets/dashboard/dummyCourse.png';
-import PostOption from '../PostOption';
 import { useDiscussionId } from './hooks';
+
+import PostCard from '../PostCard';
+import PostOption from '../PostOption';
 import { AddComent } from './add-coment';
+
+import dummyCourse from '../../../assets/dummyCourse.png';
 
 export const Comment: FC = (): ReactElement => {
   const { setDiscussionId } = useDiscussionId();

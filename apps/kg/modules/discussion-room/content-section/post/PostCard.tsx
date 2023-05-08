@@ -1,12 +1,12 @@
 import { FC, Fragment, ReactElement } from 'react';
 import Image from 'next/image';
 
-import userIcon from '@/assets/discussionRoom/userIcon.svg';
+import { TCommentCardProps } from './coment/type';
+
 import { AiFillCloseCircle, AiFillLike } from 'react-icons/ai';
 import { GoCommentDiscussion } from 'react-icons/go';
-
-import dummyCourse from '@/assets/dashboard/dummyCourse.png';
-import { TCommentCardProps } from './coment/type';
+import userIcon from '../../assets/userIcon.svg';
+import dummyCourse from '../../assets/dummyCourse.png';
 
 const CommentCard: FC<TCommentCardProps> = ({
   hasImage,

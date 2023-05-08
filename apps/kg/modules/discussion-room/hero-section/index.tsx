@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import discussionIcon from '@/assets/discussionRoom/discusionIcon.svg';
+
+import discussionIcon from '../assets/discusionIcon.svg';
 
 const HeroSection: FC = (): ReactElement => {
   return (
