@@ -3,7 +3,7 @@ import { ShowDetailStatus } from '../../../store';
 import React, { FC, ReactElement } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-const SummaryTable: FC = (): ReactElement => {
+export const SummaryTable: FC = (): ReactElement => {
   const setDetailStatus = useSetRecoilState(ShowDetailStatus);
 
   return (
@@ -106,12 +106,11 @@ const SummaryTable: FC = (): ReactElement => {
       >
         <Button
           className=" bg-green-500 hover:bg-green-600 cursor-pointer transition-colors ease-in-out duration-300 shadow-md text-sm flex relative items-center justify-center text-white dark:bg-primary-500 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium"
-          children={'Lihat Detail Nilai'}
           type={'button'}
-        />
+        >
+          Lihat Detail Nilai
+        </Button>
       </div>
     </div>
   );
 };
-
-export default SummaryTable;

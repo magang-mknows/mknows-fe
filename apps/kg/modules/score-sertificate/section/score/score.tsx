@@ -7,7 +7,7 @@ const montserrat = Montserrat({
 });
 
 import { ShowDetailStatus } from '../../store';
-import SummaryTable from './summaryTable/table';
+import { SummaryTable } from './summaryTable/table';
 import { ContentLayouts } from './common';
 import { SummaryChart } from './summaryChart';
 import { ScoreDetail } from './scoreDetail';

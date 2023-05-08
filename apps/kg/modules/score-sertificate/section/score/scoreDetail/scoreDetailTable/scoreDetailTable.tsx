@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 
-const ScoreDetailTable: FC = (): ReactElement => {
+export const ScoreDetailTable: FC = (): ReactElement => {
   return (
     <div className="flex flex-col w-auto ">
       <div className=" overflow-x-scroll scrollbar-hide md:scrollbar-default">
