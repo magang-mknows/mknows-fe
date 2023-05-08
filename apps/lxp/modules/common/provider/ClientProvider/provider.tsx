@@ -1,11 +1,7 @@
-'use client';
-
 import { ReactElement, FC, Fragment } from 'react';
 import { TProviderProps } from '../types';
-
 import { Montserrat } from 'next/font/google';
-import { Navbar } from '@mknows-frontend-services/components/molecules';
-
+import { Modal, Navbar } from '@mknows-frontend-services/components/molecules';
 import { MdLogout, MdDashboard } from 'react-icons/md';
 import { FcDocument } from 'react-icons/fc';
 import { FaRegUserCircle } from 'react-icons/fa';
@@ -14,30 +10,16 @@ import { useSession } from 'next-auth/react';
 import { logoutRequest } from '../../../../modules/auth/logout/api';
 import { useProfile } from '../../../../modules/profile/hooks';
 import { Button } from '@mknows-frontend-services/components/atoms';
+import { _bottom_nav_items, _nav_rules } from './const';
+import { useRecoilState } from 'recoil';
+import { LoginFormPopup, LoginPopupState } from '../../../../modules';
+
+import logo from '../../assets/mknows-logo.svg';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: '500',
 });
-
-const AuthButton: FC = (): ReactElement => (
-  <Fragment>
-    <Button
-      href="/auth/login"
-      type="button"
-      className="border-2 border-primary-base text-primary-500 px-4 py-1.5 rounded-lg w-auto h-auto"
-    >
-      Masuk
-    </Button>
-    <Button
-      href="/auth/register"
-      type="button"
-      className="text-white px-4 py-1.5 border-2 border-primary-500 rounded-lg w-auto h-auto bg-primary-500"
-    >
-      Daftar
-    </Button>
-  </Fragment>
-);
 
 export const ClientProvider: FC<TProviderProps> = ({
   children,
@@ -71,24 +53,9 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
-  const _bottom_nav_items = [
-    {
-      name: 'Dashboard',
-      link: '/dashboard',
-    },
-    {
-      name: 'Studi Ku',
-      link: '/studi-ku',
-    },
-    {
-      name: 'Penugasan',
-      link: '/penugasan',
-    },
-    {
-      name: 'Nilai & Sertifikat',
-      link: '/nilai-sertifikat',
-    },
-  ];
+  const { data: profileData } = useProfile();
+
+  const [getLoginPopup, setLoginPopup] = useRecoilState(LoginPopupState);
 
   const _features = [
     {
@@ -98,37 +65,55 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
-  const { data: profileData } = useProfile();
-
-  const _nav_rules = [
-    '/dashboard',
-    '/studi-ku',
-    '/penugasan',
-    '/nilai-sertifikat',
-  ];
-
   const _profile_user = {
     email: profileData?.data?.user?.email,
     full_name: profileData?.data?.user?.full_name,
     avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
   };
+
   return (
     <div className={`${montserrat.className} max-w-[2200px] container mx-auto`}>
-      {/* <Navbar
+      <Navbar
         items={_pop_up_menu}
         features={_features}
         avatar={
           profileData?.data.user.avatar || '/assets/images/avatar-dummy.png'
         }
-        logo={'/assets/icons/ic-logo-blue.svg'}
+        logo={logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
         bottomNavRules={_nav_rules}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
-        button={<AuthButton />}
-      /> */}
+        button={
+          <Fragment>
+            <Button
+              onClick={() => {
+                setLoginPopup(true);
+              }}
+              type="button"
+              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 bg-neutral-50 text-version2-500 hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400 text-sm py-2 w-24"
+            >
+              <h1>Masuk</h1>
+            </Button>
+            <Button
+              type="button"
+              href="/auth/daftar"
+              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 text-sm py-2 w-24 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
+            >
+              <h1>Daftar</h1>
+            </Button>
+          </Fragment>
+        }
+      />
       <section className={'bg-neutral-100 min-h-[120vh] '}>{children}</section>
+      <Modal
+        withClose
+        lookup={getLoginPopup}
+        onClose={() => setLoginPopup(false)}
+      >
+        <LoginFormPopup />
+      </Modal>
     </div>
   );
 };

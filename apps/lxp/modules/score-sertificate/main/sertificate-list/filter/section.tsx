@@ -2,20 +2,20 @@ import { Menu, Transition } from '@headlessui/react';
 import { FC, ReactElement } from 'react';
 import { TbBrandMixpanel } from 'react-icons/tb';
 import { SertificateFilterOptions } from './const';
-import { Button } from '@mknows-frontend-services/components/atoms';
 
 export const SertificateFilter: FC = (): ReactElement => {
   return (
     <nav className="w-full flex justify-end">
       <Menu as="div" className="relative inline-block text z-50 ">
-        <Menu.Button name="theme-option" aria-label="theme-option">
-          <Button
-            type="button"
-            className="text-sm py-2 w-24 bg-neutral-50 text-version2-500 hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 "
-          >
-            <TbBrandMixpanel />
-            <h1>Filter</h1>
-          </Button>
+        <Menu.Button
+          name="filter-option"
+          aria-label="filter-option"
+          className={
+            'text-sm py-2 w-24 bg-neutral-50 text-version2-500 hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2'
+          }
+        >
+          <TbBrandMixpanel />
+          <h1>Filter</h1>
         </Menu.Button>
         <Transition
           enter="transition ease duration-500 transform"

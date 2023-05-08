@@ -11,7 +11,7 @@ export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
   const { data: session } = useSession();
   const router = useRouter();
   return (
-    <header className="flex flex-col w-full sticky top-0 z-20">
+    <header className="flex flex-col w-full sticky top-0 z-50">
       <Suspense fallback={<LTopNav />}>
         <TopNav {...props} />
       </Suspense>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-neutral-200;
+  @apply bg-white;
 }
 
 @layer utilities {
