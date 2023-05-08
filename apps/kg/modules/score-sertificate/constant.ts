@@ -5,6 +5,6 @@ export const scoreBreadCumbs = [
   },
   {
     name: 'Nilai & Sertfikat',
-    link: '/nilai-sertifikat',
+    link: '/nilai-dan-sertifikat',
   },
 ];
