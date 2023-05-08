@@ -1,5 +1,10 @@
-import { Modal } from '@mknows-frontend-services/components/molecules';
 import { FC, ReactElement } from 'react';
+import { Modal } from '@mknows-frontend-services/components/molecules';
+import { Button } from '@mknows-frontend-services/components/atoms';
+
+import { usePopupDeleteDiscussionStatus } from '../hooks/usePopupDeleteDiscussionStatus';
+
+import { PopupModalProps } from '../types';
 
 const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupDeleteStatus, getPopupDeleteStatus } =
@@ -35,16 +40,20 @@ const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
           </section>
         </div>
         <div className="flex flex-row justify-center gap-4">
-          <GlobalButton
+          <Button
             className="md:!w-[192px] h-[36px]"
-            text={'Ya, Hapus'}
             color="blueBorder"
-          />
-          <GlobalButton
+            type={'button'}
+          >
+            Ya, Hapus
+          </Button>
+          <Button
             className="md:!w-[192px] h-[36px]"
-            text={'Tidak'}
             color="blue"
-          />
+            type={'button'}
+          >
+            Tidak
+          </Button>
         </div>
       </div>
     </Modal>

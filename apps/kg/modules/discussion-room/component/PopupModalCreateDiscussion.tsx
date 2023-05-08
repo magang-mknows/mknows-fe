@@ -8,8 +8,8 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 
 import { usePopupCreateDiscussionStatus } from '../hooks/usePopupCreateDiscussionStatus';
 import { useCreateDiscussion } from '../hooks/useCreateDiscussion';
-import { PopupModalProps } from '../../study-plan/components/types';
 import { TDiscussionPayload } from './types';
+import { PopupModalProps } from '../types';
 
 const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupCreateStatus, getPopupCreateStatus } =
