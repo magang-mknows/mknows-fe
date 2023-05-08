@@ -21,42 +21,42 @@ const AiCharacterScoring: FC = (): ReactElement => {
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorIndukBerusaha: z
+    image_surat_nomor_induk_berusaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratIzinUsahaPerdagangan: z
+    image_surat_izin_usaha_perdagangan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorAktaNotaris: z
+    image_surat_nomor_akta_notaris: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratKeteranganDomisiliUsaha: z
+    image_surat_keterangan_domisili_usaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorPokokWajibPajak: z
+    image_surat_nomor_pokok_wajib_pajak: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratTandaDaftarPerusahaan: z
+    image_surat_tanda_daftar_perusahaan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
@@ -70,35 +70,35 @@ const AiCharacterScoring: FC = (): ReactElement => {
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratLaporanKeuangan: z
+    image_surat_laporan_keuangan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_creditApplicant: z
+    image_credit_applicant: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratKepemilikanKendaraan: z
+    image_surat_kepemilikan_kendaraan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratKepemilikanRumah: z
+    image_surat_kepemilikan_rumah: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_notaSaham: z
+    image_nota_saham: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
@@ -132,7 +132,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
         '*Pastikan foto KTP dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorIndukBerusaha',
+      name: 'image_surat_nomor_induk_berusaha',
       hasLabel: true,
       control,
       required: true,
@@ -142,7 +142,15 @@ const AiCharacterScoring: FC = (): ReactElement => {
         '*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorAktaNotaris',
+      name: 'image_surat_izin_usaha_perdagangan',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Surat Izin Usaha Perdagangan',
+    },
+    {
+      name: 'image_surat_nomor_akta_notaris',
       hasLabel: true,
       control,
       required: true,
@@ -150,7 +158,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Surat Nomor Akta Notaris',
     },
     {
-      name: 'image_suratKeteranganDomisiliUsaha',
+      name: 'image_surat_keterangan_domisili_usaha',
       hasLabel: true,
       control,
       required: true,
@@ -158,7 +166,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Surat Keterangan Domisili Usaha',
     },
     {
-      name: 'image_suratNomorPokokWajibPajak',
+      name: 'image_surat_nomor_pokok_wajib_pajak',
       hasLabel: true,
       control,
       required: true,
@@ -166,15 +174,23 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Surat Nomor Pokok Wajib Pajak',
     },
     {
-      name: 'image_suratTandaDaftarPerusahaan',
+      name: 'image_surat_tanda_daftar_perusahaan',
       hasLabel: true,
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
-      label: 'Surat Tanda Daftar Perusahaan ',
+      label: 'Surat Tanda Daftar Perusahaan',
     },
     {
-      name: 'image_suratLaporanKeuangan',
+      name: 'image_selfie',
+      hasLabel: true,
+      control,
+      required: true,
+      accepted: '.jpg, .jpeg, .png',
+      label: 'Foto Selfi Diri',
+    },
+    {
+      name: 'image_surat_laporan_keuangan',
       hasLabel: true,
       control,
       required: true,
@@ -182,7 +198,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Surat Laporan Keuangan',
     },
     {
-      name: 'image_creditApplicant',
+      name: 'image_credit_applicant',
       hasLabel: true,
       control,
       required: true,
@@ -190,7 +206,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Form Credit Applicant',
     },
     {
-      name: 'image_suratKepemilikanKendaraan',
+      name: 'image_surat_kepemilikan_kendaraan',
       hasLabel: true,
       control,
       required: true,
@@ -198,7 +214,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Surat Kepemilikan Kendaraan',
     },
     {
-      name: 'image_suratKepemilikanRumah',
+      name: 'image_surat_kepemilikan_rumah',
       hasLabel: true,
       control,
       required: true,
@@ -206,7 +222,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       label: 'Sertifikat Kepemilikan Rumah',
     },
     {
-      name: 'image_notaSaham',
+      name: 'image_nota_saham',
       hasLabel: true,
       control,
       required: true,
