@@ -73,6 +73,14 @@ export const routes = createBrowserRouter([
         ),
       },
       {
+        path: '/dashboard/user/detail-data',
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <EditDataPages />
+          </Suspense>
+        ),
+      },
+      {
         path: '/dashboard/request',
         element: (
           <Suspense fallback={<Spinner />}>
