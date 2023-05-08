@@ -3,8 +3,8 @@ import Image from 'next/image';
 import profileDummy from '@/assets/diskusi/profile-dummy.svg';
 import down from '@/assets/diskusi/down.svg';
 import redo from '@/assets/diskusi/redo.svg';
-import CardAuthor from '@/components/DiscussionMyStudy/cardDiscussion';
-import CardComment from '@/components/DiscussionMyStudy/cardComment';
+import { CardDiscussion as CardAuthor } from '../../components/card/discussion';
+import { CardComment } from '../../components/card/comment';
 
 export const ContentSection: FC = (): ReactElement => {
   return (
