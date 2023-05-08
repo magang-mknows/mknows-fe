@@ -107,7 +107,11 @@ export const TextField = <T extends FieldValues>({
             'focus:ring-1 focus:ring-warning-base bg-warning-100 '
           }
 
-          ${!status || (status === 'none' && ` ${props.className}`)}
+          ${
+            !status ||
+            (status === 'none' &&
+              `border-[0.5px] border-neutral-800 ${props.className}`)
+          }
 
              ${
                variant === 'lg'

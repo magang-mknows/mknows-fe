@@ -1,4 +1,4 @@
-import { RegisterModule } from '../../modules/';
+import { RegisterModule } from '../../modules';
 import { NextPage } from 'next';
 import { GetSessionParams, getSession } from 'next-auth/react';
 import { ReactElement } from 'react';
