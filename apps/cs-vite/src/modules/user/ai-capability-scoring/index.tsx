@@ -21,50 +21,42 @@ const AiCapabilityScoring: FC = (): ReactElement => {
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorIndukBerusaha: z
+    image_surat_nomor_induk_berusaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratIzinUsahaPerdagangan: z
+    image_surat_izin_usaha_perdagangan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorAktaNotaris: z
+    image_surat_nomor_akta_notaris: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratKeteranganDomisiliUsaha: z
+    image_surat_keterangan_domisili_usaha: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratNomorPokokWajibPajak: z
+    image_surat_nomor_pokok_wajib_pajak: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-    image_suratTandaDaftarPerusahaan: z
-      .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
-      .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
-        'Only .jpg, .jpeg, and .png formats are supported'
-      ),
-
-    image_creditApplicant: z
+    image_surat_tanda_daftar_perusahaan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
@@ -72,7 +64,15 @@ const AiCapabilityScoring: FC = (): ReactElement => {
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
 
-    image_laporanKeuangan: z
+    image_credit_applicant: z
+      .any()
+      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+      .refine(
+        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        'Only .jpg, .jpeg, and .png formats are supported'
+      ),
+
+    image_laporan_keuangan: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
