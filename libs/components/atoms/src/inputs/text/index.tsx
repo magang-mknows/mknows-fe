@@ -58,7 +58,7 @@ export const TextField = <T extends FieldValues>({
   const { field } = useController(props);
 
   return (
-    <section className="flex flex-col gap-y-2 my-1 w-auto">
+    <section className="flex flex-col gap-y-2 my-1 w-auto ">
       {props.label && (
         <label
           htmlFor={props.name}
@@ -92,7 +92,7 @@ export const TextField = <T extends FieldValues>({
           <input
             type={type === 'password' ? (!showPassword ? type : 'text') : type}
             {...{ ...props, ...field }}
-            className={`w-full text-[#000]  ${
+            className={`w-full border text-[#000]  ${
               status === 'error' &&
               'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
             }
