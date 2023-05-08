@@ -1,12 +1,14 @@
 import { FC, ReactElement } from 'react';
-import { z } from 'zod';
-import { PopupModalProps } from '../study-plan/components/types';
-import { usePopupEditDiscussionStatus } from './hooks/usePopupEditDiscussionStatus';
-import { useDiscussionId } from './hooks/useDiscussionId';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button, TextField } from '@mknows-frontend-services/components/atoms';
+
+import { usePopupEditDiscussionStatus } from '../hooks/usePopupEditDiscussionStatus';
+import { PopupModalProps } from '../types';
+import { useDiscussionId } from '../hooks/useDiscussionId';
 
 const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const { setPopupEditStatus, getPopupEditStatus } =
@@ -111,6 +113,7 @@ const PopupModalEditDiscussion: FC<PopupModalProps> = (): ReactElement => {
                     className="px-2 py-1 bg-transparent border-2 border-transparent rounded-lg outline-none focus:outline-1 focus:border-1 focus:outline-none"
                     placeholder="Mau diskusi apa hari ini?"
                   />
+                  {/* Menunggu component DragableField */}
                   {/* <ControlledUploadDragbleField
                     control={control}
                     name={'images'}
