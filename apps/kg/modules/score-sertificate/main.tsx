@@ -6,8 +6,6 @@ import { useSetRecoilState } from 'recoil';
 import { scoreBreadCumbs } from './constant';
 import { BaseLayout } from '../common';
 import { CertificateSection } from './section/certificate';
-// import ScoreSection from './ScoreSection';
-// import CertificateSection from './CertificateSection';
 
 export const ScoreModule: FC = (): ReactElement => {
   const setDetailStatus = useSetRecoilState(ShowDetailStatus);
@@ -56,7 +54,9 @@ export const ScoreModule: FC = (): ReactElement => {
               </Tab>
             </Tab.List>
             <Tab.Panels>
-              <Tab.Panel>{/* <ScoreSection /> */}</Tab.Panel>
+              <Tab.Panel>
+                <ScoreModule />
+              </Tab.Panel>
               <Tab.Panel>
                 <CertificateSection />
               </Tab.Panel>
