@@ -11,7 +11,7 @@ export const useLogin = (): UseMutationResult<
   null
 > => {
   return useMutation({
-    mutationKey: ['login-kg'],
+    mutationKey: ['login-lxp'],
     mutationFn: (params) => loginRequest(params),
   });
 };
