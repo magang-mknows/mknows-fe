@@ -1,21 +1,21 @@
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
-import Filter from './filter';
-import Medal1 from './assets/medal-1.svg';
-import Medal3 from './assets/medal-3.svg';
-import Medal from './assets/medal.svg';
-import Crown from './assets/crown.svg';
-import Avatar from './assets/avatar.svg';
+import { Filter } from './filter';
+import Medal1 from '../assets/medal-1.svg';
+import Medal3 from '../assets/medal-3.svg';
+import Medal from '../assets/medal.svg';
+import Crown from '../assets/crown.svg';
+import Avatar from '../assets/avatar.svg';
 import {
   usePopupProfilLeaderboard,
   usePopupGetUser,
   useGetLeaderboard,
-} from './hooks';
-import PopupProfil from './components/popup-profil';
+} from '../hooks';
+import PopupProfil from '../components/popup-profil';
 import { Pagination } from '@mknows-frontend-services/components/molecules';
 import { RankingSection } from './ranking-section';
 
-const ContentSection = (): ReactElement => {
+export const ContentSection = (): ReactElement => {
   const { data } = useGetLeaderboard();
   const getRank = data?.data;
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } =
@@ -156,5 +156,3 @@ const ContentSection = (): ReactElement => {
     </div>
   );
 };
-
-export default ContentSection;

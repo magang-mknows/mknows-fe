@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import Avatar from './assets/avatar.svg';
+import Avatar from '../assets/avatar.svg';
 import React, { FC, ReactElement } from 'react';
 import {
   usePopupProfilLeaderboard,
   usePopupGetUser,
   useGetLeaderboard,
-} from './hooks';
-import PopupProfil from './components/popup-profil';
+} from '../hooks';
+import PopupProfil from '../components/popup-profil';
 
 export const RankingSection: FC = (): ReactElement => {
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } =

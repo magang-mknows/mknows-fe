@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
-import moduleFour from './assets/module-four.svg';
+import moduleFour from '../assets/module-four.svg';
 import Image from 'next/image';
 
-const Filter = (): ReactElement => {
+export const Filter = (): ReactElement => {
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState('global');
   return (
@@ -81,5 +81,3 @@ const Filter = (): ReactElement => {
     </button>
   );
 };
-
-export default Filter;

@@ -1,5 +1,4 @@
-import LeaderBoardModules from 'apps/kg/modules/leaderboard';
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { LeaderBoardModules } from '../../modules/leaderboard/module';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

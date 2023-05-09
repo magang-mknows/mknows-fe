@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const LoadingLeaderboard: FC = (): ReactElement => {
+export const LoadingLeaderboard: FC = (): ReactElement => {
   return (
     <div className="mt-36">
       <div className="px-9 py-5">
@@ -35,5 +35,3 @@ const LoadingLeaderboard: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default LoadingLeaderboard;
