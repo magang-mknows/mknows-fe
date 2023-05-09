@@ -1,3 +1,3 @@
-export * from './content-section';
+export * from './module';
 export * from './filter';
-export * from './ranking-section';
+export * from './ranking-bottom';
