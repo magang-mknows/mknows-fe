@@ -98,7 +98,7 @@ export const ClientProvider: FC<TProviderProps> = ({
             </Button>
             <Button
               type="button"
-              href="/auth/daftar"
+              href="/auth/register"
               className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 text-sm py-2 w-24 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
             >
               <h1>Daftar</h1>

@@ -1,49 +1,20 @@
-'use client';
 import Image from 'next/image';
-import { FC, ReactElement, useEffect, useState } from 'react';
+import { FC, ReactElement } from 'react';
 import { useRecoilState } from 'recoil';
-import { TsubjectItems } from './types';
 import { showDetailTraining, showSelectedDetail } from './store';
 import TrainingDetail from '../detail/detail';
+import { TSubjectsItem } from '../../types';
+import { useGetSubjetByDeptId } from '../../hook';
+import { useRouter } from 'next/router';
 
 export const TrainingInformationTable: FC = (): ReactElement => {
-  const subjects = [
-    {
-      id: '9abad3e2-ed12-4968-a3dd-4c759f368620',
-      teacher_id: 'fac8531a-11c1-4d59-8634-b073acfe1b30',
-      department_id: '597c9a4d-5db2-4686-a53f-2ece479123c2',
-      name: 'Jembotos',
-      subject_code: 'PK_01',
-      degree: 'Degree',
-      level: 1,
-      indicator: 'indi',
-      study_experience: 'studt',
-      teaching_materials: 'materials',
-      basic_competencies: 'basic',
-      tools_needed: 'needed',
-      scoring: 'scoring',
-      description: 'description',
-      thumbnail:
-        'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png',
-      credit: 3,
-      session_total_number: 3,
-      slug: 'jembotos',
-    },
-  ];
+  const router = useRouter();
+  const { id_pelatihan } = router.query;
+  const { data: subject } = useGetSubjetByDeptId(id_pelatihan as string);
 
   const [isShowDetail, setShowDetail] = useRecoilState(showDetailTraining);
   const [selectedDetail, setSelectedDetail] =
     useRecoilState(showSelectedDetail);
-
-  const [isMounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return <h1>loading...</h1>;
-  }
 
   return (
     <div className="flex flex-col">
@@ -92,7 +63,7 @@ export const TrainingInformationTable: FC = (): ReactElement => {
                 </tr>
               </thead>
               <tbody className=" text-center   text-neutral-800 ">
-                {subjects?.map((subject: TsubjectItems, index: number) => {
+                {subject?.data?.map((subject: TSubjectsItem, index: number) => {
                   return (
                     <tr
                       className="bg-neutral-100/80"
@@ -170,8 +141,8 @@ export const TrainingInformationTable: FC = (): ReactElement => {
                     Total Poin
                   </td>
                   <td className="col-span-4 py-4 ">
-                    {subjects?.reduce(
-                      (prev: number, subject: TsubjectItems) =>
+                    {subject?.data?.reduce(
+                      (prev: number, subject: TSubjectsItem) =>
                         prev + subject.credit,
                       0
                     )}

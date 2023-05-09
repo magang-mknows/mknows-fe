@@ -71,6 +71,12 @@ export const LoginFormPopup: FC = (): ReactElement => {
     setLoading(false);
   });
 
+  const onGoogleLogin = async () => {
+    await signIn('google', {
+      redirect: false,
+    });
+  };
+
   useEffect(() => {
     setError(router.query.error as string);
   }, [router.query.error]);
@@ -150,6 +156,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
           </Button>
           <DashedText />
           <Button
+            onClick={onGoogleLogin}
             type="button"
             className="bg-neutral-50 !border-neutral-500 border-[1px] !text-neutral-500 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300 flex items-center justify-center gap-2 w-full text-sm py-4  hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400"
           >
