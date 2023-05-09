@@ -3,7 +3,7 @@ import { FC } from 'react';
 import notfound from '../assets/notFound.svg';
 import { TNotFoundProps } from './types';
 
-export const FeaturesNotFound: FC<TNotFoundProps> = ({ keyword, title }) => {
+export const NotFound: FC<TNotFoundProps> = ({ keyword, title }) => {
   return (
     <div className="flex mt-10  absolute justify-center flex-col  items-center w-full">
       <Image

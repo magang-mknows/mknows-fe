@@ -5,7 +5,7 @@ import { searchKeyword } from './store';
 import { Card } from '@mknows-frontend-services/components/molecules';
 import { useGetAllDepartments } from './hook';
 import { CardLoading } from './loading';
-import { FeaturesNotFound } from '../../common/not-found';
+import { NotFound } from '../../common/not-found';
 
 export const TrainingPlanMain: FC = (): ReactElement => {
   const [getKeyword, setKeyword] = useRecoilState(searchKeyword);
@@ -37,7 +37,7 @@ export const TrainingPlanMain: FC = (): ReactElement => {
         {isLoading ? (
           <CardLoading />
         ) : departmentsList?.data?.length === 0 ? (
-          <FeaturesNotFound keyword={getKeyword} title="Pelatihan" />
+          <NotFound keyword={getKeyword} title="Pelatihan" />
         ) : (
           departmentsList?.data?.map((department, index) => {
             return (
