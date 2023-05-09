@@ -8,7 +8,7 @@ export const ResetPassword: FC = (): ReactElement => {
   const validationSchema = z.object({
     oldPassword: z.string().min(1, { message: 'Password Lama harus diisi' }),
     newPassword: z.string().min(1, { message: 'Password baru harus diisi' }),
-    confirmPassword: z
+    new_password_confirmation: z
       .string()
       .min(1, { message: 'Konfirmasi password baru harus diisi' }),
   });
@@ -95,7 +95,7 @@ export const ResetPassword: FC = (): ReactElement => {
                   placeholder="Konfirmasi Password Baru"
                   label="Konfirmasi Password"
                   type={'password'}
-                  name="confirmPassword"
+                  name="new_password_confirmation"
                   className="mt-1  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                   variant={'lg'}
                 />
