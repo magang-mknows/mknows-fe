@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil';
 import { leaderBoardRankProps } from './type';
-import { popupGetUser } from './store';
+import { PopupProfilLeaderboard, popupGetUser } from './store';
 
 type ReturnPopupGetUserTypes = {
   setPopupUser: (val: leaderBoardRankProps) => void;
@@ -14,3 +14,17 @@ export const usePopupGetUser = (): ReturnPopupGetUserTypes => {
     getPopupUser: get,
   };
 };
+
+type ReturnPopupProfilLeaderboardTypes = {
+  getPopupLeaderboardStatus: boolean;
+  setPopupLeaderboardStatus: (val: boolean) => void;
+};
+
+export const usePopupProfilLeaderboard =
+  (): ReturnPopupProfilLeaderboardTypes => {
+    const [get, set] = useRecoilState(PopupProfilLeaderboard);
+    return {
+      getPopupLeaderboardStatus: get,
+      setPopupLeaderboardStatus: (val: boolean) => set(val),
+    };
+  };
