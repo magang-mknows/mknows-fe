@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import moduleFour from '../assets/module-four.svg';
+import moduleFour from './assets/module-four.svg';
 import Image from 'next/image';
 
 const Filter = (): ReactElement => {

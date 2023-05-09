@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Avatar from '@/assets/leaderboard/avatar.svg';
+import Avatar from './assets/avatar.svg';
 import React, { FC, ReactElement } from 'react';
 import {
   usePopupProfilLeaderboard,

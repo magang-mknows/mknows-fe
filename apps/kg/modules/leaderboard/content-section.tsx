@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import Filter from './filter';
-import Medal1 from '../assets/medal-1.svg';
-import Medal3 from '../assets/medal-3.svg';
-import Medal from '../assets/medal.svg';
-import Crown from '../assets/crown.svg';
-import Avatar from '../assets/avatar.svg';
+import Medal1 from './assets/medal-1.svg';
+import Medal3 from './assets/medal-3.svg';
+import Medal from './assets/medal.svg';
+import Crown from './assets/crown.svg';
+import Avatar from './assets/avatar.svg';
 import {
   usePopupProfilLeaderboard,
   usePopupGetUser,
