@@ -1,4 +1,4 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import { TMetaResponse } from '@mknows-frontend-services/utils';
 
 export type TFaculty = {
   id: string;
@@ -6,7 +6,6 @@ export type TFaculty = {
   majors_count: number;
   thumbnail: string;
   slug: string;
-  faculty_id: string;
 };
 
-export type TFacultyResponse = TMetaResponseSingle<TFaculty>;
+export type TFacultyResponse = TMetaResponse<TFaculty>;

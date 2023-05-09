@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { lazy, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { BaseLayout } from '../../../modules/common/layout/base/section';
 import { SubmissionContractStudy } from '../../../modules';
