@@ -1,4 +1,4 @@
-import { ICommonMetaResponse } from '../../../services/types';
+import { TMetaResponse } from '@mknows-frontend-services/utils';
 
 export type TDepartmentItems = {
   id: string;
@@ -9,4 +9,4 @@ export type TDepartmentItems = {
   slug: string;
 };
 
-export type TDepartmentResponse = ICommonMetaResponse<TDepartmentItems>;
+export type TDepartmentResponse = TMetaResponse<TDepartmentItems>;
