@@ -1,9 +1,13 @@
-import { MaintnenceModule } from '../../../../modules/common/maintnence';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
+import { DiscussionMyStudyModule } from '../../../../modules/mystudy/discussion';
+import { BaseLayout } from '../../../../modules/common/layout/base';
 
-const MyStudyDisscussionPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+const MyStudyDiscussionPage: FC = (): ReactElement => {
+  return (
+    <BaseLayout title="Diskusi Mata Kuliah">
+      <DiscussionMyStudyModule />
+    </BaseLayout>
+  );
 };
 
-export default MyStudyDisscussionPage;
+export default MyStudyDiscussionPage;

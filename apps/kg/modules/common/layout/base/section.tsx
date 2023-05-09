@@ -83,7 +83,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
     {
       name: 'Nilai & Sertifikat',
-      link: '/nilai-sertifikat',
+      link: '/nilai-dan-sertifikat',
     },
   ];
 
@@ -114,7 +114,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     '/dashboard',
     '/studi-ku',
     '/penugasan',
-    '/nilai-sertifikat',
+    '/nilai-dan-sertifikat',
   ];
 
   const { data: profileData } = useProfile();
