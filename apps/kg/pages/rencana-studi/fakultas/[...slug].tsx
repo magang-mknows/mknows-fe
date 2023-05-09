@@ -6,7 +6,7 @@ import { BaseLayout } from '../../../modules/common/layout/base/section';
 // import SuspenseError from "@/modules/Common/SuspenseError";
 
 const StudyProgram = lazy(
-  () => import('../../../modules/study-plan/StudyProgram')
+  () => import('../../../modules/study-plan/study-program')
 );
 
 const StudyPlanPage: NextPage = (): ReactElement => {

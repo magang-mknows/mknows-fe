@@ -1,12 +1,12 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
 
-import { useDataCard, useDataTable, usePopupConfirmCardStudy } from './hooks';
-import PopupModal from './components/PopupModal';
+import { useDataCard, useDataTable, usePopupConfirmCardStudy } from '../hooks';
+import PopupModal from '../components/PopupModal';
 
-import Confirm from './assets/confirm.svg';
-import Download from './assets/download.svg';
-import Warning from './assets/warning.svg';
+import Confirm from '../assets/confirm.svg';
+import Download from '../assets/download.svg';
+import Warning from '../assets/warning.svg';
 
 const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();

@@ -6,3 +6,4 @@ export * from './semuafitur';
 export * from './common';
 export * from './drill-simulasi';
 export * from './profile';
+export * from './study-plan';
