@@ -17,3 +17,17 @@ export interface PopupProfilProps {
   onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
 }
   
+export const leaderBoardBreadCumbs = [
+  {
+    name: 'Home',
+    link: '/',
+  },
+  {
+    name: 'Dashboard',
+    link: '/dashboard',
+  },
+  {
+    name: 'Papan Skor',
+    link: '/papan-skor',
+  },
+];
