@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { z } from 'zod';
 import { Menu, Transition } from '@headlessui/react';
-// import { Menu, Transition } from '@headlessui/react';
 
 import {
   TextField,
@@ -25,6 +24,7 @@ export const EditProfileModule: FC = (): ReactElement => {
   const { mutate, isLoading } = useUpdateUserProfile();
 
   const userData = data?.data?.user;
+  console.log(userData?.email);
 
   const options = [
     { id: 1, value: 'L', label: 'Laki-Laki' },
@@ -155,7 +155,6 @@ export const EditProfileModule: FC = (): ReactElement => {
                       alt="user profile img"
                       className="w-[100px] h-[100px] z-20"
                     /> */}
-
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
                         <Menu.Button className="absolute md:ml-[66px] ml-[50px] top-[-40px] bottom-[4px] rounded-full md:w-[32px] w-[26px] h-[26px] flex justify-center bg-yellow-100 z-50">
@@ -225,15 +224,6 @@ export const EditProfileModule: FC = (): ReactElement => {
                     className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                     variant={'lg'}
                   />
-                  {/* <TextField
-                    control={control}
-                    placeholder="Masukkan Nomor Handphone"
-                    label="Nomor Handphone"
-                    type={'text'}
-                    name="phone_number"
-                    className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
-                    variant={'lg'}
-                  /> */}
                   <TextField
                     control={control}
                     placeholder="Masukkan Nomor Handphone"

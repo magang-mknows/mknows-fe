@@ -1,12 +1,16 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-
-import { useDataCard, useDataTable, usePopupConfirmCardStudy } from './hooks';
-import PopupModal from './components/PopupModal';
-
-import Confirm from './assets/confirm.svg';
-import Download from './assets/download.svg';
-import Warning from './assets/warning.svg';
+import { FC, ReactElement } from "react";
+import Confirm from "./asset/Confirm.svg";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import Image from "next/image";
+// import GlobalButton from "../Common/GlobalButton";
+import { useDataTable } from "./hook";
+import { useDataCard } from "./hook";
+import Download from "./asset/download1.svg";
+import Warning from "./asset/warning.svg";
+import { usePopupConfirmCardStudy } from "./hook";
+// import SuspenseError from "@/modules/Common/SuspenseError";
+// import Loading from "../Loading";
 
 const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
@@ -14,42 +18,47 @@ const SubmissionContractStudy: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
-    <div className="flex flex-col w-full px-0 py-6 lg:px-16">
+    <div className="flex flex-col w-full lg:px-16 px-0 py-6">
       <div className="flex p-8 py-4 w-[100%]">
         <div className="flex flex-col py-4 pb-4">
           <div className="flex gap-6">
-            <h1 className="flex items-center justify-center text-xl font-semibold lg:text-2xl">
+            <h1 className="flex lg:text-2xl text-xl justify-center items-center font-semibold">
               Pengajuan Kartu Rencana Study
             </h1>
             <div>
-              <button
+              {/* <GlobalButton
                 className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449]"
+                text="+ Mengajukan"
                 onClick={() => setPopupStatus(true)}
-              >
-                + Mengajukan
-              </button>
+                hasImg={false}
+              /> */}
             </div>
           </div>
           {/*isi span dari API */}
           {getDataCard.map((x, i) => (
-            <p key={i} className="flex py-2 lg:text-xl text-md">
+            <p key={i} className="flex lg:text-xl py-2 text-md">
               <div className="flex w-full jutify-start">
                 <span>{x.label}</span>
               </div>
-              <div className="flex items-start justify-start w-full">
+              <div className="flex w-full justify-start items-start">
                 <span> : {x.desc}</span>
               </div>
             </p>
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-end ">
-        <button className="mx-4 lg:text-center text-start text-md lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]">
-          Download Silabus {Download}
-        </button>
+      <div className="flex justify-end items-center ">
+        {/* <GlobalButton
+          className="lg:text-center text-start text-md mx-4 lg:ml-80 "
+          size="regular"
+          color="greenBorder"
+          text="Download Silabus"
+          hasImg={true}
+          icon={Download}
+        /> */}
       </div>
       <div className="px-4 mx-auto md:w-full">
-        <div className="flex mx-4 my-6">
+        <div className="my-6 flex mx-4">
           <div className="grid grid-cols-12 overflow-auto whitespace-nowrap mx-auto border border-[#E5E5E5] rounded-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
             <div className="bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold col-span-1 lg:text-[16px] text-[12px] dark:bg-transparent">
               No.
@@ -82,13 +91,11 @@ const SubmissionContractStudy: FC = (): ReactElement => {
                   {x.no}
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
-                  <div className="w-full p-4 lg:flex lg:justify-center lg:gap-4">
+                  <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
                     <Image src={x.img} alt="User" />
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col w-auto">
                       <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
-                      <p className="pt-3 text-gray-400 text-start">
-                        {x.jmlh_mahasiswa}
-                      </p>
+                      <p className="pt-3 text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
                     </div>
                   </div>
                 </div>
@@ -110,47 +117,48 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         </div>
       </div>
 
-      <PopupModal
-        onClose={() => setPopupStatus(false)}
-        icon={Confirm}
-        popupTitle="Konfirmasi"
-        lookup={getPopupStatus}
-        className="!h-80 lg:!w-[100%] text-md py-10"
-      >
-        <h1 className="py-2">
-          Kamu akan mengajukan program study{' '}
-          <span className="font-bold">Software Engineering</span>
-        </h1>
-        <div
-          className="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
-          role="alert"
+      {/* <SuspenseError loadingFallback={<Loading />}> */}
+        <PopupModal
+          onClose={() => setPopupStatus(false)}
+          icon={Confirm}
+          popupTitle="Konfirmasi"
+          lookup={getPopupStatus}
+          className="!h-80 lg:!w-[100%] text-md py-10"
         >
-          <div className="flex gap-2">
-            <Image src={Warning} alt="warning" />
-            <span className="block sm:inline">
-              Kamu tidak dapat mengganti Program Studi yang telah dipilih
-            </span>
+          <h1 className="py-2">
+            Kamu akan mengajukan program study{" "}
+            <span className="font-bold">Software Engineering</span>
+          </h1>
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <div className="flex gap-2">
+              <Image src={Warning} alt="warning" />
+              <span className="block sm:inline">
+                Kamu tidak dapat mengganti Program Studi yang telah dipilih
+              </span>
+            </div>
           </div>
-        </div>
-        <div className="flex gap-3 py-4 my-2">
-          <button
-            className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-            onClick={() => setPopupStatus(false)}
-            type={'button'}
-          >
-            Batal
-          </button>
-          <button
-            className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-            type={'button'}
-            // page={'/kontrak-krs/detail'}
-          >
-            Konfirmasi
-          </button>
-        </div>
-      </PopupModal>
+          <div className="flex gap-3 my-2 py-4">
+            {/* <Button
+              text="Batal"
+              className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+              onClick={() => setPopupStatus(false)}
+              type={"button"}
+            />
+            <Button
+              className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+              type={"button"}
+              text="Konfirmasi"
+              page={"/kontrak-krs/detail"}
+            /> */}
+          </div>
+        </PopupModal>
+      {/* </SuspenseError> */}
     </div>
   );
 };
 
 export default SubmissionContractStudy;
+
