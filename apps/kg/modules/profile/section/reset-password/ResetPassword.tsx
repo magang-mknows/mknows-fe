@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 
-const ResetPassword: FC = (): ReactElement => {
+export const ResetPassword: FC = (): ReactElement => {
   const validationSchema = z.object({
     oldPassword: z.string().min(1, { message: 'Password Lama harus diisi' }),
     newPassword: z.string().min(1, { message: 'Password baru harus diisi' }),
@@ -117,5 +117,3 @@ const ResetPassword: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default ResetPassword;

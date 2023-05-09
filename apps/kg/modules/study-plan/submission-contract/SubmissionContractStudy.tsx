@@ -8,7 +8,7 @@ import Confirm from '../assets/confirm.svg';
 import Download from '../assets/download.svg';
 import Warning from '../assets/warning.svg';
 
-const SubmissionContractStudy: FC = (): ReactElement => {
+export const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
   const { getDataCard } = useDataCard();
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
@@ -152,5 +152,3 @@ const SubmissionContractStudy: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default SubmissionContractStudy;

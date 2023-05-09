@@ -1,5 +1,5 @@
 import { BaseLayout } from '../../../modules';
-import ResetPassword from '../../../modules/profile/section/reset-password/ResetPassword';
+import { ResetPassword } from '../../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

@@ -9,7 +9,7 @@ import Card from '../components/Card';
 import DefaultView from '../assets/data-kosong.png';
 import Search from '../assets/search.svg';
 
-const StudyProgram: FC = (): ReactElement => {
+export const StudyProgram: FC = (): ReactElement => {
   const { query: q } = useRouter();
   const getOptionSubject = useRecoilValue(
     filterOptionSubject(q.slug as unknown as string)
@@ -85,7 +85,7 @@ const StudyProgram: FC = (): ReactElement => {
               <>
                 {getOptionSubject.map((x, i) => (
                   <Card
-                    href={'/kontrak-krs'}
+                    href={'/rencana-studi/kontrak-krs' + x.slug}
                     key={i}
                     className="px-3 rounded-lg "
                     hasImage={true}
@@ -116,5 +116,3 @@ const StudyProgram: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default StudyProgram;

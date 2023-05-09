@@ -6,7 +6,7 @@ import Card from '../components/Card';
 
 import DefaultView from '../assets/data-kosong.png';
 
-const StudyPlan: FC = (): ReactElement => {
+export const ChoiceFaculty: FC = (): ReactElement => {
   const { getOptionFaculty } = useOptionFaculty();
 
   return (
@@ -53,4 +53,4 @@ const StudyPlan: FC = (): ReactElement => {
   );
 };
 
-export default StudyPlan;
+// export default ChoiceFaculty;
