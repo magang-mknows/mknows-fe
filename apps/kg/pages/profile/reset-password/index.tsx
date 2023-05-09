@@ -1,9 +1,14 @@
-import ResetPassword from '../../../modules/profile/section/reset-password/ResetPassword';
+import { BaseLayout } from '../../../modules';
+import { ResetPassword } from '../../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const ProfileEditPage: NextPage = (): ReactElement => {
-  return <ResetPassword />;
+  return (
+    <BaseLayout title="Ubah Profile">
+      <ResetPassword />
+    </BaseLayout>
+  );
 };
 
 export default ProfileEditPage;
