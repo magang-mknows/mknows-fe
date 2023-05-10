@@ -4,6 +4,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 import { PopupModal } from "@mknows-frontend-services/components/molecules";
 import Image from "next/image";
 // import GlobalButton from "../Common/GlobalButton";
+import {GlobalButton} from "@mknows-frontend-services/components/molecules";
 import { useDataTable } from "./hook";
 import { useDataCard } from "./hook";
 import Download from "./asset/download1.svg";
@@ -26,12 +27,12 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               Pengajuan Kartu Rencana Study
             </h1>
             <div>
-              {/* <GlobalButton
+              <GlobalButton
                 className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449]"
                 text="+ Mengajukan"
                 onClick={() => setPopupStatus(true)}
                 hasImg={false}
-              /> */}
+              />
             </div>
           </div>
           {/*isi span dari API */}
@@ -48,14 +49,14 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex justify-end items-center ">
-        {/* <GlobalButton
+        <GlobalButton
           className="lg:text-center text-start text-md mx-4 lg:ml-80 "
           size="regular"
           color="greenBorder"
           text="Download Silabus"
           hasImg={true}
           icon={Download}
-        /> */}
+        />
       </div>
       <div className="px-4 mx-auto md:w-full">
         <div className="my-6 flex mx-4">
