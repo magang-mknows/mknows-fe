@@ -8,7 +8,7 @@ const Filter = (): ReactElement => {
   return (
     <button
       className="md:w-[109px] md:h-[40px] w-20 h-8 rounded-[8px] text-center border-[3px] border-[#106FA4] relative mt-[46px] "
-      onClick={() => setOpen(open == true ? false : true)}
+      onClick={() => setOpen(!open)}
     >
       <div className="my-auto flex justify-center md:gap-[10px] gap-[4px] items-center">
         <Image
