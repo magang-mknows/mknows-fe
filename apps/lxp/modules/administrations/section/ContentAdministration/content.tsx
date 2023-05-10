@@ -1,5 +1,4 @@
 import { ReactElement } from 'react';
-import { Card } from '@mknows-frontend-services/components/molecules';
 import PrivateInformationAccordion from '../../common/PrivatInformationAccordion';
 
 export const ContentAdministration = (): ReactElement => {
