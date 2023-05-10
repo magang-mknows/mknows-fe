@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import HeroSection from './section/HeroSection';
 import ContentSection from './section/ContentSection';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
