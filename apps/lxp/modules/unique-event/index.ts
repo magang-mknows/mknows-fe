@@ -1,2 +1,1 @@
-import * from './event-main'
-import * from './event-detail'
+export * from './UniqueEventPage';
