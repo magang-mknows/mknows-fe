@@ -25,7 +25,9 @@ export const UploadField = <T extends FieldValues>(
         <section
           className={`${
             props.error && ' border-error-400'
-          } flex overflow-hidden border rounded-lg mt-4 mb-2`}
+          } flex overflow-hidden border rounded-lg mt-4 mb-2 ${
+            props.className
+          }`}
         >
           <div className="w-full flex items-center ">
             <h1 className="bg-primary-400 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">

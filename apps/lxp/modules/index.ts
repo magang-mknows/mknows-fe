@@ -22,3 +22,4 @@ export * from './mytraining-course';
 export * from './discussion-room';
 export * from './drill-simulation';
 export * from './request-simulation';
+export * from './profile';
