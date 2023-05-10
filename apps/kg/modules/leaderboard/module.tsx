@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
-import ContentSection from './content-section';
+import { ContentSection } from './section/module';
 import { BaseLayout } from '../common';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { leaderBoardBreadCumbs } from '../administration/constant';
 
-const LeaderBoardModules = (): ReactElement => {
+export const LeaderBoardModules = (): ReactElement => {
   return (
     <BaseLayout>
       <BreadCrumb items={leaderBoardBreadCumbs} />
@@ -12,5 +12,3 @@ const LeaderBoardModules = (): ReactElement => {
     </BaseLayout>
   );
 };
-
-export default LeaderBoardModules;

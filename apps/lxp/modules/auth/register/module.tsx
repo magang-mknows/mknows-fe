@@ -26,7 +26,6 @@ const validationSchema = z
       message: 'Email harus valid',
     }),
     full_name: z.string().min(2, { message: 'Nama Lengkap harus diisi' }),
-    user_name: z.string().min(2, { message: 'Nama User harus diisi' }),
     password: z.string().min(1, { message: 'Password harus diisi' }),
     password_confirmation: z
       .string()
@@ -50,9 +49,8 @@ export const RegisterModule: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      email: '',
       full_name: '',
-      user_name: '',
+      email: '',
       password: '',
       password_confirmation: '',
     },
@@ -62,7 +60,7 @@ export const RegisterModule: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => router.push('/auth/login'),
+      onSuccess: () => router.push('/'),
       onError: (e) => {
         console.log(e.response?.data.message);
         setError(e.response?.data.message as string);
@@ -99,16 +97,7 @@ export const RegisterModule: FC = (): ReactElement => {
               status={errors.full_name ? 'error' : 'none'}
               message={errors.full_name?.message}
             />
-            <TextField
-              type="text"
-              variant="md"
-              control={control}
-              name={'user_name'}
-              placeholder="maul_ganteng123"
-              label="Nama User"
-              status={errors.user_name ? 'error' : 'none'}
-              message={errors.user_name?.message}
-            />
+
             <TextField
               type="email"
               variant="md"
