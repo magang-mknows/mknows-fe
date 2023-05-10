@@ -53,7 +53,8 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           type={'button'}
         >
           <Image
-            className="w-[30px] h-[30px]"
+            width={30}
+            height={30}
             alt="download"
             src={Download as StaticImageData}
           />
