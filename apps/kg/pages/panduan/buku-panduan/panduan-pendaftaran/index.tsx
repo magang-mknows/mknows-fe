@@ -1,4 +1,4 @@
-import { RegistrationGuideBookModule } from 'apps/kg/modules/guide/registration-book';
+import { RegistrationGuideBookModule } from '../../../../modules/guide/registration-book';
 import { ReactElement } from 'react';
 
 const RegistrationBookPages = (): ReactElement => {
