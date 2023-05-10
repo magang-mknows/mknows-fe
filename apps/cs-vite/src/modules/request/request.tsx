@@ -51,8 +51,7 @@ const PermintaanPage: FC = (): ReactElement => {
         <Button
           type="button"
           onClick={() => setisOpen(true)}
-          className="w-1/3 h-10"
-          color="primary"
+          className="w-1/3 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
         >
           Link Hasil
         </Button>
