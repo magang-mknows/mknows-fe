@@ -130,7 +130,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 value={Quota}
                 onChange={handleQuotaChange}
                 onKeyDown={handleKeyDown}
-                className="flex items-center justify-center text-center w-[20%] h-10 border-[1px] border-[#EBEBEB] text-[#000000] text-md font-bold"
+                className="flex items-center justify-center text-center w-[30%] h-10 border-[1px] border-[#EBEBEB] text-[#000000] text-md font-bold"
               />
               <Button
                 type="button"
@@ -171,11 +171,11 @@ const AlokasiKuota: FC = (): ReactElement => {
 
         {/* content 2 */}
         {ProductName === 'default' ? (
-          <div className="w-[70%] mr-8"></div>
+          <div className="w-[60%] mr-8"></div>
         ) : (
-          <div className="lg:w-[70%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">
-              <span className="lg:px-32 px-10 pt-7 w-full justify-center font-bold text-lg">
+              <span className="lg:px-28 px-10 pt-7 w-full justify-center font-bold text-lg">
                 Request Summary
               </span>
               <div className="px-8 py-11">
@@ -189,7 +189,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                     <span className="w-full lg:text-lg text-sm font-semibold">
                       {ProductName}
                     </span>
-                    <span className="flex items-center md:w-[20%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
+                    <span className="flex items-center md:w-[35%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
                       x {Quota}
                     </span>
                   </div>
@@ -206,11 +206,10 @@ const AlokasiKuota: FC = (): ReactElement => {
                 <div className="pt-20 w-full flex justify-center">
                   <Button
                     type="button"
-                    className="py-3 px-7 "
+                    className="py-3 px-7 bg-primary-400 text-white rounded-[4px] font-bold"
                     onClick={openModal}
                   >
-                    {' '}
-                    Confirm Request{' '}
+                    Confirm Request
                   </Button>
                 </div>
               </div>
@@ -243,7 +242,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="space-y-[9px] w-full max-w-md transform overflow-hidden rounded-[4px] bg-white px-9 py-7 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="space-y-[9px] w-full max-w-[464px] transform overflow-hidden rounded-[4px] bg-white px-9 py-7 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="bg-[#EAFBD7] rounded-full w-[34px] h-[34px] flex items-center justify-center"
@@ -266,17 +265,17 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <div className="flex flex-row w-full gap gap-x-2 pt-3">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 w-full"
+                      className="text-success-600 border-success-600 inline-flex justify-center items-center rounded-md border px-[14px] py-2 text-xs font-medium w-full"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      Kembali
                     </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 w-full"
+                      className="inline-flex bg-success-600 text-white justify-center items-center rounded-md border border-transparent px-[14px] py-2 text-xs font-medium w-full"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      Lihat Riwayat Alokasi Kuota
                     </button>
                   </div>
                 </Dialog.Panel>
