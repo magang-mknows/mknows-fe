@@ -27,14 +27,14 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               Pengajuan Kartu Rencana Study
             </h1>
             <div>
-              <Button
+              {/* <Button
                 className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 "
                 text="+ Mengajukan"
                 onClick={() => setPopupStatus(true)}
                 hasImg={false}
                 type={'button'}
                 color="green"
-              />
+              /> */}
             </div>
           </div>
           {/*isi span dari API */}
