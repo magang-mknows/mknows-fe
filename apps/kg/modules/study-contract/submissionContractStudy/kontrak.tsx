@@ -27,12 +27,12 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               Pengajuan Kartu Rencana Study
             </h1>
             <div>
-              <GlobalButton
-                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449]"
+              <Button
+                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 "
                 text="+ Mengajukan"
                 onClick={() => setPopupStatus(true)}
-                hasImg={false}
-              />
+                hasImg={false} children={undefined} type={"button"} 
+                color="green"             />
             </div>
           </div>
           {/*isi span dari API */}
@@ -49,14 +49,13 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex justify-end items-center ">
-        <GlobalButton
+        <Button
           className="lg:text-center text-start text-md mx-4 lg:ml-80 "
           size="regular"
           color="greenBorder"
           text="Download Silabus"
           hasImg={true}
-          icon={Download}
-        />
+          icon={Download} children={undefined} type={"button"}        />
       </div>
       <div className="px-4 mx-auto md:w-full">
         <div className="my-6 flex mx-4">
