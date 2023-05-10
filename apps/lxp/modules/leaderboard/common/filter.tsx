@@ -16,9 +16,7 @@ const Filter = (): ReactElement => {
           alt={'image'}
           className="md:w-[30px] w-[20px]"
         />
-        <p className="text-[#106FA4] md:text-[14px] text-[10px] dark:text-white">
-          Filter
-        </p>
+        <p className="text-[#106FA4] md:text-[14px] text-[10px] ">Filter</p>
       </div>
       {open && (
         <div className="flex justify-end container mt-[10px] z-[9000] absolute w-[150px] ease-in-out ">
