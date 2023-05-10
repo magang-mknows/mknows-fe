@@ -215,7 +215,6 @@ export const RequestSceduleMain: FC = (): ReactElement => {
           <p className="text-neutral-500 text-sm text-center">
             Kamu telah mengajukan simulasi di hari
             <span className="font-bold">
-              {' '}
               {getSelected.date} Pukul {getSelected.time} WIB,
             </span>{' '}
             Link Zoom simulasi akan dikirimkan melalui email.

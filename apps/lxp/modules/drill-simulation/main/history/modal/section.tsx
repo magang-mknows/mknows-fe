@@ -17,16 +17,34 @@ export const RequestSceduleSuccessModal: FC<TDrillSimulationPopup> = ({
     <section className="flex flex-col items-center py-10 max-w-[600px] px-6">
       <BsCheckCircleFill className="text-4xl text-[#3EB449]" />
       <figure className="h-[200px] rounded-md overflow-hidden mb-4  w-full">
-        <Image
-          src={
-            type === 'finished' ? finished : type === 'pending' ? pending : sent
-          }
-          alt="dummy-view"
-          width={10}
-          height={80}
-          className="w-full h-60"
-          loading="eager"
-        />
+        {type === 'finished' ? (
+          <Image
+            src={finished}
+            alt="dummy-view"
+            width={10}
+            height={80}
+            className="w-full h-60"
+            loading="eager"
+          />
+        ) : type === 'pending' ? (
+          <Image
+            src={pending}
+            alt="dummy-view"
+            width={10}
+            height={80}
+            className="w-full h-60"
+            loading="eager"
+          />
+        ) : (
+          <Image
+            src={sent}
+            alt="dummy-view"
+            width={10}
+            height={80}
+            className="w-full h-60"
+            loading="eager"
+          />
+        )}
       </figure>
       <h1 className="text-neutral-900 font-bold text-base">{title}</h1>
       {children}
