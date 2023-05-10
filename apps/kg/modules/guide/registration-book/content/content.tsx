@@ -25,7 +25,7 @@ export const ContentSection = (): ReactElement => {
               <h1 className="text-black dark:text-white">
                 Silahkan buka <span className="font-[700]">website</span>
                 <span className="text-[#106FA4] font-[700] ml-1">
-                  <Link href={'/'}>https://kampusgratis.id</Link>/
+                  <Link href={'/'}>https://kampusgratis.id</Link>
                 </span>
               </h1>
             </div>
@@ -40,7 +40,7 @@ export const ContentSection = (): ReactElement => {
                 <span className="font-[700]">&lsquo;Daftar&lsquo;</span>
               </h1>
             </div>
-            <Image src={Daftar} alt={''} />
+            <Image src={Daftar} alt={'daftar'} />
           </div>
           <div className="step-3">
             <div className="flex items-center gap-[14px]">
@@ -52,7 +52,7 @@ export const ContentSection = (): ReactElement => {
                 yang diperlukan
               </h1>
             </div>
-            <Image src={Form} alt={''} />
+            <Image src={Form} alt={'form'} />
           </div>
         </div>
         <div className="lg:-mt-5">
@@ -67,7 +67,11 @@ export const ContentSection = (): ReactElement => {
                 untuk menyetujui syarat & ketentuan
               </h1>
             </div>
-            <Image src={Check} alt={''} className={'ml-[20px] mt-[20px]'} />
+            <Image
+              src={Check}
+              alt={'check'}
+              className={'ml-[20px] mt-[20px]'}
+            />
           </div>
           <div className="step-5 mt-[28px]">
             <div className="flex items-center gap-[14px]">
@@ -80,7 +84,11 @@ export const ContentSection = (): ReactElement => {
                 pendaftaran akun Klik pojok kanan atas
               </h1>
             </div>
-            <Image src={Login} alt={''} className={'ml-[20px] mt-[20px]'} />
+            <Image
+              src={Login}
+              alt={'login'}
+              className={'ml-[20px] mt-[20px]'}
+            />
           </div>
           <div className="step-6">
             <div className="flex items-center gap-[14px]">
