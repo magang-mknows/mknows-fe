@@ -2,26 +2,50 @@ import { FC, ReactElement } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+
 import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 
-export const ResetPassword: FC = (): ReactElement => {
-  const validationSchema = z.object({
-    oldPassword: z.string().min(1, { message: 'Password Lama harus diisi' }),
-    newPassword: z.string().min(1, { message: 'Password baru harus diisi' }),
-    new_password_confirmation: z
-      .string()
-      .min(1, { message: 'Konfirmasi password baru harus diisi' }),
-  });
+import { TPasswordPayload } from './types';
+import { useUpdatePassword } from './hooks';
 
+export const ResetPassword: FC = (): ReactElement => {
+  const { mutate, isLoading } = useUpdatePassword();
+
+  const validationSchema = z
+    .object({
+      old_password: z.string().min(1, { message: 'Password Lama harus diisi' }),
+      new_password: z.string().min(1, { message: 'Password baru harus diisi' }),
+      new_password_confirmation: z
+        .string()
+        .min(1, { message: 'Konfirmasi password baru harus diisi' }),
+    })
+    .superRefine(({ new_password_confirmation, new_password }, ctx) => {
+      if (new_password_confirmation !== new_password) {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'The passwords did not match',
+        });
+      }
+    });
   type ValidationSchema = z.infer<typeof validationSchema>;
 
   const {
     control,
+    handleSubmit,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
   });
+
+  const onSubmit = handleSubmit((PayloadData) => {
+    try {
+      mutate(PayloadData as TPasswordPayload);
+    } catch (err) {
+      // throw handleError(err);
+    }
+  });
+
   return (
     <div className="justify-center w-full px-20 lg:justify-start bg-neutral-100 dark:bg-black">
       <div className="font-semibold text-[20px] w-full justify-center lg:justify-start mb-[12px] lg:mb-[48px] mt-[30px]">
@@ -65,7 +89,7 @@ export const ResetPassword: FC = (): ReactElement => {
             <div className="font-semibold text-[20px] mt-9 dark:text-white">
               Reset Password
             </div>
-            <form>
+            <form onSubmit={onSubmit}>
               <div className="relative w-full my-[16px] border-y px-3 py-6 ">
                 <TextField
                   control={control}
@@ -73,7 +97,7 @@ export const ResetPassword: FC = (): ReactElement => {
                   label="Password Lama"
                   labelClassName="dark:text-white"
                   type={'password'}
-                  name="oldPassword"
+                  name="old_password"
                   className="mt-1 dark:bg-blacks bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                   variant={'lg'}
                 />
@@ -86,7 +110,7 @@ export const ResetPassword: FC = (): ReactElement => {
                   label="Password Baru"
                   labelClassName="dark:text-white"
                   type={'password'}
-                  name="newPassword"
+                  name="new_password"
                   className="mt-1  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
                   variant={'lg'}
                 />
@@ -106,7 +130,7 @@ export const ResetPassword: FC = (): ReactElement => {
                     className="text-semibold !w-[153px] !h-[36px] !rounded-lg disabled:bg-gray-400 disabled:text-gray-200"
                     disabled={!isValid}
                   >
-                    Reset Password
+                    {isLoading ? 'Loading' : 'Reset Password'}
                   </Button>
                 </div>
               </div>
