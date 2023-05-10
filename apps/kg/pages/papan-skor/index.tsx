@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { LeaderBoardModules } from '../../modules/leaderboard/module';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const LeaderboardPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <LeaderBoardModules />;
 };
 
 export default LeaderboardPage;

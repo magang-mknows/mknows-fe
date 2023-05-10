@@ -1,12 +1,15 @@
 import { Button } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useState, Fragment } from 'react';
 import Card from '../../components/molecules/card';
 import { useRequestData } from '../request/hooks';
+import { Dialog, Transition } from '@headlessui/react';
+import check from '../../../public/assets/Vector.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
   const [Quota, setQuota] = useState<number>(0);
   const [ProductName, setProductName] = useState<string>('default');
+  const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleQuotaChange = (event: { target: { value: string } }) => {
@@ -53,6 +56,14 @@ const AlokasiKuota: FC = (): ReactElement => {
       setQuota(Quota - 1);
     }
   };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
     <section className="my-14 w-full">
@@ -193,7 +204,11 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <span className="text-[#000000]">{Quota}</span>
                 </div>
                 <div className="pt-20 w-full flex justify-center">
-                  <Button type="button" className="py-3 px-7">
+                  <Button
+                    type="button"
+                    className="py-3 px-7 "
+                    onClick={openModal}
+                  >
                     {' '}
                     Confirm Request{' '}
                   </Button>
@@ -203,6 +218,73 @@ const AlokasiKuota: FC = (): ReactElement => {
           </div>
         )}
       </div>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="space-y-[9px] w-full max-w-md transform overflow-hidden rounded-[4px] bg-white px-9 py-7 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="bg-[#EAFBD7] rounded-full w-[34px] h-[34px] flex items-center justify-center"
+                  >
+                    <img src={check} alt="check" />
+                  </Dialog.Title>
+                  <Dialog.Title>
+                    <span className="font-semibold text-base">
+                      Permintaan Kuota Terkirim
+                    </span>
+                  </Dialog.Title>
+                  <div>
+                    <p className="text-sm text-gray-500">
+                      Proses permintaan kuota Anda sedang berlangsung. Untuk
+                      memantau status pembaruan kuota, silakan masuk ke bagian
+                      "Riwayat Kuota".
+                    </p>
+                  </div>
+
+                  <div className="flex flex-row w-full gap gap-x-2 pt-3">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 w-full"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 w-full"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </section>
   );
 };
