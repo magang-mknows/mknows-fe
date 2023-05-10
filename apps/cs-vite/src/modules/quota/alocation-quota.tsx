@@ -3,7 +3,6 @@ import { FC, ReactElement, useState, Fragment } from 'react';
 import Card from '../../components/molecules/card';
 import { useRequestData } from '../request/hooks';
 import { Dialog, Transition } from '@headlessui/react';
-import check from '../../../public/assets/Vector.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -247,7 +246,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                     as="h3"
                     className="bg-[#EAFBD7] rounded-full w-[34px] h-[34px] flex items-center justify-center"
                   >
-                    <img src={check} alt="check" />
+                    <img src="/assets/Vceort.webp" alt="check" />
                   </Dialog.Title>
                   <Dialog.Title>
                     <span className="font-semibold text-base">
