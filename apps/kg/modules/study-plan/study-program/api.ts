@@ -1,7 +1,9 @@
 import api from '../../../services/api';
-import { TFacultyResponse } from './types';
+import { TMajorResponse } from './types';
 
-export const facultyRequest = async (): Promise<TFacultyResponse> => {
-  const { data } = await api.get('/major');
+export const majorGetByIdRequest = async (
+  id: string | number
+): Promise<TMajorResponse> => {
+  const { data } = await api.get(`/major/${id}`);
   return data;
 };
