@@ -3,8 +3,6 @@ import Confirm from './asset/Confirm.svg';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { PopupModal } from '@mknows-frontend-services/components/molecules';
 import Image, { StaticImageData } from 'next/image';
-// import GlobalButton from "../Common/GlobalButton";
-import { GlobalButton } from '@mknows-frontend-services/components/molecules';
 import { useDataTable } from './hook';
 import { useDataCard } from './hook';
 import Download from './asset/download1.svg';
@@ -27,14 +25,13 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               Pengajuan Kartu Rencana Study
             </h1>
             <div>
-              {/* <Button
-                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 "
-                text="+ Mengajukan"
+              <Button
+                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] rounded-lg"
                 onClick={() => setPopupStatus(true)}
-                hasImg={false}
                 type={'button'}
-                color="green"
-              /> */}
+              >
+                + Mengajukan
+              </Button>
             </div>
           </div>
           {/*isi span dari API */}
@@ -55,7 +52,11 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           className="flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000 lg:text-center text-start text-md mx-4 lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]"
           type={'button'}
         >
-          <Image alt="download" src={Download  as StaticImageData} />
+          <Image
+            className="w-[30px] h-[30px]"
+            alt="download"
+            src={Download as StaticImageData}
+          />
           Download Silabus
         </Button>
       </div>
@@ -145,18 +146,22 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           </div>
         </div>
         <div className="flex gap-3 my-2 py-4">
-          {/* <Button
-              text="Batal"
-              className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-              onClick={() => setPopupStatus(false)}
-              type={"button"}
-            />
-            <Button
-              className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-              type={"button"}
-              text="Konfirmasi"
-              page={"/kontrak-krs/detail"}
-            /> */}
+          <Button
+            className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
+            onClick={() => setPopupStatus(false)}
+            type={'button'}
+          >
+            Batal
+          </Button>
+
+          <Button
+            className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
+            type={'button'}
+            href={'/kontrak-krs/detail'}
+          >
+            {' '}
+            Konfirmasi
+          </Button>
         </div>
       </PopupModal>
       {/* </SuspenseError> */}
