@@ -18,3 +18,4 @@ export * from './score-sertificate';
 export * from './mytraining-module';
 export * from './mytraining-course';
 export * from './discussion-room';
+export * from './drill-simulation';
