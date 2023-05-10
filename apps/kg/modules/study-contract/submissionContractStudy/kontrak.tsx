@@ -31,7 +31,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
                 className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 "
                 text="+ Mengajukan"
                 onClick={() => setPopupStatus(true)}
-                hasImg={false} children={undefined} type={"button"} 
+                hasImg={false} type={"button"} 
                 color="green"             />
             </div>
           </div>
@@ -55,7 +55,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           color="greenBorder"
           text="Download Silabus"
           hasImg={true}
-          icon={Download} children={undefined} type={"button"}        />
+          icon={Download} type={"button"}        />
       </div>
       <div className="px-4 mx-auto md:w-full">
         <div className="my-6 flex mx-4">
