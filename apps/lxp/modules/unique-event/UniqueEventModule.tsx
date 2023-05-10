@@ -6,7 +6,7 @@ import UniqueEventSidebar from './event-sidebar/UniqueEventSidebar';
 import UniqueEventSearch from './event-search/UniqueEventSearch';
 import UniqueEventContent from './event-content/UniqueEventContent';
 
-export const UniqueEventPage: FC = (): ReactElement => {
+export const UniqueEventModule: FC = (): ReactElement => {
   const router = useRouter();
   const pathname = router.asPath;
 

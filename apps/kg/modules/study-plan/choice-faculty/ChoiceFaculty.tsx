@@ -31,7 +31,7 @@ export const ChoiceFaculty: FC = (): ReactElement => {
               {facultyData?.map((x, i) => (
                 <Card
                   key={i}
-                  href={'/rencana-studi/fakultas/' + x.slug + '/' + x.id}
+                  href={'/rencana-studi/fakultas/' + x.id}
                   className="px-3 rounded-lg "
                   imgStyle="rounded-lg"
                   hasImage={true}
