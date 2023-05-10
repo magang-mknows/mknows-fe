@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import PanduanHero from '../assets/HeroGuideBook.svg';
-import search from '../assets/search.svg';
+import PanduanHero from '../../assets/HeroGuideBook.svg';
+import search from '../../assets/search.svg';
 
 export const HeroSection = (): ReactElement => {
   return (

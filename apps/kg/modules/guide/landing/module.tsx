@@ -3,7 +3,7 @@ import { GuideSection } from './guide/guide';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { BaseLayout } from '../../common';
 import { FaqSection } from './faq/faq';
-import { HeroSection } from './landing/hero';
+import { HeroSection } from './hero/hero';
 import { guideBreadCumbs } from './const';
 
 export const GuideHeroModule: FC = (): ReactElement => {
