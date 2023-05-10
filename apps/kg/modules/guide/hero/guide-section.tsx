@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
-import BukuPanduan from './assets/buku-panduan.svg';
-import VideoPlayer from './assets/video-player.svg';
-import Kamus from './assets/kamus.svg';
+import { ReactElement } from 'react';
+import BukuPanduan from '../assets/buku-panduan.svg';
+import VideoPlayer from '../assets/video-player.svg';
+import Kamus from '../assets/kamus.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 

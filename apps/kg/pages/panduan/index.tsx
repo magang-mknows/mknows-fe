@@ -1,9 +1,9 @@
-import { GuideModule } from '../../modules/guide';
+import { GuideHeroModule } from 'apps/kg/modules/guide/hero';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const GuidePage: NextPage = (): ReactElement => {
-  return <GuideModule />;
+  return <GuideHeroModule />;
 };
 
 export default GuidePage;

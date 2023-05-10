@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FC, ReactElement } from 'react';
-const HeroSection: FC = (): ReactElement => {
+
+export const FaqSection: FC = (): ReactElement => {
   const dummyTopik = [
     {
       title: 'Cara mendaftar di Kampus Gratis',
@@ -49,5 +50,3 @@ const HeroSection: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default HeroSection;

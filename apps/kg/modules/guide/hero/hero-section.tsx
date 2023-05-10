@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import Image from 'next/image';
-import PanduanHero from './assets/panduan-hero.svg';
-import search from './assets/search.svg';
+import PanduanHero from '../assets/panduan-hero.svg';
+import search from '../assets/search.svg';
 
-const HeroSection = (): ReactElement => {
+export const HeroSection = (): ReactElement => {
   return (
     <div className="lg:grid lg:grid-cols-2 lg:gap-10 lg:mx-10 mt-[30px] px-6 md:px-8 lg:px-10 w-full mb-[50px]">
       <div className="col-span-1 ">
@@ -30,5 +30,3 @@ const HeroSection = (): ReactElement => {
     </div>
   );
 };
-
-export default HeroSection;
