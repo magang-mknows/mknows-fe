@@ -559,17 +559,6 @@ export const optionCollegeFeesPaid = [
   },
 ];
 
-export const guideBreadCumbs = [
-  {
-    name: 'Home',
-    link: '/',
-  },
-  {
-    name: 'Panduan',
-    link: '/panduan',
-  },
-];
-
 export const guideBookBreadCumbs = [
   {
     name: 'Home',

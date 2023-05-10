@@ -1,33 +1,8 @@
 import Link from 'next/link';
 import { FC, ReactElement } from 'react';
-const HeroSection: FC = (): ReactElement => {
-  const dummyTopik = [
-    {
-      title: 'Cara mendaftar di Kampus Gratis',
-      href: '/panduan/buku-panduan/panduan-pendaftaran',
-    },
-    {
-      title: 'Cara login website kampus gratis',
-      href: '/',
-    },
-    {
-      title: 'Cara mengisi administarsi',
-      href: '/',
-    },
-    {
-      title: 'Cara mengakases fitur studi-ku  ',
-      href: '/',
-    },
-    {
-      title: 'Bagaimana cara melihat sertifikat',
-      href: '/',
-    },
-    {
-      title: 'Cara ganti kata sandi',
-      href: '/',
-    },
-  ];
+import { dummyTopik } from './store';
 
+export const FaqSection: FC = (): ReactElement => {
   return (
     <section className="flex flex-col items-center bg-[#106FA4]/5  w-full ">
       <div className=" pt-14 flex flex-col items-center">
@@ -49,5 +24,3 @@ const HeroSection: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default HeroSection;

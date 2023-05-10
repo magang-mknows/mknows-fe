@@ -13,17 +13,17 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 
 const PrivateInformationAccordion: FC = (): ReactElement => {
   const { data } = useGetAllAdministration();
-  console.log('data', data);
+  console.log('data', data?.data.full_name);
   const validationSchema = z.object({
-    fullname: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    nip: z.string().min(1, { message: ' NIP harus diisi' }),
+    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
+    employee_id_number: z.string().min(1, { message: ' NIP harus diisi' }),
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
     }),
     department: z
       .string()
       .min(1, { message: 'Divisi / departemen harus diisi' }),
-    companyName: z.string().min(1, { message: 'Nama Perusahaan harus diisi' }),
+    company: z.string().min(1, { message: 'Nama Perusahaan harus diisi' }),
     leaderDivision: z
       .string()
       .min(1, { message: ' Kepala Divisi harus diisi' }),
@@ -42,11 +42,11 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      companyName: '',
+      company: '',
       email: '',
       leaderDivision: '',
-      nip: '',
-      fullname: '',
+      employee_id_number: '',
+      full_name: data?.data.full_name,
       department: '',
     },
   });
@@ -84,13 +84,13 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 control={control}
                 type={'text'}
                 label={'Nama Lengkap'}
-                name={'fullname'}
+                name={'full_name'}
                 placeholder={'Masukkan nama lengkap'}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block  mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.fullname ? 'error' : 'none'}
-                message={errors.fullname?.message}
+                labelClassName="block  mb-2  text-sm font-medium text-gray-900 "
+                status={errors.full_name ? 'error' : 'none'}
+                message={errors.full_name?.message}
               />
             </div>
             <div className="form-label">
@@ -99,13 +99,13 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 control={control}
                 type={'text'}
                 label={'Nomor Induk Pegawai'}
-                name={'nip'}
+                name={'employee_id_number'}
                 placeholder={'masukkan NIP'}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.nip ? 'error' : 'none'}
-                message={errors.nip?.message}
+                labelClassName="block mb-2  text-sm font-medium text-gray-900 "
+                status={errors.employee_id_number ? 'error' : 'none'}
+                message={errors.employee_id_number?.message}
               />
             </div>
             <div className="form-label">
@@ -120,7 +120,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 status={errors.email ? 'error' : 'none'}
                 message={errors.email?.message}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                labelClassName="block mb-2 text-sm font-medium text-gray-900 "
               />
             </div>
           </div>
@@ -131,13 +131,13 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 control={control}
                 type={'text'}
                 label={'Nama Perusahaan'}
-                name={'companyName'}
+                name={'company'}
                 placeholder={'Masukkan Nama Perusahaan'}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
-                status={errors.companyName ? 'error' : 'none'}
-                message={errors.companyName?.message}
+                labelClassName="block mb-2  text-sm font-medium text-gray-900 "
+                status={errors.company ? 'error' : 'none'}
+                message={errors.company?.message}
               />
             </div>
             <div className="form-label">
@@ -150,7 +150,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 placeholder={'Masukkan Divisi / Departemen'}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                labelClassName="block mb-2  text-sm font-medium text-gray-900 "
                 status={errors.department ? 'error' : 'none'}
                 message={errors.department?.message}
               />
@@ -165,7 +165,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
                 placeholder={'Nama Kepala Divisi'}
                 required={true}
                 className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
-                labelClassName="block mb-2 dark:text-white text-sm font-medium text-gray-900 "
+                labelClassName="block mb-2  text-sm font-medium text-gray-900 "
                 status={errors.leaderDivision ? 'error' : 'none'}
                 message={errors.leaderDivision?.message}
               />

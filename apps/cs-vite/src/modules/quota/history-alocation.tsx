@@ -7,7 +7,7 @@ import Table from './table';
 const RiwayatAlokasi: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
   return (
-    <section className="my-14 ml-10 w-full">
+    <section className="my-14 w-full">
       <div className="font-bold text-2xl text-[#444444]">
         Riwayat Alokasi Kuota
       </div>

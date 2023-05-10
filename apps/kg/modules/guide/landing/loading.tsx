@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const LoadingGuide: FC = (): ReactElement => {
+export const LoadingGuide: FC = (): ReactElement => {
   return (
     <div className="mt-36">
       {/* breadcrumb */}
@@ -64,5 +64,3 @@ const LoadingGuide: FC = (): ReactElement => {
     </div>
   );
 };
-
-export default LoadingGuide;
