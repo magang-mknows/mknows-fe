@@ -25,7 +25,7 @@ const dummyUserData = [
   {
     icon: ListBulletsIcon,
     title: 'Jumlah Poin',
-    value: '100 Poin',
+    value: '100 sks',
   },
   {
     icon: Building2Icon,

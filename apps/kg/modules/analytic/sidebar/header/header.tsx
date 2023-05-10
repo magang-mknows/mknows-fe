@@ -17,7 +17,7 @@ export const SidebarHeader: FC = (): ReactElement => {
           Lori Stevens Lavigne
         </h1>
         <h1 className="text-sm text-neutral-700 w-full text-center">
-          34658202848200091
+          Ilmu Komputer
         </h1>
       </section>
     </header>
