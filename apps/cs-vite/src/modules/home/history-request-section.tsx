@@ -58,10 +58,10 @@ const CardSection: FC = (): ReactElement => {
     animationDuration: 1000,
     Infinity: true,
     renderPrevButton: () => {
-      return <div className="absolute top-[35%] left-0">{prevButton}</div>;
+      return <div className="absolute top-[25%] -left-10">{prevButton}</div>;
     },
     renderNextButton: () => {
-      return <div className="absolute right-0 top-[35%]">{nextButton}</div>;
+      return <div className="absolute -right-10 top-[25%]">{nextButton}</div>;
     },
   };
 
