@@ -1,4 +1,4 @@
-import { GuideHeroModule } from 'apps/kg/modules/guide/hero';
+import { GuideHeroModule } from '../../modules/guide/hero';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

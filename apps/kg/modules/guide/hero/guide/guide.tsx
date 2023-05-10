@@ -1,31 +1,9 @@
 import { ReactElement } from 'react';
-import BukuPanduan from '../assets/buku-panduan.svg';
-import VideoPlayer from '../assets/video-player.svg';
-import Kamus from '../assets/kamus.svg';
+import { dummyGuide } from './store';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const GuideSection = (): ReactElement => {
-  const dummyGuide = [
-    {
-      title: 'Buku Panduan',
-      desc: 'Panduan ini berisi dokumen-dokumen panduan.',
-      img: BukuPanduan,
-      href: '/panduan/buku-panduan',
-    },
-    {
-      title: 'Video Panduan',
-      desc: 'Panduan ini berisi video-video panduan.',
-      img: VideoPlayer,
-      href: '/panduan/video-panduan',
-    },
-    {
-      title: 'Kamus Kampus Gratis',
-      desc: 'Panduan ini berisi konten kampus gratis.',
-      img: Kamus,
-      href: '/panduan/kamus-kampus-gratis',
-    },
-  ];
+export const GuideSection = (): ReactElement => {
   return (
     <div className="mt-[76px] mb-[64px] px-6 md:px-8 lg:px-10 w-full">
       <div className="grid lg:grid-cols-12 gap-[20px]">
@@ -53,5 +31,3 @@ const GuideSection = (): ReactElement => {
     </div>
   );
 };
-
-export default GuideSection;

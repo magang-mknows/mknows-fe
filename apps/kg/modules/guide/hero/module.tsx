@@ -1,10 +1,10 @@
 import { FC, ReactElement } from 'react';
-import GuideSection from './guide-section';
+import { GuideSection } from './guide/guide';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { guideBreadCumbs } from '../../administration/constant';
 import { BaseLayout } from '../../common';
-import { FaqSection } from './faq-section';
-import { HeroSection } from './hero-section';
+import { FaqSection } from './faq/faq';
+import { HeroSection } from './landing/hero';
+import { guideBreadCumbs } from './const';
 
 export const GuideHeroModule: FC = (): ReactElement => {
   return (
