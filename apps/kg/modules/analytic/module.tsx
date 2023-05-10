@@ -1,10 +1,8 @@
 import { FC, ReactElement } from 'react';
-// import { ClientProvider } from '../common/provider';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { AnalyticBreadcumbs } from './const';
 import { SidebarSection } from './sidebar';
 import { MainSection } from './main';
-// import { ContentFooter } from '../common/footer/footer-content';
 
 export const AnalyticModule: FC = (): ReactElement => {
   return (
@@ -15,6 +13,5 @@ export const AnalyticModule: FC = (): ReactElement => {
         <MainSection />
       </section>
     </section>
-    // <ContentFooter />
   );
 };
