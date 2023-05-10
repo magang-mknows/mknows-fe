@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 import { leaderBoardRankProps } from "./type";
-import Avatar from "/public/assets/leaderboard/avatar.svg";
+import Avatar from './assets/avatar.svg';
 
 export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
   key: "leaderboard-rank",
