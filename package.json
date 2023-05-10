@@ -20,7 +20,11 @@
     "@tanstack/react-query": "^4.29.5",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
+<<<<<<< HEAD
     "date-fns": "^2.30.0",
+=======
+    "clsx": "^1.2.1",
+>>>>>>> develop
     "framer-motion": "^10.12.9",
     "next": "13.4.1",
     "next-auth": "^4.22.1",
