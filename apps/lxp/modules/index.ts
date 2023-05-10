@@ -4,6 +4,8 @@ export * from './about';
 export * from './analytic';
 export * from './contact';
 export * from './features';
+export * from './unique-event';
+export * from './unique-event-detail';
 export * from './consulting-service';
 export * from './document-process';
 export * from './assigment';
