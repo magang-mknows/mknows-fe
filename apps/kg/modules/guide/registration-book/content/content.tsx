@@ -8,7 +8,7 @@ import Login from '../../assets/login.svg';
 
 export const ContentSection = (): ReactElement => {
   return (
-    <div className=" w-full px-6 md:px-8 lg:px-10 ">
+    <div className=" w-full px-6 md:px-8 lg:px-16 ">
       <div className="title">
         <h1 className="text-[16px] font-[500]">
           Halo , silakan ikuti panduan di bawah ini apabila kamu kebingungan

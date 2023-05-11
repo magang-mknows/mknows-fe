@@ -9,11 +9,7 @@ import {
   TStatusReturnAdministration,
 } from './types';
 import { AdministrationStatusState } from './store';
-import {
-  UseMutationResult,
-  UseQueryResult,
-  useMutation,
-} from '@tanstack/react-query';
+import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
 import {
   familyInformationRequest,
