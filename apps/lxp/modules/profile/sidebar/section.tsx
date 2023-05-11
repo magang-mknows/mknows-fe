@@ -43,7 +43,7 @@ export const ProfileSidebar: FC = (): ReactElement => {
       <Link href={'/profile/ubah-password'}>
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
-            pathname === '/profile/ubah-pasword'
+            pathname === '/profile/ubah-password'
               ? ' bg-version2-400 text-neutral-50 shadow-md'
               : 'bg-neutral-50 text-neutral-800 transition-all ease-linear duration-75'
           }`}

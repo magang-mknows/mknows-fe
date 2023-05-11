@@ -3,16 +3,25 @@ import { ClientProvider } from '../common/provider';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { ViewProfileBreadCumbs } from './const';
 import { ProfileSidebar } from './sidebar';
-import { ViewProfileSection } from './main';
+import {
+  ViewProfileSection,
+  EditProfileSection,
+  ChangePasswordSection,
+  CVPortofolioSection,
+} from './main';
 import { ContentFooter } from '../common/footer/footer-content';
-import { EditProfileSection } from './main/edit-profile';
 import { useRouter } from 'next/router';
 
 export const ProfileModule: FC = (): ReactElement => {
   const router = useRouter();
   const pathname = router.asPath;
 
-  const eventPath = ['/profile', '/profile/edit-profile'];
+  const eventPath = [
+    '/profile',
+    '/profile/edit-profile',
+    '/profile/ubah-password',
+    '/profile/cv-portofolio',
+  ];
 
   if (!eventPath.includes(pathname)) {
     router.push('/profile');
@@ -33,6 +42,8 @@ export const ProfileModule: FC = (): ReactElement => {
           <section className="col-span-2">
             {pathname === '/profile' && <ViewProfileSection />}
             {pathname === '/profile/edit-profile' && <EditProfileSection />}
+            {pathname === '/profile/ubah-password' && <ChangePasswordSection />}
+            {pathname === '/profile/cv-portofolio' && <CVPortofolioSection />}
           </section>
         </section>
       </section>
