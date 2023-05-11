@@ -92,26 +92,27 @@ export const TextField = <T extends FieldValues>({
           <input
             type={type === 'password' ? (!showPassword ? type : 'text') : type}
             {...{ ...props, ...field }}
-            className={`w-full border border-gray-200 text-[#000]  ${
+            className={`
+            ${
               status === 'error' &&
               'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
             }
 
-          ${
-            status === 'success' &&
-            'focus:ring-1 focus:ring-success-base bg-success-100 '
-          }
+            ${
+              status === 'success' &&
+              'focus:ring-1 focus:ring-success-base bg-success-100 '
+            }
 
-          ${
-            status === 'warning' &&
-            'focus:ring-1 focus:ring-warning-base bg-warning-100 '
-          }
+            ${
+              status === 'warning' &&
+              'focus:ring-1 focus:ring-warning-base bg-warning-100 '
+            }
 
-          ${
-            !status ||
-            (status === 'none' &&
-              `border-[0.5px] border-neutral-800 ${props.className}`)
-          }
+            ${
+              !status ||
+              (status === 'none' &&
+                `border-[0.5px] border-neutral-400 shadow-sm ${props.className}`)
+            }
 
              ${
                variant === 'lg'
@@ -121,9 +122,8 @@ export const TextField = <T extends FieldValues>({
                  : variant === 'sm'
                  ? 'p-1 rounded-md'
                  : ''
-             } outline-none focus:outline-none ${
-              props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'
-            }
+             } outline-none focus:outline-none w-full text-[#000]
+            ${props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'}
                 `}
           />
         ) : (

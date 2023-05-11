@@ -16,7 +16,7 @@ export const PartnerSection: FC = (): ReactElement => {
     loadPath(5),
   ];
   return (
-    <section className="flex flex-col gap-y-[64px] items-center py-[118px] justify-center">
+    <section className="flex flex-col gap-y-[64px] bg-white items-center py-[118px] justify-center">
       <h1 className="text-[44px] font-[700] text-black">
         Mitra Kampus <strong className="text-primary-base">Kami</strong>
       </h1>

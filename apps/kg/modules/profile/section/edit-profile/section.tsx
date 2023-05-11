@@ -1,4 +1,4 @@
-import { FC, ReactElement, Fragment } from 'react';
+import { FC, ReactElement, Fragment, useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
@@ -13,56 +13,30 @@ import {
 } from '@mknows-frontend-services/components/atoms';
 
 import { useProfile, useUpdateUserProfile } from './hooks';
-import { TAvatarPayload, TProfilePayload } from './types';
 
 import userProfileImg from '../../assets/cewe-cantik.webp';
 import camera from '../../assets/camera-ojan.webp';
 
 export const EditProfileModule: FC = (): ReactElement => {
-  const { data } = useProfile();
+  const { data, refetch } = useProfile();
 
   const { mutate, isLoading } = useUpdateUserProfile();
 
   const userData = data?.data?.user;
-  console.log(userData?.email);
 
   const options = [
     { id: 1, value: 'L', label: 'Laki-Laki' },
     { id: 2, value: 'P', label: 'Perempuan' },
   ];
 
-  const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = [
-    'image/jpeg',
-    'image/jpg',
-    'image/webp',
-    'application/pdf',
-  ];
-
   const validationSchema = z.object({
-    avatar: z
-      .any()
-      .refine(
-        (files: File[]) => files !== undefined && files?.length >= 1,
-        'Harus ada file yang di upload.'
-      )
-      .refine(
-        (files: File[]) =>
-          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-        'Ukuran maksimun adalah 3mb.'
-      )
-      .refine(
-        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
-        'hanya menerima .jpg, .jpeg, dan .webp.'
-      ),
-
+    avatar: z.any().optional(),
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
     }),
-    user_name: z.string().min(1, { message: 'User Name harus diisi' }),
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.any(),
+    gender: z.string().min(1, { message: 'Gender harus dipilih' }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -70,35 +44,29 @@ export const EditProfileModule: FC = (): ReactElement => {
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
+    reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      email: userData?.email,
-      user_name: 'gaada username tlol',
-      full_name: userData?.full_name,
-      phone_number: userData?.phone_number,
-      gender: userData?.gender,
-      avatar: userData?.avatar,
+      email: '',
+      full_name: '',
+      phone_number: '',
+      gender: '',
     },
   });
+  const onCancel = () => reset(userData);
 
-  const onSubmit = handleSubmit((PayloadData) => {
-    try {
-      mutate(PayloadData as TProfilePayload);
-    } catch (err) {
-      // throw handleError(err);
-    }
+  const onSubmit = handleSubmit(async (data) => {
+    await mutate(data);
+    await refetch();
+    await onCancel();
   });
 
-  // const submitChange = handleSubmit((AvatarPayload) => {
-  //   try {
-  //     mutate(AvatarPayload as TAvatarPayload);
-  //   } catch (err) {
-  //     throw handleError(err);
-  //   }
-  // });
+  useEffect(() => {
+    reset(userData);
+  }, [userData]);
 
   return (
     <div className="justify-start w-full h-full px-20 bg-neutral-100 dark:bg-black ">
@@ -107,33 +75,17 @@ export const EditProfileModule: FC = (): ReactElement => {
       </div>
       <div className="flex flex-col lg:flex-row w-full mb-[30px]">
         <div className="w-full lg:w-[600px] lg:h-[50%] space-y-2 justify-center dark:bg-gray-900 bg-white rounded-lg my-2 lg:my-0">
-          <div className="mx-4 my-4 ">
-            <Button
-              href="/profile"
-              type="button"
-              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-            >
+          <div className="p-4 flex flex-col gap-y-4">
+            <Button href="/profile" type="button">
               View Profile
             </Button>
-            <Button
-              href="/profile"
-              type="button"
-              className="bg-primary-100 dark:bg-[#222529] !text-[#106FA4] font-semibold text-sm !w-[96%] flex !items-center !justify-start pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-            >
+            <Button href="/profile" type="button">
               Edit Profile
             </Button>
-            <Button
-              href="/profile"
-              type="button"
-              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-            >
+            <Button href="/profile" type="button">
               CV & Portofolio
             </Button>
-            <Button
-              type="button"
-              href="profile/reset-password"
-              className="flex !items-center !justify-start !text-[#737373] dark:bg-[#222529] bg-white font-semibold text-sm !w-[96%] pl-3 my-3 mx-2 !lg:h-[36px] !h-[36px]"
-            >
+            <Button type="button" href="profile/reset-password">
               Reset Password
             </Button>
           </div>
@@ -144,27 +96,18 @@ export const EditProfileModule: FC = (): ReactElement => {
             <div className="relative w-full my-[16px] border-y">
               <div className="flex justify-center py-5 ">
                 <div>
-                  <form className="h-fit">
+                  <form className="h-fit items-center flex flex-col">
                     <Image
-                      src={userProfileImg}
+                      src={userData?.avatar ?? userProfileImg}
                       alt="user profile img"
-                      className="md:w-[100px] md:h-[100px] w-[75px] h-[75px] z-20"
+                      className="md:w-[100px] rounded-full md:h-[100px] w-[75px] h-[75px] z-20"
+                      width={70}
+                      height={70}
                     />
-                    {/* <img
-                      src={userData?.avatar}
-                      alt="user profile img"
-                      className="w-[100px] h-[100px] z-20"
-                    /> */}
                     <Menu as="div" className="relative inline-block text-left">
-                      <div>
-                        <Menu.Button className="absolute md:ml-[66px] ml-[50px] top-[-40px] bottom-[4px] rounded-full md:w-[32px] w-[26px] h-[26px] flex justify-center bg-yellow-100 z-50">
-                          <Image
-                            src={camera}
-                            alt="camera"
-                            className="w-full p-0 md:p-1"
-                          ></Image>
-                        </Menu.Button>
-                      </div>
+                      <Menu.Button className="absolute items-center top-[-40px] bottom-[4px] rounded-full md:w-[32px] w-[26px] h-[26px] left-10 flex justify-center bg-yellow-100 z-20">
+                        <Image src={camera} alt="camera" className="w-auto" />
+                      </Menu.Button>
                       <Transition
                         as={Fragment}
                         enter="transition ease-out duration-100"
@@ -182,7 +125,7 @@ export const EditProfileModule: FC = (): ReactElement => {
                       </Transition>
                     </Menu>
 
-                    <div className="my-2">
+                    <div className="flex items-center flex-col justify-center">
                       <p className="text-lg font-semibold">
                         {userData?.full_name}
                       </p>
@@ -202,16 +145,14 @@ export const EditProfileModule: FC = (): ReactElement => {
                     label="Email"
                     type={'email'}
                     name="email"
-                    className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
-                    variant={'lg'}
+                    variant={'md'}
+                    disabled
                   />
                   <SelectField
+                    placeholder="Pilih Jenis Kelamin"
                     control={control}
                     label="Jenis Kelamin"
-                    className="!h-100px !mt-1 !py-1 bg-white  placeholder-slate-400 focus:outline-none focus:border-sky-500 sm:text-sm focus:ring-1"
-                    defaultValue="Laki-Laki"
                     options={options}
-                    value={''}
                     name={'gender'}
                     variant={'md'}
                   />
@@ -221,27 +162,38 @@ export const EditProfileModule: FC = (): ReactElement => {
                     label="Nama Lengkap"
                     type={'text'}
                     name="full_name"
-                    className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
-                    variant={'lg'}
+                    variant={'md'}
+                    status={errors.full_name ? 'error' : undefined}
+                    message={errors.full_name?.message}
                   />
                   <TextField
                     control={control}
                     placeholder="Masukkan Nomor Handphone"
                     label="Nomor Handphone"
-                    type={'text'}
+                    type={'number'}
                     name="phone_number"
-                    className="!h-200px !mt-1 !px-3 !py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block !w-full !rounded-md sm:text-sm focus:ring-1"
-                    variant={'lg'}
+                    status={errors.phone_number ? 'error' : undefined}
+                    variant={'md'}
+                    message={errors.phone_number?.message}
                   />
                 </div>
               </div>
-              <div className="flex justify-center w-full my-2 lg:justify-end">
+              <div className="flex justify-center gap-x-3 w-full my-2 lg:justify-end">
+                <Button
+                  type={'button'}
+                  onClick={onCancel}
+                  loading={isLoading ? 'Sedang Mereset' : undefined}
+                  className="text-white cursor-pointer font-[700] bg-error-500 rounded-lg p-3"
+                >
+                  Batalkan
+                </Button>
                 <Button
                   type={'submit'}
+                  loading={isLoading ? 'Sedang Menyimpan' : undefined}
                   disabled={!isValid}
-                  className="rounded-[8px] !w-[95px] !h-[36px]  disabled:bg-gray-400 disabled:text-gray-200"
+                  className="text-white disabled:bg-neutral-400 cursor-pointer font-[700] bg-primary-500 rounded-lg p-3"
                 >
-                  {isLoading ? 'Sedang Masuk...' : 'Simpan'}
+                  Simpan
                 </Button>
               </div>
             </form>
