@@ -11,12 +11,8 @@ const ContentSection: FC = (): ReactElement => {
   const getOption = useRecoilValue(
     filterOption(query.videoId as unknown as string)
   );
-  console.log(query);
   return (
-    <div className="mx-6 md:mx-8 lg:px10 my-2  bg-[#FFFF] shadow-sm rounded-[8px]">
-      <h1 className="text-center font-[700] lg:text-[25px] text-[20px] pt-[50px]">
-        Pelatihan Keterampilan Komunikasi
-      </h1>
+    <div>
       {getOption.map((item, index) => {
         return (
           <div
