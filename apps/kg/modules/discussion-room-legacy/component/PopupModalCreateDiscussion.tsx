@@ -53,7 +53,6 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
   const {
     control,
     handleSubmit,
-    register,
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -81,12 +80,12 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
       withClose={true}
       widthModal={'!w-full md:!w-2/5'}
     >
-      <div className="flex items-center justify-center w-full">
-        <form onSubmit={onSubmit}>
+      <div className="flex items-center justify-center w-full ">
+        <form onSubmit={onSubmit} className="w-full">
           <h1 className="text-center text-neutral-800 text-[20px] font-semibold ">
             Buat Diskusi Baru
           </h1>
-          <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col gap-4">
             <div className="form-label text-start">
               <TextField
                 control={control}
@@ -95,7 +94,7 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
                 name={'title'}
                 placeholder={'Ketik Judul Diskusi Kamu'}
                 required={true}
-                className="px-2 py-2 rounded-lg md:mb-2 md:py-3 focus:outline-none"
+                className="px-2 py-2 border-none rounded-lg md:mb-2 md:py-3"
                 variant={'lg'}
               />
               <p className="text-[12px] text-[#A3A3A3] -mt-2 ">
@@ -110,11 +109,14 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
                   Isi Diskusi
                 </label>
                 <div className="flex flex-col my-2 border-2 border-neutral-300 gap-y-2 p-[12px] rounded-lg">
-                  <input
-                    type="text"
-                    {...register('content')}
-                    className="px-2 py-1 bg-transparent border-2 border-transparent rounded-lg outline-none focus:outline-1 focus:border-1 focus:outline-none"
-                    placeholder="Mau diskusi apa hari ini?"
+                  <TextField
+                    control={control}
+                    type={'text'}
+                    name={'content'}
+                    placeholder={'Mau diskusi apa hari ini?'}
+                    required={true}
+                    className="py-2 border-none rounded-lg outline-none md:mb-2 md:py-3 focus:outline-1 focus:border-1 focus:outline-none"
+                    variant={'lg'}
                   />
                   {/* <ControlledUploadDragbleField
                     control={control}
@@ -126,10 +128,9 @@ const PopupModalCreateDiscussion: FC<PopupModalProps> = (): ReactElement => {
             </div>
             <div className="flex justify-end">
               <Button
-                className="!w-[111px] !h-[40px]"
+                className="!w-[111px] !h-[40px] bg-[#3EB449] flex items-center justify-center gap-2 rounded-lg text-white"
                 disabled={!isValid}
                 type="submit"
-                color="green"
               >
                 <svg
                   width="24"

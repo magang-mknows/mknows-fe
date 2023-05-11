@@ -7,7 +7,7 @@ import { BaseLayout } from '../common';
 import HeroSection from './hero-section';
 import Content from './content-section';
 
-const DiscussionModules: FC = (): ReactElement => {
+export const DiscussionModules: FC = (): ReactElement => {
   return (
     <BaseLayout>
       <BreadCrumb items={discussionRoomBreadCumbs} />
@@ -18,5 +18,3 @@ const DiscussionModules: FC = (): ReactElement => {
     </BaseLayout>
   );
 };
-
-export default DiscussionModules;

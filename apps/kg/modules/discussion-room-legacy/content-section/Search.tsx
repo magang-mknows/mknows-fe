@@ -21,7 +21,7 @@ const Search: FC = (): ReactElement => {
         <AiOutlineSearch className="text-xl md:text-2xl text-neutral-500 dark:text-neutral-200" />
         <input
           type="text"
-          className="px-2 text-xs bg-transparent outline-none text-neutral-700 dark:text-neutral-100 md:text-sm"
+          className="w-full px-2 text-xs outline-none bg-neutral-100 text-neutral-700 dark:text-neutral-100 md:text-sm"
           id="searchDiscussion"
           placeholder="Cari Topik Diskusi"
         />
