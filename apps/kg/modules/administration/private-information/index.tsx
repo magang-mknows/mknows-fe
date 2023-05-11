@@ -17,6 +17,7 @@ import {
 
 export const PrivateInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
+    // full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     gender: z.string().min(1, { message: 'Jenis kelamin harus diisi' }),
     phone: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
     birthdate: z.string().min(1, { message: 'Tanggal lahir harus diisi' }),
@@ -47,6 +48,7 @@ export const PrivateInformation: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
+      // full_name: '',
       gender: '',
       phone: '',
       birthdate: '',
@@ -97,6 +99,7 @@ export const PrivateInformation: FC = (): ReactElement => {
       <form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
+            {/* full name
             <div className="form-label mb-3">
               <TextField
                 variant="md"
@@ -110,7 +113,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 // status={errors.birthplace ? 'error' : 'none'}
                 // message={errors.birthplace?.message}
               />
-            </div>
+            </div> */}
             <div className="form-label mb-3 ">
               <SelectField
                 control={control}
@@ -181,6 +184,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
+            {/* email
             <div className="form-label mb-4">
               <TextField
                 variant="md"
@@ -194,7 +198,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 // status={errors.birthplace ? 'error' : 'none'}
                 // message={errors.birthplace?.message}
               />
-            </div>
+            </div> */}
             <div className="form-label mb-2">
               <TextField
                 variant="md"
@@ -257,7 +261,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 type="text"
                 label={'Semester (optional)'}
                 name={'semester'}
-                placeholder={'Masukkan pendidikan terakhir'}
+                placeholder={'Masukkan semeter terakhir'}
                 required={false}
                 status={errors.semester ? 'error' : 'none'}
                 message={errors.semester?.message}
