@@ -98,6 +98,20 @@ export const PrivateInformation: FC = (): ReactElement => {
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <div className="form-label mb-3">
+              <TextField
+                variant="md"
+                control={control}
+                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                type="text"
+                label={'Nama Lengkap'}
+                name="birthplace"
+                placeholder={'Masukkan nama lengkap'}
+                required
+                // status={errors.birthplace ? 'error' : 'none'}
+                // message={errors.birthplace?.message}
+              />
+            </div>
+            <div className="form-label mb-3 ">
               <SelectField
                 control={control}
                 label="Jenis Kelamin"
@@ -167,6 +181,20 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
+            <div className="form-label mb-4">
+              <TextField
+                variant="md"
+                control={control}
+                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                type="text"
+                label={'Alamat Email'}
+                name="birthplace"
+                placeholder={'Email'}
+                required
+                // status={errors.birthplace ? 'error' : 'none'}
+                // message={errors.birthplace?.message}
+              />
+            </div>
             <div className="form-label mb-2">
               <TextField
                 variant="md"
