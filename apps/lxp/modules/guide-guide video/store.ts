@@ -1,8 +1,8 @@
 import { atom, selectorFamily } from 'recoil';
-import { videoMytrainingTypes } from './type';
+import { videoGuideTypes } from './type';
 // import VideoDummy from '';
 
-export const videoGuideState = atom<Array<videoMytrainingTypes>>({
+export const videoGuideState = atom<Array<videoGuideTypes>>({
   key: 'video-guide-state',
   default: [
     {
