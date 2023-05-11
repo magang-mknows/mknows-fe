@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
-import { DiscussionModules } from '../../modules';
+import { DiscussionRoomModule } from '../../modules';
 
 const DisscussionRoomPage: NextPage = (): ReactElement => {
-  return <DiscussionModules />;
+  return <DiscussionRoomModule />;
 };
 
 export default DisscussionRoomPage;

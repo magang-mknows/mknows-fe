@@ -6,7 +6,7 @@ export * from './semuafitur';
 export * from './common';
 export * from './drill-simulasi';
 export * from './discussion-room';
-export * from './room-discussion';
+export * from './discussion-room-legacy';
 export * from './profile';
 export * from './study-contract';
 export * from './study-plan';
