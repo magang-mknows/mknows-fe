@@ -2,20 +2,23 @@ import { FC, ReactElement } from 'react';
 import { useReportQuery } from './hooks';
 import Search from '../../components/atoms/search';
 import Pagination from '../../components/atoms/pagination';
-import { DateInput } from '../../components/molecules/input/date-input';
+import DateRangePickerComponent from '../../components/molecules/input/date-range-picker';
 import Table from './table';
 
 const ReportModules: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
+  const handleRangeChange = () => {
+    console.log('ok');
+  };
 
   return (
     <div className="bg-white w-full h-full my-8 ">
       <div className="flex flex-col lg:flex-row justify-between gap-16 lg:px-8 px-2 pt-12">
-        <DateInput />
-        <div className="flex flex-col justify-end lg:flex-row gap-2">
+        <DateRangePickerComponent onRangeChange={handleRangeChange} />
+        <div className="flex flex-col justify-end lg:flex-row gap-1">
           <select
             id="category"
-            className="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[40%] px-3 "
+            className="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[60%] px-3 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>

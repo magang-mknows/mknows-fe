@@ -2,7 +2,6 @@ import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
 import { LoadingReport } from './loading';
 import Card from '../../components/molecules/card';
 import { Tab } from '@headlessui/react';
-
 import ReportModule from './report';
 import Grafik from './grafik';
 

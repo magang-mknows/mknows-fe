@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, ReactNode } from 'react';
 import { IButtonProps } from './types';
 import Link from 'next/link';
 
@@ -11,9 +11,15 @@ export const Button: FC<IButtonProps> = ({
   if (href) {
     return (
       <Link href={href}>
-        <button {...props}>{loading ? loading : children}</button>
+        <button {...props}>
+          {loading ? loading : children}
+        </button>
       </Link>
     );
   }
-  return <button {...props}>{loading ? loading : children}</button>;
+  return (
+    <button {...props}>
+      {loading ? loading : children}
+    </button>
+  );
 };

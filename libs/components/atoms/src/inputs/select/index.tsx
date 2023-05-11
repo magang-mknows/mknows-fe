@@ -13,9 +13,9 @@ export const SelectField = <T extends FieldValues>({
   const { field } = useController(props);
   return (
     <Listbox {...props} {...field}>
-      <div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-1 ">
         <Listbox.Label
-          className={`font-sans text-black 
+          className={`font-sans text-black font-bold
               ${variant === 'lg' && 'text-[18px]'}
               ${variant === 'md' && 'text-[16px]'}
               ${variant === 'sm' && 'text-[14px]'}
@@ -33,7 +33,7 @@ export const SelectField = <T extends FieldValues>({
             as="button"
             className={`
               px-4  outline-none focus:outline-none w-full bg-white
-
+              
               ${props.disabled && `bg-neutral-100 ring-neutral-400`}
               ${props.success && `ring-success-base ring-1`}
               ${props.error && `ring-error-base ring-1`}
@@ -42,7 +42,7 @@ export const SelectField = <T extends FieldValues>({
                 !props.success &&
                 !props.error &&
                 !props.warning &&
-                `ring-primary-400 ring-1`
+                `!border-2 !border-[#A3A3A3]`
               }
               
               ${variant === 'lg' && `py-4 rounded-lg`}
@@ -66,7 +66,7 @@ export const SelectField = <T extends FieldValues>({
             )}
           </Listbox.Button>
 
-          <Listbox.Options className="absolute bg-white w-full drop-shadow-xl z-10 rounded mt-2">
+          <Listbox.Options className="absolute bg-white w-full drop-shadow-xl z-10 rounded mt-2 ">
             {props.options?.map(
               (data: TOption, key: Key | null | undefined) => (
                 <Listbox.Option
