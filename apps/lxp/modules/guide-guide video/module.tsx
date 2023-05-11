@@ -1,13 +1,13 @@
-import React, { Fragment, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import ContentSection from './section/ContentSection';
-import { myTrainingModuleBreadCumbs } from '../mytraining-module/const';
 import { ClientProvider } from '../common/provider';
+import { guideVideoBreadCumbs } from './const';
 
-export const MyTrainingVideoModule = (): ReactElement => {
+export const RegistrationVideoModule = (): ReactElement => {
   return (
     <ClientProvider>
-      <BreadCrumb items={myTrainingModuleBreadCumbs} />
+      <BreadCrumb items={guideVideoBreadCumbs} />
       <ContentSection />
     </ClientProvider>
   );
