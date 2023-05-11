@@ -10,10 +10,11 @@ const UserModules: FC = (): ReactElement => {
   const { setUserQuery, getUserQuery } = useUserQuery();
 
   return (
-    <div className="bg-white w-full h-full my-8 ">
-      <div className="flex flex-col lg:flex-row gap-y-2 justify-between lg:p-8 pt-12">
+    <div className="bg-white w-full h-full my-8">
+      <div className="flex flex-col lg:flex-row lg:gap-y-2 gap-y-8 justify-between lg:p-8 p-2 pt-12">
         <DateInput />
-        <div className="flex gap-2">
+
+        <div className="flex md:flex-row flex-row-reverse gap-2">
           <Search
             value={getUserQuery}
             onChange={(e: { target: { value: string } }) =>
@@ -21,7 +22,7 @@ const UserModules: FC = (): ReactElement => {
             }
           />
           <Link to={'/dashboard/user/add-data'}>
-            <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
+            <button className="border bg-white text-primary-500 font-semibold md:w-[200px] w-[140px] border-primary-400 rounded-md p-2">
               + Tambah Data
             </button>
           </Link>

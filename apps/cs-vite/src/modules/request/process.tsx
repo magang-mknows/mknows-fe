@@ -41,7 +41,12 @@ const ProsesPage: FC = (): ReactElement => {
         <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400 overflow-x-scroll ">
           <thead className="text-xs border text-gray-700 font-light bg-[#F6FBFA] dark:bg-[#F5F8FF] dark:text-gray-400 ">
             <tr>
-              <th scope="col" className="px-6 py-2 cursor-default w-[40%]">
+              <th scope="col" className="px-2 py-2 cursor-default ">
+                <div className="flex gap-5 justify-center items-center">
+                  <p>No.</p>
+                </div>
+              </th>
+              <th scope="col" className="px-8 py-2 cursor-default">
                 <div className="flex gap-5 justify-center items-center">
                   <p>No. Permintaan</p>
                   <img
@@ -50,7 +55,7 @@ const ProsesPage: FC = (): ReactElement => {
                   />
                 </div>
               </th>
-              <th scope="col" className="px-6 py-2 cursor-default">
+              <th scope="col" className="px-2 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>NIK</p>
                   <img
@@ -77,7 +82,7 @@ const ProsesPage: FC = (): ReactElement => {
                   />
                 </div>
               </th>
-              <th scope="col" className="px-6 py-2 cursor-default w-full">
+              <th scope="col" className="px-6 py-2 cursor-default w-[40%]">
                 <div className="flex gap-2 justify-center items-center">
                   <p>Kendala Proses</p>
                 </div>
@@ -86,8 +91,8 @@ const ProsesPage: FC = (): ReactElement => {
                 <div className="flex gap-2 justify-center items-center">
                   <p>Skor</p>
                   <img
-                    src="/assets/request-page/markdown-icon.svg"
                     alt="markdown icon"
+                    src="/assets/request-page/markdown-icon.svg"
                   />
                 </div>
               </th>
@@ -97,18 +102,15 @@ const ProsesPage: FC = (): ReactElement => {
             {getResultData.map((item, key) => {
               return (
                 <tr key={key} className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-10 py-3 text-[#262626] flex justify-center">
-                    {item.no}
-                  </td>
+                  <td className="px-6 text-[#262626]">{key + 1}</td>
+                  <td className="px-8 py-3 text-[#262626]">{item.no}</td>
                   <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
-                  <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
+                  <td className="px-2 py-8 font-semibold text-[#262626]">
                     {item.nama}
                   </td>
-                  <td className="px-6 py-3">{item.tggl_permintaan}</td>
-                  <td className="px-6 py-3 flex justify-start">
-                    {item.kendala_proses}
-                  </td>
-                  <td className="px-6 py-3 bg-green-400">
+                  <td className="px-4 py-3">{item.tggl_permintaan}</td>
+                  <td className="px-4 py-3">{item.kendala_proses}</td>
+                  <td className="px-4 py-3 bg-green-400">
                     <button
                       className={` ${
                         item.skor === 'Sangat Baik'
@@ -116,7 +118,7 @@ const ProsesPage: FC = (): ReactElement => {
                           : item.skor === 'Cukup Buruk'
                           ? 'bg-warning-500'
                           : 'bg-error-400'
-                      } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
+                      } text-white w-[100px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {item.skor}
                     </button>
@@ -135,7 +137,7 @@ const ProsesPage: FC = (): ReactElement => {
           Untuk melihat riwayat permintaan sebelumnya{' '}
           <span className="text-blue-600">
             {' '}
-            <a href="">Klik Disini</a>
+            <a href="/">Klik Disini</a>
           </span>
         </div>
       </div>

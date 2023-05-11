@@ -15,7 +15,7 @@ const RiwayatAlokasi: FC = (): ReactElement => {
         <div className="w-full">
           <DateInput />
         </div>
-        <div className="flex flex-row gap gap-x-3 w-full my-4 lg:my-0">
+        <div className="flex flex-row gap lg:gap-x-3 gap-x-1 w-full my-4 lg:my-0">
           <div className="w-[40%]">
             <select
               id="category"
