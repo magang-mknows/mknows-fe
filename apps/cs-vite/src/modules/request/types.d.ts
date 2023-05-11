@@ -11,6 +11,8 @@ export type TResultDataDummy = {
   jumlah_kuota: number;
 };
 
+export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
+
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 
 export type TResultQueryResponse = {
