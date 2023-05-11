@@ -50,7 +50,7 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
                 <Image src={x.icon} alt={`${x.detail}-icon`} className="mr-3" />
                 <div className="flex flex-col text-[#262626]">
                   <p className="font-semibold text-base">
-                    {majorDetailsAmount[i] || '-'}{' '}
+                    {majorDetailsAmount[i] || '-'}
                   </p>
                   <p className="text-sm font-medium">{x.detail}</p>
                 </div>
