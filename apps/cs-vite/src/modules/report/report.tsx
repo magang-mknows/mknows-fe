@@ -31,7 +31,6 @@ const ReportModules: FC = (): ReactElement => {
             onChange={(e: { target: { value: string } }) =>
               setReportQuery(e.target.value)
             }
-            className="w-full"
           />
         </div>
       </div>

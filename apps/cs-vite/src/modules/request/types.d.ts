@@ -11,6 +11,14 @@ export type TResultDataDummy = {
   jumlah_kuota: number;
 };
 
+export type TRequestDummyData = {
+  icon: string;
+  name: string;
+  totalData: number;
+  totalNotifikasi: number;
+  category: string;
+};
+
 export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
 
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
