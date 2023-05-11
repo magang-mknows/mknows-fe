@@ -9,7 +9,7 @@ export const BreadCrumb: FC<TBreadCrumbProps> = ({
 }): ReactElement => {
   return (
     <div
-      className="grid place-content-start w-full px-8 md:px-14 lg:px-16 py-10 text-[#106FA4] !font-[600] text-xs md:text-sm"
+      className="grid place-content-start w-full px-8 md:px-14 lg:px-16 py-10 text-[#106FA4] !font-extrabold text-xs md:text-sm"
       aria-label="Breadcrumb"
     >
       <ol className="flex w-full items-center gap-x-2">
