@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, Fragment, ReactElement } from 'react';
 import { useRecoilValue } from 'recoil';
 import Description from './Description';
 import ListStudy from './ListVideo';
@@ -12,7 +12,7 @@ const ContentSection: FC = (): ReactElement => {
     filterOption(query.videoId as unknown as string)
   );
   return (
-    <div>
+    <Fragment>
       {getOption.map((item, index) => {
         return (
           <div
@@ -32,7 +32,7 @@ const ContentSection: FC = (): ReactElement => {
           </div>
         );
       })}
-    </div>
+    </Fragment>
   );
 };
 
