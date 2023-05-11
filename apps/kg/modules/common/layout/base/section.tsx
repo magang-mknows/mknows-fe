@@ -49,7 +49,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
     {
       name: 'Profile',
-      onClick: () => router.push('/user/profile'),
+      onClick: () => router.push('/profile'),
       icon: <FaRegUserCircle size={20} className="text-warning-base" />,
     },
     {
