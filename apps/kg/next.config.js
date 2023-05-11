@@ -13,7 +13,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['res.cloudinary.com', 'lh3.googleusercontent.com'],
+    domains: ['res.cloudinary.com', 'lh3.googleusercontent.com', 'i.ytimg.com'],
   },
 };
 
