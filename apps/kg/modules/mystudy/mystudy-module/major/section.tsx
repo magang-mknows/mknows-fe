@@ -28,8 +28,8 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
       <div className="min-w-[240px] min-h-[240px] mx-auto lg:mx-0">
         <Image src={Dummy} alt={'dummy'} className="w-full" />
       </div>
-      <div className="px-4 w-full flex flex-col justify-between">
-        <div className="">
+      <div className="px-4 py-6 md:py-0 w-full flex flex-col gap-y-6 sm:gap-y-6 lg:justify-between">
+        <div className="mx-auto md:mx-0">
           <h2 className="text-sm font-medium">Program Studi</h2>
           <h1 className="text-[28px] leading-9 font-bold my-1">
             {name || 'unknown'}
