@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const GuideSection = (): ReactElement => {
   return (
-    <div className="mt-[76px] mb-[64px] px-6 md:px-8 lg:px-10 w-full">
+    <div className="mt-[76px] mb-[64px] px-6 md:px-8 lg:px-20 w-full">
       <div className="grid lg:grid-cols-12 gap-[20px]">
         {dummyGuide.map((item, index) => {
           return (
