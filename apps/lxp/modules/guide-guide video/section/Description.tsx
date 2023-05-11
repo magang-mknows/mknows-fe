@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
-import { videoMytrainingTypes } from '../type';
+import { videoGuideTypes } from '../type';
 
-const Description = (props: videoMytrainingTypes): ReactElement => {
+const Description = (props: videoGuideTypes): ReactElement => {
   const { titleVideo, descVideo } = props;
   return (
     <div className="bg-white  w-full lg:h-[269px] h-fit rounded-[8px] mt-[28px] shadow-md py-[23px] px-[46px] mb-10">
