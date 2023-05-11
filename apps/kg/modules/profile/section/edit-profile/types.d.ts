@@ -26,7 +26,6 @@ export type TAvatarPayload = {
 
 export type TProfilePayload = {
   full_name: string;
-  user_name: string;
   email?: string;
   gender?: string;
   phone_number: string;

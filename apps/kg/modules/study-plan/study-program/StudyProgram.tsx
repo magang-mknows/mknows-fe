@@ -8,13 +8,20 @@ import Card from '../components/Card';
 
 import DefaultView from '../assets/data-kosong.png';
 import Search from '../assets/search.svg';
+import { useMajorById } from './hooks';
 
 export const StudyProgram: FC = (): ReactElement => {
-  const { query: q } = useRouter();
-  const getOptionSubject = useRecoilValue(
-    filterOptionSubject(q.slug as unknown as string)
-  );
-  const [query, setQuery] = useRecoilState(queryOptionSubject);
+  const router = useRouter();
+  const { id_fakultas } = router.query;
+  const { data } = useMajorById(id_fakultas as string);
+  const majorData = data?.data;
+  console.log(majorData);
+
+  // const getOptionSubject = useRecoilValue(
+  //   filterOptionSubject(q.slug as unknown as string)
+  // );
+  // const [query, setQuery] = useRecoilState(queryOptionSubject);
+
   const [isClose, setClose] = useState(false);
   return (
     <div className="bg-white">
@@ -24,10 +31,10 @@ export const StudyProgram: FC = (): ReactElement => {
             <Image src={Search} alt={'search'} width={28} />
             <input
               type={'text'}
-              value={query}
+              // value={query}
               className="w-full bg-transparent focus:outline-none"
               placeholder="Cari Mata Kuliah"
-              onChange={(event) => setQuery(event.target.value)}
+              // onChange={(event) => setQuery(event.target.value)}
             />
           </div>
         </div>
@@ -72,7 +79,7 @@ export const StudyProgram: FC = (): ReactElement => {
         </div>
         <div className="grid grid-cols-1 gap-4 pb-40 lg:grid-cols-4">
           <>
-            {getOptionSubject.length === 0 ? (
+            {majorData?.length === 0 ? (
               <div className="flex flex-col justify-center w-screen h-screen gap-8 lg:items-center ">
                 <div className="hidden w-auto h-auto p-1 bg-gray-100 rounded-full lg:flex dark:bg-gray-600 lg:p-4">
                   <Image src={DefaultView} alt="simulasi-null" />
@@ -83,28 +90,28 @@ export const StudyProgram: FC = (): ReactElement => {
               </div>
             ) : (
               <>
-                {getOptionSubject.map((x, i) => (
+                {majorData?.map((x, i) => (
                   <Card
                     href={'/rencana-studi/kontrak-krs' + x.slug}
                     key={i}
                     className="px-3 rounded-lg "
                     hasImage={true}
                     imgStyle="rounded-lg"
-                    src={x.src}
+                    // src={x.src}
                     titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
                     icon={
                       <div className="flex flex-row gap-2 px-4 space-x-1">
                         <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
-                          {x.jumlahmatkul} Mata Kuliah
+                          {x.subject_count} Mata Kuliah
                         </div>
                         <div className="lg:h-[22px] text-[#ED3768] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#FEDBD7]">
-                          {x.sks} SKS
+                          {x.total_credit} SKS
                         </div>
                       </div>
                     }
                   >
                     <div className="text-xl mt-0 text-[#106FA4] w-full">
-                      {x.deskripsi}
+                      {x.name}
                     </div>
                   </Card>
                 ))}

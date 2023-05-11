@@ -330,11 +330,11 @@ export const rescheduleSimulationBreadCumbs = [
 // private information section
 export const optionsGender = [
   {
-    value: 'P',
+    value: 'FEMALE',
     label: 'Perempuan',
   },
   {
-    value: 'L',
+    value: 'MALE',
     label: 'Laki - Laki',
   },
 ];
@@ -556,17 +556,6 @@ export const optionCollegeFeesPaid = [
   {
     value: 'SELF',
     label: 'Penghasilan sendiri',
-  },
-];
-
-export const guideBreadCumbs = [
-  {
-    name: 'Home',
-    link: '/',
-  },
-  {
-    name: 'Panduan',
-    link: '/panduan',
   },
 ];
 

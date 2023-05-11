@@ -4,6 +4,8 @@ import { FeatureSection } from './feature';
 import { PartnerSection } from './partner';
 import { GlimpseModule } from './glimpse';
 import { Banner1Module } from './banner';
+import { ChoiceFaculty } from './faculty';
+import { TestimonySection } from './testimony';
 
 export const LandingModule: FC = (): ReactElement => {
   return (
@@ -13,6 +15,8 @@ export const LandingModule: FC = (): ReactElement => {
       <PartnerSection />
       <GlimpseModule />
       <Banner1Module />
+      <ChoiceFaculty />
+      <TestimonySection />
     </Fragment>
   );
 };

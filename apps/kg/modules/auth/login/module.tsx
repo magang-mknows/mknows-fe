@@ -99,6 +99,7 @@ export const LoginModule: FC = (): ReactElement => {
               label="Email"
               status={errors.email ? 'error' : 'none'}
               message={errors.email?.message}
+              required
             />
             <TextField
               type="password"
@@ -109,6 +110,7 @@ export const LoginModule: FC = (): ReactElement => {
               label="Kata Sandi"
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
+              required
             />
             <div className="flex w-full justify-between my-2">
               <Checkbox

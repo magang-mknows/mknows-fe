@@ -50,13 +50,14 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
 
 const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
   features,
+  onClick,
 }): ReactElement => {
   return (
     <motion.section
       initial={{ opacity: '20%', top: 30 }}
       animate={{ opacity: '100%', top: 50 }}
-      exit={{ opacity: '100%', top: 100 }}
-      className="flex flex-col bg-white font-bold gap-y-3  absolute items-center w-[274px] top-0 rounded-lg right-[180px] shadow-lg"
+      exit={{ opacity: '100%', top: 120 }}
+      className="flex flex-col bg-white font-bold gap-y-3  absolute items-center w-auto top-0 rounded-lg right-[180px] shadow-lg"
     >
       <div className="flex w-full h-[91px] rounded-tl-lg rounded-tr-lg flex-col p-[16px] justify-center items-center bg-yellow-200">
         <h1 className="text-[20px]">Fitur</h1>
@@ -64,26 +65,28 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
           Total 16 Fitur
         </div>
       </div>
-      <div className="grid grid-rows-2 gap-4 p-4 grid-cols-2 items-center justify-center place-items-center">
+      <div className="grid grid-rows-2 gap-4 p-4 grid-cols-2 w-full items-center justify-center place-items-center">
         {features.map((item, key) => (
           <Button
+            onClick={onClick}
             type="button"
             href={item.link}
             key={key}
             className={
-              'flex flex-col justify-center items-center gap-y-2 w-[137px] h-[116px]'
+              'flex flex-col justify-start items-center gap-y-2 w-[137px] h-auto'
             }
           >
             <div>{item.icon}</div>
-            <span>{item.name}</span>
+            <span className="text-sm">{item.name}</span>
           </Button>
         ))}
       </div>
-      <div className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full">
-        <Link href={'/semua-fitur'} className="text-neutral-base">
-          Lihat Semua
-        </Link>
-      </div>
+      <Link
+        href={'/semua-fitur'}
+        className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-neutral-700 font-[700]"
+      >
+        Lihat Semua
+      </Link>
     </motion.section>
   );
 };
@@ -144,7 +147,9 @@ export const TopNav: FC<TNavbarProps> = ({
           </div>
         )}
       </nav>
-      {getPopUpAllFeature && <PopUpAllFeature {...props} />}
+      {getPopUpAllFeature && (
+        <PopUpAllFeature onClick={() => setPopUpAllFeature(false)} {...props} />
+      )}
     </header>
   );
 };

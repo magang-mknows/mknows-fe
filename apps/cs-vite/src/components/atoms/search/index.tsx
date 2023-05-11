@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { SearchProps } from "../types";
+import { SearchProps } from "./types"
 import IconSearch from "../icons/ic-search";
 
 const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
