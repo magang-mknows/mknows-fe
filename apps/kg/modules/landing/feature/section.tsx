@@ -18,7 +18,7 @@ export const FeatureSection: FC = (): ReactElement => {
       icon: <FeatureIcon2 />,
     },
     {
-      title: 'Assetment Kompetensi',
+      title: 'Asesment Kompetensi',
       icon: <FeatureIcon3 />,
     },
     {

@@ -102,26 +102,26 @@ export const JobsInformation: FC = (): ReactElement => {
               control={control}
               label={'Nama Ayah'}
               type={'text'}
-              variant="lg"
+              variant="md"
               required
               placeholder={'Masukan nama ayah'}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+              className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
             />
 
             <TextField
               name={'mother_name'}
               control={control}
               label={'Nama Ibu'}
-              variant="lg"
+              variant="md"
               type={'text'}
               required
               placeholder={'Masukan nama ibu'}
-              className="rounded-lg md:mb-2 py-2 md:py-3 px-2 outline-none focus:outline-none"
+              className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
             />
           </div>
           <div className="w-full mt-2">
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionFatherJob}
               name={'father_occupation'}
@@ -131,7 +131,7 @@ export const JobsInformation: FC = (): ReactElement => {
             />
 
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionMotherJob}
               name={'mother_occupation'}
@@ -142,7 +142,7 @@ export const JobsInformation: FC = (): ReactElement => {
           </div>
           <div className="w-full mt-2">
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionFatherIncome}
               name={'father_salary'}
@@ -152,7 +152,7 @@ export const JobsInformation: FC = (): ReactElement => {
             />
 
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionMotherIncome}
               name={'mother_salary'}
@@ -166,7 +166,7 @@ export const JobsInformation: FC = (): ReactElement => {
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionOwnIncome}
               name={'self_salary'}
@@ -175,7 +175,7 @@ export const JobsInformation: FC = (): ReactElement => {
               defaultValue="Pilih pekerjaan sendiri"
             />
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionLiveWith}
               name={'live_with'}
@@ -186,7 +186,7 @@ export const JobsInformation: FC = (): ReactElement => {
           </div>
           <div className="w-full">
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionCollegeFeesPaid}
               name={'tuition_payer'}
@@ -195,7 +195,7 @@ export const JobsInformation: FC = (): ReactElement => {
               defaultValue="Masukan biaya kuliah ditanggung oleh"
             />
             <SelectField
-              variant="lg"
+              variant="md"
               control={control}
               options={optionOwnJob}
               name={'self_occupation'}

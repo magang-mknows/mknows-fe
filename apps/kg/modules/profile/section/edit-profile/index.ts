@@ -1,3 +1,3 @@
-export * from './EditProfile';
+export * from './section';
 export * from './hooks';
 export * from './api';
