@@ -5,7 +5,7 @@ import search from '../../assets/search.svg';
 
 export const HeroSection = (): ReactElement => {
   return (
-    <div className="lg:grid lg:grid-cols-2 px-6 md:px-8 w-full lg:px-16 mt-[30px] mb-[50px]">
+    <div className="lg:grid lg:grid-cols-2 px-6 md:px-8 w-full lg:px-16 mt-[10px] mb-[50px]">
       <div className="col-span-1 ">
         <div className="title">
           <h1 className=" md:text-[50px] text-[40px] font-extrabold">
