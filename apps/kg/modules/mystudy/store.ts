@@ -1,11 +1,9 @@
-
-import { atom } from "recoil";
-import { Data } from "./typed";
-import Icon from "./assets/mahasiswa.svg";
-import Icon2 from "./assets/matkul.svg";
-import Icon3 from "./assets/sks.svg";
-import Icon4 from "./assets/semester.svg";
-
+import { atom } from 'recoil';
+import { Data } from './types';
+import Icon from './assets/mahasiswa.svg';
+import Icon2 from './assets/matkul.svg';
+import Icon3 from './assets/sks.svg';
+import Icon4 from './assets/semester.svg';
 
 export const dataCardState = atom<Array<Data>>({
   key: 'option-faculty-state',

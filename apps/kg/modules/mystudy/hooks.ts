@@ -1,9 +1,11 @@
-import { useRecoilState } from "recoil";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { useRecoilState } from 'recoil';
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
 
 // import SubjectService from "@/modules/MyStudy/service";
-import { dataCardState } from "./store";
-import { Data, DataTypes, TSubjectResponse } from "./typed";
+import { dataCardState } from './store';
+import { Data, DataTypes, TMyStudyResponse, TSubjectResponse } from './types';
+import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { mystudyGetRequest } from './api';
 
 export const useDataCard = (): DataTypes => {
   const [getData, setData] = useRecoilState(dataCardState);
@@ -20,3 +22,12 @@ export const useDataCard = (): DataTypes => {
 //     queryKey: ["get-all-subject"],
 //     queryFn: async () => await SubjectService.GetAllSubject(),
 //   });
+
+export const useGetMyStudy = (): UseQueryResult<
+  TMyStudyResponse,
+  TMetaErrorResponse
+> =>
+  useQuery({
+    queryKey: ['mystudy-get'],
+    queryFn: async () => await mystudyGetRequest(),
+  });

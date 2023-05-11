@@ -1,37 +1,72 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import {
+  TMetaResponse,
+  TMetaResponseSingle,
+} from '@mknows-frontend-services/utils';
 
-type TDataUser = {
-  id: string;
-  email: string;
-  password: string;
-  full_name: string;
-  user_name: string;
-  avatar: string;
-  gender: string;
-  phone_number: string;
-  email_verified_at: string;
-  user_major: TUserMajor;
+export type DataTypes = {
+  setData: (val: Array<Data>) => void;
+  getData: Array<Data>;
 };
 
-type TUserMajor = {
-  id: string;
-  student_id: string;
-  major_id: string;
-  status: string;
-  major: TMajor;
+export type Data = {
+  icon: StaticImageData;
+  jumlah: string;
+  detail: string;
+  warna: string;
 };
 
-type TMajor = {
+// SERVICE API
+
+export type TSubject = {
+  id: string;
+  name: string;
+  subject_code: string;
+  degree: string;
+  level: number;
+  teacher_id: string;
+  indicator: string;
+  study_experience: string;
+  teaching_materials: string;
+  basic_competencies: string;
+  tools_needed: string;
+  scoring: string;
+  description: string;
+  thumbnail: string;
+  credit: number;
+  slug: string;
+  subject_id: string;
+};
+
+export type TSubjectResponse = TMetaResponse<TSubject>;
+
+// MyStudy New Response
+
+export type TMyStudyItem = {
+  dataMajor: TDataMajor;
+  dataSubjects: TDataSubject[];
+};
+
+export type TDataMajor = {
   id: string;
   name: string;
   thumbnail: string;
-  slug: string;
-  faculty_id: string;
+  head_of_major: string;
+  description: string;
+  student_count: number;
+  subject_count: number;
+  credit_count: number;
+  current_semester: number;
 };
 
-type TMyStudy = {
-  dataUser: TDataUser;
-  manyUserJoinMajors: number;
-};
+export interface TDataSubject {
+  id: string;
+  subject_code: string;
+  name: string;
+  thumbnail: string;
+  teacher_name: string;
+  credit: number;
+  session_count: number;
+  progress_percentage: number;
+}
 
-export type TMyStudyResponse = TMetaResponseSingle<TMyStudy>;
+export type TMyStudyResponse = TMetaResponseSingle<TMyStudyItem>;
