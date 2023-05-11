@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { Fragment, ReactElement } from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 import { videoGuideTypes } from '../type';
 
@@ -14,14 +14,14 @@ const YoutubeSection = (props: videoGuideTypes): ReactElement => {
     },
   };
   return (
-    <div>
+    <Fragment>
       <YouTube
         iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-full h-[320px] disabled "
         videoId={videoId}
         opts={opts}
         onReady={onPlayerReady}
       />
-    </div>
+    </Fragment>
   );
 };
 
