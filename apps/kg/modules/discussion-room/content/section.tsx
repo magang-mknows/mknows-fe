@@ -15,10 +15,14 @@ import {
   PostSpamModal,
 } from './post/modal';
 import ReportSuccessModal from './post/modal/post-report-success/section';
+import { useGetAllDiscussion } from './hooks';
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
   const getSelectedOption = useRecoilValue(selectedOption);
+  const { data } = useGetAllDiscussion();
+  const listDiscussionData = data?.data;
+  console.log(listDiscussionData);
 
   const dummyComments = [
     {
@@ -103,24 +107,25 @@ export const DiscussionContent: FC = (): ReactElement => {
               </section>
               <section>
                 <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
-                  {dummyComments.length} balasan
+                  {listDiscussionData?.length} balasan
                 </h1>
                 <section>
-                  {dummyComments.map((comment, index) => {
+                  {listDiscussionData?.map((comment, index) => {
                     return (
                       <section
                         key={index}
                         className="pl-6 mb-10 md:pl-8 lg:pl-14"
                       >
                         <DiscussionCard
-                          hasImage={comment.hasImage}
-                          countLikes={comment.countLikes}
-                          time={comment.time}
+                          hasImage={true}
+                          // hasImage={comment.hasImage}
+                          countLikes={comment.likes}
+                          time={comment.created_at}
                           type="comment"
-                          userName={comment.userName}
-                          text={comment.text}
-                          imgSource={comment.imgSource as unknown as string}
-                          title={''}
+                          userName={comment.author.full_name}
+                          text={comment.content}
+                          imgSource={comment.images as unknown as string}
+                          title={comment.title}
                           option={
                             <DiscussionPostOption
                               id={`test id ${(index + 1) as unknown as string}`}
