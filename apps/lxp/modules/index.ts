@@ -23,3 +23,4 @@ export * from './discussion-room';
 export * from './drill-simulation';
 export * from './request-simulation';
 export * from './profile';
+export * from './dashboard';
