@@ -28,7 +28,11 @@ export const HeroSection = (): ReactElement => {
         </div>
       </div>
       <div className="col-span-1 grid place-content-end ">
-        <Image src={PanduanHero} alt={''} className={' w-0 lg:w-full h-full'} />
+        <Image
+          src={PanduanHero}
+          alt={'panduan'}
+          className={' w-0 lg:w-full h-full'}
+        />
       </div>
     </div>
   );
