@@ -5,11 +5,8 @@ import { dummyGuide } from './store';
 
 export const ContentSection = (): ReactElement => {
   return (
-    <div className="w-full px-6 md:px-8 lg:px-10">
-      <div className="title">
-        <h1 className="font-[700] text-[16px]">Buku panduan lainnya</h1>
-      </div>
-      <div className="mt-[24px] mb-[54px]">
+    <div className="w-full px-6 md:px-8 lg:px-20">
+      <div className="mt-[24px] mb-[54px] bg-[#F5F5F5] p-4">
         {dummyGuide.map((item, index) => {
           return (
             <Link key={index} href={item.href}>

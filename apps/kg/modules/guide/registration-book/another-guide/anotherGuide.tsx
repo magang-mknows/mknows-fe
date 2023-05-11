@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const AnotherGuideBook = (): ReactElement => {
   return (
     <Fragment>
-      <div className="w-full px-6 md:px-8 lg:px-10">
+      <div className="w-full px-6 md:px-8 lg:px-16">
         <div className="title">
           <h1 className="font-[700] text-[16px]">Buku panduan lainnya</h1>
         </div>
