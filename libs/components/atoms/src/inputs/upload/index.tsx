@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { AiFillWarning } from 'react-icons/ai';
 import { FieldValues, useController } from 'react-hook-form';
 import { TUploadFieldProps } from './types';
@@ -7,6 +7,7 @@ export const UploadField = <T extends FieldValues>(
   props: TUploadFieldProps<T>
 ): ReactElement => {
   const { field } = useController(props);
+  const [getName, setName] = useState('');
   return (
     <section className="flex w-full flex-col mb-6">
       {props.hasLabel && (
@@ -38,9 +39,9 @@ export const UploadField = <T extends FieldValues>(
                 props.error ? 'text-error-500 italic' : ''
               } px-4 text-xs`}
             >
-              {props.files ? (
+              {getName ? (
                 <span>
-                  {props.files}
+                  {getName}
                   {props.error && ' (erorr uploading file)'}
                 </span>
               ) : (
@@ -65,7 +66,10 @@ export const UploadField = <T extends FieldValues>(
       <input
         {...props}
         {...field}
-        onChange={(event) => field.onChange(event.target.files)}
+        onChange={(event) => {
+          field.onChange(event.target.files);
+          setName(event.target?.files?.[0]?.name as string);
+        }}
         id={props.name}
         type="file"
         className={`${
