@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const IconMap: FC = (): ReactElement => {
+export const IconMap: FC = (): ReactElement => {
   return (
     <svg
       width="474"
@@ -184,5 +184,3 @@ const IconMap: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconMap;

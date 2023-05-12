@@ -1,12 +1,14 @@
 import { FC, ReactElement, Fragment, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import IconDashboard from '../../atoms/icons/ic-dashboard';
-import IconUser from '../../atoms/icons/ic-user';
-import IconRequest from '../../atoms/icons/ic-request';
-import IconReport from '../../atoms/icons/ic-report';
-import IconQuota from '../../atoms/icons/ic-quota';
-import IconToggle from '../../atoms/icons/ic-toggle';
-import IconLogout from '../../atoms/icons/ic-logout';
+import {
+  IconDashboard,
+  IconUser,
+  IconRequest,
+  IconReport,
+  IconQuota,
+  IconToggle,
+  IconLogout,
+} from '../../atoms';
 
 const Sidebar: FC = (): ReactElement => {
   const DataSidebar = [

@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 
-const IconQuota: FC = (): ReactElement => {
+export const IconQuota: FC = (): ReactElement => {
   return (
     <svg
       width="24"
@@ -31,5 +31,3 @@ const IconQuota: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconQuota;

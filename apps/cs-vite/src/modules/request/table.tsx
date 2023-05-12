@@ -1,7 +1,6 @@
 import { FC, ReactElement } from 'react';
-import IconDropdown from '../../components/atoms/icons/ic-dropdown';
-import IconTable from '../../components/atoms/icons/ic-table';
 import { useResultData } from './hooks';
+import { IconDropdown, IconTable } from '../../components/atoms';
 
 const Table: FC = (): ReactElement => {
   const { getResultData } = useResultData();
