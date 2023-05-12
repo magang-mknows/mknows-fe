@@ -10,4 +10,4 @@ export * from './discussion-room-legacy';
 export * from './profile';
 export * from './study-contract';
 export * from './study-plan';
-// export * from './guide';
+export * from './guide';
