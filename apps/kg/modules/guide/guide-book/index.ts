@@ -1,4 +1,3 @@
 export * from './module';
-export * from './content';
-export * from './hero';
+export * from './const';
 export * from './loading';
