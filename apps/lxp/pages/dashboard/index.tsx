@@ -1,4 +1,4 @@
-import { DashboardModule } from 'apps/lxp/modules';
+import { DashboardModule } from '../../modules';
 import { FC, ReactElement } from 'react';
 
 const DashboardPage: FC = (): ReactElement => {
