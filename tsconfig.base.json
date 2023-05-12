@@ -18,6 +18,10 @@
       "@mknows-frontend-services/components/atoms": [
         "libs/components/atoms/src/index.ts"
       ],
+      "@kg/*": ["apps/kg/*"],
+      "@lxp/*": ["apps/lxp/*"],
+      "@cs/*": ["apps/lxp/cs/*"],
+      "@sample/*": ["apps/lxp/sample/*"],
       "@mknows-frontend-services/components/atoms/server": [
         "libs/components/atoms/src/server.ts"
       ],

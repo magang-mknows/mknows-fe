@@ -1,6 +1,10 @@
-import { useRecoilValue, useRecoilState } from "recoil";
-import { requestDummyData, resultFilter, resultSearch } from "./store";
-import { TRequestDataResponse, TResultDataResponse, TResultQueryResponse } from "./types";
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { requestDummyData, resultFilter, resultSearch } from './store';
+import {
+  TRequestDataResponse,
+  TResultDataResponse,
+  TResultQueryResponse,
+} from './types';
 
 export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(requestDummyData);
