@@ -1,21 +1,20 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import { useGetMyStudy } from './hooks';
 import { MajorSection } from './major';
-import { TDataMajor } from './types';
+import { TDataMajor, TDataSubject } from './types';
+import { SubjectSection } from './subject';
 
 export const MyStudyModule: FC = (): ReactElement => {
   const { data } = useGetMyStudy();
-  // console.log(data);
-  // console.log('MyStudy response : ', data?.data);
-
   const dataMajorProps = data?.data.dataMajor;
+  const dataSubjectProps = data?.data.dataSubjects;
 
   return (
     <div className="w-full">
       <MajorSection {...(dataMajorProps as TDataMajor)} />
-      {/* <div className="px-6">
-        <CardStudy />
-      </div> */}
+      <SubjectSection
+        dataSubjectProps={dataSubjectProps as Array<TDataSubject>}
+      />
     </div>
   );
 };

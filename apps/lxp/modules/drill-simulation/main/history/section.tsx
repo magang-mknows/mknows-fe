@@ -1,5 +1,3 @@
-'use client';
-
 import { FC, Fragment, ReactElement } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { dummyRegisteredSimulation, finishPopupState } from './store';

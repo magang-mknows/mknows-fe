@@ -1,34 +1,34 @@
-import { atom } from "recoil";
-import { Sidebar } from "./type";
+import { atom } from 'recoil';
+import { Sidebar } from './type';
 
 export const discussionSidebar = atom<Array<Sidebar>>({
-  key: "discussion-Mystudy",
+  key: 'discussion-Mystudy',
   default: [
     {
-      id: "1",
-      session: "Pertemuan 1",
+      id: '1',
+      session: 'Pertemuan 1',
       modul: [
         {
-          id: "1",
-          modul: "Module 1",
+          id: '1',
+          modul: 'Module 1',
         },
         {
-          id: "2",
-          modul: "Module 2",
+          id: '2',
+          modul: 'Module 2',
         },
       ],
     },
     {
-      id: "2",
-      session: "Pertemuan 2",
+      id: '2',
+      session: 'Pertemuan 2',
       modul: [
         {
-          id: "3",
-          modul: "Module 1",
+          id: '3',
+          modul: 'Module 1',
         },
         {
-          id: "4",
-          modul: "Module 2",
+          id: '4',
+          modul: 'Module 2',
         },
       ],
     },
@@ -36,8 +36,8 @@ export const discussionSidebar = atom<Array<Sidebar>>({
 });
 
 export const chooseSidebar = atom({
-  key: "choose-sidebar",
-  default: "",
+  key: 'choose-sidebar',
+  default: '',
 });
 
 export const PopupModalSuccessOpen = atom({
@@ -55,17 +55,17 @@ export const PopupModalSubmissionOpen = atom({
   default: false,
 });
 export const PopupModalConfirmCard = atom({
-  key: 'modal-popup-confirm',
+  key: 'modal-popup-confirm-card-3',
   default: false,
 });
 
 export const PopupModalConfirmModul = atom({
-  key: 'modal-popup-confirmModul',
+  key: 'modal-popup-confirm-modul-2',
   default: false,
 });
 
 export const PopupModalConfirmStatus = atom({
-  key: 'modal-popup-confirmStatus',
+  key: 'modal-popup-confirm-status-1',
   default: false,
 });
 
@@ -88,12 +88,12 @@ export const PopupModalCreateDiscussion = atom({
   default: false,
 });
 export const PopupModalEditDiscussion = atom({
-  key: 'modal-popup-edit-discussion',
+  key: 'modal-popup-edit-discussion-3',
   default: false,
 });
 
 export const PopupModalDeleteDiscussion = atom({
-  key: 'modal-popup-delete-discussion',
+  key: 'modal-popup-delete-discussion-3',
   default: false,
 });
 export const PopupModalReportDiscussion = atom({

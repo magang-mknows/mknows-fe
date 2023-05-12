@@ -6,7 +6,7 @@ export const Sidebar = (): ReactElement => {
   const { getGuideDictionary } = useGuideDictionary();
   return (
     <div className="px-6 md:px-8 lg:px-16 mb-10">
-      <h1 className=" text-[20px] font-[700] mb-2">Kamus Populer </h1>
+      <h1 className=" text-[20px] font-[700] mb-2">Kamus Populer</h1>
       <div className="grid grid-cols-2 lg:grid-cols-1 md:grid-cols-3 gap-2 lg:gap-0 md:gap-4">
         {getGuideDictionary.map((dummy, i) => {
           return (

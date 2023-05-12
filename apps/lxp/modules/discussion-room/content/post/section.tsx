@@ -1,4 +1,3 @@
-'use client';
 import { FC, Fragment, ReactElement } from 'react';
 import Image from 'next/image';
 
