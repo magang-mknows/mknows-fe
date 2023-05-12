@@ -1754,12 +1754,12 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nrwl/cypress@16.0.3":
-  version "16.0.3"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-16.0.3.tgz#fc822de6a20ab47591434097326703ac520e7ccd"
-  integrity sha512-TO1xuoZvFlJK+DYirJ8gys6hpgRiwiwOZfZ6/3AtO/t3xv6ngc63sfzT/lFUoHlEQwMvcypARUtgmSqXAaP9oA==
+"@nrwl/cypress@16.1.4":
+  version "16.1.4"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-16.1.4.tgz#9250b0553531e090cf8fc0c6f1b714f97e990a20"
+  integrity sha512-bmneKBze130SoXoGSpD8lDhJKx21f3IG/CWQ4Y7VIoI5RA2iZH6tfc5R6Ylze8qBr3pB6VL3zGE+tdhyN8D+qw==
   dependencies:
-    "@nx/cypress" "16.0.3"
+    "@nx/cypress" "16.1.4"
 
 "@nrwl/devkit@16.0.3":
   version "16.0.3"
@@ -1915,15 +1915,15 @@
   dependencies:
     "@nx/workspace" "16.1.4"
 
-"@nx/cypress@16.0.3":
-  version "16.0.3"
-  resolved "https://registry.yarnpkg.com/@nx/cypress/-/cypress-16.0.3.tgz#a7b3a9d0d6740f31ea01ff2e93b6d30ae5cc7319"
-  integrity sha512-3/hZEhSpBAdr7J4BsAFW7Kd68lJ0POTKojF0ObjxTTI99XPPuPsNtxUCTvKGuEm8uUfI60g8Esy8oGhfwDTvaQ==
+"@nx/cypress@16.1.4":
+  version "16.1.4"
+  resolved "https://registry.yarnpkg.com/@nx/cypress/-/cypress-16.1.4.tgz#d32eafeacff1c3446b9cb2348e70346a0d65603b"
+  integrity sha512-yczx7+BvmbI/Q7vXJBU8lD9RLWPYK8qcPvqYFy1jCAKi1LfTn2icLTGC716uiyFCRuLcVUIajF9JpcCoJ/4Cpw==
   dependencies:
-    "@nrwl/cypress" "16.0.3"
-    "@nx/devkit" "16.0.3"
-    "@nx/js" "16.0.3"
-    "@nx/linter" "16.0.3"
+    "@nrwl/cypress" "16.1.4"
+    "@nx/devkit" "16.1.4"
+    "@nx/js" "16.1.4"
+    "@nx/linter" "16.1.4"
     "@phenomnomnominal/tsquery" "~5.0.1"
     detect-port "^1.5.1"
     dotenv "~10.0.0"
