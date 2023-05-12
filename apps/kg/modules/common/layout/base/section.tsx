@@ -124,8 +124,8 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
 
   const { data: profileData } = useProfile();
   const _profile_user = {
-    email: profileData?.data?.user?.email,
-    full_name: profileData?.data?.user?.full_name,
+    email: profileData?.data?.user?.email as string,
+    full_name: profileData?.data?.user?.full_name as string,
     avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
   };
   return (
