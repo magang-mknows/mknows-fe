@@ -47,12 +47,18 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
                 style={{ background: x.warna }}
                 className="flex py-3 px-5 justify-center rounded-lg items-center"
               >
-                <Image src={x.icon} alt={`${x.detail}-icon`} className="mr-3" />
-                <div className="flex flex-col text-[#262626]">
-                  <p className="font-semibold text-base">
-                    {majorDetailsAmount[i] || '-'}
-                  </p>
-                  <p className="text-sm font-medium">{x.detail}</p>
+                <div className="flex min-w-[120px] md:min-w-fit">
+                  <Image
+                    src={x.icon}
+                    alt={`${x.detail}-icon`}
+                    className="mr-3"
+                  />
+                  <div className="flex flex-col text-[#262626]">
+                    <p className="font-semibold text-base">
+                      {majorDetailsAmount[i] || '-'}
+                    </p>
+                    <p className="text-sm font-medium">{x.detail}</p>
+                  </div>
                 </div>
               </div>
             );
