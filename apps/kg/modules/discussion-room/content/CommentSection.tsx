@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from 'react';
 import DiscussionCard from './post/section';
 import { DiscussionPostOption } from './post/option';
 import { useGetCommentById } from './hooks';
@@ -13,7 +13,7 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
   console.log(listCommentData);
 
   return (
-    <section>
+    <Fragment>
       {listCommentData?.map((comment, index) => {
         return (
           <section key={index} className="pl-6 mb-10 md:pl-8 lg:pl-14">
@@ -35,6 +35,6 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
           </section>
         );
       })}
-    </section>
+    </Fragment>
   );
 };
