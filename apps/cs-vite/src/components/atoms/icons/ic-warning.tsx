@@ -1,8 +1,14 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const IconWarning: FC = (): ReactElement => {
+export const IconWarning: FC = (): ReactElement => {
   return (
-    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 26 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -17,5 +23,3 @@ const IconWarning: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconWarning;
