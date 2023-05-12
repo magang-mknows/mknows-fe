@@ -1,4 +1,3 @@
-export * from './ic-back';
 export * from './ic-calendar';
 export * from './ic-dashboard';
 export * from './ic-delete';
@@ -18,4 +17,3 @@ export * from './ic-toggle';
 export * from './ic-user';
 export * from './ic-upload';
 export * from './ic-warning';
-export * from './ic-warning-error';

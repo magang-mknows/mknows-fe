@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 
-const IconWarning: FC = (): ReactElement => {
+export const IconWarning: FC = (): ReactElement => {
   return (
     <svg
       width="26"
@@ -23,5 +23,3 @@ const IconWarning: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconWarning;
