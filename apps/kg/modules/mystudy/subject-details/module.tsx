@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRecoilState } from 'recoil';
 import { SubjectDetailsState } from './store';
 import imgCourseHome from './assets/course-home-1.svg';
-import AccordionCourse from './components/AccordionCourse';
+import { SessionSection } from './session';
 
 let isExecuted = false;
 
@@ -60,7 +60,7 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
 
       <div className="flex flex-col gap-[25px] select-none">
         {courseDatas.map((conference, i) => (
-          <AccordionCourse
+          <SessionSection
             key={`Accordion-${i}`}
             conference={conference}
             index={i}

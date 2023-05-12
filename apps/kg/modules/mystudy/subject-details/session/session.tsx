@@ -11,7 +11,7 @@ import imgDiscussionIcon from '../assets/discussion-icon.svg';
 import imgDoneIcon from '../assets/done-icon.svg';
 import imgLockIcon from '../assets/lock-icon.svg';
 
-const AccordionCourse: FC<AccordionCourseProps> = ({
+export const SessionSection: FC<AccordionCourseProps> = ({
   conference,
   index,
   key,
@@ -118,5 +118,3 @@ const AccordionCourse: FC<AccordionCourseProps> = ({
     </div>
   );
 };
-
-export default AccordionCourse;
