@@ -2,12 +2,12 @@ import { atom } from 'recoil';
 import { certificateTypes } from './type';
 
 export const PopupModalSuccessOpen = atom({
-  key: 'modal-popup-success',
+  key: 'modal-popup-success-2',
   default: false,
 });
 
 export const ShowDetailStatus = atom({
-  key: 'ShowDetailStatus',
+  key: 'show-detail-status-2',
   default: false,
 });
 

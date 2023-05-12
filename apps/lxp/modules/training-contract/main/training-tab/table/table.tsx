@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { TsubjectItems } from './types';

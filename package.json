@@ -5,13 +5,17 @@
   "scripts": {
     "kg:serve": "yarn nx serve kg",
     "kg:build": "yarn nx build kg",
+    "kg:lint": "yarn nx lint kg",
     "lxp:serve": "yarn nx serve lxp",
     "lxp:build": "yarn nx build lxp",
+    "lxp:lint": "yarn nx lint lxp",
     "cs:serve": "yarn nx serve cs-vite",
-    "cs:build": "yarn nx build cs-vite"
+    "cs:build": "yarn nx build cs-vite",
+    "cs:lint": "yarn nx build cs-vite"
   },
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.21.8",
     "@headlessui/react": "^1.7.14",
     "@hookform/resolvers": "^3.1.0",
     "@nx/next": "16.1.4",
@@ -20,12 +24,12 @@
     "@tanstack/react-query": "^4.29.5",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
-    "date-fns": "^2.30.0",
     "clsx": "^1.2.1",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.12.10",
     "next": "13.4.1",
     "next-auth": "^4.22.1",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-alice-carousel": "^2.7.1",
     "react-chartjs-2": "^5.2.0",
     "react-date-range": "^1.4.0",
@@ -38,7 +42,9 @@
     "react-router-dom": "6.11.1",
     "react-youtube": "^10.1.0",
     "recoil": "^0.7.7",
+    "sharp": "^0.32.1",
     "tslib": "^2.3.0",
+    "webpack": "^5.82.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -80,7 +86,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jsdom": "~22.0.0",
-    "nx": "16.1.4",
+    "nx": "^16.1.4",
     "nx-cloud": "16.0.5",
     "postcss": "^8.4.23",
     "prettier": "^2.6.2",
@@ -95,4 +101,3 @@
     "vitest": "0.31.0"
   }
 }
-
