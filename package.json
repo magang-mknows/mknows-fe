@@ -9,9 +9,12 @@
     "lxp:serve": "yarn nx serve lxp",
     "lxp:build": "yarn nx build lxp",
     "lxp:lint": "yarn nx lint lxp",
-    "cs:serve": "yarn nx serve cs-vite",
-    "cs:build": "yarn nx build cs-vite",
-    "cs:lint": "yarn nx build cs-vite"
+    "cs:serve": "yarn nx serve cs",
+    "cs:build": "yarn nx build cs",
+    "cs:lint": "yarn nx build cs",
+    "sample:serve": "yarn nx serve sample",
+    "sample:build": "yarn nx build sample",
+    "sample:lint": "yarn nx build sample"
   },
   "private": true,
   "dependencies": {
