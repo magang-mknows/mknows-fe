@@ -81,15 +81,6 @@ export const PrivateInformation: FC = (): ReactElement => {
     }
   });
 
-  console.log(watch());
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setPrivateStatus(true);
-  //     setAdministrationStatus('onProgress');
-  //   }
-  // }, [data]);
-
   return (
     <Accordion
       idAccordion={getPrivateStatus ? '' : 'privat-information'}
