@@ -1,3 +1,3 @@
 export * from './section';
 export * from './loading';
-export * from './types.d';
+export * from './types';
