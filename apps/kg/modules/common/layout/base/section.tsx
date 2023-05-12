@@ -49,7 +49,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
     {
       name: 'Profile',
-      onClick: () => router.push('/user/profile'),
+      onClick: () => router.push('/profile'),
       icon: <FaRegUserCircle size={20} className="text-warning-base" />,
     },
     {
@@ -80,6 +80,10 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     {
       name: 'Penugasan',
       link: '/penugasan',
+    },
+    {
+      name: 'Rencana Studi',
+      link: '/rencana-studi',
     },
     {
       name: 'Nilai & Sertifikat',
@@ -114,6 +118,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     '/dashboard',
     '/studi-ku',
     '/penugasan',
+    '/rencana-studi',
     '/nilai-dan-sertifikat',
   ];
 
@@ -139,7 +144,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
         bottomNavRules={_nav_rules}
-        bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
+        bottomNavItemStyle={`w-auto h-auto p-3 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
       />
       <section className="flex flex-col h-full">{children}</section>

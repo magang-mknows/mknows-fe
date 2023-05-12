@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../modules/common/maintnence';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
+import { DiscussionRoomModule } from '../../modules';
 
 const DisscussionRoomPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <DiscussionRoomModule />;
 };
 
 export default DisscussionRoomPage;

@@ -8,7 +8,7 @@ const HasilPage: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
   return (
     <div className="relative">
-      <div className="mt-9 my-8 gap flex lg:flex-row flex-col h-[40px] items-center">
+      <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
         <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">
           Permintaan Hari ini
         </p>
@@ -48,7 +48,7 @@ const HasilPage: FC = (): ReactElement => {
           Untuk melihat riwayat permintaan sebelumnya{' '}
           <span className="text-[#4FA0CF]">
             {' '}
-            <a href="">Klik Disini</a>
+            <a href="/">Klik Disini</a>
           </span>
         </div>
       </div>

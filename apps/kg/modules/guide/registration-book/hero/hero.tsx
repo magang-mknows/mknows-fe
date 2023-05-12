@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const HeroSection = (): ReactElement => {
   return (
-    <div className="w-full px-6 md:px-8 lg:px-10">
+    <div className="w-full px-6 md:px-8 lg:px-16">
       <div className="mt-[56px]">
         <h1 className="text-center text-[20px] text-black font-[700] dark:text-white">
           Panduan pendaftaran

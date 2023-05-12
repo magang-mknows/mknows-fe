@@ -12,7 +12,7 @@ import { HoverCard } from '../hover-card';
 export const HeroSection: FC = (): ReactElement => {
   return (
     <Fragment>
-      <RandomShitBg className="z-0 absolute w-full overflow-y-hidden h-full" />
+      <RandomShitBg className="z-0 absolute left-0 top-0 bg-white w-full overflow-y-hidden h-full" />
       <section className="flex w-full justify-between overflow-hidden pt-[118px] px-[70px] h-full">
         <div className="flex gap-y-3 flex-col w-1/2 z-10">
           <div className="flex flex-col">

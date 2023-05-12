@@ -26,7 +26,7 @@ const UserModules: FC = (): ReactElement => {
             }
           />
           <Link to={'/dashboard/user/add-data'}>
-            <button className="border bg-white text-primary-500 font-semibold w-[200px] border-primary-400 rounded-md p-2">
+            <button className="border bg-white text-primary-500 font-semibold md:w-[200px] w-[140px] border-primary-400 rounded-md p-2">
               + Tambah Data
             </button>
           </Link>

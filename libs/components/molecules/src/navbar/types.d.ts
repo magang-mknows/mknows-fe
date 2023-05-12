@@ -23,6 +23,7 @@ export type TPopUpProps = {
 
 export type TPopUpAllFeaturesProps = {
   listStyle?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   features: Array<{
     name: string;
     link: string;

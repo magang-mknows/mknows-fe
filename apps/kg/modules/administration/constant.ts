@@ -330,11 +330,11 @@ export const rescheduleSimulationBreadCumbs = [
 // private information section
 export const optionsGender = [
   {
-    value: 'P',
+    value: 'FEMALE',
     label: 'Perempuan',
   },
   {
-    value: 'L',
+    value: 'MALE',
     label: 'Laki - Laki',
   },
 ];

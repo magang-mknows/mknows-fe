@@ -14,7 +14,7 @@ export const profileRequest = async (): Promise<TUserDetailResponse> => {
 export const UpdateUserProfile = async (
   payload: TProfilePayload
 ): Promise<TUserDetailResponse> => {
-  const { data } = await api.post('/user/profile/me', payload);
+  const { data } = await api.put('/user/profile/me', payload);
   return data;
 };
 

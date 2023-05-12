@@ -1,13 +1,3 @@
-export type TRequestDummyData = {
-  icon: string;
-  name: string;
-  totalData: number;
-  totalNotifikasi: number;
-  category: string;
-};
-
-export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
-
 export type TResultDataDummy = {
   no: number;
   nik: number;
@@ -17,7 +7,19 @@ export type TResultDataDummy = {
   kendala_proses: string;
   skor: string;
   detail: string;
+  jenis_produk: string;
+  jumlah_kuota: number;
 };
+
+export type TRequestDummyData = {
+  icon: string;
+  name: string;
+  totalData: number;
+  totalNotifikasi: number;
+  category: string;
+};
+
+export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
 
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 

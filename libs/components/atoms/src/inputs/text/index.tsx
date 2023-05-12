@@ -58,7 +58,7 @@ export const TextField = <T extends FieldValues>({
   const { field } = useController(props);
 
   return (
-    <section className="flex flex-col gap-y-2 my-1 w-auto ">
+    <section className="flex flex-col w-auto my-1 gap-y-2 ">
       {props.label && (
         <label
           htmlFor={props.name}
@@ -74,12 +74,12 @@ export const TextField = <T extends FieldValues>({
         >
           {props.label}
           {props.required && (
-            <span className=" text-error-600 font-bold ml-1">*</span>
+            <span className="ml-1 font-bold  text-error-600">*</span>
           )}
         </label>
       )}
 
-      <section className="flex items-center w-auto relative">
+      <section className="relative flex items-center w-auto">
         {props.prepend && (
           <label
             className="items-center inset-0 absolute flex items justify-center w-[40px]"
@@ -92,26 +92,27 @@ export const TextField = <T extends FieldValues>({
           <input
             type={type === 'password' ? (!showPassword ? type : 'text') : type}
             {...{ ...props, ...field }}
-            className={`w-full border border-gray-200 text-[#000]  ${
+            className={`
+            ${
               status === 'error' &&
               'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
             }
 
-          ${
-            status === 'success' &&
-            'focus:ring-1 focus:ring-success-base bg-success-100 '
-          }
+            ${
+              status === 'success' &&
+              'focus:ring-1 focus:ring-success-base bg-success-100 '
+            }
 
-          ${
-            status === 'warning' &&
-            'focus:ring-1 focus:ring-warning-base bg-warning-100 '
-          }
+            ${
+              status === 'warning' &&
+              'focus:ring-1 focus:ring-warning-base bg-warning-100 '
+            }
 
-          ${
-            !status ||
-            (status === 'none' &&
-              `border-[0.5px] border-neutral-800 ${props.className}`)
-          }
+            ${
+              !status ||
+              (status === 'none' &&
+                `border-[0.5px] border-neutral-400 shadow-sm ${props.className}`)
+            }
 
              ${
                variant === 'lg'
@@ -121,9 +122,8 @@ export const TextField = <T extends FieldValues>({
                  : variant === 'sm'
                  ? 'p-1 rounded-md'
                  : ''
-             } outline-none focus:outline-none ${
-              props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'
-            }
+             } outline-none focus:outline-none w-full text-[#000]
+            ${props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'}
                 `}
           />
         ) : (
@@ -153,7 +153,7 @@ export const TextField = <T extends FieldValues>({
           />
         )}
 
-        <div className="absolute flex right-4 top-1/2 transform -translate-y-1/2 space-x-2">
+        <div className="absolute flex space-x-2 transform -translate-y-1/2 right-4 top-1/2">
           {status === 'success' && (
             <img
               src="./assets/check-circle.svg"
@@ -175,7 +175,7 @@ export const TextField = <T extends FieldValues>({
 
         {props.append && (
           <label
-            className=" flex items-end justify-center w-auto"
+            className="flex items-end justify-center w-auto "
             htmlFor={props.name}
           >
             {props.append}

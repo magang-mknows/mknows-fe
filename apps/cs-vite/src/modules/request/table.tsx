@@ -60,12 +60,10 @@ const Table: FC = (): ReactElement => {
                 <td className="px-4">
                   <IconTable />
                 </td>
-                <td className=" py-7 text-[#262626] flex justify-center">
-                  {key + 1}
-                </td>
+                <td className=" py-7 text-[#262626]">{key + 1}</td>
                 <td className="px-6 py-3 text-[#262626] ">{item.no}</td>
                 <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
-                <td className="px-6 py-3 font-semibold text-[#262626] flex justify-center">
+                <td className="px-0 py-3 font-semibold text-[#262626]">
                   {item.nama}
                 </td>
                 <td className="px-6 py-3">{item.tggl_permintaan}</td>
