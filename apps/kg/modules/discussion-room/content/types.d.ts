@@ -18,10 +18,36 @@ export type TDiscussionItem = {
   images: string[];
   is_global: boolean;
   created_at: string;
-  author: Author;
+  discussion_comments: DiscussionComment[];
   likes: number;
   comments: number;
+  author: Author;
+  isLiked: boolean;
 };
+
+export interface DiscussionComment {
+  id: string;
+  user_id: string;
+  content: string;
+  image: string[];
+  created_at: string;
+  comment_replies: CommentReply[];
+  likes: number;
+  replies: number;
+  author: Author2;
+  isLiked: boolean;
+}
+
+export interface CommentReply {
+  id: string;
+  user_id: string;
+  content: string;
+  image: string[];
+  created_at: string;
+  likes: number;
+  author: Author;
+  isLiked: boolean;
+}
 
 export interface Author {
   avatar: string;

@@ -3,7 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button } from '@mknows-frontend-services/components/atoms';
 
-import { useGetAllDiscussion } from './hooks';
+import { useGetAllDiscussion, useGetDiscussionById } from './hooks';
 import { isModalOpen, selectedOption } from './store';
 import { DiscussionPostOption } from './post/option';
 import {
@@ -52,7 +52,6 @@ export const DiscussionContent: FC = (): ReactElement => {
         </section>
       </section>
       <section className="relative py-4 w-fit">
-        {/* {[...Array(2)].map((item, index) => { */}
         {listDiscussionData?.map((discussion, index) => {
           return (
             <DiscussionCard
