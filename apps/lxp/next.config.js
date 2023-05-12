@@ -16,6 +16,7 @@ const nextConfig = {
     domains: ['i.ytimg.com', 'res.cloudinary.com'],
     // formats: ["image/jpg"],
   },
+  experimental: {},
 };
 
 const plugins = [
