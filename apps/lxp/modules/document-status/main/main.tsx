@@ -1,4 +1,3 @@
-'use client';
 import { Tab } from '@headlessui/react';
 import { FC, ReactElement } from 'react';
 import { DocumentStatusTab } from './tab';

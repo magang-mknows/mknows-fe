@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
 export const PopupModalConfirmModul = atom({
-  key: 'modal-popup-confirmModul',
+  key: 'modal-popup-confirm-modul',
   default: false,
 });

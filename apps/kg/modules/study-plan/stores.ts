@@ -55,7 +55,7 @@ export const filterOptionSubject = selectorFamily({
 });
 
 export const dataStudyCardState = atom<Array<DataCard>>({
-  key: 'data-card-state',
+  key: 'data-card-state-2',
   default: [
     {
       label: 'Jurusan',
@@ -77,7 +77,7 @@ export const dataStudyCardState = atom<Array<DataCard>>({
 });
 
 export const dataTableState = atom<Array<DataTable>>({
-  key: 'data-table-state',
+  key: 'data-table-state-1',
   default: [
     {
       no: 1,
@@ -115,6 +115,6 @@ export const dataTableState = atom<Array<DataTable>>({
 });
 
 export const PopupModalConfirmCard = atom({
-  key: 'modal-popup-confirm',
+  key: 'modal-popup-confirm-card-2',
   default: false,
 });

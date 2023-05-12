@@ -3,7 +3,7 @@ import { videoMytrainingTypes } from './type';
 // import VideoDummy from '';
 
 export const videoGuideState = atom<Array<videoMytrainingTypes>>({
-  key: 'video-guide-state',
+  key: 'video-guide-state-4',
   default: [
     {
       videoId: '2PkWBWhHiwE',

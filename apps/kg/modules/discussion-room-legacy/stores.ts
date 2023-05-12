@@ -8,11 +8,11 @@ export const PopupModalCreateDiscussion = atom({
   default: false,
 });
 export const PopupModalEditDiscussion = atom({
-  key: 'modal-popup-edit-discussion',
+  key: 'modal-popup-edit-discussion-1',
   default: false,
 });
 export const PopupModalDeleteDiscussion = atom({
-  key: 'modal-popup-delete-discussion',
+  key: 'modal-popup-delete-discussion-1',
   default: false,
 });
 export const PopupModalReportDiscussion = atom({
@@ -27,7 +27,7 @@ export const PopupModalSuccessDiscussion = atom({
 // Api Stores
 
 export const popupGetUser = atom<TDiscussionItem>({
-  key: 'popup-get-user',
+  key: 'popup-get-user-1',
   default: {
     id: '',
     user_id: '',
@@ -40,6 +40,6 @@ export const popupGetUser = atom<TDiscussionItem>({
 });
 
 export const setid = atom({
-  key: 'id-dicussion',
+  key: 'id-dicussion-1',
   default: '',
 });
