@@ -1,3 +1,3 @@
 export * from './content';
 export * from './store';
-export * from '../type';
+export * from '../type.d';
