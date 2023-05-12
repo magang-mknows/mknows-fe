@@ -1,169 +1,180 @@
-import { atom, selector, selectorFamily } from "recoil";
-import { TRequestDummyData, TResultDataDummy } from "./types";
+import { atom, selector, selectorFamily } from 'recoil';
+import { TRequestDummyData, TResultDataDummy } from './types';
 
 export const requestDummyData = atom<TRequestDummyData[]>({
-  key: "request-dummy-data",
+  key: 'request-dummy-data',
   default: [
     {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Automation",
+      icon: '/assets/dashboard/card1.svg',
+      name: 'Ai Automation',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Automation",
+      category: 'AI Automation',
     },
     {
-      icon: "/assets/dashboard/card2.svg",
-      name: "Ai Document Verification",
+      icon: '/assets/dashboard/card2.svg',
+      name: 'Ai Document Verification',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Document Verivication",
+      category: 'AI Document Verivication',
     },
     {
-      icon: "/assets/dashboard/card3.svg",
-      name: "Ai Location & Movement",
+      icon: '/assets/dashboard/card3.svg',
+      name: 'Ai Location & Movement',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Condition Analisys",
+      category: 'AI Condition Analisys',
     },
     {
-      icon: "/assets/dashboard/card4.svg",
-      name: "AI Capacity & Earning Power",
+      icon: '/assets/dashboard/card4.svg',
+      name: 'AI Capacity & Earning Power',
       totalData: 500,
       totalNotifikasi: 3,
-      category: "AI Location & Movement",
+      category: 'AI Location & Movement',
     },
     {
-      icon: "/assets/dashboard/card2.svg",
-      name: "AI Capital Strength Analysis",
+      icon: '/assets/dashboard/card2.svg',
+      name: 'AI Capital Strength Analysis',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Location & Movement",
+      category: 'AI Location & Movement',
     },
     {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Automation",
+      icon: '/assets/dashboard/card1.svg',
+      name: 'Ai Automation',
       totalData: 500,
       totalNotifikasi: 4,
-      category: "AI Condition Analisys",
+      category: 'AI Condition Analisys',
     },
     {
-      icon: "/assets/dashboard/card4.svg",
-      name: "Ai Document Verification",
+      icon: '/assets/dashboard/card4.svg',
+      name: 'Ai Document Verification',
       totalData: 500,
       totalNotifikasi: 8,
-      category: "AI Document Verivication",
+      category: 'AI Document Verivication',
     },
     {
-      icon: "/assets/dashboard/card3.svg",
-      name: "Ai Location & Movement",
+      icon: '/assets/dashboard/card3.svg',
+      name: 'Ai Location & Movement',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Automation",
+      category: 'AI Automation',
     },
     {
-      icon: "/assets/dashboard/card4.svg",
-      name: "AI Capacity & Earning Power",
+      icon: '/assets/dashboard/card4.svg',
+      name: 'AI Capacity & Earning Power',
       totalData: 500,
       totalNotifikasi: 4,
-      category: "AI Document Verivication",
+      category: 'AI Document Verivication',
     },
     {
-      icon: "/assets/dashboard/card3.svg",
-      name: "AI Capital Strength Analysis",
+      icon: '/assets/dashboard/card3.svg',
+      name: 'AI Capital Strength Analysis',
       totalData: 500,
       totalNotifikasi: 2,
-      category: "AI Condition Analisys",
+      category: 'AI Condition Analisys',
     },
     {
-      icon: "/assets/dashboard/card2.svg",
-      name: "Ai Automation",
+      icon: '/assets/dashboard/card2.svg',
+      name: 'Ai Automation',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Condition Analisys",
+      category: 'AI Condition Analisys',
     },
     {
-      icon: "/assets/dashboard/card1.svg",
-      name: "Ai Document Verification",
+      icon: '/assets/dashboard/card1.svg',
+      name: 'Ai Document Verification',
       totalData: 500,
       totalNotifikasi: 1,
-      category: "AI Automation",
+      category: 'AI Automation',
     },
   ],
 });
 
 export const resultSearch = atom({
-  key: "result-query",
-  default: "",
+  key: 'result-query',
+  default: '',
 });
 
 export const resultOption = atom({
-  key: "result-option-query",
-  default: "",
+  key: 'result-option-query',
+  default: '',
 });
 
 export const resultDummyData = atom<TResultDataDummy[]>({
-  key: "result-dummy-data",
+  key: 'result-dummy-data',
   default: [
     {
       no: 10002345,
       nik: 327000189266,
-      nama: "Albert Maniqueen",
-      tggl_permintaan: "11/2/2021",
-      tggl_selesai: "11/2/2021",
-      kendala_proses: "-",
-      skor: "Sangat Baik",
-      detail: "Lihat Detail",
+      nama: 'Albert Maniqueen',
+      tggl_permintaan: '11/2/2021',
+      tggl_selesai: '11/2/2021',
+      kendala_proses: '-',
+      skor: 'Sangat Baik',
+      detail: 'Lihat Detail',
+      jenis_produk: 'AI Identity Scoring',
+      jumlah_kuota: 20,
     },
     {
       no: 11122334,
       nik: 32356789,
-      nama: "Ludwig Bethoven",
-      tggl_permintaan: "15/3/2022",
-      tggl_selesai: "11/2/2023",
-      kendala_proses: "NIK salah",
-      skor: "Cukup Buruk",
-      detail: "Lihat Detail",
+      nama: 'Ludwig Bethoven',
+      tggl_permintaan: '15/3/2022',
+      tggl_selesai: '11/2/2023',
+      kendala_proses: 'NIK salah',
+      skor: 'Cukup Buruk',
+      detail: 'Lihat Detail',
+      jenis_produk: 'AI Character Scoring',
+      jumlah_kuota: 50,
     },
     {
       no: 123578912,
       nik: 3278532111,
-      nama: "Jawadal Al Hilal",
-      tggl_permintaan: "11/8/2021",
-      tggl_selesai: "11/2/2024",
-      kendala_proses: "Kualitas KTP buruk",
-      skor: "Sangat Baik",
-      detail: "Lihat Detail",
+      nama: 'Jawadal Al Hilal',
+      tggl_permintaan: '11/8/2021',
+      tggl_selesai: '11/2/2024',
+      kendala_proses: 'Kualitas KTP buruk',
+      skor: 'Sangat Baik',
+      detail: 'Lihat Detail',
+      jenis_produk: 'AI Capability Scoring',
+      jumlah_kuota: 200,
     },
     {
       no: 10002345,
       nik: 327000189266,
-      nama: "Yasmin Siahaan",
-      tggl_permintaan: "11/2/2021",
-      tggl_selesai: "11/2/2021",
-      kendala_proses: "-",
-      skor: "Sangat Buruk",
-      detail: "Lihat Detail",
+      nama: 'Yasmin Siahaan',
+      tggl_permintaan: '11/2/2021',
+      tggl_selesai: '11/2/2021',
+      kendala_proses: '-',
+      skor: 'Sangat Buruk',
+      detail: 'Lihat Detail',
+      jenis_produk: 'AI Credit Scoring',
+      jumlah_kuota: 250,
     },
   ],
 });
 
 export const resultFilter = selector({
-  key: "result-filter",
+  key: 'result-filter',
   get: ({ get }) =>
     get(resultDummyData).filter(
       (user) =>
         user.nama.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.nik.toString().toLowerCase().includes(get(resultSearch).toLowerCase()),
+        user.nik
+          .toString()
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase())
     ),
 });
 
 export const sortedTable = selectorFamily({
-  key: "sorted-table",
+  key: 'sorted-table',
   get:
     (sortedType) =>
     ({ get }) => {
       const dataTable = get(resultDummyData);
-      return sortedType === "ASC"
+      return sortedType === 'ASC'
         ? dataTable.sort((a, b) => a.no - b.no)
         : dataTable.sort((a, b) => b.no - a.no);
     },

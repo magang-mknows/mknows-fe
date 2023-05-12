@@ -38,7 +38,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
   return (
     <div>
       <div
-        className="flex bg-white p-1 justify-center gap-1 items-center rounded-md text-sm text-gray-400 border border-gray-200 py-2 px-6 gap-1"
+        className="flex bg-white p-1 justify-center items-center rounded-md text-sm text-gray-400 border border-gray-200 py-2 px-6 gap-1"
         onClick={() => setOpen((open) => !open)}
       >
         <span>Dari</span>
