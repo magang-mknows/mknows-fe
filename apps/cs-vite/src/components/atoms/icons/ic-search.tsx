@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const IconSearch: FC = (): ReactElement => {
+export const IconSearch: FC = (): ReactElement => {
   return (
     <svg
       aria-hidden="true"
@@ -17,5 +17,3 @@ const IconSearch: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconSearch;

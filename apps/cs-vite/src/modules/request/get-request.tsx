@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { Dialog } from '@headlessui/react';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import Card from '../../components/molecules/card';
-import { IconBack } from '../../components/atoms/icons/ic-back';
 import Search from '../../components/atoms/search';
 import Pagination from '../../components/atoms/pagination';
-import { IconWarning } from '../../components/atoms/icons/ic-warning';
-import { IconErrorWarning } from '../../components/atoms/icons/ic-warning-error';
+import {
+  IconBack,
+  IconWarning,
+  IconErrorWarning,
+} from '../../components/atoms';
 
 const GetRequest: FC = (): ReactElement => {
   const [isOpen, setisOpen] = useState(false);

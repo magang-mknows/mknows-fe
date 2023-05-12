@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const IconRequest: FC = (): ReactElement => {
+export const IconRequest: FC = (): ReactElement => {
   return (
     <svg
       width="26"
@@ -16,5 +16,3 @@ const IconRequest: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconRequest;

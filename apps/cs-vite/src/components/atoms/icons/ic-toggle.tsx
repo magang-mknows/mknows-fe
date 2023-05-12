@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement } from 'react';
 
-const IconToggle: FC = (): ReactElement => {
+export const IconToggle: FC = (): ReactElement => {
   return (
     <svg
       className="w-6 h-6 text-[#9E9E9E9E] "
@@ -17,5 +17,3 @@ const IconToggle: FC = (): ReactElement => {
     </svg>
   );
 };
-
-export default IconToggle;

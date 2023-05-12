@@ -3,9 +3,7 @@ import { useUserData } from './hooks';
 import { Link } from 'react-router-dom';
 import Card from '../../components/molecules/card';
 import { Dialog } from '@headlessui/react';
-import { IConDelete } from '../../components/atoms/icons/ic-delete';
-import { IconEdit } from '../../components/atoms/icons/ic-edit';
-import IconDropdown from '../../components/atoms/icons/ic-dropdown';
+import { IconDropdown, IconEdit, IConDelete } from '../../components/atoms';
 
 const Table: FC = (): ReactElement => {
   const { getUserData } = useUserData();

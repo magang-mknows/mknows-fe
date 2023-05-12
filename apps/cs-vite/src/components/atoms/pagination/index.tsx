@@ -1,6 +1,5 @@
 import { ReactElement, FC, useState } from 'react';
-import IconPrev from '../icons/ic-prev';
-import IconNext from '../icons/ic-next';
+import { IconPrev, IconNext } from '../icons';
 
 const Pagination: FC = (): ReactElement => {
   const [isActive, setisActive] = useState('1');

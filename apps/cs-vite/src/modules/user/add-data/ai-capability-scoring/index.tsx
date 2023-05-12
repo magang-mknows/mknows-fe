@@ -7,8 +7,7 @@ import {
   Button,
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
-import IconDownload from '../../../../components/atoms/icons/ic-download';
-import IconUpload from '../../../../components/atoms/icons/ic-upload';
+import { IconDownload, IconUpload } from '../../../../components/atoms';
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;

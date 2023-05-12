@@ -2,8 +2,8 @@ import { FC, ReactElement } from 'react';
 import Card from '../../components/molecules/card';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { useRequestData } from './hooks';
-import { IconWarning } from '../../components/atoms/icons/ic-warning';
 import { Link } from 'react-router-dom';
+import { IconWarning } from '../../components/atoms';
 
 const PermintaanPage: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
