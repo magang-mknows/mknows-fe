@@ -1,4 +1,4 @@
-import { TBottomNavProps, TPopUpProps } from './section';
+import { TBottomNavProps } from './section';
 import { MouseEventHandler, ReactNode } from 'react';
 
 type TNavbarItem = {
@@ -7,7 +7,7 @@ type TNavbarItem = {
 };
 
 export type TPopUpProps = {
-  avatar: string;
+  avatar?: string;
   listStyle?: string;
   userData: {
     full_name: string;

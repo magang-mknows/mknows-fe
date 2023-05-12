@@ -1,3 +1,4 @@
 export * from './module';
+export * from './type.d';
 export * from './const';
-export * from './loading';
+export * from './hooks';

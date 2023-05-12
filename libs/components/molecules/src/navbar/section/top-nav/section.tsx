@@ -133,7 +133,7 @@ export const TopNav: FC<TNavbarProps> = ({
               <IconRing />
             </div>
             <Image
-              src={avatar}
+              src={avatar as string}
               alt={'user avatar'}
               width={36}
               height={36}
