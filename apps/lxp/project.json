@@ -10,7 +10,8 @@
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/lxp",
-        "outputPath": "dist/apps/lxp"
+        "outputPath": "dist/apps/lxp",
+        "postcssConfig": "apps/lxp/postcss.config.js"
       },
       "configurations": {
         "development": {

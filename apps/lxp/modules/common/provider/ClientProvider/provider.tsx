@@ -73,7 +73,7 @@ export const ClientProvider: FC<TProviderProps> = ({
 
   return (
     <div className={`${montserrat.className} max-w-[2200px] container mx-auto`}>
-      {/* <Navbar
+      <Navbar
         items={_pop_up_menu}
         features={_features}
         avatar={
@@ -105,7 +105,7 @@ export const ClientProvider: FC<TProviderProps> = ({
             </Button>
           </Fragment>
         }
-      /> */}
+      />
       <section className={'bg-neutral-100 min-h-[120vh] '}>{children}</section>
       <Modal
         withClose
