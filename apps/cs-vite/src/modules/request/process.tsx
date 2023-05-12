@@ -135,7 +135,7 @@ const ProsesPage: FC = (): ReactElement => {
         </div>
         <div className="font-semibold text-neutral-500">
           Untuk melihat riwayat permintaan sebelumnya{' '}
-          <span className="text-blue-600">
+          <span className="text-[#4FA0CF]">
             {' '}
             <a href="/">Klik Disini</a>
           </span>
