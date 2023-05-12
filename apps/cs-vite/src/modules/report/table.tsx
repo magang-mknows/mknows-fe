@@ -11,8 +11,8 @@ const Table: FC = (): ReactElement => {
         <thead className="text-xs border text-gray-700 font-light bg-[#F6FBFA] dark:bg-[#F5F8FF] dark:text-gray-400 ">
           <tr>
             <th></th>
-            <th scope="col" className="px-6 py-2 cursor-default w-[20%]">
-              <div className="flex gap-5 justify-center items-center">
+            <th scope="col" className="px-2 py-2 cursor-default">
+              <div className="flex gap-2 justify-center items-center">
                 <p>No</p>
               </div>
             </th>
@@ -45,9 +45,7 @@ const Table: FC = (): ReactElement => {
                   <td className="px-4">
                     <IconTable />
                   </td>
-                  <td className=" py-3 text-[#262626] flex justify-center items-center">
-                    {key + 1}
-                  </td>
+                  <td className="px-6 py-3 text-[#262626]">{key + 1}</td>
                   <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
                   <td className="px-6 py-3 font-semibold text-[#262626]  flex justify-start text-right">
                     {item.nama}
