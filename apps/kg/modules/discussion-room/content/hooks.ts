@@ -1,7 +1,6 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { TDiscussionResponse } from './types';
-import { DiscussionGetByIdRequest, getDisscussionRequest } from './api';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { TCommentResponse, TDiscussionResponse } from './types';
+import { CommentGetByIdRequest, getDisscussionRequest } from './api';
 
 export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
   useQuery({
@@ -9,10 +8,8 @@ export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
     queryFn: async () => await getDisscussionRequest(),
   });
 
-export const useGetDiscussionById = (
-  id: string
-): UseQueryResult<TDiscussionResponse, TMetaErrorResponse> =>
+export const useGetCommentById = (id: string): UseQueryResult<TCommentResponse> =>
   useQuery({
-    queryKey: ['event-get-by-id', id],
-    queryFn: async () => await DiscussionGetByIdRequest(id),
+    queryKey: ['comment-get-by-id', id],
+    queryFn: async () => await CommentGetByIdRequest(id),
   });

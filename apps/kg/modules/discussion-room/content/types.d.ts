@@ -58,3 +58,4 @@ export interface Author {
 
 export type TDiscussionSingleResponse = TMetaResponseSingle<TDiscussionItem>;
 export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;
+export type TCommentResponse = TMetaResponseSingle<TDiscussionItem>;

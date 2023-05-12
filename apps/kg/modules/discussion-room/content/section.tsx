@@ -3,7 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button } from '@mknows-frontend-services/components/atoms';
 
-import { useGetAllDiscussion, useGetDiscussionById } from './hooks';
+import { useGetAllDiscussion, useGetCommentById } from './hooks';
 import { isModalOpen, selectedOption } from './store';
 import { DiscussionPostOption } from './post/option';
 import {
@@ -18,6 +18,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import DiscussionCard from './post/section';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { TiCamera } from 'react-icons/ti';
+import { CommentSection } from './CommentSection';
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
@@ -51,7 +52,7 @@ export const DiscussionContent: FC = (): ReactElement => {
           </Button>
         </section>
       </section>
-      <section className="relative py-4 w-fit">
+      <section className="relative w-full py-4">
         {listDiscussionData?.map((discussion, index) => {
           return (
             <DiscussionCard
@@ -91,7 +92,8 @@ export const DiscussionContent: FC = (): ReactElement => {
                 <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
                   {discussion?.comments} balasan
                 </h1>
-                <section>
+                <CommentSection id={discussion.id} />
+                {/* <section>
                   {listDiscussionData?.map((comment, index) => {
                     return (
                       <section
@@ -116,7 +118,7 @@ export const DiscussionContent: FC = (): ReactElement => {
                       </section>
                     );
                   })}
-                </section>
+                </section> */}
               </section>
             </DiscussionCard>
           );
