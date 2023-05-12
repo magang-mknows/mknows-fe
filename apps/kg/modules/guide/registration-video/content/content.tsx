@@ -17,7 +17,7 @@ export const ContentSection: FC = (): ReactElement => {
         return (
           <div
             key={index}
-            className="lg:flex gap-[68px] xl:flex-nowrap lg:flex-wrap lg:p-[50px] p-5"
+            className="lg:flex gap-[68px] xl:flex-nowrap lg:flex-wrap lg:px-[70px] p-5"
           >
             <div className="w-full">
               <YoutubeSection videoId={item.videoId} />

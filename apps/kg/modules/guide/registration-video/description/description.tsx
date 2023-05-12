@@ -4,7 +4,7 @@ import { videoGuideTypes } from '../type';
 export const Description = (props: videoGuideTypes): ReactElement => {
   const { titleVideo, descVideo } = props;
   return (
-    <div className="bg-white  w-full lg:h-[269px] h-fit rounded-[8px] mt-[28px] shadow-md py-[23px] px-[46px] mb-10">
+    <div className="bg-white w-full h-fit rounded-[8px] mt-[28px] shadow-md py-8 px-[46px] mb-10">
       <h1 className="text-[18px] font-[600] text-[#171717]  h-269px ">
         {titleVideo}
       </h1>
