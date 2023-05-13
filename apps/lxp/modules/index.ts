@@ -24,3 +24,4 @@ export * from './drill-simulation';
 export * from './request-simulation';
 export * from './profile';
 export * from './glimpse-knowledge';
+export * from './dashboard';
