@@ -4,7 +4,7 @@ import Example1 from "./kontrak-krs/assets/example1.svg";
 import Example2 from "./kontrak-krs/assets/example2.svg";
 
 export const dataTableState = atom<Array<DataTable>>({
-    key: "data-table-state",
+    key: "data-table-study-contract",
     default: [
       {
         no: 1,
@@ -42,16 +42,16 @@ export const dataTableState = atom<Array<DataTable>>({
   });
 
   export const PopupModalConfirmStatus = atom({
-    key: "modal-popup-confirmStatus",
+    key: "modalPopup-confirmStatus-studyContract",
     default: false,
   });
 
   export const PopupModalSuccessConversi = atom({
-    key: "modal-popup-successConversi",
+    key: "modalPopup-successConversi-studyContract",
     default: false,
   });
 
   export const PopupModalAddStudy = atom({
-    key: "modal-popup-addStudy",
+    key: "modalPopup-addStudy-studyContract",
     default: false,
   });

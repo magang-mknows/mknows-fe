@@ -3,9 +3,9 @@ import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const StudyContractDetailPage: NextPage = (): ReactElement => {
-  return <>
+  return (
   <DetailContract/>
-  </>;
+  );
 };
 
 export default StudyContractDetailPage;
