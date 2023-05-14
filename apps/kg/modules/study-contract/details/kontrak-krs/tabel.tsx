@@ -11,7 +11,7 @@ import Success from './assets/Success.svg';
 // import SuspenseError from "@/modules/Common/SuspenseError";
 import { Button } from '@mknows-frontend-services/components/atoms';
 
-import PopupModal from '@kg/modules/study-plan/components/PopupModal';
+import { PopupModal } from '@mknows-frontend-services/components/molecules';
 import { moveProps } from '../type';
 const TabelDetailContract: FC<moveProps> = ({
   onClick,

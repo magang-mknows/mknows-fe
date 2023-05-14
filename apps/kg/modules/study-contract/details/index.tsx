@@ -1,5 +1,5 @@
 import { FC, ReactElement, lazy, Suspense, useState } from "react";
-import { BaseLayout } from "@kg/modules/common";
+import { BaseLayout } from "../../../modules/common/layout/base";
 // import { contractStudyBreadCumbs } from "@/utilities/constant";
 // import MainLayouts from "@/layouts/Main";
 // import Contract from "./Contract";

@@ -1,5 +1,4 @@
-
-import DetailContract from '@kg/modules/study-contract/details';
+import DetailContract from '../../../modules/study-contract/details'
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
