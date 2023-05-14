@@ -2,7 +2,7 @@ import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
 
 export type TFacultyPayload = {
   name: string;
-  thumbnail: File;
+  thumbnail: Blob;
 };
 
 export type TFacultyItem = {

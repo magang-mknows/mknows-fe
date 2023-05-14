@@ -88,7 +88,11 @@ const RootPage: NextPage = (): ReactElement => {
   const { mutate } = useCreateFaculty();
 
   const onFacultySubmit = facultySubmit((data) => {
-    mutate({ ...data, thumbnail: data.thumbnail as File });
+    console.log(data);
+    mutate({
+      ...data,
+      thumbnail: data.thumbnail[0] as File,
+    });
   });
 
   return (
