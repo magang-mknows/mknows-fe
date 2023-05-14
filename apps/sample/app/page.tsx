@@ -6,7 +6,7 @@ import {
   TextField,
   UploadField,
 } from '@mknows-frontend-services/components/atoms';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -124,7 +124,11 @@ const RootPage: NextPage = (): ReactElement => {
       <section className="flex flex-col items-center border-2 border-neutral-400 rounded-lg h-1/2 w-1/2 p-6">
         <div className="flex w-full justify-between">
           <h1 className="text-black text-4xl font-[700]">Form Add Faculty</h1>
-          {session && <Button type="button">Logout</Button>}
+          {session && (
+            <Button onClick={() => signOut()} type="button">
+              Logout
+            </Button>
+          )}
         </div>
         <div className="flex items-center h-full">
           {session ? (
