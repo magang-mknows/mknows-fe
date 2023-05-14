@@ -11,10 +11,11 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useProfile } from '../lib/profile/hooks';
+import { useCreateFaculty } from '../lib/faculty/hooks';
 
 const RootPage: NextPage = (): ReactElement => {
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-  const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
 
   const authValidationSchema = z.object({
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
@@ -27,16 +28,20 @@ const RootPage: NextPage = (): ReactElement => {
   const facultyValidationSchema = z.object({
     name: z.string().min(1, { message: 'Nama harus diisi' }),
     thumbnail: z
-      .object({
-        size: z.number(),
-        type: z.string().refine((value) => ALLOWED_FILE_TYPES.includes(value), {
-          message:
-            'Tipe File tidak valid. Hanya JPEG, PNG, and GIF yang dizinkan.',
-        }),
-      })
-      .refine((value) => value.size <= MAX_FILE_SIZE, {
-        message: 'File Terlalu besar.',
-      }),
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.length >= 1,
+        'Harus ada file yang di upload.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
+        'hanya menerima .jpg, .jpeg, dan .webp.'
+      ),
   });
 
   type AuthValidationSchema = z.infer<typeof authValidationSchema>;
@@ -50,7 +55,7 @@ const RootPage: NextPage = (): ReactElement => {
   const {
     control: controlFaculty,
     formState: { isValid: facultyIsValid, errors: facultyError },
-    watch,
+    handleSubmit: facultySubmit,
   } = useForm<FacultyValidationSchema>({
     mode: 'all',
     resolver: zodResolver(facultyValidationSchema),
@@ -59,8 +64,6 @@ const RootPage: NextPage = (): ReactElement => {
       thumbnail: undefined,
     },
   });
-
-  console.log(watch());
 
   const {
     control: controlAuth,
@@ -80,6 +83,12 @@ const RootPage: NextPage = (): ReactElement => {
       password: data.password,
       redirect: false,
     });
+  });
+
+  const { mutate } = useCreateFaculty();
+
+  const onFacultySubmit = facultySubmit((data) => {
+    mutate({ ...data, thumbnail: data.thumbnail as File });
   });
 
   return (
@@ -132,7 +141,7 @@ const RootPage: NextPage = (): ReactElement => {
         </div>
         <div className="flex items-center h-full">
           {session ? (
-            <form className="w-full flex-col flex">
+            <form onSubmit={onFacultySubmit} className="w-full flex-col flex">
               <TextField
                 label="Nama Lengkap"
                 name={'name'}
@@ -148,7 +157,7 @@ const RootPage: NextPage = (): ReactElement => {
                 control={controlFaculty}
                 name="thumbnail"
                 status={facultyError.thumbnail ? 'error' : 'none'}
-                message={facultyError.thumbnail?.message}
+                message={facultyError.thumbnail?.message as string}
               />
               <Button
                 disabled={!facultyIsValid}
