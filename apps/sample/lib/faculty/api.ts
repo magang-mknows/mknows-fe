@@ -5,6 +5,13 @@ import { TFacultyPayload, TFacultyResponse } from './types';
 export const facultyCreateRequest = async (
   payload: TFacultyPayload
 ): Promise<TFacultyResponse> => {
-  const { data } = await api.post('/faculty', serialize(payload));
+  const { data } = await api({
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    data: serialize(payload),
+    url: '/faculty',
+  });
   return data;
 };
