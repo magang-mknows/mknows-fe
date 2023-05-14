@@ -16,7 +16,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
   console.log('data', data?.data);
   const validationSchema = z.object({
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    employee_id_number: z.string().min(1, { message: ' NIP harus diisi' }),
+    employee_id_number: z.number().min(1, { message: ' NIP harus diisi' }),
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
     }),
@@ -98,7 +98,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                type={'text'}
+                type={'number'}
                 label={'Nomor Induk Pegawai'}
                 name={'employee_id_number'}
                 placeholder={'masukkan NIP'}
