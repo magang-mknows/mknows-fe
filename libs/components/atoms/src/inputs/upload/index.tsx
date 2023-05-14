@@ -72,7 +72,6 @@ export const UploadField = <T extends FieldValues>(
           } text-xs`}
         >
           {props.message}
-          This is Error
         </span>
       </label>
 
