@@ -67,7 +67,7 @@ const dataLine = {
 
 const ChartLine: FC = (): ReactElement => {
   return (
-    <div className="h-[600px] mt-4 overflow-hidden ">
+    <div className="h-fit w-full mt-4 overflow-hidden ">
       <Line data={dataLine} />
     </div>
   );
