@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,9 +14,10 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 const PrivateInformationAccordion: FC = (): ReactElement => {
   const { data } = useGetAllAdministration();
   console.log('data', data?.data);
+  const userData = data?.data;
   const validationSchema = z.object({
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    employee_id_number: z.number().min(1, { message: ' NIP harus diisi' }),
+    employee_id_number: z.string().min(1, { message: 'NIP harus diisi' }),
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
     }),
@@ -36,21 +37,19 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
     control,
     handleSubmit,
     formState: { isValid, errors },
+    reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      company: data?.data.company,
-      email: data?.data.email,
-      leader: data?.data.leader,
-      employee_id_number: data?.data.employee_id_number,
-      full_name: data?.data.full_name,
-      department: data?.data.department,
+      company: '',
+      email: '',
+      leader: '',
+      employee_id_number: '',
+      full_name: '',
+      department: '',
     },
   });
-  data?.data == undefined
-    ? setAdministrationStatus('none')
-    : setAdministrationStatus('finished');
   const onSubmit = handleSubmit((data) => {
     try {
       mutate(
@@ -68,7 +67,12 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
       setPrivateStatus(false);
     }
   });
-
+  useEffect(() => {
+    reset(userData);
+    userData == undefined
+      ? setAdministrationStatus('none')
+      : setAdministrationStatus('finished');
+  }, [reset, userData]);
   return (
     <Accordion
       idAccordion={getPrivateStatus ? '' : 'privat-information'}
