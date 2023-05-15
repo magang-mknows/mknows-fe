@@ -1,6 +1,6 @@
-import { FC, ReactElement } from "react";
-import { SearchProps } from "./types"
-import IconSearch from "../icons/ic-search";
+import { FC, ReactElement } from 'react';
+import { SearchProps } from './types';
+import IconSearch from '../icons/ic-search';
 
 const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
   return (
@@ -18,7 +18,7 @@ const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
           onChange={onChange}
           id="simple-search"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-          placeholder="Search NIM, NIK, Nama, No. Permintaan"
+          placeholder="Search"
           required
         />
       </div>

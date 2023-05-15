@@ -4,16 +4,16 @@ import ChartDoughnut from '../../molecules/chart/chart-doughnut';
 
 const SkorSection: FC = (): ReactElement => {
   return (
-    <section className="bg-white h-[500px]  w-full p-8 my-4">
-      <h1 className="text-xl font-semibold p-4">RIWAYAT NILAI SKOR</h1>
-      <div className="flex justify-between py-4">
+    <section className="bg-white h-fit w-full rounded-md md:py-5 py-0 my-4">
+      <h1 className="text-xl font-bold p-4">RIWAYAT NILAI SKOR</h1>
+      <div className="flex justify-between py-3 px-4 md:flex-row flex-col md:space-y-0 space-y-4">
         <div className="px-4">
           <DropDownDashboard />
         </div>
         <div>
           <select
             id="category"
-            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[160px] p-2 "
+            className="bg-white border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block xl:w-[140px] lg:w-[120px] md:w-[140px] w-full p-2 "
           >
             <option selected>Semua</option>
             <option value="US">AI Optimation</option>
@@ -23,11 +23,11 @@ const SkorSection: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <div className="flex">
+      <div className="px-4 xl:space-x-10 lg:space-x-2 space-x-0 lg:justify-normal flex lg:flex-row flex-col">
         <div className=" w-[65%]">
           <ChartDoughnut />
         </div>
-        <div className="py-14 ">
+        <div className="w-full py-14">
           <div className="flex gap-3 my-2">
             <div className="bg-[#13837B] rounded-full w-5 h-5"></div>
             <p className="text-xs">A (Sangat Baik)</p>
