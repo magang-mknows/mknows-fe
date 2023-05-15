@@ -14,7 +14,7 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 const PrivateInformationAccordion: FC = (): ReactElement => {
   const { data } = useGetAllAdministration();
   console.log('data', data?.data);
-  const userData = data?.data;
+  const administrationData = data?.data;
   const validationSchema = z.object({
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     employee_id_number: z.string().min(1, { message: 'NIP harus diisi' }),
@@ -68,11 +68,11 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
     }
   });
   useEffect(() => {
-    reset(userData);
-    userData == undefined
+    reset(administrationData);
+    administrationData === undefined
       ? setAdministrationStatus('none')
       : setAdministrationStatus('finished');
-  }, [reset, userData]);
+  }, [reset, administrationData]);
   return (
     <Accordion
       idAccordion={getPrivateStatus ? '' : 'privat-information'}
