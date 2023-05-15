@@ -4,9 +4,9 @@ import { Menu, Transition } from '@headlessui/react';
 export const DropDownDashboard: FC = (): ReactElement => {
   const [isActive, setisActive] = useState('Bulan');
   return (
-    <div className="flex flex-row gap-20 justify-center">
+    <div className="flex flex-row gap-2 justify-center">
       <section>
-        <div className="absolute flex text-sm z-10">
+        <div className="flex text-sm z-10">
           <Menu as="div" className="inline-block text-right ">
             <Menu.Button>
               <div
@@ -62,7 +62,7 @@ export const DropDownDashboard: FC = (): ReactElement => {
         </div>
       </section>
       <section>
-        <div className="absolute flex text-sm z-10">
+        <div className=" flex text-sm z-10">
           <Menu as="div" className="inline-block text-center ">
             <Menu.Button>
               <div
@@ -134,7 +134,7 @@ export const DropDownDashboard: FC = (): ReactElement => {
         </div>
       </section>
       <section>
-        <div className="absolute flex text-sm  z-10">
+        <div className=" flex text-sm  z-10">
           <Menu as="div" className=" inline-block text-left">
             <Menu.Button>
               <div
