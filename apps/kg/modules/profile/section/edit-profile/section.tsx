@@ -119,7 +119,11 @@ export const EditProfileModule: FC = (): ReactElement => {
                       >
                         <Menu.Items className="absolute w-40 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg left-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <div className="px-1 py-1 ">
-                            <UploadField name={'avatar'} control={control} />
+                            <UploadField
+                              name={'avatar'}
+                              control={control}
+                              variant={'md'}
+                            />
                           </div>
                         </Menu.Items>
                       </Transition>

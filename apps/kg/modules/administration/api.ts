@@ -7,6 +7,7 @@ import {
   TFileAdm,
   TFileResponse,
 } from './types';
+import { serialize } from 'object-to-formdata';
 
 export const privateInformationRequest = async (
   payload: TBiodataAdm
@@ -31,6 +32,6 @@ export const familyInformationRequest = async (
 export const fileInformationRequest = async (
   payload: TFileAdm
 ): Promise<TFileResponse> => {
-  const { data } = await api.post('/administration/file', payload);
+  const { data } = await api.post('/administration/file', serialize(payload));
   return data;
 };
