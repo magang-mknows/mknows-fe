@@ -29,3 +29,8 @@ export type TUploadQueryResponse = {
   getUploadQuery: string;
   setUploadQuery: (val: string) => void;
 };
+
+export type TDataCategory = {
+  setDataCategory: (val: string) => void;
+  getDataCategory: string;
+};
