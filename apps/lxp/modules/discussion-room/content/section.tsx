@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { isModalOpen, selectedOption } from './store';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { IoMdAddCircleOutline } from 'react-icons/io';
@@ -13,12 +13,13 @@ import {
   DeleteConfirmModal,
   PostReportModal,
   PostSpamModal,
+  PostCreateEditModal,
 } from './post/modal';
 import ReportSuccessModal from './post/modal/post-report-success/section';
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
-  const getSelectedOption = useRecoilValue(selectedOption);
+  const [getSelectedOption, setSelectedOption] = useRecoilState(selectedOption);
 
   const dummyComments = [
     {
@@ -59,6 +60,10 @@ export const DiscussionContent: FC = (): ReactElement => {
         <section className="w-full md:w-[200px] gap-10 lg:w-[200px] h-[42px] lg:h-[50px] flex justify-start md:justify-end">
           <Button
             type="button"
+            onClick={() => {
+              setOptionOpen(true);
+              setSelectedOption('create');
+            }}
             className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 w-full text-sm py-4 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
           >
             <h1>Buat Diskusi</h1>
@@ -142,10 +147,14 @@ export const DiscussionContent: FC = (): ReactElement => {
         lookup={isOptionOpen}
         onClose={() => setOptionOpen(false)}
       >
-        {getSelectedOption === 'report' ? <PostReportModal /> : null}
-        {getSelectedOption === 'reportDetail' ? <PostSpamModal /> : null}
-        {getSelectedOption === 'reportSuccess' ? <ReportSuccessModal /> : null}
-        {getSelectedOption === 'delete' ? <DeleteConfirmModal /> : null}
+        {getSelectedOption === 'create' && (
+          <PostCreateEditModal type="create" />
+        )}
+        {getSelectedOption === 'edit' && <PostCreateEditModal type="edit" />}
+        {getSelectedOption === 'report' && <PostReportModal />}
+        {getSelectedOption === 'reportDetail' && <PostSpamModal />}
+        {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}
+        {getSelectedOption === 'delete' && <DeleteConfirmModal />}
       </Modal>
     </section>
   );

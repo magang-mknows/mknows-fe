@@ -1,60 +1,63 @@
 {
   "name": "cs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/cs",
+  "sourceRoot": "apps/cs/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/cs",
         "outputPath": "dist/apps/cs"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/cs"
+          "mode": "development"
         },
-        "production": {}
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "serve": {
-      "executor": "@nx/next:server",
+      "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "cs:build",
-        "dev": true
+        "buildTarget": "cs:build"
       },
       "configurations": {
         "development": {
           "buildTarget": "cs:build:development",
-          "dev": true
+          "hmr": true
         },
         "production": {
           "buildTarget": "cs:build:production",
-          "dev": false
+          "hmr": false
         }
       }
     },
-    "export": {
-      "executor": "@nx/next:export",
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "cs:build:production"
+        "buildTarget": "cs:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "cs:build:development"
+        },
+        "production": {
+          "buildTarget": "cs:build:production"
+        }
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/cs"],
       "options": {
-        "jestConfig": "apps/cs/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/cs"
       }
     },
     "lint": {
@@ -62,6 +65,12 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/cs/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "cs:build"
       }
     }
   },

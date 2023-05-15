@@ -1,5 +1,4 @@
-import { ReactElement } from 'react';
-import { AiFillWarning } from 'react-icons/ai';
+import { ReactElement, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import { TUploadFieldProps } from './types';
 
@@ -7,27 +6,34 @@ export const UploadField = <T extends FieldValues>(
   props: TUploadFieldProps<T>
 ): ReactElement => {
   const { field } = useController(props);
+  const [getName, setName] = useState('');
   return (
-    <section className="flex w-full flex-col mb-6">
-      {props.hasLabel && (
+    <section className="flex flex-col w-auto my-1 gap-y-2 ">
+      {props.label && (
         <label
           htmlFor={props.name}
-          className={'font-medium text-neutral-800 text-sm'}
+          className={`text-[#000] ${
+            props.variant === 'lg'
+              ? 'text-[18px] font-bold'
+              : props.variant === 'md'
+              ? 'text-[16px] font-bold'
+              : props.variant === 'sm'
+              ? 'text-[14px] font-bold'
+              : ''
+          } `}
         >
-          {props.label}{' '}
+          {props.label}
           {props.required && (
-            <span className="text-error-700 font-bold">*</span>
+            <span className="ml-1 font-bold  text-error-600">*</span>
           )}
         </label>
       )}
 
-      <label htmlFor={props.name}>
+      <label className="mb-2" htmlFor={props.name}>
         <section
           className={`${
-            props.error && ' border-error-400'
-          } flex overflow-hidden border rounded-lg mt-4 mb-2 ${
-            props.className
-          }`}
+            props.status === 'error' && ' border-error-400'
+          } flex overflow-hidden border mb-1 rounded-lg ${props.className}`}
         >
           <div className="w-full flex items-center ">
             <h1 className="bg-primary-400 w-fit text-white py-2 cursor-pointer hover:bg-primary-600 transition-colors ease-in-out duration-300 px-4 rounded-l-lg">
@@ -35,13 +41,13 @@ export const UploadField = <T extends FieldValues>(
             </h1>
             <p
               className={`${
-                props.error ? 'text-error-500 italic' : ''
+                props.status === 'error' ? 'text-error-500 italic' : ''
               } px-4 text-xs`}
             >
-              {props.files ? (
+              {getName ? (
                 <span>
-                  {props.files}
-                  {props.error && ' (erorr uploading file)'}
+                  {getName}
+                  {props.status === 'error' && `(${props.message})`}
                 </span>
               ) : (
                 'Tidak ada file yang dipilih'
@@ -54,51 +60,54 @@ export const UploadField = <T extends FieldValues>(
             </p>
           </div>
         </section>
+        <span
+          className={`${
+            props.status === 'error'
+              ? 'text-error-base'
+              : props.status === 'success'
+              ? 'text-success-base'
+              : props.status === 'warning'
+              ? 'text-warning-base'
+              : ''
+          } text-xs`}
+        >
+          {props.message}
+        </span>
       </label>
-      {props.error && (
-        <div className="flex items-center w-full gap-x-1 text-xs">
-          <AiFillWarning className="text-warning-500" />
-          <span className="text-warning-500">{props.error}</span>
-        </div>
-      )}
 
       <input
         {...props}
-        {...field}
-        onChange={(event) => field.onChange(event.target.files)}
+        onChange={(event) => {
+          field.onChange(event.target.files);
+          setName(event.target?.files?.[0]?.name as string);
+        }}
         id={props.name}
         type="file"
-        className={`${
-          props.error &&
-          !props.warning &&
-          !props.success &&
-          'focus:outline-1 focus:ring-error-600 focus:border-1 bg-red-50 border-2 border-red-600'
-        } hidden
-        
-        
-        ${
-          props.success &&
-          !props.warning &&
-          !props.error &&
-          'focus:outline-1 focus:ring-success-600 focus:border-1 bg-green-50 border-2 border-green-600'
-        }
-        
-        ${
-          props.warning &&
-          !props.success &&
-          !props.error &&
-          'focus:outline-1 focus:ring-yellow-600 focus:border-1 bg-yellow-50 border-2 border-yellow-600'
-        }
-        
-        ${
-          !props.warning &&
-          !props.error &&
-          !props.success &&
-          'focus:outline-1 focus:ring-primary-600 focus:border-1 border-2 border-neutral-300'
-        }
+        className={`
+            ${
+              props.status === 'error' &&
+              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base text-sm'
+            }
+
+            ${
+              props.status === 'success' &&
+              'focus:ring-1 focus:ring-success-base bg-success-100 text-sm'
+            }
+
+            ${
+              props.status === 'warning' &&
+              'focus:ring-1 focus:ring-warning-base bg-warning-100 text-sm'
+            }
+
+            ${
+              !props.status ||
+              (props.status === 'none' &&
+                `border-[0.5px] border-neutral-400 shadow-sm ${props.className}`)
+            }
 
            rounded-lg p-4 outline-none focus:outline-none
         `}
+        hidden
       />
     </section>
   );

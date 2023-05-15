@@ -1,8 +1,8 @@
 import { FC, ReactElement } from 'react';
-import UniqueSidebarOptions from './options/UniqueSidebarOptions';
-import UniqueSidebarHeader from './header/UniqueSidebarHeader';
+import { UniqueSidebarHeader } from './header';
+import { UniqueSidebarOptions } from './options';
 
-const UniqueEventSidebar: FC = (): ReactElement => {
+export const UniqueEventSidebar: FC = (): ReactElement => {
   return (
     <section className="col-span-2 lg:col-span-1">
       <UniqueSidebarHeader />
@@ -10,5 +10,3 @@ const UniqueEventSidebar: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default UniqueEventSidebar;

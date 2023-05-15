@@ -1,6 +1,6 @@
 import { FC, Fragment, ReactElement } from 'react';
 
-const UniqueSidebarHeader: FC = (): ReactElement => {
+export const UniqueSidebarHeader: FC = (): ReactElement => {
   return (
     <Fragment>
       <h1 className="mb-2 text-2xl font-bold text-neutral-900">Acara Unik</h1>
@@ -10,5 +10,3 @@ const UniqueSidebarHeader: FC = (): ReactElement => {
     </Fragment>
   );
 };
-
-export default UniqueSidebarHeader;
