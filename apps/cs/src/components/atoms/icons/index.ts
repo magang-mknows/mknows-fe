@@ -6,6 +6,7 @@ export * from './ic-dropdown';
 export * from './ic-edit';
 export * from './ic-logout';
 export * from './ic-map';
+export * from './ic-notif';
 export * from './ic-next';
 export * from './ic-prev';
 export * from './ic-quota';

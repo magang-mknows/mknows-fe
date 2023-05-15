@@ -52,3 +52,8 @@ export const userFilter = selector({
           .includes(get(userSearch).toLowerCase())
     ),
 });
+
+export const CategoryStatusState = atom({
+  key: 'category-status-state',
+  default: 'none',
+});
