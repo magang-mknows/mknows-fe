@@ -7,7 +7,7 @@ export const PopupProfilLeaderborad = atom({
 });
 
 export const popupGetUser = atom<TLeaderboardItem>({
-  key: 'popup-get-user',
+  key: 'popup-get-user-2',
   default: {
     student_name: '',
     averageScore: 0,

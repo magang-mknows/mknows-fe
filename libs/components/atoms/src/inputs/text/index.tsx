@@ -95,17 +95,17 @@ export const TextField = <T extends FieldValues>({
             className={`
             ${
               status === 'error' &&
-              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base '
+              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base text-sm'
             }
 
             ${
               status === 'success' &&
-              'focus:ring-1 focus:ring-success-base bg-success-100 '
+              'focus:ring-1 focus:ring-success-base bg-success-100 text-sm'
             }
 
             ${
               status === 'warning' &&
-              'focus:ring-1 focus:ring-warning-base bg-warning-100 '
+              'focus:ring-1 focus:ring-warning-base bg-warning-100 text-sm'
             }
 
             ${
@@ -122,7 +122,7 @@ export const TextField = <T extends FieldValues>({
                  : variant === 'sm'
                  ? 'p-1 rounded-md'
                  : ''
-             } outline-none focus:outline-none w-full text-[#000]
+             } outline-none focus:outline-none w-full text-[#000] text-sm
             ${props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'}
                 `}
           />

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 
-const UniqueSidebarOptions: FC = (): ReactElement => {
+export const UniqueSidebarOptions: FC = (): ReactElement => {
   const pathname = usePathname();
 
   return (
@@ -43,5 +43,3 @@ const UniqueSidebarOptions: FC = (): ReactElement => {
     </section>
   );
 };
-
-export default UniqueSidebarOptions;

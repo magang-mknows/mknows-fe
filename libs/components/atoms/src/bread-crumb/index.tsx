@@ -5,11 +5,11 @@ import { MdChevronRight } from 'react-icons/md';
 
 export const BreadCrumb: FC<TBreadCrumbProps> = ({
   items,
-  textColor,
+  textColor = 'text-[#106FA4]',
 }): ReactElement => {
   return (
     <div
-      className="grid place-content-start w-full px-8 md:px-14 lg:px-16 py-10 text-[#106FA4] !font-extrabold text-xs md:text-sm"
+      className="grid place-content-start w-full px-8 md:px-14 lg:px-16 py-10 !font-extrabold text-xs md:text-sm"
       aria-label="Breadcrumb"
     >
       <ol className="flex w-full items-center gap-x-2">
@@ -25,7 +25,7 @@ export const BreadCrumb: FC<TBreadCrumbProps> = ({
                 >
                   {crumb.name}
                 </Link>
-                <MdChevronRight className="text-xl" />
+                <MdChevronRight className={`text-xl ${textColor}`} />
               </Fragment>
             );
           } else {

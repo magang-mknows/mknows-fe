@@ -51,12 +51,12 @@ export type TFamilyAdm = {
 };
 
 export type TFileAdm = {
-  id_card: File;
-  diploma_certificate: File;
-  family_card: File;
-  photo: File;
-  transcript: File;
-  letter_of_recommendation: File;
+  id_card?: File;
+  diploma_certificate?: File;
+  family_card?: File;
+  photo?: File;
+  transcript?: File;
+  letter_of_recommendation?: File;
 };
 
 export type TBiodataResponse = TMetaResponseSingle<TBiodataAdm>;
