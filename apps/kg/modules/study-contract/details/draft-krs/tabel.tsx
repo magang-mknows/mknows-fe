@@ -1,7 +1,6 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
 import { useDataTable, usePopupDeleteStudy } from '../hooks';
-
 import { Button } from '@mknows-frontend-services/components/atoms';
 import Delete from '../../assets/Delete.svg';
 import { PopupModal } from '@mknows-frontend-services/components/molecules';
