@@ -12,7 +12,7 @@ export const TrainingInformationHeader: FC = (): ReactElement => {
     useRecoilState(TrainingConfirmPopup);
 
   return (
-    <header className="px-8 pb-6 pt-10 md:px-14 lg:px-16 mb-8">
+    <header className="px-8 pb-6 pt-6 md:px-14 lg:px-16 mb-8">
       <h1 className="text-xl text-neutral-800 font-bold mb-6">
         Pengajuan Pelatihan
       </h1>

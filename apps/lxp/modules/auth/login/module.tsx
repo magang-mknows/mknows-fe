@@ -42,6 +42,7 @@ export const LoginModule: FC = (): ReactElement => {
     defaultValues: {
       email: '',
       password: '',
+      remember: false,
     },
   });
 

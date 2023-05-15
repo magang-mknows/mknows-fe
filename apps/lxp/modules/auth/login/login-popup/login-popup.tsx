@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { FcGoogle } from 'react-icons/fc';
@@ -14,6 +14,8 @@ import {
   DashedText,
   TextField,
 } from '@mknows-frontend-services/components/atoms';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export const LoginFormPopup: FC = (): ReactElement => {
   const [loading, setLoading] = useState(false);
@@ -37,6 +39,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
 
   const {
     control,
+    handleSubmit,
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
@@ -47,10 +50,43 @@ export const LoginFormPopup: FC = (): ReactElement => {
       remember: false,
     },
   });
+  const router = useRouter();
+  const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
+    try {
+      const response = await signIn('login', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+      if (response?.ok) {
+        router.push('/');
+        setLoginPopup(false);
+      } else {
+        setError(response?.error);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  });
+
+  const onGoogleLogin = async () => {
+    await signIn('google', {
+      redirect: false,
+    });
+  };
+
+  useEffect(() => {
+    setError(router.query.error as string);
+  }, [router.query.error]);
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
-      <form className=" flex flex-col px-8 md:px-10 lg:px-14 -mt-4 pb-10">
+      <form
+        onSubmit={onSubmit}
+        className=" flex flex-col px-8 md:px-10 lg:px-14 -mt-4 pb-10"
+      >
         <section className="flex flex-col w-full gap-y-1 mb-6 mt-10">
           <h1 className="text-left md:text-center font-bold text-4xl">Masuk</h1>
           <p className="text-left md:text-center text-sm">
@@ -120,6 +156,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
           </Button>
           <DashedText />
           <Button
+            onClick={onGoogleLogin}
             type="button"
             className="bg-neutral-50 !border-neutral-500 border-[1px] !text-neutral-500 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300 flex items-center justify-center gap-2 w-full text-sm py-4  hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400"
           >

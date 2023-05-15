@@ -32,9 +32,7 @@ export const useUpdateUserProfile = (): UseMutationResult<
   TProfilePayload,
   unknown
 > => {
-  const { data: session } = useSession();
   return useMutation({
-    // enabled: !!session,
     mutationKey: ['update-user-profile'],
     mutationFn: async (payload) => await UpdateUserProfile(payload),
   });
@@ -46,9 +44,7 @@ export const useUpdateAvatar = (): UseMutationResult<
   TAvatarPayload,
   unknown
 > => {
-  const { data: session } = useSession();
   return useMutation({
-    // enabled: !!session,
     mutationKey: ['update-avatar-profile'],
     mutationFn: async (payload) => await UpdateAvatarProfile(payload),
   });

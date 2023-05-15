@@ -49,7 +49,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     },
     {
       name: 'Profile',
-      onClick: () => router.push('/user/profile'),
+      onClick: () => router.push('/profile'),
       icon: <FaRegUserCircle size={20} className="text-warning-base" />,
     },
     {
@@ -82,8 +82,12 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
       link: '/penugasan',
     },
     {
+      name: 'Rencana Studi',
+      link: '/rencana-studi',
+    },
+    {
       name: 'Nilai & Sertifikat',
-      link: '/nilai-sertifikat',
+      link: '/nilai-dan-sertifikat',
     },
   ];
 
@@ -114,13 +118,14 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
     '/dashboard',
     '/studi-ku',
     '/penugasan',
-    '/nilai-sertifikat',
+    '/rencana-studi',
+    '/nilai-dan-sertifikat',
   ];
 
   const { data: profileData } = useProfile();
   const _profile_user = {
-    email: profileData?.data?.user?.email,
-    full_name: profileData?.data?.user?.full_name,
+    email: profileData?.data?.user?.email as string,
+    full_name: profileData?.data?.user?.full_name as string,
     avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
   };
   return (
@@ -139,7 +144,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
         bottomNavRules={_nav_rules}
-        bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
+        bottomNavItemStyle={`w-auto h-auto p-3 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
       />
       <section className="flex flex-col h-full">{children}</section>

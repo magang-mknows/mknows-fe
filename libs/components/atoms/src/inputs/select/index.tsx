@@ -13,16 +13,22 @@ export const SelectField = <T extends FieldValues>({
   const { field } = useController(props);
   return (
     <Listbox {...props} {...field}>
-      <div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-1 w-auto ">
         <Listbox.Label
-          className={`font-sans text-black 
-              ${variant === 'lg' && 'text-[18px]'}
-              ${variant === 'md' && 'text-[16px]'}
-              ${variant === 'sm' && 'text-[14px]'}
+          className={`font-sans text-black font-bold
+             ${
+               variant === 'lg'
+                 ? 'text-[18px] font-bold'
+                 : variant === 'md'
+                 ? 'text-[16px] font-bold'
+                 : variant === 'sm'
+                 ? 'text-[14px] font-bold'
+                 : ''
+             }
             `}
           htmlFor={props.name}
         >
-          {props.label}{' '}
+          {props.label}
           {props.required && (
             <span className="text-error-base font-bold ml-1">*</span>
           )}
@@ -32,31 +38,43 @@ export const SelectField = <T extends FieldValues>({
           <Listbox.Button
             as="button"
             className={`
-              px-4  outline-none focus:outline-none w-full bg-white
-
+              px-4 outline-none focus:outline-none w-full bg-white
+              
               ${props.disabled && `bg-neutral-100 ring-neutral-400`}
-              ${props.success && `ring-success-base ring-1`}
-              ${props.error && `ring-error-base ring-1`}
-              ${props.warning && `ring-warning-base ring-1`}
+              ${props.success && `border-success-base border-[1px]`}
+              ${props.error && `border-error-base border-[1px]`}
+              ${props.warning && `border-warning-base border-[1px]`}
               ${
                 !props.success &&
                 !props.error &&
                 !props.warning &&
-                `ring-primary-400 ring-1`
+                `border-[1px] border-neutral-400`
               }
               
-              ${variant === 'lg' && `py-4 rounded-lg`}
-              ${variant === 'md' && `py-2 rounded-md`}
-              ${variant === 'sm' && `p-1 rounded-md`}
+             ${
+               variant === 'lg'
+                 ? 'py-4 rounded-lg'
+                 : variant === 'md'
+                 ? 'py-2 rounded-md'
+                 : variant === 'sm'
+                 ? 'p-1 rounded-md'
+                 : ''
+             }
             `}
           >
             {(data) => (
               <div className="flex justify-between items-center">
                 <span
-                  className={`
-                      ${variant === 'lg' && 'text-[16px]'}
-                      ${variant === 'md' && 'text-[14px]'}
-                      ${variant === 'sm' && 'text-[10px]'}
+                  className={`text-neutral-400
+                       ${
+                         variant === 'lg'
+                           ? 'text-[18px]'
+                           : variant === 'md'
+                           ? 'text-[16px]'
+                           : variant === 'sm'
+                           ? 'text-[14px]'
+                           : ''
+                       }
                       `}
                 >
                   {getLabel(data.value) || props.placeholder}
@@ -66,7 +84,7 @@ export const SelectField = <T extends FieldValues>({
             )}
           </Listbox.Button>
 
-          <Listbox.Options className="absolute bg-white w-full drop-shadow-xl z-10 rounded mt-2">
+          <Listbox.Options className="absolute bg-white w-full drop-shadow-xl z-10 rounded mt-2 ">
             {props.options?.map(
               (data: TOption, key: Key | null | undefined) => (
                 <Listbox.Option

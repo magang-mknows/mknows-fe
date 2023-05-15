@@ -41,7 +41,7 @@ export const semuaFiturState = atom<Array<T>>({
       namaFitur: 'Nilai dan Sertifikat',
       icon: icon3,
       warna: '#E3FBDA',
-      slug: '/nilai-sertifikat',
+      slug: '/nilai-dan-sertifikat',
     },
     {
       id: 5,
