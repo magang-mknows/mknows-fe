@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import AiIdentityScoring from './ai-identity-scoring';
 import AiCharacterScoring from './ai-character-scoring';
 import AiCapabilityScoring from './ai-capability-scoring';
-import { IconBack } from '../../../components/atoms';
 
 const TambahData: FC = (): ReactElement => {
   return (
