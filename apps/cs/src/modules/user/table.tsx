@@ -12,42 +12,42 @@ const Table: FC = (): ReactElement => {
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm border rounded-lg text-left text-gray-500 ">
-        <thead className="text-xs border text-gray-700 uppercase bg-[#F6FBFA]  ">
+        <thead className="text-xs font-semibold border text-[#A3A3A3] bg-[#F6FBFA]  ">
           <tr>
-            <th scope="col" className="px-6 py-3 cursor-default">
+            <th scope="col" className="px-6 py-2 cursor-default">
               <div className="flex gap-2 justify-center items-center">
                 <p>No</p>
                 <IconDropdown />
               </div>
             </th>
-            <th scope="col" className="px-6 py-3">
-              <th scope="col" className="px-6 py-3 cursor-default">
+            <th scope="col" className="px-6 py-2">
+              <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
-                  <p>Nik</p>
+                  <p>NIK</p>
                   <IconDropdown />
                 </div>
               </th>
             </th>
-            <th scope="col" className="px-6 py-3">
-              <th scope="col" className="px-6 py-3 cursor-default">
+            <th scope="col" className="px-6 py-2">
+              <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>Nama</p>
                   <IconDropdown />
                 </div>
               </th>
             </th>
-            <th scope="col" className="px-6 py-3">
-              <th scope="col" className="px-6 py-3 cursor-default">
+            <th scope="col" className="px-6 py-2">
+              <th scope="col" className="px-6 py-2 cursor-default">
                 <div className="flex gap-2 justify-center items-center">
                   <p>Tanggal</p>
                   <IconDropdown />
                 </div>
               </th>
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-2">
               Berkas
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-2">
               Action
             </th>
           </tr>

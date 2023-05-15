@@ -44,6 +44,11 @@ const RiwayatAlokasi: FC = (): ReactElement => {
         </div>
       </div>
       <Table />
+      <div className="lg:text-xs py-2 text-[10px] flex flex-row justify-between">
+        <div className=" text-neutral-400 font-base">
+          Menampilkan 1-10 dari 110 hasil
+        </div>
+      </div>
     </section>
   );
 };
