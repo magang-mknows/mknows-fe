@@ -1,4 +1,4 @@
-import api from '@lxp/services/api';
+import api from '../../../../services/api';
 import { TUserDataResponse } from './types';
 
 export const getAllUserData = async (): Promise<TUserDataResponse> => {
