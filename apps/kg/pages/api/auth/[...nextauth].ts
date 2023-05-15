@@ -4,6 +4,23 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { loginByGoogleRequest, loginRequest } from '../../../modules';
 import { TLoginData } from '../../../modules';
+import { refreshTokenRequest } from '../../../modules/auth/refresh-token/api';
+
+export const refreshAccessToken = async (token: TLoginData) => {
+  try {
+    const data = await refreshTokenRequest({
+      refresh_token: token.refresh_token,
+    });
+
+    return {
+      ...token,
+      access_token: data.access_token,
+      refresh_token: data.refresh_token ?? token.refresh_token,
+    };
+  } catch (error: any) {
+    throw new Error(error.response.data.message);
+  }
+};
 
 export const authOptions: NextAuthOptions = {
   providers: [
