@@ -1,70 +1,71 @@
-import { FC, ReactElement, useEffect, useMemo } from 'react';
+import { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import { useRecoilState } from 'recoil';
-import { SubjectDetailsState } from './store';
 import imgCourseHome from './assets/course-home-1.svg';
 import { SessionSection } from './session';
-
-let isExecuted = false;
+import { useGetSubjectDetailsById } from './hooks';
+import { useRouter } from 'next/router';
+import { TDataSession } from './type';
 
 export const SubjectDetailsModule: FC = (): ReactElement => {
-  const [courseDatas, setCourseDatas] = useRecoilState(SubjectDetailsState);
+  const { query } = useRouter();
+  const { data } = useGetSubjectDetailsById(query['detail-matkul'] as string);
 
-  const updatedCourses = useMemo(() => {
-    const changedCourseDatas = courseDatas?.map((course) => {
-      const { module, quiz, assignment, disscussion } = course.status;
-      const progress = [module, quiz, assignment, disscussion];
-      return { ...course, progress };
-    });
+  const dataSubjectDetails = data?.data.dataSubject;
+  const dataSessions = data?.data.dataSessions;
 
-    for (let i = 0; i < changedCourseDatas.length; i++) {
-      if (!changedCourseDatas[i].progress.includes('In Progress')) {
-        changedCourseDatas[i + 1].isOpen = true;
-      }
-    }
-
-    return changedCourseDatas;
-  }, [courseDatas]);
-
-  useEffect(() => {
-    if (!isExecuted) {
-      setCourseDatas(updatedCourses);
-    }
-    isExecuted = true;
-  }, [updatedCourses, setCourseDatas]);
+  // const dataSessions = [
+  //   {
+  //     id: '6bc3b730-8c7d-41f0-a1dc-03bac621a824',
+  //     session_no: 1,
+  //     is_locked: false,
+  //     progress: [
+  //       {
+  //         status: 'FINISHED',
+  //         type: 'MODULE',
+  //         updated_at: '2023-05-10T22:44:53.666Z',
+  //       },
+  //       {
+  //         status: 'FINISHED',
+  //         type: 'QUIZ',
+  //         updated_at: '2023-05-10T22:45:01.729Z',
+  //       },
+  //       {
+  //         status: 'FINISHED',
+  //         type: 'ASSIGNMENT',
+  //         updated_at: '2023-05-10T22:45:07.528Z',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     id: '6bc3b730-8c7d-41f0-a1dc-03bac621a825',
+  //     session_no: 2,
+  //     is_locked: true,
+  //     progress: [],
+  //   },
+  // ];
+  // console.log('subject-details response : ', data?.data);
 
   return (
     <div className="mx-auto px-[7%] my-8 flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-[30px] items-center">
         <h3 className="text-black text-[28px] text-center font-bold">
-          Manajemen Keuangan
+          {dataSubjectDetails?.name}
         </h3>
         <div className="w-[95%] h-[253px]">
           <Image
             src={imgCourseHome}
-            alt="Course images"
+            alt={`${dataSubjectDetails?.name}-image`}
             className="h-full object-cover rounded-lg mx-auto"
           />
         </div>
         <p className="text-lg font-normal text-neutral-800 text-justify">
-          Manajemen Keuangan belajar tentang bagaimana merencanakan, mengelola,
-          serta menggunakan sumber daya keuangan perusahaan. Perkuliahan jurusan
-          ini juga tentang lembaga perbankan, kinerja perusahaan, perpajakan,
-          akuntansi, perdagangan internasional, perencanaan modal, asuransi,
-          anggaran, analisis keuangan, akuisisi dana, manajemen utang dan aset,
-          hingga portofolio dan manajemen investasi. Pengawasan berbagai aspek
-          keuangan guna mencegah kesalahan atau kecurangan juga dipelajari
-          selama kuliah.
+          {dataSubjectDetails?.description}
         </p>
       </div>
 
       <div className="flex flex-col gap-[25px] select-none">
-        {courseDatas.map((conference, i) => (
-          <SessionSection
-            key={`Accordion-${i}`}
-            conference={conference}
-            index={i}
-          />
+        {dataSessions?.map((session, i) => (
+          <SessionSection session={session as TDataSession} />
         ))}
       </div>
     </div>

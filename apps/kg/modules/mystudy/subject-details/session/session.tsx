@@ -1,37 +1,44 @@
 import { FC, ReactElement, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AccordionCourseProps } from './type';
 import { MdArrowDropDown } from 'react-icons/md';
 
+import { TDataSession } from '../type';
 import imgModuleIcon from '../assets/module-icon.svg';
 import imgQuizIcon from '../assets/quiz-icon.svg';
 import imgAssignmentIcon from '../assets/assignment-icon.svg';
 import imgDiscussionIcon from '../assets/discussion-icon.svg';
 import imgDoneIcon from '../assets/done-icon.svg';
 import imgLockIcon from '../assets/lock-icon.svg';
+import { useRouter } from 'next/router';
 
-export const SessionSection: FC<AccordionCourseProps> = ({
-  conference,
-  index,
-  key,
+export const SessionSection: FC<{ session: TDataSession }> = ({
+  session,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState('');
+  const router = useRouter();
+
+  function isProgressFinished(status: string) {
+    return session.progress.some((progress) => progress.type === status);
+  }
+
   return (
-    <div key={key} className="flex flex-col">
+    <div key={session.id} className="flex flex-col">
       <button
         onClick={() =>
-          isOpen == '' ? setIsOpen(`Accordion-${index}`) : setIsOpen('')
+          isOpen == ''
+            ? setIsOpen(`Accordion-${session.session_no}`)
+            : setIsOpen('')
         }
-        disabled={!conference.isOpen}
+        disabled={session.is_locked}
         className={`px-[30px] py-[14px] flex justify-between items-center rounded-lg text-white cursor-pointer ${
-          conference.isOpen
+          !session.is_locked
             ? 'bg-primary-500 hover:opacity-80'
             : 'bg-neutral-500 cursor-auto'
         }`}
       >
-        <p className="text-lg font-medium">Pertemuan {(index as number) + 1}</p>
-        {conference.isOpen ? (
+        <p className="text-lg font-medium">Pertemuan {session.session_no}</p>
+        {!session.is_locked ? (
           <MdArrowDropDown
             className={`text-3xl relative ${isOpen ? 'rotate-180' : ''}`}
           />
@@ -45,20 +52,20 @@ export const SessionSection: FC<AccordionCourseProps> = ({
       </button>
 
       {/* CONTENT */}
-      {isOpen === `Accordion-${index}` ? (
+      {isOpen === `Accordion-${session.session_no}` ? (
         <div className="w-[94%] mx-auto">
           <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
             <div className="flex gap-x-6">
               <Image src={imgModuleIcon} alt="" />
               <Link
-                href="/studi-ku/course/modul"
+                href={`${router.asPath}/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Modul
               </Link>
             </div>
             <div className="">
-              {conference.status.module === 'Done' && (
+              {isProgressFinished('MODULE') && (
                 <Image src={imgDoneIcon} alt="" />
               )}
             </div>
@@ -67,16 +74,14 @@ export const SessionSection: FC<AccordionCourseProps> = ({
             <div className="flex gap-x-6">
               <Image src={imgQuizIcon} alt="" />
               <Link
-                href="/studi-ku/course/quiz"
+                href={`${router.asPath}/kuis`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Quiz
               </Link>
             </div>
             <div className="">
-              {conference.status.quiz === 'Done' && (
-                <Image src={imgDoneIcon} alt="" />
-              )}
+              {isProgressFinished('QUIZ') && <Image src={imgDoneIcon} alt="" />}
             </div>
           </div>
           <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
@@ -90,7 +95,7 @@ export const SessionSection: FC<AccordionCourseProps> = ({
               </Link>
             </div>
             <div className="">
-              {conference.status.assignment === 'Done' && (
+              {isProgressFinished('ASSIGNMENT') && (
                 <Image src={imgDoneIcon} alt="" />
               )}
             </div>
@@ -106,7 +111,7 @@ export const SessionSection: FC<AccordionCourseProps> = ({
               </Link>
             </div>
             <div className="">
-              {conference.status.disscussion === 'Done' && (
+              {isProgressFinished('DISSCUSSION') && (
                 <Image src={imgDoneIcon} alt="" />
               )}
             </div>

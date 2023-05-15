@@ -2,8 +2,11 @@ import Image from 'next/image';
 import { FC, ReactElement } from 'react';
 import quizHomeImg from './assets/quiz-home-person.svg';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const QuizModule: FC = (): ReactElement => {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
       <div className="flex flex-col items-center gap-y-[18px] text-center">
@@ -49,7 +52,7 @@ export const QuizModule: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href="/studi-ku/course/quiz/mulai-quiz">
+          <Link href={`${router.asPath}/ambil`}>
             <button className="w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-[#106FA4] text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
               Mulai Quiz (Sisa 3)
             </button>
