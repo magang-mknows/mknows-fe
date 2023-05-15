@@ -14,10 +14,14 @@ import {
   TextField,
   Button,
 } from '@mknows-frontend-services/components/atoms';
+import { useProfile } from '../../profile/section/edit-profile/hooks';
 
 export const PrivateInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
-    // full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
+    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
+    email: z.string().min(1, { message: 'Email harus diisi' }).email({
+      message: 'Email harus valid',
+    }),
     gender: z.string().min(1, { message: 'Jenis kelamin harus diisi' }),
     phone: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
     birthdate: z.string().min(1, { message: 'Tanggal lahir harus diisi' }),
@@ -36,7 +40,8 @@ export const PrivateInformation: FC = (): ReactElement => {
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
-
+  const { data } = useProfile();
+  const getUserMe = data?.data?.user;
   const { mutate } = usePrivateInformation();
 
   const {
@@ -44,11 +49,13 @@ export const PrivateInformation: FC = (): ReactElement => {
     handleSubmit,
     formState: { isValid, errors },
     watch,
+    reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      // full_name: '',
+      full_name: '',
+      email: '',
       gender: '',
       phone: '',
       birthdate: '',
@@ -80,6 +87,9 @@ export const PrivateInformation: FC = (): ReactElement => {
       setPrivateStatus(false);
     }
   });
+  useEffect(() => {
+    reset(getUserMe);
+  }, [getUserMe]);
 
   return (
     <Accordion
@@ -90,7 +100,6 @@ export const PrivateInformation: FC = (): ReactElement => {
       <form onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
-            {/* full name
             <div className="form-label mb-3">
               <TextField
                 variant="md"
@@ -98,13 +107,14 @@ export const PrivateInformation: FC = (): ReactElement => {
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
                 label={'Nama Lengkap'}
-                name="birthplace"
+                name="full_name"
                 placeholder={'Masukkan nama lengkap'}
+                defaultValue={getUserMe?.full_name}
                 required
-                // status={errors.birthplace ? 'error' : 'none'}
-                // message={errors.birthplace?.message}
+                status={errors.full_name ? 'error' : 'none'}
+                message={errors.full_name?.message}
               />
-            </div> */}
+            </div>
             <div className="form-label mb-3 ">
               <SelectField
                 control={control}
@@ -175,7 +185,6 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
-            {/* email
             <div className="form-label mb-4">
               <TextField
                 variant="md"
@@ -183,13 +192,15 @@ export const PrivateInformation: FC = (): ReactElement => {
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
                 label={'Alamat Email'}
-                name="birthplace"
+                name="email"
                 placeholder={'Email'}
                 required
-                // status={errors.birthplace ? 'error' : 'none'}
-                // message={errors.birthplace?.message}
+                defaultValue={getUserMe?.email}
+                status={errors.email ? 'error' : 'none'}
+                message={errors.email?.message}
+                disabled
               />
-            </div> */}
+            </div>
             <div className="form-label mb-2">
               <TextField
                 variant="md"
