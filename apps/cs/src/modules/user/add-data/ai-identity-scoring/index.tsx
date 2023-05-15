@@ -7,6 +7,7 @@ import {
   Button,
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
+import { IconNotif } from '../../../../components/atoms';
 
 const AiIdentityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -15,6 +16,11 @@ const AiIdentityScoring: FC = (): ReactElement => {
     image_ktp: z
       .any()
       .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
+      .refine(
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
       .refine(
         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
@@ -171,10 +177,15 @@ const AiIdentityScoring: FC = (): ReactElement => {
       <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
-            <div key={i} className="flex relative w-full flex-col py-4">
+            <div className="py-2" key={i}>
               <div className="flex gap-4">
-                <div className="flex w-full">
-                  <UploadField {...x} />
+                <div className="w-[95%] ">
+                  <UploadField
+                    variant={'md'}
+                    message={''}
+                    status={'none'}
+                    {...x}
+                  />
                 </div>
                 <div className="flex group flex-col gap-2">
                   <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
@@ -185,21 +196,10 @@ const AiIdentityScoring: FC = (): ReactElement => {
                   </p>
                 </div>
               </div>
-              <div className="flex order-2 absolute w-[88%] justify-between pt-20 my-2 text-gray-500">
+              <div className="flex w-full justify-between pr-8">
                 <p className="text-xs">{x.notif}</p>
                 <div className="flex gap-2">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6.99974 0.333008C3.31974 0.333008 0.333069 3.31967 0.333069 6.99967C0.333069 10.6797 3.31974 13.6663 6.99974 13.6663C10.6797 13.6663 13.6664 10.6797 13.6664 6.99967C13.6664 3.31967 10.6797 0.333008 6.99974 0.333008ZM7.6664 10.333H6.33307V6.33301H7.6664V10.333ZM7.6664 4.99967H6.33307V3.66634H7.6664V4.99967Z"
-                      fill="#787878"
-                    />
-                  </svg>
+                  <IconNotif />
                   <p className="text-xs font-bold ">Max 3.MB</p>
                 </div>
               </div>
