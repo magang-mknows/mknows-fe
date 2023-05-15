@@ -64,8 +64,8 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
       </div>
 
       <div className="flex flex-col gap-[25px] select-none">
-        {dataSessions?.map((session, i) => (
-          <SessionSection session={session as TDataSession} />
+        {dataSessions?.map((session, index) => (
+          <SessionSection key={index} session={session as TDataSession} />
         ))}
       </div>
     </div>

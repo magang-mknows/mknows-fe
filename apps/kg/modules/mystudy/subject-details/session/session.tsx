@@ -12,8 +12,9 @@ import imgDoneIcon from '../assets/done-icon.svg';
 import imgLockIcon from '../assets/lock-icon.svg';
 import { useRouter } from 'next/router';
 
-export const SessionSection: FC<{ session: TDataSession }> = ({
+export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
   session,
+  key,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState('');
   const router = useRouter();
@@ -23,7 +24,7 @@ export const SessionSection: FC<{ session: TDataSession }> = ({
   }
 
   return (
-    <div key={session.id} className="flex flex-col">
+    <div key={key} className="flex flex-col">
       <button
         onClick={() =>
           isOpen == ''
