@@ -77,7 +77,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
             }
           >
             <div>{item.icon}</div>
-            <span className="text-sm">{item.name}</span>
+            <span className="text-sm font-normal">{item.name}</span>
           </Button>
         ))}
       </div>
