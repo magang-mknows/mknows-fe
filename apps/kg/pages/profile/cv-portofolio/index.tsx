@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 
 const ProfileEditPage: NextPage = (): ReactElement => {
   return (
-    <BaseLayout title="Reset Password">
+    <BaseLayout title="Unggah CV & Portofolio">
       <ProfileModule />
     </BaseLayout>
   );

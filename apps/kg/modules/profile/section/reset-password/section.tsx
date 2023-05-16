@@ -8,7 +8,7 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 import { TPasswordPayload } from './types';
 import { useUpdatePassword } from './hooks';
 
-export const ResetPassword: FC = (): ReactElement => {
+export const ResetPasswordModule: FC = (): ReactElement => {
   const { mutate, isLoading } = useUpdatePassword();
 
   const validationSchema = z
