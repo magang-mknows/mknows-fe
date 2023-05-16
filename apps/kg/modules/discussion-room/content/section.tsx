@@ -3,7 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { Button } from '@mknows-frontend-services/components/atoms';
 
-import { useGetAllDiscussion, useGetCommentById } from './hooks';
+import { useGetAllDiscussion } from './hooks';
 import { isModalOpen, selectedOption } from './store';
 import { DiscussionPostOption } from './post/option';
 import {
