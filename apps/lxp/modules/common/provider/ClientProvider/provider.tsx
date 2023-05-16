@@ -23,6 +23,7 @@ const montserrat = Montserrat({
 
 export const ClientProvider: FC<TProviderProps> = ({
   children,
+  sectionClassName,
 }): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
@@ -106,7 +107,9 @@ export const ClientProvider: FC<TProviderProps> = ({
           </Fragment>
         }
       />
-      <section className={'bg-neutral-100 min-h-[120vh] '}>{children}</section>
+      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>
+        {children}
+      </section>
       <Modal
         withClose
         lookup={getLoginPopup}
