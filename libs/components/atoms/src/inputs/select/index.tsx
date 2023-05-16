@@ -65,7 +65,7 @@ export const SelectField = <T extends FieldValues>({
             {(data) => (
               <div className="flex justify-between items-center">
                 <span
-                  className={`text-neutral-400
+                  className={`${props.styleText} text-neutral-400 
                        ${
                          variant === 'lg'
                            ? 'text-[18px]'
