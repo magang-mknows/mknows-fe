@@ -5,6 +5,7 @@ import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 
 export const PopupForgot: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupForgotPass();
@@ -53,13 +54,15 @@ export const PopupForgot: FC = (): ReactElement => {
         </label>
 
         <div className="flex justify-center text-center w-full">
-          <Button
-            type="submit"
-            disabled={!isValid}
-            className=" w-fit px-8 py-3 disabled:bg-neutral-400 h-auto text-[16px] text-white rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[600] tracking-wide"
-          >
-            Kirim
-          </Button>
+          <Link href={'/auth/forgot'}>
+            <Button
+              type="submit"
+              disabled={!isValid}
+              className=" w-fit px-8 py-3 disabled:bg-neutral-400 h-auto text-[16px] text-white rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[600] tracking-wide"
+            >
+              Kirim
+            </Button>
+          </Link>
         </div>
       </form>
     </PopupModal>
