@@ -125,6 +125,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 options={optionsGender}
                 variant={'md'}
                 error={errors.gender?.message}
+                styleText="!text-black text-[10px]"
               />
             </div>
             <div className="form-label mb-3">
@@ -163,7 +164,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 label={'NIM atau NPM (optional)'}
                 name={'nim'}
-                placeholder={'masukkan NIM atau NPM (optional)'}
+                placeholder={'Masukkan NIM atau NPM (optional)'}
                 required={false}
                 status={errors.nim ? 'error' : 'none'}
                 message={errors.nim?.message}
@@ -189,7 +190,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3] bg-[#DDE0E3]"
                 type="text"
                 label={'Alamat Email'}
                 name="email"
@@ -239,6 +240,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 options={optionsLastEducation}
                 variant={'md'}
                 error={errors.last_education?.message}
+                styleText="!text-black text-[10px]"
               />
             </div>
             <div className="form-label mb-3">
