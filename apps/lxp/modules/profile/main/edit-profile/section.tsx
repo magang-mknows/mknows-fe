@@ -104,9 +104,9 @@ export const EditProfileSection = () => {
     mutateData(
       {
         ...data,
-        full_name: data.full_name,
-        phone_number: data.phone_number,
-        gender: data.gender,
+        full_name: data?.full_name,
+        phone_number: data?.phone_number,
+        gender: data?.gender,
       },
       {
         onSuccess: () => {
@@ -119,7 +119,7 @@ export const EditProfileSection = () => {
   const { mutate: mutateProfile } = useUpdateUserProfile();
   const handleSubmitAvatar = avatarSubmit((data) => {
     mutateProfile(
-      { ...data, avatar: data.avatar[0] as File },
+      { ...data, avatar: data?.avatar[0] as File },
       {
         onSuccess: () => {
           console.log('profile terupdate');
