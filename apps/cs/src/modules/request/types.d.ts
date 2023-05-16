@@ -3,6 +3,8 @@ export type TResultDataDummy = {
   nik: number;
   nama: string;
   tggl_permintaan: string;
+  waktu_permintaan: string;
+  waktu_selesai: string;
   tggl_selesai: string;
   kendala_proses: string;
   skor: string;

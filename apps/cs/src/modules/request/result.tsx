@@ -48,7 +48,7 @@ const HasilPage: FC = (): ReactElement => {
           Untuk melihat riwayat permintaan sebelumnya{' '}
           <span className="text-[#4FA0CF]">
             {' '}
-            <a href="/">Klik Disini</a>
+            <a href="/">klik disini</a>
           </span>
         </div>
       </div>

@@ -13,8 +13,8 @@ const UserModules: FC = (): ReactElement => {
   };
 
   return (
-    <div className="bg-whitDateRangee w-full h-full my-8 ">
-      <div className="flex flex-col lg:flex-row gap-y-2 justify-between lg:p-8 pt-12">
+    <div className="bg-white w-full h-full my-8 lg:px-8 py-2 ">
+      <div className="flex flex-col lg:flex-row gap-y-2 justify-between pt-12">
         <div>
           <DateRangePickerComponent onRangeChange={handleRangeChange} />
         </div>
@@ -33,7 +33,7 @@ const UserModules: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex flex-col justify-between">
-        <div className="lg:p-8 p-2">
+        <div className="py-4">
           <Table />
         </div>
         <Pagination />
