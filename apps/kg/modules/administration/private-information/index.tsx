@@ -23,7 +23,9 @@ export const PrivateInformation: FC = (): ReactElement => {
       message: 'Email harus valid',
     }),
     gender: z.string().min(1, { message: 'Jenis kelamin harus diisi' }),
-    phone: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
+    phone: z.string().max(13).min(11, {
+      message: 'Nomor handphone harus diisi',
+    }),
     birthdate: z.string().min(1, { message: 'Tanggal lahir harus diisi' }),
     birthplace: z.string().min(1, { message: 'Tempat lahir harus diisi' }),
     address: z.string().min(1, { message: ' Alamat harus diisi' }),
