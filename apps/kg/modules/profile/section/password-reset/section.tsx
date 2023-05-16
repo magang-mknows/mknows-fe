@@ -40,7 +40,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
   });
 
   return (
-    <main className="bg-neutral-100 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
+    <main className="bg-white px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
       <header className="pb-4 mb-4 border-b-2 border-b-neutral-100">
         <h1 className="text-xl font-bold text-neutral-800">Change Password</h1>
       </header>
@@ -87,7 +87,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           <Button
             disabled={!isValid}
             type="submit"
-            className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-36"
+            className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-neutral-300 disabled:border-none bg-[#106FA4] text-neutral-100 hover:border-version2-300 w-36"
           >
             <h1>Reset Password</h1>
           </Button>

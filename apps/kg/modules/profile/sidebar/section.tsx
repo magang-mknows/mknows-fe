@@ -6,13 +6,13 @@ export const ProfileSidebar: FC = (): ReactElement => {
   const pathname = usePathname();
 
   return (
-    <section className="w-full col-span-2 px-3 py-2 rounded-md shadow-sm bg-neutral-50 h-fit lg:col-span-1">
+    <section className="w-full col-span-2 px-3 py-2 bg-white rounded-md h-fit lg:col-span-1 text-[#737373] font-semibold text-sm">
       <Link href={'/profile'}>
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
             pathname === '/profile'
-              ? ' bg-version2-400 text-neutral-50  shadow-md'
-              : 'bg-neutral-50 text-neutral-800 transition-all ease-linear duration-75'
+              ? ' bg-primary-100 '
+              : 'bg-white transition-all ease-linear duration-75'
           }`}
         >
           View Profile
@@ -22,8 +22,8 @@ export const ProfileSidebar: FC = (): ReactElement => {
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
             pathname === '/profile/edit-profile'
-              ? ' bg-version2-400 text-neutral-50  shadow-md'
-              : 'bg-neutral-50 text-neutral-800 transition-all ease-linear duration-75'
+              ? ' bg-primary-100 '
+              : 'bg-white transition-all ease-linear duration-75'
           }`}
         >
           Edit Profile
@@ -33,8 +33,8 @@ export const ProfileSidebar: FC = (): ReactElement => {
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
             pathname === '/profile/cv-portofolio'
-              ? ' bg-version2-400 text-neutral-50 shadow-md'
-              : 'bg-neutral-50 text-neutral-800 transition-all ease-linear duration-75'
+              ? ' bg-primary-100'
+              : 'bg-white transition-all ease-linear duration-75'
           }`}
         >
           CV & Portofolio
@@ -44,8 +44,8 @@ export const ProfileSidebar: FC = (): ReactElement => {
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
             pathname === '/profile/reset-password'
-              ? ' bg-version2-400 text-neutral-50 shadow-md'
-              : 'bg-neutral-50 text-neutral-800 transition-all ease-linear duration-75'
+              ? ' bg-primary-100'
+              : 'bg-white transition-all ease-linear duration-75'
           }`}
         >
           Change Password

@@ -28,7 +28,7 @@ export const ProfileModule: FC = (): ReactElement => {
   }
 
   return (
-    <section className="min-h-[120vh] bg-neutral-50/40 pb-20">
+    <section className="min-h-[120vh] bg-neutral-100 pb-20">
       <BreadCrumb items={ViewProfileBreadCumbs} textColor="text-version2-400" />
       <header className="px-8 pb-6 md:px-14 lg:px-16">
         <h1 className="text-xl font-bold text-neutral-800">Profile</h1>
