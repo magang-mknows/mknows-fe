@@ -15,9 +15,9 @@ export const QuizModule: FC = (): ReactElement => {
   if (idSession !== '[detail-matkul]') {
     const { data } = useGetQuizDescById(idSession as unknown as string);
     dataQuizDesc = data?.data as TQuizDescItem;
-    console.log('QUIZ DESC PATHNAME : ', idSession);
+    // console.log('QUIZ DESC PATHNAME : ', idSession);
   }
-  console.log('QUIZ DESCRIPTION RESPONSE : ', dataQuizDesc);
+  // console.log('QUIZ DESCRIPTION RESPONSE : ', dataQuizDesc);
 
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
