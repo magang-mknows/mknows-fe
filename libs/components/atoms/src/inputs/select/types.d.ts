@@ -44,4 +44,5 @@ export type ISelect<T extends FieldValues> = UseControllerProps<T> & {
   icon?: ReactNode | StaticImageData;
   hint?: string;
   options: TOption[];
+  styleText?: string;
 };

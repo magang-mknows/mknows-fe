@@ -127,7 +127,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'father_occupation'}
               label={'Pekerjaan Ayah'}
               required
-              defaultValue="Pilih pekerjaan ayah"
+              placeholder="Pilih pekerjaan ayah"
+              styleText="!text-black text-[10px]"
             />
 
             <SelectField
@@ -137,7 +138,7 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'mother_occupation'}
               label={'Pekerjaan Ibu'}
               required
-              defaultValue="Pilih pekerjaan ibu"
+              placeholder="Pilih pekerjaan ibu"
             />
           </div>
           <div className="w-full mt-2">
@@ -148,7 +149,7 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'father_salary'}
               label={'Penghasilan Ayah'}
               required
-              defaultValue="Pilih penghasilan ayah"
+              placeholder="Pilih penghasilan ayah"
             />
 
             <SelectField
@@ -158,7 +159,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'mother_salary'}
               label={'Penghasilan Ibu'}
               required
-              defaultValue="Pilih penghasilan ibu"
+              placeholder="Pilih penghasilan ibu"
+              styleText="!text-black text-[10px]"
             />
           </div>
         </div>
@@ -172,7 +174,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'self_salary'}
               label={'Pekerjaan Sendiri'}
               required
-              defaultValue="Pilih pekerjaan sendiri"
+              placeholder="Pilih pekerjaan sendiri"
+              styleText="!text-black text-[10px]"
             />
             <SelectField
               variant="md"
@@ -181,7 +184,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'live_with'}
               label={'Tinggal Dengan'}
               required
-              defaultValue="Pilih tinggal dengan"
+              placeholder="Pilih tinggal dengan"
+              styleText="!text-black text-[10px]"
             />
           </div>
           <div className="w-full">
@@ -192,7 +196,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'tuition_payer'}
               label={'Biaya Kuliah Ditanggung Oleh'}
               required
-              defaultValue="Masukan biaya kuliah ditanggung oleh"
+              placeholder="Masukan biaya kuliah ditanggung oleh"
+              styleText="!text-black text-[10px]"
             />
             <SelectField
               variant="md"
@@ -201,7 +206,8 @@ export const JobsInformation: FC = (): ReactElement => {
               name={'self_occupation'}
               label={'Penghasilan Sendiri'}
               required
-              defaultValue="Masukan biaya kuliah ditanggung oleh"
+              placeholder="Masukan biaya kuliah ditanggung oleh"
+              styleText="!text-black text-[10px]"
             />
             <div className="flex w-full my-8 justify-end">
               <Button
