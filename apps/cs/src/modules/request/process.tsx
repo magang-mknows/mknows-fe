@@ -73,8 +73,8 @@ const ProsesPage: FC = (): ReactElement => {
                   />
                 </div>
               </th>
-              <th scope="col" className="px-6 py-2 cursor-default">
-                <div className="flex gap-2 justify-center items-center">
+              <th scope="col" className="px-8 py-2 cursor-default">
+                <div className="flex gap-2 items-center">
                   <p>Tanggal Permintaan</p>
                   <img
                     src="/assets/request-page/markdown-icon.svg"
@@ -82,8 +82,8 @@ const ProsesPage: FC = (): ReactElement => {
                   />
                 </div>
               </th>
-              <th scope="col" className="px-6 py-2 cursor-default w-[40%]">
-                <div className="flex gap-2 justify-center items-center">
+              <th scope="col" className="px-0 py-2 cursor-default">
+                <div className="flex gap-2 items-center">
                   <p>Kendala Proses</p>
                 </div>
               </th>
@@ -109,8 +109,10 @@ const ProsesPage: FC = (): ReactElement => {
                   <td className="px-8 py-2">{item.no}</td>
                   <td className="px-6 py-2">{item.nik}</td>
                   <td className="px-2 py-2 font-semibold">{item.nama}</td>
-                  <td className="px-4 py-2">{item.tggl_permintaan}</td>
-                  <td className="px-4 py-2">{item.kendala_proses}</td>
+                  <td className="w-full px-8 py-2">
+                    {item.tggl_permintaan} {item.waktu_permintaan}
+                  </td>
+                  <td className="px-6 py-2">{item.kendala_proses}</td>
                   <td className="px-4 py-2 bg-green-400">
                     <button
                       className={` ${
