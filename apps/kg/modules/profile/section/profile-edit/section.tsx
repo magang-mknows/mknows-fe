@@ -1,6 +1,4 @@
 import { AiFillCamera } from 'react-icons/ai';
-import { useRecoilState } from 'recoil';
-import { editPhotoState } from './store';
 import {
   TextField,
   UploadField,
@@ -11,68 +9,43 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useProfile, useUpdateUserProfile } from './hooks';
+import { useEffect } from 'react';
+import { editPhotoState } from './store';
+import { useRecoilState } from 'recoil';
 
 export const EditProfileSection = () => {
+  const { data, refetch } = useProfile();
+
+  const { mutate, isLoading } = useUpdateUserProfile();
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
 
-  const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/webp'];
+  const userData = data?.data?.user;
 
   const genders = [
-    { id: 1, value: 'L', label: 'Laki-Laki' },
-    { id: 2, value: 'P', label: 'Perempuan' },
+    { id: 1, value: 'LAKI-LAKI', label: 'Laki-Laki' },
+    { id: 2, value: 'PEREMPUAN', label: 'Perempuan' },
   ];
 
-  const avatarValidationSchema = z.object({
-    avatar: z
-      .any()
-      .refine(
-        (files: File[]) => files !== undefined && files?.length >= 1,
-        'Harus ada file yang di upload.'
-      )
-      .refine(
-        (files: File[]) =>
-          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-        'Ukuran maksimun adalah 3mb.'
-      )
-      .refine(
-        (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
-        'hanya menerima .jpg, .jpeg, dan .webp.'
-      ),
-  });
-
-  const informationvalidationSchema = z.object({
+  const validationSchema = z.object({
+    avatar: z.any().optional(),
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
       message: 'Email harus valid',
     }),
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.any(),
+    gender: z.string().min(1, { message: 'Gender harus dipilih' }),
   });
 
-  type InformationValidationSchema = z.infer<
-    typeof informationvalidationSchema
-  >;
-  type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
+  type ValidationSchema = z.infer<typeof validationSchema>;
 
   const {
-    control: avatarControl,
-    handleSubmit: avatarSubmit,
-    formState: { isValid: avatarIsValid, errors: avatarError },
-  } = useForm<AvatarValidationSchema>({
-    resolver: zodResolver(avatarValidationSchema),
-    mode: 'all',
-    defaultValues: {
-      avatar: undefined,
-    },
-  });
-
-  const {
-    control: informationControl,
-    handleSubmit: informationSubmit,
-    formState: { isValid: informationIsValid, errors: informationError },
-  } = useForm<InformationValidationSchema>({
-    resolver: zodResolver(informationvalidationSchema),
+    control,
+    handleSubmit,
+    formState: { isValid, errors },
+    reset,
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
       email: '',
@@ -81,10 +54,17 @@ export const EditProfileSection = () => {
       gender: '',
     },
   });
+  const onCancel = () => reset(userData);
 
-  const handleSubmitInfo = informationSubmit((info) => {
-    console.log(info);
+  const onSubmit = handleSubmit(async (data) => {
+    await mutate(data);
+    await refetch();
+    await onCancel();
   });
+
+  useEffect(() => {
+    reset(userData);
+  }, [userData]);
 
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
@@ -96,12 +76,12 @@ export const EditProfileSection = () => {
           <figure className="bg-neutral-200 h-[140px] w-[140px] rounded-full relative">
             <section className="absolute bottom-0 right-2">
               <div
-                className="grid rounded-full shadow-md cursor-pointer bg-version2-300 w-9 h-9 place-items-center"
+                className="grid bg-yellow-100 rounded-full shadow-md cursor-pointer w-9 h-9 place-items-center"
                 onClick={() => {
                   setEditPhoto(!isEditPhoto);
                 }}
               >
-                <AiFillCamera className="text-xl text-neutral-200" />
+                <AiFillCamera className="text-xl text-yellow-500 " />
               </div>
               <form
                 className={`${
@@ -127,7 +107,7 @@ export const EditProfileSection = () => {
                   <UploadField
                     variant="sm"
                     name={'avatar'}
-                    control={avatarControl}
+                    control={control}
                     className="hidden"
                   />
                 </label>
@@ -135,59 +115,60 @@ export const EditProfileSection = () => {
             </section>
           </figure>
         </section>
-        <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmitInfo}>
+        <form className="grid grid-cols-2 gap-4" onSubmit={onSubmit}>
           <TextField
-            labelClassName="!text-sm text-left"
-            type="email"
-            variant="md"
-            control={informationControl}
-            name={'email'}
-            placeholder="bangrudy@gmail.com"
+            control={control}
+            placeholder="Masukkan Email"
             label="Email"
-            status={informationError.email ? 'error' : 'none'}
-            message={informationError.email?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            type={'email'}
+            name="email"
+            variant={'md'}
+            disabled
           />
           <SelectField
-            placeholder="Laki-Laki"
-            control={informationControl}
+            placeholder="Pilih Jenis Kelamin"
+            control={control}
             label="Jenis Kelamin"
             options={genders}
             name={'gender'}
             variant={'md'}
-            className="!h-[40px] text-sm !rounded-[8px] "
           />
           <TextField
-            labelClassName="!text-sm text-left"
-            type="text"
-            variant="md"
-            control={informationControl}
-            name={'full_name'}
-            placeholder="Mamang Racing"
+            control={control}
+            placeholder="Masukkan Nama Lengkap"
             label="Nama Lengkap"
-            status={informationError.full_name ? 'error' : 'none'}
-            message={informationError.full_name?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            type={'text'}
+            name="full_name"
+            variant={'md'}
+            status={errors.full_name ? 'error' : undefined}
+            message={errors.full_name?.message}
           />
           <TextField
-            labelClassName="!text-sm text-left"
-            type="number"
-            variant="md"
-            control={informationControl}
-            name={'phone_number'}
-            placeholder="089277771623"
-            label="Nomer Handphone"
-            status={informationError.phone_number ? 'error' : 'none'}
-            message={informationError.phone_number?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            control={control}
+            placeholder="Masukkan Nomor Handphone"
+            label="Nomor Handphone"
+            type={'number'}
+            name="phone_number"
+            status={errors.phone_number ? 'error' : undefined}
+            variant={'md'}
+            message={errors.phone_number?.message}
           />
           <section className="flex justify-end w-full col-span-2">
             <Button
-              disabled={!informationIsValid}
-              type="submit"
-              className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-28"
+              type={'button'}
+              onClick={onCancel}
+              loading={isLoading ? 'Sedang Mereset' : undefined}
+              className="text-white cursor-pointer font-[700] bg-error-500 rounded-lg p-3"
             >
-              <h1>Simpan</h1>
+              Batalkan
+            </Button>
+            <Button
+              type={'submit'}
+              loading={isLoading ? 'Sedang Menyimpan' : undefined}
+              disabled={!isValid}
+              className="text-white disabled:bg-neutral-400 cursor-pointer font-[700] bg-primary-500 rounded-lg p-3"
+            >
+              Simpan
             </Button>
           </section>
         </form>

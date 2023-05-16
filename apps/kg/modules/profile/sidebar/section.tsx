@@ -15,7 +15,7 @@ export const ProfileSidebar: FC = (): ReactElement => {
               : 'bg-white transition-all ease-linear duration-75'
           }`}
         >
-          View Profile
+          Lihat Profile
         </h1>
       </Link>
       <Link href={'/profile/edit-profile'}>
