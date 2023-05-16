@@ -2,8 +2,8 @@ import { ReactElement, FC, Fragment } from 'react';
 import { TProviderProps } from '../types';
 import { Montserrat } from 'next/font/google';
 import { Modal, Navbar } from '@mknows-frontend-services/components/molecules';
-import { MdLogout, MdDashboard } from 'react-icons/md';
-import { FcDocument } from 'react-icons/fc';
+import { MdLogout, MdDashboard, MdEmojiPeople } from 'react-icons/md';
+import { FcDocument, FcOpenedFolder } from 'react-icons/fc';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
@@ -15,6 +15,8 @@ import { useRecoilState } from 'recoil';
 import { LoginFormPopup, LoginPopupState } from '../../../../modules';
 
 import logo from '../../assets/mknows-logo.svg';
+import { BsFillBuildingFill } from 'react-icons/bs';
+import { IoAnalyticsOutline } from 'react-icons/io5';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -59,9 +61,44 @@ export const ClientProvider: FC<TProviderProps> = ({
 
   const _features = [
     {
-      name: 'Feature 1',
-      link: '/feature-1',
-      icon: <MdDashboard />,
+      name: 'Administrasi',
+      link: '/administrasi',
+      icon: (
+        <FcOpenedFolder
+          className="bg-version3-500 text-neutral-100 rounded-md p-2"
+          size={32}
+        />
+      ),
+    },
+    {
+      name: 'Rencana Pelatihan',
+      link: '/rencana-pelatihan',
+      icon: (
+        <BsFillBuildingFill
+          className="bg-version3-500 text-neutral-100 rounded-md p-2"
+          size={32}
+        />
+      ),
+    },
+    {
+      name: 'Pelatihan-ku',
+      link: '/pelatihan-ku',
+      icon: (
+        <MdEmojiPeople
+          className="bg-[#106FA4] text-neutral-50 rounded-md p-2"
+          size={32}
+        />
+      ),
+    },
+    {
+      name: 'Analitik',
+      link: '/analitik',
+      icon: (
+        <IoAnalyticsOutline
+          className="bg-version2-300 text-neutral-100 rounded-md p-2"
+          size={32}
+        />
+      ),
     },
   ];
 
