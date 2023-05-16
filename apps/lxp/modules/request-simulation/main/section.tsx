@@ -212,7 +212,7 @@ export const RequestSceduleMain: FC = (): ReactElement => {
           title="Berhasil Mengajukan Simulasi!"
           type="sent"
         >
-          <p className="text-neutral-500 text-sm text-center">
+          <p className="text-neutral-500 text-sm text-center py-2">
             Kamu telah mengajukan simulasi di hari
             <span className="font-bold">
               {getSelected.date} Pukul {getSelected.time} WIB,
