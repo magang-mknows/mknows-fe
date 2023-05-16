@@ -18,7 +18,7 @@ export type TResultDataDummy = {
 
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 
-export type TResultQueryResponse = {
-  getResultQuery: string;
-  setResultQuery: (val: string) => void;
+export type TQuotaQueryResponse = {
+  getQuotaQuery: string;
+  setQuotaQuery: (val: string) => void;
 };

@@ -101,13 +101,14 @@ const ProsesPage: FC = (): ReactElement => {
           <tbody>
             {getResultData.map((item, key) => {
               return (
-                <tr key={key} className="bg-white border-b dark:bg-[#ffff] ">
-                  <td className="px-6 text-[#262626]">{key + 1}</td>
-                  <td className="px-8 py-2 text-[#262626]">{item.no}</td>
-                  <td className="px-6 py-2 text-[#262626]">{item.nik}</td>
-                  <td className="px-2 py-2 font-semibold text-[#262626]">
-                    {item.nama}
-                  </td>
+                <tr
+                  key={key}
+                  className="text-[#262626] bg-white border-b dark:bg-[#ffff] "
+                >
+                  <td className="px-6">{key + 1}</td>
+                  <td className="px-8 py-2">{item.no}</td>
+                  <td className="px-6 py-2">{item.nik}</td>
+                  <td className="px-2 py-2 font-semibold">{item.nama}</td>
                   <td className="px-4 py-2">{item.tggl_permintaan}</td>
                   <td className="px-4 py-2">{item.kendala_proses}</td>
                   <td className="px-4 py-2 bg-green-400">

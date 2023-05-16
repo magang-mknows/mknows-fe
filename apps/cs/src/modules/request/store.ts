@@ -161,7 +161,18 @@ export const resultFilter = selector({
     get(resultDummyData).filter(
       (user) =>
         user.nama.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.skor.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.tggl_permintaan
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
+        user.tggl_selesai
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
         user.nik
+          .toString()
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
+        user.no
           .toString()
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase())

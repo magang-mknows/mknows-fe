@@ -4,6 +4,8 @@ import Card from '../../components/molecules/card';
 import { useRequestData } from '../request/hooks';
 import { Dialog, Transition } from '@headlessui/react';
 
+import cursorLoading from '../../../public/assets/quota/cursor-loading.webp';
+
 const AlokasiKuota: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
   const [Quota, setQuota] = useState<number>(0);
@@ -170,7 +172,14 @@ const AlokasiKuota: FC = (): ReactElement => {
 
         {/* content 2 */}
         {ProductName === 'default' ? (
-          <div className="w-[60%] mr-8"></div>
+          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+            <div className="flex flex-col gap-y-5 h-full justify-center px-10 items-center">
+              <img src={cursorLoading} alt="loading..." />
+              <span className="font-semibold text-base text-[#000000]">
+                Silahkan pilih jenis produk terlebih dahulu
+              </span>
+            </div>
+          </div>
         ) : (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">

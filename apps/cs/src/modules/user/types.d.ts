@@ -5,6 +5,7 @@ export type TUserDataDummy = {
   nik: number;
   nama: string;
   tanggal: string;
+  berkas: number;
 };
 
 export type TDataUploader = {

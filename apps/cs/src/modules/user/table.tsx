@@ -44,7 +44,7 @@ const Table: FC = (): ReactElement => {
                 </div>
               </th>
             </th>
-            <th scope="col" className="px-6 py-2">
+            <th scope="col" className="px-10 py-2">
               Berkas
             </th>
             <th scope="col" className="px-6 py-2">
@@ -70,7 +70,7 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
                   <Link to={'/dashboard/user/detail-data'}>
-                    <span className="text-[#3D628D] cursor-pointer ">
+                    <span className="text-[#4FA0CF] underline cursor-pointer ">
                       Lihat Detail
                     </span>
                   </Link>
