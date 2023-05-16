@@ -125,6 +125,7 @@ export const EditProfileSection = () => {
                 >
                   Unggah Foto
                   <UploadField
+                    variant="sm"
                     name={'avatar'}
                     control={avatarControl}
                     className="hidden"

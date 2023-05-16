@@ -6,8 +6,8 @@ import {
   usePopupSucces,
   usePopupAddStudy,
 } from '../hooks';
-import Confirm from './assets/Confirm.svg';
-import Success from './assets/Success.svg';
+import Confirm from '../../assets/Confirm.svg';
+import Success from '../../assets/Success.svg';
 // import SuspenseError from "@/modules/Common/SuspenseError";
 import { Button } from '@mknows-frontend-services/components/atoms';
 

@@ -1,7 +1,12 @@
-import { useRecoilState } from "recoil";
-import { dataTableState, PopupModalConfirmStatus, PopupModalSuccessConversi, PopupModalAddStudy } from "./stores";
-import { DataTable } from "./type";
-
+import { useRecoilState } from 'recoil';
+import {
+  dataTableState,
+  PopupModalConfirmStatus,
+  PopupModalSuccessConversi,
+  PopupModalAddStudy,
+  PopupModalDeleteStudy,
+} from './stores';
+import { DataTable } from './type';
 
 type ReturnTypeAddStudy = {
   setPopupAdd: (val: boolean) => void;
@@ -16,7 +21,6 @@ export const usePopupAddStudy = (): ReturnTypeAddStudy => {
   };
 };
 
-
 type ReturnType = {
   setPopupSuccess: (val: boolean) => void;
   getPopupSuccess: boolean;
@@ -29,7 +33,6 @@ export const usePopupSucces = (): ReturnType => {
     getPopupSuccess: get,
   };
 };
-
 
 type DataTableTypes = {
   setDataTable: (val: Array<DataTable>) => void;
@@ -44,7 +47,6 @@ export const useDataTable = (): DataTableTypes => {
   };
 };
 
-
 type ReturnTypesConfirm = {
   setPopupStatus: (val: boolean) => void;
   getPopupStatus: boolean;
@@ -55,5 +57,18 @@ export const usePopupConfirmStatus = (): ReturnTypesConfirm => {
   return {
     setPopupStatus: (val: boolean) => set(val),
     getPopupStatus: get,
+  };
+};
+
+type ReturnTypeDeleteStudy = {
+  setPopupDelete: (val: boolean) => void;
+  getPopupDelete: boolean;
+};
+
+export const usePopupDeleteStudy = (): ReturnTypeDeleteStudy => {
+  const [get, set] = useRecoilState(PopupModalDeleteStudy);
+  return {
+    setPopupDelete: (val: boolean) => set(val),
+    getPopupDelete: get,
   };
 };

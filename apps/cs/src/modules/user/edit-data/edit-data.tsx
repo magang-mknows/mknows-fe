@@ -7,7 +7,6 @@ import AiCapabilityScoring from './ai-capability-scoring';
 const EditData: FC = (): ReactElement => {
   return (
     <div className="my-8 space-y-4 w-full h-full">
-      {/* content */}
       <div className="bg-white w-full h-full px-8 flex flex-col">
         <div className="flex flex-row gap gap-x-6 items-center border-b w-full h-fit p-6 text-primary-400 font-bold text-base">
           <div>

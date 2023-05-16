@@ -5,7 +5,7 @@ export type TUserDataDummy = {
   nik: number;
   nama: string;
   tanggal: string;
-  berkas: number;
+  berkas: string;
 };
 
 export type TDataUploader = {
@@ -29,4 +29,24 @@ export type TDataUploaderResponse = { getUploadData: TDataUploader[] };
 export type TUploadQueryResponse = {
   getUploadQuery: string;
   setUploadQuery: (val: string) => void;
+};
+
+export type StatusReturnTypeCategory = {
+  setDataCategory: (val: string) => void;
+  getDataCategory: string;
+};
+
+export type ReturnTypesDataIdentity = {
+  setDataIdentity: (val: boolean) => void;
+  getDataIdentity: boolean;
+};
+
+export type ReturnTypesDataCharacter = {
+  setDataCharacter: (val: boolean) => void;
+  getDataCharacter: boolean;
+};
+
+export type ReturnTypesDataCapabiity = {
+  setDataCapability: (val: boolean) => void;
+  getDataCapability: boolean;
 };

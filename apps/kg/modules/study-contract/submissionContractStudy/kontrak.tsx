@@ -1,12 +1,12 @@
 import { FC, ReactElement } from 'react';
-import Confirm from './asset/Confirm.svg';
+import Confirm from '../assets/Confirm.svg';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { PopupModal } from '@mknows-frontend-services/components/molecules';
 import Image, { StaticImageData } from 'next/image';
 import { useDataTable } from './hook';
 import { useDataCard } from './hook';
-import Download from './asset/download1.svg';
-import Warning from './asset/warning.svg';
+import Download from '../assets/download1.svg';
+import Warning from '../assets/warning.svg';
 import { usePopupConfirmCardStudy } from './hook';
 // import SuspenseError from "@/modules/Common/SuspenseError";
 // import Loading from "../Loading";

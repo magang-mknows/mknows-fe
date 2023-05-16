@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 import { DataTable } from "./type";
-import Example1 from "./kontrak-krs/assets/example1.svg";
-import Example2 from "./kontrak-krs/assets/example2.svg";
+import Example1 from "../assets/example1.svg";
+import Example2 from "../assets/example2.svg";
 
 export const dataTableState = atom<Array<DataTable>>({
     key: "data-table-study-contract",
@@ -53,5 +53,10 @@ export const dataTableState = atom<Array<DataTable>>({
 
   export const PopupModalAddStudy = atom({
     key: "modalPopup-addStudy-studyContract",
+    default: false,
+  });
+
+  export const PopupModalDeleteStudy = atom({
+    key: "modalPopup-deleteStudy-studyContract",
     default: false,
   });

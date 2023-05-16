@@ -1,193 +1,320 @@
 import { FC, ReactElement } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import {
+  Control,
+  FieldError,
+  FieldErrorsImpl,
+  Merge,
+  useForm,
+} from 'react-hook-form';
 import {
   UploadField,
   Button,
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
-import { IconDownload, IconUpload } from '../../../../components/atoms';
+import {
+  IconDownload,
+  IconUpload,
+  IconNotif,
+} from '../../../../components/atoms';
+import {
+  useCategoryStatus,
+  useCapabilityStatus,
+  useCharacterStatus,
+  useIdentityStatus,
+} from '../../hooks';
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
   const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png'];
-  const validationSchema = z.object({
+  const dataValidationSchema = z.object({
     image_ktp: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_nomor_induk_berusaha: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_izin_usaha_perdagangan: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_nomor_akta_notaris: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_keterangan_domisili_usaha: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_nomor_pokok_wajib_pajak: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
     image_surat_tanda_daftar_perusahaan: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-
     image_credit_applicant: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
-
     image_laporan_keuangan: z
       .any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
       .refine(
-        (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+        (files: File[]) =>
+          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        'Ukuran maksimun adalah 3mb.'
+      )
+      .refine(
+        (files: File[]) =>
+          files !== undefined &&
+          ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         'Only .jpg, .jpeg, and .png formats are supported'
       ),
   });
+
+  type DataValidationSchema = z.infer<typeof dataValidationSchema>;
+
+  const { setDataCapability, getDataCapability } = useCapabilityStatus();
+  const { setDataCategory } = useCategoryStatus();
+
+  const { getDataCharacter } = useCharacterStatus();
+  const { getDataIdentity } = useIdentityStatus();
 
   const {
     control,
     handleSubmit,
-    formState: { isValid },
-  } = useForm({
-    resolver: zodResolver(validationSchema),
+    formState: { isValid, errors },
+  } = useForm<DataValidationSchema>({
+    resolver: zodResolver(dataValidationSchema),
     mode: 'all',
+    defaultValues: {
+      image_credit_applicant: undefined,
+      image_ktp: undefined,
+      image_laporan_keuangan: undefined,
+      image_surat_izin_usaha_perdagangan: undefined,
+      image_surat_keterangan_domisili_usaha: undefined,
+      image_surat_nomor_akta_notaris: undefined,
+      image_surat_nomor_induk_berusaha: undefined,
+      image_surat_nomor_pokok_wajib_pajak: undefined,
+      image_surat_tanda_daftar_perusahaan: undefined,
+    },
   });
 
   const onSubmit = handleSubmit(() => {
-    console.log('ok');
+    try {
+      setDataCategory('finished');
+      setDataCapability(true);
+    } catch (err) {
+      setDataCapability(false);
+      throw err;
+    }
   });
 
-  const upload = [
+  const upload: Array<{
+    name: string;
+    control: Control;
+    required: boolean;
+    accepted: string;
+    label: string;
+    notif: string;
+    message?:
+      | string
+      | FieldError
+      | Merge<FieldError, FieldErrorsImpl<any>>
+      | undefined;
+    status: 'error' | 'none' | 'success' | 'warning' | undefined;
+  }> = [
     {
       name: 'image_ktp',
-      hasLabel: true,
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Kartu Tanda Penduduk (KTP)',
+      message: errors.image_ktp?.message,
+      status: errors.image_ktp ? 'error' : 'none',
       notif:
         '*Pastikan foto KTP dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorIndukBerusaha',
-      hasLabel: true,
+      name: 'image_surat_nomor_induk_berusaha',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Nomor Induk Berusaha',
+      message: errors.image_surat_nomor_induk_berusaha?.message,
+      status: errors.image_surat_nomor_induk_berusaha ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratIzinUsahaPerdagangan',
-      hasLabel: true,
+      name: 'image_surat_izin_usaha_perdagangan',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Izin Usaha Perdagangan',
+      message: errors.image_surat_izin_usaha_perdagangan?.message,
+      status: errors.image_surat_izin_usaha_perdagangan ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorAktaNotaris',
-      hasLabel: true,
+      name: 'image_surat_nomor_akta_notaris',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Nomor Akta Notaris',
+      message: errors.image_surat_nomor_akta_notaris?.message,
+      status: errors.image_surat_nomor_akta_notaris ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Nomor Akta Notaris dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratKeteranganDomisiliUsaha',
-      hasLabel: true,
+      name: 'image_surat_keterangan_domisili_usaha',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Keterangan Domisili Usaha',
+      message: errors.image_surat_keterangan_domisili_usaha?.message,
+      status: errors.image_surat_keterangan_domisili_usaha ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Keterangan Domisili Usaha dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratNomorPokokWajbPajak',
-      hasLabel: true,
+      name: 'image_surat_nomor_pokok_wajib_pajak',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Nomor Pokok Wajib Pajak',
+      message: errors.image_surat_nomor_pokok_wajib_pajak?.message,
+      status: errors.image_surat_nomor_pokok_wajib_pajak ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_suratTandaDaftarPerusahaan',
-      hasLabel: true,
+      name: 'image_surat_tanda_daftar_perusahaan',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Surat Tanda Daftar Perusahaan',
+      message: errors.image_surat_tanda_daftar_perusahaan?.message,
+      status: errors.image_surat_tanda_daftar_perusahaan ? 'error' : 'none',
       notif:
         '*Pastikan foto Surat Tanda Daftar Perusahaan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
-      name: 'image_creditApplicant',
-      hasLabel: true,
+      name: 'image_credit_applicant',
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Form Credit Applicant',
+      message: errors.image_credit_applicant?.message,
+      status: errors.image_credit_applicant ? 'error' : 'none',
       notif:
         '*Pastikan Form Credit Applicant dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
     {
       name: 'image_laporanKeuangan',
-      hasLabel: true,
       control,
       required: true,
       accepted: '.jpg, .jpeg, .png',
       label: 'Laporan Keuangan',
+      message: errors.image_laporan_keuangan?.message,
+      status: errors.image_laporan_keuangan ? 'error' : 'none',
       notif:
         '*Pastikan Laporan Keuangan dapat terlihat dengan jelas dan pencahayaan yang baik',
     },
   ];
   return (
     <div>
-      <Accordion title="Ai Capability Scoring" idAccordion={'file information'}>
+      <Accordion
+        title="Ai Capability Scoring"
+        idAccordion={getDataCapability ? '' : 'data-capability'}
+        disabled={
+          getDataIdentity
+            ? getDataCharacter
+              ? getDataCapability
+                ? true
+                : false
+              : true
+            : true
+        }
+      >
         <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
           <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
             <IconUpload />
@@ -212,10 +339,14 @@ const AiCapabilityScoring: FC = (): ReactElement => {
         </div>
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
-            <div key={i} className="flex relative w-full flex-col py-4">
+            <div className="py-2" key={i}>
               <div className="flex gap-4">
-                <div className="flex w-full">
-                  <UploadField {...x} />
+                <div className="w-[95%] ">
+                  <UploadField
+                    {...x}
+                    message={x.message as string}
+                    variant={'md'}
+                  />
                 </div>
                 <div className="flex group flex-col gap-2">
                   <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
@@ -226,36 +357,23 @@ const AiCapabilityScoring: FC = (): ReactElement => {
                   </p>
                 </div>
               </div>
-              <div className="flex order-2 absolute w-[88%] justify-between pt-20 my-2 text-gray-500">
+              <div className="flex w-full justify-between pr-8">
                 <p className="text-xs">{x.notif}</p>
                 <div className="flex gap-2">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6.99974 0.333008C3.31974 0.333008 0.333069 3.31967 0.333069 6.99967C0.333069 10.6797 3.31974 13.6663 6.99974 13.6663C10.6797 13.6663 13.6664 10.6797 13.6664 6.99967C13.6664 3.31967 10.6797 0.333008 6.99974 0.333008ZM7.6664 10.333H6.33307V6.33301H7.6664V10.333ZM7.6664 4.99967H6.33307V3.66634H7.6664V4.99967Z"
-                      fill="#787878"
-                    />
-                  </svg>
+                  <IconNotif />
                   <p className="text-xs font-bold ">Max 3.MB</p>
                 </div>
               </div>
             </div>
           ))}
 
-          <div className="flex w-full my-8 justify-end">
-            <Button
-              disabled={!isValid}
-              className="my-4 w-[200px] rounded-[8px] disabled:bg-gray-300 disabled:text-gray-100 bg-primary-300 text-white font-bold p-3 text-1xl"
-              type={'submit'}
-            >
-              Simpan
-            </Button>
-          </div>
+          <Button
+            disabled={!isValid}
+            className="my-4 w-[200px] rounded-[8px] disabled:bg-gray-300 disabled:text-gray-100 bg-primary-300 text-white font-bold p-3 text-1xl"
+            type={'submit'}
+          >
+            Simpan
+          </Button>
         </form>
       </Accordion>
     </div>

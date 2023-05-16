@@ -44,9 +44,9 @@ export const UploadField = <T extends FieldValues>(
                 props.status === 'error' ? 'text-error-500 italic' : ''
               } px-4 text-xs`}
             >
-              {getName ? (
+              {getName || props.files ? (
                 <span>
-                  {getName}
+                  {getName || props.files}
                   {props.status === 'error' && `(${props.message})`}
                 </span>
               ) : (

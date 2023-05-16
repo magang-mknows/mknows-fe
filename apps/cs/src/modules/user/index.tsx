@@ -18,7 +18,7 @@ const UserModules: FC = (): ReactElement => {
         <div>
           <DateRangePickerComponent onRangeChange={handleRangeChange} />
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-[50%]">
           <Search
             value={getUserQuery}
             onChange={(e: { target: { value: string } }) =>

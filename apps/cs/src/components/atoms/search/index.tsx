@@ -9,7 +9,7 @@ const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
         Search
       </label>
       <div className="relative w-full ">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
           <IconSearch />
         </div>
         <input
