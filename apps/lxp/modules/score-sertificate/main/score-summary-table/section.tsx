@@ -30,7 +30,7 @@ export const ScoreSummaryTable: FC = (): ReactElement => {
                     scope="col"
                     className=" col-span-2 px-6 py-3 text-center font-medium text-neutral-50 text-sm"
                   >
-                    SKS Luus
+                    SKS Lulus
                   </th>
                   <th
                     scope="col"
