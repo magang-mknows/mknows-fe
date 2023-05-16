@@ -40,10 +40,10 @@ export const ProfileSidebar: FC = (): ReactElement => {
           CV & Portofolio
         </h1>
       </Link>
-      <Link href={'/profile/reset-password'}>
+      <Link href={'/profile/ubah-password'}>
         <h1
           className={`px-3 py-3 text-sm  rounded-md cursor-pointer  ${
-            pathname === '/profile/reset-password'
+            pathname === '/profile/ubah-password'
               ? ' bg-primary-100'
               : 'bg-white transition-all ease-linear duration-75'
           }`}

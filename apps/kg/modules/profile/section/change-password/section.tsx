@@ -4,8 +4,12 @@ import { FC, ReactElement } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useUpdatePassword } from './hooks';
+import { TPasswordPayload } from './types';
 
 export const ChangePasswordSection: FC = (): ReactElement => {
+  const { mutate, isLoading } = useUpdatePassword();
+
   const validationSchema = z
     .object({
       old_password: z.string().min(1, { message: 'Password harus diisi' }),
@@ -36,7 +40,12 @@ export const ChangePasswordSection: FC = (): ReactElement => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    try {
+      console.log(data);
+      mutate(data as TPasswordPayload);
+    } catch (err) {
+      // throw handleError(err);
+    }
   });
 
   return (
@@ -89,7 +98,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
             type="submit"
             className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-neutral-300 disabled:border-none bg-[#106FA4] text-neutral-100 hover:border-version2-300 w-36"
           >
-            <h1>Reset Password</h1>
+            <h1>{isLoading ? 'Loading' : 'Reset Password'}</h1>
           </Button>
         </section>
       </form>

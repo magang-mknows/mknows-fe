@@ -3,8 +3,6 @@ import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { ViewProfileBreadCumbs } from './const';
 import { ProfileSidebar } from './sidebar';
 import {
-  EditProfileModule,
-  ResetPasswordModule,
   ViewProfileModule,
   CVPortofolioModule,
   EditProfileSection,
@@ -19,7 +17,7 @@ export const ProfileModule: FC = (): ReactElement => {
   const eventPath = [
     '/profile',
     '/profile/edit-profile',
-    '/profile/reset-password',
+    '/profile/ubah-password',
     '/profile/cv-portofolio',
   ];
 
@@ -38,8 +36,8 @@ export const ProfileModule: FC = (): ReactElement => {
         <section className="col-span-2">
           {pathname === '/profile' && <ViewProfileModule />}
           {pathname === '/profile/edit-profile' && <EditProfileSection />}
-          {pathname === '/profile/reset-password' && <ChangePasswordSection />}
           {pathname === '/profile/cv-portofolio' && <CVPortofolioModule />}
+          {pathname === '/profile/ubah-password' && <ChangePasswordSection />}
         </section>
       </section>
     </section>
