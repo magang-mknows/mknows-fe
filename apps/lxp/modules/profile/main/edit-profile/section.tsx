@@ -22,7 +22,7 @@ import Image from 'next/image';
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
 
-  const MAX_FILE_SIZE = 500000;
+  const MAX_FILE_SIZE = 3000000;
   const ACCEPTED_IMAGE_TYPES = [
     'image/jpeg',
     'image/jpg',
