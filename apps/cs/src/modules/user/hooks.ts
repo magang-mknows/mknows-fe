@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { userFilter, userSearch } from './store';
-import { TUserDataResponse, TUserQueryResponse } from './types';
+import { userFilter, userSearch, CategoryStatusState } from './store';
+// import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { TDataCategory, TUserDataResponse, TUserQueryResponse } from './types';
 
 export const useUserData = (): TUserDataResponse => {
   const get = useRecoilValue(userFilter);
@@ -14,5 +15,13 @@ export const useUserQuery = (): TUserQueryResponse => {
   return {
     getUserQuery: get,
     setUserQuery: (val: string) => set(val),
+  };
+};
+
+export const useCategoryStatus = (): TDataCategory => {
+  const [getStatus, setStatus] = useRecoilState(CategoryStatusState);
+  return {
+    getDataCategory: getStatus,
+    setDataCategory: (val: string) => setStatus(val),
   };
 };

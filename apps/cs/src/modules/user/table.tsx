@@ -3,7 +3,13 @@ import { useUserData } from './hooks';
 import { Link } from 'react-router-dom';
 import Card from '../../components/molecules/card';
 import { Dialog } from '@headlessui/react';
-import { IconDropdown, IconEdit, IConDelete } from '../../components/atoms';
+import {
+  IconDropdown,
+  IconEdit,
+  IConDelete,
+  IconCheck,
+  IconError,
+} from '../../components/atoms';
 
 const Table: FC = (): ReactElement => {
   const { getUserData } = useUserData();
@@ -70,9 +76,14 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
                   <Link to={'/dashboard/user/detail-data'}>
-                    <span className="text-[#3D628D] cursor-pointer ">
-                      Lihat Detail
-                    </span>
+                    <div className="flex gap-2 text-[#3D628D] cursor-pointer ">
+                      <p>Lihat Detail</p>
+                      {item.berkas === 'success' ? (
+                        <IconCheck />
+                      ) : (
+                        <IconError />
+                      )}
+                    </div>
                   </Link>
                 </td>
                 <td>

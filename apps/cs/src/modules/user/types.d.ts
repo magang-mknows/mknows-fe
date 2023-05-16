@@ -5,6 +5,7 @@ export type TUserDataDummy = {
   nik: number;
   nama: string;
   tanggal: string;
+  berkas: string;
 };
 
 export type TDataUploader = {
@@ -28,4 +29,9 @@ export type TDataUploaderResponse = { getUploadData: TDataUploader[] };
 export type TUploadQueryResponse = {
   getUploadQuery: string;
   setUploadQuery: (val: string) => void;
+};
+
+export type TDataCategory = {
+  setDataCategory: (val: string) => void;
+  getDataCategory: string;
 };
