@@ -21,16 +21,7 @@ const HomeModules: FC = (): ReactElement => {
   return (
     <section>
       <CardSection />
-      {/* 
-      <div className="grid gap gap-x-4 lg:grid-cols-2 grid-cols-1">
-        <RequestSection />
-        <SkorSection />
-        <AgeTrack />
-        <LocationTrack />
-        <SalaryTrack />
-      </div> */}
-
-      <div className="flex lg:flex-row flex-col gap-4">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
         <div>
           <RequestSection />
           <AgeTrack />

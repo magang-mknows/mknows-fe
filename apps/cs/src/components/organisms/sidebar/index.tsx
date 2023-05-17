@@ -29,7 +29,7 @@ const Sidebar: FC = (): ReactElement => {
     },
     {
       title: 'Laporan',
-      path: '/dashboard/report/',
+      path: '/dashboard/report',
       icon: <IconReport />,
     },
     {
