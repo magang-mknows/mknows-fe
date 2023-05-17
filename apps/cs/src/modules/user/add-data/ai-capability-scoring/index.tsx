@@ -18,6 +18,12 @@ import {
   IconUpload,
   IconNotif,
 } from '../../../../components/atoms';
+import {
+  useCategoryStatus,
+  useCapabilityStatus,
+  useCharacterStatus,
+  useIdentityStatus,
+} from '../../hooks';
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -144,6 +150,12 @@ const AiCapabilityScoring: FC = (): ReactElement => {
 
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
+  const { setDataCapability, getDataCapability } = useCapabilityStatus();
+  const { setDataCategory } = useCategoryStatus();
+
+  const { getDataCharacter } = useCharacterStatus();
+  const { getDataIdentity } = useIdentityStatus();
+
   const {
     control,
     handleSubmit,
@@ -165,7 +177,13 @@ const AiCapabilityScoring: FC = (): ReactElement => {
   });
 
   const onSubmit = handleSubmit(() => {
-    console.log('ok');
+    try {
+      setDataCategory('finished');
+      setDataCapability(true);
+    } catch (err) {
+      setDataCapability(false);
+      throw err;
+    }
   });
 
   const upload: Array<{
@@ -284,7 +302,19 @@ const AiCapabilityScoring: FC = (): ReactElement => {
   ];
   return (
     <div>
-      <Accordion title="Ai Capability Scoring" idAccordion={'file information'}>
+      <Accordion
+        title="Ai Capability Scoring"
+        idAccordion={getDataCapability ? '' : 'data-capability'}
+        disabled={
+          getDataIdentity
+            ? getDataCharacter
+              ? getDataCapability
+                ? true
+                : false
+              : true
+            : true
+        }
+      >
         <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
           <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
             <IconUpload />

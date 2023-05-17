@@ -31,7 +31,22 @@ export type TUploadQueryResponse = {
   setUploadQuery: (val: string) => void;
 };
 
-export type TDataCategory = {
+export type StatusReturnTypeCategory = {
   setDataCategory: (val: string) => void;
   getDataCategory: string;
+};
+
+export type ReturnTypesDataIdentity = {
+  setDataIdentity: (val: boolean) => void;
+  getDataIdentity: boolean;
+};
+
+export type ReturnTypesDataCharacter = {
+  setDataCharacter: (val: boolean) => void;
+  getDataCharacter: boolean;
+};
+
+export type ReturnTypesDataCapabiity = {
+  setDataCapability: (val: boolean) => void;
+  getDataCapability: boolean;
 };

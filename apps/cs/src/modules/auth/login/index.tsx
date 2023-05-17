@@ -36,6 +36,7 @@ const LoginModules: FC = (): ReactElement => {
   const [getError, setError] = useState<string | undefined>('');
 
   const onSubmit = handleSubmit((data) => {
+    navigate('/dashboard/home');
     mutate(data, {
       onSuccess: () => {
         navigate('/dashboard/home');

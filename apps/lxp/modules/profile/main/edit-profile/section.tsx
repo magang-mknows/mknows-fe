@@ -11,12 +11,19 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useGetUserData } from './hook';
+import { useEffect } from 'react';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
 
   const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/webp'];
+  const ACCEPTED_IMAGE_TYPES = [
+    'image/jpeg',
+    'image/jpg',
+    'image/webp',
+    'image/png',
+  ];
 
   const genders = [
     { id: 1, value: 'L', label: 'Laki-Laki' },
@@ -47,13 +54,17 @@ export const EditProfileSection = () => {
     }),
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.any(),
+    gender: z.string(),
   });
 
   type InformationValidationSchema = z.infer<
     typeof informationvalidationSchema
   >;
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
+
+  const { data } = useGetUserData();
+  const userData = data?.data.user;
+  console.log('userdata :', userData);
 
   const {
     control: avatarControl,
@@ -71,6 +82,7 @@ export const EditProfileSection = () => {
     control: informationControl,
     handleSubmit: informationSubmit,
     formState: { isValid: informationIsValid, errors: informationError },
+    reset,
   } = useForm<InformationValidationSchema>({
     resolver: zodResolver(informationvalidationSchema),
     mode: 'all',
@@ -85,6 +97,13 @@ export const EditProfileSection = () => {
   const handleSubmitInfo = informationSubmit((info) => {
     console.log(info);
   });
+  const handleSubmitAvatar = avatarSubmit((avatar) => {
+    console.log(avatar);
+  });
+
+  useEffect(() => {
+    reset(userData);
+  }, [reset, userData]);
 
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
@@ -125,6 +144,7 @@ export const EditProfileSection = () => {
                 >
                   Unggah Foto
                   <UploadField
+                    onChange={handleSubmitAvatar}
                     variant="sm"
                     name={'avatar'}
                     control={avatarControl}
@@ -138,6 +158,7 @@ export const EditProfileSection = () => {
         <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmitInfo}>
           <TextField
             labelClassName="!text-sm text-left"
+            defaultValue={'kemem'}
             type="email"
             variant="md"
             control={informationControl}
