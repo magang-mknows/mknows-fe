@@ -13,49 +13,23 @@ const AlokasiKuota: FC = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleQuotaChange = (event: { target: { value: string } }) => {
-    setQuota(parseInt(event.target.value));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      setQuota(0);
-    }
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleTambah = () => {
-    setQuota(Quota + 1);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah1000 = () => {
-    setQuota(Quota + 1000);
+    setQuota(Quota * 0 + 1000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah5000 = () => {
-    setQuota(Quota + 5000);
+    setQuota(Quota * 0 + 5000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah10000 = () => {
-    setQuota(Quota + 10000);
+    setQuota(Quota * 0 + 10000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah50000 = () => {
-    setQuota(Quota + 50000);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleKurang = () => {
-    if (Quota <= 0) {
-      setQuota(Quota * 0);
-    } else {
-      setQuota(Quota - 1);
-    }
+    setQuota(Quota * 0 + 50000);
   };
 
   function closeModal() {
@@ -117,29 +91,6 @@ const AlokasiKuota: FC = (): ReactElement => {
               <span className="font-semibold text-sm text-neutral-400">
                 Pilih Jumlah Kuota
               </span>
-            </div>
-            <div className="flex justify-center items-center -space-x-.5">
-              <Button
-                type="button"
-                className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-l-md !rounded-r-none"
-                onClick={handleKurang}
-              >
-                <img src="/assets/Shape.webp" alt="" />
-              </Button>
-              <input
-                type="number"
-                value={Quota}
-                onChange={handleQuotaChange}
-                onKeyDown={handleKeyDown}
-                className="flex items-center justify-center text-center w-[30%] h-10 border-[1px] border-[#EBEBEB] text-[#000000] text-md font-bold"
-              />
-              <Button
-                type="button"
-                className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-r-md !rounded-l-none"
-                onClick={handleTambah}
-              >
-                <img src="/assets/add.webp" alt="" />
-              </Button>
             </div>
             <div className="grid md:gap-2 lg:grid-cols-4 grid-cols-2 gap-1 mt-5 font-bold">
               <span

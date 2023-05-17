@@ -4,6 +4,7 @@ import type { ReactElement } from 'react';
 import {
   Button,
   TextField,
+  UploadDragbleField,
   UploadField,
 } from '@mknows-frontend-services/components/atoms';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -155,7 +156,7 @@ const RootPage: NextPage = (): ReactElement => {
                 status={facultyError.name ? 'error' : 'none'}
                 message={facultyError.name?.message}
               />
-              <UploadField
+              <UploadDragbleField
                 variant="md"
                 label="Thumbnail"
                 control={controlFaculty}

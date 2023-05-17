@@ -117,6 +117,8 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       detail: 'Lihat Detail',
       jenis_produk: 'AI Identity Scoring',
       jumlah_kuota: 20,
+      status: 'Menunggu',
+      jumlah_user: 4,
     },
     {
       no: 11122334,
@@ -131,6 +133,8 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       detail: 'Lihat Detail',
       jenis_produk: 'AI Character Scoring',
       jumlah_kuota: 50,
+      status: 'Menunggu',
+      jumlah_user: 12,
     },
     {
       no: 123578912,
@@ -145,6 +149,8 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       detail: 'Lihat Detail',
       jenis_produk: 'AI Capability Scoring',
       jumlah_kuota: 200,
+      status: 'Gagal',
+      jumlah_user: 20,
     },
     {
       no: 10002345,
@@ -159,6 +165,8 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       detail: 'Lihat Detail',
       jenis_produk: 'AI Credit Scoring',
       jumlah_kuota: 250,
+      status: 'Gagal',
+      jumlah_user: 10,
     },
   ],
 });
@@ -176,11 +184,18 @@ export const resultFilter = selector({
         user.tggl_selesai
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase()) ||
+        user.jenis_produk
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
         user.nik
           .toString()
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase()) ||
         user.no
+          .toString()
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
+        user.jumlah_user
           .toString()
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase())
