@@ -31,6 +31,7 @@ const ChoiceFeature: FC = (): ReactElement => {
           <Search
             value={''}
             onChange={(e: { target: { value: string } }) => console.log('ok')}
+            placeholder={''}
           />
         </div>
       </div>

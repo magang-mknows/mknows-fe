@@ -11,6 +11,9 @@ const UserPages = lazy(() => import('../pages/user'));
 const AddDataPages = lazy(() => import('../pages/user/add-data'));
 const EditDataPages = lazy(() => import('../pages/user/edit-data'));
 const RequestPages = lazy(() => import('../pages/request'));
+const ChoiceFeature = lazy(
+  () => import('../modules/request/feature/choice-feature')
+);
 const RequestModule = lazy(() => import('../modules/request/feature/request'));
 const ProcessModule = lazy(() => import('../modules/request/process'));
 const ResultModule = lazy(() => import('../modules/request/result'));
@@ -84,6 +87,14 @@ export const routes = createBrowserRouter([
         ),
       },
       {
+        path: '/dashboard/request/choice-feature',
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <ChoiceFeature />
+          </Suspense>
+        ),
+      },
+      {
         path: '/dashboard/request',
         element: (
           <Suspense fallback={<Spinner />}>
@@ -103,8 +114,13 @@ export const routes = createBrowserRouter([
             path: '/dashboard/request/result',
             element: <ResultModule />,
           },
+          {
+            path: '/dashboard/request/result',
+            element: <ResultModule />,
+          },
         ],
       },
+
       {
         path: '/dashboard/report',
         element: (
