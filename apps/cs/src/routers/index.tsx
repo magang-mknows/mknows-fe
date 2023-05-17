@@ -4,6 +4,7 @@ import Spinner from '../components/atoms/loading/spinner';
 import { AuthLayout } from '../layouts/auth';
 import { BaseLayout } from '../layouts/base';
 import { ErrorModules } from '../modules/common/errorpage';
+import ReportRequest from '../modules/report/report-request';
 
 const LoginPages = lazy(() => import('../pages/auth/login'));
 const HomePages = lazy(() => import('../pages/home'));
@@ -18,8 +19,9 @@ const RequestModule = lazy(() => import('../modules/request/feature/request'));
 const ProcessModule = lazy(() => import('../modules/request/process'));
 const ResultModule = lazy(() => import('../modules/request/result'));
 const ReportPage = lazy(() => import('../pages/report'));
-const ReportModules = lazy(() => import('../modules/report/report'));
-const ChartReport = lazy(() => import('../modules/report/grafik'));
+const ReportModules = lazy(
+  () => import('../modules/report/report-user/report')
+);
 const QuotaPages = lazy(() => import('../pages/quota'));
 
 export const routes = createBrowserRouter([
@@ -138,10 +140,10 @@ export const routes = createBrowserRouter([
             ),
           },
           {
-            path: '/dashboard/report/grafik',
+            path: '/dashboard/report/request',
             element: (
               <Suspense fallback={<Spinner />}>
-                <ChartReport />
+                <ReportRequest />
               </Suspense>
             ),
           },

@@ -1,7 +1,7 @@
 import { FC, ReactElement, Fragment } from 'react';
 
-import { useReportData } from './hooks';
-import { IconDropdown, IconTable } from '../../components/atoms';
+import { useReportData } from '../hooks';
+import { IconDropdown, IconTable } from '../../../components/atoms';
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -10,27 +10,27 @@ const Table: FC = (): ReactElement => {
       <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400 overflow-x-scroll ">
         <thead className="text-xs border text-[#A3A3A3] font-semibold bg-[#F6FBFA] dark:bg-[#F5F8FF] ">
           <tr>
-            <th></th>
+            <th className="px-8"></th>
             <th scope="col" className="px-2 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
+              <div className="flex gap-2 justify-start items-center">
                 <p>No</p>
               </div>
             </th>
             <th scope="col" className="px-6 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
+              <div className="flex gap-2 justify-start px-4">
                 <p>NIK</p>
                 <IconDropdown />
               </div>
             </th>
-            <th scope="col" className="w-full px-4 py-2 cursor-default">
-              <div className=" flex gap-2 justify-center items-center">
+            <th scope="col" className="w-[40] py-2 pl-20 cursor-default">
+              <div className=" flex gap-2 justify-start items-start">
                 <p>Nama</p>
                 <IconDropdown />
               </div>
             </th>
 
-            <th scope="col" className="px-6 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
+            <th scope="col" className="py-2 pl-8 cursor-default">
+              <div className="flex gap-2 justify-start items-center">
                 <p>Status</p>
                 <IconDropdown />
               </div>
@@ -45,9 +45,9 @@ const Table: FC = (): ReactElement => {
                   <td className="px-4">
                     <IconTable />
                   </td>
-                  <td className="px-6 py-2 text-[#262626]">{key + 1}</td>
+                  <td className="px-4 py-2 text-[#262626]">{key + 1}</td>
                   <td className="px-6 py-2 text-[#262626]">{item.nik}</td>
-                  <td className="px-6 py-2 font-semibold text-[#262626] ">
+                  <td className="px-4 py-2 font-semibold text-start text-[#262626] ">
                     {item.nama}
                   </td>
 
