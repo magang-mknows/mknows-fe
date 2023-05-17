@@ -23,7 +23,7 @@ export const QuizModule: FC = (): ReactElement => {
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
       <div className="flex flex-col items-center gap-y-[18px] text-center">
         <h1 className="text-4xl font-semibold text-[#171717]">
-          Quiz Manajemen Keuangan
+          Quiz Manajemen Keuangan {/* it has to be from api but... */}
         </h1>
         <p className="text-2xl font-normal text-[#737373]">Pertemuan 1</p>
       </div>
