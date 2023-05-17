@@ -4,7 +4,7 @@ import Pagination from '../../../components/atoms/pagination';
 import Search from '../../../components/atoms/search';
 import { useResultQuery } from '../hooks';
 
-const HasilPage: FC = (): ReactElement => {
+const ResultModule: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
   return (
     <div className="relative">
@@ -54,4 +54,4 @@ const HasilPage: FC = (): ReactElement => {
   );
 };
 
-export default HasilPage;
+export default ResultModule;

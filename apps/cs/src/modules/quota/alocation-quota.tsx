@@ -4,7 +4,7 @@ import Card from '../../components/molecules/card';
 import { useRequestData } from '../request/hooks';
 import { Dialog, Transition } from '@headlessui/react';
 
-import cursorLoading from '../../../public/assets/quota/cursor-loading.webp';
+import cursorLoading from '/assets/quota/cursor-loading.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -41,7 +41,7 @@ const AlokasiKuota: FC = (): ReactElement => {
   }
 
   return (
-    <section className="my-14 w-full">
+    <section className="my-14 mx-14 w-full">
       <div className="font-bold text-2xl text-[#444444]">Alokasi Kuota</div>
       {/* content */}
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">

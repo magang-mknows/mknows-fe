@@ -4,7 +4,7 @@ import Search from '../../../components/atoms/search';
 import Pagination from '../../../components/atoms/pagination';
 import Table from './table';
 
-const ProsesPage: FC = (): ReactElement => {
+const ProcessModule: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
 
   return (
@@ -39,4 +39,4 @@ const ProsesPage: FC = (): ReactElement => {
   );
 };
 
-export default ProsesPage;
+export default ProcessModule;
