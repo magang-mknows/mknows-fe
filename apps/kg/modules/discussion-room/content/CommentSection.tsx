@@ -41,6 +41,9 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
                 />
               }
             >
+              <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
+                {comment?.replies} balasan
+              </h1>
               <ReplySection data={comment.comment_replies} />
             </DiscussionCard>
           </section>
