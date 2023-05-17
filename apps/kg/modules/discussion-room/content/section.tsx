@@ -27,6 +27,15 @@ export const DiscussionContent: FC = (): ReactElement => {
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
 
+  function daysAgo(days: string) {
+    const today = new Date();
+    const msInDay = 24 * 60 * 60 * 1000;
+    const createdOn = new Date(days);
+    createdOn.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    return String((+today - +createdOn) / msInDay);
+  }
+
   return (
     <section className="px-8 py-8 mx-8 my-8 bg-white rounded-md shadow-sm md:mx-14 lg:mx-16 md:px-14 lg:px-16 ">
       <section className="flex flex-wrap items-center justify-between w-full mb-6 md:flex-nowrap gap-x-2 gap-y-3">
@@ -61,7 +70,7 @@ export const DiscussionContent: FC = (): ReactElement => {
               hasImage={discussion.images[0] ? true : false}
               imgSource={discussion.images[0]}
               countLikes={discussion.likes}
-              time={discussion.created_at}
+              time={`${daysAgo(discussion.created_at)} Hari yang lalu`}
               userName={discussion.author.full_name}
               title={discussion.title}
               text={discussion.content}

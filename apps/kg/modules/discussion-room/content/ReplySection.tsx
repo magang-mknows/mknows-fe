@@ -8,6 +8,15 @@ type TReplyProps = {
 };
 
 export const ReplySection: FC<TReplyProps> = ({ data }): ReactElement => {
+  function daysAgo(days: string) {
+    const today = new Date();
+    const msInDay = 24 * 60 * 60 * 1000;
+    const createdOn = new Date(days);
+    createdOn.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    return String((+today - +createdOn) / msInDay);
+  }
+  
   return (
     <Fragment>
       {data?.map((reply, index) => {
@@ -16,7 +25,7 @@ export const ReplySection: FC<TReplyProps> = ({ data }): ReactElement => {
             <DiscussionCard
               hasImage={reply.image ? true : false}
               countLikes={reply.likes}
-              time={reply.created_at}
+              time={`${daysAgo(reply.created_at)} Hari yang lalu`}
               type="reply"
               userName={reply.author.full_name}
               text={reply.content}

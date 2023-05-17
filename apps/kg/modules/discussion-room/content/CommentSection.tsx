@@ -13,6 +13,15 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
   const listCommentData = data?.data.discussion_comments;
   console.log(listCommentData);
 
+  function daysAgo(days: string) {
+    const today = new Date();
+    const msInDay = 24 * 60 * 60 * 1000;
+    const createdOn = new Date(days);
+    createdOn.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    return String((+today - +createdOn) / msInDay);
+  }
+
   return (
     <Fragment>
       {listCommentData?.map((comment, index) => {
@@ -21,7 +30,7 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
             <DiscussionCard
               hasImage={comment.image ? true : false}
               countLikes={comment.likes}
-              time={comment.created_at}
+              time={`${daysAgo(comment.created_at)} Hari yang lalu`}
               type="comment"
               userName={comment.author.full_name}
               text={comment.content}
