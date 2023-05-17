@@ -102,32 +102,6 @@ export const DiscussionContent: FC = (): ReactElement => {
                   {discussion?.comments} balasan
                 </h1>
                 <CommentSection id={discussion.id} />
-                {/* <section>
-                  {listDiscussionData?.map((comment, index) => {
-                    return (
-                      <section
-                        key={index}
-                        className="pl-6 mb-10 md:pl-8 lg:pl-14"
-                      >
-                        <DiscussionCard
-                          hasImage={comment.images[0] ? true : false}
-                          countLikes={comment.likes}
-                          time={comment.created_at}
-                          type="comment"
-                          userName={comment.author.full_name}
-                          text={comment.content}
-                          imgSource={comment.images[0] as unknown as string}
-                          title={comment.title}
-                          option={
-                            <DiscussionPostOption
-                              id={`test id ${(index + 1) as unknown as string}`}
-                            />
-                          }
-                        ></DiscussionCard>
-                      </section>
-                    );
-                  })}
-                </section> */}
               </section>
             </DiscussionCard>
           );
