@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useRecoilState } from 'recoil';
-import { searchKeyword } from './store';
+import { debounceKeyword, searchKeyword } from './store';
 import { Card } from '@mknows-frontend-services/components/molecules';
 import { useGetAllDepartments } from './hook';
 import { CardLoading } from './loading';
@@ -9,8 +9,21 @@ import { NotFound } from '../../common/not-found';
 
 export const TrainingPlanMain: FC = (): ReactElement => {
   const [getKeyword, setKeyword] = useRecoilState(searchKeyword);
+  const [getDebounceKeyword, setDebounceKeyword] =
+    useRecoilState(debounceKeyword);
 
-  const { data: departmentsList, isLoading } = useGetAllDepartments(getKeyword);
+  const { data: departmentsList, isLoading } =
+    useGetAllDepartments(getDebounceKeyword);
+
+  useEffect(() => {
+    const changeDebounce = setTimeout(() => {
+      setDebounceKeyword(getKeyword);
+    }, 500);
+
+    return () => {
+      clearInterval(changeDebounce);
+    };
+  }, [getKeyword, setDebounceKeyword]);
 
   return (
     <main className="px-8 md:px-14 lg:px-16 ">
