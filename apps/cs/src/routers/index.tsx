@@ -4,9 +4,6 @@ import Spinner from '../components/atoms/loading/spinner';
 import { AuthLayout } from '../layouts/auth';
 import { BaseLayout } from '../layouts/base';
 import { ErrorModules } from '../modules/common/errorpage';
-import ChartReport from '../modules/report/grafik';
-import ReportModules from '../modules/report/report';
-import ReportPages from '../pages/report';
 
 const LoginPages = lazy(() => import('../pages/auth/login'));
 const HomePages = lazy(() => import('../pages/home'));
@@ -14,6 +11,12 @@ const UserPages = lazy(() => import('../pages/user'));
 const AddDataPages = lazy(() => import('../pages/user/add-data'));
 const EditDataPages = lazy(() => import('../pages/user/edit-data'));
 const RequestPages = lazy(() => import('../pages/request'));
+const RequestModule = lazy(() => import('../modules/request/feature/request'));
+const ProcessModule = lazy(() => import('../modules/request/process'));
+const ResultModule = lazy(() => import('../modules/request/result'));
+const ReportPage = lazy(() => import('../pages/report'));
+const ReportModules = lazy(() => import('../modules/report/report'));
+const ChartReport = lazy(() => import('../modules/report/grafik'));
 const QuotaPages = lazy(() => import('../pages/quota'));
 
 export const routes = createBrowserRouter([
@@ -87,12 +90,26 @@ export const routes = createBrowserRouter([
             <RequestPages />
           </Suspense>
         ),
+        children: [
+          {
+            path: '/dashboard/request',
+            element: <RequestModule />,
+          },
+          {
+            path: '/dashboard/request/process',
+            element: <ProcessModule />,
+          },
+          {
+            path: '/dashboard/request/result',
+            element: <ResultModule />,
+          },
+        ],
       },
       {
         path: '/dashboard/report',
         element: (
           <Suspense fallback={<Spinner />}>
-            <ReportPages />
+            <ReportPage />
           </Suspense>
         ),
         children: [

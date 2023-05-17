@@ -5,7 +5,7 @@ import { Dialog } from '@headlessui/react';
 import { useRequestData } from '../hooks';
 import { IconWarning } from '../../../components/atoms';
 
-const PermintaanPage: FC = (): ReactElement => {
+const RequestModule: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
   const [isOpen, setisOpen] = useState(false);
 
@@ -127,4 +127,4 @@ const PermintaanPage: FC = (): ReactElement => {
   );
 };
 
-export default PermintaanPage;
+export default RequestModule;

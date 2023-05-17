@@ -5,6 +5,9 @@ import {
   PopupModalSuccessConversi,
   PopupModalAddStudy,
   PopupModalDeleteStudy,
+  PopupUploadStudyPlanState,
+  PopupDeleteStudyPlanState,
+  PopupSubmissionStudyPlanState
 } from './stores';
 import { DataTable } from './type';
 
@@ -70,5 +73,44 @@ export const usePopupDeleteStudy = (): ReturnTypeDeleteStudy => {
   return {
     setPopupDelete: (val: boolean) => set(val),
     getPopupDelete: get,
+  };
+};
+
+type ReturnTypeUpload = {
+  setPopupUploadStatus: (val: boolean) => void;
+  popupUploadStatus: boolean;
+};
+
+export const usePopupUploadStudyPlan = (): ReturnTypeUpload => {
+  const [get, set] = useRecoilState(PopupUploadStudyPlanState);
+  return {
+    setPopupUploadStatus: (val: boolean) => set(val),
+    popupUploadStatus: get,
+  };
+};
+
+type ReturnTypePopupDelete = {
+  popupDeleteStatus: boolean;
+  setPopupDeleteStatus: (val: boolean) => void;
+};
+
+export const usePopupDeleteStudyPlan = (): ReturnTypePopupDelete => {
+  const [get, set] = useRecoilState(PopupDeleteStudyPlanState);
+  return {
+    popupDeleteStatus: get,
+    setPopupDeleteStatus: (val: boolean) => set(val),
+  };
+};
+
+type ReturnTypePopupSubmission = {
+  popupSubmissionStatus: boolean;
+  setPopupSubmissionStatus: (val: boolean) => void;
+};
+
+export const usePopupSubmissionStudyPlan = (): ReturnTypePopupSubmission => {
+  const [get, set] = useRecoilState(PopupSubmissionStudyPlanState);
+  return {
+    popupSubmissionStatus: get,
+    setPopupSubmissionStatus: (val: boolean) => set(val),
   };
 };

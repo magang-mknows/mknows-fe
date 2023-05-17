@@ -11,10 +11,10 @@ const Table: FC = (): ReactElement => {
           <tr>
             <th scope="col" className="px-2 py-2 cursor-default ">
               <div className="flex gap-5 justify-center items-center">
-                <p>No.</p>
+                <p>No</p>
               </div>
             </th>
-            <th scope="col" className="px-8 py-2 cursor-default">
+            <th scope="col" className="px-4 py-2 cursor-default">
               <div className="flex gap-2 justify-center items-center">
                 <p>No. Permintaan</p>
                 <img
@@ -69,24 +69,20 @@ const Table: FC = (): ReactElement => {
               >
                 <td className="px-6">{key + 1}</td>
                 <td className="px-8 py-2">{item.no}</td>
-                <td className="px-6 py-2">{item.nik}</td>
+                <td className="px-2 py-2">{item.nik}</td>
                 <td className="px-2 py-2 font-semibold text-xs">{item.nama}</td>
-                <td className="px-2 py-2 text-gray-500 ">
+                <td className="px-4 py-2 text-gray-500 ">
                   {item.tggl_permintaan} {item.waktu_permintaan}
                 </td>
-                <td className="px-2 py-2">{item.kendala_proses}</td>
+                <td className="px-1 py-2">{item.kendala_proses}</td>
                 <td className="px-4 py-2 bg-green-400">
-                  {item.skor === 'Sangat Baik' ? (
-                    <button className="bg-success-400 text-white w-[110px] text-sm p-2 rounded-md cursor-default">
-                      {item.skor}
+                  {item.status === 'Menunggu' ? (
+                    <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
+                      {item.status}
                     </button>
-                  ) : item.skor === 'Cukup Buruk' ? (
-                    <button className="bg-warning-500 text-white w-[110px] text-sm p-2 rounded-md cursor-default">
-                      {item.skor}
-                    </button>
-                  ) : item.skor === 'Sangat Buruk' ? (
-                    <button className="bg-error-400 text-white w-[110px] text-sm p-2 rounded-md cursor-default">
-                      {item.skor}
+                  ) : item.status === 'Gagal' ? (
+                    <button className="bg-[#EE2D24] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
+                      {item.status}
                     </button>
                   ) : (
                     <span className="px-11">-</span>

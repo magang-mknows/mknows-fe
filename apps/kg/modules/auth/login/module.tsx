@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 import { IconGoogle } from '../icons/ic-google';
 
 import { usePopupForgotPass } from '../forgot/hooks';
-import { PopupForgot } from '../forgot';
+import { ForgotModule } from '../forgot';
 
 const { AuthLayout } = lazily(
   () => import('@mknows-frontend-services/modules')
@@ -158,7 +158,7 @@ export const LoginModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
-        <PopupForgot />
+        <ForgotModule />
       </Suspense>
     </ErrorBoundary>
   );

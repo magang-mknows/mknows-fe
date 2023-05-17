@@ -2,17 +2,14 @@ import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
 import LoadingRequest from '../../modules/request/loading';
 import Card from '../../components/molecules/card';
 import { Tab } from '@headlessui/react';
-
-import PermintaanPage from './feature/request';
-import ProsesPage from './process';
-import HasilPage from './result';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState('permintaan');
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
-        <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
+        <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
@@ -21,22 +18,22 @@ const RequestPage: FC = (): ReactElement => {
               >
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/request"
                       className={`inline-block p-4 ${
-                        active === 'permintaan'
-                          ? 'text-primary-400 border-b-4 border-primary-400'
-                          : ''
+                        active === 'permintaan' ? 'text-primary-400 ' : ''
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
                       onClick={() => setActive('permintaan')}
                     >
                       Permintaan
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/request/process"
                       className={`inline-block p-4 ${
                         active === 'proses'
                           ? 'text-primary-400 border-b-4 border-primary-400'
@@ -46,12 +43,13 @@ const RequestPage: FC = (): ReactElement => {
                       onClick={() => setActive('proses')}
                     >
                       Proses
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/request/result"
                       className={`inline-block p-4 ${
                         active === 'Hasil'
                           ? 'text-primary-400 border-b-4 border-primary-400'
@@ -61,25 +59,14 @@ const RequestPage: FC = (): ReactElement => {
                       onClick={() => setActive('Hasil')}
                     >
                       Hasil
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
               </Tab.List>
 
               {/* content */}
               <Tab.Panels>
-                {/* tab 1 */}
-                <Tab.Panel>
-                  <PermintaanPage />
-                </Tab.Panel>
-                {/* tab 2 */}
-                <Tab.Panel>
-                  <ProsesPage />
-                </Tab.Panel>
-                {/* tabel 3 */}
-                <Tab.Panel>
-                  <HasilPage />
-                </Tab.Panel>
+                <Outlet />
               </Tab.Panels>
             </div>
           </Card>
