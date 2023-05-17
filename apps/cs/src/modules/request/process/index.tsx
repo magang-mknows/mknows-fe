@@ -10,7 +10,7 @@ const ProcessModule: FC = (): ReactElement => {
   return (
     <section>
       <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
-        <p className="font-bold text-[#444444] text-[24px] ml-4 w-full">
+        <p className="font-bold text-[#444444] text-[24px] ml-8 w-full">
           Permintaan Hari ini
         </p>
         <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0 ">
@@ -19,6 +19,7 @@ const ProcessModule: FC = (): ReactElement => {
             onChange={(e: { target: { value: string } }) =>
               setResultQuery(e.target.value)
             }
+            placeholder="Search No Permintaan, NIK, Nama, Tanggal, Kendala, Skor"
           />
         </div>
       </div>
