@@ -20,7 +20,7 @@ const HasilPage: FC = (): ReactElement => {
                 className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
                 <option selected>Semua</option>
-                <option value="US">AI Optimation</option>
+                <option value="US">AI Identity</option>
                 <option value="CA">AI Document Verification</option>
                 <option value="FR">AI Condition Analysis</option>
                 <option value="DE">AI Location & Movement</option>
@@ -32,7 +32,7 @@ const HasilPage: FC = (): ReactElement => {
                 onChange={(e: { target: { value: string } }) =>
                   setResultQuery(e.target.value)
                 }
-                placeholder="Search No Permintaan, NIK, Nama, Tanggal, Status"
+                placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
               />
             </div>
           </div>
