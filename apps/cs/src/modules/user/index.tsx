@@ -13,17 +13,18 @@ const UserModules: FC = (): ReactElement => {
   };
 
   return (
-    <div className="bg-white w-full h-full my-8 lg:px-8 py-2 ">
+    <div className="bg-white w-full h-full my-8 lg:px-8 px-4 py-2 ">
       <div className="flex flex-col lg:flex-row gap-y-2 justify-between pt-12">
         <div>
           <DateRangePickerComponent onRangeChange={handleRangeChange} />
         </div>
-        <div className="flex gap-2 w-[50%]">
+        <div className="flex gap-x-2 lg:w-[50%] w-full">
           <Search
             value={getUserQuery}
             onChange={(e: { target: { value: string } }) =>
               setUserQuery(e.target.value)
             }
+            placeholder="Search NIK, Nama, Tanggal, Berkas"
           />
           <Link to={'/dashboard/user/add-data'}>
             <button className="border bg-white text-primary-500 font-semibold md:w-[200px] w-[140px] border-primary-400 rounded-md p-2">

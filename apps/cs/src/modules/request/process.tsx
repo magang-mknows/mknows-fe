@@ -11,11 +11,11 @@ const ProsesPage: FC = (): ReactElement => {
   return (
     <section>
       <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
-        <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">
+        <p className="font-bold text-[#444444] text-lg lg:ml-8 ml-0 lg:w-[60%] w-full">
           Permintaan Hari ini
         </p>
-        <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0">
-          <div className="w-[40%]">
+        <div className="flex flex-row gap lg:gap-x-3 gap-x-4 w-full mt-4 lg:mt-0">
+          <div className="w-[50%]">
             <select
               id="category"
               className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
@@ -33,6 +33,7 @@ const ProsesPage: FC = (): ReactElement => {
               onChange={(e: { target: { value: string } }) =>
                 setResultQuery(e.target.value)
               }
+              placeholder="Search No Permintaan, NIK, Nama, Tanggal, Kendala, Skor"
             />
           </div>
         </div>
