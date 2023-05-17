@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import { ReactElement, FC } from 'react';
 import { useResultData, useResultQuery } from './hooks';
 import Search from '../../components/atoms/search';
@@ -114,17 +115,21 @@ const ProsesPage: FC = (): ReactElement => {
                   </td>
                   <td className="px-6 py-2">{item.kendala_proses}</td>
                   <td className="px-4 py-2 bg-green-400">
-                    <button
-                      className={` ${
-                        item.skor === 'Sangat Baik'
-                          ? 'bg-success-400'
-                          : item.skor === 'Cukup Buruk'
-                          ? 'bg-warning-500'
-                          : 'bg-error-400'
-                      } text-white w-[100px] text-sm p-2 rounded-md cursor-default`}
-                    >
-                      {item.skor}
-                    </button>
+                    {item.skor === 'Sangat Baik' ? (
+                      <button className="bg-success-400 text-white w-[100px] text-sm p-2 rounded-md cursor-default">
+                        {item.skor}
+                      </button>
+                    ) : item.skor === 'Cukup Buruk' ? (
+                      <button className="bg-warning-500 text-white w-[100px] text-sm p-2 rounded-md cursor-default">
+                        {item.skor}
+                      </button>
+                    ) : item.skor === 'Sangat Buruk' ? (
+                      <button className="bg-error-400 text-white w-[100px] text-sm p-2 rounded-md cursor-default">
+                        {item.skor}
+                      </button>
+                    ) : (
+                      <span className="px-11">-</span>
+                    )}
                   </td>
                 </tr>
               );

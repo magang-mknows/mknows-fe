@@ -1,5 +1,5 @@
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { quotaDummyData, resultSearch } from './store';
+import { quotaDummyData, quotaSearch } from './store';
 import { TResultDataResponse, TQuotaQueryResponse } from './types';
 
 export const useResultData = (): TResultDataResponse => {
@@ -10,7 +10,7 @@ export const useResultData = (): TResultDataResponse => {
 };
 
 export const useQuotaQuery = (): TQuotaQueryResponse => {
-  const [get, set] = useRecoilState(resultSearch);
+  const [get, set] = useRecoilState(quotaSearch);
   return {
     getQuotaQuery: get,
     setQuotaQuery: (val: string) => set(val),

@@ -21,7 +21,7 @@ const CardSection: FC = (): ReactElement => {
     mouseTrackingEnabled: true,
     disableDotsControls: true,
     items: getCardData.map((x, i) => (
-      <div key={i} className="flex max-w-scren">
+      <div key={i} className="flex max-w-screen">
         <Card
           hasButton={true}
           buttonText="Lihat Detail"
