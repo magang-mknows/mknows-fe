@@ -11,7 +11,6 @@ type TCommentProps = {
 export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
   const { data } = useGetCommentById(id);
   const listCommentData = data?.data.discussion_comments;
-  console.log(listCommentData);
 
   function daysAgo(days: string) {
     const today = new Date();
