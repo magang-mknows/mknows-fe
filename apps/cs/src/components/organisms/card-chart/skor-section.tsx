@@ -23,8 +23,8 @@ const SkorSection: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <div className="px-4 xl:space-x-10 lg:space-x-2 space-x-0 lg:justify-normal flex lg:flex-row flex-col">
-        <div className=" w-[65%]">
+      <div className="px-4 xl:space-x-10 lg:space-x-2 space-x-0 lg:justify-normal flex md:flex-row w-full flex-col">
+        <div className=" lg:w-[45%] w-[65%] flex lg:justify-normal justify-center">
           <ChartDoughnut />
         </div>
         <div className="w-full py-14">

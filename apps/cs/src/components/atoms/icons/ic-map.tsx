@@ -3,7 +3,7 @@ import { FC, ReactElement } from 'react';
 export const IconMap: FC = (): ReactElement => {
   return (
     <svg
-      width="474"
+      width="360"
       height="189"
       viewBox="0 0 474 189"
       fill="none"

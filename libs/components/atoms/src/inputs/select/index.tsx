@@ -15,7 +15,7 @@ export const SelectField = <T extends FieldValues>({
     <Listbox {...props} {...field}>
       <div className="flex flex-col gap-y-1 w-auto ">
         <Listbox.Label
-          className={`font-sans text-black font-bold
+          className={` ${props.labelClassName} text-black font-bold
              ${
                variant === 'lg'
                  ? 'text-[18px] font-bold'
@@ -37,7 +37,7 @@ export const SelectField = <T extends FieldValues>({
         <div className="relative w-full mt-2">
           <Listbox.Button
             as="button"
-            className={`
+            className={` ${props.className}
               px-4 outline-none focus:outline-none w-full bg-white
               
               ${props.disabled && `bg-neutral-100 ring-neutral-400`}
@@ -65,7 +65,7 @@ export const SelectField = <T extends FieldValues>({
             {(data) => (
               <div className="flex justify-between items-center">
                 <span
-                  className={`text-neutral-400
+                  className={`${props.styleText} text-neutral-600 
                        ${
                          variant === 'lg'
                            ? 'text-[18px]'

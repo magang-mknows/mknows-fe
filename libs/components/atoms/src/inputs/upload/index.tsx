@@ -44,9 +44,9 @@ export const UploadField = <T extends FieldValues>(
                 props.status === 'error' ? 'text-error-500 italic' : ''
               } px-4 text-xs`}
             >
-              {getName ? (
+              {getName || props.files ? (
                 <span>
-                  {getName}
+                  {getName || props.files}
                   {props.status === 'error' && `(${props.message})`}
                 </span>
               ) : (
@@ -80,6 +80,7 @@ export const UploadField = <T extends FieldValues>(
         onChange={(event) => {
           field.onChange(event.target.files);
           setName(event.target?.files?.[0]?.name as string);
+          props?.onChange?.(event);
         }}
         id={props.name}
         type="file"

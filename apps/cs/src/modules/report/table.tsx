@@ -8,7 +8,7 @@ const Table: FC = (): ReactElement => {
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400 overflow-x-scroll ">
-        <thead className="text-xs border text-gray-700 font-light bg-[#F6FBFA] dark:bg-[#F5F8FF] dark:text-gray-400 ">
+        <thead className="text-xs border text-[#A3A3A3] font-semibold bg-[#F6FBFA] dark:bg-[#F5F8FF] ">
           <tr>
             <th></th>
             <th scope="col" className="px-2 py-2 cursor-default">
@@ -22,7 +22,7 @@ const Table: FC = (): ReactElement => {
                 <IconDropdown />
               </div>
             </th>
-            <th scope="col" className="w-[40%] px-4 py-2 cursor-default">
+            <th scope="col" className="w-full px-4 py-2 cursor-default">
               <div className=" flex gap-2 justify-center items-center">
                 <p>Nama</p>
                 <IconDropdown />
@@ -45,13 +45,13 @@ const Table: FC = (): ReactElement => {
                   <td className="px-4">
                     <IconTable />
                   </td>
-                  <td className="px-6 py-3 text-[#262626]">{key + 1}</td>
-                  <td className="px-6 py-3 text-[#262626]">{item.nik}</td>
-                  <td className="px-6 py-3 font-semibold text-[#262626]  flex justify-start text-right">
+                  <td className="px-6 py-2 text-[#262626]">{key + 1}</td>
+                  <td className="px-6 py-2 text-[#262626]">{item.nik}</td>
+                  <td className="px-6 py-2 font-semibold text-[#262626] ">
                     {item.nama}
                   </td>
 
-                  <td className="px-6 py-3 bg-green-400">
+                  <td className="px-4 py-2 bg-green-400">
                     <button
                       className={` ${
                         item.status === 'Sangat Baik'
