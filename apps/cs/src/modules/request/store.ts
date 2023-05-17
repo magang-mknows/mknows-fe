@@ -141,7 +141,7 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       tggl_selesai: '11/2/2024',
       waktu_selesai: '09:22:30',
       kendala_proses: 'Kualitas KTP buruk',
-      skor: 'Sangat Baik',
+      skor: '-',
       detail: 'Lihat Detail',
       jenis_produk: 'AI Capability Scoring',
       jumlah_kuota: 200,
