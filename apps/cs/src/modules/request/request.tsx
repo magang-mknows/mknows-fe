@@ -53,7 +53,7 @@ const PermintaanPage: FC = (): ReactElement => {
           onClick={() => setisOpen(true)}
           className="w-1/3 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
         >
-          Link Hasil
+          Cek Hasil
         </Button>
       </div>
 

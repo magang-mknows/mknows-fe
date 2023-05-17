@@ -5,7 +5,7 @@ import ChartBar from '../../molecules/chart/chart-bar';
 const SalaryTrack: FC = (): ReactElement => {
   return (
     <section className="bg-white h-fit w-full rounded-md md:py-5 py-0 my-4">
-      <h1 className="text-xl font-semibold p-4">TRACK PENDAPATAN</h1>
+      <h1 className="text-xl font-bold p-4">TRACK PENDAPATAN</h1>
       <div className="flex justify-between py-3 px-4 md:flex-row flex-col md:space-y-0 space-y-4">
         <div className="px-4">
           <DropDownDashboard />
