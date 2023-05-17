@@ -2,15 +2,14 @@ import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
 import { LoadingReport } from './loading';
 import Card from '../../components/molecules/card';
 import { Tab } from '@headlessui/react';
-import ReportModule from './report';
-import Grafik from './grafik';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const ReportPage: FC = (): ReactElement => {
   const [active, setActive] = useState('laporan');
   return (
     <Suspense fallback={<LoadingReport />}>
       <Tab.Group>
-        <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
+        <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
@@ -19,22 +18,22 @@ const ReportPage: FC = (): ReactElement => {
               >
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/report"
                       className={`inline-block p-4 ${
-                        active === 'laporan'
-                          ? 'text-primary-400 border-b-4 border-primary-400'
-                          : ''
+                        active === 'laporan' ? 'text-primary-400 ' : ''
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
                       onClick={() => setActive('laporan')}
                     >
                       Laporan User
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <NavLink
+                      to="/dashboard/report/grafik"
                       className={`inline-block p-4 ${
                         active === 'grafik'
                           ? 'text-primary-400 border-b-4 border-primary-400'
@@ -44,21 +43,14 @@ const ReportPage: FC = (): ReactElement => {
                       onClick={() => setActive('grafik')}
                     >
                       Grafik
-                    </a>
+                    </NavLink>
                   </button>
                 </Tab>
               </Tab.List>
 
               {/* content */}
               <Tab.Panels>
-                {/* tab 1 */}
-                <Tab.Panel>
-                  <ReportModule />
-                </Tab.Panel>
-                {/* tab 2 */}
-                <Tab.Panel>
-                  <Grafik />
-                </Tab.Panel>
+                <Outlet />
               </Tab.Panels>
             </div>
           </Card>

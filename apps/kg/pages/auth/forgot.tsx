@@ -1,10 +1,10 @@
-import { ForgotModule } from '../../modules/auth/forgot';
+import { PopupForgot } from '../../modules/auth/forgot';
 import { NextPage } from 'next';
 import { GetSessionParams, getSession } from 'next-auth/react';
 import { ReactElement } from 'react';
 
 const ForgotPages: NextPage = (): ReactElement => {
-  return <ForgotModule />;
+  return <PopupForgot />;
 };
 
 export default ForgotPages;
