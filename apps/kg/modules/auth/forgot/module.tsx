@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { usePopupForgotPass } from './hooks';
 
-export const PopupForgot: FC = (): ReactElement => {
+export const ForgotModule: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupForgotPass();
   const validationSchema = z.object({
     email: z.string().min(1, { message: 'Email harus diisi' }).email({
