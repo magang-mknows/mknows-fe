@@ -31,7 +31,7 @@ export const UploadDragbleField = <T extends FieldValues>(
   return (
     <div
       {...getRootProps(props)}
-      className={`flex items-center justify-center relative w-full p-2 border-2 rounded-lg border-neutral-300 hover:text-white ${props.className}`}
+      className={`flex items-center min-h-[300px] bg-neutral-100 justify-center relative w-full p-2 border-2 rounded-lg border-neutral-300 hover:text-white ${props.className}`}
     >
       {type && getName && (
         <span
