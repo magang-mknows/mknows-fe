@@ -19,7 +19,7 @@ export const useGetUserData = (): UseQueryResult<
   TMetaErrorResponse
 > =>
   useQuery({
-    queryKey: ['get-user-data'],
+    queryKey: ['get-user-data-lxp'],
     queryFn: async () => await getUserData(),
   });
 
@@ -30,7 +30,7 @@ export const useUpdateUserProfile = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ['update-user-profile'],
+    mutationKey: ['update-user-profile-lxp'],
     mutationFn: async (payload) => {
       return await updateUserProfile(payload);
     },
@@ -43,7 +43,7 @@ export const useUpdateUserData = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ['update-user-data'],
+    mutationKey: ['update-user-data-lxp'],
     mutationFn: async (payload) => {
       return await updateUserData(payload);
     },
