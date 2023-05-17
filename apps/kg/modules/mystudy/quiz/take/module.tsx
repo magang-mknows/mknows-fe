@@ -18,7 +18,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const { getQuestionsData, setQuestionsData } = useQuizQuestion();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizNumber();
 
-  const { data } = useGetQuizTakeById(router.query.quizId as string);
+  const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
   const dataQuizTake: TQuizTakeItem = data?.data;
 
   useEffect(() => {

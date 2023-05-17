@@ -9,15 +9,9 @@ import { TQuizDescItem } from './types';
 export const QuizModule: FC = (): ReactElement => {
   const router = useRouter();
 
-  const idSession = router.asPath.split('/')[2];
-
-  let dataQuizDesc: TQuizDescItem | null = null;
-  if (idSession !== '[detail-matkul]') {
-    const { data } = useGetQuizDescById(idSession as unknown as string);
-    dataQuizDesc = data?.data as TQuizDescItem;
-    // console.log('QUIZ DESC PATHNAME : ', idSession);
-  }
-  // console.log('QUIZ DESCRIPTION RESPONSE : ', dataQuizDesc);
+  const { data } = useGetQuizDescById(router.query.quizId as unknown as string);
+  const dataQuizDesc = data?.data as unknown as TQuizDescItem;
+  const prevPath = router.asPath.split('/').slice(0, -1).join('/');
 
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
@@ -64,7 +58,7 @@ export const QuizModule: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href={`${router.asPath}/ambil/${dataQuizDesc?.id}`}>
+          <Link href={`${prevPath}/ambil/${dataQuizDesc?.id}`}>
             <button className="w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-[#106FA4] text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
               Mulai Quiz (Sisa {dataQuizDesc?.remaining_attempt || 'unknown'})
             </button>
