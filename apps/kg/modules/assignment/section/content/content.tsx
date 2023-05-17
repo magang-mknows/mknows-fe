@@ -8,8 +8,18 @@ import ImageNull from '../../assets/data-null.svg';
 import Image from 'next/image';
 import { T } from './types';
 import { useAssigment } from './hooks';
+import { useGetAssignment } from '../../hooks';
 
-export const ContentSection: FC = (): ReactElement => {
+type TAssignmentProps = {
+  session_id: string;
+};
+
+export const ContentSection: FC<TAssignmentProps> = ({
+  session_id,
+}): ReactElement => {
+  const { data } = useGetAssignment(session_id);
+  console.log('cek assignmnet', data);
+
   const [active, setactive] = useState('semua-tugas');
   const { getAssigment } = useAssigment();
   console.log(getAssigment.length);

@@ -13,7 +13,7 @@ export const BaseLayout: FC = (): ReactElement => {
             <Sidebar />
           </Suspense>
         </div>
-        <div className="w-screen overflow-hidden p-8 max-screen-auto bg-[#F6FBFA]">
+        <div className="w-screen overflow-hidden p-4 max-screen-auto bg-[#F6FBFA]">
           <Suspense fallback={<Spinner />}>
             <Outlet />
           </Suspense>

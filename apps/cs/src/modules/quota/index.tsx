@@ -11,7 +11,7 @@ const QuotaPage: FC = (): ReactElement => {
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
-        <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
+        <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
@@ -20,7 +20,7 @@ const QuotaPage: FC = (): ReactElement => {
               >
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <div
                       className={`inline-block p-4 ${
                         active === 'alokasi'
                           ? 'text-primary-400 border-b-4 border-primary-400'
@@ -30,12 +30,12 @@ const QuotaPage: FC = (): ReactElement => {
                       onClick={() => setActive('alokasi')}
                     >
                       Alokasi Kuota
-                    </a>
+                    </div>
                   </button>
                 </Tab>
                 <Tab as={Fragment}>
                   <button>
-                    <a
+                    <div
                       className={`inline-block p-4 ${
                         active === 'riwayat'
                           ? 'text-primary-400 border-b-4 border-primary-400'
@@ -45,7 +45,7 @@ const QuotaPage: FC = (): ReactElement => {
                       onClick={() => setActive('riwayat')}
                     >
                       Riwayat Alokasi Kuota
-                    </a>
+                    </div>
                   </button>
                 </Tab>
               </Tab.List>

@@ -138,8 +138,8 @@ export const EditProfileSection = () => {
         <h1 className="text-xl font-bold text-neutral-800">Edit Profile</h1>
       </header>
       <main className="w-full">
-        <section className="grid place-items-center w-full   py-16">
-          <figure className="bg-neutral-200  h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
+        <section className="grid w-full py-16 place-items-center">
+          <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
             {userData?.avatar !== null && userData?.avatar !== undefined ? (
               <Image
                 src={userData?.avatar}
@@ -153,12 +153,12 @@ export const EditProfileSection = () => {
             ) : null}
             <section className="absolute bottom-0 right-2">
               <div
-                className="bg-version2-300 w-9 h-9 rounded-full shadow-md grid place-items-center  cursor-pointer"
+                className="grid rounded-full shadow-md cursor-pointer bg-version2-300 w-9 h-9 place-items-center"
                 onClick={() => {
                   setEditPhoto(!isEditPhoto);
                 }}
               >
-                <AiFillCamera className="text-neutral-200 text-xl" />
+                <AiFillCamera className="text-xl text-neutral-200" />
               </div>
               <form
                 className={`${
@@ -175,7 +175,7 @@ export const EditProfileSection = () => {
                 </p>
                 <label
                   htmlFor="avatar"
-                  className="text-neutral-700 cursor-pointer bg-neutral-50 hover:bg-neutral-100 px-4 py-2"
+                  className="px-4 py-2 cursor-pointer text-neutral-700 bg-neutral-50 hover:bg-neutral-100"
                   onClick={() => {
                     setEditPhoto(false);
                   }}
@@ -242,7 +242,7 @@ export const EditProfileSection = () => {
             message={informationError.phone_number?.message}
             className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
-          <section className="w-full flex justify-end col-span-2">
+          <section className="flex justify-end w-full col-span-2">
             <Button
               disabled={!informationIsValid}
               type="submit"

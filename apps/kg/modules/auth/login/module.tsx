@@ -16,6 +16,9 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { IconGoogle } from '../icons/ic-google';
 
+import { usePopupForgotPass } from '../forgot/hooks';
+import { ForgotModule } from '../forgot';
+
 const { AuthLayout } = lazily(
   () => import('@mknows-frontend-services/modules')
 );
@@ -33,6 +36,7 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 export const LoginModule: FC = (): ReactElement => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const { setPopupStatus } = usePopupForgotPass();
   const [getError, setError] = useState<string | undefined>(undefined);
   const {
     control,
@@ -119,9 +123,12 @@ export const LoginModule: FC = (): ReactElement => {
                 name={'remember'}
                 label="Ingat Saya"
               />
-              <Link className="text-primary-base" href={'/auth/forgot'}>
+              <div
+                className="text-primary-base cursor-pointer"
+                onClick={() => setPopupStatus(true)}
+              >
                 Lupa Kata Sandi?
-              </Link>
+              </div>
             </div>
             <div className="flex flex-col my-4">
               <Button
@@ -151,6 +158,7 @@ export const LoginModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
+        <ForgotModule />
       </Suspense>
     </ErrorBoundary>
   );

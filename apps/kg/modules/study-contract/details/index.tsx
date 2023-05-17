@@ -2,12 +2,11 @@ import { FC, ReactElement, lazy, Suspense, useState } from "react";
 import { BaseLayout } from "../../../modules/common/layout/base";
 // import { contractStudyBreadCumbs } from "@/utilities/constant";
 // import MainLayouts from "@/layouts/Main";
-// import Draft from "./Draft";
-// import PreTest from "./PreTest";
-// import Submission from "./Submission";
 import { usePopupAddStudy, usePopupSucces } from "./hooks";
 import { Contract } from "./kontrak-krs";
 import { Draft } from "./draft-krs";
+import { PreTest } from "./konversi";
+import Submission from "./pengajuan";
 
 // import Loading from "@/components/Loading";
 
@@ -106,10 +105,10 @@ const DetailContract: FC = (): ReactElement => {
                 <Contract onClick={() => moveKRS()} onMove={() => moveKonversi()} />
               ) : active === "draft-krs" ? ( 
                 <Draft />
-              ) : active === "konversi" ? ("tes2"
-                // <PreTest />
-              ) : active === "pengajuan" ? ( "tes3"
-                // <Submission />
+              ) : active === "konversi" ? (
+                <PreTest />
+              ) : active === "pengajuan" ? ( 
+                <Submission />
               ) : (
                 <span>Tidak ada data</span>
               )}

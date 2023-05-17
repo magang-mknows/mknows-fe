@@ -1,37 +1,24 @@
-import {
-  Button,
-  LoadingSpinner,
-  TextField,
-} from '@mknows-frontend-services/components/atoms';
+import { PopupModal } from '@mknows-frontend-services/components/molecules';
+import { FC, ReactElement } from 'react';
+import { Button, TextField } from '@mknows-frontend-services/components/atoms';
 import { useForm } from 'react-hook-form';
-import { FC, ReactElement, Suspense, useEffect, useState } from 'react';
-import { lazily } from 'react-lazily';
-import { ErrorBoundary } from 'react-error-boundary';
-import Link from 'next/link';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useRouter } from 'next/router';
-import { useForgot } from './hooks';
-
-const { AuthLayout } = lazily(
-  () => import('@mknows-frontend-services/modules')
-);
-
-const validationSchema = z.object({
-  email: z.string().min(1, { message: 'Email harus diisi' }).email({
-    message: 'Email harus valid',
-  }),
-});
-
-type ValidationSchema = z.infer<typeof validationSchema>;
+import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import { usePopupForgotPass } from './hooks';
 
 export const ForgotModule: FC = (): ReactElement => {
-  const router = useRouter();
-  const [getError, setError] = useState<string | undefined>(undefined);
+  const { setPopupStatus, getPopupStatus } = usePopupForgotPass();
+  const validationSchema = z.object({
+    email: z.string().min(1, { message: 'Email harus diisi' }).email({
+      message: 'Email harus valid',
+    }),
+  });
+
+  type ValidationSchema = z.infer<typeof validationSchema>;
   const {
     control,
     formState: { isValid, errors },
-    handleSubmit,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
@@ -39,64 +26,45 @@ export const ForgotModule: FC = (): ReactElement => {
       email: '',
     },
   });
-
-  const { mutate, isLoading } = useForgot();
-
-  const onSubmit = handleSubmit(async (data) => {
-    mutate(data, {
-      onSuccess: () => router.push('/auth/email-sent'),
-      onError: (e) => setError(e.response?.data?.message),
-    });
-  });
-
-  useEffect(() => {
-    setError(router.query.error as string);
-  }, [router.query.error]);
-
   return (
-    <ErrorBoundary fallback={<>{getError}</>}>
-      <Suspense fallback={<LoadingSpinner />}>
-        <AuthLayout
-          h="screen"
-          error={getError}
-          title="Lupa Kata Sandi"
-          description="Silahkan masukan email yang sebelumnya terdaftar"
-        >
-          <form
-            onSubmit={onSubmit}
-            className="flex flex-col w-full justify-start"
-          >
-            <TextField
-              type="email"
-              variant="lg"
-              control={control}
-              name={'email'}
-              placeholder="maulana@sodiqin.com"
-              label="Email"
-              status={errors.email ? 'error' : 'none'}
-              message={errors.email?.message}
-            />
+    <PopupModal
+      onClose={() => setPopupStatus(false)}
+      lookup={getPopupStatus}
+      className="!w-[100%] text-md md:px-16 sm:px-14"
+      popupTitle="Lupa Kata Sandi"
+    >
+      <div className="mb-5 lg:text-[16px] md:text-[14px]">
+        Masukkan alamat email Anda yang terdaftar. Kami akan
+        <br />
+        mengirimkan kode OTP untuk dapat mengatur ulang kata sandi Anda.
+      </div>
 
-            <div className="flex flex-col my-4">
-              <Button
-                type="submit"
-                disabled={!isValid}
-                loading={isLoading ? 'Sedang Mengirim Permintaan...' : ''}
-                className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
-              >
-                Reset Sekarang
-              </Button>
+      <form className="flex flex-col w-full !justify-end">
+        <label className="text-start font-[500] text-[16px] mb-1">
+          Email
+          <TextField
+            type="email"
+            variant="lg"
+            name={'email'}
+            control={control}
+            placeholder="Masukan email"
+            status={errors.email ? 'error' : 'none'}
+            message={errors.email?.message}
+          />
+        </label>
 
-              <div className="flex w-full items-center justify-center my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
-                <span>Sudah Ingat Password nya?</span>
-                <Link className="text-primary-600" href={'/auth/register'}>
-                  Masuk Disini
-                </Link>
-              </div>
-            </div>
-          </form>
-        </AuthLayout>
-      </Suspense>
-    </ErrorBoundary>
+        <div className="flex justify-center text-center w-full">
+          <Link href={'/auth/otp'}>
+            <Button
+              type="submit"
+              disabled={!isValid}
+              className=" w-fit px-8 py-3 disabled:bg-neutral-400 h-auto text-[16px] text-white rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[600] tracking-wide"
+            >
+              Kirim
+            </Button>
+          </Link>
+        </div>
+      </form>
+    </PopupModal>
   );
 };
