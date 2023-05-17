@@ -60,3 +60,18 @@ export const dataTableState = atom<Array<DataTable>>({
     key: "modalPopup-deleteStudy-studyContract",
     default: false,
   });
+
+  export const PopupUploadStudyPlanState = atom({
+    key: "modalPopup-uploadStudyPlan-studyContract",
+    default: false,
+  });
+
+  export const PopupDeleteStudyPlanState = atom({
+    key: "modalPopup-deleteStudyPlan-studyContract",
+    default: false,
+  });
+
+  export const PopupSubmissionStudyPlanState = atom({
+    key: "modalPopup-submissionStudyPlan-contractStudy",
+    default: false,
+  });
