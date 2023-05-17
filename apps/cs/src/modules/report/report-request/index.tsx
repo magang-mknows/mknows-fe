@@ -3,16 +3,18 @@ import Table from './table';
 import Pagination from '../../../components/atoms/pagination';
 import Search from '../../../components/atoms/search';
 import { useReportQuery } from '../hooks';
+import DateRangePickerComponent from '../../../components/molecules/input/date-range-picker';
 
 const ReportRequest: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
+  const handleRangeChange = () => {
+    console.log('ok');
+  };
   return (
     <div className="relative">
-      <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
-        <p className="font-bold text-[#444444] text-[24px] lg:ml-8 ml-0 lg:w-[60%] w-full">
-          Permintaan Hari ini
-        </p>
-        <div className="w-full">
+      <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center justify-between">
+        <DateRangePickerComponent onRangeChange={handleRangeChange} />
+        <div className="w-[50%] ">
           <div className="flex flex-row gap lg:gap-x-3 gap-x-4 w-full mt-4 lg:mt-0">
             <div className="w-[50%]">
               <select
