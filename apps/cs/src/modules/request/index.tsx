@@ -3,7 +3,7 @@ import LoadingRequest from '../../modules/request/loading';
 import Card from '../../components/molecules/card';
 import { Tab } from '@headlessui/react';
 
-import PermintaanPage from './request';
+import PermintaanPage from './feature/request';
 import ProsesPage from './process';
 import HasilPage from './result';
 
