@@ -21,10 +21,10 @@ const ReportPage: FC = (): ReactElement => {
                     <NavLink
                       to="/dashboard/report"
                       className={`inline-block p-4 ${
-                        active === 'permintaan' ? 'text-primary-400 ' : ''
+                        active === 'laporan' ? 'text-primary-400 ' : ''
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
-                      onClick={() => setActive('permintaan')}
+                      onClick={() => setActive('laporan')}
                     >
                       Laporan User
                     </NavLink>
@@ -35,12 +35,12 @@ const ReportPage: FC = (): ReactElement => {
                     <NavLink
                       to="/dashboard/report/grafik"
                       className={`inline-block p-4 ${
-                        active === 'proses'
+                        active === 'grafik'
                           ? 'text-primary-400 border-b-4 border-primary-400'
                           : ''
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive('proses')}
+                      onClick={() => setActive('grafik')}
                     >
                       Grafik
                     </NavLink>
