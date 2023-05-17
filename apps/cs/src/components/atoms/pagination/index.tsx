@@ -5,7 +5,7 @@ const Pagination: FC = (): ReactElement => {
   const [isActive, setisActive] = useState('1');
   return (
     <div className="flex">
-      <p className="text-xs text-gray-400 w-[30%] pl-8">
+      <p className="text-xs text-gray-400 w-[30%] py-2">
         menampilkan 1-4 dari 110 hasil
       </p>
       <div className="flex justify-center items-center gap-x-2 text-neutral-400 ">

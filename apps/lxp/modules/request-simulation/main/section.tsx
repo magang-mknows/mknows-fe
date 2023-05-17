@@ -15,6 +15,7 @@ import { RequestScheduleInstrucion } from './instruction';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { Modal } from '@mknows-frontend-services/components/molecules';
+import { DayIcon, NightIcon } from './assets';
 
 export const RequestSceduleMain: FC = (): ReactElement => {
   const pathname = usePathname() as unknown as string;
@@ -105,17 +106,15 @@ export const RequestSceduleMain: FC = (): ReactElement => {
                             >
                               <section className="flex justify-between">
                                 <div className="flex items-center gap-2">
-                                  <Image
-                                    src={
-                                      'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630131/sub_thumbnail_eff70dfe-3df7-497f-ab45-2901975024ad.png'
-                                    }
-                                    alt="day-view"
-                                    width={10}
-                                    height={10}
-                                    className="w-7"
-                                  />
+                                  {time.title === 'siang' ? (
+                                    <DayIcon />
+                                  ) : (
+                                    <NightIcon />
+                                  )}
                                   <h1 className="font-bold text-sm">
-                                    {item.title}
+                                    {`${time.title
+                                      .charAt(0)
+                                      .toUpperCase()}${time.title.slice(1)}`}
                                   </h1>
                                 </div>
                                 <IoMdArrowDropdown className="text-neutral-500 text-2xl" />
@@ -212,7 +211,7 @@ export const RequestSceduleMain: FC = (): ReactElement => {
           title="Berhasil Mengajukan Simulasi!"
           type="sent"
         >
-          <p className="text-neutral-500 text-sm text-center">
+          <p className="text-neutral-500 text-sm text-center py-2">
             Kamu telah mengajukan simulasi di hari
             <span className="font-bold">
               {getSelected.date} Pukul {getSelected.time} WIB,

@@ -12,8 +12,8 @@ const ReportModules: FC = (): ReactElement => {
   };
 
   return (
-    <div className="bg-white w-full h-full my-8 ">
-      <div className="flex flex-col lg:flex-row justify-between gap-16 lg:px-8 px-2 pt-12">
+    <div className="bg-white w-full h-full my-2 ">
+      <div className="flex flex-col lg:flex-row justify-between gap-16 pt-12">
         <DateRangePickerComponent onRangeChange={handleRangeChange} />
         <div className="flex flex-col justify-end lg:flex-row gap-1">
           <select
@@ -35,7 +35,7 @@ const ReportModules: FC = (): ReactElement => {
         </div>
       </div>
 
-      <div className="lg:p-8 p-2">
+      <div className="lg:pt-8 py-2">
         <Table />
       </div>
       <Pagination />
