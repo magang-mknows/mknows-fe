@@ -37,15 +37,15 @@ const LoginModules: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data) => {
     navigate('/dashboard/home');
-    mutate(data, {
-      onSuccess: () => {
-        navigate('/dashboard/home');
-        console.log('berhasil masuk');
-      },
-      onError: (e) => {
-        setError(e.response?.data.message);
-      },
-    });
+    // mutate(data, {
+    //   onSuccess: () => {
+    //     navigate('/dashboard/home');
+    //     console.log('berhasil masuk');
+    //   },
+    //   onError: (e) => {
+    //     setError(e.response?.data.message);
+    //   },
+    // });
   });
 
   return (

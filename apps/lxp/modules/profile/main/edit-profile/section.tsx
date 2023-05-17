@@ -11,8 +11,13 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useGetUserData } from './hook';
+import {
+  useGetUserData,
+  useUpdateUserData,
+  useUpdateUserProfile,
+} from './hook';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
@@ -26,8 +31,8 @@ export const EditProfileSection = () => {
   ];
 
   const genders = [
-    { id: 1, value: 'L', label: 'Laki-Laki' },
-    { id: 2, value: 'P', label: 'Perempuan' },
+    { id: 1, value: 'LAKI-LAKI', label: 'Laki-Laki' },
+    { id: 2, value: 'PEREMPUAN', label: 'Perempuan' },
   ];
 
   const avatarValidationSchema = z.object({
@@ -64,7 +69,6 @@ export const EditProfileSection = () => {
 
   const { data } = useGetUserData();
   const userData = data?.data.user;
-  console.log('userdata :', userData);
 
   const {
     control: avatarControl,
@@ -94,11 +98,34 @@ export const EditProfileSection = () => {
     },
   });
 
-  const handleSubmitInfo = informationSubmit((info) => {
-    console.log(info);
+  const { mutate: mutateData } = useUpdateUserData();
+
+  const handleSubmitInfo = informationSubmit((data) => {
+    mutateData(
+      {
+        ...data,
+        full_name: data?.full_name,
+        phone_number: data?.phone_number,
+        gender: data?.gender,
+      },
+      {
+        onSuccess: () => {
+          console.log('data terupdate');
+        },
+      }
+    );
   });
-  const handleSubmitAvatar = avatarSubmit((avatar) => {
-    console.log(avatar);
+
+  const { mutate: mutateProfile } = useUpdateUserProfile();
+  const handleSubmitAvatar = avatarSubmit((data) => {
+    mutateProfile(
+      { ...data, avatar: data?.avatar[0] as File },
+      {
+        onSuccess: () => {
+          console.log('profile terupdate');
+        },
+      }
+    );
   });
 
   useEffect(() => {
@@ -111,8 +138,17 @@ export const EditProfileSection = () => {
         <h1 className="text-xl font-bold text-neutral-800">Edit Profile</h1>
       </header>
       <main className="w-full">
-        <section className="grid place-items-center w-full  py-16">
-          <figure className="bg-neutral-200 h-[140px] w-[140px] rounded-full relative">
+        <section className="grid place-items-center w-full   py-16">
+          <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
+            {userData?.avatar !== null && userData?.avatar !== undefined ? (
+              <Image
+                src={userData?.avatar}
+                alt="avatar"
+                height={100}
+                width={100}
+                className="h-full w-full rounded-full border-[1px] border-neutral-100"
+              />
+            ) : null}
             <section className="absolute bottom-0 right-2">
               <div
                 className="bg-version2-300 w-9 h-9 rounded-full shadow-md grid place-items-center  cursor-pointer"
@@ -158,7 +194,7 @@ export const EditProfileSection = () => {
         <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmitInfo}>
           <TextField
             labelClassName="!text-sm text-left"
-            defaultValue={'kemem'}
+            disabled
             type="email"
             variant="md"
             control={informationControl}
@@ -167,7 +203,7 @@ export const EditProfileSection = () => {
             label="Email"
             status={informationError.email ? 'error' : 'none'}
             message={informationError.email?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] disabled:!bg-neutral-100 disabled:!text-neutral-500"
           />
           <SelectField
             placeholder="Laki-Laki"
@@ -176,7 +212,9 @@ export const EditProfileSection = () => {
             options={genders}
             name={'gender'}
             variant={'md'}
-            className="!h-[40px] text-sm !rounded-[8px] "
+            labelClassName="text-sm"
+            styleText="!text-sm"
+            className="!h-[40px] !rounded-[8px] !text-neutral-800"
           />
           <TextField
             labelClassName="!text-sm text-left"
@@ -188,7 +226,7 @@ export const EditProfileSection = () => {
             label="Nama Lengkap"
             status={informationError.full_name ? 'error' : 'none'}
             message={informationError.full_name?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3]"
           />
           <TextField
             labelClassName="!text-sm text-left"
@@ -200,7 +238,7 @@ export const EditProfileSection = () => {
             label="Nomer Handphone"
             status={informationError.phone_number ? 'error' : 'none'}
             message={informationError.phone_number?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
           <section className="w-full flex justify-end col-span-2">
             <Button
