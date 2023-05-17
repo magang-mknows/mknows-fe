@@ -24,9 +24,4 @@ export type TLoginByGoogleData = {
   };
 };
 
-export type TusePopupForgotPass = {
-  setPopupStatus: (val: boolean) => void;
-  getPopupStatus: boolean;
-};
-
 export type TLoginByGoogleResponse = TMetaResponseSingle<TLoginByGoogleData>;

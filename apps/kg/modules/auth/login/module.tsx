@@ -15,8 +15,9 @@ import { z } from 'zod';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { IconGoogle } from '../icons/ic-google';
-import { PopupForgot } from './popup';
-import { usePopupForgotPass } from './hook';
+
+import { usePopupForgotPass } from '../forgot/hooks';
+import { PopupForgot } from '../forgot';
 
 const { AuthLayout } = lazily(
   () => import('@mknows-frontend-services/modules')
