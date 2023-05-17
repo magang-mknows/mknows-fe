@@ -45,11 +45,6 @@ const ReportModules: FC = (): ReactElement => {
       <div className="lg:pt-8 py-2">
         <Table />
       </div>
-      <div className="lg:text-xs text-[10px] flex flex-row justify-between">
-        <div className=" text-neutral-400 font-base">
-          Menampilkan 1-10 dari 110 hasil
-        </div>
-      </div>
       <Pagination />
     </div>
   );

@@ -1,9 +1,9 @@
 import { FC, ReactElement, useState } from 'react';
-import Card from '../../components/molecules/card';
+import Card from '../../../components/molecules/card';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { Dialog } from '@headlessui/react';
-import { useRequestData } from './hooks';
-import { IconWarning } from '../../components/atoms';
+import { useRequestData } from '../hooks';
+import { IconWarning } from '../../../components/atoms';
 
 const PermintaanPage: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -53,7 +53,7 @@ const PermintaanPage: FC = (): ReactElement => {
           onClick={() => setisOpen(true)}
           className="w-1/3 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
         >
-          Cek Hasil
+          Pilih Fitur
         </Button>
       </div>
 
