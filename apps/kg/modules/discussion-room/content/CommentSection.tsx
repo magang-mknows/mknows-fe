@@ -2,6 +2,7 @@ import { FC, Fragment, ReactElement } from 'react';
 import DiscussionCard from './post/section';
 import { DiscussionPostOption } from './post/option';
 import { useGetCommentById } from './hooks';
+import { ReplySection } from './ReplySection';
 
 type TCommentProps = {
   id: string;
@@ -31,7 +32,9 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
                   id={`test id ${(index + 1) as unknown as string}`}
                 />
               }
-            ></DiscussionCard>
+            >
+              <ReplySection data={comment.comment_replies} />
+            </DiscussionCard>
           </section>
         );
       })}
