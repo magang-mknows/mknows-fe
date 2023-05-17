@@ -1,4 +1,4 @@
-import { atom, selector, selectorFamily } from 'recoil';
+import { atom, selector } from 'recoil';
 import { TRequestDummyData, TResultDataDummy } from './types';
 
 export const requestDummyData = atom<TRequestDummyData[]>({
@@ -185,16 +185,4 @@ export const resultFilter = selector({
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase())
     ),
-});
-
-export const sortedTable = selectorFamily({
-  key: 'sorted-table',
-  get:
-    (sortedType) =>
-    ({ get }) => {
-      const dataTable = get(resultDummyData);
-      return sortedType === 'ASC'
-        ? dataTable.sort((a, b) => a.no - b.no)
-        : dataTable.sort((a, b) => b.no - a.no);
-    },
 });

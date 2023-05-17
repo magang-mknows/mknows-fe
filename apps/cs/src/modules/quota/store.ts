@@ -1,8 +1,8 @@
 import { atom, selector } from 'recoil';
 import { TResultDataDummy } from './types';
 
-export const resultSearch = atom({
-  key: 'result-query',
+export const quotaSearch = atom({
+  key: 'quota-query',
   default: '',
 });
 
@@ -50,20 +50,20 @@ export const resultFilter = selector({
   get: ({ get }) =>
     get(quotaDummyData).filter(
       (user) =>
-        user.skor.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.skor.toLowerCase().includes(get(quotaSearch).toLowerCase()) ||
         user.tggl_permintaan
           .toLowerCase()
-          .includes(get(resultSearch).toLowerCase()) ||
+          .includes(get(quotaSearch).toLowerCase()) ||
         user.jenis_produk
           .toLowerCase()
-          .includes(get(resultSearch).toLowerCase()) ||
+          .includes(get(quotaSearch).toLowerCase()) ||
         user.no
           .toString()
           .toLowerCase()
-          .includes(get(resultSearch).toLowerCase()) ||
+          .includes(get(quotaSearch).toLowerCase()) ||
         user.jumlah_kuota
           .toString()
           .toLowerCase()
-          .includes(get(resultSearch).toLowerCase())
+          .includes(get(quotaSearch).toLowerCase())
     ),
 });
