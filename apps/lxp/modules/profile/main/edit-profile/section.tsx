@@ -18,6 +18,7 @@ import {
 } from './hook';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { ImSpinner5 } from 'react-icons/im';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
@@ -74,6 +75,7 @@ export const EditProfileSection = () => {
     control: avatarControl,
     handleSubmit: avatarSubmit,
     formState: { isValid: avatarIsValid, errors: avatarError },
+    reset: avatarReset,
   } = useForm<AvatarValidationSchema>({
     resolver: zodResolver(avatarValidationSchema),
     mode: 'all',
@@ -86,7 +88,7 @@ export const EditProfileSection = () => {
     control: informationControl,
     handleSubmit: informationSubmit,
     formState: { isValid: informationIsValid, errors: informationError },
-    reset,
+    reset: informationReset,
   } = useForm<InformationValidationSchema>({
     resolver: zodResolver(informationvalidationSchema),
     mode: 'all',
@@ -98,7 +100,7 @@ export const EditProfileSection = () => {
     },
   });
 
-  const { mutate: mutateData } = useUpdateUserData();
+  const { mutate: mutateData, isLoading: loadingData } = useUpdateUserData();
 
   const handleSubmitInfo = informationSubmit((data) => {
     mutateData(
@@ -129,8 +131,9 @@ export const EditProfileSection = () => {
   });
 
   useEffect(() => {
-    reset(userData);
-  }, [reset, userData]);
+    informationReset(userData);
+    avatarReset(userData);
+  }, [informationReset, userData, avatarReset]);
 
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
@@ -139,14 +142,16 @@ export const EditProfileSection = () => {
       </header>
       <main className="w-full">
         <section className="grid place-items-center w-full   py-16">
-          <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
+          <figure className="bg-neutral-200  h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
             {userData?.avatar !== null && userData?.avatar !== undefined ? (
               <Image
                 src={userData?.avatar}
                 alt="avatar"
                 height={100}
-                width={100}
-                className="h-full w-full rounded-full border-[1px] border-neutral-100"
+                width={'100'}
+                loading="eager"
+                priority
+                className="h-full w-full rounded-full  object-cover  border-[1px] border-neutral-100"
               />
             ) : null}
             <section className="absolute bottom-0 right-2">
@@ -244,9 +249,13 @@ export const EditProfileSection = () => {
             <Button
               disabled={!informationIsValid}
               type="submit"
-              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm py-2 w-28"
+              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm h-10 w-32"
             >
-              <h1>Simpan</h1>
+              {loadingData ? (
+                <ImSpinner5 className="animate-spin duration-200 delay-150" />
+              ) : (
+                <h1>Simpan</h1>
+              )}
             </Button>
           </section>
         </form>
