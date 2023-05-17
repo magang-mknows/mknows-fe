@@ -6,8 +6,13 @@ import {
   BsDot,
   BsFillChatLeftFill,
 } from 'react-icons/bs';
+import { useProfile } from '../profile-edit/hooks';
 
 export const ViewProfileModule: FC = (): ReactElement => {
+  const { data, refetch } = useProfile();
+  const userData = data?.data?.user;
+  console.log(userData);
+
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
       <header className="mb-4">
@@ -19,14 +24,14 @@ export const ViewProfileModule: FC = (): ReactElement => {
         <figure className="w-[120px] h-[120px] rounded-full bg-neutral-300 border-4 border-neutral-50 absolute -bottom-12 left-0"></figure>
       </section>
       {/* Profile Info */}
-      <section className="w-full pl-2 mt-16">
+      <section className="w-full pl-2 mt-16 capitalize">
         <header className="flex flex-wrap justify-between w-full">
           <h1 className="text-base font-bold text-neutral-800">
-            Bandi Aljabar
+            {userData?.full_name}
           </h1>
           <section className="flex items-center gap-2 text-sm text-neutral-500">
             <AiTwotoneCopy className="text-xl cursor-pointer" />
-            <p>214907891</p>
+            <p>{userData?.id}</p>
           </section>
         </header>
         <main className="flex items-center w-full gap-0">
