@@ -14,6 +14,7 @@ import {
 } from '@mknows-frontend-services/components/atoms';
 import { Accordion } from '@mknows-frontend-services/components/molecules';
 import { IconNotif } from '../../../../components/atoms';
+import { useCategoryStatus, useIdentityStatus } from '../../hooks';
 
 const AiIdentityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 30000000;
@@ -130,6 +131,9 @@ const AiIdentityScoring: FC = (): ReactElement => {
 
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
+  const { setDataCategory } = useCategoryStatus();
+  const { setDataIdentity, getDataIdentity } = useIdentityStatus();
+
   const {
     control,
     handleSubmit,
@@ -150,7 +154,13 @@ const AiIdentityScoring: FC = (): ReactElement => {
   });
 
   const onSubmit = handleSubmit(() => {
-    console.log('ok');
+    try {
+      setDataIdentity(true);
+      setDataCategory('onProgress');
+    } catch (err) {
+      setDataIdentity(false);
+      throw err;
+    }
   });
 
   const upload: Array<{
@@ -259,7 +269,11 @@ const AiIdentityScoring: FC = (): ReactElement => {
 
   return (
     <div>
-      <Accordion title="Ai Identity Scoring" idAccordion={'file information'}>
+      <Accordion
+        title="Ai Identity Scoring"
+        idAccordion={getDataIdentity ? '' : 'identity-status-state'}
+        disabled={getDataIdentity ? true : false}
+      >
         <form onSubmit={onSubmit}>
           {upload.map((x, i) => (
             <div className="py-2" key={i}>

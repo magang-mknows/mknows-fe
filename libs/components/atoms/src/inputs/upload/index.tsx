@@ -80,6 +80,7 @@ export const UploadField = <T extends FieldValues>(
         onChange={(event) => {
           field.onChange(event.target.files);
           setName(event.target?.files?.[0]?.name as string);
+          props?.onChange?.(event);
         }}
         id={props.name}
         type="file"

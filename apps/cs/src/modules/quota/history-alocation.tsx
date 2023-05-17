@@ -1,11 +1,11 @@
 import { FC, ReactElement } from 'react';
 import Search from '../../components/atoms/search';
-import { useResultQuery } from '../request/hooks';
+import { useQuotaQuery } from './hooks';
 import DateRangePickerComponent from '../../components/molecules/input/date-range-picker';
 import Table from './table';
 
 const RiwayatAlokasi: FC = (): ReactElement => {
-  const { setResultQuery, getResultQuery } = useResultQuery();
+  const { setQuotaQuery, getQuotaQuery } = useQuotaQuery();
   const handleRangeChange = () => {
     console.log('ok');
   };
@@ -34,9 +34,9 @@ const RiwayatAlokasi: FC = (): ReactElement => {
             </div>
             <div className="w-auto">
               <Search
-                value={getResultQuery}
+                value={getQuotaQuery}
                 onChange={(e: { target: { value: string } }) =>
-                  setResultQuery(e.target.value)
+                  setQuotaQuery(e.target.value)
                 }
               />
             </div>
@@ -44,6 +44,11 @@ const RiwayatAlokasi: FC = (): ReactElement => {
         </div>
       </div>
       <Table />
+      <div className="lg:text-xs py-2 text-[10px] flex flex-row justify-between">
+        <div className=" text-neutral-400 font-base">
+          Menampilkan 1-10 dari 110 hasil
+        </div>
+      </div>
     </section>
   );
 };

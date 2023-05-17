@@ -1,4 +1,4 @@
-import { atom, selector, selectorFamily } from 'recoil';
+import { atom, selector } from 'recoil';
 import { TRequestDummyData, TResultDataDummy } from './types';
 
 export const requestDummyData = atom<TRequestDummyData[]>({
@@ -109,7 +109,9 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       nik: 327000189266,
       nama: 'Albert Maniqueen',
       tggl_permintaan: '11/2/2021',
+      waktu_permintaan: '09:22:30',
       tggl_selesai: '11/2/2021',
+      waktu_selesai: '09:22:30',
       kendala_proses: '-',
       skor: 'Sangat Baik',
       detail: 'Lihat Detail',
@@ -121,7 +123,9 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       nik: 32356789,
       nama: 'Ludwig Bethoven',
       tggl_permintaan: '15/3/2022',
+      waktu_permintaan: '09:22:30',
       tggl_selesai: '11/2/2023',
+      waktu_selesai: '09:22:30',
       kendala_proses: 'NIK salah',
       skor: 'Cukup Buruk',
       detail: 'Lihat Detail',
@@ -133,9 +137,11 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       nik: 3278532111,
       nama: 'Jawadal Al Hilal',
       tggl_permintaan: '11/8/2021',
+      waktu_permintaan: '09:22:30',
       tggl_selesai: '11/2/2024',
+      waktu_selesai: '09:22:30',
       kendala_proses: 'Kualitas KTP buruk',
-      skor: 'Sangat Baik',
+      skor: '-',
       detail: 'Lihat Detail',
       jenis_produk: 'AI Capability Scoring',
       jumlah_kuota: 200,
@@ -145,7 +151,9 @@ export const resultDummyData = atom<TResultDataDummy[]>({
       nik: 327000189266,
       nama: 'Yasmin Siahaan',
       tggl_permintaan: '11/2/2021',
+      waktu_permintaan: '09:22:30',
       tggl_selesai: '11/2/2021',
+      waktu_selesai: '09:22:30',
       kendala_proses: '-',
       skor: 'Sangat Buruk',
       detail: 'Lihat Detail',
@@ -161,21 +169,20 @@ export const resultFilter = selector({
     get(resultDummyData).filter(
       (user) =>
         user.nama.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.skor.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.tggl_permintaan
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
+        user.tggl_selesai
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
         user.nik
+          .toString()
+          .toLowerCase()
+          .includes(get(resultSearch).toLowerCase()) ||
+        user.no
           .toString()
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase())
     ),
-});
-
-export const sortedTable = selectorFamily({
-  key: 'sorted-table',
-  get:
-    (sortedType) =>
-    ({ get }) => {
-      const dataTable = get(resultDummyData);
-      return sortedType === 'ASC'
-        ? dataTable.sort((a, b) => a.no - b.no)
-        : dataTable.sort((a, b) => b.no - a.no);
-    },
 });

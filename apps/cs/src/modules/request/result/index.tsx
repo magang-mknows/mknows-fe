@@ -1,15 +1,15 @@
 import { ReactElement, FC } from 'react';
 import Table from './table';
-import Pagination from '../../components/atoms/pagination';
-import Search from '../../components/atoms/search';
-import { useResultQuery } from './hooks';
+import Pagination from '../../../components/atoms/pagination';
+import Search from '../../../components/atoms/search';
+import { useResultQuery } from '../hooks';
 
 const HasilPage: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
   return (
     <div className="relative">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
-        <p className="font-bold text-[#444444] text-lg ml-8 w-[60%]">
+        <p className="font-bold text-[#444444] text-[24px] ml-4 w-full">
           Permintaan Hari ini
         </p>
         <div className="w-full">
@@ -40,17 +40,12 @@ const HasilPage: FC = (): ReactElement => {
 
       {/* table */}
       <Table />
-      <div className="text-xs flex flex-row justify-between my-3">
-        <div className=" text-neutral-400 font-base">
-          Menampilkan 1-10 dari 110 hasil
-        </div>
-        <div className="font-semibold text-neutral-500">
-          Untuk melihat riwayat permintaan sebelumnya{' '}
-          <span className="text-[#4FA0CF]">
-            {' '}
-            <a href="/">Klik Disini</a>
-          </span>
-        </div>
+      <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
+        Untuk melihat riwayat permintaan sebelumnya{' '}
+        <span className="text-[#4FA0CF]">
+          {' '}
+          <a href="/">Klik Disini</a>
+        </span>
       </div>
 
       <Pagination />
