@@ -11,14 +11,11 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  useGetUserData,
-  useUpdateUserData,
-  useUpdateUserProfile,
-} from './hook';
+import { useUpdateUserData, useUpdateUserProfile } from './hook';
 import { useEffect } from 'react';
 import Image from 'next/image';
 import { ImSpinner5 } from 'react-icons/im';
+import { useProfile } from '../../hooks';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
@@ -68,7 +65,7 @@ export const EditProfileSection = () => {
   >;
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
 
-  const { data } = useGetUserData();
+  const { data } = useProfile();
   const userData = data?.data.user;
 
   const {

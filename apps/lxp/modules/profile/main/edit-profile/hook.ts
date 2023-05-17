@@ -7,21 +7,11 @@ import {
 import {
   IUpdateUserPayload,
   TUpdateUserResponse,
-  TUserDataResponse,
   TUserProfilePayload,
   TUserProfileResponse,
 } from './types';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { getUserData, updateUserData, updateUserProfile } from './api';
-
-export const useGetUserData = (): UseQueryResult<
-  TUserDataResponse,
-  TMetaErrorResponse
-> =>
-  useQuery({
-    queryKey: ['get-user-data-lxp'],
-    queryFn: async () => await getUserData(),
-  });
+import { updateUserData, updateUserProfile } from './api';
 
 export const useUpdateUserProfile = (): UseMutationResult<
   TUserProfileResponse,
