@@ -1,9 +1,9 @@
 import { FC, ReactElement } from 'react';
-import { useResultData } from '../hooks';
+import { useReportData } from '../hooks';
 import { IconDropdown, IconTable } from '../../../components/atoms';
 
 const Table: FC = (): ReactElement => {
-  const { getResultData } = useResultData();
+  const { getReportData } = useReportData();
 
   return (
     <div className="overflow-x-scroll">
@@ -50,7 +50,7 @@ const Table: FC = (): ReactElement => {
             </th>
           </tr>
         </thead>
-        {getResultData.map((item, key) => {
+        {getReportData.map((item, key) => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b dark:bg-[#ffff] ">
