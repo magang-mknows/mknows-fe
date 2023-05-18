@@ -1,5 +1,6 @@
 import {
   Button,
+  Checkbox,
   DashedText,
   TextField,
 } from '@mknows-frontend-services/components/atoms';
@@ -108,12 +109,24 @@ export const LoginModule: FC = (): ReactElement => {
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
             />
+            <div className="py-2 flex justify-between items-center ">
+              <Checkbox
+                name="remember"
+                variant="md"
+                control={control}
+                label="ingat saya"
+                className="!text-sm"
+              />
+              <h1 className="text-version2-400 cursor-pointer font-black text-sm hover:underline ">
+                Lupa kata sandi?
+              </h1>
+            </div>
             <div className="flex flex-col my-4">
               <Button
                 type="submit"
                 disabled={!isValid}
                 loading={loading ? 'Sedang Masuk..' : ''}
-                className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
+                className="disabled:bg-version2-400/60 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-full text-base py-4 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2"
               >
                 Masuk
               </Button>
@@ -123,13 +136,16 @@ export const LoginModule: FC = (): ReactElement => {
               <Button
                 onClick={onGoogleLogin}
                 type="button"
-                className="w-auto h-auto text-[18px] text-black p-3 rounded-lg border-2 border-neutral-300 appearance-none bg-white font-[700] flex items-center justify-center gap-x-4"
+                className="bg-neutral-50 text-neutral-700  hover:bg-neutral-100 hover:text-version2-400 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-neutral-300 flex items-center justify-center gap-3 w-full text-base py-4"
               >
                 <IconGoogle /> <span>Masuk Dengan Google</span>
               </Button>
-              <div className="flex w-full items-center justify-center my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
-                <span>Belum punya akun?</span>
-                <Link className="text-primary-600" href={'/auth/register'}>
+              <div className="flex w-full items-center justify-center my-4 gap-x-2 mb-4 text-sm">
+                <span className="text-neutral-700">Belum punya akun?</span>
+                <Link
+                  className="text-version2-400 hover:underline font-bold"
+                  href={'/auth/register'}
+                >
                   Daftar Disini
                 </Link>
               </div>
