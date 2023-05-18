@@ -45,7 +45,7 @@ const SliderLayout: FC = (): ReactElement => {
           ''
         )}
       </figure>
-      <section className="min-h-[120px]w-full px-14 text-center">
+      <section className="min-h-[120px] w-full px-14 text-center">
         {slider === 1 ? (
           <>
             <div className="text-[#171717] text-[27px] font-[700] ">
