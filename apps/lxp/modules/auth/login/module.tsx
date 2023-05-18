@@ -94,7 +94,7 @@ export const LoginModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'email'}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukan Email"
               label="Email"
               status={errors.email ? 'error' : 'none'}
               message={errors.email?.message}
@@ -104,7 +104,7 @@ export const LoginModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'password'}
-              placeholder="************"
+              placeholder="Masukan Kata Sandi"
               label="Kata Sandi"
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
