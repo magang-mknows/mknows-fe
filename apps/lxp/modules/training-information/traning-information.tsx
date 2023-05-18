@@ -1,8 +1,7 @@
 import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { ClientProvider } from '../common/provider';
 import { TrainingContractBreadCumbs } from './const';
-import { TrainingInformationHeader } from './header';
-import { TrainingInformationMain } from './main';
+import { TrainingInformationContent } from './content';
 
 export const TrainingInformationModule = () => {
   return (
@@ -12,8 +11,7 @@ export const TrainingInformationModule = () => {
           items={TrainingContractBreadCumbs}
           textColor="text-version2-400"
         />
-        <TrainingInformationHeader />
-        <TrainingInformationMain />
+        <TrainingInformationContent />
       </section>
     </ClientProvider>
   );
