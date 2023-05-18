@@ -1,25 +1,31 @@
 import { FC, Fragment, ReactElement } from 'react';
 import { AiFillInfoCircle } from 'react-icons/ai';
 import { TrainingInformationTable } from './table';
-import { TrainingInformationHeader } from './header';
+import { LSubjectHeader, TrainingInformationHeader } from './header';
 import { useGetSubjetByDeptId } from './hook';
 import { useRouter } from 'next/router';
 
 export const TrainingInformationContent: FC = (): ReactElement => {
   const router = useRouter();
   const { id_pelatihan } = router.query;
-  const { data: subject } = useGetSubjetByDeptId(id_pelatihan as string);
+  const { data: subject, isLoading } = useGetSubjetByDeptId(
+    id_pelatihan as string
+  );
 
   const subjectData = subject?.data;
 
   return (
     <Fragment>
-      <TrainingInformationHeader
-        name={subjectData?.name as string}
-        batch={1}
-        category={subjectData?.category}
-        point={subjectData?.point}
-      />
+      {isLoading ? (
+        <LSubjectHeader />
+      ) : (
+        <TrainingInformationHeader
+          name={subjectData?.name as string}
+          batch={1}
+          category={subjectData?.category}
+          point={subjectData?.point}
+        />
+      )}
       <main className="px-8 md:px-14 lg:px-16  ">
         <section className="flex px-6 mb-6 flex-wrap bg-secondary-blue-200/50 py-3 rounded-md shadow-sm gap-2 items-center">
           <AiFillInfoCircle className="text-xl text-[#0C2432]" />
