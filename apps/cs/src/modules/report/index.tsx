@@ -33,16 +33,16 @@ const ReportPage: FC = (): ReactElement => {
                 <Tab as={Fragment}>
                   <button>
                     <NavLink
-                      to="/dashboard/report/grafik"
+                      to="/dashboard/report/request"
                       className={`inline-block p-4 ${
-                        active === 'grafik'
+                        active === 'report-request'
                           ? 'text-primary-400 border-b-4 border-primary-400'
                           : ''
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive('grafik')}
+                      onClick={() => setActive('report-request')}
                     >
-                      Grafik
+                      Laporan Permintaan
                     </NavLink>
                   </button>
                 </Tab>

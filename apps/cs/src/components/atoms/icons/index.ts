@@ -1,3 +1,4 @@
+export * from './ic-back';
 export * from './ic-check';
 export * from './ic-calendar';
 export * from './ic-dashboard';
