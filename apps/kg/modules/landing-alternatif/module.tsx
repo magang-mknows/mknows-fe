@@ -8,7 +8,6 @@ export const LandingAlternatif: FC = (): ReactElement => {
     <Fragment>
       <HeroAlternatif />;
       <FeatureAlternatif />
-      <h1>ini baner sertifikat</h1>
       <PartnerAlternatif />
     </Fragment>
   );
