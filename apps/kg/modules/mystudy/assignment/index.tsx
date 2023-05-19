@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 // import ControlledUploadDragbleField from '@/components/ControlledInputs/ControlledUploadDragbleField';
 // import StatusSkeleton from "@/components/Loading/MyStudy/StatusSkeleton";
 import { UploadDragbleField } from '@mknows-frontend-services/components/atoms';
-import { BaseLayout } from '@kg/modules/common/layout/base';
+import { BaseLayout } from '../../common';
 
 export const Status: FC = (): ReactElement => {
   const { getInstruction } = useInstruction();
