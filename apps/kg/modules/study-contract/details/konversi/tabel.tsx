@@ -51,32 +51,32 @@ const TabelPretest: FC = (): ReactElement => {
       <div className="p-8 overflow-auto whitespace-nowrap">
         <div className="grid grid-flow-row auto-rows-auto">
           {/* thead⬇️⬇️⬇️⬇️ */}
-          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
-            <div className="w-[50px] px-1 bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-[#f3f4f6] border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div className="w-[50px] px-1 bg-[#f3f4f6] text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               No.
             </div>
-            <div className="lg:w-[275px] md:w-[275px] w-[180px] md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="lg:w-[275px] md:w-[275px] w-[180px] md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               Mata Kuliah
             </div>
-            <div className="w-[115px] px-1 md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[115px] px-1 md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               Kode Matkul
             </div>
-            <div className="w-[50px] px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[50px] px-1 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               SKS
             </div>
-            <div className="w-[90px] px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[90px] px-1 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               Semester
             </div>
-            <div className="w-[110px] px-2 bg-gray-100 lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[110px] px-2 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               Upload
             </div>
-            <div className="w-[160px] px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[160px] px-1 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               Tindakan
             </div>
-            <div className="w-[80px] px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[80px] px-1 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               Status
             </div>
-            <div className="px-1 bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="px-1 bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               Waktu Selesai
             </div>
           </div>
@@ -85,7 +85,7 @@ const TabelPretest: FC = (): ReactElement => {
           {getDataTable.map((x, i) => (
             <div
               key={i}
-              className="grid grid-flow-col auto-cols-min mx-auto border border-gray-200 divide-neutral-400 dark:divide-gray-700 w-full text-[16px]"
+              className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] divide-neutral-400  dark:divide-gray-700 w-full text-[16px]"
             >
               <div className="w-[50px] px-1 text-center md:text-[16px] rounded-md p-3 lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}

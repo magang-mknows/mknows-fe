@@ -39,35 +39,38 @@ const tabel = [
 const TabelSubmission: FC = (): ReactElement => {
   return (
     <>
-      <div className="py-8 lg:p-8">
-        <div className="grid grid-cols-12 overflow-auto whitespace-nowrap mx-auto border bg-gray-100 border-gray-200 rounded-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
-          <div className="bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold col-span-1 lg:text-[16px] text-[10px] dark:bg-transparent">
+      <div className="p-8 overflow-auto whitespace-nowrap">
+        <div className="grid grid-flow-row auto-rows-auto">
+          {/* thead⬇️⬇️⬇️⬇️ */}
+          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-[#f3f4f6] border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+          <div className="w-[89px] bg-[#f3f4f6] text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
             No.
           </div>
-          <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-4 lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="w-[358px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold col-span-4 lg:text-[16px] text-[10px] dark:bg-transparent">
             <p>Mata</p>
             <p> Kuliah</p>
           </div>
-          <div className="lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="w-[180px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
             <p>Kode </p>
             <p>Matkul</p>
           </div>
-          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-1 lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="w-[89px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
             SKS
           </div>
-          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="w-[180px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
             Kategori
           </div>
-          <div className="bg-gray-100 lg:text-start text-center py-3 font-semibold col-span-2 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="w-[179px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
             Tindakan
+          </div>
           </div>
 
           {tabel.map((x, i) => (
-            <>
-              <div className="border-t border-[#E5E5E5] bg-gray-100 text-center md:text-[16px] p-3 font-medium col-span-1 lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div key={i} className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] divide-neutral-400  dark:divide-gray-700 w-full text-[16px]">
+              <div className="w-[89px] text-center md:text-[16px] p-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}
               </div>
-              <div className="border-t border-[#E5E5E5] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium col-span-4 lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[358px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
                   <div>
                     <Image src={x.img} alt="User" />
@@ -80,16 +83,16 @@ const TabelSubmission: FC = (): ReactElement => {
                   </div>
                 </div>
               </div>
-              <div className="border-t border-[#E5E5E5] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium col-span-2 lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[180px] lg:flex md:flex md:gap-[4px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.kode_matkul}
               </div>
-              <div className="bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium col-span-1 lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[89px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.jmlh_sks}
               </div>
-              <div className="bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium col-span-2 lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[180px] lg:text-start text-center py-3 font-medium lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
                 {x.kategori}
               </div>
-              <div className="flex gap-2 bg-gray-100 border-t border-[#E5E5E5] dark:divide-gray-700 lg:text-start text-center py-3 font-medium col-span-2 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[179px] flex gap-2 dark:divide-gray-700 lg:text-start text-center py-3 font-medium md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               {x.keterangan === "Disetujui" ? (
                     <svg
                       width="21"
@@ -135,7 +138,7 @@ const TabelSubmission: FC = (): ReactElement => {
 
                   {x.keterangan}
               </div>
-            </>
+            </div>
           ))}
         </div>
         <div>
