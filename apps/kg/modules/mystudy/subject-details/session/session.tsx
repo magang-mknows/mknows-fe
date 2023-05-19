@@ -59,7 +59,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgModuleIcon} alt="" />
               <Link
-                href={`${router.asPath}/${session.id}`}
+                href={`${router.asPath}/modul/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Modul
@@ -75,7 +75,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgQuizIcon} alt="" />
               <Link
-                href={`${router.asPath}/kuis`}
+                href={`${router.asPath}/kuis/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Quiz
@@ -89,7 +89,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgAssignmentIcon} alt="" />
               <Link
-                href="/studi-ku/course/penugasan-test"
+                href={`${router.asPath}/penugasan/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Tugas
@@ -105,7 +105,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgDiscussionIcon} alt="" />
               <Link
-                href="/studi-ku/course/diskusi"
+                href={`${router.asPath}/diskusi/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Diskusi
