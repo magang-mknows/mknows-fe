@@ -37,7 +37,6 @@ export const Assigment: FC<AssigmentProps> = ({
               height={21}
               priority
               src={imgAssigment as StaticImageData}
-              // className="mt-5"
             />
             <p
               className={`mt-2 text-[16px] font-[600] uppercase ${classNameCategory}`}
