@@ -1,6 +1,5 @@
 import { FC, ReactElement, lazy, Suspense, useState } from "react";
 import { BaseLayout } from "../../../modules/common/layout/base";
-// import { contractStudyBreadCumbs } from "@/utilities/constant";
 import { usePopupAddStudy, usePopupSucces } from "./hooks";
 import { Contract } from "./kontrak-krs";
 import { Draft } from "./draft-krs";
