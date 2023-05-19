@@ -20,6 +20,7 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { TiCamera } from 'react-icons/ti';
 import { CommentSection } from './CommentSection';
 import { PostCreateModal } from './post/modal/post-create';
+import { PostEditModal } from './post/modal/post-edit';
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
@@ -119,7 +120,7 @@ export const DiscussionContent: FC = (): ReactElement => {
         onClose={() => setOptionOpen(false)}
       >
         {getSelectedOption === 'create' && <PostCreateModal />}
-        {getSelectedOption === 'edit' && <PostCreateModal />}
+        {getSelectedOption === 'edit' && <PostEditModal />}
         {getSelectedOption === 'report' && <PostReportModal />}
         {getSelectedOption === 'reportDetail' && <PostSpamModal />}
         {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}

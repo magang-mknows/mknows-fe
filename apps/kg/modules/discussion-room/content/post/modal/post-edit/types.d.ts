@@ -6,12 +6,22 @@ export type TDiscussion = {
   session_id: string;
   title: string;
   content: string;
-  is_global: boolean;
   images: string[];
-  updated_at: string;
+  is_global: boolean;
   created_at: string;
-  deleted_at: string;
+  discussion_comments: any[];
+  likes: number;
+  comments: number;
+  author: Author;
+  isLiked: boolean;
 };
+
+export interface Author {
+  avatar: string;
+  full_name: string;
+  major: string;
+  role: string;
+}
 
 export type TDiscussionPayload = {
   title: string;

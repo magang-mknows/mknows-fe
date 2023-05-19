@@ -4,20 +4,19 @@ import {
   UseQueryResult,
   useQuery,
 } from '@tanstack/react-query';
-import { CreateDiscussion, profileRequest } from './api';
+import { CreateDiscussion, DiscussionByIdRequest } from './api';
 import { TDiscussionPayload, TDiscussionDetailResponse } from './types';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
 import { useSession } from 'next-auth/react';
 
-export const useProfile = (): UseQueryResult<
-  TDiscussionDetailResponse,
-  TMetaErrorResponse
-> => {
+export const useDiscussionById = (
+  id: string
+): UseQueryResult<TDiscussionDetailResponse, TMetaErrorResponse> => {
   const { data: session } = useSession();
   return useQuery({
     enabled: !!session,
-    queryKey: ['get-user-me'],
-    queryFn: async () => await profileRequest(),
+    queryKey: ['get-discussion-by-id'],
+    queryFn: async () => await DiscussionByIdRequest(id),
   });
 };
 

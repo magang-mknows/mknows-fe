@@ -2,8 +2,10 @@ import { serialize } from 'object-to-formdata';
 import api from '../../../../../../services/api';
 import { TDiscussionPayload, TDiscussionDetailResponse } from './types';
 
-export const profileRequest = async (): Promise<TDiscussionDetailResponse> => {
-  const { data } = await api.get('/user/profile/me');
+export const DiscussionByIdRequest = async (
+  id: string
+): Promise<TDiscussionDetailResponse> => {
+  const { data } = await api.get(`/discussion/forum/${id}`);
   return data;
 };
 
