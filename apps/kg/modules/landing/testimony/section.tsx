@@ -18,7 +18,7 @@ export const TestimonySection: FC = (): ReactElement => {
               </p>
             </div>
           </div>
-          <div className="flex w-full gap-x-6">
+          <div className="flex flex-col md:flex-row w-full gap-x-6">
             <TestimonyCard />
             <TestimonyCard />
           </div>

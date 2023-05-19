@@ -11,13 +11,11 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  useGetUserData,
-  useUpdateUserData,
-  useUpdateUserProfile,
-} from './hook';
+import { useUpdateUserData, useUpdateUserProfile } from './hook';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { ImSpinner5 } from 'react-icons/im';
+import { useProfile } from '../../hooks';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
@@ -67,13 +65,14 @@ export const EditProfileSection = () => {
   >;
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
 
-  const { data } = useGetUserData();
+  const { data } = useProfile();
   const userData = data?.data.user;
 
   const {
     control: avatarControl,
     handleSubmit: avatarSubmit,
     formState: { isValid: avatarIsValid, errors: avatarError },
+    reset: avatarReset,
   } = useForm<AvatarValidationSchema>({
     resolver: zodResolver(avatarValidationSchema),
     mode: 'all',
@@ -86,7 +85,7 @@ export const EditProfileSection = () => {
     control: informationControl,
     handleSubmit: informationSubmit,
     formState: { isValid: informationIsValid, errors: informationError },
-    reset,
+    reset: informationReset,
   } = useForm<InformationValidationSchema>({
     resolver: zodResolver(informationvalidationSchema),
     mode: 'all',
@@ -98,7 +97,7 @@ export const EditProfileSection = () => {
     },
   });
 
-  const { mutate: mutateData } = useUpdateUserData();
+  const { mutate: mutateData, isLoading: loadingData } = useUpdateUserData();
 
   const handleSubmitInfo = informationSubmit((data) => {
     mutateData(
@@ -129,8 +128,9 @@ export const EditProfileSection = () => {
   });
 
   useEffect(() => {
-    reset(userData);
-  }, [reset, userData]);
+    informationReset(userData);
+    avatarReset(userData);
+  }, [informationReset, userData, avatarReset]);
 
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
@@ -138,25 +138,27 @@ export const EditProfileSection = () => {
         <h1 className="text-xl font-bold text-neutral-800">Edit Profile</h1>
       </header>
       <main className="w-full">
-        <section className="grid place-items-center w-full   py-16">
+        <section className="grid w-full py-16 place-items-center">
           <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
             {userData?.avatar !== null && userData?.avatar !== undefined ? (
               <Image
                 src={userData?.avatar}
                 alt="avatar"
                 height={100}
-                width={100}
-                className="h-full w-full rounded-full border-[1px] border-neutral-100"
+                width={'100'}
+                loading="eager"
+                priority
+                className="h-full w-full rounded-full  object-cover  border-[1px] border-neutral-100"
               />
             ) : null}
             <section className="absolute bottom-0 right-2">
               <div
-                className="bg-version2-300 w-9 h-9 rounded-full shadow-md grid place-items-center  cursor-pointer"
+                className="grid rounded-full shadow-md cursor-pointer bg-version2-300 w-9 h-9 place-items-center"
                 onClick={() => {
                   setEditPhoto(!isEditPhoto);
                 }}
               >
-                <AiFillCamera className="text-neutral-200 text-xl" />
+                <AiFillCamera className="text-xl text-neutral-200" />
               </div>
               <form
                 className={`${
@@ -173,7 +175,7 @@ export const EditProfileSection = () => {
                 </p>
                 <label
                   htmlFor="avatar"
-                  className="text-neutral-700 cursor-pointer bg-neutral-50 hover:bg-neutral-100 px-4 py-2"
+                  className="px-4 py-2 cursor-pointer text-neutral-700 bg-neutral-50 hover:bg-neutral-100"
                   onClick={() => {
                     setEditPhoto(false);
                   }}
@@ -240,13 +242,17 @@ export const EditProfileSection = () => {
             message={informationError.phone_number?.message}
             className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
-          <section className="w-full flex justify-end col-span-2">
+          <section className="flex justify-end w-full col-span-2">
             <Button
               disabled={!informationIsValid}
               type="submit"
-              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm py-2 w-28"
+              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm h-10 w-32"
             >
-              <h1>Simpan</h1>
+              {loadingData ? (
+                <ImSpinner5 className="animate-spin duration-200 delay-150" />
+              ) : (
+                <h1>Simpan</h1>
+              )}
             </Button>
           </section>
         </form>

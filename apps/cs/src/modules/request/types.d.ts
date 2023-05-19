@@ -11,6 +11,8 @@ export type TResultDataDummy = {
   detail: string;
   jenis_produk: string;
   jumlah_kuota: number;
+  status: string;
+  jumlah_user: number;
 };
 
 export type TRequestDummyData = {

@@ -12,8 +12,12 @@ import {
   Card,
   PopupModal,
 } from '@mknows-frontend-services/components/molecules';
+import { useGetAllCertificate } from '../../hook';
 
 export const CertificateSection = (): ReactElement => {
+  const { data } = useGetAllCertificate();
+  console.log('cek certificate', data?.data);
+
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState('semua');
   const { setPopupStatus, getPopupStatus } = usePopupCertificate();
