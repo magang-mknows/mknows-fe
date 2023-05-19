@@ -22,7 +22,7 @@ const Card: FC<CardProps> = ({
       {href ? (
         <Link href={`${href}`}>
           <div
-            className={`${className} flex auto p-4 flex-col`}
+            className={`${className} flex auto p-2 flex-col`}
             onClick={onClick}
           >
             {hasImage && (

@@ -83,7 +83,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
       </div>
       <Link
         href={'/semua-fitur'}
-        className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-neutral-700 font-[700]"
+        className="flex bg-primary-500 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-white font-[700]"
       >
         Lihat Semua
       </Link>

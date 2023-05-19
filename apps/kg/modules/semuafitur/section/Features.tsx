@@ -1,6 +1,8 @@
 import { FC, ReactElement } from 'react';
 import Card from '../component/Card';
 import search from '../assets/search.svg';
+import random from '../assets/random.svg';
+import random2 from '../assets/random2.svg';
 import Image from 'next/image';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { filterSemuaFitur, querySemuaFitur } from '../store';
@@ -10,8 +12,14 @@ const Features: FC = (): ReactElement => {
   const getSemuafitur = useRecoilValue(filterSemuaFitur);
 
   return (
-    <section className="py-[56px] lg:px-[72px] md:px-[72px] px-[20px] bg-neutral-100 dark:bg-[#222529] w-full">
-      <div className="flex flex-col pb-[56px] items-center">
+    <section className="py-[40px] lg:px-[72px] md:px-[72px] px-[20px] bg-neutral-100 dark:bg-[#222529] w-full">
+      <div className="flex absolute z-0 top-20">
+        <Image src={random} alt={'tes'} />
+      </div>
+      <div className="flex absolute z-0 bottom-24 right-0">
+        <Image src={random2} alt={'tes'} />
+      </div>
+      <div className="flex relative flex-col items-center">
         <h1 className="font-bold text-[28px] text-center">
           Fitur Kampus Gratis
         </h1>
@@ -19,7 +27,7 @@ const Features: FC = (): ReactElement => {
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di
           Kampus Gratis. Berbagai macam jenis materi tersedia.
         </p>
-        <div className="flex bg-white mt-[36px] rounded-lg py-[16px] px-[26px] w-2/3 items-center">
+        <div className="flex bg-white my-[36px] z-10 rounded-lg py-[16px] px-[26px] w-2/3 items-center">
           <Image src={search} alt={'tes'} />
           <input
             type="text"
@@ -30,12 +38,12 @@ const Features: FC = (): ReactElement => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-12 lg:gap-x-[40px] md:gap-x-[40px] gap-x-[20px] gap-y-[34px]">
+      <div className="grid grid-cols-12  lg:gap-x-[40px] md:gap-x-[40px] gap-x-[20px] gap-y-[34px]">
         {getSemuafitur.map((fitur) => {
           return (
             <div
               key={fitur.id}
-              className="lg:col-span-3 md:col-span-4 col-span-6 lg:py-[25px] md:py-[25px] py-[15px] rounded-lg bg-white"
+              className="lg:col-span-3 md:col-span-4 col-span-6 lg:py-[8px] md:py-[25px] py-[15px] rounded-lg bg-white z-10"
             >
               <Card
                 className="items-start justify-start flex"
@@ -49,7 +57,7 @@ const Features: FC = (): ReactElement => {
                   <h1 className="font-bold text-left dark:text-black lg:text-[16px] md:text-[16px] text-[10px]">
                     {fitur.namaFitur}
                   </h1>
-                  <p className="text-neutral-base">
+                  <p className="text-neutral-base w-full">
                     Isi administrasi kamu sekarang untuk dapat mengikuti program
                     Kampus Gratis
                   </p>
