@@ -109,7 +109,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
         const newQuizSubmit: Array<TQuizRequestSubmit> = [
           ...getQuizRequestSubmit,
         ];
-        let temp: Array<TQuizRequestSubmit> = [];
+        const temp: Array<TQuizRequestSubmit> = [];
         for (const obj of newQuizSubmit) {
           temp.push(Object.assign({}, obj));
         }
