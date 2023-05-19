@@ -118,8 +118,8 @@ export const DiscussionContent: FC = (): ReactElement => {
         lookup={isOptionOpen}
         onClose={() => setOptionOpen(false)}
       >
-        {getSelectedOption === 'create' && <PostCreateModal type={'create'} />}
-        {getSelectedOption === 'edit' && <PostCreateModal type={'edit'} />}
+        {getSelectedOption === 'create' && <PostCreateModal />}
+        {getSelectedOption === 'edit' && <PostCreateModal />}
         {getSelectedOption === 'report' && <PostReportModal />}
         {getSelectedOption === 'reportDetail' && <PostSpamModal />}
         {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}

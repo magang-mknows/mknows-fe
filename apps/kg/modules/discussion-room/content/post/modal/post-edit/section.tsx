@@ -15,7 +15,7 @@ import { isModalOpen } from '../../../store';
 import { useCreateDiscussion } from './hooks';
 import { TDiscussionPayload } from './types';
 
-export const PostCreateModal: FC = (): ReactElement => {
+export const PostEditModal: FC = (): ReactElement => {
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
   const { mutate, isLoading } = useCreateDiscussion();
@@ -77,9 +77,7 @@ export const PostCreateModal: FC = (): ReactElement => {
   return (
     <section className="bg-neutral-50 min-w-[500px]">
       <header className=" flex justify-center border-b-[0.5px] pt-2 pb-4 border-neutral-300  relative">
-        <h1 className="text-lg font-bold text-neutral-900">
-          Buat Diskusi Baru
-        </h1>
+        <h1 className="text-lg font-bold text-neutral-900">Edit Diskusi</h1>
         <RxCross1
           className="absolute right-0 text-xl cursor-pointer text-neutral-400"
           onClick={() => {
