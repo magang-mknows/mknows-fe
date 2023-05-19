@@ -1,11 +1,17 @@
 import { useRecoilState } from 'recoil';
-import { quizQuestionState, currentQuizNumberState } from './store';
+import {
+  quizQuestionState,
+  currentQuizNumberState,
+  quizRequestSubmitState,
+} from './store';
 import {
   TuseCurrentQuizNumber,
   TuseQuizQuestion,
   TQuestion,
   TQuizTakeResponse,
   TQuizQuestionsAnswers,
+  TQuizRequestSubmit,
+  TuseQuizRequestSubmit,
 } from './type';
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
@@ -16,6 +22,14 @@ export const useQuizQuestion = (): TuseQuizQuestion => {
   return {
     setQuestionsData: (val: Array<TQuizQuestionsAnswers>) => setQuestion(val),
     getQuestionsData: getQuestion,
+  };
+};
+
+export const useQuizRequestSubmit = (): TuseQuizRequestSubmit => {
+  const [getQuestion, setQuestion] = useRecoilState(quizRequestSubmitState);
+  return {
+    setQuizRequestSubmit: (val: Array<TQuizRequestSubmit>) => setQuestion(val),
+    getQuizRequestSubmit: getQuestion,
   };
 };
 
