@@ -41,7 +41,7 @@ const AlokasiKuota: FC = (): ReactElement => {
   }
 
   return (
-    <section className="my-14 mx-14 w-full">
+    <section className="my-14 lg:mx-0 mx-0 w-full">
       <div className="font-bold text-2xl text-[#444444]">Alokasi Kuota</div>
       {/* content */}
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">
@@ -124,7 +124,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         {/* content 2 */}
         {ProductName === 'default' ? (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
-            <div className="flex flex-col gap-y-5 h-full justify-center px-10 items-center">
+            <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
               <img src={cursorLoading} alt="loading..." />
               <span className="font-semibold text-base text-[#000000]">
                 Silahkan pilih jenis produk terlebih dahulu
