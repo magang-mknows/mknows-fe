@@ -1,13 +1,15 @@
-type TQuizTakeItem = {
+export type TQuizTakeItem = {
   type: string;
   duration: number;
-  questions_answers: Array<{
+  questions_answers: Array<TQuizQuestionsAnswers>;
+};
+
+export type TQuizQuestionsAnswers = {
+  id: string;
+  question: string;
+  answers: Array<{
     id: string;
-    question: string;
-    answers: Array<{
-      id: string;
-      answer: string;
-    }>;
+    answer: string;
   }>;
 };
 
@@ -21,8 +23,8 @@ export type TQuestion = {
 };
 
 export type TuseQuizQuestion = {
-  setQuestionsData: (val: Array<Question>) => void;
-  getQuestionsData: Array<Question>;
+  setQuestionsData: (val: Array<TQuizQuestionsAnswers>) => void;
+  getQuestionsData: Array<TQuizQuestionsAnswers>;
 };
 
 export type TuseCurrentQuizNumber = {

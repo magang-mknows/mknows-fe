@@ -10,8 +10,8 @@ const Features: FC = (): ReactElement => {
   const getSemuafitur = useRecoilValue(filterSemuaFitur);
 
   return (
-    <section className="py-[123px] lg:px-[72px] md:px-[72px] px-[20px] bg-neutral-100 dark:bg-[#222529] w-full">
-      <div className="flex flex-col pb-[123px] items-center">
+    <section className="py-[56px] lg:px-[72px] md:px-[72px] px-[20px] bg-neutral-100 dark:bg-[#222529] w-full">
+      <div className="flex flex-col pb-[56px] items-center">
         <h1 className="font-bold text-[28px] text-center">
           Fitur Kampus Gratis
         </h1>
@@ -19,7 +19,7 @@ const Features: FC = (): ReactElement => {
           Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di
           Kampus Gratis. Berbagai macam jenis materi tersedia.
         </p>
-        <div className="flex bg-white my-[36px] rounded-lg py-[16px] px-[26px] w-2/3 items-center">
+        <div className="flex bg-white mt-[36px] rounded-lg py-[16px] px-[26px] w-2/3 items-center">
           <Image src={search} alt={'tes'} />
           <input
             type="text"

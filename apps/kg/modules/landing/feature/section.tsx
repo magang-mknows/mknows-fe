@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import {
   FeatureIcon1,
   FeatureIcon2,
@@ -31,17 +31,18 @@ export const FeatureSection: FC = (): ReactElement => {
     },
   ];
   return (
-    <section className="flex z-10 w-full items-center h-[140px] px-[112px] justify-between bg-primary-500">
-      <div className="flex gap-x-4 items-center justify-center gap-x-4 w-full">
+    <section className="flex z-10 p-6 w-full items-center md:h-[140px] md:px-[90px] justify-between bg-primary-500">
+      <div className="md:flex grid grid-cols-3 gap-6 md:gap-x-4 items-center justify-center w-full">
         {_feature.map((feat, key) => (
-          <Fragment key={key}>
-            <div className="flex items-center justify-center w-[70px] h-[58px] rounded-full bg-primary-base bg-opacity-70">
-              {feat.icon}
-            </div>
-            <span className="text-[20px] text-white max-w-1/2">
+          <div
+            className="flex-col flex md:flex-row gap-y-2 items-center justify-center gap-x-2 w-full"
+            key={key}
+          >
+            {feat.icon}
+            <span className="md:text-[18px] text-center md:text-left text-base text-white max-w-1/2">
               {feat.title}
             </span>
-          </Fragment>
+          </div>
         ))}
       </div>
     </section>

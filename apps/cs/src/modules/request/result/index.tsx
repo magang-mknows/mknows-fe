@@ -45,7 +45,7 @@ const ResultModule: FC = (): ReactElement => {
         Untuk melihat riwayat permintaan sebelumnya{' '}
         <span className="text-[#4FA0CF]">
           {' '}
-          <a href="/">Klik Disini</a>
+          <a href="/dashboard/report">Klik Disini</a>
         </span>
       </div>
 

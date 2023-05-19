@@ -14,6 +14,7 @@ import { CareerPlanIcon } from '../../assets/icons/ic-career-plan';
 import { ConsultationIcon } from '../../assets/icons/ic-consultation';
 import { WorkOpportunityIcon } from '../../assets/icons/ic-work';
 import { useProfile } from '../../../../modules/profile/section/edit-profile';
+import Logo from './logo.svg';
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -126,7 +127,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
   const _profile_user = {
     email: profileData?.data?.user?.email as string,
     full_name: profileData?.data?.user?.full_name as string,
-    avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+    avatar: profileData?.data.user.avatar as string,
   };
   return (
     <Fragment>
@@ -136,10 +137,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
       <Navbar
         items={_pop_up_menu}
         features={_features}
-        avatar={
-          profileData?.data.user.avatar || '/assets/images/avatar-dummy.png'
-        }
-        logo={'/assets/icons/ic-logo-blue.svg'}
+        logo={Logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}

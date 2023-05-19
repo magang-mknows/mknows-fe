@@ -29,7 +29,7 @@ export const Banner1Module: FC = (): ReactElement => {
             alt={'Banner 1'}
             priority={false}
             loading="lazy"
-            className="rounded-tr-lg rounded-br-lg"
+            className="rounded-tr-lg md:block hidden rounded-br-lg"
           />
         </div>
       </section>

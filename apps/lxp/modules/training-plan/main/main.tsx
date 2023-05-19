@@ -1,19 +1,32 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useRecoilState } from 'recoil';
-import { searchKeyword } from './store';
 import { Card } from '@mknows-frontend-services/components/molecules';
 import { useGetAllDepartments } from './hook';
 import { CardLoading } from './loading';
 import { NotFound } from '../../common/not-found';
+import { debounceKeyword, searchKeyword } from './store';
 
 export const TrainingPlanMain: FC = (): ReactElement => {
   const [getKeyword, setKeyword] = useRecoilState(searchKeyword);
+  const [getDebounceKeyword, setDebounceKeyword] =
+    useRecoilState(debounceKeyword);
 
-  const { data: departmentsList, isLoading } = useGetAllDepartments(getKeyword);
+  const { data: departmentsList, isLoading } =
+    useGetAllDepartments(getDebounceKeyword);
+
+  useEffect(() => {
+    const changeDebounce = setTimeout(() => {
+      setDebounceKeyword(getKeyword);
+    }, 500);
+
+    return () => {
+      clearInterval(changeDebounce);
+    };
+  }, [getKeyword, setDebounceKeyword]);
 
   return (
-    <main className="px-8 md:px-14 lg:px-16 ">
+    <main className="px-8 md:px-14 lg:px-16 pb-20">
       <div className="w-full grid place-items-center mb-10">
         <div className="bg-neutral-100 h-[50px] mt-6 xl:w-[60%] lg:w-[70%] w-full md:w-[90%] rounded-md shadow-sm">
           <div className="flex bg-neutral-200/50 rounded-md items-center px-4 md:px-6 gap-4 h-full">
@@ -33,6 +46,16 @@ export const TrainingPlanMain: FC = (): ReactElement => {
       <h1 className="text-xl font-bold text-neutral-900 mb-8">
         Pilihan Pelatihan
       </h1>
+      {/* {!loadingCheckStatus && administrationStatus === 'ACCEPTED' && (
+        <section className=" w-full text-sm font-bold flex gap-2 items-center  py-2 px-4 rounded-md shadow-sm">
+          <AiFillInfoCircle className="text-lg" />
+          <h1>
+            Maaf Proses Registrasi-mu{' '}
+            <span className="font-bold">belum selesai</span> / {''}
+            <span className="font-bold">belum diterim</span>
+          </h1>
+        </section>
+      )} */}
       <section className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {isLoading ? (
           <CardLoading />
