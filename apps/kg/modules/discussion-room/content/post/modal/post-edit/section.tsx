@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,12 +12,16 @@ import { RxCross1 } from 'react-icons/rx';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { useSetRecoilState } from 'recoil';
 import { isModalOpen } from '../../../store';
-import { useCreateDiscussion } from './hooks';
+import { useCreateDiscussion, useDiscussionById } from './hooks';
 import { TDiscussionPayload } from './types';
 
-export const PostCreateModal: FC = (): ReactElement => {
+export const PostEditModal: FC = (): ReactElement => {
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
+  const { data, refetch } = useDiscussionById(
+    '941166a2-583e-4764-9f94-628b16ab5cd1'
+  );
+  const discussionData = data?.data;
   const { mutate, isLoading } = useCreateDiscussion();
 
   const MAX_FILE_SIZE = 3 * 1024 * 1024;
@@ -58,28 +62,35 @@ export const PostCreateModal: FC = (): ReactElement => {
     resolver: zodResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      title: '',
-      content: '',
-      images: undefined,
+      title: discussionData?.title,
+      content: discussionData?.content,
+      images: discussionData?.images[0],
     },
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    try {
-      mutate(data as TDiscussionPayload);
-      setOptionOpen(false);
-      reset(data);
-    } catch (err) {
-      console.log('Gagal Mengunggah');
-    }
+    await mutate(data);
+    await refetch();
   });
+
+  useEffect(() => {
+    reset(discussionData);
+  }, [discussionData]);
+
+  // const onSubmit = handleSubmit(async (data) => {
+  //   try {
+  //     mutate(data as TDiscussionPayload);
+  //     setOptionOpen(false);
+  //     reset(data);
+  //   } catch (err) {
+  //     console.log('Gagal Mengunggah');
+  //   }
+  // });
 
   return (
     <section className="bg-neutral-50 min-w-[500px]">
       <header className=" flex justify-center border-b-[0.5px] pt-2 pb-4 border-neutral-300  relative">
-        <h1 className="text-lg font-bold text-neutral-900">
-          Buat Diskusi Baru
-        </h1>
+        <h1 className="text-lg font-bold text-neutral-900">Edit Diskusi</h1>
         <RxCross1
           className="absolute right-0 text-xl cursor-pointer text-neutral-400"
           onClick={() => {
