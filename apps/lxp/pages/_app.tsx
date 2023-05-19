@@ -12,7 +12,7 @@ import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
 const queryClient = new QueryClient();
 
 const montserrat = Montserrat({
-  weight: '400',
+  weight: '500',
   subsets: ['latin'],
 });
 

@@ -95,7 +95,6 @@ export const TopNav: FC<TNavbarProps> = ({
   logo,
   logoStyle,
   button,
-  avatar,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
@@ -104,7 +103,7 @@ export const TopNav: FC<TNavbarProps> = ({
 
   return (
     <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
-      <figure className="flex items-center">
+      <Link href={'/'} className="flex items-center">
         <NextImage
           src={logo}
           alt="logo navbar"
@@ -114,7 +113,7 @@ export const TopNav: FC<TNavbarProps> = ({
           className={logoStyle}
           quality={75}
         />
-      </figure>
+      </Link>
       <nav className="flex items-center gap-x-6">
         <div
           onClick={() => {
@@ -133,7 +132,7 @@ export const TopNav: FC<TNavbarProps> = ({
               <IconRing />
             </div>
             <Image
-              src={avatar as string}
+              src={props.userData.avatar}
               alt={'user avatar'}
               width={36}
               height={36}

@@ -11,3 +11,7 @@ export type TAuthLayoutProps = {
   h?: string;
   error?: string;
 };
+
+export type TAuthCarouselProps = {
+  carouselDotColor?: string;
+};
