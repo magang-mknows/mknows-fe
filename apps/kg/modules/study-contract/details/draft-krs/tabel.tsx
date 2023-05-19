@@ -14,23 +14,23 @@ const TabelDraft: FC = (): ReactElement => {
       <div className="p-8 overflow-auto whitespace-nowrap">
         <div className="grid grid-flow-row auto-rows-auto">
           {/* thead⬇️⬇️⬇️⬇️  */}
-          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
-            <div className="w-[88px] bg-gray-100 text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-[#f3f4f6] border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div className="w-[88px] bg-[#f3f4f6] text-center md:text-[16px] rounded-md p-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               No.
             </div>
-            <div className="lg:w-[353px] md:w-[225px] w-[180px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="lg:w-[353px] md:w-[225px] w-[180px] md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               Mata Kuliah
             </div>
-            <div className="w-[176px] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[176px] md:text-[16px] lg:gap-[4px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               Kode Matkul
             </div>
-            <div className="w-[88px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[88px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] text-[10px] dark:bg-transparent">
               SKS
             </div>
-            <div className="w-[176px] bg-gray-100 lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[176px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
               Semester
             </div>
-            <div className="w-[177px] bg-gray-100 lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="w-[177px] bg-[#f3f4f6] lg:text-start text-center py-3 font-semibold md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               Tindakan
             </div>
           </div>
@@ -39,12 +39,12 @@ const TabelDraft: FC = (): ReactElement => {
           {getDataTable.map((x, i) => (
             <div
               key={i}
-              className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]"
+              className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]"
             >
-              <div className="w-[88px] border-t border-[#E5E5E5] bg-gray-100 text-center md:text-[16px] p-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[88px] text-center md:text-[16px] p-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.no}
               </div>
-              <div className="lg:w-[353px] md:w-[225px] w-[180px] border-t border-[#E5E5E5] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="lg:w-[353px] md:w-[225px] w-[180px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
                   <div>
                     <Image src={x.img} alt="User" />
@@ -57,17 +57,17 @@ const TabelDraft: FC = (): ReactElement => {
                   </div>
                 </div>
               </div>
-              <div className="w-[176px] border-t border-[#E5E5E5] md:text-[16px] lg:gap-[4px] bg-gray-100 lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[176px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.kode_matkul}
               </div>
-              <div className="w-[88px] bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[88px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 {x.jmlh_sks}
               </div>
-              <div className="w-[176px] bg-gray-100 border-t border-[#E5E5E5] lg:text-start text-center py-3 font-medium lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[176px] lg:text-start text-center py-3 font-medium lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent">
                 {x.semester}
               </div>
 
-              <div className="w-[177px] bg-gray-100 border-t border-[#E5E5E5] dark:divide-gray-700 lg:text-start text-center py-3 font-medium md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+              <div className="w-[177px] dark:divide-gray-700 lg:text-start text-center py-3 font-medium md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
                 <button
                   onClick={() => setPopupDelete(true)}
                   className={`flex gap-2 items-center p-4 font-semibold ${
@@ -116,11 +116,11 @@ const TabelDraft: FC = (): ReactElement => {
               </div>
             </div>
           ))}
-          <div className="grid grid-flow-col auto-cols-min mx-auto border bg-gray-100 border-gray-200 rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
-            <div className="border-t border-[#E5E5E5] bg-gray-100 lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+          <div className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
+            <div className="lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               Total SKS
             </div>
-            <div className="border-t border-[#E5E5E5] bg-gray-100 lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
+            <div className="lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               24 SKS
             </div>
           </div>
