@@ -40,9 +40,7 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
       .string()
       .min(5, { message: 'Min. 5 Karakter' })
       .max(250, { message: 'Maks. 250 Karakter' }),
-    content: z.optional(
-      z.string().max(1000, { message: 'Isi diskusi melebihi batas' })
-    ),
+    content: z.string().max(1000, { message: 'Isi diskusi melebihi batas' }),
     images: z.optional(
       z
         .any()
@@ -60,7 +58,8 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    reset,
+    formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     mode: 'all',
@@ -71,19 +70,16 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     try {
-      console.log(data);
       mutate(data as TDiscussionPayload);
       setOptionOpen(false);
-      // mutate({
-      //   ...data,
-      //   images: data.images[0] as File,
-      // });
+      reset(data);
     } catch (err) {
       console.log('Gagal Mengunggah');
     }
   });
+
   return (
     <section className="bg-neutral-50 min-w-[500px]">
       <header className=" flex justify-center border-b-[0.5px] pt-2 pb-4 border-neutral-300  relative">
@@ -109,6 +105,8 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
             placeholder="Ketik judul diskusi kamu"
             label="Judul Diskusi"
             className="!h-[46px] text-sm !rounded-[8px] !border-[1px] !border-[#D4D4D4]"
+            status={errors.title ? 'error' : undefined}
+            message={errors.title?.message}
           />
           <p className="mb-5 -mt-2 text-xs text-neutral-400">
             Maks. 250 karakter
@@ -125,6 +123,8 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
               placeholder="Mau diskusi apa hari ini?"
               className="h-[46px] !border-[0px] text-sm px-4 py-2"
               isTextArea={true}
+              status={errors.content ? 'error' : undefined}
+              message={errors.content?.message}
             />
             <section className="border-[1px] p-2 -mt-2 border-[#D4D4D4] rounded-md flex flex-col justify-center items-center  m-4 gap-2">
               <UploadDragbleField
@@ -132,6 +132,8 @@ export const PostCreateModal: FC<TEditCreateProps> = ({
                 name={'images'}
                 variant={'lg'}
                 control={control}
+                status={errors.images ? 'error' : undefined}
+                // message={errors.images?.message}
               />
             </section>
           </section>
