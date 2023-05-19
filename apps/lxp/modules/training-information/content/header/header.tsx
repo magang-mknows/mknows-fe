@@ -6,15 +6,21 @@ import { IoAlertCircle } from 'react-icons/io5';
 import { useRecoilState } from 'recoil';
 import { TrainingConfirmPopup } from './store';
 import { Modal } from '@mknows-frontend-services/components/molecules';
+import { TSubjectHeaderProps } from './types';
 
-export const TrainingInformationHeader: FC = (): ReactElement => {
+export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
+  name,
+  batch,
+  category,
+  point,
+}): ReactElement => {
   const [getConfirmPopup, setConfirmPopup] =
     useRecoilState(TrainingConfirmPopup);
 
   return (
     <header className="px-8 pb-6 pt-6 md:px-14 lg:px-16 mb-8">
       <h1 className="text-xl text-neutral-800 font-bold mb-6">
-        Pengajuan Pelatihan
+        Pengajuan Pelatihan {name}
       </h1>
       <section className="flex flex-wrap gap-y-2 justify-between items-end">
         <main>
@@ -23,7 +29,7 @@ export const TrainingInformationHeader: FC = (): ReactElement => {
               Tema Pelatihan
             </span>
             <span>:</span>
-            <span> Pelatihan Keterampilan Interpersonal</span>
+            <span> {category}</span>
           </h1>
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
             <span className="min-w-[140px] lg:min-w-[200px]">Batch</span>
@@ -33,7 +39,7 @@ export const TrainingInformationHeader: FC = (): ReactElement => {
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
             <span className="min-w-[140px] lg:min-w-[200px]">Total Poin</span>
             <span>:</span>
-            <span> 144 Poin</span>
+            <span> {point} Poin</span>
           </h1>
         </main>
         <aside>
@@ -71,11 +77,9 @@ export const TrainingInformationHeader: FC = (): ReactElement => {
                 </h1>
               </section>
             </div>
-            <h1 className="text-sm text-neutral-800 mb-6">
-              Kamu akan mengajukan{' '}
-              <span className="font-bold">
-                Pelatihan Keterampilan Interpersonal
-              </span>
+            <h1 className="text-sm text-neutral-800 mb-6 text-center">
+              Kamu akan mengajukan Pelatihan{' '}
+              <span className="font-bold">{name}</span>
             </h1>
             <section className="flex gap-4 flex-wrap md:flex-nowrap">
               <Button
