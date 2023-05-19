@@ -12,18 +12,21 @@ import { RxCross1 } from 'react-icons/rx';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { useSetRecoilState } from 'recoil';
 import { isModalOpen } from '../../../store';
+import { useCreateDiscussion } from './hooks';
+import { TDiscussionPayload } from './types';
 
 export type TEditCreateProps = {
   type: 'edit' | 'create';
 };
 
-export const PostCreateDiscussion: FC<TEditCreateProps> = ({
+export const PostCreateModal: FC<TEditCreateProps> = ({
   type,
 }): ReactElement => {
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
+  const { mutate, isLoading } = useCreateDiscussion();
 
-  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const MAX_FILE_SIZE = 3 * 1024 * 1024;
   const ACCEPTED_MEDIA_TYPES = [
     'image/jpeg',
     'image/jpg',
@@ -37,21 +40,21 @@ export const PostCreateDiscussion: FC<TEditCreateProps> = ({
       .string()
       .min(5, { message: 'Min. 5 Karakter' })
       .max(250, { message: 'Maks. 250 Karakter' }),
-    images: z
-      .any()
-      .refine(
-        (files: File) => files !== undefined,
-        'Harus ada file yang di upload.'
-      )
-      .refine(
-        (files: File) => files !== undefined && files?.size <= MAX_FILE_SIZE,
-        'Ukuran maksimun adalah 3mb.'
-      )
-      .refine(
-        (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
-        'hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.'
-      ),
-    content: z.string(),
+    content: z.optional(
+      z.string().max(1000, { message: 'Isi diskusi melebihi batas' })
+    ),
+    images: z.optional(
+      z
+        .any()
+        .refine(
+          (files: File) => files !== undefined && files?.size <= MAX_FILE_SIZE,
+          'Ukuran maksimum adalah 3mb.'
+        )
+        .refine(
+          (files: File) => ACCEPTED_MEDIA_TYPES.includes(files?.type),
+          'hanya menerima .jpg, .jpeg, .png, .webp, dan .mp4.'
+        )
+    ),
   });
 
   const {
@@ -70,9 +73,15 @@ export const PostCreateDiscussion: FC<TEditCreateProps> = ({
 
   const onSubmit = handleSubmit((data) => {
     try {
-      // mutate(data as TDiscussionPayload);
+      console.log(data);
+      mutate(data as TDiscussionPayload);
+      setOptionOpen(false);
+      // mutate({
+      //   ...data,
+      //   images: data.images[0] as File,
+      // });
     } catch (err) {
-      // throw handleError(err);
+      console.log('Gagal Mengunggah');
     }
   });
   return (
@@ -129,15 +138,14 @@ export const PostCreateDiscussion: FC<TEditCreateProps> = ({
           <p className="mt-2 mb-4 text-xs text-neutral-400">
             Maks. 250 karakter
           </p>
-
           <section className="grid mt-2 place-items-end">
             <Button
               disabled={!isValid}
               type="submit"
-              className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out border-2 rounded-md border-version2-500 disabled:bg-version2-200/70 disabled:border-version2-200/70 bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-28"
+              className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out border-2 rounded-md border-version2-500 disabled:bg-neutral-300 bg-[#3EB449] text-neutral-100 hover:opacity-75 w-28"
             >
               <RiSendPlaneFill />
-              <h1>Kirim </h1>
+              <h1>{isLoading ? 'Sedang Mengirim' : 'Kirim'} </h1>
             </Button>
           </section>
         </form>

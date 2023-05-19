@@ -19,7 +19,7 @@ import DiscussionCard from './post/section';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { TiCamera } from 'react-icons/ti';
 import { CommentSection } from './CommentSection';
-import { PostCreateDiscussion } from './post/modal/post-create';
+import { PostCreateModal } from './post/modal/post-create';
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
@@ -118,10 +118,8 @@ export const DiscussionContent: FC = (): ReactElement => {
         lookup={isOptionOpen}
         onClose={() => setOptionOpen(false)}
       >
-        {getSelectedOption === 'create' && (
-          <PostCreateDiscussion type={'create'} />
-        )}
-        {getSelectedOption === 'edit' && <PostCreateDiscussion type={'edit'} />}
+        {getSelectedOption === 'create' && <PostCreateModal type={'create'} />}
+        {getSelectedOption === 'edit' && <PostCreateModal type={'edit'} />}
         {getSelectedOption === 'report' && <PostReportModal />}
         {getSelectedOption === 'reportDetail' && <PostSpamModal />}
         {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}
