@@ -9,7 +9,7 @@ export const AssignmentModule: FC = (): ReactElement => {
     <BaseLayout>
       <BreadCrumb items={assignmentBreadCumbs} />
       <BannerSection />
-      <ContentSection session_id={''} />
+      <ContentSection />
     </BaseLayout>
   );
 };
