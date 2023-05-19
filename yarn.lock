@@ -1825,12 +1825,12 @@
   dependencies:
     "@nx/linter" "16.2.1"
 
-"@nrwl/next@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/next/-/next-16.1.4.tgz#cb2b8c41358602bf84cc864c230328c7f1300bcf"
-  integrity sha512-3vJqsH5RpvXHua0R5Dp+7EUx4PBIqjjETu4yrc4JPx9CqK+2NsZmPRCsROqJnu89fOZWGFWNyACeQpQjiJZ0tQ==
+"@nrwl/next@16.2.1":
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/next/-/next-16.2.1.tgz#cace4adb5f30f1c747aa0b249c25c2e8bd9388df"
+  integrity sha512-blOfcsttVL763FEifWpNML7OGk3BO/ISGO2WSB2XXHv/yvlFxXACRx/nHMZl4sd/yY7R+F8ri9XKvPbrCvVmnw==
   dependencies:
-    "@nx/next" "16.1.4"
+    "@nx/next" "16.2.1"
 
 "@nrwl/nx-cloud@16.0.5":
   version "16.0.5"
@@ -1838,13 +1838,6 @@
   integrity sha512-1p82ym8WE9ziejwgPslstn19iV/VkHfHfKr/5YOnfCHQS+NxUf92ogcYhHXtqWLblVZ9Zs4W4pkSXK4e04wCmQ==
   dependencies:
     nx-cloud "16.0.5"
-
-"@nrwl/react@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/react/-/react-16.1.4.tgz#897606999d0a822182e4c50785bc213c12631fa0"
-  integrity sha512-oIklnal/jWd2v/XulAQfhs3Czg72Z58Si9hk0qWi2XDWrVVjRaX/swqDVaq8cJaRnnPJ04icj0DYquLlfvoyow==
-  dependencies:
-    "@nx/react" "16.1.4"
 
 "@nrwl/react@16.2.1":
   version "16.2.1"
@@ -1873,13 +1866,6 @@
   integrity sha512-NJxMNN4lY36YVqQoxxrERXhstB0l60eNdRRahNVcXtMjdYN1kzRi9avA1evvl9lnk+Q0W21TRetuCnEA9yViJA==
   dependencies:
     "@nx/vite" "16.1.4"
-
-"@nrwl/web@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/web/-/web-16.1.4.tgz#594fbdee32c30282ab428b396332210d774f2ae0"
-  integrity sha512-9x/4GL5fXmpQo3PTmJ4PFiUlRnECh4KKM0PijBx1MfWbrA5jLagUsMbCMs/v1ryjvXvhG2xeaNcOtFGBioIS4Q==
-  dependencies:
-    "@nx/web" "16.1.4"
 
 "@nrwl/web@16.2.1":
   version "16.2.1"
@@ -2055,18 +2041,18 @@
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nx/next@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nx/next/-/next-16.1.4.tgz#0e9fe372e258aa3eda6aa9d77aa295347e162a8b"
-  integrity sha512-MoLaz6GJySmhchSNIcUpTYXhgMc52AgsWKohkxnsbkJNcj9/dYyewrpGFsmlnWv1VKwOX9GD5na4obI+j3C6Gg==
+"@nx/next@16.2.1":
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/@nx/next/-/next-16.2.1.tgz#f437be93bf27bdf87c004e1de1c5849fdb47a7e2"
+  integrity sha512-TIdQ/W8ABMLsykGJMja1eeOyHTjmSXecO3/6pq4q4jO9VMX4yO+Z56eU3H2rinx2JVJxEQiYU0glrADfh2K9uQ==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.14.5"
-    "@nrwl/next" "16.1.4"
-    "@nx/devkit" "16.1.4"
-    "@nx/js" "16.1.4"
-    "@nx/linter" "16.1.4"
-    "@nx/react" "16.1.4"
-    "@nx/workspace" "16.1.4"
+    "@nrwl/next" "16.2.1"
+    "@nx/devkit" "16.2.1"
+    "@nx/js" "16.2.1"
+    "@nx/linter" "16.2.1"
+    "@nx/react" "16.2.1"
+    "@nx/workspace" "16.2.1"
     "@svgr/webpack" "^6.1.2"
     chalk "^4.1.0"
     copy-webpack-plugin "^10.2.4"
@@ -2172,22 +2158,6 @@
   resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-16.2.1.tgz#848b4c5b118f6a6f92f59c1643297e938c439242"
   integrity sha512-m5oHCaSKdyydM1n1W9V0m2oxBL8PiF54dZB0+PlKB2fhf1zxiyq8i1hL2hXbKA90IOYcUt5/b7761/BzN5njAw==
 
-"@nx/react@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nx/react/-/react-16.1.4.tgz#cf6734626b019afa18a9b7c4551bafd9a8963c73"
-  integrity sha512-juQ6xCiChZQMMmSz2iu58zxlj9r8RiJyhCEgKySgaYpeNdO2kxRva2HcpdhngC6/Hvy24tctFTyGA4IBkvIZ0A==
-  dependencies:
-    "@nrwl/react" "16.1.4"
-    "@nx/devkit" "16.1.4"
-    "@nx/js" "16.1.4"
-    "@nx/linter" "16.1.4"
-    "@nx/web" "16.1.4"
-    "@phenomnomnominal/tsquery" "~5.0.1"
-    "@svgr/webpack" "^6.1.2"
-    chalk "^4.1.0"
-    file-loader "^6.2.0"
-    minimatch "3.0.5"
-
 "@nx/react@16.2.1":
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/@nx/react/-/react-16.2.1.tgz#b1b7dbc73f8bcf52065e2853e79509e1f88e6923"
@@ -2216,20 +2186,6 @@
     "@swc/helpers" "~0.5.0"
     dotenv "~10.0.0"
     enquirer "~2.3.6"
-
-"@nx/web@16.1.4":
-  version "16.1.4"
-  resolved "https://registry.yarnpkg.com/@nx/web/-/web-16.1.4.tgz#719620dde24f5b841fabe16e9c37063b4a85c22d"
-  integrity sha512-xqAgT06GVUS3ZAXsmECQ8PW/s48nabnk9ggtyQgp/7ng6Y41XPJDzaujq2BMlEeoEuK3IltCuX5ULUv5urp/5Q==
-  dependencies:
-    "@nrwl/web" "16.1.4"
-    "@nx/devkit" "16.1.4"
-    "@nx/js" "16.1.4"
-    chalk "^4.1.0"
-    chokidar "^3.5.1"
-    http-server "^14.1.0"
-    ignore "^5.0.4"
-    tslib "^2.3.0"
 
 "@nx/web@16.2.1":
   version "16.2.1"
