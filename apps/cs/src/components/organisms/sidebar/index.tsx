@@ -1,5 +1,6 @@
 import { FC, ReactElement, Fragment, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Avatar from 'react-avatar';
 import {
   IconDashboard,
   IconUser,
@@ -79,7 +80,11 @@ const Sidebar: FC = (): ReactElement => {
           <div className="pt-4 font-medium w-full border-[#F5F5F5] ">
             <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
               <div className=" rounded-full border-[#4AC1A2] border-2 items-center flex">
-                <img src={'/assets/navbar/user.png'} alt="user" />
+                <Avatar
+                  name="admin"
+                  className="rounded-full w-[36px] h-[36px]"
+                  size="36"
+                />
               </div>
               <div className="font-semibold text-sm text-neutral-500">
                 {data?.data.fullname}
