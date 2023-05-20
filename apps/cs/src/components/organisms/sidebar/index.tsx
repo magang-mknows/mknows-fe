@@ -1,5 +1,5 @@
 import { FC, ReactElement, Fragment, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   IconDashboard,
   IconUser,
@@ -10,9 +10,11 @@ import {
   IconLogout,
 } from '../../atoms';
 import { useProfile } from './profile/hooks';
+import { useLogout } from './profile/hooks';
 
 const Sidebar: FC = (): ReactElement => {
   const { data } = useProfile();
+  const { mutate } = useLogout();
   const DataSidebar = [
     {
       title: 'Dashboard',
@@ -98,14 +100,16 @@ const Sidebar: FC = (): ReactElement => {
                 </div>
               );
             })}
-            <Link to={'/'}>
-              <div className="flex h-full gap-2 p-5 rounded-md text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end">
-                <span>
-                  <IconLogout />
-                </span>
-                <span className="flex justify-center ">Keluar</span>
-              </div>
-            </Link>
+
+            <div
+              onClick={mutate}
+              className="flex h-full gap-2 p-5 rounded-md text-neutral-400 hover:bg-neutral-300 hover:text-[#ffffff] cursor-pointer items-end"
+            >
+              <span>
+                <IconLogout />
+              </span>
+              <span className="flex justify-center ">Keluar</span>
+            </div>
           </div>
         </div>
       </aside>

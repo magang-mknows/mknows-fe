@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import {
   Button,
   TextField,
@@ -34,6 +34,12 @@ const LoginModules: FC = (): ReactElement => {
 
   const { mutate, isLoading } = useLogin();
   const [getError, setError] = useState<string | undefined>('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError('');
+    }, 3000);
+  }, [getError]);
 
   const onSubmit = handleSubmit((data) => {
     // navigate('/dashboard/home');
