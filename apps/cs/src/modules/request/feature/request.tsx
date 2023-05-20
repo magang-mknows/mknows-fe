@@ -5,9 +5,11 @@ import { Button } from '@mknows-frontend-services/components/atoms';
 import { Dialog } from '@headlessui/react';
 import { useRequestData } from '../hooks';
 import { IconWarning } from '../../../components/atoms';
+import { useRequest } from '../hooks';
 
 const RequestModule: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
+  const { data } = useRequest();
   const [isOpen, setisOpen] = useState(false);
 
   return (
@@ -19,7 +21,7 @@ const RequestModule: FC = (): ReactElement => {
         </p>
       </div>
       <div className="grid lg:gap-5 md:gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-1 my-3 w-full">
-        {getRequestData.map((item, index) => {
+        {data?.data.map((item, index) => {
           return (
             <Card
               className="hover:cursor-pointer w-full xl:h-[107px] lg:h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
@@ -28,7 +30,7 @@ const RequestModule: FC = (): ReactElement => {
               <div className="flex flex-row w-full h-full space-x-[10px]">
                 <div>
                   <img
-                    src={item.icon}
+                    src={getRequestData[index]}
                     alt="icon"
                     className="w-16 hidden md:flex"
                   />
@@ -37,11 +39,11 @@ const RequestModule: FC = (): ReactElement => {
                 <div className="flex-col w-full space-y-1">
                   <p className="text-sm font-semibold">{item.name}</p>
                   <p className="text-neutral-400 font-normal text-xs">
-                    Data Masuk {item.totalData}
+                    Data Masuk 500
                   </p>
                 </div>
                 <div className="text-center text-sm right-2 top-2 absolute rounded-[40px] w-[22px] h-[22px] bg-neutral-200">
-                  {item.totalNotifikasi}
+                  {item.number}
                 </div>
               </div>
             </Card>

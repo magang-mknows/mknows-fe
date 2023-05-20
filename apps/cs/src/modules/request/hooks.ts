@@ -1,13 +1,17 @@
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { requestDummyData, resultFilter, resultSearch } from './store';
+import { icon, resultFilter, resultSearch } from './store';
 import {
   TRequestDataResponse,
+  TRequestResponse,
   TResultDataResponse,
   TResultQueryResponse,
 } from './types';
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { getDataRequest } from './api';
 
 export const useRequestData = (): TRequestDataResponse => {
-  const get = useRecoilValue(requestDummyData);
+  const get = useRecoilValue(icon);
   return {
     getRequestData: get,
   };
@@ -26,4 +30,14 @@ export const useResultQuery = (): TResultQueryResponse => {
     getResultQuery: get,
     setResultQuery: (val: string) => set(val),
   };
+};
+
+export const useRequest = (): UseQueryResult<
+  TRequestResponse,
+  TMetaErrorResponse
+> => {
+  return useQuery({
+    queryKey: ['get-reqest'],
+    queryFn: async () => await getDataRequest(),
+  });
 };

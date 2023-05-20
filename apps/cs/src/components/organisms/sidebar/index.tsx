@@ -9,8 +9,10 @@ import {
   IconToggle,
   IconLogout,
 } from '../../atoms';
+import { useProfile } from './profile/hooks';
 
 const Sidebar: FC = (): ReactElement => {
+  const { data } = useProfile();
   const DataSidebar = [
     {
       title: 'Dashboard',
@@ -78,7 +80,7 @@ const Sidebar: FC = (): ReactElement => {
                 <img src={'/assets/navbar/user.png'} alt="user" />
               </div>
               <div className="font-semibold text-sm text-neutral-500">
-                Fatwa Nasution
+                {data?.data.fullname}
               </div>
             </div>
             {DataSidebar.map((x, i) => {

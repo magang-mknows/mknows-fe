@@ -1,8 +1,9 @@
 import { FC, ReactElement } from 'react';
-import { useResultData } from '../hooks';
+import { useRequest } from '../hooks';
+import { formatDate } from '@mknows-frontend-services/utils';
 
 const Table: FC = (): ReactElement => {
-  const { getResultData } = useResultData();
+  const { data } = useRequest();
 
   return (
     <div className="overflow-x-scroll mt-20 lg:mt-0">
@@ -61,22 +62,25 @@ const Table: FC = (): ReactElement => {
           </tr>
         </thead>
         <tbody>
-          {getResultData.map((item, key) => {
+          {data?.data.map((item, key) => {
             return (
               <tr
                 key={key}
                 className="text-[#262626] bg-white border-b dark:bg-[#ffff] "
               >
                 <td className="px-6">{key + 1}</td>
-                <td className="px-8 py-2">{item.no}</td>
-                <td className="px-2 py-2">{item.nik}</td>
-                <td className="px-2 py-2 font-semibold text-xs">{item.nama}</td>
+                <td className="px-8 py-2">100865</td>
+                <td className="px-2 py-2">327001625398</td>
+                <td className="px-2 py-2 font-semibold text-xs">{item.name}</td>
                 <td className="px-4 py-2 text-gray-500 ">
-                  {item.tggl_permintaan} {item.waktu_permintaan}
+                  {formatDate(new Date(item.created_at))}
                 </td>
-                <td className="px-1 py-2">{item.kendala_proses}</td>
-                <td className="px-4 py-2 bg-green-400">
-                  {item.status === 'Menunggu' ? (
+                <td className="px-1 py-2">-</td>
+                <td className="px-4 py-2 ">
+                  <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
+                    Menunggu
+                  </button>
+                  {/* {item.status === 'Menunggu' ? (
                     <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
                       {item.status}
                     </button>
@@ -86,7 +90,7 @@ const Table: FC = (): ReactElement => {
                     </button>
                   ) : (
                     <span className="px-11">-</span>
-                  )}
+                  )} */}
                 </td>
               </tr>
             );

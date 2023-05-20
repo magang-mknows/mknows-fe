@@ -36,16 +36,22 @@ const LoginModules: FC = (): ReactElement => {
   const [getError, setError] = useState<string | undefined>('');
 
   const onSubmit = handleSubmit((data) => {
-    navigate('/dashboard/home');
-    // mutate(data, {
-    //   onSuccess: () => {
-    //     navigate('/dashboard/home');
-    //     console.log('berhasil masuk');
-    //   },
-    //   onError: (e) => {
-    //     setError(e.response?.data.message);
-    //   },
-    // });
+    // navigate('/dashboard/home');
+    mutate(
+      {
+        email: data.email,
+        password: data.password,
+      },
+      {
+        onSuccess: () => {
+          navigate('/dashboard/home');
+          console.log('berhasil masuk');
+        },
+        onError: (e) => {
+          setError(e.response?.data.message);
+        },
+      }
+    );
   });
 
   return (
@@ -53,13 +59,15 @@ const LoginModules: FC = (): ReactElement => {
       onSubmit={onSubmit}
       className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm overflow-hidden"
     >
-      {getError}
       <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
         Masuk
       </h1>
       <p className="text-base text-gray-400 text-center">
         Silahkan masuk dengan email dan kata sandi anda
       </p>
+      <div className="flex bg-error-100 rounded-md text-error-300 w-full justify-center my-2">
+        {getError}
+      </div>
       <TextField
         type="email"
         label="Email"
