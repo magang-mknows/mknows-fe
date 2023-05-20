@@ -1,3 +1,5 @@
+import { TMetaResponse } from '@mknows-frontend-services/utils';
+
 export type TResultDataDummy = {
   no: number;
   nik: number;
@@ -15,15 +17,11 @@ export type TResultDataDummy = {
   jumlah_user: number;
 };
 
-export type TRequestDummyData = {
+export type TIcons = {
   icon: string;
-  name: string;
-  totalData: number;
-  totalNotifikasi: number;
-  category: string;
 };
 
-export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
+export type TRequestDataResponse = { getRequestData: string[] };
 
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 
