@@ -8,10 +8,6 @@ export type TSubjectHeaderProps = {
   id: string;
 };
 
-export type TAskDeptPayload = {
-  department_id?: string;
-};
-
 export type TAskDeptItem = {
   id: string;
   employee_id: string;
