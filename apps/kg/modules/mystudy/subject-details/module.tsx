@@ -21,8 +21,10 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
         </h3>
         <div className="w-[95%] h-[253px]">
           <Image
-            src={imgCourseHome}
+            src={dataSubjectDetails?.thumbnail as string}
             alt={`${dataSubjectDetails?.name}-image`}
+            width={1170}
+            height={250}
             className="h-full object-cover rounded-lg mx-auto"
           />
         </div>

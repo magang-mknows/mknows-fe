@@ -6,23 +6,20 @@ import AssignedAssesment from '../../assets/assigned-assesment.svg';
 import AssignedLate from '../../assets/assigned-late.svg';
 import ImageNull from '../../assets/data-null.svg';
 import Image from 'next/image';
-import { T } from './types';
+// import { T } from './types';
 import { useAssigment } from './hooks';
 import { useGetAssignment } from '../../hooks';
+import { TAssignmentUser } from '../../types';
 
-type TAssignmentProps = {
-  session_id: string;
-};
-
-export const ContentSection: FC<TAssignmentProps> = ({
-  session_id,
-}): ReactElement => {
-  const { data } = useGetAssignment(session_id);
-  console.log('cek assignmnet', data);
+export const ContentSection: FC = (): ReactElement => {
+  const { data } = useGetAssignment();
+  const getAss = data?.data;
+  console.log('cek assignmnet', getAss);
 
   const [active, setactive] = useState('semua-tugas');
-  const { getAssigment } = useAssigment();
-  console.log(getAssigment.length);
+  // const { getAssigment } = useAssigment();
+  // console.log(getAssigment.length);
+
   return (
     <section className="lg:px-20 md:px-10 px-5 py-3 w-full mt-[36px] drop-shadow-md mb-3 min-h-screen">
       <div className="bg-white h-full rounded-[8px] dark:bg-gray-800 ">
@@ -47,12 +44,12 @@ export const ContentSection: FC<TAssignmentProps> = ({
               <button>
                 <a
                   className={`inline-block p-4 ${
-                    active == 'ditugaskan'
+                    active == 'ONGOING'
                       ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
                   }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-[#0B568D] `}
                   aria-current="page"
-                  onClick={() => setactive('ditugaskan')}
+                  onClick={() => setactive('ONGOING')}
                 >
                   Ditugaskan
                 </a>
@@ -62,12 +59,12 @@ export const ContentSection: FC<TAssignmentProps> = ({
               <button>
                 <a
                   className={`inline-block p-4 ${
-                    active == 'terlambat'
+                    active == 'LATE'
                       ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
                   }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D]  `}
                   aria-current="page"
-                  onClick={() => setactive('terlambat')}
+                  onClick={() => setactive('LATE')}
                 >
                   Terlambat
                 </a>
@@ -77,12 +74,12 @@ export const ContentSection: FC<TAssignmentProps> = ({
               <button>
                 <a
                   className={`inline-block p-4 ${
-                    active == 'sedang-dinilai'
+                    active == 'GRADING'
                       ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
                   }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D] `}
                   aria-current="page"
-                  onClick={() => setactive('sedang-dinilai')}
+                  onClick={() => setactive('GRADING')}
                 >
                   Sedang Dinilai
                 </a>
@@ -92,12 +89,12 @@ export const ContentSection: FC<TAssignmentProps> = ({
               <button>
                 <a
                   className={`inline-block p-4 ${
-                    active == 'selesai'
+                    active == 'FINISHED'
                       ? 'text-[#0B568D] border-[#0B568D] dark:text-[#0B568D] dark:border-[#0B568D] border-b-2'
                       : ''
                   }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-[#0B568D]`}
                   aria-current="page"
-                  onClick={() => setactive('selesai')}
+                  onClick={() => setactive('FINISHED')}
                 >
                   Selesai
                 </a>
@@ -107,95 +104,115 @@ export const ContentSection: FC<TAssignmentProps> = ({
         </div>
         <div className=" pb-8 ">
           {active === 'semua-tugas' ? (
-            getAssigment.map((item: T) => (
+            getAss?.map((item: TAssignmentUser) => (
               <Assigment
-                key={item.id}
-                titleAssigment={item.title}
-                category={item.category}
-                titleCourse={item.course}
-                date={item.date}
-                time={item.time}
+                key={item.assignment_id}
+                titleAssigment={item.assignment_title}
+                category={
+                  item.progress_status === 'ONGOING'
+                    ? 'Ditugaskan'
+                    : item.progress_status === 'LATE'
+                    ? 'Terlambat'
+                    : item.progress_status === 'FINISHED'
+                    ? 'Selesai'
+                    : item.progress_status === 'GRADING'
+                    ? 'Sedang Dinilai'
+                    : ''
+                }
+                titleCourse={item.assignment_desc}
+                date={item.progress_deadline}
+                time={item.progress_deadline}
                 bgLine={
-                  item.category === 'ditugaskan'
+                  item.progress_status === 'ONGOING'
                     ? 'bg-[#0B568D]'
-                    : item.category === 'terlambat'
+                    : item.progress_status === 'LATE'
                     ? 'bg-[#D79210]'
-                    : item.category === 'selesai'
+                    : item.progress_status === 'FINISHED'
                     ? 'bg-[#2D9A41]'
-                    : item.category === 'sedang-dinilai'
+                    : item.progress_status === 'GRADING'
                     ? 'bg-[#737373]'
                     : ''
                 }
                 classNameCategory={
-                  item.category === 'ditugaskan'
+                  item.progress_status === 'ONGOING'
                     ? 'text-[#0B568D]'
-                    : item.category === 'terlambat'
+                    : item.progress_status === 'LATE'
                     ? 'text-[#D79210]'
-                    : item.category === 'selesai'
+                    : item.progress_status === 'FINISHED'
                     ? 'text-[#2D9A41]'
-                    : item.category === 'sedang-dinilai'
+                    : item.progress_status === 'GRADING'
                     ? 'text-[#737373]'
                     : ''
                 }
                 imgAssigment={
-                  item.category === 'ditugaskan'
+                  item.progress_status === 'ONGOING'
                     ? AssigmentAssigned
-                    : item.category === 'terlambat'
+                    : item.progress_status === 'LATE'
                     ? AssignedLate
-                    : item.category === 'selesai'
+                    : item.progress_status === 'FINISHED'
                     ? AssigmentDone
-                    : item.category === 'sedang-dinilai'
+                    : item.progress_status === 'GRADING'
                     ? AssignedAssesment
                     : ''
                 }
               />
             ))
-          ) : getAssigment.filter((item: T) => item.category.includes(active))
+          ) : getAss?.filter((item) => item.progress_status.includes(active))
               .length == 0 ? (
             <div className="flex justify-center">
               <Image src={ImageNull} alt={'empty'} />
             </div>
           ) : (
-            getAssigment
-              .filter((item: T) => item.category.includes(active))
-              .map((item: T) => (
+            getAss
+              ?.filter((item) => item.progress_status.includes(active))
+              .map((item) => (
                 <Assigment
-                  key={item.id}
-                  titleAssigment={item.title}
-                  category={item.category}
-                  titleCourse={item.course}
-                  date={item.date}
-                  time={'20:00:00'}
+                  key={item.assignment_id}
+                  titleAssigment={item.assignment_title}
+                  category={
+                    item.progress_status === 'ONGOING'
+                      ? 'Ditugaskan'
+                      : item.progress_status === 'LATE'
+                      ? 'Terlambat'
+                      : item.progress_status === 'FINISHED'
+                      ? 'Selesai'
+                      : item.progress_status === 'GRADING'
+                      ? 'Sedang Dinilai'
+                      : ''
+                  }
+                  titleCourse={item.assignment_desc}
+                  date={item.progress_deadline}
+                  time={item.progress_deadline}
                   bgLine={
-                    item.category === 'ditugaskan'
+                    item.progress_status === 'ONGOING'
                       ? 'bg-[#0B568D]'
-                      : item.category === 'terlambat'
+                      : item.progress_status === 'LATE'
                       ? 'bg-[#D79210]'
-                      : item.category === 'selesai'
+                      : item.progress_status === 'FINISHED'
                       ? 'bg-[#2D9A41]'
-                      : item.category === 'sedang-dinilai'
+                      : item.progress_status === 'GRADING'
                       ? 'bg-[#737373]'
                       : ''
                   }
                   classNameCategory={
-                    item.category === 'ditugaskan'
+                    item.progress_status === 'ONGOING'
                       ? 'text-[#0B568D]'
-                      : item.category === 'terlambat'
+                      : item.progress_status === 'LATE'
                       ? 'text-[#D79210]'
-                      : item.category === 'selesai'
+                      : item.progress_status === 'FINISHED'
                       ? 'text-[#2D9A41]'
-                      : item.category === 'sedang-dinilai'
+                      : item.progress_status === 'GRADING'
                       ? 'text-[#737373]'
                       : ''
                   }
                   imgAssigment={
-                    item.category === 'ditugaskan'
+                    item.progress_status === 'ONGOING'
                       ? AssigmentAssigned
-                      : item.category === 'terlambat'
+                      : item.progress_status === 'LATE'
                       ? AssignedLate
-                      : item.category === 'selesai'
+                      : item.progress_status === 'FINISHED'
                       ? AssigmentDone
-                      : item.category === 'sedang-dinilai'
+                      : item.progress_status === 'GRADING'
                       ? AssignedAssesment
                       : ''
                   }
