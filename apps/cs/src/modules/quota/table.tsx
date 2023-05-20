@@ -1,8 +1,9 @@
 import { FC, ReactElement } from 'react';
-import { useResultData } from './hooks';
+import { formatDate } from '@mknows-frontend-services/utils';
+import { useQuota } from './hooks';
 
 const Table: FC = (): ReactElement => {
-  const { getResultData } = useResultData();
+  const { data } = useQuota();
 
   return (
     <div className="overflow-x-scroll">
@@ -36,27 +37,31 @@ const Table: FC = (): ReactElement => {
             </th>
           </tr>
         </thead>
-        {getResultData.map((item, key) => {
+        {data?.data.map((item, key) => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b dark:bg-[#ffff]">
-                <td className="px-8 py-1 text-[#262626]">{item.no}</td>
-                <td className="px-10 py-1 font-semibold text-neutral-800">
-                  {item.jenis_produk}
+                <td className="px-8 py-1 text-[#262626]">
+                  {item.request_number}
                 </td>
-                <td className="px-14 py-1">{item.tggl_permintaan}</td>
-                <td className="px-20 py-1">{item.jumlah_kuota}</td>
+                <td className="px-10 py-1 font-semibold text-neutral-800">
+                  {item.feature_id.name}
+                </td>
+                <td className="px-14 py-1">
+                  {formatDate(new Date(item.created_at))}
+                </td>
+                <td className="px-20 py-1">{item.quantity}</td>
                 <td className="px-6 py-1 bg-green-400">
                   <button
                     className={` ${
-                      item.skor === 'Berhasil'
+                      item.status === 'Berhasil'
                         ? 'bg-success-500'
-                        : item.skor === 'Proses'
+                        : item.status === 'Proses'
                         ? 'bg-[#3B8BDB]'
                         : 'bg-[#EE2D24]'
                     } text-white w-[100px] text-sm font-semibold uppercase py-1.5 rounded-md cursor-default`}
                   >
-                    {item.skor}
+                    {item.status}
                   </button>
                 </td>
               </tr>

@@ -37,7 +37,7 @@ export const useRequest = (): UseQueryResult<
   TMetaErrorResponse
 > => {
   return useQuery({
-    queryKey: ['get-reqest'],
+    queryKey: ['get-request'],
     queryFn: async () => await getDataRequest(),
   });
 };
