@@ -1,11 +1,9 @@
 import { FC, ReactElement } from 'react';
 import Search from '../../components/atoms/search';
-import { useQuotaQuery } from './hooks';
 import DateRangePickerComponent from '../../components/molecules/input/date-range-picker';
 import Table from './table';
 
 const RiwayatAlokasi: FC = (): ReactElement => {
-  const { setQuotaQuery, getQuotaQuery } = useQuotaQuery();
   const handleRangeChange = () => {
     console.log('ok');
   };
@@ -32,9 +30,9 @@ const RiwayatAlokasi: FC = (): ReactElement => {
             </div>
             <div className="w-full">
               <Search
-                value={getQuotaQuery}
+                value="search"
                 onChange={(e: { target: { value: string } }) =>
-                  setQuotaQuery(e.target.value)
+                  console.log('ok')
                 }
                 placeholder="Search No Permintaan, NIK, Nama, Tanggal, Status"
               />

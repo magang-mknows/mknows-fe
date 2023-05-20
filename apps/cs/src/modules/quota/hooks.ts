@@ -1,18 +1,23 @@
-import { useRecoilValue, useRecoilState } from 'recoil';
-import { quotaSearch, resultFilter } from './store';
-import { TResultDataResponse, TQuotaQueryResponse } from './types';
+import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import { getQuotaResponse } from './api';
+import { TQuotaDataResponse, TQuotaResponse } from './types';
+import { useRecoilValue } from 'recoil';
+import { icon } from './store';
 
-export const useQuotaQuery = (): TQuotaQueryResponse => {
-  const [get, set] = useRecoilState(quotaSearch);
-  return {
-    getQuotaQuery: get,
-    setQuotaQuery: (val: string) => set(val),
-  };
+export const useQuota = (): UseQueryResult<
+  TQuotaResponse,
+  TMetaErrorResponse
+> => {
+  return useQuery({
+    queryKey: ['get-quota'],
+    queryFn: async () => await getQuotaResponse(),
+  });
 };
 
-export const useResultData = (): TResultDataResponse => {
-  const get = useRecoilValue(resultFilter);
+export const useQuotaData = (): TQuotaDataResponse => {
+  const get = useRecoilValue(icon);
   return {
-    getResultData: get,
+    getQuotaData: get,
   };
 };
