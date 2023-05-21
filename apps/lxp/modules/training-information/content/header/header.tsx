@@ -1,5 +1,5 @@
 import { Button } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import { IoAlertCircle } from 'react-icons/io5';
 import { useRecoilState } from 'recoil';
@@ -18,7 +18,7 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
   const [getConfirmPopup, setConfirmPopup] =
     useRecoilState(TrainingConfirmPopup);
 
-  const { mutate } = useAskDepartment();
+  const { mutate, data } = useAskDepartment();
 
   const handleAskDept = (deptId: string) => {
     mutate(deptId, {
@@ -27,6 +27,10 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
       },
     });
   };
+
+  useEffect(() => {
+    console.log(data?.data);
+  }, [data?.data]);
 
   return (
     <header className="px-8 pb-6 pt-6 md:px-14 lg:px-16 mb-8">
@@ -42,6 +46,7 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
             <span>:</span>
             <span> {category}</span>
           </h1>
+
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
             <span className="min-w-[140px] lg:min-w-[200px]">Batch</span>
             <span>:</span>
