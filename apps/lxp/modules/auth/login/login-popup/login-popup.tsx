@@ -73,7 +73,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
 
   const onGoogleLogin = async () => {
     await signIn('google', {
-      redirect: true,
+      redirect: false,
     });
   };
 
