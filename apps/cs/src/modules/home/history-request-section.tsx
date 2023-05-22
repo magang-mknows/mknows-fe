@@ -21,10 +21,11 @@ const CardSection: FC = (): ReactElement => {
     mouseTrackingEnabled: true,
     disableDotsControls: true,
     items: getCardData.map((x, i) => (
-      <div key={i} className="flex max-w-scren">
+      <div key={i} className="flex max-w-screen">
         <Card
           hasButton={true}
           buttonText="Lihat Detail"
+          buttonHref="/dashboard/request/result"
           buttonClassName={`flex py-1 justify-center text-white items-end my-2 ${x.bgButton} w-full`}
           className="w-full m-3 h-auto absolute shadow-md px-4"
         >

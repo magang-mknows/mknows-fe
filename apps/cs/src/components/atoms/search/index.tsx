@@ -2,9 +2,13 @@ import { FC, ReactElement } from 'react';
 import { SearchProps } from './types';
 import { IconSearch } from '../icons';
 
-const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
+const Search: FC<SearchProps> = ({
+  onChange,
+  value,
+  placeholder,
+}): ReactElement => {
   return (
-    <div className="px-8 lg:px-1 items-center w-full">
+    <div className="lg:px-1 items-center w-full">
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
@@ -17,8 +21,8 @@ const Search: FC<SearchProps> = ({ onChange, value }): ReactElement => {
           value={value}
           onChange={onChange}
           id="simple-search"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 text-sm"
-          placeholder="Search NIK, Nama, No. Permintaan"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+          placeholder={placeholder}
           required
         />
       </div>

@@ -18,6 +18,7 @@ import {
   IconDownload,
   IconNotif,
 } from '../../../../components/atoms';
+import { useCharacterStatus, useIdentityStatus } from '../../hooks';
 
 const AiCharacterScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -196,6 +197,9 @@ const AiCharacterScoring: FC = (): ReactElement => {
 
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
+  const { setDataCharacter, getDataCharacter } = useCharacterStatus();
+  const { getDataIdentity } = useIdentityStatus();
+
   const {
     control,
     handleSubmit,
@@ -221,7 +225,12 @@ const AiCharacterScoring: FC = (): ReactElement => {
   });
 
   const onSubmit = handleSubmit(() => {
-    console.log('ok');
+    try {
+      setDataCharacter(true);
+    } catch (err) {
+      setDataCharacter(false);
+      throw err;
+    }
   });
 
   const upload: Array<{
@@ -384,7 +393,11 @@ const AiCharacterScoring: FC = (): ReactElement => {
   ];
   return (
     <div>
-      <Accordion title="Ai Character Scoring" idAccordion={'file information'}>
+      <Accordion
+        title="Ai Character Scoring"
+        idAccordion={getDataCharacter ? '' : 'character-status-state'}
+        disabled={getDataIdentity ? (getDataCharacter ? true : false) : true}
+      >
         <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
           <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
             <IconUpload />

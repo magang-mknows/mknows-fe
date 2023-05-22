@@ -1,59 +1,36 @@
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { FC, ReactElement, useState, Fragment } from 'react';
 import Card from '../../components/molecules/card';
-import { useRequestData } from '../request/hooks';
+import { useQuota } from './hooks';
 import { Dialog, Transition } from '@headlessui/react';
+import { useQuotaData } from './hooks';
+import cursorLoading from '/assets/quota/cursor-loading.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
-  const { getRequestData } = useRequestData();
+  const { data } = useQuota();
+  const { getQuotaData } = useQuotaData();
   const [Quota, setQuota] = useState<number>(0);
   const [ProductName, setProductName] = useState<string>('default');
   const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleQuotaChange = (event: { target: { value: string } }) => {
-    setQuota(parseInt(event.target.value));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      setQuota(0);
-    }
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleTambah = () => {
-    setQuota(Quota + 1);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah1000 = () => {
-    setQuota(Quota + 1000);
+    setQuota(Quota * 0 + 1000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah5000 = () => {
-    setQuota(Quota + 5000);
+    setQuota(Quota * 0 + 5000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah10000 = () => {
-    setQuota(Quota + 10000);
+    setQuota(Quota * 0 + 10000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah50000 = () => {
-    setQuota(Quota + 50000);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleKurang = () => {
-    if (Quota <= 0) {
-      setQuota(Quota * 0);
-    } else {
-      setQuota(Quota - 1);
-    }
+    setQuota(Quota * 0 + 50000);
   };
 
   function closeModal() {
@@ -65,7 +42,7 @@ const AlokasiKuota: FC = (): ReactElement => {
   }
 
   return (
-    <section className="my-14 w-full">
+    <section className="my-14 mx-14 w-full">
       <div className="font-bold text-2xl text-[#444444]">Alokasi Kuota</div>
       {/* content */}
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">
@@ -81,26 +58,25 @@ const AlokasiKuota: FC = (): ReactElement => {
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
-              {getRequestData.slice(0, 4).map((item, index) => {
+              {data?.data.slice(0, 4).map((item, index) => {
                 return (
                   <Card
-                    className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
+                    className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
-                    onClick={() => setProductName(item.name)}
+                    onClick={() => setProductName(item.feature_id.name)}
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
                         <img
-                          src={item.icon}
+                          src={getQuotaData[index]}
                           alt="icon"
                           className="w-16 hidden md:flex"
                         />
                       </div>
 
-                      <div className="flex-col w-full space-y-1">
-                        <p className="text-sm font-semibold">{item.name}</p>
-                        <p className="text-neutral-400 font-normal text-xs">
-                          Data Masuk {item.totalData}
+                      <div className="flex flex-col w-full h-full items-center space-y-1">
+                        <p className="text-sm font-semibold">
+                          {item.feature_id.name}
                         </p>
                       </div>
                     </div>
@@ -115,29 +91,6 @@ const AlokasiKuota: FC = (): ReactElement => {
               <span className="font-semibold text-sm text-neutral-400">
                 Pilih Jumlah Kuota
               </span>
-            </div>
-            <div className="flex justify-center items-center -space-x-.5">
-              <Button
-                type="button"
-                className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-l-md !rounded-r-none"
-                onClick={handleKurang}
-              >
-                <img src="/assets/Shape.webp" alt="" />
-              </Button>
-              <input
-                type="number"
-                value={Quota}
-                onChange={handleQuotaChange}
-                onKeyDown={handleKeyDown}
-                className="flex items-center justify-center text-center w-[30%] h-10 border-[1px] border-[#EBEBEB] text-[#000000] text-md font-bold"
-              />
-              <Button
-                type="button"
-                className="p-2 !bg-[#EBEBEB] h-10 w-10 !rounded-r-md !rounded-l-none"
-                onClick={handleTambah}
-              >
-                <img src="/assets/add.webp" alt="" />
-              </Button>
             </div>
             <div className="grid md:gap-2 lg:grid-cols-4 grid-cols-2 gap-1 mt-5 font-bold">
               <span
@@ -170,7 +123,14 @@ const AlokasiKuota: FC = (): ReactElement => {
 
         {/* content 2 */}
         {ProductName === 'default' ? (
-          <div className="w-[60%] mr-8"></div>
+          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+            <div className="flex flex-col gap-y-5 h-full justify-center px-10 items-center">
+              <img src={cursorLoading} alt="loading..." />
+              <span className="font-semibold text-base text-[#000000]">
+                Silahkan pilih jenis produk terlebih dahulu
+              </span>
+            </div>
+          </div>
         ) : (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">

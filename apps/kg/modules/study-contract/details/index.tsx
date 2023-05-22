@@ -1,13 +1,11 @@
 import { FC, ReactElement, lazy, Suspense, useState } from "react";
 import { BaseLayout } from "../../../modules/common/layout/base";
-// import { contractStudyBreadCumbs } from "@/utilities/constant";
-// import MainLayouts from "@/layouts/Main";
-// import Draft from "./Draft";
-// import PreTest from "./PreTest";
-// import Submission from "./Submission";
 import { usePopupAddStudy, usePopupSucces } from "./hooks";
 import { Contract } from "./kontrak-krs";
 import { Draft } from "./draft-krs";
+import { PreTest } from "./konversi";
+import Submission from "./pengajuan";
+import { MainLayouts } from "./components/layout";
 
 // import Loading from "@/components/Loading";
 
@@ -28,15 +26,15 @@ const DetailContract: FC = (): ReactElement => {
     <BaseLayout>
       {/* <Suspense fallback={<Loading />}>
         <BreadCrumbs items={contractStudyBreadCumbs} /> */}
-        {/* <MainLayouts className="bg-[#FAFAFA]"> */}
+        <MainLayouts className="bg-[#FAFAFA]">
           <div className="flex flex-col p-4 gap-4">
             <h1 className="text-[#737373] text-[18px] text:lg">Teknik Informatika</h1>
             <p className="text-[20px] font-semibold">Software Engineering</p>
           </div>
 
           <div>
-            <div className="bg-white h-full rounded-[8px] dark:bg-gray-800 ">
-              <div className="text-[18px] font-semibold text-center text-gray-400 border-b border-gray-200  px-[26px] mb-10">
+            <div className="bg-white h-full rounded-[8px] dark:bg-[#1f2937] ">
+              <div className="text-[18px] font-semibold text-center text-[#9ca3af] border-b border-[#e5e7eb] px-[26px] mb-10">
                 <ul className="flex flex-wrap ">
                   <li className="mr-2">
                     <button>
@@ -106,16 +104,16 @@ const DetailContract: FC = (): ReactElement => {
                 <Contract onClick={() => moveKRS()} onMove={() => moveKonversi()} />
               ) : active === "draft-krs" ? ( 
                 <Draft />
-              ) : active === "konversi" ? ("tes2"
-                // <PreTest />
-              ) : active === "pengajuan" ? ( "tes3"
-                // <Submission />
+              ) : active === "konversi" ? (
+                <PreTest />
+              ) : active === "pengajuan" ? ( 
+                <Submission />
               ) : (
                 <span>Tidak ada data</span>
               )}
             </div>
           </div>
-        {/* </MainLayouts> */}
+        </MainLayouts>
       {/* </Suspense> */}
     </BaseLayout>
   );

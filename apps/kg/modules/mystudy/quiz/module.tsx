@@ -3,15 +3,21 @@ import { FC, ReactElement } from 'react';
 import quizHomeImg from './assets/quiz-home-person.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useGetQuizDescById } from './hooks';
+import { TQuizDescItem } from './types';
 
 export const QuizModule: FC = (): ReactElement => {
   const router = useRouter();
+
+  const { data } = useGetQuizDescById(router.query.quizId as unknown as string);
+  const dataQuizDesc = data?.data as unknown as TQuizDescItem;
+  const prevPath = router.asPath.split('/').slice(0, -1).join('/');
 
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
       <div className="flex flex-col items-center gap-y-[18px] text-center">
         <h1 className="text-4xl font-semibold text-[#171717]">
-          Quiz Manajemen Keuangan
+          Quiz Manajemen Keuangan {/* it has to be from api but... */}
         </h1>
         <p className="text-2xl font-normal text-[#737373]">Pertemuan 1</p>
       </div>
@@ -52,9 +58,9 @@ export const QuizModule: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href={`${router.asPath}/ambil`}>
+          <Link href={`${prevPath}/ambil/${dataQuizDesc?.id}`}>
             <button className="w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-[#106FA4] text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
-              Mulai Quiz (Sisa 3)
+              Mulai Quiz (Sisa {dataQuizDesc?.remaining_attempt || 'unknown'})
             </button>
           </Link>
         </div>

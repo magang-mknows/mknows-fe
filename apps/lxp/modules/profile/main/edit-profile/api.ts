@@ -1,7 +1,23 @@
 import api from '../../../../services/api';
-import { TUserDataResponse } from './types';
+import {
+  TUserProfilePayload,
+  TUserProfileResponse,
+  TUpdateUserResponse,
+  IUpdateUserPayload,
+} from './types';
 
-export const getAllUserData = async (): Promise<TUserDataResponse> => {
-  const { data } = await api.get('/users/me');
+import { serialize } from 'object-to-formdata';
+
+export const updateUserProfile = async (
+  payload: TUserProfilePayload
+): Promise<TUserProfileResponse> => {
+  const { data } = await api.put('/users/avatar', serialize(payload));
+  return data;
+};
+
+export const updateUserData = async (
+  payload: IUpdateUserPayload
+): Promise<TUpdateUserResponse> => {
+  const { data } = await api.put('/users/me', payload);
   return data;
 };

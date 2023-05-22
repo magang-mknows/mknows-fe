@@ -11,16 +11,26 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useUpdateUserData, useUpdateUserProfile } from './hook';
+import { useEffect } from 'react';
+import Image from 'next/image';
+import { ImSpinner5 } from 'react-icons/im';
+import { useProfile } from '../../hooks';
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
 
   const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/webp'];
+  const ACCEPTED_IMAGE_TYPES = [
+    'image/jpeg',
+    'image/jpg',
+    'image/webp',
+    'image/png',
+  ];
 
   const genders = [
-    { id: 1, value: 'L', label: 'Laki-Laki' },
-    { id: 2, value: 'P', label: 'Perempuan' },
+    { id: 1, value: 'LAKI-LAKI', label: 'Laki-Laki' },
+    { id: 2, value: 'PEREMPUAN', label: 'Perempuan' },
   ];
 
   const avatarValidationSchema = z.object({
@@ -47,7 +57,7 @@ export const EditProfileSection = () => {
     }),
     full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
     phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.any(),
+    gender: z.string(),
   });
 
   type InformationValidationSchema = z.infer<
@@ -55,10 +65,14 @@ export const EditProfileSection = () => {
   >;
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
 
+  const { data } = useProfile();
+  const userData = data?.data.user;
+
   const {
     control: avatarControl,
     handleSubmit: avatarSubmit,
     formState: { isValid: avatarIsValid, errors: avatarError },
+    reset: avatarReset,
   } = useForm<AvatarValidationSchema>({
     resolver: zodResolver(avatarValidationSchema),
     mode: 'all',
@@ -71,6 +85,7 @@ export const EditProfileSection = () => {
     control: informationControl,
     handleSubmit: informationSubmit,
     formState: { isValid: informationIsValid, errors: informationError },
+    reset: informationReset,
   } = useForm<InformationValidationSchema>({
     resolver: zodResolver(informationvalidationSchema),
     mode: 'all',
@@ -82,9 +97,40 @@ export const EditProfileSection = () => {
     },
   });
 
-  const handleSubmitInfo = informationSubmit((info) => {
-    console.log(info);
+  const { mutate: mutateData, isLoading: loadingData } = useUpdateUserData();
+
+  const handleSubmitInfo = informationSubmit((data) => {
+    mutateData(
+      {
+        ...data,
+        full_name: data?.full_name,
+        phone_number: data?.phone_number,
+        gender: data?.gender,
+      },
+      {
+        onSuccess: () => {
+          console.log('data terupdate');
+        },
+      }
+    );
   });
+
+  const { mutate: mutateProfile } = useUpdateUserProfile();
+  const handleSubmitAvatar = avatarSubmit((data) => {
+    mutateProfile(
+      { ...data, avatar: data?.avatar[0] as File },
+      {
+        onSuccess: () => {
+          console.log('profile terupdate');
+        },
+      }
+    );
+  });
+
+  useEffect(() => {
+    informationReset(userData);
+    avatarReset(userData);
+  }, [informationReset, userData, avatarReset]);
 
   return (
     <main className="bg-neutral-50 px-8 pt-8 pb-14 rounded-md shadow-sm min-h-[80vh]">
@@ -92,16 +138,27 @@ export const EditProfileSection = () => {
         <h1 className="text-xl font-bold text-neutral-800">Edit Profile</h1>
       </header>
       <main className="w-full">
-        <section className="grid place-items-center w-full  py-16">
-          <figure className="bg-neutral-200 h-[140px] w-[140px] rounded-full relative">
+        <section className="grid w-full py-16 place-items-center">
+          <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
+            {userData?.avatar !== null && userData?.avatar !== undefined ? (
+              <Image
+                src={userData?.avatar}
+                alt="avatar"
+                height={100}
+                width={'100'}
+                loading="eager"
+                priority
+                className="h-full w-full rounded-full  object-cover  border-[1px] border-neutral-100"
+              />
+            ) : null}
             <section className="absolute bottom-0 right-2">
               <div
-                className="bg-version2-300 w-9 h-9 rounded-full shadow-md grid place-items-center  cursor-pointer"
+                className="grid rounded-full shadow-md cursor-pointer bg-version2-300 w-9 h-9 place-items-center"
                 onClick={() => {
                   setEditPhoto(!isEditPhoto);
                 }}
               >
-                <AiFillCamera className="text-neutral-200 text-xl" />
+                <AiFillCamera className="text-xl text-neutral-200" />
               </div>
               <form
                 className={`${
@@ -118,13 +175,14 @@ export const EditProfileSection = () => {
                 </p>
                 <label
                   htmlFor="avatar"
-                  className="text-neutral-700 cursor-pointer bg-neutral-50 hover:bg-neutral-100 px-4 py-2"
+                  className="px-4 py-2 cursor-pointer text-neutral-700 bg-neutral-50 hover:bg-neutral-100"
                   onClick={() => {
                     setEditPhoto(false);
                   }}
                 >
                   Unggah Foto
                   <UploadField
+                    onChange={handleSubmitAvatar}
                     variant="sm"
                     name={'avatar'}
                     control={avatarControl}
@@ -138,6 +196,7 @@ export const EditProfileSection = () => {
         <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmitInfo}>
           <TextField
             labelClassName="!text-sm text-left"
+            disabled
             type="email"
             variant="md"
             control={informationControl}
@@ -146,7 +205,7 @@ export const EditProfileSection = () => {
             label="Email"
             status={informationError.email ? 'error' : 'none'}
             message={informationError.email?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] disabled:!bg-neutral-100 disabled:!text-neutral-500"
           />
           <SelectField
             placeholder="Laki-Laki"
@@ -155,7 +214,9 @@ export const EditProfileSection = () => {
             options={genders}
             name={'gender'}
             variant={'md'}
-            className="!h-[40px] text-sm !rounded-[8px] "
+            labelClassName="text-sm"
+            styleText="!text-sm"
+            className="!h-[40px] !rounded-[8px] !text-neutral-800"
           />
           <TextField
             labelClassName="!text-sm text-left"
@@ -167,7 +228,7 @@ export const EditProfileSection = () => {
             label="Nama Lengkap"
             status={informationError.full_name ? 'error' : 'none'}
             message={informationError.full_name?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3]"
           />
           <TextField
             labelClassName="!text-sm text-left"
@@ -179,15 +240,19 @@ export const EditProfileSection = () => {
             label="Nomer Handphone"
             status={informationError.phone_number ? 'error' : 'none'}
             message={informationError.phone_number?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
-          <section className="w-full flex justify-end col-span-2">
+          <section className="flex justify-end w-full col-span-2">
             <Button
               disabled={!informationIsValid}
               type="submit"
-              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm py-2 w-28"
+              className="disabled:bg-version2-200/70 disabled:border-none bg-version2-400 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  flex items-center justify-center gap-2 text-sm h-10 w-32"
             >
-              <h1>Simpan</h1>
+              {loadingData ? (
+                <ImSpinner5 className="animate-spin duration-200 delay-150" />
+              ) : (
+                <h1>Simpan</h1>
+              )}
             </Button>
           </section>
         </form>

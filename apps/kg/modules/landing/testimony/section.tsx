@@ -7,7 +7,7 @@ export const TestimonySection: FC = (): ReactElement => {
       <section className="flex flex-col gap-y-[44px] px-[135px] h-full items-center justify-center">
         <div className="flex w-full gap-x-[30px]">
           <div className="flex flex-col w-2/3">
-            <h1 className="my-[20px]">Testimoni</h1>
+            <h1 className="my-[20px] tetx-[16px]">Testimoni</h1>
             <div className="flex flex-col gap-y-2">
               <h1 className="text-black font-[700] text-[36px]">
                 Apa kata mahasiswa Kampus Gratis
@@ -18,7 +18,7 @@ export const TestimonySection: FC = (): ReactElement => {
               </p>
             </div>
           </div>
-          <div className="flex w-full gap-x-6">
+          <div className="flex flex-col md:flex-row w-full gap-x-6">
             <TestimonyCard />
             <TestimonyCard />
           </div>

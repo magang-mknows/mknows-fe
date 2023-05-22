@@ -1,9 +1,9 @@
-import { MaintnenceModule } from '../../../../modules/common/maintnence';
+import { Status } from '../../../../modules/mystudy/assignment';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 
 const StudyPlanAssigmentPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <Status />;
 };
 
 export default StudyPlanAssigmentPage;
