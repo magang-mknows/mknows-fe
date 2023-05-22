@@ -1,4 +1,4 @@
-import { GuideBookModule } from '@lxp/modules/guide-guide book';
+import { GuideBookModule } from '../../../modules/guide-guide book';
 import { NextPage } from 'next';
 import React, { ReactElement } from 'react';
 
