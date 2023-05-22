@@ -1,4 +1,4 @@
-import { FC, ReactElement, useEffect, useMemo, useState } from 'react';
+import { FC, ReactElement, useEffect, useMemo } from 'react';
 import { QuizTimer } from './components/quiz-timer';
 import { useWindowSize } from '../../../common/hooks/use-window-size';
 import {
@@ -155,7 +155,10 @@ export const QuizTakeModule: FC = (): ReactElement => {
     }
   }
   function handleClassNameButtonGroup(index: number) {
-    if (getQuizRequestSubmit[index]?.hasOwnProperty('help')) {
+    // if (getQuizRequestSubmit[index]?.hasOwnProperty('help')) {
+    if (
+      Object.prototype.hasOwnProperty.call(getQuizRequestSubmit[index], 'help')
+    ) {
       return `border-2 border-yellow-500 ${
         index + 1 === getCurrNumber
           ? 'text-yellow-500 hover:bg-neutral-200'
