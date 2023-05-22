@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { TrainingContractTab } from './training-tab/training-tab';
+import { TrainingContractTable } from './training-tab';
 
 export const TrainingContractMain: FC = (): ReactElement => {
   return (
@@ -9,7 +9,7 @@ export const TrainingContractMain: FC = (): ReactElement => {
           Kontrak Pelatihan
         </h1>
       </div>
-      <TrainingContractTab />
+      <TrainingContractTable />
     </main>
   );
 };
