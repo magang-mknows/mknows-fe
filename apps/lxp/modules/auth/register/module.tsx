@@ -92,7 +92,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'full_name'}
-              placeholder="Maulana Sodiqin"
+              placeholder="Masukan Nama Lengkap Anda"
               label="Nama Lengkap"
               status={errors.full_name ? 'error' : 'none'}
               message={errors.full_name?.message}
@@ -103,7 +103,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'email'}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukan Email Anda"
               label="Email"
               status={errors.email ? 'error' : 'none'}
               message={errors.email?.message}
@@ -113,7 +113,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'password'}
-              placeholder="************"
+              placeholder="Masukan Kata Sandi"
               label="Kata Sandi"
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
@@ -123,7 +123,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'password_confirmation'}
-              placeholder="************"
+              placeholder="Konfirmasi Kata Sandi"
               label="Konfirmasi Kata Sandi"
               status={errors.password_confirmation ? 'error' : 'none'}
               message={errors.password_confirmation?.message}
