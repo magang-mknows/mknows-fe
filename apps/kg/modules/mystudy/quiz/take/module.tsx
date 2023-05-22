@@ -155,7 +155,6 @@ export const QuizTakeModule: FC = (): ReactElement => {
     }
   }
   function handleClassNameButtonGroup(index: number) {
-    // if (getQuizRequestSubmit[index]?.hasOwnProperty('help')) {
     if (
       getQuizRequestSubmit[index] &&
       Object.prototype.hasOwnProperty.call(getQuizRequestSubmit[index], 'help')
