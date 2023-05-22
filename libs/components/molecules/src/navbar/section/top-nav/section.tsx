@@ -7,6 +7,8 @@ import { IconFeature, IconRing } from '../icons';
 import Image from 'next/image';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
+import Avatar from 'react-avatar';
+import { useProfile } from '../../../../../../../apps/kg/modules/profile/section/edit-profile';
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
@@ -17,13 +19,22 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
       className="flex flex-col font-bold gap-y-3 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
     >
       <div className="flex gap-x-4 items-center">
-        <Image
-          src={userData.avatar}
-          alt={'user avatar'}
-          width={36}
-          height={36}
-          className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
-        />
+        {userData?.avatar ? (
+          <Image
+            src={userData.avatar}
+            alt={'user avatar'}
+            width={36}
+            height={36}
+            className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+          />
+        ) : (
+          <Avatar
+            name={userData?.full_name}
+            className="rounded-full w-[36px] h-[36px]"
+            size="36"
+          />
+        )}
+
         <div className="flex flex-col gap-y-2">
           <span className="text-[16px]">{userData.full_name}</span>
           <span className="text-[14px] text-neutral-base font-normal">
@@ -83,7 +94,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
       </div>
       <Link
         href={'/semua-fitur'}
-        className="flex bg-neutral-200 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-neutral-700 font-[700]"
+        className="flex bg-primary-500 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-white font-[700]"
       >
         Lihat Semua
       </Link>
@@ -100,6 +111,7 @@ export const TopNav: FC<TNavbarProps> = ({
   const { data: session } = useSession();
   const [getPopUp, setPopUp] = useState(false);
   const [getPopUpAllFeature, setPopUpAllFeature] = useState(false);
+  const { data } = useProfile();
 
   return (
     <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
@@ -131,16 +143,15 @@ export const TopNav: FC<TNavbarProps> = ({
             <div className=" bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
               <IconRing />
             </div>
-            <Image
-              src={props.userData.avatar}
+            <Avatar
               alt={'user avatar'}
-              width={36}
-              height={36}
+              name={data?.data?.user?.full_name}
+              size="36"
               onClick={() => {
                 setPopUpAllFeature(false);
                 setPopUp(!getPopUp);
               }}
-              className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+              className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700] cursor-pointer"
             />
             {getPopUp && <PopUpMenu {...props} />}
           </div>

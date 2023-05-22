@@ -124,9 +124,9 @@ export const LoginModule: FC = (): ReactElement => {
             <div className="flex flex-col my-4">
               <Button
                 type="submit"
-                disabled={!isValid}
                 loading={loading ? 'Sedang Masuk..' : ''}
-                className="disabled:bg-version2-400/60 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-full text-base py-4 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2"
+                className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 w-full text-sm py-5  disabled:border-none text-neutral-100 hover:bg-version2-300 hover:border-version2-300 !bg-version2-400 disabled:!bg-version2-400/60 !border-none"
+                disabled={!isValid}
               >
                 Masuk
               </Button>

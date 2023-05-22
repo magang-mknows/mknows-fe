@@ -5,7 +5,7 @@ import { Button } from '@mknows-frontend-services/components/atoms';
 
 export const Banner2Module: FC = (): ReactElement => {
   return (
-    <main className="px-[70px] py[10px] bg-white w-full">
+    <main className="px-[70px] py[10px] pb-20 bg-white w-full">
       <section className="bg-primary-600 w-full flex flex-col items-center rounded-lg h-[438px]">
         <div className="flex w-full">
           <div className="flex flex-col justify-center items-start gap-y-[48px] w-full pl-[64px]">

@@ -1,21 +1,36 @@
 import { Button } from '@mknows-frontend-services/components/atoms';
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import { IoAlertCircle } from 'react-icons/io5';
 import { useRecoilState } from 'recoil';
 import { TrainingConfirmPopup } from './store';
 import { Modal } from '@mknows-frontend-services/components/molecules';
 import { TSubjectHeaderProps } from './types';
+import { useAskDepartment } from './hook';
 
 export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
   name,
   batch,
   category,
   point,
+  id,
 }): ReactElement => {
   const [getConfirmPopup, setConfirmPopup] =
     useRecoilState(TrainingConfirmPopup);
+
+  const { mutate, data } = useAskDepartment();
+
+  const handleAskDept = (deptId: string) => {
+    mutate(deptId, {
+      onSuccess: () => {
+        console.log('sukses mengajukan departmen');
+      },
+    });
+  };
+
+  useEffect(() => {
+    console.log(data?.data);
+  }, [data?.data]);
 
   return (
     <header className="px-8 pb-6 pt-6 md:px-14 lg:px-16 mb-8">
@@ -31,6 +46,7 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
             <span>:</span>
             <span> {category}</span>
           </h1>
+
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
             <span className="min-w-[140px] lg:min-w-[200px]">Batch</span>
             <span>:</span>
@@ -91,21 +107,17 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
               >
                 <h1>Batal</h1>
               </Button>
-              <Link
-                passHref
-                href={'/rencana-pelatihan/kontrak-pelatihan/test'}
-                className="w-full"
+
+              <Button
+                type="button"
+                className="py-2.5 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-full text-sm "
+                onClick={() => {
+                  setConfirmPopup(false);
+                  handleAskDept(id);
+                }}
               >
-                <Button
-                  type="button"
-                  className="py-2.5 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 w-full text-sm "
-                  onClick={() => {
-                    setConfirmPopup(false);
-                  }}
-                >
-                  <h1>Konfrmasi</h1>
-                </Button>
-              </Link>
+                <h1>Konfrmasi</h1>
+              </Button>
             </section>
           </main>
         </section>
