@@ -19,9 +19,11 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const windowSize = useWindowSize();
   const { getQuestionsData, setQuestionsData } = useQuizQuestion();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizNumber();
+  const { getQuizRequestSubmit, setQuizRequestSubmit } = useQuizRequestSubmit();
+  const { setNewStoredAnswer, resetStoredAnswer } = useAutoSaveQuizAnswer();
   const prevPath = router.asPath.split('/').slice(0, -1).join('/');
 
-  const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
+  // const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
   // const dataQuizTake: TQuizTakeItem = data?.data;
   const dataQuizTake: TQuizTakeItem = useMemo(() => {
     return {
@@ -77,9 +79,6 @@ export const QuizTakeModule: FC = (): ReactElement => {
     setQuestionsData(dataQuizTake?.questions_answers);
   }, [setQuestionsData, dataQuizTake]);
 
-  const { getQuizRequestSubmit, setQuizRequestSubmit } = useQuizRequestSubmit();
-  const { setNewStoredAnswer, resetStoredAnswer } = useAutoSaveQuizAnswer();
-
   useEffect(() => {
     if (getQuestionsData.length > 0) {
       const temp: Array<TQuizRequestSubmit> = [];
@@ -90,14 +89,21 @@ export const QuizTakeModule: FC = (): ReactElement => {
     }
   }, [getQuestionsData]);
 
-  console.log(getQuizRequestSubmit);
-
   useEffect(() => {
     if (getQuizRequestSubmit.length > 0) {
       setNewStoredAnswer(getQuizRequestSubmit);
     }
   }, [getQuizRequestSubmit]);
 
+  function duplicateQuizRequestSubmit() {
+    const newQuizSubmit: Array<TQuizRequestSubmit> = [...getQuizRequestSubmit];
+
+    const temp: Array<TQuizRequestSubmit> = [];
+    for (const obj of newQuizSubmit) {
+      temp.push(Object.assign({}, obj));
+    }
+    return temp;
+  }
   function handleSaveAnswer(questionId: string, answerId: string) {
     const isQuestionSame = getQuizRequestSubmit.some(
       (req) => req.question === questionId
@@ -107,17 +113,10 @@ export const QuizTakeModule: FC = (): ReactElement => {
     );
 
     if (!isQuestionSame && !isAnswerSame) {
-      const newQuizSubmit: Array<TQuizRequestSubmit> = [
-        ...getQuizRequestSubmit,
-      ];
-
-      const temp: Array<TQuizRequestSubmit> = [];
-      for (const obj of newQuizSubmit) {
-        temp.push(Object.assign({}, obj));
-      }
-      temp[getCurrNumber - 1].answer = answerId;
-      temp[getCurrNumber - 1].question = questionId;
-      setQuizRequestSubmit(temp);
+      const newQuizSubmit = duplicateQuizRequestSubmit();
+      newQuizSubmit[getCurrNumber - 1].answer = answerId;
+      newQuizSubmit[getCurrNumber - 1].question = questionId;
+      setQuizRequestSubmit(newQuizSubmit);
     }
 
     if (isQuestionSame && !isAnswerSame) {
@@ -129,20 +128,13 @@ export const QuizTakeModule: FC = (): ReactElement => {
       }
 
       if (indexFound !== undefined) {
-        const newQuizSubmit: Array<TQuizRequestSubmit> = [
-          ...getQuizRequestSubmit,
-        ];
-        const temp: Array<TQuizRequestSubmit> = [];
-        for (const obj of newQuizSubmit) {
-          temp.push(Object.assign({}, obj));
-        }
-        temp[indexFound].answer = answerId;
-        setQuizRequestSubmit(temp);
+        const newQuizSubmit = duplicateQuizRequestSubmit();
+        newQuizSubmit[indexFound].answer = answerId;
+        setQuizRequestSubmit(newQuizSubmit);
       } else if (indexFound === undefined) {
         console.log('indexFound variable is undefined!!!');
       }
     }
-    // next step: save global state into local storage
   }
 
   function isAnswerAlreadyExist(answerId: string) {
@@ -168,11 +160,6 @@ export const QuizTakeModule: FC = (): ReactElement => {
       };
       setQuizRequestSubmit(temp);
     }
-  }
-  function handleClassNameConditions(id: string) {
-    return getQuestionsData[getCurrNumber - 1]?.answers.some(
-      (answers) => answers.id === id
-    );
   }
   function handleClassNameButtonGroup(index: number) {
     if (
