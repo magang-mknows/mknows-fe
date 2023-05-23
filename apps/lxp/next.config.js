@@ -11,7 +11,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['i.ytimg.com', 'res.cloudinary.com'],
+    domains: ['i.ytimg.com', 'res.cloudinary.com', 'lh3.googleusercontent.com'],
   },
   experimental: {},
 };
