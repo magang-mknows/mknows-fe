@@ -13,7 +13,7 @@ export const PartnerAlternatif: FC = (): ReactElement => {
   const carousel = useRef<AliceCarousel>(null);
   const _partner_logo = [Partner1, Partner2, Partner3, Partner4, Partner5];
   return (
-    <section className="flex flex-col gap-y-[64px] bg-white items-center py-[118px] justify-center">
+    <section className="flex flex-col gap-y-[64px] bg-white items-center py-[60px] justify-center">
       <h1 className="md:text-[44px] text-[36px] font-[700] text-black">
         Mitra <strong className="text-[#ED3768]">Kampus Kami</strong>
       </h1>
@@ -23,7 +23,7 @@ export const PartnerAlternatif: FC = (): ReactElement => {
           size={40}
           className="rounded-lg hidden md:block h-[60px] absolute text-primary-600 left-10 z-10"
         />
-        <Carousel carouselRef={carousel}>
+        <Carousel carouselRef={carousel} disableDot>
           {_partner_logo.map((logo, key) => (
             <Image
               key={key}

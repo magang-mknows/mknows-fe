@@ -3,23 +3,17 @@ import { FC, ReactElement } from 'react';
 export const FooterAddress: FC = (): ReactElement => {
   return (
     <div className=" text-neutral-900">
-      <h1 className="mb-3 lg:mb-6font-black text-base font-bold">Alamat</h1>
+      <h1 className="mb-3 lg:mb-2 font-black text-base font-bold">Alamat</h1>
+      <span className="font-bold py-2">PT Menara Indonesia</span>
       <ul className="flex text-xs md:text-sm flex-col gap-1 lg:gap-3 xl:gap-4">
         <li className="flex gap-2 ">
           <section className="min-w-[70px] flex justify-between">
             <span>Utama</span>
             <span>:</span>
           </section>
-          <span className="font-bold">PT MENARA PENGETAHUAN INDONESIA</span>
-        </li>
-        <li className="flex gap-2 ">
-          <section className="min-w-[70px] flex justify-between">
-            <span>Cabang</span>
-            <span>:</span>
-          </section>
           <span>
-            Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota
-            Tangerang Selatan, Banten 15419
+            Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta
+            Selatan, Jakarta 12130
           </span>
         </li>
         <li className="flex gap-2 ">
@@ -27,7 +21,10 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>Cabang</span>
             <span>:</span>
           </section>
-          <span>Jl. Raya Darmo Permai III Surabaya. 60119</span>
+          <span>
+            Jl. Cireundeu Raya No. 59 ,Ciputat Timur, Tangerang Selatan, Banten
+            15419
+          </span>
         </li>
       </ul>
     </div>
