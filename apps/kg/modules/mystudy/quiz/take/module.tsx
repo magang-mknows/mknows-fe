@@ -81,6 +81,18 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const { setNewStoredAnswer, resetStoredAnswer } = useAutoSaveQuizAnswer();
 
   useEffect(() => {
+    if (getQuestionsData.length > 0) {
+      const temp: Array<TQuizRequestSubmit> = [];
+      getQuestionsData.forEach(() => {
+        temp.push({ answer: '', question: '' });
+      });
+      setQuizRequestSubmit(temp);
+    }
+  }, [getQuestionsData]);
+
+  console.log(getQuizRequestSubmit);
+
+  useEffect(() => {
     if (getQuizRequestSubmit.length > 0) {
       setNewStoredAnswer(getQuizRequestSubmit);
     }
@@ -97,12 +109,15 @@ export const QuizTakeModule: FC = (): ReactElement => {
     if (!isQuestionSame && !isAnswerSame) {
       const newQuizSubmit: Array<TQuizRequestSubmit> = [
         ...getQuizRequestSubmit,
-        {
-          answer: answerId,
-          question: questionId,
-        },
       ];
-      setQuizRequestSubmit(newQuizSubmit);
+
+      const temp: Array<TQuizRequestSubmit> = [];
+      for (const obj of newQuizSubmit) {
+        temp.push(Object.assign({}, obj));
+      }
+      temp[getCurrNumber - 1].answer = answerId;
+      temp[getCurrNumber - 1].question = questionId;
+      setQuizRequestSubmit(temp);
     }
 
     if (isQuestionSame && !isAnswerSame) {
@@ -154,6 +169,11 @@ export const QuizTakeModule: FC = (): ReactElement => {
       setQuizRequestSubmit(temp);
     }
   }
+  function handleClassNameConditions(id: string) {
+    return getQuestionsData[getCurrNumber - 1]?.answers.some(
+      (answers) => answers.id === id
+    );
+  }
   function handleClassNameButtonGroup(index: number) {
     if (
       getQuizRequestSubmit[index] &&
@@ -165,11 +185,15 @@ export const QuizTakeModule: FC = (): ReactElement => {
           : 'bg-yellow-500 text-white hover:opacity-75'
       }`;
     }
-    if (isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer)) {
+    if (
+      isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer) &&
+      getQuizRequestSubmit[index].answer !== ''
+    ) {
       return `bg-primary-500 border-2 border-primary-500 text-neutral-200 hover:opacity-75 ${
         index + 1 === getCurrNumber ? 'border-yellow-500' : 'border-none'
       }`;
-    } else if (!isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer)) {
+    }
+    if (getQuizRequestSubmit[index]?.answer === '') {
       return `text-neutral-500 border hover:bg-neutral-200 hover:text-neutral-800 ${
         index + 1 === getCurrNumber ? 'border-primary-500' : 'border-none'
       }`;
