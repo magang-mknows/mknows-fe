@@ -18,6 +18,7 @@ export type TQuizTakeResponse = TMetaResponseSingle<TQuizTakeItem>;
 export type TQuizRequestSubmit = {
   question: string;
   answer: string;
+  help?: boolean;
 };
 
 export type TQuestion = {

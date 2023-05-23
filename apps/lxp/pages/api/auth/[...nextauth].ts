@@ -4,6 +4,23 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { loginByGoogleRequest, loginRequest } from '../../../modules';
 import { TLoginData } from '../../../modules';
+import { refreshTokenRequest } from '../../../modules/auth/refresh-token/api';
+
+export const refreshAccessToken = async (token: TLoginData) => {
+  try {
+    const data = await refreshTokenRequest({
+      refresh_token: token.refresh_token,
+    });
+
+    return {
+      ...token,
+      access_token: data.access_token,
+      refresh_token: data.refresh_token ?? token.refresh_token,
+    };
+  } catch (error: any) {
+    throw new Error(error.response.data.message);
+  }
+};
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -52,10 +69,10 @@ export const authOptions: NextAuthOptions = {
       if (account?.provider === 'google' && account) {
         try {
           const { data } = await loginByGoogleRequest({
-            credential: account.id_token as string,
+            credentials: account.id_token as string,
           });
-          account.access_token = data?.token?.access_token;
-          account.refresh_token = data?.token?.refresh_token;
+          account.access_token = data?.token?.accessToken;
+          account.refresh_token = data?.token?.refreshToken;
         } catch (error: any) {
           return `/auth/login?error=${error.response.data?.message}`;
         }
