@@ -8,7 +8,6 @@ import Image from 'next/image';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
 import Avatar from 'react-avatar';
-import { useProfile } from '../../../../../../../apps/kg/modules/profile/section/edit-profile';
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
@@ -106,12 +105,12 @@ export const TopNav: FC<TNavbarProps> = ({
   logo,
   logoStyle,
   button,
+  userData,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
   const [getPopUp, setPopUp] = useState(false);
   const [getPopUpAllFeature, setPopUpAllFeature] = useState(false);
-  const { data } = useProfile();
 
   return (
     <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
@@ -145,15 +144,24 @@ export const TopNav: FC<TNavbarProps> = ({
             </div>
             <Avatar
               alt={'user avatar'}
-              name={data?.data?.user?.full_name}
               size="36"
+              name={userData.full_name}
               onClick={() => {
                 setPopUpAllFeature(false);
                 setPopUp(!getPopUp);
               }}
               className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700] cursor-pointer"
             />
-            {getPopUp && <PopUpMenu {...props} />}
+            {getPopUp && (
+              <PopUpMenu
+                userData={{
+                  full_name: userData?.full_name,
+                  email: userData?.email,
+                  avatar: userData?.avatar,
+                }}
+                {...props}
+              />
+            )}
           </div>
         )}
       </nav>
