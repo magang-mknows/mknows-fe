@@ -4,6 +4,8 @@ import { FeatureAlternatif } from './feature';
 import { BannerAlternatif } from './banner';
 import { PartnerAlternatif } from './partner';
 import { LayoutFooter } from '../common/footer/footer-layout';
+import { GlimpseAlternatif } from './glimpse';
+import { FacultyAlternatif } from './faculty';
 
 export const LandingAlternatif: FC = (): ReactElement => {
   return (
@@ -12,6 +14,8 @@ export const LandingAlternatif: FC = (): ReactElement => {
       <FeatureAlternatif />
       <BannerAlternatif />
       <PartnerAlternatif />
+      <GlimpseAlternatif />
+      <FacultyAlternatif />
       <LayoutFooter />
     </Fragment>
   );

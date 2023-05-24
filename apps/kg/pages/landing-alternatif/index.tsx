@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 
 const LandingAltPage: NextPage = (): ReactElement => {
   return (
-    <BaseLayout title="Landing-alt">
+    <BaseLayout addSearch title="Landing-alt">
       <LandingAlternatif />
     </BaseLayout>
   );
