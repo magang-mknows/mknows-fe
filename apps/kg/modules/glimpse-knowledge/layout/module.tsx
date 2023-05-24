@@ -1,11 +1,12 @@
 import { FC, ReactElement } from 'react';
-// import { ClientProvider } from '../../common/provider';
 import GlimpseKnowledgeLayoutPage from './GlimpseKnowledgeLayoutPage';
+import { BaseLayout } from '../../../modules/common';
+
 
 export const GlimpseKnowledgeLayout: FC = (): ReactElement => {
   return (
-    <>
+    <BaseLayout>
       <GlimpseKnowledgeLayoutPage />
-    </>
+    </BaseLayout>
   );
 };

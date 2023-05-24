@@ -1,11 +1,11 @@
 import { FC, ReactElement } from 'react';
-// import { ClientProvider } from '../common/provider';
 import { GlimpseKnowledgePage } from './component/GlimpseKnowledgePage';
+import { BaseLayout } from '../../modules/common';
 
 export const GlimpseKnowledgeModule: FC = (): ReactElement => {
   return (
-    <>
+    <BaseLayout>
       <GlimpseKnowledgePage />
-    </>
+    </BaseLayout>
   );
 };
