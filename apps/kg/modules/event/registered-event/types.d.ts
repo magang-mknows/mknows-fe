@@ -14,6 +14,13 @@ export type TEventItem = {
   contact_person_email: string;
   type_order: string;
   type_event: string;
+  event_studentEvent: EventStudentEvent[];
 };
 
+export interface EventStudentEvent {
+  id: string;
+  student_id: string;
+  event_id: string;
+  status: string;
+}
 export type TEventResponse = TMetaResponse<TEventItem>;

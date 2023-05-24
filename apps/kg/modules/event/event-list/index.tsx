@@ -11,6 +11,8 @@ import { StaticImageData } from 'next/image';
 export const EventList: FC = (): ReactElement => {
   const { data } = useGetEvent();
   const eventListData = data?.data;
+  console.log(eventListData);
+  
 
   return (
     <Fragment>
