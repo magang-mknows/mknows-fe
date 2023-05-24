@@ -7,7 +7,6 @@ import { useQuotaData } from './hooks';
 import cursorLoading from '/assets/quota/cursor-loading.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
-  const { data } = useQuota();
   const { getQuotaData } = useQuotaData();
   const [Quota, setQuota] = useState<number>(0);
   const [ProductName, setProductName] = useState<string>('default');
@@ -40,6 +39,10 @@ const AlokasiKuota: FC = (): ReactElement => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const { data } = useQuota({
+    date_from: '',
+  });
 
   return (
     <section className="my-14 lg:mx-0 mx-0 w-full">

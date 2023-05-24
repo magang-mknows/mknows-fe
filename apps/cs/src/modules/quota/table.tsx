@@ -1,9 +1,10 @@
 import { FC, ReactElement } from 'react';
 import { formatDate } from '@mknows-frontend-services/utils';
-import { useQuota } from './hooks';
+import { useFilterAction, useQuota } from './hooks';
 
 const Table: FC = (): ReactElement => {
-  const { data } = useQuota();
+  const { getFilterAction } = useFilterAction();
+  const { data } = useQuota(getFilterAction);
 
   return (
     <div className="overflow-x-scroll">
@@ -48,7 +49,7 @@ const Table: FC = (): ReactElement => {
                   {item.feature.name}
                 </td>
                 <td className="px-14 py-1">
-                  {formatDate(new Date(item.created_at))}
+                  {formatDate({ date: new Date(item.created_at) })}
                 </td>
                 <td className="px-20 py-1">{item.quantity}</td>
                 <td className="px-6 py-1 bg-green-400">
