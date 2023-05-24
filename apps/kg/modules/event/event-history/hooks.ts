@@ -1,13 +1,13 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { TEventResponse } from './types';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { eventRegisteredGetRequest } from './api';
+import { eventHistoryGetRequest } from './api';
 
-export const useGetEventRegistered = (): UseQueryResult<
+export const useGetEventHistory = (): UseQueryResult<
   TEventResponse,
   TMetaErrorResponse
 > =>
   useQuery({
-    queryKey: ['event-get-registered'],
-    queryFn: async () => await eventRegisteredGetRequest(),
+    queryKey: ['event-get-history'],
+    queryFn: async () => await eventHistoryGetRequest(),
   });
