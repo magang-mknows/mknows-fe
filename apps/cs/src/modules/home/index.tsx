@@ -21,7 +21,7 @@ const HomeModules: FC = (): ReactElement => {
   return (
     <section>
       <CardSection />
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 px-6">
         <div>
           <RequestSection />
           <AgeTrack />

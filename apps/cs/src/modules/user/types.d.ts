@@ -17,6 +17,12 @@ export type TDataUploader = {
   label: string;
 };
 
+export interface TtoolTip {
+  children: ReactNode;
+  tooltip?: string;
+  className?: string;
+}
+
 export type TUserDataResponse = { getUserData: TUserDataDummy[] };
 
 export type TUserQueryResponse = {

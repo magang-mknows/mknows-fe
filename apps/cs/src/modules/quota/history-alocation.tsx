@@ -30,7 +30,7 @@ const RiwayatAlokasi: FC = (): ReactElement => {
             </div>
             <div className="w-full">
               <Search
-                value="search"
+                value=""
                 onChange={(e: { target: { value: string } }) =>
                   console.log('ok')
                 }

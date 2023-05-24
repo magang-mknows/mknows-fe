@@ -42,7 +42,7 @@ const AlokasiKuota: FC = (): ReactElement => {
   }
 
   return (
-    <section className="my-14 mx-14 w-full">
+    <section className="my-14 lg:mx-0 mx-0 w-full">
       <div className="font-bold text-2xl text-[#444444]">Alokasi Kuota</div>
       {/* content */}
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">
@@ -63,7 +63,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <Card
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
-                    onClick={() => setProductName(item.feature_id.name)}
+                    onClick={() => setProductName(item.feature.name)}
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
@@ -76,7 +76,7 @@ const AlokasiKuota: FC = (): ReactElement => {
 
                       <div className="flex flex-col w-full h-full items-center space-y-1">
                         <p className="text-sm font-semibold">
-                          {item.feature_id.name}
+                          {item.feature.name}
                         </p>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         {/* content 2 */}
         {ProductName === 'default' ? (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
-            <div className="flex flex-col gap-y-5 h-full justify-center px-10 items-center">
+            <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
               <img src={cursorLoading} alt="loading..." />
               <span className="font-semibold text-base text-[#000000]">
                 Silahkan pilih jenis produk terlebih dahulu

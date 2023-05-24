@@ -33,7 +33,7 @@ export type TQuotaDataResponse = { getQuotaData: string[] };
 
 export type TQuotaItem = {
   id: string;
-  feature_id: FeatureId;
+  feature: Feature;
   request_number: string;
   quantity: number;
   status: string;
@@ -43,7 +43,7 @@ export type TQuotaItem = {
   __v: number;
 };
 
-export interface FeatureId {
+export interface Feature {
   _id: string;
   name: string;
 }
