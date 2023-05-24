@@ -8,7 +8,7 @@ export const DrillSimulasiModule: FC = (): ReactElement => {
   return (
     <Fragment>
       <BaseLayout>
-        <BreadCrumb items={drillSimulasionBreadCumbs} />
+        <BreadCrumb items={drillSimulasionBreadCumbs} bgColor="bg-white" />
         <div className="px-6 md:px-8 lg:px-10 w-full">
           <HeroSection />
           <ContentSection />

@@ -12,7 +12,7 @@ export const ScoreModule: FC = (): ReactElement => {
   const setDetailStatus = useSetRecoilState(ShowDetailStatus);
   return (
     <BaseLayout>
-      <BreadCrumb items={scoreBreadCumbs} />
+      <BreadCrumb items={scoreBreadCumbs} bgColor="bg-white" />
       <section className="py-1 bg-[#FAFAFA] dark:bg-gray-900">
         <main className="lg:px-20 px-10 min-h-[80vh] py-4 ">
           <Tab.Group>

@@ -22,7 +22,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
   return (
     <div className="md:px-6 py-0 mb-20">
       <>
-        {getHistory.length === 0 ? (
+        {getHistory.length === undefined ? (
           <div className="flex flex-col align-center items-center">
             <Image src={simulasiNull} alt="simulasi-null" />
             <h1 className="text-black">
