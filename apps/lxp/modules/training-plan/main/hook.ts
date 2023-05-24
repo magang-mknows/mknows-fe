@@ -8,6 +8,8 @@ export const useGetAllDepartments = (
 ): UseQueryResult<TDepartmentResponse, TMetaErrorResponse> => {
   return useQuery({
     queryKey: ['get-all-department', keyword],
-    queryFn: async () => await getAllDepartments(keyword),
+    queryFn: async () => {
+      await getAllDepartments(keyword);
+    },
   });
 };
