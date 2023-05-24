@@ -1,3 +1,5 @@
+import { TQuizSubmitPayload } from '../../type';
+
 export type CountdownTimerProps = {
   targetHours: number;
 };
@@ -13,4 +15,5 @@ export type TRemainingTimeProps = {
   expiryTimestamp: number;
   prevPath: string;
   quizTakeId: string;
+  payload: TQuizSubmitPayload;
 };

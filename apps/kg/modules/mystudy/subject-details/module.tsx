@@ -13,6 +13,10 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
   const dataSubjectDetails = data?.data.dataSubject;
   const dataSessions = data?.data.dataSessions;
 
+  const thumbnailImg = dataSubjectDetails?.thumbnail.includes('.')
+    ? dataSubjectDetails.thumbnail
+    : '';
+
   return (
     <div className="mx-auto px-[7%] my-8 flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-[30px] items-center">
@@ -21,7 +25,7 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
         </h3>
         <div className="w-[95%] h-[253px]">
           <Image
-            src={dataSubjectDetails?.thumbnail as string}
+            src={thumbnailImg}
             alt={`${dataSubjectDetails?.name}-image`}
             width={1170}
             height={250}

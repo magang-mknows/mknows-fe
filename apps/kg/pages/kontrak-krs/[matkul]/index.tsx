@@ -1,5 +1,4 @@
-import { StudyContractModules } from '../../modules';
-import { MaintnenceModule } from '../../modules/common/maintnence';
+import { StudyContractModules } from '../../../modules';
 import { NextPage } from 'next';
 import { ReactElement } from 'react';
 

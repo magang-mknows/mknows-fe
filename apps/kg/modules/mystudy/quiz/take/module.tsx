@@ -7,21 +7,32 @@ import {
   useGetQuizTakeById,
   useQuizQuestion,
   useQuizRequestSubmit,
+  useSubmitQuiz,
 } from './hooks';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { useRouter } from 'next/router';
-import { TQuizRequestSubmit, TQuizTakeItem } from './type';
+import {
+  TQuestionsAnswersPayloadItem,
+  TQuizRequestSubmit,
+  TQuizSubmitPayload,
+  TQuizTakeItem,
+} from './type';
 
 export const QuizTakeModule: FC = (): ReactElement => {
   const router = useRouter();
   const windowSize = useWindowSize();
   const { getQuestionsData, setQuestionsData } = useQuizQuestion();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizNumber();
+  const { getQuizRequestSubmit, setQuizRequestSubmit } = useQuizRequestSubmit();
+  const { storedAnswer, setNewStoredAnswer, resetStoredAnswer } =
+    useAutoSaveQuizAnswer();
   const prevPath = router.asPath.split('/').slice(0, -1).join('/');
 
-  const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
+  const { mutate } = useSubmitQuiz(router.query.quizTakeId as string);
+
+  // const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
   // const dataQuizTake: TQuizTakeItem = data?.data;
   const dataQuizTake: TQuizTakeItem = useMemo(() => {
     return {
@@ -77,8 +88,15 @@ export const QuizTakeModule: FC = (): ReactElement => {
     setQuestionsData(dataQuizTake?.questions_answers);
   }, [setQuestionsData, dataQuizTake]);
 
-  const { getQuizRequestSubmit, setQuizRequestSubmit } = useQuizRequestSubmit();
-  const { setNewStoredAnswer, resetStoredAnswer } = useAutoSaveQuizAnswer();
+  useEffect(() => {
+    if (storedAnswer.length === 0 && getQuestionsData.length > 0) {
+      const temp: Array<TQuizRequestSubmit> = [];
+      getQuestionsData.forEach(() => {
+        temp.push({ answer: '', question: '' });
+      });
+      setQuizRequestSubmit(temp);
+    }
+  }, [getQuestionsData]);
 
   useEffect(() => {
     if (getQuizRequestSubmit.length > 0) {
@@ -86,6 +104,15 @@ export const QuizTakeModule: FC = (): ReactElement => {
     }
   }, [getQuizRequestSubmit]);
 
+  function duplicateQuizRequestSubmit() {
+    const newQuizSubmit: Array<TQuizRequestSubmit> = [...getQuizRequestSubmit];
+
+    const temp: Array<TQuizRequestSubmit> = [];
+    for (const obj of newQuizSubmit) {
+      temp.push(Object.assign({}, obj));
+    }
+    return temp;
+  }
   function handleSaveAnswer(questionId: string, answerId: string) {
     const isQuestionSame = getQuizRequestSubmit.some(
       (req) => req.question === questionId
@@ -95,13 +122,9 @@ export const QuizTakeModule: FC = (): ReactElement => {
     );
 
     if (!isQuestionSame && !isAnswerSame) {
-      const newQuizSubmit: Array<TQuizRequestSubmit> = [
-        ...getQuizRequestSubmit,
-        {
-          answer: answerId,
-          question: questionId,
-        },
-      ];
+      const newQuizSubmit = duplicateQuizRequestSubmit();
+      newQuizSubmit[getCurrNumber - 1].answer = answerId;
+      newQuizSubmit[getCurrNumber - 1].question = questionId;
       setQuizRequestSubmit(newQuizSubmit);
     }
 
@@ -114,30 +137,43 @@ export const QuizTakeModule: FC = (): ReactElement => {
       }
 
       if (indexFound !== undefined) {
-        const newQuizSubmit: Array<TQuizRequestSubmit> = [
-          ...getQuizRequestSubmit,
-        ];
-        const temp: Array<TQuizRequestSubmit> = [];
-        for (const obj of newQuizSubmit) {
-          temp.push(Object.assign({}, obj));
-        }
-        temp[indexFound].answer = answerId;
-        setQuizRequestSubmit(temp);
+        const newQuizSubmit = duplicateQuizRequestSubmit();
+        newQuizSubmit[indexFound].answer = answerId;
+        setQuizRequestSubmit(newQuizSubmit);
       } else if (indexFound === undefined) {
         console.log('indexFound variable is undefined!!!');
       }
     }
-    // next step: save global state into local storage
   }
 
   function isAnswerAlreadyExist(answerId: string) {
     return getQuizRequestSubmit.some((req) => req.answer === answerId);
+  }
+  function handleReturnPayload(): TQuizSubmitPayload {
+    const removedHelpKey: TQuestionsAnswersPayloadItem[] =
+      getQuizRequestSubmit.map((quiz) => {
+        return Object.keys(quiz).includes('help')
+          ? {
+              answer: quiz.answer,
+              question: quiz.question,
+            }
+          : { ...quiz };
+      });
+    const removedEmptyAnswer: TQuestionsAnswersPayloadItem[] =
+      removedHelpKey.filter(
+        (quiz) => quiz.answer !== '' || quiz.question !== ''
+      );
+    return {
+      questions_answers: removedEmptyAnswer,
+    };
   }
   function handleNextButton() {
     if (getCurrNumber < getQuestionsData.length) {
       setCurrNumber(getCurrNumber + 1);
     } else {
       router.push(`${prevPath}/${router.query.quizTakeId}`);
+      const submitPayload = handleReturnPayload();
+      mutate(submitPayload);
       resetStoredAnswer();
     }
   }
@@ -165,11 +201,15 @@ export const QuizTakeModule: FC = (): ReactElement => {
           : 'bg-yellow-500 text-white hover:opacity-75'
       }`;
     }
-    if (isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer)) {
+    if (
+      isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer) &&
+      getQuizRequestSubmit[index].answer !== ''
+    ) {
       return `bg-primary-500 border-2 border-primary-500 text-neutral-200 hover:opacity-75 ${
         index + 1 === getCurrNumber ? 'border-yellow-500' : 'border-none'
       }`;
-    } else if (!isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer)) {
+    }
+    if (getQuizRequestSubmit[index]?.answer === '') {
       return `text-neutral-500 border hover:bg-neutral-200 hover:text-neutral-800 ${
         index + 1 === getCurrNumber ? 'border-primary-500' : 'border-none'
       }`;
@@ -283,7 +323,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
             <QuizTimer
               prevPath={prevPath}
               quizTakeId={router.query.quizTakeId as string}
-              expiryTimestamp={2 / 60}
+              payload={handleReturnPayload()}
+              expiryTimestamp={1 / 60}
             />
           </div>
         </div>
