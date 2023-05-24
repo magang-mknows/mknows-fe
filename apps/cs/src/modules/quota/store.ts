@@ -1,6 +1,16 @@
 import { atom, selector } from 'recoil';
 import { TResultDataDummy } from './types';
 
+export const icon = atom<string[]>({
+  key: 'quota-data-icons',
+  default: [
+    '/assets/quota/card1.svg',
+    '/assets/quota/card2.svg',
+    '/assets/quota/card3.svg',
+    '/assets/quota/card4.svg',
+  ],
+});
+
 export const quotaSearch = atom({
   key: 'quota-query',
   default: '',

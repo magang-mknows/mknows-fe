@@ -15,6 +15,12 @@ export type TQuizQuestionsAnswers = {
 
 export type TQuizTakeResponse = TMetaResponseSingle<TQuizTakeItem>;
 
+export type TQuizRequestSubmit = {
+  question: string;
+  answer: string;
+  help?: boolean;
+};
+
 export type TQuestion = {
   id: number;
   question: string;
@@ -25,6 +31,11 @@ export type TQuestion = {
 export type TuseQuizQuestion = {
   setQuestionsData: (val: Array<TQuizQuestionsAnswers>) => void;
   getQuestionsData: Array<TQuizQuestionsAnswers>;
+};
+
+export type TuseQuizRequestSubmit = {
+  setQuizRequestSubmit: (val: Array<TQuizRequestSubmit>) => void;
+  getQuizRequestSubmit: Array<TQuizRequestSubmit>;
 };
 
 export type TuseCurrentQuizNumber = {

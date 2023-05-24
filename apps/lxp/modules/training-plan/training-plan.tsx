@@ -4,6 +4,7 @@ import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
 import { TrainingPlanBreadCumbs } from './const';
 import { TrainingPlanHeader } from './header';
 import { TrainingPlanMain } from './main';
+import { UnChoosenSection } from './unchoose';
 
 export const TrainingPlanModule: FC = (): ReactElement => {
   return (
@@ -12,8 +13,9 @@ export const TrainingPlanModule: FC = (): ReactElement => {
         items={TrainingPlanBreadCumbs}
         textColor="text-version2-400"
       />
-      <TrainingPlanHeader />
-      <TrainingPlanMain />
+      <UnChoosenSection />
+      {/* <TrainingPlanHeader /> */}
+      {/* <TrainingPlanMain />s */}
     </ClientProvider>
   );
 };

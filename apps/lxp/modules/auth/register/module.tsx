@@ -92,7 +92,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'full_name'}
-              placeholder="Maulana Sodiqin"
+              placeholder="Masukan Nama Lengkap Anda"
               label="Nama Lengkap"
               status={errors.full_name ? 'error' : 'none'}
               message={errors.full_name?.message}
@@ -103,7 +103,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'email'}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukan Email Anda"
               label="Email"
               status={errors.email ? 'error' : 'none'}
               message={errors.email?.message}
@@ -113,7 +113,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'password'}
-              placeholder="************"
+              placeholder="Masukan Kata Sandi"
               label="Kata Sandi"
               status={errors.password ? 'error' : 'none'}
               message={errors.password?.message}
@@ -123,7 +123,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="md"
               control={control}
               name={'password_confirmation'}
-              placeholder="************"
+              placeholder="Konfirmasi Kata Sandi"
               label="Konfirmasi Kata Sandi"
               status={errors.password_confirmation ? 'error' : 'none'}
               message={errors.password_confirmation?.message}
@@ -131,9 +131,9 @@ export const RegisterModule: FC = (): ReactElement => {
             <div className="flex flex-col my-4">
               <Button
                 type="submit"
+                loading={isLoading ? 'Mendaftarkan akun...' : ''}
+                className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 w-full text-sm py-5  disabled:border-none text-neutral-100 hover:bg-version2-300 hover:border-version2-300 !bg-version2-400 disabled:!bg-version2-400/60 !border-none"
                 disabled={!isValid}
-                loading={isLoading ? 'Sedang Memuat...' : ''}
-                className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
               >
                 Daftar Sekarang
               </Button>
@@ -143,13 +143,16 @@ export const RegisterModule: FC = (): ReactElement => {
               <Button
                 onClick={onGoogleLogin}
                 type="button"
-                className="w-auto h-auto text-[18px] text-black p-3 rounded-lg border-2 border-neutral-300 appearance-none bg-white font-[700] flex items-center justify-center gap-x-4"
+                className="bg-neutral-50 text-neutral-700  hover:bg-neutral-100 hover:text-version2-400 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-neutral-300 flex items-center justify-center gap-3 w-full text-base py-4"
               >
                 <IconGoogle /> <span>Daftar Dengan Google</span>
               </Button>
-              <div className="flex w-full items-center justify-center my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
-                <span>Sudah punya akun?</span>
-                <Link className="text-primary-600" href={'/auth/login'}>
+              <div className="flex w-full items-center justify-center my-4 gap-x-2 mb-4 text-sm">
+                <span className="text-neutral-700">Sudah punya akun?</span>
+                <Link
+                  className="text-version2-400 hover:underline font-bold"
+                  href={'/auth/login'}
+                >
                   Masuk Disini
                 </Link>
               </div>

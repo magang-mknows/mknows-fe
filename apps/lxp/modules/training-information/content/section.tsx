@@ -20,6 +20,7 @@ export const TrainingInformationContent: FC = (): ReactElement => {
         <LSubjectHeader />
       ) : (
         <TrainingInformationHeader
+          id={subjectData?.id as string}
           name={subjectData?.name as string}
           batch={1}
           category={subjectData?.category}

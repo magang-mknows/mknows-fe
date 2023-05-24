@@ -1,13 +1,14 @@
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { FC, ReactElement, useState, Fragment } from 'react';
 import Card from '../../components/molecules/card';
-import { useRequestData } from '../request/hooks';
+import { useQuota } from './hooks';
 import { Dialog, Transition } from '@headlessui/react';
-
+import { useQuotaData } from './hooks';
 import cursorLoading from '/assets/quota/cursor-loading.webp';
 
 const AlokasiKuota: FC = (): ReactElement => {
-  const { getRequestData } = useRequestData();
+  const { data } = useQuota();
+  const { getQuotaData } = useQuotaData();
   const [Quota, setQuota] = useState<number>(0);
   const [ProductName, setProductName] = useState<string>('default');
   const [isOpen, setIsOpen] = useState(false);
@@ -57,26 +58,25 @@ const AlokasiKuota: FC = (): ReactElement => {
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
-              {getRequestData.slice(0, 4).map((item, index) => {
+              {data?.data.slice(0, 4).map((item, index) => {
                 return (
                   <Card
-                    className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
+                    className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
-                    onClick={() => setProductName(item.name)}
+                    onClick={() => setProductName(item.feature_id.name)}
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
                         <img
-                          src={item.icon}
+                          src={getQuotaData[index]}
                           alt="icon"
                           className="w-16 hidden md:flex"
                         />
                       </div>
 
-                      <div className="flex-col w-full space-y-1">
-                        <p className="text-sm font-semibold">{item.name}</p>
-                        <p className="text-neutral-400 font-normal text-xs">
-                          Data Masuk {item.totalData}
+                      <div className="flex flex-col w-full h-full items-center space-y-1">
+                        <p className="text-sm font-semibold">
+                          {item.feature_id.name}
                         </p>
                       </div>
                     </div>

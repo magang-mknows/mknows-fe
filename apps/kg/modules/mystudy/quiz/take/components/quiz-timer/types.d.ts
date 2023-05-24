@@ -8,3 +8,9 @@ export type CountdownTimerReturn = {
   seconds: string;
   isComplete: boolean;
 };
+
+export type TRemainingTimeProps = {
+  expiryTimestamp: number;
+  prevPath: string;
+  quizTakeId: string;
+};

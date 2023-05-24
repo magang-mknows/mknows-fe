@@ -10,13 +10,16 @@ const api = axios.create(config);
 
 api.interceptors.request.use(
   async (config) => {
-    const token = await TokenService.getToken();
+    const token = TokenService.getToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    Promise.reject(error);
+    TokenService.removeToken();
+  }
 );
 
 export default api;

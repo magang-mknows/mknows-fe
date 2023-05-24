@@ -2,8 +2,11 @@ import Image from 'next/image';
 import React, { ReactElement } from 'react';
 import Matkul from '../assets/matkul.svg';
 import Dummy from '../assets/Dummy.svg';
+import { useGetDepartment } from '../hooks';
 
 const HeroSection = (): ReactElement => {
+  const { data } = useGetDepartment();
+  console.log(data?.data?.dataDepartment.Department.name);
   const hero = [
     {
       icon: Matkul,
@@ -37,7 +40,7 @@ const HeroSection = (): ReactElement => {
       </div>
       <div className="flex flex-col">
         <h1 className="md:text-[28px] text-[22px] font-[700] text-[#171717]">
-          Pelatihan Keterampilan Komunikasi
+          {data?.data?.dataDepartment.Department.name}
         </h1>
         <p className="text-[#525252] text-[14px] font-[400] py-2">
           Akuntasi adalah belajar cara memelihara keuangan. Ini mempersiapkan

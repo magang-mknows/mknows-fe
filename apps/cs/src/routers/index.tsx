@@ -5,6 +5,7 @@ import { AuthLayout } from '../layouts/auth';
 import { BaseLayout } from '../layouts/base';
 import { ErrorModules } from '../modules/common/errorpage';
 import ReportRequest from '../modules/report/report-request';
+import { Guest, Protected } from '../modules/auth/middleware';
 
 const LoginPages = lazy(() => import('../pages/auth/login'));
 const HomePages = lazy(() => import('../pages/home'));
@@ -27,7 +28,11 @@ const QuotaPages = lazy(() => import('../pages/quota'));
 export const routes = createBrowserRouter([
   {
     path: '/',
-    element: <AuthLayout />,
+    element: (
+      <Guest>
+        <AuthLayout />
+      </Guest>
+    ),
     children: [
       {
         path: '/',
@@ -42,9 +47,11 @@ export const routes = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <Suspense fallback={<Spinner />}>
-        <BaseLayout />
-      </Suspense>
+      <Protected>
+        <Suspense fallback={<Spinner />}>
+          <BaseLayout />
+        </Suspense>
+      </Protected>
     ),
     errorElement: <ErrorModules />,
     children: [
