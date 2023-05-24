@@ -38,50 +38,55 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
         ) : (
           <>
             {dataSubjectProps?.length > 0 &&
-              dataSubjectProps?.map((subject, index) => (
-                <Card
-                  href={`/studi-ku/${subject.id}`}
-                  key={subject.id}
-                  className="rounded-lg px-3"
-                  hasImage={true}
-                  imgwidth={240}
-                  imgheight={240}
-                  imgStyle="rounded-lg lg:h-[240px] lg:w-full object-cover mx-auto md:mx-0"
-                  src={subject.thumbnail}
-                  titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
-                  icon={
-                    <div className="flex justify-end gap-2">
-                      <div className="text-[#FAB317] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#FEF6D0]">
-                        {subject.credit} SKS
+              dataSubjectProps?.map((subject, index) => {
+                const thumbnailImg = subject.thumbnail.includes('.')
+                  ? subject.thumbnail
+                  : '';
+                return (
+                  <Card
+                    href={`/studi-ku/${subject.id}`}
+                    key={subject.id}
+                    className="rounded-lg px-3"
+                    hasImage={true}
+                    imgwidth={240}
+                    imgheight={240}
+                    imgStyle="rounded-lg lg:h-[240px] lg:w-full object-cover mx-auto md:mx-0"
+                    src={thumbnailImg}
+                    titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
+                    icon={
+                      <div className="flex justify-end gap-2">
+                        <div className="text-[#FAB317] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#FEF6D0]">
+                          {subject.credit} SKS
+                        </div>
+                        <div className="text-[#106FA4] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#E9F6FD]">
+                          {subject.session_count} Pertemuan
+                        </div>
                       </div>
-                      <div className="text-[#106FA4] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#E9F6FD]">
-                        {subject.session_count} Pertemuan
+                    }
+                  >
+                    <div className="flex flex-col w-full">
+                      <p className="text-sm text-[#A3A3A3]">
+                        {subject.subject_code}
+                      </p>
+                      <h1 className="text-base font-bold mt-0 text-[#106FA4] w-full">
+                        Matkul {subject.name}
+                      </h1>
+                      <p className="text-sm text-[#A3A3A3] pb-5">
+                        {subject.teacher_name}
+                      </p>
+                      <div className="flex w-[100%] bg-[#D9D9D9] rounded-full h-2.5">
+                        <div
+                          className="bg-[#3EB449] h-2.5 rounded-full"
+                          style={{ width: `${subject.progress_percentage}%` }}
+                        />
                       </div>
                     </div>
-                  }
-                >
-                  <div className="flex flex-col w-full">
-                    <p className="text-sm text-[#A3A3A3]">
-                      {subject.subject_code}
+                    <p className="text-[#A3A3A3] text-base pt-[76px] pl-2">
+                      {subject.progress_percentage}%
                     </p>
-                    <h1 className="text-base font-bold mt-0 text-[#106FA4] w-full">
-                      Matkul {subject.name}
-                    </h1>
-                    <p className="text-sm text-[#A3A3A3] pb-5">
-                      {subject.teacher_name}
-                    </p>
-                    <div className="flex w-[100%] bg-[#D9D9D9] rounded-full h-2.5">
-                      <div
-                        className="bg-[#3EB449] h-2.5 rounded-full"
-                        style={{ width: `${subject.progress_percentage}%` }}
-                      />
-                    </div>
-                  </div>
-                  <p className="text-[#A3A3A3] text-base pt-[76px] pl-2">
-                    {subject.progress_percentage}%
-                  </p>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
           </>
         )}
       </div>
