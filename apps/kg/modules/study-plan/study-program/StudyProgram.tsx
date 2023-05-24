@@ -92,7 +92,7 @@ export const StudyProgram: FC = (): ReactElement => {
               <>
                 {majorData?.map((x, i) => (
                   <Card
-                    href={'/rencana-studi/kontrak-krs' + x.slug}
+                    href={'/kontrak-krs/' + x.slug}
                     key={i}
                     className="px-3 rounded-lg "
                     hasImage={true}

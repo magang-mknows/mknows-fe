@@ -3,14 +3,19 @@ import { FC, ReactElement } from 'react';
 export const FooterAddress: FC = (): ReactElement => {
   return (
     <div className=" text-neutral-900">
-      <h1 className="mb-3 lg:mb-6font-black text-base font-bold">Alamat</h1>
+      <h1 className="mb-3 lg:mb-6font-black text-base font-bold">
+        Alamat PT Menara Pengetahuan Indonesia
+      </h1>
       <ul className="flex text-xs md:text-sm flex-col gap-1 lg:gap-3 xl:gap-4">
         <li className="flex gap-2 ">
           <section className="min-w-[70px] flex justify-between">
             <span>Utama</span>
             <span>:</span>
           </section>
-          <span className="font-bold">PT MENARA PENGETAHUAN INDONESIA</span>
+          <span className="font-bold">
+            Jl. Radio IV No.8-B, RT.1/RW.4, Kramat Pela, Kec. Kby. Baru, Kota
+            Jakarta Selatan. DKI Jakarta 12240
+          </span>
         </li>
         <li className="flex gap-2 ">
           <section className="min-w-[70px] flex justify-between">
