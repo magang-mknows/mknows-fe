@@ -8,12 +8,12 @@ export const BaseLayout: FC = (): ReactElement => {
   return (
     <div className="flex flex-col overflow-hidden">
       <div className="flex flex-row h-auto w-screen">
-        <div>
+        <div className="fixed z-[99999]">
           <Suspense fallback={<SidebarSkeleton />}>
             <Sidebar />
           </Suspense>
         </div>
-        <div className="w-screen overflow-hidden p-4 max-screen-auto bg-[#F6FBFA]">
+        <div className="w-full lg:ml-[20%] ml-0 overflow-hidden p-4 max-screen-auto bg-[#F6FBFA]">
           <Suspense fallback={<Spinner />}>
             <Outlet />
           </Suspense>

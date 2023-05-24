@@ -59,16 +59,16 @@ const CardSection: FC = (): ReactElement => {
     animationDuration: 1000,
     Infinity: true,
     renderPrevButton: () => {
-      return <div className="absolute top-[25%] -left-10">{prevButton}</div>;
+      return <div className="absolute top-[25%] -left-8">{prevButton}</div>;
     },
     renderNextButton: () => {
-      return <div className="absolute -right-10 top-[25%]">{nextButton}</div>;
+      return <div className="absolute -right-8 top-[25%]">{nextButton}</div>;
     },
   };
 
   return (
     <div className="p-4 ">
-      <h1 className="text-2xl font-semibold p-3">Riwayat Permintaan</h1>
+      <h1 className="text-2xl font-bold uppercase p-3">Riwayat Permintaan</h1>
       <AliceCarousel {...cardProps} />
     </div>
   );

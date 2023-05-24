@@ -33,7 +33,11 @@ export type TQuotaDataResponse = { getQuotaData: string[] };
 
 export type TQuotaItem = {
   id: string;
+<<<<<<< HEAD
   feature: FeatureId;
+=======
+  feature: Feature;
+>>>>>>> develop
   request_number: string;
   quantity: number;
   status: string;
@@ -43,6 +47,7 @@ export type TQuotaItem = {
   __v: number;
 };
 
+<<<<<<< HEAD
 export type TQuotaParams = {
   date_from?: string;
   date_to?: string;
@@ -53,6 +58,9 @@ export type TQuotaParams = {
 };
 
 export interface FeatureId {
+=======
+export interface Feature {
+>>>>>>> develop
   _id: string;
   name: string;
 }

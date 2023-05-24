@@ -66,8 +66,15 @@ const RiwayatAlokasi: FC = (): ReactElement => {
             </div>
             <div className="w-full">
               <Search
+<<<<<<< HEAD
                 value={deb}
                 onChange={(e) => setDeb(e.target.value)}
+=======
+                value=""
+                onChange={(e: { target: { value: string } }) =>
+                  console.log('ok')
+                }
+>>>>>>> develop
                 placeholder="Search No Permintaan, NIK, Nama, Tanggal, Status"
               />
             </div>
