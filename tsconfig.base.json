@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cs/*": ["apps/lxp/cs/*"],
-      "@kg/*": ["apps/kg/*"],
-      "@lxp/*": ["apps/lxp/*"],
       "@mknows-frontend-services/components/atoms": [
         "libs/components/atoms/src/index.ts"
       ],
@@ -47,8 +44,7 @@
       ],
       "@mknows-frontend-services/ui/server": ["libs/ui/src/server.ts"],
       "@mknows-frontend-services/utils": ["libs/utils/src/index.ts"],
-      "@mknows-frontend-services/utils/server": ["libs/utils/src/server.ts"],
-      "@sample/*": ["apps/lxp/sample/*"]
+      "@mknows-frontend-services/utils/server": ["libs/utils/src/server.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

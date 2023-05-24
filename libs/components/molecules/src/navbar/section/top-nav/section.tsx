@@ -1,11 +1,14 @@
-import { FC, ReactElement, useState } from 'react';
+import { ChangeEvent, FC, ReactElement, useState } from 'react';
 import NextImage from 'next/image';
 import { TNavbarProps, TPopUpAllFeaturesProps, TPopUpProps } from '../../types';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
 import { IconFeature, IconRing } from '../icons';
 import Image from 'next/image';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import {
+  Button,
+  SearchInput,
+} from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
 import Avatar from 'react-avatar';
 
@@ -106,6 +109,7 @@ export const TopNav: FC<TNavbarProps> = ({
   logoStyle,
   button,
   userData,
+  withSearch,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
@@ -113,18 +117,28 @@ export const TopNav: FC<TNavbarProps> = ({
   const [getPopUpAllFeature, setPopUpAllFeature] = useState(false);
 
   return (
-    <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
+    <header className="flex w-full justify-between px-[72px] relative py-[12px] bg-white">
       <Link href={'/'} className="flex items-center">
         <NextImage
           src={logo}
           alt="logo navbar"
           loading="eager"
           width={40}
-          height={40}
+          height={45}
           className={logoStyle}
           quality={75}
         />
       </Link>
+      <div className="w-[40%]">
+        {withSearch && (
+          <SearchInput
+            onChange={function (event: ChangeEvent<HTMLInputElement>): void {
+              throw new Error('Function not implemented.');
+            }}
+            value={''}
+          />
+        )}
+      </div>
       <nav className="flex items-center gap-x-6">
         <div
           onClick={() => {

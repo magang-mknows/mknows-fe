@@ -38,6 +38,7 @@ export type TNavbarProps = {
   logoStyle?: string;
   showBottomNav?: boolean;
   button?: ReactNode;
+  withSearch?: boolean;
   // avatar?: string;
   userData?: {
     full_name?: string;
