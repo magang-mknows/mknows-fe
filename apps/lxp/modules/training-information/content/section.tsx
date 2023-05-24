@@ -71,7 +71,7 @@ export const TrainingInformationContent: FC = (): ReactElement => {
           myTakenDepartmentStatus !== 'PENDING' && (
             <section className="w-full flex justify-end">
               <Button
-                disabled={pendingCount > 0 && ongoingCount === 0}
+                disabled={pendingCount === 0 && ongoingCount !== 0}
                 onClick={() => {
                   setAskKRSPopup(true);
                 }}
