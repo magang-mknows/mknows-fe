@@ -14,7 +14,7 @@ const UserModules: FC = (): ReactElement => {
 
   return (
     <div className="bg-white w-full h-full my-2 rounded-md lg:px-8 px-4 py-2 ">
-      <div className="flex flex-col lg:flex-row gap-y-2 justify-between pt-12">
+      <div className="flex flex-col lg:flex-row gap-y-2 justify-between pt-6">
         <div>
           <DateRangePickerComponent onRangeChange={handleRangeChange} />
         </div>

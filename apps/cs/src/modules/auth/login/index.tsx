@@ -63,61 +63,63 @@ const LoginModules: FC = (): ReactElement => {
   return (
     <form
       onSubmit={onSubmit}
-      className="bg-white items-center justify-center p-6 shadow-gray-300 shadow-lg  w-[400px] h-auto rounded-sm overflow-hidden"
+      className="bg-white items-center justify-center px-8 py-12 shadow-gray-300 shadow-lg lg:w-[512px] w-[400px] h-auto rounded-sm overflow-hidden"
     >
-      <h1 className="text-primary-base text-center font-[600] font-sans text-5xl">
-        Masuk
-      </h1>
-      <p className="text-base text-gray-400 text-center">
-        Silahkan masuk dengan email dan kata sandi anda
-      </p>
+      <div className="space-y-5">
+        <h1 className="text-primary-base text-center font-semibold font-sans text-4xl">
+          Masuk
+        </h1>
+        <p className="lg:text-base text-sm text-gray-400 text-center">
+          Silahkan masuk dengan email dan kata sandi anda
+        </p>
+      </div>
       <div className="flex bg-error-100 rounded-md text-error-300 w-full justify-center my-2">
         {getError}
       </div>
-      <TextField
-        type="email"
-        label="Email"
-        name="email"
-        control={control}
-        placeholder="msdqn@psu.org"
-        status={formState.errors.email ? 'error' : 'none'}
-        message={formState.errors.email?.message}
-        variant="md"
-        required
-        rules={{
-          required: true,
-        }}
-      />
-      <TextField
-        type="password"
-        label="Password"
-        name="password"
-        required
-        status={formState.errors.password ? 'error' : 'none'}
-        message={formState.errors.password?.message}
-        rules={{
-          required: true,
-        }}
-        placeholder="Masukkan Password Anda"
-        control={control}
-        variant="md"
-      />
-      <Checkbox
-        name="remember"
-        variant="md"
-        control={control}
-        label="Ingatkan Saya"
-      />
-      <div className="flex flex-col mt-6">
-        <Button
-          type="submit"
-          loading={isLoading ? 'Sedang Masuk...' : undefined}
-          className="flex disabled:bg-neutral-200 justify-center w-full p-3 rounded-md border bg-primary-400 text-white font-bold"
-          disabled={!formState.isValid}
-        >
-          Masuk
-        </Button>
+      <div className="lg:py-6 py-0 space-y-2">
+        <TextField
+          type="email"
+          label="Email"
+          name="email"
+          control={control}
+          placeholder="msdqn@psu.org"
+          status={formState.errors.email ? 'error' : 'none'}
+          message={formState.errors.email?.message}
+          variant="md"
+          required
+          rules={{
+            required: true,
+          }}
+        />
+        <TextField
+          type="password"
+          label="Password"
+          name="password"
+          required
+          status={formState.errors.password ? 'error' : 'none'}
+          message={formState.errors.password?.message}
+          rules={{
+            required: true,
+          }}
+          placeholder="Masukkan Password Anda"
+          control={control}
+          variant="md"
+        />
+        <Checkbox
+          name="remember"
+          variant="md"
+          control={control}
+          label="Ingatkan Saya"
+        />
       </div>
+      <Button
+        type="submit"
+        loading={isLoading ? 'Sedang Masuk...' : undefined}
+        className="flex disabled:bg-neutral-200 justify-center w-full p-3 mt-8 rounded-md border bg-primary-400 text-white font-bold"
+        disabled={!formState.isValid}
+      >
+        Masuk
+      </Button>
     </form>
   );
 };

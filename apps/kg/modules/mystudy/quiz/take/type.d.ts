@@ -1,3 +1,5 @@
+import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+
 export type TQuizTakeItem = {
   type: string;
   duration: number;
@@ -20,6 +22,26 @@ export type TQuizRequestSubmit = {
   answer: string;
   help?: boolean;
 };
+
+export type TQuestionsAnswersPayloadItem = {
+  question: string;
+  answer: string;
+};
+
+export type TQuizSubmitPayload = {
+  questions_answers: TQuestionsAnswersPayloadItem[];
+};
+
+export type TQuizSubmitItem = {
+  right: number;
+  wrong: number;
+  total_question: number;
+  remaining_attempt: number;
+  time_elapsed: number;
+  score: number;
+};
+
+export type TQuizSubmitResponse = TMetaResponseSingle<TQuizSubmitItem>;
 
 export type TQuestion = {
   id: number;
