@@ -38,7 +38,12 @@ export type TNavbarProps = {
   logoStyle?: string;
   showBottomNav?: boolean;
   button?: ReactNode;
-  avatar?: string;
+  // avatar?: string;
+  userData?: {
+    full_name?: string;
+    email?: string;
+    avatar?: string;
+  };
 } & TPopUpProps &
   TBottomNavProps &
   TPopUpAllFeaturesProps;

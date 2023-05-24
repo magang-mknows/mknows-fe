@@ -173,7 +173,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
                   setLoginPopup(false);
                 }}
               >
-                <Link href={'auth/daftar'}> Daftar disini</Link>
+                <Link href={'auth/register'}> Daftar disini</Link>
               </span>
             </h1>
           </div>
