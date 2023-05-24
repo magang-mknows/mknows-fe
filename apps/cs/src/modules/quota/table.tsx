@@ -45,7 +45,7 @@ const Table: FC = (): ReactElement => {
                   {item.request_number}
                 </td>
                 <td className="px-10 py-1 font-semibold text-neutral-800">
-                  {item.feature_id.name}
+                  {item.feature.name}
                 </td>
                 <td className="px-14 py-1">
                   {formatDate(new Date(item.created_at))}
@@ -54,9 +54,9 @@ const Table: FC = (): ReactElement => {
                 <td className="px-6 py-1 bg-green-400">
                   <button
                     className={` ${
-                      item.status === 'Berhasil'
+                      item.status === 'SUCCESS'
                         ? 'bg-success-500'
-                        : item.status === 'Proses'
+                        : item.status === 'PROCESS'
                         ? 'bg-[#3B8BDB]'
                         : 'bg-[#EE2D24]'
                     } text-white w-[100px] text-sm font-semibold uppercase py-1.5 rounded-md cursor-default`}

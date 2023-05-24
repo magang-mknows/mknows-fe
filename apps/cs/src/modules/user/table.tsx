@@ -10,6 +10,7 @@ import {
   IconCheck,
   IconError,
 } from '../../components/atoms';
+import ToolTip from './toolTip';
 
 const Table: FC = (): ReactElement => {
   const { getUserData } = useUserData();
@@ -80,9 +81,19 @@ const Table: FC = (): ReactElement => {
                       <p>Lihat Detail</p>
                       <div className="">
                         {item.berkas === 'success' ? (
-                          <IconCheck />
+                          <ToolTip
+                            tooltip="3/3 Data Terisi"
+                            className="border-[#54B435] text-[#54B435] bg-white"
+                          >
+                            <IconCheck />
+                          </ToolTip>
                         ) : (
-                          <IconError />
+                          <ToolTip
+                            tooltip="1/3 Data Terisi"
+                            className=" border-[#EE2D24] text-[#EE2D24] bg-white"
+                          >
+                            <IconError />
+                          </ToolTip>
                         )}
                       </div>
                     </div>
@@ -92,14 +103,18 @@ const Table: FC = (): ReactElement => {
                   <div className="flex gap-2">
                     <Link to={'/dashboard/user/edit-data'}>
                       <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
-                        <IconEdit />
+                        <ToolTip className="bg-white" tooltip="Edit">
+                          <IconEdit />
+                        </ToolTip>
                       </div>
                     </Link>
                     <button
                       className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
                       onClick={() => setisOpen(true)}
                     >
-                      <IConDelete />
+                      <ToolTip className="bg-white" tooltip="Delete">
+                        <IConDelete />
+                      </ToolTip>
                     </button>
                   </div>
                 </td>

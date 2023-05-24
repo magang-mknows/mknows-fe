@@ -76,7 +76,7 @@ const LoginModules: FC = (): ReactElement => {
       <div className="flex bg-error-100 rounded-md text-error-300 w-full justify-center my-2">
         {getError}
       </div>
-      <div className="lg:py-6 py-0">
+      <div className="lg:py-6 py-0 space-y-2">
         <TextField
           type="email"
           label="Email"
