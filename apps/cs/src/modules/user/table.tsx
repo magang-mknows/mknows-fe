@@ -76,13 +76,15 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
                   <Link to={'/dashboard/user/detail-data'}>
-                    <div className="flex gap-2 text-[#3D628D] cursor-pointer ">
+                    <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
                       <p>Lihat Detail</p>
-                      {item.berkas === 'success' ? (
-                        <IconCheck />
-                      ) : (
-                        <IconError />
-                      )}
+                      <div className="">
+                        {item.berkas === 'success' ? (
+                          <IconCheck />
+                        ) : (
+                          <IconError />
+                        )}
+                      </div>
                     </div>
                   </Link>
                 </td>

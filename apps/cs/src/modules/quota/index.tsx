@@ -11,7 +11,7 @@ const QuotaPage: FC = (): ReactElement => {
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
-        <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
+        <section className="w-full flex lg:max-h-screen h-fit relative py-2 justify-center lg:justify-end lg:pr-4">
           <Card className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
