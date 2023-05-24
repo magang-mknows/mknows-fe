@@ -7,7 +7,7 @@ import { leaderBoardBreadCumbs } from '../administration/constant';
 export const LeaderBoardModules = (): ReactElement => {
   return (
     <BaseLayout>
-      <BreadCrumb items={leaderBoardBreadCumbs} />
+      <BreadCrumb items={leaderBoardBreadCumbs} bgColor="bg-white" />
       <ContentSection />
     </BaseLayout>
   );
