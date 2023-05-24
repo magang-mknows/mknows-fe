@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router';
-import { useAutoSaveQuizAnswer } from '../../hooks';
+import { useAutoSaveQuizAnswer, useSubmitQuiz } from '../../hooks';
 import { useCountdownTimer } from './hooks';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import InfoIcon from '../../../assets/info.svg';
 import Image from 'next/image';
 import { TRemainingTimeProps } from './types';
@@ -10,17 +9,21 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
   expiryTimestamp,
   prevPath,
   quizTakeId,
+  payload,
 }): ReactElement => {
-  const router = useRouter();
   const { hours, minutes, seconds, isComplete } = useCountdownTimer({
     targetHours: expiryTimestamp,
   });
   const { resetStoredAnswer } = useAutoSaveQuizAnswer();
+  const { mutate } = useSubmitQuiz(quizTakeId);
 
-  if (isComplete) {
-    resetStoredAnswer();
-    // router.push(`${prevPath}/${quizTakeId}`);
-  }
+  useEffect(() => {
+    if (isComplete) {
+      resetStoredAnswer();
+      mutate(payload);
+      // router.push(`${prevPath}/${quizTakeId}`);
+    }
+  }, [isComplete]);
 
   return (
     <div className="bg-[#FEDBD7] rounded-md shadow-sm">
