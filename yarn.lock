@@ -7921,7 +7921,7 @@ nx@16.1.4:
     "@nx/nx-win32-arm64-msvc" "16.1.4"
     "@nx/nx-win32-x64-msvc" "16.1.4"
 
-nx@16.2.1, nx@^16.2.1:
+nx@16.2.1:
   version "16.2.1"
   resolved "https://registry.yarnpkg.com/nx/-/nx-16.2.1.tgz#8571a4663c79dc9d60c98599b19146b58c59b473"
   integrity sha512-O+yGcYIQtYKYagbIuOQFk1P8ki5PHn0BZjdZpsa4K8UZ4pCaRWzlwWwwUL91FUJe6tdhic5710DwAAakbGKP7Q==
@@ -7971,7 +7971,7 @@ nx@16.2.1, nx@^16.2.1:
     "@nx/nx-win32-arm64-msvc" "16.2.1"
     "@nx/nx-win32-x64-msvc" "16.2.1"
 
-nx@16.2.2:
+nx@16.2.2, nx@^16.2.2:
   version "16.2.2"
   resolved "https://registry.yarnpkg.com/nx/-/nx-16.2.2.tgz#8792e4dcc6522daf7bccc52e6ffd65d7162264a6"
   integrity sha512-gOcpqs6wf8YdFIq6P0IlMxBGr2c27pM55zpqO7epSlN6NqW6SOFKnZa+6z4NV9qmifMqzWPx2VF0BY54ARuqYg==
