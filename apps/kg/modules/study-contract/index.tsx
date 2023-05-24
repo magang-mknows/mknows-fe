@@ -6,7 +6,7 @@ export const StudyContractModules: FC = (): ReactElement => {
     return (
       <div>
         {/* <SuspenseError loadingFallback={<SemuaFiturSkeleton/>}> */}
-        <BaseLayout title="Semua Fitur">
+        <BaseLayout title="Kontrak KRS">
           <SubmissionContractStudy />
         </BaseLayout>
         {/* </SuspenseError> */}
