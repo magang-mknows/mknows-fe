@@ -16,10 +16,12 @@ export const CardList: FC<CardListProps> = ({
       className="w-full bg-white rounded-lg dark:bg-[#1b1e21] h-fit"
       title={title}
       titleStyle="text-[16px]"
-      src={image}
+      src={image as unknown as string}
       href={'/acara-kampus/' + slug}
       hasImage={true}
       imgStyle={'w-full'}
+      imgheight={100}
+      imgwidth={100}
     >
       <div className="flex flex-col ">
         {price && (
