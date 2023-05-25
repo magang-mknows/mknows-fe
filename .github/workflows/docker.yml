@@ -1,0 +1,45 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+    types: [opened]
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    docker-build-kg:
+    - uses: actions/checkout@v3
+    - name: Build Docker Image KG
+      run: docker build . --file Dockerfile.kg --tag kg:$(date +%s)
+
+    docker-build-lxp:
+    - uses: actions/checkout@v3
+    - name: Build Docker image LXP
+      run: docker build . --file Dockerfile.lxp --tag lxp:$(date +%s)
+
+    docker-build-cs:
+    - uses: actions/checkout@v3
+    - name: Build Docker image LXP
+      run: docker build . --file Dockerfile.cs --tag cs:$(date +%s)
+
+    docker-build-kg-admin:
+    - uses: actions/checkout@v3
+    - name: Build Docker image KG-Admin
+      run: docker build . --file Dockerfile.kg-admin --tag kg-admin:$(date +%s)
+
+    docker-build-lxp-admin:
+    - uses: actions/checkout@v3
+    - name: Build Docker image LXP-Admin
+      run: docker build . --file Dockerfile.lxp-admin --tag lxp-admin:$(date +%s)
+
+    docker-build-cs-admin:
+    - uses: actions/checkout@v3
+    - name: Build Docker image CS-Admin
+      run: docker build . --file Dockerfile.cs-admin --tag cs-admin:$(date +%s)
