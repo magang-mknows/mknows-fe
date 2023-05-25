@@ -47,10 +47,10 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
   return (
     <div>
       <div
-        className="flex bg-white p-1 justify-center items-center rounded-md text-sm text-gray-400 border border-gray-200 py-2 px-6 gap-1"
+        className="flex bg-white p-1 justify-center items-center rounded-md text-gray-400 border border-gray-200 py-2 w-500px gap-1"
         onClick={() => setOpen((open) => !open)}
       >
-        <span>
+        <span className="text-xs">
           Dari{' '}
           {formatDate({
             date: ranges?.startDate,
@@ -58,7 +58,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
           })}
         </span>
         <IConCalendar />
-        <span>
+        <span className="text-xs">
           Sampai{' '}
           {formatDate({
             date: ranges?.endDate,
@@ -66,7 +66,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
           })}
         </span>
         <IConCalendar />
-        <span>tt/bb/tahun</span>
+        <span className="text-xs">tt/bb/tahun</span>
       </div>
 
       <div ref={refOne}>
