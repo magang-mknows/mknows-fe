@@ -7,15 +7,22 @@ import {
 import {
   TuseCurrentQuizNumber,
   TuseQuizQuestion,
-  TQuestion,
   TQuizTakeResponse,
   TQuizQuestionsAnswers,
   TQuizRequestSubmit,
   TuseQuizRequestSubmit,
+  TQuizSubmitResponse,
+  TQuizSubmitPayload,
 } from './type';
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import {
+  UseMutationResult,
+  UseQueryResult,
+  useMutation,
+  useQuery,
+} from '@tanstack/react-query';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { quizTakeGetRequest } from './api';
+import { quizSubmitRequest, quizTakeGetRequest } from './api';
+import { useEffect, useState } from 'react';
 
 export const useQuizQuestion = (): TuseQuizQuestion => {
   const [getQuestion, setQuestion] = useRecoilState(quizQuestionState);
@@ -43,6 +50,36 @@ export const useCurrentQuizNumber = (): TuseCurrentQuizNumber => {
   };
 };
 
+export const useAutoSaveQuizAnswer = () => {
+  const [newStoredAnswer, setNewStoredAnswer] = useState<
+    TQuizRequestSubmit[] | []
+  >([]);
+  const [_, setQuizRequestSubmit] = useRecoilState(quizRequestSubmitState);
+  const [storedAnswer, setStoredAnswer] = useState<TQuizRequestSubmit[]>(() => {
+    const storageValue = localStorage.getItem('quiz.answer');
+    if (storageValue) {
+      const storageValueParsed = JSON.parse(storageValue);
+      setQuizRequestSubmit(storageValueParsed as TQuizRequestSubmit[]);
+      return storageValueParsed;
+    }
+    return newStoredAnswer;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('quiz.answer', JSON.stringify(storedAnswer));
+  }, [storedAnswer]);
+
+  useEffect(() => {
+    setStoredAnswer(newStoredAnswer as TQuizRequestSubmit[]);
+  }, [newStoredAnswer]);
+
+  function resetStoredAnswer() {
+    localStorage.removeItem('quiz.answer');
+  }
+
+  return { storedAnswer, setNewStoredAnswer, resetStoredAnswer };
+};
+
 // SERVICE API HOOKS
 
 export const useGetQuizTakeById = (
@@ -51,4 +88,19 @@ export const useGetQuizTakeById = (
   useQuery({
     queryKey: ['quiz-take-get', id],
     queryFn: async () => await quizTakeGetRequest(id),
+  });
+
+// type TuseSubmitQuizParam =
+
+export const useSubmitQuiz = (
+  id: string
+): UseMutationResult<
+  TQuizSubmitResponse,
+  TMetaErrorResponse,
+  TQuizSubmitPayload,
+  unknown
+> =>
+  useMutation({
+    mutationKey: ['submit-quiz'],
+    mutationFn: async (payload) => await quizSubmitRequest(id, payload),
   });

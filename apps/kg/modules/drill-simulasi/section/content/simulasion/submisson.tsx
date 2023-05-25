@@ -54,7 +54,7 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
                     {items.assessor_name}
                   </div>
-                  {items.schedules.length === 0 ? (
+                  {items.schedules.length === undefined ? (
                     ''
                   ) : (
                     <div className="bg-[#E3FBDA] px-3 py-1 rounded-[9px]">

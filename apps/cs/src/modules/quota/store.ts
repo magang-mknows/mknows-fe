@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { TResultDataDummy } from './types';
+import { TQuotaParams, TResultDataDummy } from './types';
 
 export const icon = atom<string[]>({
   key: 'quota-data-icons',
@@ -9,6 +9,18 @@ export const icon = atom<string[]>({
     '/assets/quota/card3.svg',
     '/assets/quota/card4.svg',
   ],
+});
+
+export const filterAction = atom<TQuotaParams>({
+  key: 'flter-action',
+  default: {
+    date_from: '',
+    date_to: '',
+    page: '',
+    per_page: '',
+    search: '',
+    feature: '',
+  },
 });
 
 export const quotaSearch = atom({

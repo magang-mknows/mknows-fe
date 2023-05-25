@@ -15,9 +15,9 @@ const ReportSuccessModal: FC = (): ReactElement => {
       </div>
       <div className="flex flex-col gap-3 items-center justify-center py-2 w-[490px]">
         <h1 className="font-bold text-lg text-neutral-800">
-          Terimakasih telah memberi tahu kami
+          Terima kasih telah memberi tahu kami
         </h1>
-        <p className="w-full text-center text-sm ">
+        <p className="w-full text-center text-sm mb-2 ">
           Masukan dari Anda sangat penting untuk membantu kami menjaga komunitas
           LMS M-Knows agar tetap aman.
         </p>

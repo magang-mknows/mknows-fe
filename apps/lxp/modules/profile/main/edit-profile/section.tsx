@@ -66,7 +66,7 @@ export const EditProfileSection = () => {
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
 
   const { data } = useProfile();
-  const userData = data?.data.user;
+  const userData = data;
 
   const {
     control: avatarControl,

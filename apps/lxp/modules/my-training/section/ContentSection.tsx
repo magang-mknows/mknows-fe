@@ -4,6 +4,7 @@ import ChoiceFaculty from '../assets/choicefaculty.svg';
 import { Card } from '@mknows-frontend-services/components/molecules';
 import Search from '../assets/search.svg';
 
+
 const ContentSection = (): ReactElement => {
   const content = [
     {

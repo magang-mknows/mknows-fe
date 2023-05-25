@@ -8,7 +8,7 @@ import Pagination from '../../../../components/atoms/pagination';
 
 const ChoiceFeature: FC = (): ReactElement => {
   return (
-    <div className="w-auto h-full bg-white mx-8 my-4 rounde-md">
+    <div className="w-auto h-full bg-white px-8 my-4 rounde-md">
       <div className="flex flex-row gap gap-x-6 items-center border-b w-full h-fit p-6 text-primary-400 font-bold text-base">
         <Link to={'/dashboard/request'}>
           <div className="flex gap-3 items-center">
@@ -31,7 +31,7 @@ const ChoiceFeature: FC = (): ReactElement => {
           <Search
             value={''}
             onChange={(e: { target: { value: string } }) => console.log('ok')}
-            placeholder={''}
+            placeholder={'Search NIK, Nama'}
           />
         </div>
       </div>

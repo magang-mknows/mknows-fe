@@ -103,10 +103,15 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
+  // const _profile_user = {
+  //   email: profileData?.data?.user?.email as string,
+  //   full_name: profileData?.data?.user?.full_name as string,
+  //   avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+  // };
   const _profile_user = {
-    email: profileData?.data?.user?.email as string,
-    full_name: profileData?.data?.user?.full_name as string,
-    avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+    email: profileData?.email as string,
+    full_name: profileData?.full_name as string,
+    avatar: profileData?.avatar as string,
   };
 
   return (
@@ -114,9 +119,7 @@ export const ClientProvider: FC<TProviderProps> = ({
       <Navbar
         items={_pop_up_menu}
         features={_features}
-        avatar={
-          profileData?.data.user.avatar || '/assets/images/avatar-dummy.png'
-        }
+        avatar={profileData?.avatar as string}
         logo={logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}

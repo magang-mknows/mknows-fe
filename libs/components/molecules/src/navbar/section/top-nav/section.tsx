@@ -1,12 +1,16 @@
-import { FC, ReactElement, useState } from 'react';
+import { ChangeEvent, FC, ReactElement, useState } from 'react';
 import NextImage from 'next/image';
 import { TNavbarProps, TPopUpAllFeaturesProps, TPopUpProps } from '../../types';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
 import { IconFeature, IconRing } from '../icons';
 import Image from 'next/image';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import {
+  Button,
+  SearchInput,
+} from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
+import Avatar from 'react-avatar';
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
@@ -17,13 +21,22 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
       className="flex flex-col font-bold gap-y-3 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
     >
       <div className="flex gap-x-4 items-center">
-        <Image
-          src={userData.avatar}
-          alt={'user avatar'}
-          width={36}
-          height={36}
-          className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
-        />
+        {userData?.avatar ? (
+          <Image
+            src={userData.avatar}
+            alt={'user avatar'}
+            width={36}
+            height={36}
+            className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+          />
+        ) : (
+          <Avatar
+            name={userData?.full_name}
+            className="rounded-full w-[36px] h-[36px]"
+            size="36"
+          />
+        )}
+
         <div className="flex flex-col gap-y-2">
           <span className="text-[16px]">{userData.full_name}</span>
           <span className="text-[14px] text-neutral-base font-normal">
@@ -95,6 +108,8 @@ export const TopNav: FC<TNavbarProps> = ({
   logo,
   logoStyle,
   button,
+  userData,
+  withSearch,
   ...props
 }): ReactElement => {
   const { data: session } = useSession();
@@ -102,18 +117,28 @@ export const TopNav: FC<TNavbarProps> = ({
   const [getPopUpAllFeature, setPopUpAllFeature] = useState(false);
 
   return (
-    <header className="flex w-full justify-between px-[72px] relative py-[17px] bg-white">
+    <header className="flex w-full justify-between px-[72px] relative py-[12px] bg-white">
       <Link href={'/'} className="flex items-center">
         <NextImage
           src={logo}
           alt="logo navbar"
           loading="eager"
           width={40}
-          height={40}
+          height={45}
           className={logoStyle}
           quality={75}
         />
       </Link>
+      <div className="w-[40%]">
+        {withSearch && (
+          <SearchInput
+            onChange={function (event: ChangeEvent<HTMLInputElement>): void {
+              throw new Error('Function not implemented.');
+            }}
+            value={''}
+          />
+        )}
+      </div>
       <nav className="flex items-center gap-x-6">
         <div
           onClick={() => {
@@ -131,18 +156,27 @@ export const TopNav: FC<TNavbarProps> = ({
             <div className=" bg-neutral-200 items-center flex justify-center w-[36px] h-[36px] rounded-lg">
               <IconRing />
             </div>
-            <Image
-              src={props.userData.avatar}
+            <Avatar
+              src={userData?.avatar}
               alt={'user avatar'}
-              width={36}
-              height={36}
+              size="36"
+              name={userData.full_name}
               onClick={() => {
                 setPopUpAllFeature(false);
                 setPopUp(!getPopUp);
               }}
-              className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
+              className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700] cursor-pointer"
             />
-            {getPopUp && <PopUpMenu {...props} />}
+            {getPopUp && (
+              <PopUpMenu
+                userData={{
+                  full_name: userData?.full_name,
+                  email: userData?.email,
+                  avatar: userData?.avatar,
+                }}
+                {...props}
+              />
+            )}
           </div>
         )}
       </nav>

@@ -5,5 +5,6 @@ export type TCrumbItem = {
 
 export type TBreadCrumbProps = {
   textColor?: string;
+  bgColor?: string;
   items: CrumbItem[];
 };
