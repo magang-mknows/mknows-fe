@@ -1,4 +1,3 @@
-import { Navbar } from '@mknows-frontend-services/components/molecules';
 import { logoutRequest } from '../../../auth/logout/api';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -15,6 +14,7 @@ import { ConsultationIcon } from '../../assets/icons/ic-consultation';
 import { WorkOpportunityIcon } from '../../assets/icons/ic-work';
 import { useProfile } from '../../../../modules/profile/section/edit-profile';
 import Logo from './logo.svg';
+import { Navbar } from '@mknows-frontend-services/components/molecules';
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -38,6 +38,7 @@ const AuthButton: FC = (): ReactElement => (
 export const BaseLayout: FC<TBaseLayoutProps> = ({
   children,
   title,
+  addSearch,
 }): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
@@ -144,6 +145,7 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
         bottomNavRules={_nav_rules}
         bottomNavItemStyle={`w-auto h-auto p-3 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={<AuthButton />}
+        withSearch={addSearch}
       />
       <section className="flex flex-col h-full">{children}</section>
     </Fragment>

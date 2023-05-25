@@ -11,10 +11,17 @@ import {
   TQuizQuestionsAnswers,
   TQuizRequestSubmit,
   TuseQuizRequestSubmit,
+  TQuizSubmitResponse,
+  TQuizSubmitPayload,
 } from './type';
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import {
+  UseMutationResult,
+  UseQueryResult,
+  useMutation,
+  useQuery,
+} from '@tanstack/react-query';
 import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { quizTakeGetRequest } from './api';
+import { quizSubmitRequest, quizTakeGetRequest } from './api';
 import { useEffect, useState } from 'react';
 
 export const useQuizQuestion = (): TuseQuizQuestion => {
@@ -81,4 +88,19 @@ export const useGetQuizTakeById = (
   useQuery({
     queryKey: ['quiz-take-get', id],
     queryFn: async () => await quizTakeGetRequest(id),
+  });
+
+// type TuseSubmitQuizParam =
+
+export const useSubmitQuiz = (
+  id: string
+): UseMutationResult<
+  TQuizSubmitResponse,
+  TMetaErrorResponse,
+  TQuizSubmitPayload,
+  unknown
+> =>
+  useMutation({
+    mutationKey: ['submit-quiz'],
+    mutationFn: async (payload) => await quizSubmitRequest(id, payload),
   });

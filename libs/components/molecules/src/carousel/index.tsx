@@ -7,6 +7,7 @@ export const Carousel: FC<{
   infinite?: boolean;
   single?: boolean;
   speed?: number;
+  disableDot?: boolean;
   carouselRef: RefObject<AliceCarousel>;
 }> = ({
   children,
@@ -14,6 +15,7 @@ export const Carousel: FC<{
   infinite = true,
   speed = 1000,
   single,
+  disableDot = false,
   carouselRef,
 }): ReactElement => {
   return (
@@ -28,7 +30,7 @@ export const Carousel: FC<{
         swipeExtraPadding={10}
         paddingLeft={50}
         paddingRight={50}
-        disableDotsControls
+        disableDotsControls={disableDot}
         disableButtonsControls
         responsive={
           single

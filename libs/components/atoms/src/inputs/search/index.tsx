@@ -2,7 +2,10 @@ import { FC, ReactElement } from 'react';
 import { SearchProps } from './types';
 import IconSearch from './ic-search';
 
-const SearchInput: FC<SearchProps> = ({ onChange, value }): ReactElement => {
+export const SearchInput: FC<SearchProps> = ({
+  onChange,
+  value,
+}): ReactElement => {
   return (
     <div className="px-8 lg:px-1 items-center w-full">
       <label htmlFor="simple-search" className="sr-only">
@@ -17,7 +20,7 @@ const SearchInput: FC<SearchProps> = ({ onChange, value }): ReactElement => {
           value={value}
           onChange={onChange}
           id="simple-search"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+          className="bg-neutral-100 border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
           placeholder="Search"
           required
         />

@@ -25,7 +25,7 @@ const RequestSection: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex px-8 justify-end gap-4">
-        <button className="border border-primary-500 rounded-full w-6 text-md">
+        <button className="border border-primary-500 rounded-full w-6 h-6 text-md">
           +
         </button>
         <button className="border border-primary-500 rounded-full w-6 text-md">
