@@ -4,7 +4,7 @@ import { CARD } from './constant';
 
 export const FacultyAlternatif: FC = (): ReactElement => {
   return (
-    <main className="px-[80px] bg-white py-[135px] w-full">
+    <main className="px-[80px] bg-white py-[40px] w-full">
       <section className="flex flex-col gap-y-[20px]">
         <h1 className="absolte z-40 text-black font-[700] text-[36px]">
           Pilihan Fakultas

@@ -61,7 +61,7 @@ export const LoginModule: FC = (): ReactElement => {
         redirect: false,
       });
       if (response?.ok) {
-        router.push('/');
+        router.push('/dashboard');
       } else {
         setError(response?.error);
       }
@@ -72,9 +72,12 @@ export const LoginModule: FC = (): ReactElement => {
   });
 
   const onGoogleLogin = async () => {
-    await signIn('google', {
+    const res = await signIn('google', {
       redirect: false,
     });
+    if (res?.ok) {
+      router.push('./dashboard');
+    }
   };
 
   useEffect(() => {

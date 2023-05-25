@@ -5,6 +5,7 @@ import { BannerAlternatif } from './banner';
 import { PartnerAlternatif } from './partner';
 import { LayoutFooter } from '../common/footer/footer-layout';
 import { GlimpseAlternatif } from './glimpse';
+import { AdvantageAlternatif } from './advantage/section';
 import { FacultyAlternatif } from './faculty';
 import { ArticleAlternatif } from './article';
 import { Banner4Module } from './banner';
@@ -18,6 +19,7 @@ export const LandingAlternatif: FC = (): ReactElement => {
       <BannerAlternatif />
       <PartnerAlternatif />
       <GlimpseAlternatif />
+      <AdvantageAlternatif />
       <FacultyAlternatif />
       <TestimonyAlternatif />
       <ArticleAlternatif />
