@@ -7,6 +7,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { Montserrat } from 'next/font/google';
 import { Suspense, useEffect, useState } from 'react';
 import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
+import Head from 'next/head';
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,9 @@ function CustomApp({
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
         <RecoilRoot>
+          <Head>
+            <title>KG-Admin</title>
+          </Head>
           <main className={montserrat.className}>
             <Suspense fallback={<LoadingSpinner />}>
               <Component {...pageProps} />
