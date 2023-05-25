@@ -109,9 +109,9 @@ export const ClientProvider: FC<TProviderProps> = ({
   //   avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
   // };
   const _profile_user = {
-    email: profileData?.email as string,
-    full_name: profileData?.full_name as string,
-    avatar: profileData?.avatar as string,
+    email: profileData?.data?.email as string,
+    full_name: profileData?.data?.full_name as string,
+    avatar: profileData?.data?.avatar as string,
   };
 
   return (
@@ -119,7 +119,7 @@ export const ClientProvider: FC<TProviderProps> = ({
       <Navbar
         items={_pop_up_menu}
         features={_features}
-        avatar={profileData?.avatar as string}
+        avatar={profileData?.data?.avatar as string}
         logo={logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}
