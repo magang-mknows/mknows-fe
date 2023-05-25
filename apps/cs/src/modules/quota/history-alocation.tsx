@@ -43,9 +43,9 @@ const RiwayatAlokasi: FC = (): ReactElement => {
       <div className="font-bold text-2xl text-[#444444]">
         Riwayat Alokasi Kuota
       </div>
-      <div className="flex flex-col lg:flex-row justify-between lg:gap-16 gap-0 py-10">
+      <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center justify-between">
         <DateRangePickerComponent onRangeChange={(e) => handleRangeChange(e)} />
-        <div className="w-full">
+        <div className="w-[50%] ">
           <div className="flex flex-row gap lg:gap-x-3 gap-x-4 w-full mt-4 lg:mt-0">
             <div className="w-[50%]">
               <select
