@@ -14,6 +14,8 @@ import { z } from "zod";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
+import { usePopupForgotPass } from "../forgot/hooks";
+import { ForgotModule } from "../forgot";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -44,7 +46,7 @@ export const LoginModule: FC = (): ReactElement => {
       remember: false,
     },
   });
-
+  const { setPopupStatus } = usePopupForgotPass();
   const onSubmit = handleSubmit(async (data) => {
     setLoading(true);
     try {
@@ -112,7 +114,10 @@ export const LoginModule: FC = (): ReactElement => {
                 label="ingat saya"
                 className="!text-sm"
               />
-              <h1 className="text-version2-400 cursor-pointer font-black text-sm hover:underline ">
+              <h1
+                className="text-version2-400 cursor-pointer font-black text-sm hover:underline "
+                onClick={() => setPopupStatus(true)}
+              >
                 Lupa kata sandi?
               </h1>
             </div>
@@ -147,6 +152,7 @@ export const LoginModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
+        <ForgotModule />
       </Suspense>
     </ErrorBoundary>
   );
