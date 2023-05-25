@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { TSize } from './types';
+import { useState, useEffect } from "react";
+import { TSize } from "./types";
 
 export function useWindowSize(): TSize {
   const [windowSize, setWindowSize] = useState<TSize>({
@@ -14,11 +14,11 @@ export function useWindowSize(): TSize {
       });
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
   return windowSize;
 }

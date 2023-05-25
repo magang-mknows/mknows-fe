@@ -1,7 +1,7 @@
-import { FC, ReactElement, Fragment } from 'react';
+import { FC, ReactElement, Fragment } from "react";
 
-import { useReportData } from '../hooks';
-import { IconDropdown, IconTable } from '../../../components/atoms';
+import { useReportData } from "../hooks";
+import { IconDropdown, IconTable } from "../../../components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -54,11 +54,11 @@ const Table: FC = (): ReactElement => {
                   <td className="px-4 py-2 bg-green-400">
                     <button
                       className={` ${
-                        item.status === 'Sangat Baik'
-                          ? 'bg-success-400'
-                          : item.status === 'Cukup Buruk'
-                          ? 'bg-warning-500'
-                          : 'bg-error-400'
+                        item.status === "Sangat Baik"
+                          ? "bg-success-400"
+                          : item.status === "Cukup Buruk"
+                          ? "bg-warning-500"
+                          : "bg-error-400"
                       } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {item.status}

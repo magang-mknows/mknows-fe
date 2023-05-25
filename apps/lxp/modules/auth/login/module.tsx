@@ -3,27 +3,25 @@ import {
   Checkbox,
   DashedText,
   TextField,
-} from '@mknows-frontend-services/components/atoms';
-import { useForm } from 'react-hook-form';
-import { FC, ReactElement, Suspense, useEffect, useState } from 'react';
-import { lazily } from 'react-lazily';
-import { ErrorBoundary } from 'react-error-boundary';
-import Link from 'next/link';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { IconGoogle } from '../icons/ic-google';
+} from "@mknows-frontend-services/components/atoms";
+import { useForm } from "react-hook-form";
+import { FC, ReactElement, Suspense, useEffect, useState } from "react";
+import { lazily } from "react-lazily";
+import { ErrorBoundary } from "react-error-boundary";
+import Link from "next/link";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { IconGoogle } from "../icons/ic-google";
 
-const { AuthLayout } = lazily(
-  () => import('@mknows-frontend-services/modules')
-);
+const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
 const validationSchema = z.object({
-  email: z.string().min(1, { message: 'Email harus diisi' }).email({
-    message: 'Email harus valid',
+  email: z.string().min(1, { message: "Email harus diisi" }).email({
+    message: "Email harus valid",
   }),
-  password: z.string().min(1, { message: 'Password harus diisi' }),
+  password: z.string().min(1, { message: "Password harus diisi" }),
   remember: z.boolean().optional(),
 });
 
@@ -39,10 +37,10 @@ export const LoginModule: FC = (): ReactElement => {
     handleSubmit,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       remember: false,
     },
   });
@@ -50,13 +48,13 @@ export const LoginModule: FC = (): ReactElement => {
   const onSubmit = handleSubmit(async (data) => {
     setLoading(true);
     try {
-      const response = await signIn('login', {
+      const response = await signIn("login", {
         email: data.email,
         password: data.password,
         redirect: false,
       });
       if (response?.ok) {
-        router.push('/');
+        router.push("/");
       } else {
         setError(response?.error);
       }
@@ -67,7 +65,7 @@ export const LoginModule: FC = (): ReactElement => {
   });
 
   const onGoogleLogin = async () => {
-    await signIn('google', {
+    await signIn("google", {
       redirect: false,
     });
   };
@@ -78,35 +76,32 @@ export const LoginModule: FC = (): ReactElement => {
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
-      <Suspense fallback={'Loading..'}>
+      <Suspense fallback={"Loading.."}>
         <AuthLayout
           h="screen"
           error={getError}
           title="Masuk"
           description="Silahkan masuk menggunakan email dan kata sandi yang terdaftar"
         >
-          <form
-            onSubmit={onSubmit}
-            className="flex flex-col w-full justify-start"
-          >
+          <form onSubmit={onSubmit} className="flex flex-col w-full justify-start">
             <TextField
               type="email"
               variant="md"
               control={control}
-              name={'email'}
+              name={"email"}
               placeholder="Masukan Email"
               label="Email"
-              status={errors.email ? 'error' : 'none'}
+              status={errors.email ? "error" : "none"}
               message={errors.email?.message}
             />
             <TextField
               type="password"
               variant="md"
               control={control}
-              name={'password'}
+              name={"password"}
               placeholder="Masukan Kata Sandi"
               label="Kata Sandi"
-              status={errors.password ? 'error' : 'none'}
+              status={errors.password ? "error" : "none"}
               message={errors.password?.message}
             />
             <div className="py-2 flex justify-between items-center ">
@@ -124,7 +119,7 @@ export const LoginModule: FC = (): ReactElement => {
             <div className="flex flex-col my-4">
               <Button
                 type="submit"
-                loading={loading ? 'Sedang Masuk..' : ''}
+                loading={loading ? "Sedang Masuk.." : ""}
                 className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 w-full text-sm py-5  disabled:border-none text-neutral-100 hover:bg-version2-300 hover:border-version2-300 !bg-version2-400 disabled:!bg-version2-400/60 !border-none"
                 disabled={!isValid}
               >
@@ -144,7 +139,7 @@ export const LoginModule: FC = (): ReactElement => {
                 <span className="text-neutral-700">Belum punya akun?</span>
                 <Link
                   className="text-version2-400 hover:underline font-bold"
-                  href={'/auth/register'}
+                  href={"/auth/register"}
                 >
                   Daftar Disini
                 </Link>

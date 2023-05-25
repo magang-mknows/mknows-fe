@@ -1,13 +1,8 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-} from 'react-icons/fa';
-import gplay from '../../assets/footerGPlay.svg';
-import Image from 'next/image';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import gplay from "../../assets/footerGPlay.svg";
+import Image from "next/image";
 
 export const FooterIcons: FC = (): ReactElement => {
   return (

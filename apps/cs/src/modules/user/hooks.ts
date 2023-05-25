@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   userFilter,
   userSearch,
@@ -6,7 +6,7 @@ import {
   IdentityStatusState,
   CharacterStatusState,
   CapabilityStatusState,
-} from './store';
+} from "./store";
 import {
   TUserDataResponse,
   TUserQueryResponse,
@@ -16,11 +16,11 @@ import {
   ReturnTypesDataIdentity,
   TUserParams,
   TUserResponse,
-} from './types';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { filterAction } from '../quota/store';
-import { getUserResponse } from './api';
+} from "./types";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { filterAction } from "../quota/store";
+import { getUserResponse } from "./api";
 
 export const useUserData = (): TUserDataResponse => {
   const get = useRecoilValue(userFilter);
@@ -77,11 +77,9 @@ export const useFilterAction = () => {
   };
 };
 
-export const useUser = (
-  params: TUserParams
-): UseQueryResult<TUserResponse, TMetaErrorResponse> => {
+export const useUser = (params: TUserParams): UseQueryResult<TUserResponse, TMetaErrorResponse> => {
   return useQuery({
-    queryKey: ['get-user', params],
+    queryKey: ["get-user", params],
     queryFn: async () => await getUserResponse(params),
   });
 };

@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { ChoiceFacultyCard } from './components';
-import { CARD } from './constant';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { ChoiceFacultyCard } from "./components";
+import { CARD } from "./constant";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const ArticleAlternatif: FC = (): ReactElement => {
   return (

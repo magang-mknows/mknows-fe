@@ -1,38 +1,38 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement } from 'react';
-import { MdNavigateNext } from 'react-icons/md';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { FC, ReactElement } from "react";
+import { MdNavigateNext } from "react-icons/md";
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const EventSection: FC = (): ReactElement => {
   const dummyEvent = [
     {
       id: 1,
-      image: '/assets/dashboard/penugasan.svg',
-      topic: 'Webinar Cyber Security',
-      date: '27 Feb',
-      time: '09.00 - 11.00 WIB',
+      image: "/assets/dashboard/penugasan.svg",
+      topic: "Webinar Cyber Security",
+      date: "27 Feb",
+      time: "09.00 - 11.00 WIB",
       totalSpeakers: 1,
       audience: 72,
       quota: 100,
     },
     {
       id: 2,
-      image: '/assets/dashboard/penugasan.svg',
-      topic: 'Webinar Cyber Crime',
-      date: '27 Feb',
-      time: '09.00 - 11.00 WIB',
+      image: "/assets/dashboard/penugasan.svg",
+      topic: "Webinar Cyber Crime",
+      date: "27 Feb",
+      time: "09.00 - 11.00 WIB",
       totalSpeakers: 1,
       audience: 72,
       quota: 100,
     },
     {
       id: 3,
-      image: '/assets/dashboard/penugasan.svg',
-      topic: 'Webinar Mikrotik',
-      date: '27 Feb',
-      time: '09.00 - 11.00 WIB',
+      image: "/assets/dashboard/penugasan.svg",
+      topic: "Webinar Mikrotik",
+      date: "27 Feb",
+      time: "09.00 - 11.00 WIB",
       totalSpeakers: 1,
       audience: 72,
       quota: 100,
@@ -51,7 +51,7 @@ export const EventSection: FC = (): ReactElement => {
           return (
             <span
               className={`${
-                isSelected ? 'bg-primary-400 w-6' : 'w-2 bg-neutral-300'
+                isSelected ? "bg-primary-400 w-6" : "w-2 bg-neutral-300"
               } flex flex-row  h-2 rounded-full transition-all ease-in-out duration-300`}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
@@ -67,9 +67,7 @@ export const EventSection: FC = (): ReactElement => {
           return (
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
-                <h1 className="text-lg font-bold text-neutral-900">
-                  Acara Kampus
-                </h1>
+                <h1 className="text-lg font-bold text-neutral-900">Acara Kampus</h1>
                 <p className="text-sm text-neutral-500 ">
                   {dummyEvent.length} Acara kampus tersedia
                 </p>
@@ -79,9 +77,7 @@ export const EventSection: FC = (): ReactElement => {
                   {/* <Image src={item.image} alt="test" height={90} width={100} /> */}
                 </figure>
                 <div className="flex flex-col items-start">
-                  <h1 className="mb-2 text-start text-neutral-900 font-bold">
-                    {item.topic}
-                  </h1>
+                  <h1 className="mb-2 text-start text-neutral-900 font-bold">{item.topic}</h1>
                   <section className="flex gap-x-4 gap-y-2 flex-wrap ">
                     <div className="flex flex-col ">
                       <section className="flex gap-2 items-center mb-2">
@@ -94,9 +90,7 @@ export const EventSection: FC = (): ReactElement => {
                         <div className="w-4 h-4 rounded-md bg-version3-400/50 flex items-center justify-center">
                           <MdNavigateNext className="text-version3-500" />
                         </div>
-                        <p className="text-xs  text-neutral-400">
-                          {item.totalSpeakers} Pemateri
-                        </p>
+                        <p className="text-xs  text-neutral-400">{item.totalSpeakers} Pemateri</p>
                       </section>
                     </div>
                     <div className="flex flex-col ">
@@ -104,9 +98,7 @@ export const EventSection: FC = (): ReactElement => {
                         <div className="w-4 h-4 rounded-md bg-version3-400/50 flex items-center justify-center">
                           <MdNavigateNext className="text-version3-500" />
                         </div>
-                        <p className="text-xs   text-neutral-400">
-                          {item.time}
-                        </p>
+                        <p className="text-xs   text-neutral-400">{item.time}</p>
                       </section>
                       <section className="flex gap-2 items-center">
                         <div className="w-4 h-4 rounded-md bg-version3-400/50 flex items-center justify-center">

@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { ContactCard } from '../common/event-card/contact-card';
-import RelatedEvent from '../common/releted-event';
+import { FC, ReactElement } from "react";
+import { ContactCard } from "../common/event-card/contact-card";
+import RelatedEvent from "../common/releted-event";
 
 const Contact: FC = (): ReactElement => {
   return (

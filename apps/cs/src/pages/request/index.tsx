@@ -1,7 +1,7 @@
-import { FC, ReactElement, Suspense, lazy } from 'react';
-import LoadingRequest from '../../modules/request/loading';
+import { FC, ReactElement, Suspense, lazy } from "react";
+import LoadingRequest from "../../modules/request/loading";
 
-const RequestPage = lazy(() => import('../../modules/request'));
+const RequestPage = lazy(() => import("../../modules/request"));
 
 const RequestPages: FC = (): ReactElement => {
   return (

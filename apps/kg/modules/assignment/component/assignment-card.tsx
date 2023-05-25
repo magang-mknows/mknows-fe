@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { AssigmentProps } from './type.d';
+import { FC, ReactElement } from "react";
+import Image, { StaticImageData } from "next/image";
+import { AssigmentProps } from "./type.d";
 
 export const Assigment: FC<AssigmentProps> = ({
   titleAssigment,
@@ -21,12 +21,8 @@ export const Assigment: FC<AssigmentProps> = ({
         />
         <div className=" basis-3/4">
           <div className="banner px-8 py-9">
-            <h1 className="text-[20px] font-[700] dark:text-[#262626] ">
-              {titleAssigment}
-            </h1>
-            <p className="text-[#A3A3A3] font-[400] text-[16px] mt-3">
-              {titleCourse}
-            </p>
+            <h1 className="text-[20px] font-[700] dark:text-[#262626] ">{titleAssigment}</h1>
+            <p className="text-[#A3A3A3] font-[400] text-[16px] mt-3">{titleCourse}</p>
           </div>
         </div>
         <div className=" basis-1/4">
@@ -38,9 +34,7 @@ export const Assigment: FC<AssigmentProps> = ({
               priority
               src={imgAssigment as StaticImageData}
             />
-            <p
-              className={`mt-2 text-[16px] font-[600] uppercase ${classNameCategory}`}
-            >
+            <p className={`mt-2 text-[16px] font-[600] uppercase ${classNameCategory}`}>
               {category}
             </p>
             <div className="flex flex-row dark:text-[#262626] text-[16px] font-[400]">

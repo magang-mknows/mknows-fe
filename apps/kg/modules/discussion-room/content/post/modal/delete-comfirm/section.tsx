@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { FaTrash } from 'react-icons/fa';
-import { isModalOpen, selectedPostId } from '../../../store';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { FaTrash } from "react-icons/fa";
+import { isModalOpen, selectedPostId } from "../../../store";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const DeleteConfirmModal: FC = (): ReactElement => {
   const setOptionOpen = useSetRecoilState(isModalOpen);
@@ -14,9 +14,7 @@ export const DeleteConfirmModal: FC = (): ReactElement => {
         <FaTrash className="text-warning-500 text-4xl z-20" />
       </div>
       <div className="flex flex-col gap-3 items-center justify-center py-2 w-[490px]">
-        <h1 className="font-bold text-lg text-neutral-800">
-          Konfirmasi {getSeletedPostId}
-        </h1>
+        <h1 className="font-bold text-lg text-neutral-800">Konfirmasi {getSeletedPostId}</h1>
         <p className="w-full text-center text-sm mb-4 ">
           Apakah anda ingin menghapus postingan ini?
         </p>

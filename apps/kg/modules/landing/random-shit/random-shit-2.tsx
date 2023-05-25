@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { TRandomShit } from './types';
+import { FC, ReactElement } from "react";
+import { TRandomShit } from "./types";
 
 export const RandomShit2: FC<TRandomShit> = ({ className }): ReactElement => {
   return (
@@ -14,7 +14,7 @@ export const RandomShit2: FC<TRandomShit> = ({ className }): ReactElement => {
       <mask
         id="mask0_4579_24954"
         style={{
-          maskType: 'alpha',
+          maskType: "alpha",
         }}
         maskUnits="userSpaceOnUse"
         x="39"

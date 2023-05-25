@@ -1,2 +1,2 @@
-export * from './traning-information';
-export * from './content';
+export * from "./traning-information";
+export * from "./content";

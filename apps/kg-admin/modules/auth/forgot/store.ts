@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const PopupModalForgotPass = atom({
-  key: 'modal-popup-forgot-password',
+  key: "modal-popup-forgot-password",
   default: false,
 });

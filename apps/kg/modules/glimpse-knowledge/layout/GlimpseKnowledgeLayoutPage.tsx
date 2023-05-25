@@ -1,17 +1,17 @@
-import { FC, ReactElement } from 'react';
-import { useRouter } from 'next/router';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { GlimpseKnowledgeLayoutMain } from './Main/GlimpseKnowledgeLayoutMain';
+import { FC, ReactElement } from "react";
+import { useRouter } from "next/router";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { GlimpseKnowledgeLayoutMain } from "./Main/GlimpseKnowledgeLayoutMain";
 
 const GlimpseKnowledgeLayoutPage: FC = (): ReactElement => {
   const { query } = useRouter();
 
   const GlimpseKnowledgeBreadcumbs = [
     {
-      name: 'Home',
-      link: '/',
+      name: "Home",
+      link: "/",
     },
-    { name: 'Sekilas Ilmu', link: '/sekilas-ilmu' },
+    { name: "Sekilas Ilmu", link: "/sekilas-ilmu" },
     { name: `${query.slug}`, link: `/${query.slug}` },
   ];
   return (

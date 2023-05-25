@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const ScoreDetailTable: FC = (): ReactElement => {
   return (
@@ -9,22 +9,13 @@ export const ScoreDetailTable: FC = (): ReactElement => {
             <table className="min-w-full divide-y divide-neutral-400 dark:divide-gray-700">
               <thead className="bg-primary-500">
                 <tr className="divide-x divide-neutral-300 dark:divide-gray-700">
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     No
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Kode Matkul
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Mata Kuliah
                   </th>
                   <th
@@ -33,95 +24,50 @@ export const ScoreDetailTable: FC = (): ReactElement => {
                   >
                     SKS
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Huruf Mutu
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Angka Mutu
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Angka Mutu
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-400 dark:divide-gray-700 text-center text-primary-600 font-bold">
                 <tr>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    1
-                  </td>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    NPN99
-                  </td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">1</td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">NPN99</td>
                   <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
                     Introduction to Japanese Culture
                   </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    2
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    A
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    3.70
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    Lulus
-                  </td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">2</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">A</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">3.70</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">Lulus</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    1
-                  </td>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    NPN99
-                  </td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">1</td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">NPN99</td>
                   <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
                     Introduction to Japanese Culture
                   </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    2
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    A
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    3.70
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    Lulus
-                  </td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">2</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">A</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">3.70</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">Lulus</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    1
-                  </td>
-                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                    NPN99
-                  </td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">1</td>
+                  <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">NPN99</td>
                   <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
                     Introduction to Japanese Culture
                   </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    2
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    A
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    3.70
-                  </td>
-                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                    Lulus
-                  </td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">2</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">A</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">3.70</td>
+                  <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">Lulus</td>
                 </tr>
               </tbody>
             </table>

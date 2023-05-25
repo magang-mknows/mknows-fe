@@ -1,40 +1,40 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { MdNavigateNext } from 'react-icons/md';
-import { AiFillWarning } from 'react-icons/ai';
+import { MdNavigateNext } from "react-icons/md";
+import { AiFillWarning } from "react-icons/ai";
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const TaskSection: FC = (): ReactElement => {
   const dummyPenugasan = [
     {
       id: 1,
-      image: '/assets/dashboard/acara.svg',
-      topic: 'Japanese Culture',
-      title: 'Introduction to Japanese Culture',
-      milstone: 'Tugas Pertemuan 1',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 Februari 2023',
+      image: "/assets/dashboard/acara.svg",
+      topic: "Japanese Culture",
+      title: "Introduction to Japanese Culture",
+      milstone: "Tugas Pertemuan 1",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 Februari 2023",
     },
     {
       id: 2,
-      image: '/assets/dashboard/acara.svg',
-      topic: 'Indonesia Culture',
-      title: 'Introduction to Indonesia Culture',
-      milstone: 'Tugas Pertemuan 2',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 April 2023',
+      image: "/assets/dashboard/acara.svg",
+      topic: "Indonesia Culture",
+      title: "Introduction to Indonesia Culture",
+      milstone: "Tugas Pertemuan 2",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 April 2023",
     },
     {
       id: 3,
-      image: '/assets/dashboard/acara.svg',
-      topic: 'Bekasi Culture',
-      title: 'Introduction to Bekasi Culture',
-      milstone: 'Tugas Pertemuan 1',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 Maret 2023',
+      image: "/assets/dashboard/acara.svg",
+      topic: "Bekasi Culture",
+      title: "Introduction to Bekasi Culture",
+      milstone: "Tugas Pertemuan 1",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 Maret 2023",
     },
   ];
   return (
@@ -61,7 +61,7 @@ export const TaskSection: FC = (): ReactElement => {
           return (
             <span
               className={`${
-                isSelected ? 'bg-primary-400 w-6' : 'w-2 bg-neutral-300'
+                isSelected ? "bg-primary-400 w-6" : "w-2 bg-neutral-300"
               } flex flex-row  h-2 rounded-full transition-all ease-in-out duration-300`}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
@@ -77,9 +77,7 @@ export const TaskSection: FC = (): ReactElement => {
           return (
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
-                <h1 className="text-lg font-bold text-neutral-900 ">
-                  Penugasan
-                </h1>
+                <h1 className="text-lg font-bold text-neutral-900 ">Penugasan</h1>
                 <p className="text-sm text-neutral-500 ">{item.topic}</p>
               </section>
               <section className="flex items-center justify-start gap-4 mb-6  w-fit">

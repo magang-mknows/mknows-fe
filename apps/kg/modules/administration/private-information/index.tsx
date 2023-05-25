@@ -1,37 +1,31 @@
-import { FC, ReactElement, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { optionsGender, optionsLastEducation } from '../constant';
+import { FC, ReactElement, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { optionsGender, optionsLastEducation } from "../constant";
 import {
   usePrivateInformationStatus,
   useAdministrationStatus,
   usePrivateInformation,
-} from '../hooks';
-import { Accordion } from '@mknows-frontend-services/components/molecules';
-import {
-  SelectField,
-  TextField,
-  Button,
-} from '@mknows-frontend-services/components/atoms';
-import { useProfile } from '../../profile/section/edit-profile/hooks';
+} from "../hooks";
+import { Accordion } from "@mknows-frontend-services/components/molecules";
+import { SelectField, TextField, Button } from "@mknows-frontend-services/components/atoms";
+import { useProfile } from "../../profile/section/edit-profile/hooks";
 
 export const PrivateInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
-    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    gender: z.string().min(1, { message: 'Jenis kelamin harus diisi' }),
+    gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
     phone: z.string().max(13).min(11, {
-      message: 'Nomor handphone harus diisi',
+      message: "Nomor handphone harus diisi",
     }),
-    birthdate: z.string().min(1, { message: 'Tanggal lahir harus diisi' }),
-    birthplace: z.string().min(1, { message: 'Tempat lahir harus diisi' }),
-    address: z.string().min(1, { message: ' Alamat harus diisi' }),
-    last_education: z
-      .string()
-      .min(1, { message: ' Pendidikan terakhir harus diisi' }),
+    birthdate: z.string().min(1, { message: "Tanggal lahir harus diisi" }),
+    birthplace: z.string().min(1, { message: "Tempat lahir harus diisi" }),
+    address: z.string().min(1, { message: " Alamat harus diisi" }),
+    last_education: z.string().min(1, { message: " Pendidikan terakhir harus diisi" }),
     nim: z.string().optional(),
     university: z.string().optional(),
     major: z.string().optional(),
@@ -54,20 +48,20 @@ export const PrivateInformation: FC = (): ReactElement => {
     reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      full_name: '',
-      email: '',
-      gender: '',
-      phone: '',
-      birthdate: '',
-      birthplace: '',
-      address: '',
-      last_education: '',
-      nim: '',
-      university: '',
-      major: '',
-      semester: '',
+      full_name: "",
+      email: "",
+      gender: "",
+      phone: "",
+      birthdate: "",
+      birthplace: "",
+      address: "",
+      last_education: "",
+      nim: "",
+      university: "",
+      major: "",
+      semester: "",
     },
   });
 
@@ -81,9 +75,9 @@ export const PrivateInformation: FC = (): ReactElement => {
         {
           onSuccess: () => {
             setPrivateStatus(true);
-            setAdministrationStatus('onProgress');
+            setAdministrationStatus("onProgress");
           },
-        }
+        },
       );
     } catch (err) {
       setPrivateStatus(false);
@@ -95,7 +89,7 @@ export const PrivateInformation: FC = (): ReactElement => {
 
   return (
     <Accordion
-      idAccordion={getPrivateStatus ? '' : 'privat-information'}
+      idAccordion={getPrivateStatus ? "" : "privat-information"}
       title="Informasi Pribadi"
       disabled={getPrivateStatus ? true : false}
     >
@@ -108,12 +102,12 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
-                label={'Nama Lengkap'}
+                label={"Nama Lengkap"}
                 name="full_name"
-                placeholder={'Masukkan nama lengkap'}
+                placeholder={"Masukkan nama lengkap"}
                 defaultValue={getUserMe?.full_name}
                 required
-                status={errors.full_name ? 'error' : 'none'}
+                status={errors.full_name ? "error" : "none"}
                 message={errors.full_name?.message}
               />
             </div>
@@ -125,7 +119,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 placeholder="Pilih jenis kelamin"
                 required={true}
                 options={optionsGender}
-                variant={'md'}
+                variant={"md"}
                 error={errors.gender?.message}
                 styleText="!text-black text-[10px]"
               />
@@ -136,11 +130,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
-                label={'Tempat Lahir'}
+                label={"Tempat Lahir"}
                 name="birthplace"
-                placeholder={'Masukkan tempat lahir'}
+                placeholder={"Masukkan tempat lahir"}
                 required
-                status={errors.birthplace ? 'error' : 'none'}
+                status={errors.birthplace ? "error" : "none"}
                 message={errors.birthplace?.message}
               />
             </div>
@@ -150,11 +144,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
-                label={'Alamat Lengkap'}
-                name={'address'}
-                placeholder={'Masukkan alamat lengkap'}
+                label={"Alamat Lengkap"}
+                name={"address"}
+                placeholder={"Masukkan alamat lengkap"}
                 required={true}
-                status={errors.address ? 'error' : 'none'}
+                status={errors.address ? "error" : "none"}
                 message={errors.address?.message}
               />
             </div>
@@ -162,13 +156,13 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                type={'text'}
+                type={"text"}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
-                label={'NIM atau NPM (optional)'}
-                name={'nim'}
-                placeholder={'Masukkan NIM atau NPM (optional)'}
+                label={"NIM atau NPM (optional)"}
+                name={"nim"}
+                placeholder={"Masukkan NIM atau NPM (optional)"}
                 required={false}
-                status={errors.nim ? 'error' : 'none'}
+                status={errors.nim ? "error" : "none"}
                 message={errors.nim?.message}
               />
             </div>
@@ -177,12 +171,12 @@ export const PrivateInformation: FC = (): ReactElement => {
                 variant="md"
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
-                type={'text'}
-                label={'Program Studi (optional)'}
-                name={'major'}
-                placeholder={'Masukkan Program Studi (optional)'}
+                type={"text"}
+                label={"Program Studi (optional)"}
+                name={"major"}
+                placeholder={"Masukkan Program Studi (optional)"}
                 required={false}
-                status={errors.major ? 'error' : 'none'}
+                status={errors.major ? "error" : "none"}
                 message={errors.major?.message}
               />
             </div>
@@ -194,12 +188,12 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3] bg-[#DDE0E3]"
                 type="text"
-                label={'Alamat Email'}
+                label={"Alamat Email"}
                 name="email"
-                placeholder={'Email'}
+                placeholder={"Email"}
                 required
                 defaultValue={getUserMe?.email}
-                status={errors.email ? 'error' : 'none'}
+                status={errors.email ? "error" : "none"}
                 message={errors.email?.message}
                 disabled
               />
@@ -209,12 +203,12 @@ export const PrivateInformation: FC = (): ReactElement => {
                 variant="md"
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
-                type={'number'}
-                label={'Nomor Handphone'}
-                name={'phone'}
-                placeholder={'Masukkan nomor handphone'}
+                type={"number"}
+                label={"Nomor Handphone"}
+                name={"phone"}
+                placeholder={"Masukkan nomor handphone"}
                 required={true}
-                status={errors.phone ? 'error' : 'none'}
+                status={errors.phone ? "error" : "none"}
                 message={errors.phone?.message}
               />
             </div>
@@ -223,12 +217,12 @@ export const PrivateInformation: FC = (): ReactElement => {
                 variant="md"
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
-                type={'date'}
-                label={'Tanggal Lahir'}
-                name={'birthdate'}
-                placeholder={'Masukkan tanggal lahir'}
+                type={"date"}
+                label={"Tanggal Lahir"}
+                name={"birthdate"}
+                placeholder={"Masukkan tanggal lahir"}
                 required={true}
-                status={errors.birthdate ? 'error' : 'none'}
+                status={errors.birthdate ? "error" : "none"}
                 message={errors.birthdate?.message}
               />
             </div>
@@ -240,7 +234,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 name="last_education"
                 required={true}
                 options={optionsLastEducation}
-                variant={'md'}
+                variant={"md"}
                 error={errors.last_education?.message}
                 styleText="!text-black text-[10px]"
               />
@@ -251,11 +245,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 type="text"
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 variant="md"
-                label={'Universitas Asal (optional)'}
-                name={'university'}
-                placeholder={'Masukkan universitas asal'}
+                label={"Universitas Asal (optional)"}
+                name={"university"}
+                placeholder={"Masukkan universitas asal"}
                 required={false}
-                status={errors.university ? 'error' : 'none'}
+                status={errors.university ? "error" : "none"}
                 message={errors.university?.message}
               />
             </div>
@@ -265,11 +259,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 control={control}
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type="text"
-                label={'Semester (optional)'}
-                name={'semester'}
-                placeholder={'Masukkan semeter terakhir'}
+                label={"Semester (optional)"}
+                name={"semester"}
+                placeholder={"Masukkan semeter terakhir"}
                 required={false}
-                status={errors.semester ? 'error' : 'none'}
+                status={errors.semester ? "error" : "none"}
                 message={errors.semester?.message}
               />
             </div>
@@ -277,7 +271,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <Button
                 disabled={!isValid}
                 className="my-4 w-[211px] rounded-[8px] disabled:bg-[#c5c3c3] disabled:text-white bg-[#106FA4] text-white font-bold p-3 text-1xl"
-                type={'submit'}
+                type={"submit"}
               >
                 Simpan Informasi Pribadi
               </Button>

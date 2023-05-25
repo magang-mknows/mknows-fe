@@ -1,22 +1,9 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const HomeIcon: FC = (): ReactElement => {
   return (
-    <svg
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="0.742188"
-        y="0.25"
-        width="30"
-        height="30"
-        rx="12.35"
-        fill="#F5F5F5"
-      />
+    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.742188" y="0.25" width="30" height="30" rx="12.35" fill="#F5F5F5" />
       <g clip-path="url(#clip0_579_19364)">
         <path
           d="M23.3254 22.5727V21.6247C23.3254 21.056 22.9463 20.6768 22.3775 20.6768H9.10669C8.53794 20.6768 8.15877 21.056 8.15877 21.6247V22.5727H7.21086C6.64211 22.5727 6.26294 22.9518 6.26294 23.5206V24.4685H25.2213V23.5206C25.2213 22.9518 24.8421 22.5727 24.2734 22.5727H23.3254Z"
@@ -30,12 +17,7 @@ export const HomeIcon: FC = (): ReactElement => {
       </g>
       <defs>
         <clipPath id="clip0_579_19364">
-          <rect
-            width="22.75"
-            height="22.75"
-            fill="white"
-            transform="translate(4.36719 3.875)"
-          />
+          <rect width="22.75" height="22.75" fill="white" transform="translate(4.36719 3.875)" />
         </clipPath>
       </defs>
     </svg>

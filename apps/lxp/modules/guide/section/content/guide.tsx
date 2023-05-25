@@ -1,7 +1,7 @@
-import { ReactElement } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { dummyGuide } from '../../store';
+import { ReactElement } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { dummyGuide } from "../../store";
 
 export const GuideSection = (): ReactElement => {
   return (
@@ -15,13 +15,9 @@ export const GuideSection = (): ReactElement => {
             >
               <Link href={item.href}>
                 <div className=" p-5">
-                  <Image src={item.img} alt={'buku-panduan'} />
-                  <h1 className="text-[18px] text-black  font-[700]">
-                    {item.title}
-                  </h1>
-                  <p className="text-[14px] text-black  font-[400]">
-                    {item.desc}
-                  </p>
+                  <Image src={item.img} alt={"buku-panduan"} />
+                  <h1 className="text-[18px] text-black  font-[700]">{item.title}</h1>
+                  <p className="text-[14px] text-black  font-[400]">{item.desc}</p>
                 </div>
               </Link>
             </div>

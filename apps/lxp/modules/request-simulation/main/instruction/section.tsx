@@ -1,10 +1,10 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { RiErrorWarningFill } from 'react-icons/ri';
+import { FC, Fragment, ReactElement } from "react";
+import { RiErrorWarningFill } from "react-icons/ri";
 
 export const RequestScheduleInstrucion: FC = (): ReactElement => {
   const dummyInstructions = [
-    ' Peserta harus memastikan bahwa perangkat dan teknologi yang digunakan untuk drill simulasi & assessment berfungsi dengan baik. Pastikan bahwa peserta memiliki akses yang cukup dan perangkat yang dapat mendukung drill simulasi & assessment pada LMS',
-    'Sebelum memulai drill simulasi & assessment pada LMS, pastikan bahwa peserta telah diberikan instruksi yang jelas dan sasaran yang harus dicapai. Sasaran harus sesuai dengan kemampuan dan kebutuhan dari setiap individu yang terlibat dalam drill tersebut',
+    " Peserta harus memastikan bahwa perangkat dan teknologi yang digunakan untuk drill simulasi & assessment berfungsi dengan baik. Pastikan bahwa peserta memiliki akses yang cukup dan perangkat yang dapat mendukung drill simulasi & assessment pada LMS",
+    "Sebelum memulai drill simulasi & assessment pada LMS, pastikan bahwa peserta telah diberikan instruksi yang jelas dan sasaran yang harus dicapai. Sasaran harus sesuai dengan kemampuan dan kebutuhan dari setiap individu yang terlibat dalam drill tersebut",
   ];
 
   return (
@@ -18,10 +18,7 @@ export const RequestScheduleInstrucion: FC = (): ReactElement => {
       <section>
         {dummyInstructions.map((item, index) => {
           return (
-            <p
-              key={index}
-              className="text-xs md:text-sm mb-2 text-justify text-neutral-900"
-            >
+            <p key={index} className="text-xs md:text-sm mb-2 text-justify text-neutral-900">
               {index + 1}. {item}
             </p>
           );

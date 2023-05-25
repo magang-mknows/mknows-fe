@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { BaseLayout, LandingAlternatif } from '../modules';
+import { FC, ReactElement } from "react";
+import { BaseLayout, LandingAlternatif } from "../modules";
 
 const LandingPage: FC = (): ReactElement => {
   return (

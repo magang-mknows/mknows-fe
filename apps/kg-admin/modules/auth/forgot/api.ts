@@ -1,13 +1,10 @@
-import { TMetaItem } from '@mknows-frontend-services/utils';
-import api from '../../../services/api';
-import { TForgotPasswordPayload } from './types';
+import { TMetaItem } from "@mknows-frontend-services/utils";
+import api from "../../../services/api";
+import { TForgotPasswordPayload } from "./types";
 
 export const forgotPasswordRequest = async (
-  payload: TForgotPasswordPayload
+  payload: TForgotPasswordPayload,
 ): Promise<TMetaItem> => {
-  const { data } = await api.post<TMetaItem>(
-    '/reset-password/request',
-    payload
-  );
+  const { data } = await api.post<TMetaItem>("/reset-password/request", payload);
   return data;
 };

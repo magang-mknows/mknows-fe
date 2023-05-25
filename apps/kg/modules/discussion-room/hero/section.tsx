@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
 
-import discussionIcon from '../assets/discusionIcon.svg';
+import discussionIcon from "../assets/discusionIcon.svg";
 
 const DiscussionHero: FC = (): ReactElement => {
   return (

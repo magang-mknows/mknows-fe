@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState } from "recoil";
 import {
   dataTableState,
   PopupModalConfirmStatus,
@@ -7,9 +7,9 @@ import {
   PopupModalDeleteStudy,
   PopupUploadStudyPlanState,
   PopupDeleteStudyPlanState,
-  PopupSubmissionStudyPlanState
-} from './stores';
-import { DataTable } from './type';
+  PopupSubmissionStudyPlanState,
+} from "./stores";
+import { DataTable } from "./type";
 
 type ReturnTypeAddStudy = {
   setPopupAdd: (val: boolean) => void;

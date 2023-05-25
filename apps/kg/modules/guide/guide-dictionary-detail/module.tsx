@@ -1,26 +1,26 @@
-import React, { ReactElement } from 'react';
-import { NextPage } from 'next';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { useRouter } from 'next/router';
-import { BaseLayout } from '../../../modules/common';
-import { ContentSection } from './content';
-import { Sidebar } from './sidebar';
+import React, { ReactElement } from "react";
+import { NextPage } from "next";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { useRouter } from "next/router";
+import { BaseLayout } from "../../../modules/common";
+import { ContentSection } from "./content";
+import { Sidebar } from "./sidebar";
 
 export const GuideDictinoaryModuleId: NextPage = (): ReactElement => {
   const { query } = useRouter();
   const EndpointBreadCrumb = query.slug;
   const BreadCrumbEndpoint = [
     {
-      name: 'Home',
-      link: '/',
+      name: "Home",
+      link: "/",
     },
     {
-      name: 'Panduan',
-      link: '/panduan',
+      name: "Panduan",
+      link: "/panduan",
     },
     {
-      name: 'Kamus',
-      link: '/panduan/kamus',
+      name: "Kamus",
+      link: "/panduan/kamus",
     },
     {
       name: `${EndpointBreadCrumb}`,

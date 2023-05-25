@@ -1,4 +1,4 @@
 export type AlertProps = {
-    detail?: string;
-    color?: string;
-  };
+  detail?: string;
+  color?: string;
+};

@@ -1,5 +1,5 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
-import type { User } from 'next-auth';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
+import type { User } from "next-auth";
 
 export type TLoginPayload = {
   email?: string;

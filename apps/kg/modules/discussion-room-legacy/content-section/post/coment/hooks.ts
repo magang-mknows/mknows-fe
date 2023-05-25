@@ -1,5 +1,5 @@
-import { useRecoilState } from 'recoil';
-import { setid } from './stores';
+import { useRecoilState } from "recoil";
+import { setid } from "./stores";
 
 type returnTypes = {
   setDiscussionId: (val: string) => void;

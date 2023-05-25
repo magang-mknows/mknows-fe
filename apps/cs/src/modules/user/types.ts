@@ -1,6 +1,6 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
-import { ReactNode } from 'react';
-import { Control } from 'react-hook-form';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
+import { ReactNode } from "react";
+import { Control } from "react-hook-form";
 
 export type TUserDataDummy = {
   no: number;

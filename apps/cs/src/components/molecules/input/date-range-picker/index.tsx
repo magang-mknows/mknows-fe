@@ -1,13 +1,10 @@
-import React, { useState, useRef } from 'react';
-import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import { addDays } from 'date-fns';
-import IConCalendar from '../../../atoms/icons/ic-calendar';
-import {
-  DateTimeFormatOptions,
-  formatDate,
-} from '@mknows-frontend-services/utils';
+import React, { useState, useRef } from "react";
+import { DateRangePicker } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { addDays } from "date-fns";
+import IConCalendar from "../../../atoms/icons/ic-calendar";
+import { DateTimeFormatOptions, formatDate } from "@mknows-frontend-services/utils";
 
 interface DateRange {
   startDate: Date;
@@ -20,14 +17,12 @@ interface DateRangePickerProps {
   onRangeChange: (range: DateRange) => void;
 }
 
-const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
-  onRangeChange,
-}) => {
+const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
   const [ranges, setRanges] = useState<DateRange>({
     startDate: new Date(Date.now()),
     endDate: addDays(new Date(), 7),
-    key: 'selection',
-    color: '#4AC1A2',
+    key: "selection",
+    color: "#4AC1A2",
   });
   const [open, setOpen] = useState(false);
   const refOne = useRef(null);
@@ -38,10 +33,10 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
   };
 
   const options: DateTimeFormatOptions = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   };
 
   return (
@@ -51,7 +46,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
         onClick={() => setOpen((open) => !open)}
       >
         <span className="text-xs">
-          Dari{' '}
+          Dari{" "}
           {formatDate({
             date: ranges?.startDate,
             options,
@@ -59,7 +54,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
         </span>
         <IConCalendar />
         <span className="text-xs">
-          Sampai{' '}
+          Sampai{" "}
           {formatDate({
             date: ranges?.endDate,
             options,

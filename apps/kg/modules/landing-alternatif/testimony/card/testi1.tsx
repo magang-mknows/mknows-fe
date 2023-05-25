@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const TestimonyCard: FC = (): ReactElement => {
   return (
@@ -12,9 +12,8 @@ export const TestimonyCard: FC = (): ReactElement => {
       </div>
       <div>
         <p className="text-neutral-500 text-[16px] pt-[24px]">
-          aku berterima kasih banget adanya program pelatihan gratis dari Kampus
-          Gratis. Kalo Ga ada program ini, saya sulit untuk melanjutkan studi
-          saya karena finansial.
+          aku berterima kasih banget adanya program pelatihan gratis dari Kampus Gratis. Kalo Ga ada
+          program ini, saya sulit untuk melanjutkan studi saya karena finansial.
         </p>
       </div>
     </div>

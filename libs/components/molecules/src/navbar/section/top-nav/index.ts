@@ -1,2 +1,2 @@
-export * from './section';
-export * from './loading';
+export * from "./section";
+export * from "./loading";

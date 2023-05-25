@@ -1,35 +1,32 @@
-import { FC, Fragment, MouseEventHandler, ReactElement } from 'react';
+import { FC, Fragment, MouseEventHandler, ReactElement } from "react";
 
-import { GoKebabVertical } from 'react-icons/go';
-import { AiFillFlag } from 'react-icons/ai';
-import { Menu, Transition } from '@headlessui/react';
-import { BsPencilFill } from 'react-icons/bs';
-import { MdDelete } from 'react-icons/md';
+import { GoKebabVertical } from "react-icons/go";
+import { AiFillFlag } from "react-icons/ai";
+import { Menu, Transition } from "@headlessui/react";
+import { BsPencilFill } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
 
 const PostOption: FC<{
   onClick: MouseEventHandler<HTMLDivElement>;
 }> = ({ onClick }): ReactElement => {
   const options = [
     {
-      title: 'Report',
+      title: "Report",
       icon: <AiFillFlag className="text-primary-500" />,
     },
     {
-      title: 'Edit',
+      title: "Edit",
       icon: <BsPencilFill className="text-yellow-500" />,
     },
     {
-      title: 'Delete',
+      title: "Delete",
       icon: <MdDelete className="text-red-500" />,
     },
   ];
 
   return (
     <Fragment>
-      <Menu
-        as="div"
-        className={'relative inline-block text-left z-50 left-0 mt-1.5'}
-      >
+      <Menu as="div" className={"relative inline-block text-left z-50 left-0 mt-1.5"}>
         <Menu.Button>
           <div className="cursor-pointer text-neutral-800 dark:text-white group">
             <GoKebabVertical />
@@ -53,7 +50,7 @@ const PostOption: FC<{
                 as="div"
                 onClick={onClick}
                 className={
-                  'flex gap-3 items-center px-4 py-3 cursor-pointer  hover:bg-neutral-100 transition-all duration-300 ease-in-out'
+                  "flex gap-3 items-center px-4 py-3 cursor-pointer  hover:bg-neutral-100 transition-all duration-300 ease-in-out"
                 }
               >
                 {icon}

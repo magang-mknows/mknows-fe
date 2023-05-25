@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const ScoreTable: FC = (): ReactElement => {
   return (
@@ -51,44 +51,24 @@ export const ScoreTable: FC = (): ReactElement => {
                 </thead>
                 <tbody className="divide-y divide-neutral-400 dark:divide-gray-700 text-center text-neutral-800 font-bold">
                   <tr>
-                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                      1
-                    </td>
+                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">1</td>
                     <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
                       Introduction to Japanese Culture
                     </td>
-                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                      2
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      A
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      10
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      Lulus
-                    </td>
+                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">2</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">A</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">10</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">Lulus</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                      2
-                    </td>
+                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">2</td>
                     <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
                       Introduction to Japanese Culture
                     </td>
-                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">
-                      2
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      A
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      10
-                    </td>
-                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">
-                      Lulus
-                    </td>
+                    <td className="px-6 py-4 border-r whitespace-nowrap text-sm ">2</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">A</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">10</td>
+                    <td className="px-6 py-4  border-r whitespace-nowrap text-sm ">Lulus</td>
                   </tr>
                 </tbody>
               </table>

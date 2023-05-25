@@ -1,10 +1,10 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 import {
   usePrivateInformationStatus,
   useJobInformationStatus,
   useFileInformationStatus,
-} from './hooks';
-import { BiCheck } from 'react-icons/bi';
+} from "./hooks";
+import { BiCheck } from "react-icons/bi";
 
 export const Stepper: FC = (): ReactElement => {
   const { getPrivateStatus } = usePrivateInformationStatus();
@@ -16,9 +16,7 @@ export const Stepper: FC = (): ReactElement => {
       <section className="flex flex-col justify-center items-center gap-y-2 relative mr-2 lg:mr-14">
         <span
           className={`${
-            getPrivateStatus
-              ? 'border-success-500 bg-success-500'
-              : 'border-[#9CA3AF] bg-white'
+            getPrivateStatus ? "border-success-500 bg-success-500" : "border-[#9CA3AF] bg-white"
           } h-7 w-7  flex justify-center items-center rounded-full border-2  relative`}
         >
           {getPrivateStatus ? (
@@ -28,7 +26,7 @@ export const Stepper: FC = (): ReactElement => {
           )}
           <section
             className={` ${
-              getPrivateStatus ? 'bg-success-500' : 'bg-[#9CA3AF]/50'
+              getPrivateStatus ? "bg-success-500" : "bg-[#9CA3AF]/50"
             } h-[2px] w-24 lg:w-36  absolute left-[25px]`}
           >
             {getPrivateStatus && (
@@ -38,16 +36,12 @@ export const Stepper: FC = (): ReactElement => {
             )}
           </section>
         </span>
-        <h1 className="md:text-xs text-[10px] text-center">
-          Informasi Pribadi
-        </h1>
+        <h1 className="md:text-xs text-[10px] text-center">Informasi Pribadi</h1>
       </section>
       <section className="flex flex-col justify-center items-center gap-y-2 relative mr-2 lg:mr-14">
         <span
-          className={`${
-            getPrivateStatus ? 'border-success-500' : 'border-[#9CA3AF]'
-          } ${
-            getJobStatus ? 'bg-success-500' : 'bg-white'
+          className={`${getPrivateStatus ? "border-success-500" : "border-[#9CA3AF]"} ${
+            getJobStatus ? "bg-success-500" : "bg-white"
           } h-7 w-7  flex justify-center items-center rounded-full border-2   relative`}
         >
           {getJobStatus ? (
@@ -55,13 +49,13 @@ export const Stepper: FC = (): ReactElement => {
           ) : (
             <span
               className={`${
-                getPrivateStatus ? 'bg-success-500' : 'bg-[#9CA3AF]'
+                getPrivateStatus ? "bg-success-500" : "bg-[#9CA3AF]"
               }  h-2 w-2 block rounded-full`}
             ></span>
           )}
           <section
             className={`${
-              getJobStatus ? 'bg-success-500' : 'bg-[#9CA3AF]/50'
+              getJobStatus ? "bg-success-500" : "bg-[#9CA3AF]/50"
             } h-[2px] w-24 lg:w-36  absolute left-[25px]`}
           >
             {getJobStatus && (
@@ -71,16 +65,12 @@ export const Stepper: FC = (): ReactElement => {
             )}
           </section>
         </span>
-        <h1 className="md:text-xs text-[10px] text-center">
-          Informasi Pekerjaan
-        </h1>
+        <h1 className="md:text-xs text-[10px] text-center">Informasi Pekerjaan</h1>
       </section>
       <section className="flex flex-col justify-center items-center gap-y-2 relative">
         <span
-          className={`${
-            getJobStatus ? 'border-success-500' : 'border-[#9CA3AF]'
-          } ${
-            getFileStatus ? 'bg-success-500' : 'bg-white'
+          className={`${getJobStatus ? "border-success-500" : "border-[#9CA3AF]"} ${
+            getFileStatus ? "bg-success-500" : "bg-white"
           } h-7 w-7  flex justify-center items-center rounded-full border-2   relative`}
         >
           {getFileStatus ? (
@@ -88,14 +78,12 @@ export const Stepper: FC = (): ReactElement => {
           ) : (
             <span
               className={`${
-                getJobStatus ? 'bg-success-500' : 'bg-[#9CA3AF]'
+                getJobStatus ? "bg-success-500" : "bg-[#9CA3AF]"
               }  h-2 w-2 block rounded-full`}
             ></span>
           )}
           {getFileStatus && (
-            <p className="text-sm text-success-500 font-normal absolute left-12 bottom-1">
-              100%
-            </p>
+            <p className="text-sm text-success-500 font-normal absolute left-12 bottom-1">100%</p>
           )}
         </span>
         <h1 className="md:text-xs text-[10px] text-center">Informasi Berkas</h1>

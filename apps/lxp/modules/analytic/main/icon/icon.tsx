@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import report from './assets/report.svg';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import report from "./assets/report.svg";
 
 export const AnalyticIcon: FC = (): ReactElement => {
   return (

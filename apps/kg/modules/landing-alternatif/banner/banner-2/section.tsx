@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import BannerAssets1 from '../assets/b2.svg';
-import ArtisKG from '../assets/artis.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import BannerAssets1 from "../assets/b2.svg";
+import ArtisKG from "../assets/artis.svg";
 
 export const Banner2Module: FC = (): ReactElement => {
   return (
@@ -11,7 +11,7 @@ export const Banner2Module: FC = (): ReactElement => {
           src={ArtisKG}
           width={200}
           height={160}
-          alt={'Banner 1'}
+          alt={"Banner 1"}
           priority={false}
           loading="lazy"
           className="rounded-tr-lg md:block hidden rounded-br-lg"
@@ -32,7 +32,7 @@ export const Banner2Module: FC = (): ReactElement => {
               src={BannerAssets1}
               width={410}
               height={410}
-              alt={'Banner 1'}
+              alt={"Banner 1"}
               priority={false}
               loading="lazy"
               className="rounded-tr-lg md:block hidden rounded-br-lg"

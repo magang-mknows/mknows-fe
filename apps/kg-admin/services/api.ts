@@ -1,6 +1,6 @@
-import axios from 'axios';
-import type { AxiosRequestConfig } from 'axios';
-import { getSession } from 'next-auth/react';
+import axios from "axios";
+import type { AxiosRequestConfig } from "axios";
+import { getSession } from "next-auth/react";
 
 const config: AxiosRequestConfig = {
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -18,7 +18,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 export default api;

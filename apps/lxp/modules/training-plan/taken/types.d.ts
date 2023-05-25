@@ -1,5 +1,5 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
-import { IDepartment } from '../main/types';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
+import { IDepartment } from "../main/types";
 
 export interface ITakenDepartmentItem {
   id: string;
@@ -13,5 +13,4 @@ export interface ITakenDepartmentItem {
   Department: IDepartment;
 }
 
-export type TTakenDepartmentResponse =
-  TMetaResponseSingle<ITakenDepartmentItem>;
+export type TTakenDepartmentResponse = TMetaResponseSingle<ITakenDepartmentItem>;

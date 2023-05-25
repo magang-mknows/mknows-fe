@@ -1,7 +1,7 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { TCardProps } from './types';
-import Link from 'next/link';
-import Image from 'next/image';
+import { FC, Fragment, ReactElement } from "react";
+import { TCardProps } from "./types";
+import Link from "next/link";
+import Image from "next/image";
 
 export const Card: FC<TCardProps> = ({
   className,
@@ -22,10 +22,7 @@ export const Card: FC<TCardProps> = ({
     <Fragment>
       {href ? (
         <Link href={`${href}`}>
-          <div
-            className={`${className} flex auto p-4 flex-col`}
-            onClick={onClick}
-          >
+          <div className={`${className} flex auto p-4 flex-col`} onClick={onClick}>
             {hasImage && (
               <Image
                 className={`object-cover ${imgStyle}`}
@@ -41,10 +38,7 @@ export const Card: FC<TCardProps> = ({
           </div>
         </Link>
       ) : (
-        <div
-          className={`${className} flex auto p-4 flex-col cursor-pointer`}
-          onClick={onClick}
-        >
+        <div className={`${className} flex auto p-4 flex-col cursor-pointer`} onClick={onClick}>
           {hasImage && (
             <Image
               className={`w-full object-cover ${imgStyle}`}

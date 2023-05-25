@@ -1,5 +1,5 @@
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { NextPage } from "next";
+import { ReactElement } from "react";
 
 const DashboardPages: NextPage = (): ReactElement => {
   return <span>Ini Halaman Dashboard</span>;
