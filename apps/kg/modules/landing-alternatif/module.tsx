@@ -6,6 +6,9 @@ import { PartnerAlternatif } from './partner';
 import { LayoutFooter } from '../common/footer/footer-layout';
 import { GlimpseAlternatif } from './glimpse';
 import { FacultyAlternatif } from './faculty';
+import { ArticleAlternatif } from './article';
+import { Banner4Module } from './banner';
+import { TestimonyAlternatif } from './testimony';
 
 export const LandingAlternatif: FC = (): ReactElement => {
   return (
@@ -16,6 +19,9 @@ export const LandingAlternatif: FC = (): ReactElement => {
       <PartnerAlternatif />
       <GlimpseAlternatif />
       <FacultyAlternatif />
+      <TestimonyAlternatif />
+      <ArticleAlternatif />
+      <Banner4Module />
       <LayoutFooter />
     </Fragment>
   );
