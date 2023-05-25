@@ -1,20 +1,50 @@
 import { FC, ReactElement } from 'react';
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-
 import { DetailCard } from '../common/components/detail-card';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { TQuizScoreItem } from './types';
+// import { useGetQuizScoreById } from './hooks';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
+  const router = useRouter();
+  // const { data: responseData } = useGetQuizScoreById(
+  //   router.query.quizScoreId as string
+  // );
+  // const dataQuizScores = responseData?.data as TQuizScoreItem;
+  const dataQuizScores: TQuizScoreItem = {
+    right: 7,
+    wrong: 8,
+    total_question: 15,
+    remaining_attempt: 2,
+    time_elapsed: 360,
+    score: 80,
+  };
+
+  function convertNumberToTens(num: number): number {
+    const tens = (num / dataQuizScores.total_question) * 100;
+    return Math.round(tens);
+  }
+  function changeFormatByMinutes(second: number): string {
+    const minutes: number = Math.floor(second / 60);
+    const remainingSeconds: number = second % 60;
+
+    return `${minutes} Menit ${remainingSeconds} Detik`;
+  }
+
+  const rightAnswer = convertNumberToTens(dataQuizScores.right);
+  const wrongAnswer = convertNumberToTens(dataQuizScores.wrong);
+  const timeElapsed = changeFormatByMinutes(dataQuizScores.time_elapsed);
+
   const data = {
     labels: ['Your Score'],
     datasets: [
       {
-        data: [90, 10],
-        backgroundColor: ['#9de6f5c3', '#E5E5E5'],
+        data: [rightAnswer, wrongAnswer],
+        backgroundColor: ['#106FA4', '#E5E5E5'],
         borderWidth: 0,
       },
     ],
@@ -28,7 +58,12 @@ export const QuizScoreModule: FC = (): ReactElement => {
         enabled: false,
       },
     },
-    cutout: 140,
+    elements: {
+      arc: {
+        borderRadius: 10,
+      },
+    },
+    cutout: 150,
   };
 
   return (
@@ -39,15 +74,20 @@ export const QuizScoreModule: FC = (): ReactElement => {
             <Doughnut data={data} options={options} className="p-4" />
           </div>
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl text-neutral-900 font-black">90</h1>
+            <h1 className="text-4xl text-neutral-900 font-black">
+              {rightAnswer}
+            </h1>
             <p className="text-xl text-neutral-800">Point</p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 ">
-          <DetailCard type="trueAnswer" value="9" />
-          <DetailCard type="falseAnswer" value="1" />
-          <DetailCard type="timeFinished" value="7 Hari 7 Malam" />
-          <DetailCard type="totalQuestions" value="10" />
+          <DetailCard type="trueAnswer" value={dataQuizScores.right} />
+          <DetailCard type="falseAnswer" value={dataQuizScores.wrong} />
+          <DetailCard type="timeFinished" value={timeElapsed} />
+          <DetailCard
+            type="totalQuestions"
+            value={dataQuizScores.total_question}
+          />
         </div>
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">
@@ -67,7 +107,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
               type="button"
               className="bg-primary-500 border-2 border-primary-500 text-white hover:bg-primary-600  w-full h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"
             >
-              Coba Kembali (Sisa 2)
+              Coba Kembali (Sisa {dataQuizScores.remaining_attempt})
             </button>
           </Link>
         </div>
