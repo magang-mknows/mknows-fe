@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
-import { LoginIllustration, LoginModule } from '../modules';
-import { ReactElement } from 'react';
-import { GetSessionParams, getSession } from 'next-auth/react';
-import Head from 'next/head';
+import { NextPage } from "next";
+import { LoginIllustration, LoginModule } from "../modules";
+import { ReactElement } from "react";
+import { GetSessionParams, getSession } from "next-auth/react";
+import Head from "next/head";
 
 const LoginPages: NextPage = (): ReactElement => {
   return (
@@ -26,15 +26,13 @@ const LoginPages: NextPage = (): ReactElement => {
   );
 };
 
-export async function getServerSideProps(
-  context: GetSessionParams | undefined
-) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const session = await getSession(context);
 
   if (session) {
     return {
       redirect: {
-        destination: '/dashboard',
+        destination: "/dashboard",
         permanent: false,
       },
     };

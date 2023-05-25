@@ -1,7 +1,7 @@
-import { chooseSidebar } from './store';
-import { useRecoilState } from 'recoil';
-import { discussionSidebar } from './store';
-import { ChooseSidebar, DiscussionTypes, Sidebar } from './types';
+import { chooseSidebar } from "./store";
+import { useRecoilState } from "recoil";
+import { discussionSidebar } from "./store";
+import { ChooseSidebar, DiscussionTypes, Sidebar } from "./types";
 
 export const useChooseSidebar = (): ChooseSidebar => {
   const [getChoose, setChoose] = useRecoilState(chooseSidebar);

@@ -1,20 +1,15 @@
-import { useRecoilState } from 'recoil';
-import { PopupModalSuccessOpen } from './store';
-import {
-  useMutation,
-  UseMutationResult,
-  useQuery,
-  UseQueryResult,
-} from '@tanstack/react-query';
-import { TEventParams, TEventPayload, TEventResponse } from './types';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
+import { useRecoilState } from "recoil";
+import { PopupModalSuccessOpen } from "./store";
+import { useMutation, UseMutationResult, useQuery, UseQueryResult } from "@tanstack/react-query";
+import { TEventParams, TEventPayload, TEventResponse } from "./types";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import {
   eventCreateRequest,
   eventDeleteRequest,
   eventGetByIdRequest,
   eventGetRequest,
   eventUpdateRequest,
-} from './api';
+} from "./api";
 
 type TReturnTypes = {
   setPopupStatus: (val: boolean) => void;
@@ -29,20 +24,17 @@ export const usePopupEvent = (): TReturnTypes => {
   };
 };
 
-export const useGetEvent = (): UseQueryResult<
-  TEventResponse,
-  TMetaErrorResponse
-> =>
+export const useGetEvent = (): UseQueryResult<TEventResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ['event-get'],
+    queryKey: ["event-get"],
     queryFn: async () => await eventGetRequest(),
   });
 
 export const useGetEventById = (
-  id: number | string
+  id: number | string,
 ): UseQueryResult<TEventResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ['event-get-by-id', id],
+    queryKey: ["event-get-by-id", id],
     queryFn: async () => await eventGetByIdRequest(id),
   });
 
@@ -53,7 +45,7 @@ export const useCreateEvent = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ['create-event'],
+    mutationKey: ["create-event"],
     mutationFn: async (payload) => await eventCreateRequest(payload),
   });
 
@@ -64,7 +56,7 @@ export const useUpdateEvent = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ['update-event'],
+    mutationKey: ["update-event"],
     mutationFn: async (payload) => await eventUpdateRequest(payload),
   });
 
@@ -75,6 +67,6 @@ export const useDeleteEvent = (): UseMutationResult<
   unknown
 > =>
   useMutation({
-    mutationKey: ['delete-event'],
+    mutationKey: ["delete-event"],
     mutationFn: async (params) => await eventDeleteRequest(params),
   });

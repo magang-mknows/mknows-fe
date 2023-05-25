@@ -1,12 +1,12 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
 
-import { useOptionFaculty } from '../hooks';
-import Card from '../components/Card';
+import { useOptionFaculty } from "../hooks";
+import Card from "../components/Card";
 
-import ImgChoiceFaculty from '../assets/choicefaculty2.svg';
-import DefaultView from '../assets/data-kosong.png';
-import { useFaculty } from './hooks';
+import ImgChoiceFaculty from "../assets/choicefaculty2.svg";
+import DefaultView from "../assets/data-kosong.png";
+import { useFaculty } from "./hooks";
 
 export const ChoiceFaculty: FC = (): ReactElement => {
   const { getOptionFaculty } = useOptionFaculty();
@@ -36,7 +36,7 @@ export const ChoiceFaculty: FC = (): ReactElement => {
                   imgStyle="rounded-lg"
                   hasImage={true}
                   src={ImgChoiceFaculty}
-                  titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
+                  titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                   icon={
                     <div className="flex flex-row px-2 space-x-1">
                       <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
@@ -45,9 +45,7 @@ export const ChoiceFaculty: FC = (): ReactElement => {
                     </div>
                   }
                 >
-                  <div className="text-xl mt-0 text-[#106FA4] w-full">
-                    {x.name}
-                  </div>
+                  <div className="text-xl mt-0 text-[#106FA4] w-full">{x.name}</div>
                 </Card>
               ))}
               {/* {getOptionFaculty.map((x, i) => (

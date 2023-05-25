@@ -1,14 +1,12 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import React, { FC, lazy, ReactElement } from 'react';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import React, { FC, lazy, ReactElement } from "react";
 
-import { AiOutlineSearch } from 'react-icons/ai';
-import { IoMdAddCircleOutline } from 'react-icons/io';
+import { AiOutlineSearch } from "react-icons/ai";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
-import { usePopupCreateDiscussionStatus } from '../hooks/usePopupCreateDiscussionStatus';
+import { usePopupCreateDiscussionStatus } from "../hooks/usePopupCreateDiscussionStatus";
 
-const PopupModalCreateDiscussion = lazy(
-  () => import('../component/PopupModalCreateDiscussion')
-);
+const PopupModalCreateDiscussion = lazy(() => import("../component/PopupModalCreateDiscussion"));
 
 const Search: FC = (): ReactElement => {
   const { setPopupCreateStatus } = usePopupCreateDiscussionStatus();

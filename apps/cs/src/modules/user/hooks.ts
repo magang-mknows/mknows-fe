@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   userFilter,
   userSearch,
@@ -6,7 +6,7 @@ import {
   IdentityStatusState,
   CharacterStatusState,
   CapabilityStatusState,
-} from './store';
+} from "./store";
 import {
   TUserDataResponse,
   TUserQueryResponse,
@@ -14,7 +14,7 @@ import {
   ReturnTypesDataCapabiity,
   ReturnTypesDataCharacter,
   ReturnTypesDataIdentity,
-} from './types';
+} from "./types";
 
 export const useUserData = (): TUserDataResponse => {
   const get = useRecoilValue(userFilter);

@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const PopupModalSuccessOpen = atom({
-  key: 'modal-popup-success-1',
+  key: "modal-popup-success-1",
   default: false,
 });

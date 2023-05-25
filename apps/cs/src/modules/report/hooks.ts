@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { reportFilter, reportSearch } from './store';
-import { TReportDataResponse, TReportQueryResponse } from './type';
+import { useRecoilState, useRecoilValue } from "recoil";
+import { reportFilter, reportSearch } from "./store";
+import { TReportDataResponse, TReportQueryResponse } from "./type";
 
 export const useReportData = (): TReportDataResponse => {
   const get = useRecoilValue(reportFilter);

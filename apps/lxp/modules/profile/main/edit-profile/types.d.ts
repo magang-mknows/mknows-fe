@@ -1,4 +1,4 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export interface IUserItem {
   user?: {

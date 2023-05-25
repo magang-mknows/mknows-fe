@@ -1,13 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { AiFillFlag } from 'react-icons/ai';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import {
-  reportDetailTitle,
-  reportSuccess,
-  selectedOption,
-  selectedPostId,
-} from '../../../store';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { AiFillFlag } from "react-icons/ai";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { reportDetailTitle, reportSuccess, selectedOption, selectedPostId } from "../../../store";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const PostSpamModal: FC = (): ReactElement => {
   const getReportDetail = useRecoilValue(reportDetailTitle);
@@ -36,7 +31,7 @@ export const PostSpamModal: FC = (): ReactElement => {
           type="button"
           className="disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 text-sm py-2 w-28 font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2"
           onClick={() => {
-            setSeletedOption('reportSuccess');
+            setSeletedOption("reportSuccess");
             setReportSuccess(true);
           }}
         >

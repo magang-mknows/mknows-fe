@@ -8,23 +8,10 @@ export const NightIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect
-        width="36"
-        height="36"
-        transform="translate(0.651367 0.335938)"
-        fill="url(#pattern0)"
-      />
+      <rect width="36" height="36" transform="translate(0.651367 0.335938)" fill="url(#pattern0)" />
       <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image0_579_19180"
-            transform="scale(0.00625 0.00609756)"
-          />
+        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_579_19180" transform="scale(0.00625 0.00609756)" />
         </pattern>
         <image
           id="image0_579_19180"

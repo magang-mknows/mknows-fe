@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
-import { ForgotModule, LoginIllustration } from '../modules';
-import { ReactElement } from 'react';
-import { GetSessionParams, getSession } from 'next-auth/react';
-import Head from 'next/head';
+import { NextPage } from "next";
+import { ForgotModule, LoginIllustration } from "../modules";
+import { ReactElement } from "react";
+import { GetSessionParams, getSession } from "next-auth/react";
+import Head from "next/head";
 
 const ForgotPages: NextPage = (): ReactElement => {
   return (
@@ -26,15 +26,13 @@ const ForgotPages: NextPage = (): ReactElement => {
   );
 };
 
-export async function getServerSideProps(
-  context: GetSessionParams | undefined
-) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const session = await getSession(context);
 
   if (session) {
     return {
       redirect: {
-        destination: '/dashboard',
+        destination: "/dashboard",
         permanent: false,
       },
     };

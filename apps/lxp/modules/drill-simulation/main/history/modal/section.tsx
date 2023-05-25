@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { TDrillSimulationPopup } from './types';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { TDrillSimulationPopup } from "./types";
 
-import finished from './assets/finished.svg';
-import pending from './assets/pending.svg';
-import sent from './assets/sent.svg';
+import finished from "./assets/finished.svg";
+import pending from "./assets/pending.svg";
+import sent from "./assets/sent.svg";
 
 export const RequestSceduleSuccessModal: FC<TDrillSimulationPopup> = ({
   type,
@@ -16,7 +16,7 @@ export const RequestSceduleSuccessModal: FC<TDrillSimulationPopup> = ({
     <section className="flex flex-col items-center py-10 max-w-[600px] px-6">
       <BsCheckCircleFill className="text-4xl text-[#3EB449]" />
       <figure className="h-[200px] rounded-md overflow-hidden mb-4  w-full">
-        {type === 'finished' ? (
+        {type === "finished" ? (
           <Image
             src={finished}
             alt="dummy-view"
@@ -25,7 +25,7 @@ export const RequestSceduleSuccessModal: FC<TDrillSimulationPopup> = ({
             className="w-full h-60"
             loading="eager"
           />
-        ) : type === 'pending' ? (
+        ) : type === "pending" ? (
           <Image
             src={pending}
             alt="dummy-view"

@@ -1,22 +1,14 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import {
-  useDataTable,
-  usePopupConfirmStatus,
-  usePopupSucces,
-  usePopupAddStudy,
-} from '../hooks';
-import Confirm from '../../assets/Confirm.svg';
-import Success from '../../assets/Success.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { useDataTable, usePopupConfirmStatus, usePopupSucces, usePopupAddStudy } from "../hooks";
+import Confirm from "../../assets/Confirm.svg";
+import Success from "../../assets/Success.svg";
 // import SuspenseError from "@/modules/Common/SuspenseError";
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { Button } from "@mknows-frontend-services/components/atoms";
 
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
-import { moveProps } from '../type';
-const TabelDetailContract: FC<moveProps> = ({
-  onClick,
-  onMove,
-}): ReactElement => {
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import { moveProps } from "../type";
+const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement => {
   const { getDataTable } = useDataTable();
   const { setPopupStatus, getPopupStatus } = usePopupConfirmStatus();
   const { setPopupSuccess, getPopupSuccess } = usePopupSucces();
@@ -81,13 +73,11 @@ const TabelDetailContract: FC<moveProps> = ({
               <div className="w-[177px] dark:divide-gray-700 lg:text-start text-center py-3 font-medium md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
                 <button
                   className={`flex gap-2 items-center p-4 font-semibold ${
-                    x.tindakan_kontrak === 'tambah'
-                      ? 'text-blue-600'
-                      : 'text-red-600'
+                    x.tindakan_kontrak === "tambah" ? "text-blue-600" : "text-red-600"
                   }`}
                   onClick={() => setPopupStatus(true)}
                 >
-                  {x.tindakan_kontrak === 'tambah' ? (
+                  {x.tindakan_kontrak === "tambah" ? (
                     <svg
                       width="25"
                       height="25"
@@ -129,7 +119,7 @@ const TabelDetailContract: FC<moveProps> = ({
                     </svg>
                   )}
 
-                  {x.tindakan_kontrak === 'tambah' ? ' tambah ' : 'hapus'}
+                  {x.tindakan_kontrak === "tambah" ? " tambah " : "hapus"}
                 </button>
               </div>
             </div>
@@ -163,9 +153,7 @@ const TabelDetailContract: FC<moveProps> = ({
           lookup={getPopupStatus}
           className="!h-80 !w-[100%] text-md py-10"
         >
-          <h1 className="py-2 text-2xl">
-            Apakah anda sudah mempelajari mata kuliah ini?
-          </h1>
+          <h1 className="py-2 text-2xl">Apakah anda sudah mempelajari mata kuliah ini?</h1>
           <div className="flex gap-3 my-2 py-4">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
@@ -173,13 +161,13 @@ const TabelDetailContract: FC<moveProps> = ({
                 setPopupSuccess(true);
                 setPopupStatus(false);
               }}
-              type={'button'}
+              type={"button"}
             >
               Pernah
             </Button>
             <Button
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-              type={'button'}
+              type={"button"}
               onClick={() => {
                 setPopupAdd(true);
                 setPopupStatus(false);
@@ -199,20 +187,19 @@ const TabelDetailContract: FC<moveProps> = ({
           className="!h-80 !w-[100%] text-md py-10"
         >
           <h1 className="py-2 text-2xl">
-            Mata kuliah berhasil di tambah ke{' '}
-            <span className="font-bold">Konversi</span>
+            Mata kuliah berhasil di tambah ke <span className="font-bold">Konversi</span>
           </h1>
           <div className="flex gap-3 my-2 py-4">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={onMove}
-              type={'button'}
+              type={"button"}
             >
               Lihat Konversi
             </Button>
             <Button
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-              type={'button'}
+              type={"button"}
               onClick={() => setPopupSuccess(false)}
             >
               Kembali
@@ -229,20 +216,19 @@ const TabelDetailContract: FC<moveProps> = ({
           className="!h-80 !w-[100%] text-md py-10"
         >
           <h1 className="py-2 text-2xl">
-            Mata kuliah berhasil di tambah ke{' '}
-            <span className="font-bold">Draft KRS</span>
+            Mata kuliah berhasil di tambah ke <span className="font-bold">Draft KRS</span>
           </h1>
           <div className="flex gap-3 my-2 py-4">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={onClick}
-              type={'button'}
+              type={"button"}
             >
               Lihat Draft KRS
             </Button>
             <Button
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-              type={'button'}
+              type={"button"}
               onClick={() => setPopupAdd(false)}
             >
               Kembali

@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import Link from 'next/link';
+import { FC, ReactElement } from "react";
+import Link from "next/link";
 
 export const ModuleMyStudyModule: FC = (): ReactElement => {
   return (
@@ -14,11 +14,11 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
           </h1>
 
           <p className="text-md text-gray-600 py-4">
-            Pertemuan 1 |{' '}
+            Pertemuan 1 |{" "}
             <span className="text-gray-400">
-              {' '}
-              Modul ini berisi tentang penjelasan secara sederhana tentang
-              manajemen keuangan, session 1.
+              {" "}
+              Modul ini berisi tentang penjelasan secara sederhana tentang manajemen keuangan,
+              session 1.
             </span>
           </p>
           <div className="flex gap-3">

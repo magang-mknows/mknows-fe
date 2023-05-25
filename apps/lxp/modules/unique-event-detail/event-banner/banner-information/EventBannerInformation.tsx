@@ -1,11 +1,11 @@
-import { FC, ReactElement, Suspense } from 'react';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { useRecoilState } from 'recoil';
-import { TCardContentProps } from '../../types';
-import { EventRegModalState } from '../../../../modules/unique-event/store';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { RegisteredEventModal } from '../banner-registered/RegisteredEventModal';
+import { FC, ReactElement, Suspense } from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { useRecoilState } from "recoil";
+import { TCardContentProps } from "../../types";
+import { EventRegModalState } from "../../../../modules/unique-event/store";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { RegisteredEventModal } from "../banner-registered/RegisteredEventModal";
 
 export const EventBannerInformation: FC<TCardContentProps> = ({
   title,
@@ -22,10 +22,7 @@ export const EventBannerInformation: FC<TCardContentProps> = ({
         <h1 className="mb-2 text-lg text-neutral-600">Benefit</h1>
         {list?.map((item, index) => {
           return (
-            <div
-              key={index}
-              className="flex gap-x-1.5 items-center mb-2 text-sm text-neutral-800"
-            >
+            <div key={index} className="flex gap-x-1.5 items-center mb-2 text-sm text-neutral-800">
               <BsCheckCircleFill className="text-lg text-primary-600" />
               <p>{item}</p>
             </div>

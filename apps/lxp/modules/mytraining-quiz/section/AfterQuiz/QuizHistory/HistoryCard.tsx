@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import DetailCard from '../QuizScore/DetailCard';
+import { FC, ReactElement } from "react";
+import DetailCard from "../QuizScore/DetailCard";
 
 const HistoryCard: FC = (): ReactElement => {
   return (

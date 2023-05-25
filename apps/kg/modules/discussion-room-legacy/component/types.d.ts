@@ -1,7 +1,4 @@
-import {
-  TMetaResponseSingle,
-  TMetaResponse,
-} from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle, TMetaResponse } from "@mknows-frontend-services/utils";
 
 export type TDiscussionPayload = {
   title: string;

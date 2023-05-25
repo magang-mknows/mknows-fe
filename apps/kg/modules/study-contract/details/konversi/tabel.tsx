@@ -1,15 +1,15 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import Example1 from '../../assets/example1.svg';
-import Example2 from '../../assets/example2.svg';
-import Delete from '../../assets/Delete.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import Example1 from "../../assets/example1.svg";
+import Example2 from "../../assets/example2.svg";
+import Delete from "../../assets/Delete.svg";
 import {
   useDataTable,
   usePopupUploadStudyPlan,
   usePopupDeleteStudyPlan,
   usePopupSubmissionStudyPlan,
-} from '../hooks';
-import { Button } from '@mknows-frontend-services/components/atoms';
+} from "../hooks";
+import { Button } from "@mknows-frontend-services/components/atoms";
 // import PopupUploadStudyPlan from '@/components/StudyPlan/PopUps/PopupUploadStudyPlan';
 // import PopupSubmissionStudyPlan from './PopUps/PopupSubmissionStudyPlan';
 // import PopupDeleteStudyPlan from './PopUps/PopupDeleteStudyPlan';
@@ -18,21 +18,21 @@ import { Button } from '@mknows-frontend-services/components/atoms';
 const tabel = [
   {
     no: 1,
-    matkul: 'Bahasa Inggris',
+    matkul: "Bahasa Inggris",
     img: Example1,
     jmlh_mahasiswa: 15,
-    kode_matkul: '123456ASD',
+    kode_matkul: "123456ASD",
     jmlh_sks: 4,
-    tindakan: 'abc.pdf',
+    tindakan: "abc.pdf",
   },
   {
     no: 2,
-    matkul: 'Kalkulus',
+    matkul: "Kalkulus",
     img: Example2,
     jmlh_mahasiswa: 21,
-    kode_matkul: '18ASl22',
+    kode_matkul: "18ASl22",
     jmlh_sks: 8,
-    tindakan: 'Upload',
+    tindakan: "Upload",
   },
 ];
 
@@ -115,10 +115,10 @@ const TabelPretest: FC = (): ReactElement => {
               <div
                 onClick={() => setPopupUploadStatus(true)}
                 className={`w-[110px] px-1 lg:text-start text-center py-3 lg:text-[16px] md:text-[16px] text-[10px] dark:bg-transparent flex lg:justify-start justify-center p-4 cursor-pointer ${
-                  x.tindakan_pretest === 'Upload' && 'text-green-600'
+                  x.tindakan_pretest === "Upload" && "text-green-600"
                 }`}
               >
-                {x.tindakan_pretest === 'Upload' && (
+                {x.tindakan_pretest === "Upload" && (
                   <svg
                     width="25"
                     height="26"
@@ -153,8 +153,11 @@ const TabelPretest: FC = (): ReactElement => {
                 {x.tindakan_pretest}
               </div>
               <div className="w-[160px] px-1 lg:text-start text-center py-3 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
-                {x.tindakan_pretest === 'Upload' ? (
-                  <Button className="py-2 px-4 bg-[#9ca3af] text-[#d1d5db] font-semibold rounded-md" type={'button'}>
+                {x.tindakan_pretest === "Upload" ? (
+                  <Button
+                    className="py-2 px-4 bg-[#9ca3af] text-[#d1d5db] font-semibold rounded-md"
+                    type={"button"}
+                  >
                     Ajukan
                   </Button>
                 ) : (
@@ -162,7 +165,7 @@ const TabelPretest: FC = (): ReactElement => {
                     <Button
                       onClick={() => setPopupSubmissionStatus(true)}
                       className="py-2 px-4 bg-[#2563eb] text-white font-semibold rounded-md"
-                      type={'button'}
+                      type={"button"}
                     >
                       Ajukan
                     </Button>
@@ -197,5 +200,3 @@ const TabelPretest: FC = (): ReactElement => {
 };
 
 export default TabelPretest;
-
-

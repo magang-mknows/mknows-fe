@@ -1,13 +1,11 @@
-import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement, Suspense, useEffect, useState } from 'react';
-import { lazily } from 'react-lazily';
-import { ErrorBoundary } from 'react-error-boundary';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { LoadingSpinner } from "@mknows-frontend-services/components/atoms";
+import { FC, ReactElement, Suspense, useEffect, useState } from "react";
+import { lazily } from "react-lazily";
+import { ErrorBoundary } from "react-error-boundary";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const { AuthLayout } = lazily(
-  () => import('@mknows-frontend-services/modules')
-);
+const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
 export const EmailSentModule: FC = (): ReactElement => {
   const router = useRouter();
@@ -19,7 +17,7 @@ export const EmailSentModule: FC = (): ReactElement => {
       setTimer((prev) => (prev !== 0 ? prev - 1 : prev));
     }, 1000);
     if (getTimer === 0) {
-      router.push('/auth/login');
+      router.push("/auth/login");
     }
   }, [getTimer, router]);
 
@@ -34,13 +32,11 @@ export const EmailSentModule: FC = (): ReactElement => {
         >
           <section className="flex flex-col w-full justify-start">
             <div className="flex flex-col my-4">
-              <span>
-                Anda Akan Redirect ke halaman login dalam {getTimer} Detik
-              </span>
+              <span>Anda Akan Redirect ke halaman login dalam {getTimer} Detik</span>
 
               <div className="flex w-full items-start justify-start my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
                 <span>Tidak Redirect?</span>
-                <Link className="text-primary-600" href={'/auth/login'}>
+                <Link className="text-primary-600" href={"/auth/login"}>
                   Klik Disini
                 </Link>
               </div>

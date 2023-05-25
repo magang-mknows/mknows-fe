@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import RelatedEvent from '../common/releted-event';
+import { FC, ReactElement } from "react";
+import RelatedEvent from "../common/releted-event";
 
-import { EventCard } from '../common/event-card';
+import { EventCard } from "../common/event-card";
 
 export const Information: FC = (): ReactElement => {
   return (

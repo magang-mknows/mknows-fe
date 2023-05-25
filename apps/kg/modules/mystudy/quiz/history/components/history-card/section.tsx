@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { DetailCard } from '../../../common/components/detail-card';
+import { FC, ReactElement } from "react";
+import { DetailCard } from "../../../common/components/detail-card";
 
 export const HistoryCard: FC = (): ReactElement => {
   return (

@@ -1,10 +1,10 @@
 export const myTrainingBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Pelatihan-Ku',
-    link: '/pelatihanku',
+    name: "Pelatihan-Ku",
+    link: "/pelatihanku",
   },
 ];

@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { TRandomShit } from './types';
+import { FC, ReactElement } from "react";
+import { TRandomShit } from "./types";
 
 export const RandomShitBg: FC<TRandomShit> = ({ className }): ReactElement => {
   return (

@@ -1,14 +1,14 @@
-import { FC, ReactElement, useState } from 'react';
-import Image from 'next/image';
-import circle from '../assets/circle.svg';
-import edit from '../assets/edit.svg';
-import { MdDelete } from 'react-icons/md';
-import { RiPencilFill } from 'react-icons/ri';
-import more from '../assets/more.svg';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { cardAuthor } from '../type';
-import { usePopupDeleteDiscussion, usePopupEditDiscussion } from '../hooks';
-import { LikeComment } from './likeComment';
+import { FC, ReactElement, useState } from "react";
+import Image from "next/image";
+import circle from "../assets/circle.svg";
+import edit from "../assets/edit.svg";
+import { MdDelete } from "react-icons/md";
+import { RiPencilFill } from "react-icons/ri";
+import more from "../assets/more.svg";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { cardAuthor } from "../type";
+import { usePopupDeleteDiscussion, usePopupEditDiscussion } from "../hooks";
+import { LikeComment } from "./likeComment";
 
 export const CardComment: FC<cardAuthor> = ({
   title,
@@ -21,8 +21,7 @@ export const CardComment: FC<cardAuthor> = ({
 }): ReactElement => {
   const [open, setOpen] = useState(false);
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussion();
-  const { setPopupDeleteStatus, getPopupDeleteStatus } =
-    usePopupDeleteDiscussion();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussion();
   return (
     <>
       <div
@@ -30,26 +29,21 @@ export const CardComment: FC<cardAuthor> = ({
       >
         <div className="flex flex-row items-center justify-between gap-5 profile">
           <div className="flex flex-row gap-4 kiri">
-            <Image src={avatar} alt={'img-profile'} />
+            <Image src={avatar} alt={"img-profile"} />
             <div className="">
-              <h1 className="text-[##171717] font-[600] text-[14px]">
-                Komentar: {title}
-              </h1>
+              <h1 className="text-[##171717] font-[600] text-[14px]">Komentar: {title}</h1>
               <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 ">
-                oleh{' '}
+                oleh{" "}
                 <span className="text-[#2D9A41] dark:text-yellow-500">
                   {author} <span>({role})</span>
                 </span>
-                <Image src={circle} alt={'circle'} />
+                <Image src={circle} alt={"circle"} />
                 <span className="text-[#737373]">{time}</span>
               </p>
             </div>
           </div>
-          <button
-            className="kanan"
-            onClick={() => setOpen(open === true ? false : true)}
-          >
-            <Image src={more} alt={'more'} />
+          <button className="kanan" onClick={() => setOpen(open === true ? false : true)}>
+            <Image src={more} alt={"more"} />
           </button>
         </div>
         {open && (
@@ -59,7 +53,7 @@ export const CardComment: FC<cardAuthor> = ({
                 className="flex flex-row justify-start gap-1 mb-2"
                 onClick={() => setPopupEditStatus(true)}
               >
-                <Image src={edit} alt={'edit'} />
+                <Image src={edit} alt={"edit"} />
                 <p>Edit</p>
               </button>
               <button
@@ -73,9 +67,7 @@ export const CardComment: FC<cardAuthor> = ({
           </div>
         )}
 
-        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] ">
-          {content}
-        </p>
+        <p className="desc mt-8 text-[#171717] text-[14px] font-[400] ">{content}</p>
         <LikeComment />
       </div>
 
@@ -83,7 +75,7 @@ export const CardComment: FC<cardAuthor> = ({
         <Modal
           lookup={getPopupEditStatus}
           onClose={() => setPopupEditStatus(false)}
-          title={'Edit Komentar'}
+          title={"Edit Komentar"}
         >
           <h1 className="flex justify-start w-full mb-4">Ubah Komentar</h1>
           <textarea className="h-[144px] w-[467px] outline outline-[#D4D4D4] rounded-[8px]"></textarea>
@@ -107,7 +99,7 @@ export const CardComment: FC<cardAuthor> = ({
           // icon={deleteICon}
           lookup={getPopupDeleteStatus}
           onClose={() => setPopupDeleteStatus(false)}
-          title={'Konfirmasi'}
+          title={"Konfirmasi"}
           // description={"Apakah anda ingin menghapus postingan ini?"}
         >
           <div className="flex flex-row gap-6 mt-4">

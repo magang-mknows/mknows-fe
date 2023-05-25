@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { TestimonyCard } from './components';
+import { FC, ReactElement } from "react";
+import { TestimonyCard } from "./components";
 
 export const TestimonySection: FC = (): ReactElement => {
   return (
@@ -13,8 +13,8 @@ export const TestimonySection: FC = (): ReactElement => {
                 Apa kata mahasiswa Kampus Gratis
               </h1>
               <p className="text-[16px] text-neutral-600 font-[400]">
-                Kampus Gratis telah mencetak talenta hebat yang berkontribusi
-                untuk negeri. Mari kita simak pendapat mereka terhadap kami
+                Kampus Gratis telah mencetak talenta hebat yang berkontribusi untuk negeri. Mari
+                kita simak pendapat mereka terhadap kami
               </p>
             </div>
           </div>

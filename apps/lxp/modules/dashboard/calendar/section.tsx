@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { CalendarHeader } from './header';
-import { CalendarMain } from './main';
+import { FC, ReactElement } from "react";
+import { CalendarHeader } from "./header";
+import { CalendarMain } from "./main";
 
 export const CalendarSection: FC = (): ReactElement => {
   return (

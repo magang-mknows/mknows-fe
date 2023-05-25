@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import BannerAssets3 from '../assets/b3.png';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import BannerAssets3 from "../assets/b3.png";
 
 export const Banner3Module: FC = (): ReactElement => {
   return (
@@ -19,7 +19,7 @@ export const Banner3Module: FC = (): ReactElement => {
             src={BannerAssets3}
             width={410}
             height={438}
-            alt={'Banner 1'}
+            alt={"Banner 1"}
             priority={false}
             loading="lazy"
             className="rounded-tr-lg md:block hidden rounded-br-lg"

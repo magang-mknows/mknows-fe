@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { ModuleMyStudyModule } from '../../../../modules/mystudy/module';
-import { BaseLayout } from '../../../../modules/common/layout/base';
+import { FC, ReactElement } from "react";
+import { ModuleMyStudyModule } from "../../../../modules/mystudy/module";
+import { BaseLayout } from "../../../../modules/common/layout/base";
 
 const MyStudyModulePage: FC = (): ReactElement => {
   return (
