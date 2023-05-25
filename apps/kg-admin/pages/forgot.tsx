@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
-import { LoginIllustration, LoginModule } from '../modules';
+import { ForgotModule, LoginIllustration } from '../modules';
 import { ReactElement } from 'react';
 import { GetSessionParams, getSession } from 'next-auth/react';
 import Head from 'next/head';
 
-const LoginPages: NextPage = (): ReactElement => {
+const ForgotPages: NextPage = (): ReactElement => {
   return (
     <section className="flex justify-center items-center w-full h-screen px-8">
       <Head>
@@ -19,7 +19,7 @@ const LoginPages: NextPage = (): ReactElement => {
           <p className="text-base text-black font-medium mb-4 text-center">
             Silahkan masuk menggunakan email dan kata sandi yang terdaftar
           </p>
-          <LoginModule />
+          <ForgotModule />
         </div>
       </div>
     </section>
@@ -45,4 +45,4 @@ export async function getServerSideProps(
   };
 }
 
-export default LoginPages;
+export default ForgotPages;
