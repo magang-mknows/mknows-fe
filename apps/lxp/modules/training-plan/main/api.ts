@@ -6,8 +6,13 @@ export const getAllDepartments = async (
 ): Promise<TDepartmentResponse> => {
   const params = new URLSearchParams([['search', keyword]]);
   const { data } = await api.get(
-    keyword === '' ? '/departments' : `/departments/filter`,
+    keyword === '' ? '/departments/active' : `/departments/active/filter`,
     { params }
   );
+  if (data.ok) {
+    // throw new Error('Network response was not ok');
+    console.log('kimey');
+  }
+
   return data;
 };

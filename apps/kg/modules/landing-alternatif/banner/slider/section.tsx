@@ -4,6 +4,7 @@ import AliceCarousel from 'react-alice-carousel';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Banner1Module } from '../banner-1';
 import { Banner2Module } from '../banner-2';
+import { Banner3Module } from '../banner-3';
 
 export const BannerAlternatif: FC = (): ReactElement => {
   const carousel = useRef<AliceCarousel>(null);
@@ -21,6 +22,9 @@ export const BannerAlternatif: FC = (): ReactElement => {
           </div>
           <div className="w-full ">
             <Banner2Module />
+          </div>
+          <div className="w-full px-4">
+            <Banner3Module />
           </div>
         </Carousel>
       </div>

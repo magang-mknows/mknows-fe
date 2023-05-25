@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const TrainingConfirmPopup = atom({
-  key: 'confirm-training',
+export const askKRSPopup = atom({
+  key: 'ask-krs-popup',
   default: false,
 });
