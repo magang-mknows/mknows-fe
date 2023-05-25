@@ -5,11 +5,11 @@ ARG APP_ENV prod
 ENV APP_ENV ${APP_ENV}
 
 COPY package.json yarn.lock ./
-RUN yarn --production=false
+RUN yarn install
 
 COPY . .
 RUN yarn nx reset \
-    && yarn cs:build:${APP_ENV}
+    && yarn cs:build --prod
 
 FROM node:18-alpine AS Service
 
@@ -27,4 +27,4 @@ COPY --from=Builder /app/package.json ./package.json
 COPY --from=Builder /app/nx.json ./nx.json
 
 EXPOSE 4200
-CMD ["yarn", "cs:serve:prod"]
+CMD ["yarn", "cs:serve","--prod"]
