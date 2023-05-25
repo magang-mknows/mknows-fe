@@ -6,6 +6,7 @@ export type TSubjectHeaderProps = {
   point?: number;
   batch?: number;
   id: string;
+  status?: string;
 };
 
 export type TAskDeptItem = {
