@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForgot } from "./hooks";
 import { useRouter } from "next/router";
+import { useErrorMessage } from "../common/hook";
 
 export const ForgotModule: FC = (): ReactElement => {
   const router = useRouter();
@@ -31,9 +32,12 @@ export const ForgotModule: FC = (): ReactElement => {
 
   const { mutate } = useForgot();
 
+  const { set: setError } = useErrorMessage();
+
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
       onSuccess: () => router.push("/otp"),
+      onError: (err) => setError(err?.response?.data?.message as string),
     });
   });
 
