@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { SidebarHeader } from './header';
-import { SidebarContent } from './content';
+import { FC, ReactElement } from "react";
+import { SidebarHeader } from "./header";
+import { SidebarContent } from "./content";
 
 export const SidebarSection: FC = (): ReactElement => {
   return (

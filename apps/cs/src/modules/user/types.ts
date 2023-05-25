@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { Control } from 'react-hook-form';
+import { ReactNode } from "react";
+import { Control } from "react-hook-form";
 
 export type TUserDataDummy = {
   no: number;

@@ -1,32 +1,26 @@
-import { FC, ReactElement } from 'react';
-import {
-  FeatureIcon1,
-  FeatureIcon2,
-  FeatureIcon3,
-  FeatureIcon4,
-  FeatureIcon5,
-} from './icons';
+import { FC, ReactElement } from "react";
+import { FeatureIcon1, FeatureIcon2, FeatureIcon3, FeatureIcon4, FeatureIcon5 } from "./icons";
 
 export const FeatureAlternatif: FC = (): ReactElement => {
   const _feature = [
     {
-      title: 'Instruktur Profesional',
+      title: "Instruktur Profesional",
       icon: <FeatureIcon1 />,
     },
     {
-      title: 'Perencanaan Studi & Karir',
+      title: "Perencanaan Studi & Karir",
       icon: <FeatureIcon2 />,
     },
     {
-      title: 'Sertifikasi Online',
+      title: "Sertifikasi Online",
       icon: <FeatureIcon3 />,
     },
     {
-      title: 'Penyaluran Kerja',
+      title: "Penyaluran Kerja",
       icon: <FeatureIcon4 />,
     },
     {
-      title: '6000+ Peserta',
+      title: "6000+ Peserta",
       icon: <FeatureIcon5 />,
     },
   ];
@@ -38,9 +32,7 @@ export const FeatureAlternatif: FC = (): ReactElement => {
           key={key}
         >
           <div className="flex pr-10">{feat.icon}</div>
-          <span className="text-[16px] text-left px-4 font-semibold text-black">
-            {feat.title}
-          </span>
+          <span className="text-[16px] text-left px-4 font-semibold text-black">{feat.title}</span>
         </div>
       ))}
     </div>

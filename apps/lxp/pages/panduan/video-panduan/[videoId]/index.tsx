@@ -1,6 +1,6 @@
-import { RegistrationVideoModule } from '../../../../modules/guide-guide video';
-import { NextPage } from 'next';
-import React, { ReactElement, Suspense } from 'react';
+import { RegistrationVideoModule } from "../../../../modules/guide-guide video";
+import { NextPage } from "next";
+import React, { ReactElement, Suspense } from "react";
 
 const page: NextPage = (): ReactElement => {
   return (

@@ -1,24 +1,23 @@
-import { DoughnutChart } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement } from 'react';
+import { DoughnutChart } from "@mknows-frontend-services/components/atoms";
+import { FC, ReactElement } from "react";
 
 export const AnalyticRecentPerformance: FC = (): ReactElement => {
   function createGradient(ctx: CanvasRenderingContext2D) {
     const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, '#16D3FD');
-    gradient.addColorStop(0.5, '#E5F52F');
-    gradient.addColorStop(1, '#FDB415');
+    gradient.addColorStop(0, "#16D3FD");
+    gradient.addColorStop(0.5, "#E5F52F");
+    gradient.addColorStop(1, "#FDB415");
     return gradient;
   }
   const data = {
-    labels: ['Your Score'],
+    labels: ["Your Score"],
     datasets: [
       {
         data: [80, 20],
         backgroundColor: (context: any) => {
           const index = context.dataIndex;
           const value = context.dataset.data[index];
-          const color =
-            value === 80 ? createGradient(context.chart.ctx) : '#E5E5E5';
+          const color = value === 80 ? createGradient(context.chart.ctx) : "#E5E5E5";
           return color;
         },
         borderWidth: 0,

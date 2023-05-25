@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
+import Link from "next/link";
+import { FC, ReactElement } from "react";
 
 export const Pagination: FC = (): ReactElement => {
   return (
@@ -8,7 +8,7 @@ export const Pagination: FC = (): ReactElement => {
         <li>
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             <svg
               aria-hidden="true"
@@ -28,7 +28,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center relative rounded-lg w-[36px] h-[36px] bg-[#106FA4] py-1.5 px-3 text-sm font-medium text-white dark:text-white"
-            href={''}
+            href={""}
           >
             1
             <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">
@@ -39,7 +39,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             2
           </Link>
@@ -47,7 +47,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             3
           </Link>
@@ -55,7 +55,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             4
           </Link>
@@ -63,7 +63,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             5
           </Link>
@@ -71,7 +71,7 @@ export const Pagination: FC = (): ReactElement => {
         <li aria-current="page">
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent py-1.5 px-3 text-sm text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             6
           </Link>
@@ -79,7 +79,7 @@ export const Pagination: FC = (): ReactElement => {
         <li>
           <Link
             className="flex justify-center items-center rounded-lg w-[36px] h-[36px] bg-transparent text-[#737373] dark:text-white"
-            href={''}
+            href={""}
           >
             <svg
               aria-hidden="true"

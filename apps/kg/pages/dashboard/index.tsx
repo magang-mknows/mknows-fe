@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { DashboardModule } from '../../modules/dashboard';
-import { BaseLayout } from '../../modules/common/layout/base';
+import { FC, ReactElement } from "react";
+import { DashboardModule } from "../../modules/dashboard";
+import { BaseLayout } from "../../modules/common/layout/base";
 
 const DashboardPage: FC = (): ReactElement => {
   return (

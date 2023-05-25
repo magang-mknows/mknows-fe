@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import ArtisKG from '../assets/model.png';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import ArtisKG from "../assets/model.png";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const Banner4Module: FC = (): ReactElement => {
   return (
@@ -11,7 +11,7 @@ export const Banner4Module: FC = (): ReactElement => {
           src={ArtisKG}
           width={412}
           height={460}
-          alt={'Banner 1'}
+          alt={"Banner 1"}
           priority={false}
           loading="lazy"
           className="rounded-tr-lg md:block mb-6 hidden rounded-br-lg "

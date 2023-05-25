@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const OTPPage = () => {
   const { query } = useRouter();

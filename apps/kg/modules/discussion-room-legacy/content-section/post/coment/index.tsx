@@ -1,34 +1,34 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import { useDiscussionId } from './hooks';
+import { useDiscussionId } from "./hooks";
 
-import PostCard from '../PostCard';
-import PostOption from '../PostOption';
-import { AddComent } from './add-coment';
+import PostCard from "../PostCard";
+import PostOption from "../PostOption";
+import { AddComent } from "./add-coment";
 
-import dummyCourse from '../../../assets/dummyCourse.png';
+import dummyCourse from "../../../assets/dummyCourse.png";
 
 export const Comment: FC = (): ReactElement => {
   const { setDiscussionId } = useDiscussionId();
   const dummyComments = [
     {
       hasImage: false,
-      text: 'Dalam dunia bisnis, manajemen keuangan adalah kegiatan perencanaan, pengaturan, pengarahan, dan pengendalian keuangan suatu perusahaan. Dengan adanya pengelolaan keuangan secara profesional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.',
-      userName: 'Bambang S',
-      time: '10 detik',
+      text: "Dalam dunia bisnis, manajemen keuangan adalah kegiatan perencanaan, pengaturan, pengarahan, dan pengendalian keuangan suatu perusahaan. Dengan adanya pengelolaan keuangan secara profesional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.",
+      userName: "Bambang S",
+      time: "10 detik",
       countLikes: 10,
-      type: 'comment',
-      id: '',
+      type: "comment",
+      id: "",
     },
     {
       hasImage: true,
       imgSource: dummyCourse,
-      text: 'pengendalian keuangan suatu perusahaan.esional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.',
-      userName: 'Surti B',
-      time: '10 detik',
+      text: "pengendalian keuangan suatu perusahaan.esional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.",
+      userName: "Surti B",
+      time: "10 detik",
       countLikes: 3,
-      type: 'comment',
-      id: '',
+      type: "comment",
+      id: "",
     },
   ];
 

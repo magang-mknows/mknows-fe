@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { AnalyticChart } from './chart';
-import { AnalyticIcon } from './icon';
-import { AnalyticRecentPerformance } from './recent-performance';
-import { AnalyticPerformance } from './performance';
+import { FC, ReactElement } from "react";
+import { AnalyticChart } from "./chart";
+import { AnalyticIcon } from "./icon";
+import { AnalyticRecentPerformance } from "./recent-performance";
+import { AnalyticPerformance } from "./performance";
 
 export const MainSection: FC = (): ReactElement => {
   return (

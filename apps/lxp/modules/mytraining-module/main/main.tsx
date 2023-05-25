@@ -1,7 +1,7 @@
-import { Card } from '@mknows-frontend-services/components/molecules';
-import { FC, ReactElement } from 'react';
-import { HiDocumentText } from 'react-icons/hi2';
-import { RiVideoFill } from 'react-icons/ri';
+import { Card } from "@mknows-frontend-services/components/molecules";
+import { FC, ReactElement } from "react";
+import { HiDocumentText } from "react-icons/hi2";
+import { RiVideoFill } from "react-icons/ri";
 
 export const MtTrainingModuleMain: FC = (): ReactElement => {
   return (
@@ -24,8 +24,8 @@ export const MtTrainingModuleMain: FC = (): ReactElement => {
               <p className="text-[14px] text-gray-600 py-4">
                 Pertemuan 1 |
                 <span className="text-[#737373]">
-                  Modul ini berisi tentang penjelasan secara sederhana tentang
-                  manajemen keuangan, session 1.
+                  Modul ini berisi tentang penjelasan secara sederhana tentang manajemen keuangan,
+                  session 1.
                 </span>
               </p>
               <div className="flex gap-3">

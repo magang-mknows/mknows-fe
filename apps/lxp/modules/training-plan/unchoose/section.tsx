@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { UnChoosenIcon } from './asset';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { useSetRecoilState } from 'recoil';
-import { seeDepartment } from '../store';
+import { FC, ReactElement } from "react";
+import { UnChoosenIcon } from "./asset";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { useSetRecoilState } from "recoil";
+import { seeDepartment } from "../store";
 
 export const UnChoosenSection: FC = (): ReactElement => {
   const setSeeDeptList = useSetRecoilState(seeDepartment);

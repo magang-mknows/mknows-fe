@@ -26,94 +26,94 @@ const DetailContract: FC = (): ReactElement => {
     <BaseLayout>
       {/* <Suspense fallback={<Loading />}>
         <BreadCrumbs items={contractStudyBreadCumbs} /> */}
-        <MainLayouts className="bg-[#FAFAFA]">
-          <div className="flex flex-col p-4 gap-4">
-            <h1 className="text-[#737373] text-[18px] text:lg">Teknik Informatika</h1>
-            <p className="text-[20px] font-semibold">Software Engineering</p>
-          </div>
+      <MainLayouts className="bg-[#FAFAFA]">
+        <div className="flex flex-col p-4 gap-4">
+          <h1 className="text-[#737373] text-[18px] text:lg">Teknik Informatika</h1>
+          <p className="text-[20px] font-semibold">Software Engineering</p>
+        </div>
 
-          <div>
-            <div className="bg-white h-full rounded-[8px] dark:bg-[#1f2937] ">
-              <div className="text-[18px] font-semibold text-center text-[#9ca3af] border-b border-[#e5e7eb] px-[26px] mb-10">
-                <ul className="flex flex-wrap ">
-                  <li className="mr-2">
-                    <button>
-                      <a
-                        className={`inline-block p-4 ${
-                          active == "kontrak-krs"
-                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
-                            : ""
-                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
-                        aria-current="page"
-                        onClick={() => setactive("kontrak-krs")}
-                      >
-                        Kontrak KRS
-                      </a>
-                    </button>
-                  </li>
-                  <li className="mr-2">
-                    <button>
-                      <a
-                        className={`inline-block p-4 ${
-                          active == "draft-krs"
-                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
-                            : ""
-                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-white `}
-                        aria-current="page"
-                        onClick={() => setactive("draft-krs")}
-                      >
-                        Draft KRS
-                      </a>
-                    </button>
-                  </li>
-                  <li className="mr-2">
-                    <button>
-                      <a
-                        className={`inline-block p-4 ${
-                          active == "konversi"
-                            ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
-                            : ""
-                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
-                        aria-current="page"
-                        onClick={() => setactive("konversi")}
-                      >
-                        Konversi
-                      </a>
-                    </button>
-                  </li>
-                  <li className="mr-2">
-                    <button>
-                      <a
-                        className={`inline-block p-4 ${
-                          active == "pengajuan"
-                            ? "text-[#0B568D] border-[#ffff] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
-                            : ""
-                        }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white `}
-                        aria-current="page"
-                        onClick={() => setactive("pengajuan")}
-                      >
-                        Pengajuan
-                      </a>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              {active === "kontrak-krs" ? (
-                <Contract onClick={() => moveKRS()} onMove={() => moveKonversi()} />
-              ) : active === "draft-krs" ? ( 
-                <Draft />
-              ) : active === "konversi" ? (
-                <PreTest />
-              ) : active === "pengajuan" ? ( 
-                <Submission />
-              ) : (
-                <span>Tidak ada data</span>
-              )}
+        <div>
+          <div className="bg-white h-full rounded-[8px] dark:bg-[#1f2937] ">
+            <div className="text-[18px] font-semibold text-center text-[#9ca3af] border-b border-[#e5e7eb] px-[26px] mb-10">
+              <ul className="flex flex-wrap ">
+                <li className="mr-2">
+                  <button>
+                    <a
+                      className={`inline-block p-4 ${
+                        active == "kontrak-krs"
+                          ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                          : ""
+                      }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                      aria-current="page"
+                      onClick={() => setactive("kontrak-krs")}
+                    >
+                      Kontrak KRS
+                    </a>
+                  </button>
+                </li>
+                <li className="mr-2">
+                  <button>
+                    <a
+                      className={`inline-block p-4 ${
+                        active == "draft-krs"
+                          ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                          : ""
+                      }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300  dark:text-white `}
+                      aria-current="page"
+                      onClick={() => setactive("draft-krs")}
+                    >
+                      Draft KRS
+                    </a>
+                  </button>
+                </li>
+                <li className="mr-2">
+                  <button>
+                    <a
+                      className={`inline-block p-4 ${
+                        active == "konversi"
+                          ? "text-[#0B568D] border-[#0B568D] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                          : ""
+                      }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white  `}
+                      aria-current="page"
+                      onClick={() => setactive("konversi")}
+                    >
+                      Konversi
+                    </a>
+                  </button>
+                </li>
+                <li className="mr-2">
+                  <button>
+                    <a
+                      className={`inline-block p-4 ${
+                        active == "pengajuan"
+                          ? "text-[#0B568D] border-[#ffff] dark:text-[#ffff] dark:border-[#ffff] border-b-2"
+                          : ""
+                      }     rounded-t-lg active hover:border-gray-300 dark:hover:text-gray-300 dark:text-white `}
+                      aria-current="page"
+                      onClick={() => setactive("pengajuan")}
+                    >
+                      Pengajuan
+                    </a>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
-        </MainLayouts>
+          <div>
+            {active === "kontrak-krs" ? (
+              <Contract onClick={() => moveKRS()} onMove={() => moveKonversi()} />
+            ) : active === "draft-krs" ? (
+              <Draft />
+            ) : active === "konversi" ? (
+              <PreTest />
+            ) : active === "pengajuan" ? (
+              <Submission />
+            ) : (
+              <span>Tidak ada data</span>
+            )}
+          </div>
+        </div>
+      </MainLayouts>
       {/* </Suspense> */}
     </BaseLayout>
   );

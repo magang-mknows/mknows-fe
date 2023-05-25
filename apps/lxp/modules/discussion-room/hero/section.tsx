@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { DiscussionIcon } from '../assets';
+import { DiscussionIcon } from "../assets";
 
 const DiscussionHero: FC = (): ReactElement => {
   return (

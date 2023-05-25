@@ -1,14 +1,14 @@
-import { FC, ReactElement } from 'react';
-import { useReportQuery } from '../hooks';
-import Search from '../../../components/atoms/search';
-import Pagination from '../../../components/atoms/pagination';
-import DateRangePickerComponent from '../../../components/molecules/input/date-range-picker';
-import Table from './table';
+import { FC, ReactElement } from "react";
+import { useReportQuery } from "../hooks";
+import Search from "../../../components/atoms/search";
+import Pagination from "../../../components/atoms/pagination";
+import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
+import Table from "./table";
 
 const ReportModules: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
   const handleRangeChange = () => {
-    console.log('ok');
+    console.log("ok");
   };
 
   return (
@@ -32,9 +32,7 @@ const ReportModules: FC = (): ReactElement => {
             <div className="w-full">
               <Search
                 value={getReportQuery}
-                onChange={(e: { target: { value: string } }) =>
-                  setReportQuery(e.target.value)
-                }
+                onChange={(e: { target: { value: string } }) => setReportQuery(e.target.value)}
                 placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
               />
             </div>

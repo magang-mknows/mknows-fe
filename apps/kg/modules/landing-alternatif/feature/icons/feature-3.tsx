@@ -1,14 +1,8 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const FeatureIcon3: FC = (): ReactElement => {
   return (
-    <svg
-      width="52"
-      height="53"
-      viewBox="0 0 52 53"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect y="0.5" width="52" height="52" rx="26" fill="#ED3768" />
       <g clip-path="url(#clip0_9990_4903)">
         <path

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const SidebarHeader: FC = (): ReactElement => {
   return (
@@ -8,9 +8,7 @@ export const SidebarHeader: FC = (): ReactElement => {
         <h1 className="text-base font-bold text-neutral-800 w-full text-center">
           Lori Stevens Lavigne
         </h1>
-        <h1 className="text-sm text-neutral-700 w-full text-center">
-          34658202848200091
-        </h1>
+        <h1 className="text-sm text-neutral-700 w-full text-center">34658202848200091</h1>
       </section>
     </header>
   );

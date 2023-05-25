@@ -1,11 +1,9 @@
-import DetailContract from '../../../../modules/study-contract/details';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import DetailContract from "../../../../modules/study-contract/details";
+import { NextPage } from "next";
+import { ReactElement } from "react";
 
 const StudyContractDetailPage: NextPage = (): ReactElement => {
-  return (
-  <DetailContract/>
-  );
+  return <DetailContract />;
 };
 
 export default StudyContractDetailPage;

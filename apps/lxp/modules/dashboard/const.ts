@@ -1,10 +1,10 @@
 export const DashboardBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Dashboard',
-    link: '/dashboard',
+    name: "Dashboard",
+    link: "/dashboard",
   },
 ];

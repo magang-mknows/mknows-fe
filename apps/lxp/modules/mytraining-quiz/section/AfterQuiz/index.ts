@@ -1,2 +1,2 @@
-export * from './QuizHistory/module';
-export * from './QuizScore/module';
+export * from "./QuizHistory/module";
+export * from "./QuizScore/module";

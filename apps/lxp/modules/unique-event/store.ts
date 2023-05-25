@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const EventRegModalState = atom({
-  key: 'event-modal',
+  key: "event-modal",
   default: false,
 });

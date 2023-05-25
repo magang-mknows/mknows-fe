@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { useReportData } from '../hooks';
-import { IconDropdown, IconTable } from '../../../components/atoms';
+import { FC, ReactElement } from "react";
+import { useReportData } from "../hooks";
+import { IconDropdown, IconTable } from "../../../components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -59,9 +59,7 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td className="py-2 text-[#262626]">{key + 1}</td>
                 <td className="px-4 py-2 text-[#262626] ">{item.no}</td>
-                <td className="px-8 py-2 font-semibold text-[#262626]">
-                  {item.jenis_produk}
-                </td>
+                <td className="px-8 py-2 font-semibold text-[#262626]">{item.jenis_produk}</td>
                 <td className="flex items-center justify-center py-2 text-[#262626]">
                   {item.jumlah_user}
                 </td>

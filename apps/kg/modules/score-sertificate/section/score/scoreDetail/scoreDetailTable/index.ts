@@ -1,1 +1,1 @@
-export * from './scoreDetailTable';
+export * from "./scoreDetailTable";

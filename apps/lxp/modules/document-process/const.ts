@@ -1,14 +1,14 @@
 export const DocProcessBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Konsultasi & Layanan',
-    link: '/konsultasi-layanan',
+    name: "Konsultasi & Layanan",
+    link: "/konsultasi-layanan",
   },
   {
-    name: 'Proses Dokumen',
-    link: '/proses-dokumen',
+    name: "Proses Dokumen",
+    link: "/proses-dokumen",
   },
 ];

@@ -1,8 +1,8 @@
-import { FC, Fragment, ReactElement } from 'react';
-import DiscussionCard from './post/section';
-import { DiscussionPostOption } from './post/option';
-import { useGetCommentById } from './hooks';
-import { ReplySection } from './ReplySection';
+import { FC, Fragment, ReactElement } from "react";
+import DiscussionCard from "./post/section";
+import { DiscussionPostOption } from "./post/option";
+import { useGetCommentById } from "./hooks";
+import { ReplySection } from "./ReplySection";
 
 type TCommentProps = {
   id: string;
@@ -35,11 +35,7 @@ export const CommentSection: FC<TCommentProps> = ({ id }): ReactElement => {
               text={comment.content}
               imgSource={comment.image as unknown as string}
               title="title"
-              option={
-                <DiscussionPostOption
-                  id={`test id ${(index + 1) as unknown as string}`}
-                />
-              }
+              option={<DiscussionPostOption id={`test id ${(index + 1) as unknown as string}`} />}
             >
               <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
                 {comment?.replies} balasan
