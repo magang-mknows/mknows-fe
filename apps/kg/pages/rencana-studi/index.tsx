@@ -8,7 +8,7 @@ import { studyPlanBreadCumbs } from '../../modules/administration/constant';
 const StudyPlanPage: NextPage = (): ReactElement => {
   return (
     <BaseLayout title="Piih Fakultas">
-      <BreadCrumb items={studyPlanBreadCumbs} />
+      <BreadCrumb bgColor='bg-white' items={studyPlanBreadCumbs} />
       <ChoiceFaculty />
     </BaseLayout>
   );

@@ -1,5 +1,4 @@
 import { FC, ReactElement, lazy, Suspense, useState } from "react";
-import { BaseLayout } from "../../../modules/common/layout/base";
 import { usePopupAddStudy, usePopupSucces } from "./hooks";
 import { Contract } from "./kontrak-krs";
 import { Draft } from "./draft-krs";
@@ -23,7 +22,7 @@ const DetailContract: FC = (): ReactElement => {
     setPopupSuccess(false);
   };
   return (
-    <BaseLayout>
+    <>
       {/* <Suspense fallback={<Loading />}>
         <BreadCrumbs items={contractStudyBreadCumbs} /> */}
         <MainLayouts className="bg-[#FAFAFA]">
@@ -115,7 +114,7 @@ const DetailContract: FC = (): ReactElement => {
           </div>
         </MainLayouts>
       {/* </Suspense> */}
-    </BaseLayout>
+    </>
   );
 };
 
