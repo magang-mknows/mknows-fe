@@ -1,6 +1,5 @@
 import { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import random from '../assets/random.png';
 import ArtisKG from '../assets/model.png';
 import { Button } from '@mknows-frontend-services/components/atoms';
 
@@ -15,7 +14,7 @@ export const Banner4Module: FC = (): ReactElement => {
           alt={'Banner 1'}
           priority={false}
           loading="lazy"
-          className="rounded-tr-lg md:block hidden rounded-br-lg "
+          className="rounded-tr-lg md:block mb-6 hidden rounded-br-lg "
         />
         <div className="pl-20">
           <svg
