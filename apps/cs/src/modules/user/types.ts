@@ -1,3 +1,4 @@
+import { TMetaResponse } from "@mknows-frontend-services/utils";
 import { ReactNode } from "react";
 import { Control } from "react-hook-form";
 
@@ -23,6 +24,26 @@ export interface TtoolTip {
   tooltip?: string;
   className?: string;
 }
+
+export type TUserItem = {
+  _id: string;
+  name: string;
+  nik: string;
+  admin_id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export type TUserParams = {
+  date_from?: string;
+  date_to?: string;
+  page?: string;
+  per_page?: string;
+  search?: string;
+};
+
+export type TUserResponse = TMetaResponse<TUserItem>;
 
 export type TUserDataResponse = { getUserData: TUserDataDummy[] };
 

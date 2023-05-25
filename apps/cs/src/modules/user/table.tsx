@@ -1,13 +1,21 @@
 import { FC, ReactElement, useState } from "react";
-import { useUserData } from "./hooks";
 import { Link } from "react-router-dom";
 import Card from "../../components/molecules/card";
 import { Dialog } from "@headlessui/react";
-import { IconDropdown, IconEdit, IConDelete, IconCheck, IconError } from "../../components/atoms";
+import {
+  IconDropdown,
+  IconEdit,
+  IConDelete,
+  IconCheck,
+  // IconError,
+} from "../../components/atoms";
 import ToolTip from "./toolTip";
+import { useUser, useFilterAction } from "./hooks";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
-  const { getUserData } = useUserData();
+  const { getFilterAction } = useFilterAction();
+  const { data } = useUser(getFilterAction);
   const [isOpen, setisOpen] = useState(false);
 
   return (
@@ -53,20 +61,22 @@ const Table: FC = (): ReactElement => {
             </th>
           </tr>
         </thead>
-        {getUserData.map((item, key) => {
+        {data?.data.map((item, key) => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b ">
                 <td className="px-6 py-4 text-[#262626] cursor-default">{key + 1}</td>
                 <td className="px-6 py-4 text-[#262626] cursor-default">{item.nik}</td>
-                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">{item.nama}</td>
-                <td className="px-6 py-4 text-[#262626] cursor-default">{item.tanggal}</td>
+                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">{item.name}</td>
+                <td className="px-6 py-4 text-[#262626] cursor-default">
+                  {formatDate({ date: new Date(item.createdAt) })}
+                </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
                   <Link to={"/dashboard/user/detail-data"}>
                     <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
                       <p>Lihat Detail</p>
                       <div className="">
-                        {item.berkas === "success" ? (
+                        {/* {item.berkas === 'success' ? (
                           <ToolTip
                             tooltip="3/3 Data Terisi"
                             className="border-[#54B435] text-[#54B435] bg-white"
@@ -80,7 +90,13 @@ const Table: FC = (): ReactElement => {
                           >
                             <IconError />
                           </ToolTip>
-                        )}
+                        )} */}{" "}
+                        <ToolTip
+                          tooltip="3/3 Data Terisi"
+                          className="border-[#54B435] text-[#54B435] bg-white"
+                        >
+                          <IconCheck />
+                        </ToolTip>
                       </div>
                     </div>
                   </Link>

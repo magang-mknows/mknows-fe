@@ -25,7 +25,7 @@ export const FeatureAlternatif: FC = (): ReactElement => {
     },
   ];
   return (
-    <div className="flex gap-[95px] items-center justify-center w-full py-8">
+    <div className="flex gap-[95px] items-center justify-center lg:w-full w-screen py-8">
       {_feature.map((feat, key) => (
         <div
           className="flex flex-col gap-y-4 w-[160px] px-4  items-center py-4 shadow-2xl bg-neutral-100 rounded-xl"
