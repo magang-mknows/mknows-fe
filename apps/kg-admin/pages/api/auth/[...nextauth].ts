@@ -57,8 +57,8 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: "/auth/login",
-    signOut: "/auth/logout",
+    signIn: "/",
+    signOut: "/",
   },
   session: {
     maxAge: 2 * 60 * 60,
@@ -74,7 +74,7 @@ export const authOptions: NextAuthOptions = {
           account.access_token = data?.token?.access_token;
           account.refresh_token = data?.token?.refresh_token;
         } catch (error: any) {
-          return `/auth/login?error=${error.response.data?.message}`;
+          return `/?error=${error.response.data?.message}`;
         }
       }
 

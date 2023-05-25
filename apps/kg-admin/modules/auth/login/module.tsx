@@ -7,15 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useErrorMessage } from "../common/hook";
 
 const validationSchema = z.object({
   email: z.string().min(1, { message: "Email harus diisi" }).email({
     message: "Email harus valid",
   }),
-  password: z
-    .string()
-    .min(1, { message: "Password harus diisi" })
-    .min(8, { message: "Password setidaknya ada 8 karakter atau lebih" }),
+  password: z.string().min(1, { message: "Password harus diisi" }),
   remember: z.boolean().optional(),
 });
 
@@ -24,7 +22,7 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 export const LoginModule: FC = (): ReactElement => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [getError, setError] = useState<string | undefined>(undefined);
+  const { get: getError, set: setError } = useErrorMessage();
 
   const {
     control,
@@ -47,8 +45,11 @@ export const LoginModule: FC = (): ReactElement => {
       password: data.password,
       redirect: false,
     });
+
     if (response?.ok) {
       router.push("/dashboard");
+    } else {
+      setError(response?.error as string);
     }
     setLoading(false);
   });
@@ -84,7 +85,7 @@ export const LoginModule: FC = (): ReactElement => {
             required
           />
           <div className="flex w-full justify-end my-2">
-            <Link href="/auth/forgot" className="text-primary-600 cursor-pointer">
+            <Link href="/forgot" className="text-primary-600 cursor-pointer">
               Lupa Kata Sandi?
             </Link>
           </div>
