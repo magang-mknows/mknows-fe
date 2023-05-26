@@ -1,0 +1,79 @@
+{
+  "name": "kg-landing-experimental",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/kg-landing-experimental/src",
+  "targets": {
+    "build": {
+      "executor": "qwik-nx:build",
+      "options": {
+        "runSequence": [
+          "kg-landing-experimental:build.client",
+          "kg-landing-experimental:build.ssr"
+        ],
+        "outputPath": "dist/apps/kg-landing-experimental"
+      },
+      "configurations": {
+        "preview": {}
+      }
+    },
+    "build.client": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/kg-landing-experimental",
+        "configFile": "apps/kg-landing-experimental/vite.config.ts"
+      }
+    },
+    "build.ssr": {
+      "executor": "@nx/vite:build",
+      "defaultConfiguration": "preview",
+      "options": {
+        "outputPath": "dist/apps/kg-landing-experimental"
+      },
+      "configurations": {
+        "preview": {
+          "ssr": "src/entry.preview.tsx",
+          "mode": "production"
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "buildTarget": "kg-landing-experimental:build",
+        "port": 4300
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["../../coverage/apps/kg-landing-experimental"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/kg-landing-experimental"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "kg-landing-experimental:build.client",
+        "mode": "ssr",
+        "port": 4200
+      }
+    },
+    "serve.debug": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node --inspect-brk ../../node_modules/vite/bin/vite.js --mode ssr --force",
+        "cwd": "apps/kg-landing-experimental"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/kg-landing-experimental/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
