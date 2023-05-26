@@ -1,5 +1,5 @@
-import { TrainingPlanModule } from '../../modules';
-import { FC, ReactElement } from 'react';
+import { TrainingPlanModule } from "../../modules";
+import { FC, ReactElement } from "react";
 
 const TrainingPlanPage: FC = (): ReactElement => {
   return <TrainingPlanModule />;

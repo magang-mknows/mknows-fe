@@ -1,18 +1,18 @@
-import { AiFillCamera } from 'react-icons/ai';
+import { AiFillCamera } from "react-icons/ai";
 import {
   TextField,
   UploadField,
   SelectField,
   Button,
-} from '@mknows-frontend-services/components/atoms';
+} from "@mknows-frontend-services/components/atoms";
 
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useProfile, useUpdateUserProfile } from './hooks';
-import { useEffect } from 'react';
-import { editPhotoState } from './store';
-import { useRecoilState } from 'recoil';
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useProfile, useUpdateUserProfile } from "./hooks";
+import { useEffect } from "react";
+import { editPhotoState } from "./store";
+import { useRecoilState } from "recoil";
 
 export const EditProfileSection = () => {
   const { data, refetch } = useProfile();
@@ -23,18 +23,18 @@ export const EditProfileSection = () => {
   const userData = data?.data?.user;
 
   const genders = [
-    { id: 1, value: 'LAKI-LAKI', label: 'Laki-Laki' },
-    { id: 2, value: 'PEREMPUAN', label: 'Perempuan' },
+    { id: 1, value: "LAKI-LAKI", label: "Laki-Laki" },
+    { id: 2, value: "PEREMPUAN", label: "Perempuan" },
   ];
 
   const validationSchema = z.object({
     avatar: z.any().optional(),
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.string().min(1, { message: 'Gender harus dipilih' }),
+    full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    phone_number: z.string().min(1, { message: "Nomor handphone harus diisi" }),
+    gender: z.string().min(1, { message: "Gender harus dipilih" }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -46,12 +46,12 @@ export const EditProfileSection = () => {
     reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      full_name: '',
-      phone_number: '',
-      gender: '',
+      email: "",
+      full_name: "",
+      phone_number: "",
+      gender: "",
     },
   });
   const onCancel = () => reset(userData);
@@ -85,7 +85,7 @@ export const EditProfileSection = () => {
               </div>
               <form
                 className={`${
-                  isEditPhoto ? 'absolute' : 'hidden'
+                  isEditPhoto ? "absolute" : "hidden"
                 }  flex flex-col border-[1px] h-[4.3rem] overflow-hidden  border-neutral-100 rounded-md  transition-all duration-100 ease-in-out shadow-sm w-36 text-xs mt-2 `}
               >
                 <p
@@ -104,12 +104,7 @@ export const EditProfileSection = () => {
                   }}
                 >
                   Unggah Foto
-                  <UploadField
-                    variant="sm"
-                    name={'avatar'}
-                    control={control}
-                    className="hidden"
-                  />
+                  <UploadField variant="sm" name={"avatar"} control={control} className="hidden" />
                 </label>
               </form>
             </section>
@@ -120,9 +115,9 @@ export const EditProfileSection = () => {
             control={control}
             placeholder="Masukkan Email"
             label="Email"
-            type={'email'}
+            type={"email"}
             name="email"
-            variant={'md'}
+            variant={"md"}
             disabled
           />
           <SelectField
@@ -130,41 +125,41 @@ export const EditProfileSection = () => {
             control={control}
             label="Jenis Kelamin"
             options={genders}
-            name={'gender'}
-            variant={'md'}
+            name={"gender"}
+            variant={"md"}
           />
           <TextField
             control={control}
             placeholder="Masukkan Nama Lengkap"
             label="Nama Lengkap"
-            type={'text'}
+            type={"text"}
             name="full_name"
-            variant={'md'}
-            status={errors.full_name ? 'error' : undefined}
+            variant={"md"}
+            status={errors.full_name ? "error" : undefined}
             message={errors.full_name?.message}
           />
           <TextField
             control={control}
             placeholder="Masukkan Nomor Handphone"
             label="Nomor Handphone"
-            type={'number'}
+            type={"number"}
             name="phone_number"
-            status={errors.phone_number ? 'error' : undefined}
-            variant={'md'}
+            status={errors.phone_number ? "error" : undefined}
+            variant={"md"}
             message={errors.phone_number?.message}
           />
           <section className="flex justify-end w-full col-span-2">
             <Button
-              type={'button'}
+              type={"button"}
               onClick={onCancel}
-              loading={isLoading ? 'Sedang Mereset' : undefined}
+              loading={isLoading ? "Sedang Mereset" : undefined}
               className="text-white cursor-pointer font-[700] bg-error-500 rounded-lg p-3"
             >
               Batalkan
             </Button>
             <Button
-              type={'submit'}
-              loading={isLoading ? 'Sedang Menyimpan' : undefined}
+              type={"submit"}
+              loading={isLoading ? "Sedang Menyimpan" : undefined}
               disabled={!isValid}
               className="text-white disabled:bg-neutral-400 cursor-pointer font-[700] bg-primary-500 rounded-lg p-3"
             >

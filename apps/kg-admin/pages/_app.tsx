@@ -1,24 +1,22 @@
-import 'tailwindcss/tailwind.css';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import { AppProps } from 'next/app';
-import { RecoilEnv, RecoilRoot } from 'recoil';
-import { SessionProvider } from 'next-auth/react';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { Montserrat } from 'next/font/google';
-import { Suspense, useEffect, useState } from 'react';
-import { LoadingSpinner } from '@mknows-frontend-services/components/atoms';
+import "tailwindcss/tailwind.css";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { AppProps } from "next/app";
+import { RecoilEnv, RecoilRoot } from "recoil";
+import { SessionProvider } from "next-auth/react";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { Montserrat } from "next/font/google";
+import { Suspense, useEffect, useState } from "react";
+import { LoadingSpinner } from "@mknows-frontend-services/components/atoms";
+import Head from "next/head";
 
 const queryClient = new QueryClient();
 
 const montserrat = Montserrat({
-  weight: '400',
-  subsets: ['latin'],
+  weight: "400",
+  subsets: ["latin"],
 });
 
-function CustomApp({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppProps) {
+function CustomApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
   const [mount, setMount] = useState(false);
@@ -32,6 +30,9 @@ function CustomApp({
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
         <RecoilRoot>
+          <Head>
+            <title>KG-Admin</title>
+          </Head>
           <main className={montserrat.className}>
             <Suspense fallback={<LoadingSpinner />}>
               <Component {...pageProps} />

@@ -1,32 +1,32 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import Link from 'next/link';
-import { useRecoilState } from 'recoil';
-import { selectedDate } from './store';
+import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { selectedDate } from "./store";
 
 export const CalendarHeader: FC = (): ReactElement => {
   const days: string[] = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   const months: string[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const now = new Date();
@@ -48,7 +48,7 @@ export const CalendarHeader: FC = (): ReactElement => {
         <h1 className="text-lg font-bold text-neutral-900 ">Kalender Saya</h1>
         <Link
           passHref
-          href={'/'}
+          href={"/"}
           className="text-version3-500 text-sm font-bold hover:underline hover:underline-offset-2 hover:text-version2-500  transition-colors ease-in-out duration-300"
         >
           Lihat Detail
@@ -65,16 +65,12 @@ export const CalendarHeader: FC = (): ReactElement => {
                 onClick={() => setSelectDate(date)}
                 key={index}
                 className={`${
-                  date.getDate() == selectDate.getDate()
-                    ? 'bg-version3-500 text-neutral-50'
-                    : ''
+                  date.getDate() == selectDate.getDate() ? "bg-version3-500 text-neutral-50" : ""
                 } text-sm text-center cursor-pointer  group px-3 py-2 transition-colors ease-in-out duration-300 rounded-md w-fit`}
               >
                 <p
                   className={`${
-                    date.getDate() === selectDate.getDate()
-                      ? 'text-neutral-50'
-                      : 'text-neutral-500'
+                    date.getDate() === selectDate.getDate() ? "text-neutral-50" : "text-neutral-500"
                   }   text-xs`}
                 >
                   {days[date.getDay()].substring(0, 2)}
@@ -82,8 +78,8 @@ export const CalendarHeader: FC = (): ReactElement => {
                 <p
                   className={`${
                     date.getDate() === selectDate.getDate()
-                      ? 'text-neutral-50'
-                      : 'text-neutral-500 '
+                      ? "text-neutral-50"
+                      : "text-neutral-500 "
                   }  font-bold`}
                 >
                   {index + 1}

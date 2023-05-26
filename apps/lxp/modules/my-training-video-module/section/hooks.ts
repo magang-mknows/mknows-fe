@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { videoGuideState } from '../store';
-import { videoMytrainingTypes } from '../type';
+import { useRecoilState } from "recoil";
+import { videoGuideState } from "../store";
+import { videoMytrainingTypes } from "../type";
 
 type MytrainingVideo = {
   setGuideVideo: (val: Array<videoMytrainingTypes>) => void;

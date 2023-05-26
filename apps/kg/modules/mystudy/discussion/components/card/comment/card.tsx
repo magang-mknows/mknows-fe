@@ -1,16 +1,16 @@
-import { FC, ReactElement, useState } from 'react';
-import Image from 'next/image';
-import { MdDelete } from 'react-icons/md';
-import { RiPencilFill } from 'react-icons/ri';
-import { cardAuthor } from '../type';
-import { PopupModal } from '../../modal/pop-up';
-import { usePopupEditDiscussion, usePopupDeleteDiscussion } from './hooks';
-import { LikeComment } from '../../like-comment';
+import { FC, ReactElement, useState } from "react";
+import Image from "next/image";
+import { MdDelete } from "react-icons/md";
+import { RiPencilFill } from "react-icons/ri";
+import { cardAuthor } from "../type";
+import { PopupModal } from "../../modal/pop-up";
+import { usePopupEditDiscussion, usePopupDeleteDiscussion } from "./hooks";
+import { LikeComment } from "../../like-comment";
 
-import more from '../../../assets/more.svg';
-import edit from '../../../assets/edit.svg';
-import deleteICon from '../../../assets/delete.svg';
-import circle from '../../../assets/circle.svg';
+import more from "../../../assets/more.svg";
+import edit from "../../../assets/edit.svg";
+import deleteICon from "../../../assets/delete.svg";
+import circle from "../../../assets/circle.svg";
 
 export const CardComment: FC<cardAuthor> = ({
   title,
@@ -23,8 +23,7 @@ export const CardComment: FC<cardAuthor> = ({
 }): ReactElement => {
   const [open, setOpen] = useState(false);
   const { setPopupEditStatus, getPopupEditStatus } = usePopupEditDiscussion();
-  const { setPopupDeleteStatus, getPopupDeleteStatus } =
-    usePopupDeleteDiscussion();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussion();
   return (
     <>
       <div
@@ -32,26 +31,21 @@ export const CardComment: FC<cardAuthor> = ({
       >
         <div className="flex flex-row items-center justify-between gap-5 profile">
           <div className="flex flex-row gap-4 kiri">
-            <Image src={avatar} alt={'img-profile'} />
+            <Image src={avatar} alt={"img-profile"} />
             <div className="">
-              <h1 className="text-[##171717] font-[600] text-[14px]">
-                Komentar: {title}
-              </h1>
+              <h1 className="text-[##171717] font-[600] text-[14px]">Komentar: {title}</h1>
               <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1 dark:text-white/80">
-                oleh{' '}
+                oleh{" "}
                 <span className="text-[#2D9A41] dark:text-yellow-500">
                   {author} <span>({role})</span>
                 </span>
-                <Image src={circle} alt={'circle'} />
+                <Image src={circle} alt={"circle"} />
                 <span className="text-[#737373]">{time}</span>
               </p>
             </div>
           </div>
-          <button
-            className="kanan"
-            onClick={() => setOpen(open === true ? false : true)}
-          >
-            <Image src={more} alt={'more'} />
+          <button className="kanan" onClick={() => setOpen(open === true ? false : true)}>
+            <Image src={more} alt={"more"} />
           </button>
         </div>
         {open && (
@@ -61,7 +55,7 @@ export const CardComment: FC<cardAuthor> = ({
                 className="flex flex-row justify-start gap-1 mb-2"
                 onClick={() => setPopupEditStatus(true)}
               >
-                <Image src={edit} alt={'edit'} />
+                <Image src={edit} alt={"edit"} />
                 <p>Edit</p>
               </button>
               <button
@@ -85,7 +79,7 @@ export const CardComment: FC<cardAuthor> = ({
         <PopupModal
           lookup={getPopupEditStatus}
           onClose={() => setPopupEditStatus(false)}
-          popupTitle={'Edit Komentar'}
+          popupTitle={"Edit Komentar"}
           hasImg={false}
         >
           <h1 className="flex justify-start w-full mb-4">Ubah Komentar</h1>
@@ -110,8 +104,8 @@ export const CardComment: FC<cardAuthor> = ({
           icon={deleteICon}
           lookup={getPopupDeleteStatus}
           onClose={() => setPopupDeleteStatus(false)}
-          popupTitle={'Konfirmasi'}
-          description={'Apakah anda ingin menghapus postingan ini?'}
+          popupTitle={"Konfirmasi"}
+          description={"Apakah anda ingin menghapus postingan ini?"}
           hasImg={false}
         >
           <div className="flex flex-row gap-6 mt-4">

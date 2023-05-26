@@ -1,6 +1,5 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import ImageEventList from '../assets/event-list.svg';
 import { CardList } from '../common/card-list';
 import { Pagination } from '../common/pagination';
 import { SearchBar } from '../common/search-bar';
@@ -11,8 +10,6 @@ import { StaticImageData } from 'next/image';
 export const EventList: FC = (): ReactElement => {
   const { data } = useGetEvent();
   const eventListData = data?.data;
-  console.log(eventListData);
-  
 
   return (
     <Fragment>

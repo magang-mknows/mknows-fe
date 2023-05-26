@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { FaTelegramPlane } from 'react-icons/fa';
-import { TiCamera } from 'react-icons/ti';
+import { FaTelegramPlane } from "react-icons/fa";
+import { TiCamera } from "react-icons/ti";
 
 export const AddComent: FC = (): ReactElement => {
   return (

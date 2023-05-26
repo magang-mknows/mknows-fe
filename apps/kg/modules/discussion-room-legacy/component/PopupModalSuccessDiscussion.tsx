@@ -1,14 +1,13 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
-import { usePopupSuccessDiscussionStatus } from '../hooks/usePopupSuccessDiscussionStatus';
-import { PopupModalProps } from '../types';
+import { usePopupSuccessDiscussionStatus } from "../hooks/usePopupSuccessDiscussionStatus";
+import { PopupModalProps } from "../types";
 
 const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupSuccessStatus, getPopupSuccessStatus } =
-    usePopupSuccessDiscussionStatus();
+  const { setPopupSuccessStatus, getPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
 
   return (
     <Modal
@@ -17,7 +16,7 @@ const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={'!w-full md:!w-2/5'}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <form>
         <div className="flex flex-col justify-center w-full gap-4 text-center bg-white rounded-lg">
@@ -49,16 +48,14 @@ const PopupModalSuccessDiscussion: FC<PopupModalProps> = (): ReactElement => {
           </div>
 
           <section className="flex flex-col gap-4">
-            <h1 className="text-[20px] font-semibold">
-              Terimakasih telah memberi tahu kami
-            </h1>
+            <h1 className="text-[20px] font-semibold">Terimakasih telah memberi tahu kami</h1>
             <p>
-              Masukan dari Anda sangat penting untuk membantu kami menjaga
-              komunitas Kampus Gratis agar tetap aman.
+              Masukan dari Anda sangat penting untuk membantu kami menjaga komunitas Kampus Gratis
+              agar tetap aman.
             </p>
           </section>
           <div className="flex justify-end">
-            <Button className="!w-full" color="blue" type={'button'}>
+            <Button className="!w-full" color="blue" type={"button"}>
               Tutup
             </Button>
           </div>

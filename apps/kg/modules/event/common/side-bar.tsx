@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
-import { SideBarProps } from '../types';
+import Link from "next/link";
+import { FC, ReactElement } from "react";
+import { SideBarProps } from "../types";
 
 export const SideBar: FC<SideBarProps> = ({ active }): ReactElement => {
   return (
@@ -14,24 +14,32 @@ export const SideBar: FC<SideBarProps> = ({ active }): ReactElement => {
       <div className="flex items-center justify-center flex-col rounded-[8px] gap-[8px] w-[339px] h-[188px] py-[20px] px-[16px] bg-white text-[#737373] text-[14px] font-[600] dark:bg-[#1b1e21] dark:text-white">
         <div
           className={`flex items-center px-[12px] rounded-[8px] w-full h-full ${
-            active === 'EventList' && 'bg-[#E9F6FD] dark:bg-[#a1a1a8]'
+            active === "EventList" && "bg-[#E9F6FD] dark:bg-[#a1a1a8]"
           } `}
         >
-          <Link href={'/acara-kampus'}>Daftar Event</Link>
+          <Link href={"/acara-kampus"}>Daftar Event</Link>
         </div>
         <div
           className={`flex items-center px-[12px] rounded-[8px] w-full h-full ${
-            active === 'RegisteredEvent' && 'bg-[#E9F6FD] dark:bg-[#a1a1a8]'
+            active === "RegisteredEvent" && "bg-[#E9F6FD] dark:bg-[#a1a1a8]"
           } `}
         >
-          <Link href={'/acara-kampus-terdaftar'}>Event Terdaftar</Link>
+<<<<<<< Updated upstream
+          <Link href={"/acara-kampus-terdaftar"}>Event Terdaftar</Link>
+=======
+          <Link href={'/acara-kampus/terdaftar'}>Event Terdaftar</Link>
+>>>>>>> Stashed changes
         </div>
         <div
           className={`flex items-center px-[12px] rounded-[8px] w-full h-full ${
-            active === 'EventHistory' && 'bg-[#E9F6FD] dark:bg-[#a1a1a8]'
+            active === "EventHistory" && "bg-[#E9F6FD] dark:bg-[#a1a1a8]"
           } `}
         >
-          <Link href={'/acara-kampus-riwayat'}>Riwayat Event</Link>
+<<<<<<< Updated upstream
+          <Link href={"/acara-kampus-riwayat"}>Riwayat Event</Link>
+=======
+          <Link href={'/acara-kampus/riwayat'}>Riwayat Event</Link>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

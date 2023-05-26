@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const setid = atom({
-  key: 'id-dicussion-2',
-  default: '',
+  key: "id-dicussion-2",
+  default: "",
 });

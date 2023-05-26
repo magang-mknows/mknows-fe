@@ -1,5 +1,5 @@
-import { GuideBookModule } from '../../../modules/guide/guide-book';
-import { ReactElement } from 'react';
+import { GuideBookModule } from "../../../modules/guide/guide-book";
+import { ReactElement } from "react";
 
 const GuideBookPages = (): ReactElement => {
   return <GuideBookModule />;

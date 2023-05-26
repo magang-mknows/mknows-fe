@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
 
 export type OptionFaculty = {
   src: StaticImageData;
@@ -38,7 +38,7 @@ export type DataTable = {
   waktu_selesai: string;
 };
 
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
 
 export type OptionFaculty = {
   src: StaticImageData;

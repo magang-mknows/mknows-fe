@@ -1,9 +1,9 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import { Card } from '@mknows-frontend-services/components/molecules';
-import { TDataSubject } from '../types';
-import OrangBingungIcon from '../assets/orang-bingung.svg';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { Card } from "@mknows-frontend-services/components/molecules";
+import { TDataSubject } from "../types";
+import OrangBingungIcon from "../assets/orang-bingung.svg";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
   dataSubjectProps,
@@ -18,7 +18,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
               <AiOutlineSearch />
             </div>
             <input
-              type={'text'}
+              type={"text"}
               value=""
               className="bg-transparent w-full focus:outline-none"
               placeholder="Cari Mata Kuliah"
@@ -39,9 +39,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
           <>
             {dataSubjectProps?.length > 0 &&
               dataSubjectProps?.map((subject, index) => {
-                const thumbnailImg = subject.thumbnail.includes('.')
-                  ? subject.thumbnail
-                  : '';
+                const thumbnailImg = subject.thumbnail.includes(".") ? subject.thumbnail : "";
                 return (
                   <Card
                     href={`/studi-ku/${subject.id}`}
@@ -52,7 +50,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
                     imgheight={240}
                     imgStyle="rounded-lg lg:h-[240px] lg:w-full object-cover mx-auto md:mx-0"
                     src={thumbnailImg}
-                    titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
+                    titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                     icon={
                       <div className="flex justify-end gap-2">
                         <div className="text-[#FAB317] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#FEF6D0]">
@@ -65,15 +63,11 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
                     }
                   >
                     <div className="flex flex-col w-full">
-                      <p className="text-sm text-[#A3A3A3]">
-                        {subject.subject_code}
-                      </p>
+                      <p className="text-sm text-[#A3A3A3]">{subject.subject_code}</p>
                       <h1 className="text-base font-bold mt-0 text-[#106FA4] w-full">
                         Matkul {subject.name}
                       </h1>
-                      <p className="text-sm text-[#A3A3A3] pb-5">
-                        {subject.teacher_name}
-                      </p>
+                      <p className="text-sm text-[#A3A3A3] pb-5">{subject.teacher_name}</p>
                       <div className="flex w-[100%] bg-[#D9D9D9] rounded-full h-2.5">
                         <div
                           className="bg-[#3EB449] h-2.5 rounded-full"

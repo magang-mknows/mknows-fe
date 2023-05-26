@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { FC, ReactElement } from "react";
 
 export const GlimpseKnowledgeCard: FC = (): ReactElement => {
   return (
     <section className="bg-neutral-50 shadow-sm rounded-md overflow-hidden min-h-[320px] ">
-      <Link href={'/sekilas-ilmu/article#1'} passHref>
+      <Link href={"/sekilas-ilmu/article#1"} passHref>
         <figure className="w-full h-40 overflow-hidden">
           <Image
             src={`/assets/glimpse-knowledge/dummyImg.svg`}
@@ -28,8 +28,7 @@ export const GlimpseKnowledgeCard: FC = (): ReactElement => {
               Masih Sering Gugup Saat Public Speaking? Terapin 6 Tips Ampuh Ini!
             </h1>
             <p className="text-sm text-neutral-500">
-              Menjadi seorang yang pandai berbicara di depan umum adalah sebuah
-              kemampuan y...
+              Menjadi seorang yang pandai berbicara di depan umum adalah sebuah kemampuan y...
             </p>
           </main>
         </section>

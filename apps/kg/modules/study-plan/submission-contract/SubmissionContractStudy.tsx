@@ -1,12 +1,12 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
 
-import { useDataCard, useDataTable, usePopupConfirmCardStudy } from '../hooks';
-import PopupModal from '../components/PopupModal';
+import { useDataCard, useDataTable, usePopupConfirmCardStudy } from "../hooks";
+import PopupModal from "../components/PopupModal";
 
-import Confirm from '../assets/confirm.svg';
-import Download from '../assets/download.svg';
-import Warning from '../assets/warning.svg';
+import Confirm from "../assets/confirm.svg";
+import Download from "../assets/download.svg";
+import Warning from "../assets/warning.svg";
 
 export const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
@@ -86,9 +86,7 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
                     <Image src={x.img} alt="User" />
                     <div className="flex flex-col w-full">
                       <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
-                      <p className="pt-3 text-gray-400 text-start">
-                        {x.jmlh_mahasiswa}
-                      </p>
+                      <p className="pt-3 text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
                     </div>
                   </div>
                 </div>
@@ -118,8 +116,7 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
         className="!h-80 lg:!w-[100%] text-md py-10"
       >
         <h1 className="py-2">
-          Kamu akan mengajukan program study{' '}
-          <span className="font-bold">Software Engineering</span>
+          Kamu akan mengajukan program study <span className="font-bold">Software Engineering</span>
         </h1>
         <div
           className="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
@@ -136,13 +133,13 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
           <button
             className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
             onClick={() => setPopupStatus(false)}
-            type={'button'}
+            type={"button"}
           >
             Batal
           </button>
           <button
             className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-            type={'button'}
+            type={"button"}
             // page={'/kontrak-krs/detail'}
           >
             Konfirmasi

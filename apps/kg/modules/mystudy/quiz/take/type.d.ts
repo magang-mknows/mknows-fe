@@ -1,4 +1,4 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export type TQuizTakeItem = {
   type: string;

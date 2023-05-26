@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { DropDownDashboard } from '../../molecules/dropdown';
-import ChartBar2 from '../../molecules/chart/chart-bar2';
+import { FC, ReactElement } from "react";
+import { DropDownDashboard } from "../../molecules/dropdown";
+import ChartBar2 from "../../molecules/chart/chart-bar2";
 
 const AgeTrack: FC = (): ReactElement => {
   return (

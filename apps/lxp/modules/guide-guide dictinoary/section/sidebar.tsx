@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
-import { Card } from '@mknows-frontend-services/components/molecules';
-import { useGuideDictinoary } from '../hooks';
+import React, { ReactElement } from "react";
+import { Card } from "@mknows-frontend-services/components/molecules";
+import { useGuideDictinoary } from "../hooks";
 
 const Sidebar = (): ReactElement => {
   const { getGuideDictionary } = useGuideDictinoary();
@@ -18,9 +18,7 @@ const Sidebar = (): ReactElement => {
               titleStyle="font-bold text-[16px]"
               className="bg-[#F5F5F5] rounded-lg max-w-xs my-2 min-h-max "
             >
-              <p className="text-[12px] font-normal line-clamp-3 ">
-                {dummy.description}
-              </p>
+              <p className="text-[12px] font-normal line-clamp-3 ">{dummy.description}</p>
             </Card>
           );
         })}

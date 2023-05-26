@@ -1,5 +1,5 @@
-import { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
+import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
 export type TAuthLayoutProps = {
   title?: string;

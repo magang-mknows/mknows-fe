@@ -1,8 +1,8 @@
-import { FC, ReactElement, Fragment, useState } from 'react';
-import { Menu, Transition } from '@headlessui/react';
+import { FC, ReactElement, Fragment, useState } from "react";
+import { Menu, Transition } from "@headlessui/react";
 
 export const DropDownDashboard: FC = (): ReactElement => {
-  const [isActive, setisActive] = useState('Bulan');
+  const [isActive, setisActive] = useState("Bulan");
   return (
     <div className="flex flex-row gap-2 justify-center">
       <section>
@@ -11,11 +11,11 @@ export const DropDownDashboard: FC = (): ReactElement => {
             <Menu.Button>
               <div
                 className={`${
-                  isActive === 'Tahun'
-                    ? 'text-primary-400 border border-primary-500 '
-                    : 'text-primary-400'
+                  isActive === "Tahun"
+                    ? "text-primary-400 border border-primary-500 "
+                    : "text-primary-400"
                 } "w-9 h-9 px-3 bg-white hover:bg-primary-400 hover:text-white  rounded-md flex items-center cursor-pointer " `}
-                onClick={() => setisActive('Tahun')}
+                onClick={() => setisActive("Tahun")}
               >
                 Tahun
               </div>
@@ -67,11 +67,11 @@ export const DropDownDashboard: FC = (): ReactElement => {
             <Menu.Button>
               <div
                 className={`${
-                  isActive === 'Bulan'
-                    ? 'text-primary-400 border border-primary-500 '
-                    : 'text-primary-400'
+                  isActive === "Bulan"
+                    ? "text-primary-400 border border-primary-500 "
+                    : "text-primary-400"
                 } "w-9 h-9 px-3 bg-white hover:bg-primary-400 hover:text-white  rounded-md flex items-center cursor-pointer " `}
-                onClick={() => setisActive('Bulan')}
+                onClick={() => setisActive("Bulan")}
               >
                 Bulan
               </div>
@@ -88,44 +88,28 @@ export const DropDownDashboard: FC = (): ReactElement => {
               <Menu.Items className="snap-y">
                 <div className="px-1 py-4 bg-white overflow-y-auto h-[100px]">
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Januari
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Januari</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Feb
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Feb</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Maret
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Maret</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      April
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">April</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Mei
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Mei</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Juni
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Juni</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Juli
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Juli</p>
                   </Menu.Items>
                   <Menu.Items>
-                    <p className="text-primary-400 text-xs cursor-pointer">
-                      Agust
-                    </p>
+                    <p className="text-primary-400 text-xs cursor-pointer">Agust</p>
                   </Menu.Items>
                 </div>
               </Menu.Items>
@@ -139,11 +123,11 @@ export const DropDownDashboard: FC = (): ReactElement => {
             <Menu.Button>
               <div
                 className={`${
-                  isActive === 'Minggu'
-                    ? 'text-primary-400 border border-primary-500 '
-                    : 'text-primary-400'
+                  isActive === "Minggu"
+                    ? "text-primary-400 border border-primary-500 "
+                    : "text-primary-400"
                 } "w-9 h-9 px-3 bg-white hover:bg-primary-400 hover:text-white  rounded-md flex items-center cursor-pointer " `}
-                onClick={() => setisActive('Minggu')}
+                onClick={() => setisActive("Minggu")}
               >
                 Minggu
               </div>

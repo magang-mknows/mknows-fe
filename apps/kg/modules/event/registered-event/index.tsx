@@ -1,6 +1,5 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import ImageEventList from '../assets/event/event-list.svg';
 import { CardList } from '../common/card-list';
 import { Pagination } from '../common/pagination';
 import { SearchBar } from '../common/search-bar';
@@ -13,56 +12,6 @@ export const RegisteredEvent: FC = (): ReactElement => {
   const eventListData = data?.data;
   console.log(eventListData);
 
-  // const data = [
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Webinar Cyber Security',
-  //     status: 'Terdaftar',
-  //     day: 'Monday',
-  //     date: '28 February 2023',
-  //     slug: '/webinar-cyber-security',
-  //   },
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Pembiayaan dan Optimalisasi Bisnis',
-  //     status: 'Terdaftar',
-  //     day: 'Tuesday',
-  //     date: '28 February 2023',
-  //     slug: '/pembiayaan-optimasi-bisnis',
-  //   },
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Japanese Culture',
-  //     status: 'Terdaftar',
-  //     day: 'Wednesday',
-  //     date: '28 February 2023',
-  //     slug: '/japanese-culture',
-  //   },
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Design Digitals',
-  //     status: 'Terdaftar',
-  //     day: 'Thursday',
-  //     date: '28 February 2023',
-  //     slug: '/design-digital',
-  //   },
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Design Digitals',
-  //     status: 'Terdaftar',
-  //     day: 'Thursday',
-  //     date: '28 February 2023',
-  //     slug: '/design-digital',
-  //   },
-  //   {
-  //     src: ImageEventList,
-  //     title: 'Design Digitals',
-  //     status: 'Terdaftar',
-  //     day: 'Thursday',
-  //     date: '28 February 2023',
-  //     slug: '/design-digital',
-  //   },
-  // ];
   return (
     <Fragment>
       <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row">

@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
-import { ClientProvider } from '../common/provider';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { guideDictinoaryBreadCumbs } from './constant';
-import Sidebar from './section/sidebar';
-import ContentSection from './section/content';
-import { LayoutFooter } from '../common/footer/footer-layout';
+import React, { ReactElement } from "react";
+import { ClientProvider } from "../common/provider";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { guideDictinoaryBreadCumbs } from "./constant";
+import Sidebar from "./section/sidebar";
+import ContentSection from "./section/content";
+import { LayoutFooter } from "../common/footer/footer-layout";
 
 export const GuideDictinoaryModule = (): ReactElement => {
   return (

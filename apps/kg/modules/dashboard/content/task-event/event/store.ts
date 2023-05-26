@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const selectedEvent = atom({
-  key: 'selectedEvent',
+  key: "selectedEvent",
   default: 1,
 });

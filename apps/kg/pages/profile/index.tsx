@@ -1,6 +1,6 @@
-import { BaseLayout, ProfileModule } from '../../modules';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { BaseLayout, ProfileModule } from "../../modules";
+import { NextPage } from "next";
+import { ReactElement } from "react";
 
 const ProfilePage: NextPage = (): ReactElement => {
   return (

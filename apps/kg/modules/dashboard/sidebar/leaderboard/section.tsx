@@ -1,21 +1,19 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import bigTrophyIcon from '../../assets/bigTrophyIcon.svg';
-import medal1Icon from '../../assets/medal1Icon.svg';
-import medal2Icon from '../../assets/medal2Icon.svg';
-import medal3Icon from '../../assets/medal3Icon.svg';
-import emptyLeaderBoard from '../../assets/emptyLeaderBoard.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import bigTrophyIcon from "../../assets/bigTrophyIcon.svg";
+import medal1Icon from "../../assets/medal1Icon.svg";
+import medal2Icon from "../../assets/medal2Icon.svg";
+import medal3Icon from "../../assets/medal3Icon.svg";
+import emptyLeaderBoard from "../../assets/emptyLeaderBoard.svg";
 
-import { dummyRankList } from './store';
+import { dummyRankList } from "./store";
 
 export const LeaderboardSection: FC = (): ReactElement => {
   return (
     <section className="w-full bg-white mb-10 px-8 py-7 rounded-md  shadow-md shadow-neutral-100">
       <section className="flex justify-between items-start mb-4">
         <div>
-          <h1 className="text-xl text-neutral-900 font-bold mb-2">
-            Papan Skor
-          </h1>
+          <h1 className="text-xl text-neutral-900 font-bold mb-2">Papan Skor</h1>
           <p className="text-lg text-yellow-500 font-bold ">0</p>
           <p className="text-sm text-yellow-500">Poin Kamu</p>
         </div>
@@ -24,8 +22,7 @@ export const LeaderboardSection: FC = (): ReactElement => {
       <section className="mb-8  mt-20">
         <Image src={emptyLeaderBoard} alt="leaderBoard" className="h-52" />
         <p className="text-center text-neutral-900 text-sm my-3 px-10 lg:px-20">
-          Opps.. Kamu <span className="font-bold underline">belum pernah</span>{' '}
-          mengerjakan tugas
+          Opps.. Kamu <span className="font-bold underline">belum pernah</span> mengerjakan tugas
         </p>
       </section>
       {/* <section className="mb-6 ">

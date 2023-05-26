@@ -1,12 +1,6 @@
 export const BronzeMedal = () => {
   return (
-    <svg
-      width="37"
-      height="37"
-      viewBox="0 0 37 37"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_990_10503)">
         <path
           d="M14.1794 3.536C14.0439 3.3101 13.7997 3.17188 13.5363 3.17188H6.28558C5.70261 3.17188 5.34252 3.80785 5.64246 4.30775L13.7425 17.8077C13.878 18.0337 14.1221 18.1719 14.3856 18.1719H21.6363C22.2193 18.1719 22.5793 17.5359 22.2794 17.036L14.1794 3.536Z"
@@ -157,11 +151,7 @@ export const BronzeMedal = () => {
             type="matrix"
             values="0 0 0 0 0.637788 0 0 0 0 0.545996 0 0 0 0 0.47948 0 0 0 0.2 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_990_10503"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_990_10503" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

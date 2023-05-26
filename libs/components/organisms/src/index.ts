@@ -1,1 +1,1 @@
-export * from './lib/components-organisms';
+export * from "./lib/components-organisms";

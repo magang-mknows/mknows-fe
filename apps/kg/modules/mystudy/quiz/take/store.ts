@@ -1,16 +1,16 @@
-import { atom } from 'recoil';
-import { TQuizQuestionsAnswers, TQuizRequestSubmit } from './type';
+import { atom } from "recoil";
+import { TQuizQuestionsAnswers, TQuizRequestSubmit } from "./type";
 
 export const quizQuestionState = atom<Array<TQuizQuestionsAnswers>>({
-  key: 'quiz-question-state',
+  key: "quiz-question-state",
   default: [
     {
-      id: '',
-      question: '',
+      id: "",
+      question: "",
       answers: [
         {
-          id: '',
-          answer: '',
+          id: "",
+          answer: "",
         },
       ],
     },
@@ -18,11 +18,11 @@ export const quizQuestionState = atom<Array<TQuizQuestionsAnswers>>({
 });
 
 export const quizRequestSubmitState = atom<Array<TQuizRequestSubmit>>({
-  key: 'quiz-request-submit-state',
+  key: "quiz-request-submit-state",
   default: [],
 });
 
 export const currentQuizNumberState = atom({
-  key: 'currentQuizNumberState',
+  key: "currentQuizNumberState",
   default: 1,
 });

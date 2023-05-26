@@ -1,4 +1,4 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
 
 export type TResultDataDummy = {
   no: number;

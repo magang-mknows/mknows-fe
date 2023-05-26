@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react';
-import YouTube, { YouTubeProps } from 'react-youtube';
-import { videoMytrainingTypes } from '../type';
+import React, { ReactElement } from "react";
+import YouTube, { YouTubeProps } from "react-youtube";
+import { videoMytrainingTypes } from "../type";
 
 const YoutubeSection = (props: videoMytrainingTypes): ReactElement => {
   const { videoId } = props;
 
-  const onPlayerReady: YouTubeProps['onReady'] = (event: any) => {
+  const onPlayerReady: YouTubeProps["onReady"] = (event: any) => {
     event.target.pauseVideo();
   };
-  const opts: YouTubeProps['opts'] = {
+  const opts: YouTubeProps["opts"] = {
     playerVars: {
       autoplay: 0,
     },

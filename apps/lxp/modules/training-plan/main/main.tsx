@@ -1,19 +1,17 @@
-import { FC, ReactElement, useEffect } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { useRecoilState } from 'recoil';
-import { Card } from '@mknows-frontend-services/components/molecules';
-import { useGetAllDepartments } from './hook';
-import { CardLoading } from './loading';
-import { NotFound } from '../../common/not-found';
-import { debounceKeyword, searchKeyword } from './store';
+import { FC, ReactElement, useEffect } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useRecoilState } from "recoil";
+import { Card } from "@mknows-frontend-services/components/molecules";
+import { useGetAllDepartments } from "./hook";
+import { CardLoading } from "./loading";
+import { NotFound } from "../../common/not-found";
+import { debounceKeyword, searchKeyword } from "./store";
 
 export const TrainingPlanMain: FC = (): ReactElement => {
   const [getKeyword, setKeyword] = useRecoilState(searchKeyword);
-  const [getDebounceKeyword, setDebounceKeyword] =
-    useRecoilState(debounceKeyword);
+  const [getDebounceKeyword, setDebounceKeyword] = useRecoilState(debounceKeyword);
 
-  const { data: departmentsList, isLoading } =
-    useGetAllDepartments(getDebounceKeyword);
+  const { data: departmentsList, isLoading } = useGetAllDepartments(getDebounceKeyword);
 
   useEffect(() => {
     const changeDebounce = setTimeout(() => {
@@ -36,16 +34,14 @@ export const TrainingPlanMain: FC = (): ReactElement => {
               onChange={(e) => {
                 setKeyword(e.target.value);
               }}
-              type={'text'}
+              type={"text"}
               className="bg-neutral-100 text-sm bg-neutral-200/0 text-neutral-700 w-full focus:outline-none"
               placeholder="Cari Mata Kuliah"
             />
           </div>
         </div>
       </div>
-      <h1 className="text-xl font-bold text-neutral-900 mb-8">
-        Pilihan Pelatihan
-      </h1>
+      <h1 className="text-xl font-bold text-neutral-900 mb-8">Pilihan Pelatihan</h1>
       {/* {!loadingCheckStatus && administrationStatus === 'ACCEPTED' && (
         <section className=" w-full text-sm font-bold flex gap-2 items-center  py-2 px-4 rounded-md shadow-sm">
           <AiFillInfoCircle className="text-lg" />
@@ -84,9 +80,7 @@ export const TrainingPlanMain: FC = (): ReactElement => {
                     </h1>
                   </header>
                   <main>
-                    <h1 className="text-[#003A63] text-lg font-bold">
-                      {department.name}
-                    </h1>
+                    <h1 className="text-[#003A63] text-lg font-bold">{department.name}</h1>
                   </main>
                 </section>
               </Card>

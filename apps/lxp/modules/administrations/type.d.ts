@@ -18,7 +18,7 @@ export type StatusReturnTypesAdministration = {
   getAdministrationStatus: string;
 };
 
-import { ICommonMetaResponse } from '../../service/types';
+import { ICommonMetaResponse } from "../../service/types";
 
 export type TAdministrationItems = {
   full_name: string;

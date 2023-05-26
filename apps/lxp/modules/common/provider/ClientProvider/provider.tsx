@@ -1,26 +1,26 @@
-import { ReactElement, FC, Fragment } from 'react';
-import { TProviderProps } from '../types';
-import { Montserrat } from 'next/font/google';
-import { Modal, Navbar } from '@mknows-frontend-services/components/molecules';
-import { MdLogout, MdDashboard, MdEmojiPeople } from 'react-icons/md';
-import { FcDocument, FcOpenedFolder } from 'react-icons/fc';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
-import { logoutRequest } from '../../../../modules/auth/logout/api';
-import { useProfile } from '../../../../modules/profile/hooks';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { _bottom_nav_items, _nav_rules } from './const';
-import { useRecoilState } from 'recoil';
-import { LoginFormPopup, LoginPopupState } from '../../../../modules';
+import { ReactElement, FC, Fragment } from "react";
+import { TProviderProps } from "../types";
+import { Montserrat } from "next/font/google";
+import { Modal, Navbar } from "@mknows-frontend-services/components/molecules";
+import { MdLogout, MdDashboard, MdEmojiPeople } from "react-icons/md";
+import { FcDocument, FcOpenedFolder } from "react-icons/fc";
+import { FaRegUserCircle } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { logoutRequest } from "../../../../modules/auth/logout/api";
+import { useProfile } from "../../../../modules/profile/hooks";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { _bottom_nav_items, _nav_rules } from "./const";
+import { useRecoilState } from "recoil";
+import { LoginFormPopup, LoginPopupState } from "../../../../modules";
 
-import logo from '../../assets/mknows-logo.svg';
-import { BsFillBuildingFill } from 'react-icons/bs';
-import { IoAnalyticsOutline } from 'react-icons/io5';
+import logo from "../../assets/mknows-logo.svg";
+import { BsFillBuildingFill } from "react-icons/bs";
+import { IoAnalyticsOutline } from "react-icons/io5";
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: '500',
+  subsets: ["latin"],
+  weight: "500",
 });
 
 export const ClientProvider: FC<TProviderProps> = ({
@@ -31,28 +31,27 @@ export const ClientProvider: FC<TProviderProps> = ({
   const { data } = useSession();
   const _pop_up_menu = [
     {
-      name: 'Dashboard',
-      onClick: () => router.push('/dashboard'),
+      name: "Dashboard",
+      onClick: () => router.push("/dashboard"),
       icon: <MdDashboard size={20} className="text-primary-base" />,
     },
     {
-      name: 'Profile',
-      onClick: () => router.push('/user/profile'),
+      name: "Profile",
+      onClick: () => router.push("/user/profile"),
       icon: <FaRegUserCircle size={20} className="text-warning-base" />,
     },
     {
-      name: 'Administrasi',
+      name: "Administrasi",
       icon: <FcDocument size={20} className="text-success-base" />,
-      onClick: () => router.push('/administrasi'),
+      onClick: () => router.push("/administrasi"),
     },
     {
-      name: 'Logout',
+      name: "Logout",
       icon: <MdLogout size={20} className="text-error-base" />,
       onClick: async () => {
         await logoutRequest({
           refresh_token: data?.user?.token?.refresh_token as string,
         });
-        router.push('/');
       },
     },
   ];
@@ -63,51 +62,42 @@ export const ClientProvider: FC<TProviderProps> = ({
 
   const _features = [
     {
-      name: 'Administrasi',
-      link: '/administrasi',
+      name: "Administrasi",
+      link: "/administrasi",
       icon: (
-        <FcOpenedFolder
-          className="bg-version3-500 text-neutral-100 rounded-md p-2"
-          size={32}
-        />
+        <FcOpenedFolder className="bg-version3-500 text-neutral-100 rounded-md p-2" size={32} />
       ),
     },
     {
-      name: 'Rencana Pelatihan',
-      link: '/rencana-pelatihan',
+      name: "Rencana Pelatihan",
+      link: "/rencana-pelatihan",
       icon: (
-        <BsFillBuildingFill
-          className="bg-version3-500 text-neutral-100 rounded-md p-2"
-          size={32}
-        />
+        <BsFillBuildingFill className="bg-version3-500 text-neutral-100 rounded-md p-2" size={32} />
       ),
     },
     {
-      name: 'Pelatihan-ku',
-      link: '/pelatihan-ku',
-      icon: (
-        <MdEmojiPeople
-          className="bg-[#106FA4] text-neutral-50 rounded-md p-2"
-          size={32}
-        />
-      ),
+      name: "Pelatihan-ku",
+      link: "/pelatihan-ku",
+      icon: <MdEmojiPeople className="bg-[#106FA4] text-neutral-50 rounded-md p-2" size={32} />,
     },
     {
-      name: 'Analitik',
-      link: '/analitik',
+      name: "Analitik",
+      link: "/analitik",
       icon: (
-        <IoAnalyticsOutline
-          className="bg-version2-300 text-neutral-100 rounded-md p-2"
-          size={32}
-        />
+        <IoAnalyticsOutline className="bg-version2-300 text-neutral-100 rounded-md p-2" size={32} />
       ),
     },
   ];
 
+  // const _profile_user = {
+  //   email: profileData?.data?.user?.email as string,
+  //   full_name: profileData?.data?.user?.full_name as string,
+  //   avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+  // };
   const _profile_user = {
-    email: profileData?.data?.user?.email as string,
-    full_name: profileData?.data?.user?.full_name as string,
-    avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
+    email: profileData?.email as string,
+    full_name: profileData?.full_name as string,
+    avatar: profileData?.avatar as string,
   };
 
   return (
@@ -115,9 +105,7 @@ export const ClientProvider: FC<TProviderProps> = ({
       <Navbar
         items={_pop_up_menu}
         features={_features}
-        avatar={
-          profileData?.data.user.avatar || '/assets/images/avatar-dummy.png'
-        }
+        avatar={profileData?.avatar as string}
         logo={logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}
@@ -145,14 +133,8 @@ export const ClientProvider: FC<TProviderProps> = ({
           </Fragment>
         }
       />
-      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>
-        {children}
-      </section>
-      <Modal
-        withClose
-        lookup={getLoginPopup}
-        onClose={() => setLoginPopup(false)}
-      >
+      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>{children}</section>
+      <Modal withClose lookup={getLoginPopup} onClose={() => setLoginPopup(false)}>
         <LoginFormPopup />
       </Modal>
     </div>

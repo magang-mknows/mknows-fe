@@ -1,25 +1,16 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import brand1 from '../assets/brand1.svg';
-import brand2 from '../assets/brand2.svg';
-import brand3 from '../assets/brand3.svg';
-import brand4 from '../assets/brand4.svg';
-import brand5 from '../assets/brand5.svg';
-import brand6 from '../assets/brand6.svg';
-import brand7 from '../assets/brand7.svg';
-import brand8 from '../assets/brand8.svg';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import brand1 from "../assets/brand1.svg";
+import brand2 from "../assets/brand2.svg";
+import brand3 from "../assets/brand3.svg";
+import brand4 from "../assets/brand4.svg";
+import brand5 from "../assets/brand5.svg";
+import brand6 from "../assets/brand6.svg";
+import brand7 from "../assets/brand7.svg";
+import brand8 from "../assets/brand8.svg";
 
 export const PartnerSection: FC = (): ReactElement => {
-  const imageSource = [
-    brand1,
-    brand2,
-    brand3,
-    brand4,
-    brand5,
-    brand6,
-    brand7,
-    brand8,
-  ];
+  const imageSource = [brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8];
 
   return (
     <div className="bg-version2-400  px-12 md:px-14 lg:px-20 xl:px-36 flex flex-wrap xl:flex-nowrap items-center justify-between py-20">

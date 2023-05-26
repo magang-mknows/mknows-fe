@@ -1,26 +1,26 @@
-import { FC, ReactElement } from 'react';
-import { BigThropyIcon, BronzeMedal, GoldMedal, SilverMedal } from './assets';
+import { FC, ReactElement } from "react";
+import { BigThropyIcon, BronzeMedal, GoldMedal, SilverMedal } from "./assets";
 
 export const LeaderBoardSection: FC = (): ReactElement => {
   const dummyRankList = [
     {
-      name: 'Ahmad Baharudin',
+      name: "Ahmad Baharudin",
       score: 7000,
     },
     {
-      name: 'Siti Amelia',
+      name: "Siti Amelia",
       score: 6740,
     },
     {
-      name: 'Kisana Hajar',
+      name: "Kisana Hajar",
       score: 5600,
     },
     {
-      name: 'Jhom Bang',
+      name: "Jhom Bang",
       score: 4050,
     },
     {
-      name: 'Sumaryo',
+      name: "Sumaryo",
       score: 800,
     },
   ];
@@ -55,9 +55,7 @@ export const LeaderBoardSection: FC = (): ReactElement => {
       </section> */}
       <section className="flex justify-between items-start mb-8">
         <div>
-          <h1 className="text-xl text-neutral-800 font-bold mb-2">
-            Papan Skor
-          </h1>
+          <h1 className="text-xl text-neutral-800 font-bold mb-2">Papan Skor</h1>
           <p className="text-lg text-secondary-blue-500 font-bold ">0</p>
           <p className="text-sm text-secondary-blue-500">Poin Kamu</p>
         </div>

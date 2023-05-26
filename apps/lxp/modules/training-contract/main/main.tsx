@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { TrainingContractTable } from './training-tab';
+import { FC, ReactElement } from "react";
+import { TrainingContractTable } from "./training-tab";
 
 export const TrainingContractMain: FC = (): ReactElement => {
   return (

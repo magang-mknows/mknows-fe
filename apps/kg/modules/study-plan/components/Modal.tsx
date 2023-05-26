@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { FC, Fragment, ReactElement } from 'react';
+import Image from "next/image";
+import { FC, Fragment, ReactElement } from "react";
 
-import { ModalProps } from './types';
-import { AiOutlineClose } from 'react-icons/ai';
+import { ModalProps } from "./types";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Modal: FC<ModalProps> = ({
   title,
@@ -33,7 +33,7 @@ const Modal: FC<ModalProps> = ({
                 <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
                   <div
                     className={`flex items-center justify-between w-full ${
-                      !hasImage && '!justify-end'
+                      !hasImage && "!justify-end"
                     }`}
                   >
                     {hasImage && (
@@ -41,7 +41,7 @@ const Modal: FC<ModalProps> = ({
                         src="/logo-light.svg"
                         width={82}
                         height={35}
-                        alt={'Logo kg'}
+                        alt={"Logo kg"}
                         loading="lazy"
                       />
                     )}

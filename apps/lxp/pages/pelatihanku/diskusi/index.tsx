@@ -1,5 +1,5 @@
-import { MyTrainingDiscussionModule } from '../../../modules/my-training-discussion';
-import React from 'react';
+import { MyTrainingDiscussionModule } from "../../../modules/my-training-discussion";
+import React from "react";
 
 const page = () => {
   return <MyTrainingDiscussionModule />;

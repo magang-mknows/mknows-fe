@@ -1,13 +1,13 @@
-import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
-import LoadingRequest from '../../modules/request/loading';
-import Card from '../../components/molecules/card';
-import { Tab } from '@headlessui/react';
+import { FC, Fragment, ReactElement, useState, Suspense } from "react";
+import LoadingRequest from "../../modules/request/loading";
+import Card from "../../components/molecules/card";
+import { Tab } from "@headlessui/react";
 
-import AlokasiKuota from './alocation-quota';
-import RiwayatAlokasi from './history-alocation';
+import AlokasiKuota from "./alocation-quota";
+import RiwayatAlokasi from "./history-alocation";
 
 const QuotaPage: FC = (): ReactElement => {
-  const [active, setActive] = useState('alokasi');
+  const [active, setActive] = useState("alokasi");
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
@@ -16,18 +16,16 @@ const QuotaPage: FC = (): ReactElement => {
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
-                style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' }}
+                style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
               >
                 <Tab as={Fragment}>
                   <button>
                     <div
                       className={`inline-block p-4 ${
-                        active === 'alokasi'
-                          ? 'text-primary-400 border-b-4 border-primary-400'
-                          : ''
+                        active === "alokasi" ? "text-primary-400 border-b-4 border-primary-400" : ""
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
-                      onClick={() => setActive('alokasi')}
+                      onClick={() => setActive("alokasi")}
                     >
                       Alokasi Kuota
                     </div>
@@ -37,12 +35,10 @@ const QuotaPage: FC = (): ReactElement => {
                   <button>
                     <div
                       className={`inline-block p-4 ${
-                        active === 'riwayat'
-                          ? 'text-primary-400 border-b-4 border-primary-400'
-                          : ''
+                        active === "riwayat" ? "text-primary-400 border-b-4 border-primary-400" : ""
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive('riwayat')}
+                      onClick={() => setActive("riwayat")}
                     >
                       Riwayat Alokasi Kuota
                     </div>

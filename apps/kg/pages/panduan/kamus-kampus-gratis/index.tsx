@@ -1,5 +1,5 @@
-import { GuideDictionaryModule } from '../../../modules/guide/guide-dictionary';
-import { ReactElement } from 'react';
+import { GuideDictionaryModule } from "../../../modules/guide/guide-dictionary";
+import { ReactElement } from "react";
 
 const GuideDictionaryPages = (): ReactElement => {
   return <GuideDictionaryModule />;

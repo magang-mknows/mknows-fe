@@ -1,14 +1,6 @@
-import { useRecoilState } from 'recoil';
-import {
-  TReturnFileInformation,
-  TReturnJobInformation,
-  TReturnPrivateInformation,
-} from './types';
-import {
-  FileInformationState,
-  JobInformationState,
-  PrivateInformationState,
-} from './store';
+import { useRecoilState } from "recoil";
+import { TReturnFileInformation, TReturnJobInformation, TReturnPrivateInformation } from "./types";
+import { FileInformationState, JobInformationState, PrivateInformationState } from "./store";
 
 export const usePrivateInformationStatus = (): TReturnPrivateInformation => {
   const [get, set] = useRecoilState(PrivateInformationState);

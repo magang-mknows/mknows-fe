@@ -1,6 +1,6 @@
-import { StudyContractModules } from '../../../modules';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { StudyContractModules } from "../../../modules";
+import { NextPage } from "next";
+import { ReactElement } from "react";
 
 const StudyContractPage: NextPage = (): ReactElement => {
   return <StudyContractModules />;

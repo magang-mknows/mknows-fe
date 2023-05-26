@@ -1,10 +1,10 @@
 export const administrationBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Administrasi',
-    link: '/administrasi',
+    name: "Administrasi",
+    link: "/administrasi",
   },
 ];

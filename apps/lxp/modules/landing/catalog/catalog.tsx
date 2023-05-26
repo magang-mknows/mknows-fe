@@ -1,22 +1,22 @@
-import Image from 'next/image';
-import catalogBg from '../assets/catalog1.svg';
+import Image from "next/image";
+import catalogBg from "../assets/catalog1.svg";
 
-import { FC, ReactElement } from 'react';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const CatalogSection: FC = (): ReactElement => {
   const dummyCatalogs = [
     {
-      title: 'Pelatihan dan Pengembangan Karyawan',
-      desc: '200 Karyawan',
+      title: "Pelatihan dan Pengembangan Karyawan",
+      desc: "200 Karyawan",
     },
     {
-      title: 'Pelatihan dan Pengembangan Karyawan',
-      desc: '230 Karyawan',
+      title: "Pelatihan dan Pengembangan Karyawan",
+      desc: "230 Karyawan",
     },
     {
-      title: 'Pelatihan dan Pengembangan Karyawan',
-      desc: '100 Karyawan',
+      title: "Pelatihan dan Pengembangan Karyawan",
+      desc: "100 Karyawan",
     },
   ];
 
@@ -26,18 +26,14 @@ export const CatalogSection: FC = (): ReactElement => {
         Konten Katalog
       </h1>
       <p className="text-center text-neutral-400 font-normal text-xs md:text-sm lg:text-base px-0 md:px-2 lg:px-10 xl:px-24 mb-12">
-        Dalam solusi kami, kami menyediakan konten interaktif yang mudah
-        digunakan dan menyenangkan untuk digunakan yang akan membantu Anda dan
-        tim Anda mencapai potensi maksimal dan terlibat sepenuhnya dalam proses
-        pelatihan
+        Dalam solusi kami, kami menyediakan konten interaktif yang mudah digunakan dan menyenangkan
+        untuk digunakan yang akan membantu Anda dan tim Anda mencapai potensi maksimal dan terlibat
+        sepenuhnya dalam proses pelatihan
       </p>
       <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {dummyCatalogs.map((catalog, index) => {
           return (
-            <section
-              key={index}
-              className="bg-neutral-50  rounded-md overflow-hidden shadow-sm"
-            >
+            <section key={index} className="bg-neutral-50  rounded-md overflow-hidden shadow-sm">
               <Image
                 src={catalogBg}
                 alt="catalog-view"
@@ -53,9 +49,7 @@ export const CatalogSection: FC = (): ReactElement => {
               <div className="flex justify-between items-end px-5 mb-3">
                 <section className="flex gap-2 items-center">
                   <span className="w-2 h-2 rounded-lg bg-version3-500 block"></span>
-                  <p className="text-xs text-neutral-800 font-medium">
-                    {catalog.desc}
-                  </p>
+                  <p className="text-xs text-neutral-800 font-medium">{catalog.desc}</p>
                 </section>
                 <Button
                   type="button"
