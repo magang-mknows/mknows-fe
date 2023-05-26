@@ -8,6 +8,7 @@ import Building from "../assets/building.svg";
 import Avatar from "../assets/avatar.svg";
 import { Modal } from "@mknows-frontend-services/components/molecules";
 import Image from "next/image";
+import Link from "next/link";
 
 export const PopupProfil: FC<PopupProfilProps> = ({
   lookup,
@@ -50,8 +51,8 @@ export const PopupProfil: FC<PopupProfilProps> = ({
     <Modal lookup={lookup as boolean} withClose={true} widthModal={widthModal} onClose={onClose}>
       <div>
         <h1 className="mb-5 text-[#737373] font-[500] text-[18px]">
-          Rank <span className="text-[#106FA4] font-[600] text-[28px]">{props.subjectCount}</span>{" "}
-          Global
+          Peringkat{" "}
+          <span className="text-[#106FA4] font-[600] text-[28px]">{props.subjectCount}</span> Umum
         </h1>
         <div className="flex sm:flex-row flex-col outline sm:justify-between justify-start outline-[#E5E5E5] bg-[#FAFAFA] rounded-[8px] md:px-10 px-0 h-[125px] w-full items-center">
           <div className="flex items-center sm:gap-7 gap-4 sm:-mt-3">
@@ -97,9 +98,11 @@ export const PopupProfil: FC<PopupProfilProps> = ({
             ))}
           </div>
         </div>
-        <button className="mt-5 mb-5 rounded-[8px] bg-[#106FA4] text-white text-[16px] font-[600] w-full h-[56px]">
-          Lihat Profile
-        </button>
+        <Link href={"/profile"}>
+          <button className="mt-5 mb-5 rounded-[8px] bg-[#106FA4] text-white text-[16px] font-[600] w-full h-[56px]">
+            Lihat Profile
+          </button>
+        </Link>
       </div>
     </Modal>
   );
