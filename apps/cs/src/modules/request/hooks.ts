@@ -8,7 +8,7 @@ import {
   TResultQueryResponse,
 } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+// import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { getDataRequest } from "./api";
 
 export const useRequestData = (): TRequestDataResponse => {
