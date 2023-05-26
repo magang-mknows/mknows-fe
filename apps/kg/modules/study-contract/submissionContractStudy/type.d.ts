@@ -15,7 +15,8 @@ export type DataTable = {
   waktu_selesai: string;
 };
 
-export type DataCard = {
-  label: string;
-  desc: string;
-};
+  export type DataCard = {
+    label: string;
+    desc: string;
+  };
+

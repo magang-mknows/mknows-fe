@@ -26,7 +26,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
             </h1>
             <div>
               <Button
-                className="text-center lg:!w-44 !w-36 lg:!h-14 !h-10 lg:text-lg text-md py-4 bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] rounded-lg"
+                className="text-center lg:!w-44 !w-36 lg:h-[48px] !h-10 text-[16px]  bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] rounded-lg"
                 onClick={() => setPopupStatus(true)}
                 type={"button"}
               >
@@ -49,8 +49,8 @@ const SubmissionContractStudy: FC = (): ReactElement => {
       </div>
       <div className="flex justify-end items-center ">
         <Button
-          className="flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000 lg:text-center text-start text-md mx-4 lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]"
-          type={"button"}
+          className="flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000 lg:text-center text-start text-md mx-8 px-3 lg:ml-80 w-full lg:w-[200px] lg:h-[48px] !h-10 text-[14px] font-normal bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]"
+          type={'button'}
         >
           <Image width={30} height={30} alt="download" src={Download as StaticImageData} />
           Download Silabus
@@ -81,7 +81,8 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               <p>Pertemuan</p>
             </div>
 
-            {getDataTable.map((x, i) => (
+            {getDataTable.map((x, i) => 
+              (
               <>
                 <div
                   key={i}
