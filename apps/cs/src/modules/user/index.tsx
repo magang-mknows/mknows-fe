@@ -1,15 +1,15 @@
-import { FC, ReactElement } from 'react';
-import Table from './table';
-import { Link } from 'react-router-dom';
-import { useUserQuery } from './hooks';
-import DateRangePickerComponent from '../../components/molecules/input/date-range-picker';
-import Search from '../../components/atoms/search';
-import Pagination from '../../components/atoms/pagination';
+import { FC, ReactElement } from "react";
+import Table from "./table";
+import { Link } from "react-router-dom";
+import { useUserQuery } from "./hooks";
+import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
+import Search from "../../components/atoms/search";
+import Pagination from "../../components/atoms/pagination";
 
 const UserModules: FC = (): ReactElement => {
   const { setUserQuery, getUserQuery } = useUserQuery();
   const handleRangeChange = () => {
-    console.log('ok');
+    console.log("ok");
   };
 
   return (
@@ -21,12 +21,10 @@ const UserModules: FC = (): ReactElement => {
         <div className="flex gap-x-2 lg:w-[50%] w-full">
           <Search
             value={getUserQuery}
-            onChange={(e: { target: { value: string } }) =>
-              setUserQuery(e.target.value)
-            }
+            onChange={(e: { target: { value: string } }) => setUserQuery(e.target.value)}
             placeholder="Search NIK, Nama, Tanggal, Berkas"
           />
-          <Link to={'/dashboard/user/add-data'}>
+          <Link to={"/dashboard/user/add-data"}>
             <button className="border bg-white text-primary-500 font-semibold md:w-[200px] w-[140px] border-primary-400 rounded-md p-2">
               + Tambah Data
             </button>

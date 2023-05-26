@@ -1,14 +1,14 @@
-import { ReactElement, FC } from 'react';
-import Table from './table';
-import Pagination from '../../../components/atoms/pagination';
-import Search from '../../../components/atoms/search';
-import { useReportQuery } from '../hooks';
-import DateRangePickerComponent from '../../../components/molecules/input/date-range-picker';
+import { ReactElement, FC } from "react";
+import Table from "./table";
+import Pagination from "../../../components/atoms/pagination";
+import Search from "../../../components/atoms/search";
+import { useReportQuery } from "../hooks";
+import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
 
 const ReportRequest: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
   const handleRangeChange = () => {
-    console.log('ok');
+    console.log("ok");
   };
   return (
     <div className="relative">
@@ -31,9 +31,7 @@ const ReportRequest: FC = (): ReactElement => {
             <div className="w-full">
               <Search
                 value={getReportQuery}
-                onChange={(e: { target: { value: string } }) =>
-                  setReportQuery(e.target.value)
-                }
+                onChange={(e: { target: { value: string } }) => setReportQuery(e.target.value)}
                 placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
               />
             </div>
@@ -44,9 +42,9 @@ const ReportRequest: FC = (): ReactElement => {
       {/* table */}
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
-        Untuk melihat riwayat permintaan sebelumnya{' '}
+        Untuk melihat riwayat permintaan sebelumnya{" "}
         <span className="text-[#4FA0CF]">
-          {' '}
+          {" "}
           <a href="/dashboard/report">Klik Disini</a>
         </span>
       </div>

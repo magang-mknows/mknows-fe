@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { Suspense } from 'react';
-import Card from '../../components/molecules/card';
+import { FC, ReactElement } from "react";
+import { Suspense } from "react";
+import Card from "../../components/molecules/card";
 
 const LoadingQuota: FC = (): ReactElement => {
   return (

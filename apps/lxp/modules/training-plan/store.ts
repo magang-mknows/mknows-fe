@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const seeDepartment = atom({
-  key: 'see-department-list',
+  key: "see-department-list",
   default: false,
 });

@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import Image from 'next/image';
-import { FC, Fragment, ReactElement } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-import { TModalProps } from './types';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import Image from "next/image";
+import { FC, Fragment, ReactElement } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { TModalProps } from "./types";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const Modal: FC<TModalProps> = ({
   title,
@@ -34,7 +34,7 @@ export const Modal: FC<TModalProps> = ({
                 <div className="w-full px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
                   <div
                     className={`flex items-center justify-between w-full ${
-                      !hasImage && '!justify-end'
+                      !hasImage && "!justify-end"
                     }`}
                   >
                     {hasImage && (
@@ -42,7 +42,7 @@ export const Modal: FC<TModalProps> = ({
                         src="/logo-light.svg"
                         width={82}
                         height={35}
-                        alt={'Logo kg'}
+                        alt={"Logo kg"}
                         loading="lazy"
                       />
                     )}

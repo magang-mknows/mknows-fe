@@ -1,4 +1,4 @@
-import { FC, ReactElement, Fragment, useState } from 'react';
+import { FC, ReactElement, Fragment, useState } from "react";
 
 const SidebarSkeleton: FC = (): ReactElement => {
   const [open, setOpen] = useState(true);

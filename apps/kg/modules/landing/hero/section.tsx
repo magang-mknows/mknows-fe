@@ -1,14 +1,9 @@
-import Image from 'next/image';
-import { FC, Fragment, ReactElement } from 'react';
-import {
-  RandomShit1,
-  RandomShit2,
-  RandomShit3,
-  RandomShitBg,
-} from '../random-shit';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { HoverCard } from '../hover-card';
-import GirlHoldingBook from './assets/girl-holding-book.png';
+import Image from "next/image";
+import { FC, Fragment, ReactElement } from "react";
+import { RandomShit1, RandomShit2, RandomShit3, RandomShitBg } from "../random-shit";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { HoverCard } from "../hover-card";
+import GirlHoldingBook from "./assets/girl-holding-book.png";
 
 export const HeroSection: FC = (): ReactElement => {
   return (
@@ -29,8 +24,8 @@ export const HeroSection: FC = (): ReactElement => {
             Kuliah, Pelatihan, Magang & Pengalaman Kerja
           </span>
           <p className="text-[18px] max-w-[674px] font-[700] text-neutral-base">
-            Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses
-            belajar yang mudah bagi semua tanpa syarat
+            Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses belajar yang mudah
+            bagi semua tanpa syarat
           </p>
           <Button
             type="button"
@@ -50,8 +45,8 @@ export const HeroSection: FC = (): ReactElement => {
             Kuliah, Pelatihan, Magang & Pengalaman Kerja
           </span>
           <p className="text-[18px] max-w-[674px] font-[700] text-neutral-base">
-            Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses
-            belajar yang mudah bagi semua tanpa syarat
+            Platform Pendidikan Tinggi Gratis pertama di Indonesia. Dengan akses belajar yang mudah
+            bagi semua tanpa syarat
           </p>
           <Button
             type="button"

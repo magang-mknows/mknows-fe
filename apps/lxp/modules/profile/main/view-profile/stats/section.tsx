@@ -1,10 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { AiTwotoneLike } from 'react-icons/ai';
-import {
-  BsBuildingsFill,
-  BsClockFill,
-  BsFillChatLeftFill,
-} from 'react-icons/bs';
+import { FC, ReactElement } from "react";
+import { AiTwotoneLike } from "react-icons/ai";
+import { BsBuildingsFill, BsClockFill, BsFillChatLeftFill } from "react-icons/bs";
 
 export const ViewProfileStats: FC = (): ReactElement => {
   return (

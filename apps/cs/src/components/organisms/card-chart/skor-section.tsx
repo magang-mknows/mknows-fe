@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { DropDownDashboard } from '../../molecules/dropdown';
-import ChartDoughnut from '../../molecules/chart/chart-doughnut';
+import { FC, ReactElement } from "react";
+import { DropDownDashboard } from "../../molecules/dropdown";
+import ChartDoughnut from "../../molecules/chart/chart-doughnut";
 
 const SkorSection: FC = (): ReactElement => {
   return (

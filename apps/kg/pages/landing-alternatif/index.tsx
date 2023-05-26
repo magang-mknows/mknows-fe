@@ -1,6 +1,6 @@
-import { NextPage } from 'next';
-import { BaseLayout, LandingAlternatif } from '../../modules';
-import { ReactElement } from 'react';
+import { NextPage } from "next";
+import { BaseLayout, LandingAlternatif } from "../../modules";
+import { ReactElement } from "react";
 
 const LandingAltPage: NextPage = (): ReactElement => {
   return (

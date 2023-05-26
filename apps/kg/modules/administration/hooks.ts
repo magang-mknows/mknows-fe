@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState } from "recoil";
 import {
   TBiodataAdm,
   TBiodataResponse,
@@ -7,17 +7,13 @@ import {
   TFileAdm,
   TFileResponse,
   TStatusReturnAdministration,
-} from './types';
-import { AdministrationStatusState } from './store';
-import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import {
-  familyInformationRequest,
-  fileInformationRequest,
-  privateInformationRequest,
-} from './api';
+} from "./types";
+import { AdministrationStatusState } from "./store";
+import { UseMutationResult, useMutation } from "@tanstack/react-query";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { familyInformationRequest, fileInformationRequest, privateInformationRequest } from "./api";
 
-export * from './common/hooks';
+export * from "./common/hooks";
 
 export const useAdministrationStatus = (): TStatusReturnAdministration => {
   const [getStatus, setStatus] = useRecoilState(AdministrationStatusState);
@@ -34,7 +30,7 @@ export const usePrivateInformation = (): UseMutationResult<
   unknown
 > => {
   return useMutation({
-    mutationKey: ['private-information-post'],
+    mutationKey: ["private-information-post"],
     mutationFn: async (payload) => await privateInformationRequest(payload),
   });
 };
@@ -46,7 +42,7 @@ export const useFamilyInformation = (): UseMutationResult<
   unknown
 > => {
   return useMutation({
-    mutationKey: ['family-information-post'],
+    mutationKey: ["family-information-post"],
     mutationFn: async (payload) => await familyInformationRequest(payload),
   });
 };
@@ -58,7 +54,7 @@ export const useFileInformation = (): UseMutationResult<
   unknown
 > => {
   return useMutation({
-    mutationKey: ['file-information-post'],
+    mutationKey: ["file-information-post"],
     mutationFn: async (payload) => await fileInformationRequest(payload),
   });
 };

@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { ClientProvider } from '../common/provider';
-import Sidebar from './section/sidebar';
-import Content from './section/content';
+import { FC, ReactElement } from "react";
+import { ClientProvider } from "../common/provider";
+import Sidebar from "./section/sidebar";
+import Content from "./section/content";
 
 export const MyTrainingDiscussionModule: FC = (): ReactElement => {
   return (

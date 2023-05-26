@@ -1,6 +1,6 @@
-import { Status } from '../../../../modules/mystudy/assignment';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { Status } from "../../../../modules/mystudy/assignment";
+import { NextPage } from "next";
+import { ReactElement } from "react";
 
 const StudyPlanAssigmentPage: NextPage = (): ReactElement => {
   return <Status />;

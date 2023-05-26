@@ -1,5 +1,5 @@
-import { useRecoilState } from 'recoil';
-import { tabAssigmentState } from './store';
+import { useRecoilState } from "recoil";
+import { tabAssigmentState } from "./store";
 
 type ReturnTypes = {
   getTabAssigment: string;

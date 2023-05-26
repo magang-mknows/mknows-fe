@@ -1,8 +1,8 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Image from "next/image";
+import { FC, ReactElement } from "react";
 
-import waitingBg from '../assets/waiting.svg';
+import waitingBg from "../assets/waiting.svg";
 
 export const OfferSection: FC = (): ReactElement => {
   return (
@@ -13,8 +13,7 @@ export const OfferSection: FC = (): ReactElement => {
             Tunggu apa lagi?
           </h1>
           <p className="text-neutral-200 text-sm lg:text-lg xl:text-xl mb-4 pr-2 md:pr-12 lg:pr-40 ">
-            Daftar sekarang dan nikmati fasilitas belajar yang asik dan
-            terverifikasi!
+            Daftar sekarang dan nikmati fasilitas belajar yang asik dan terverifikasi!
           </p>
           <Button
             type="button"

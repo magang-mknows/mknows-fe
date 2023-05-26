@@ -1,18 +1,16 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import { TChoiceFacultyCardProps } from './types';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { TChoiceFacultyCardProps } from "./types";
 
-export const ChoiceFacultyCard: FC<TChoiceFacultyCardProps> = (
-  props
-): ReactElement => {
+export const ChoiceFacultyCard: FC<TChoiceFacultyCardProps> = (props): ReactElement => {
   return (
     <section className="flex flex-col border border-neutral-300 w-auto rounded-lg h-auto bg-white">
       <Image
         src={props.src}
-        alt={'card-landing'}
+        alt={"card-landing"}
         width={325}
         height={208}
-        loading={'lazy'}
+        loading={"lazy"}
         priority={false}
         className="w-auto h-auto"
       />

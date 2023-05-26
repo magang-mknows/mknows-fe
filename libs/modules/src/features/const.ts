@@ -1,10 +1,10 @@
 export const FeaturesBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Semua Fitur',
-    link: '/semua-fitur',
+    name: "Semua Fitur",
+    link: "/semua-fitur",
   },
 ];

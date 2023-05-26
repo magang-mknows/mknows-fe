@@ -1,21 +1,21 @@
-import { FC, ReactElement } from 'react';
-import { useRecoilState } from 'recoil';
-import { isModalOpen, selectedOption } from './store';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { IoMdAddCircleOutline } from 'react-icons/io';
-import { AiOutlineSearch } from 'react-icons/ai';
-import DiscussionCard from './post/section';
-import { DiscussionPostOption } from './post/option';
-import { FaTelegramPlane } from 'react-icons/fa';
-import { TiCamera } from 'react-icons/ti';
-import { Modal } from '@mknows-frontend-services/components/molecules';
+import { FC, ReactElement } from "react";
+import { useRecoilState } from "recoil";
+import { isModalOpen, selectedOption } from "./store";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { AiOutlineSearch } from "react-icons/ai";
+import DiscussionCard from "./post/section";
+import { DiscussionPostOption } from "./post/option";
+import { FaTelegramPlane } from "react-icons/fa";
+import { TiCamera } from "react-icons/ti";
+import { Modal } from "@mknows-frontend-services/components/molecules";
 import {
   DeleteConfirmModal,
   PostReportModal,
   PostSpamModal,
   PostCreateEditModal,
-} from './post/modal';
-import ReportSuccessModal from './post/modal/post-report-success/section';
+} from "./post/modal";
+import ReportSuccessModal from "./post/modal/post-report-success/section";
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
@@ -24,21 +24,21 @@ export const DiscussionContent: FC = (): ReactElement => {
   const dummyComments = [
     {
       hasImage: false,
-      text: 'Dalam dunia bisnis, manajemen keuangan adalah kegiatan perencanaan, pengaturan, pengarahan, dan pengendalian keuangan suatu perusahaan. Dengan adanya pengelolaan keuangan secara profesional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.',
-      userName: 'Bambang S',
-      time: '10 detik',
+      text: "Dalam dunia bisnis, manajemen keuangan adalah kegiatan perencanaan, pengaturan, pengarahan, dan pengendalian keuangan suatu perusahaan. Dengan adanya pengelolaan keuangan secara profesional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.",
+      userName: "Bambang S",
+      time: "10 detik",
       countLikes: 10,
-      type: 'comment',
+      type: "comment",
     },
     {
       hasImage: true,
       imgSource:
-        'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630203/sub_thumbnail_c63ea956-d2ae-48bb-851b-64c4ad74e580.png',
-      text: 'pengendalian keuangan suatu perusahaan.esional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.',
-      userName: 'Surti B',
-      time: '10 detik',
+        "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630203/sub_thumbnail_c63ea956-d2ae-48bb-851b-64c4ad74e580.png",
+      text: "pengendalian keuangan suatu perusahaan.esional, suatu usaha bisa mengurangi resiko kerugian. Pengontrolan keuangan di perusahaan dimulai dari pengadaan dana perusahaan.",
+      userName: "Surti B",
+      time: "10 detik",
       countLikes: 3,
-      type: 'comment',
+      type: "comment",
     },
   ];
 
@@ -62,7 +62,7 @@ export const DiscussionContent: FC = (): ReactElement => {
             type="button"
             onClick={() => {
               setOptionOpen(true);
-              setSelectedOption('create');
+              setSelectedOption("create");
             }}
             className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 w-full text-sm py-4 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
           >
@@ -83,11 +83,7 @@ export const DiscussionContent: FC = (): ReactElement => {
               userName="Bandi Sukanto"
               text="Diskusikan tentang manajemen keuangan menurut pemahaman anda? Apakah fungsi dan tujuan dari manajemen keuangan. Apa modul yang telah kalian pelajari sudah jelas?"
               title="Diskusi Manajemen Keuangan"
-              option={
-                <DiscussionPostOption
-                  id={`test id ${(index + 1) as unknown as string}`}
-                />
-              }
+              option={<DiscussionPostOption id={`test id ${(index + 1) as unknown as string}`} />}
             >
               <section className="w-full border-2 rounded-md border-neutral-100  shadow-sm gap-5 mb-6">
                 <label
@@ -113,10 +109,7 @@ export const DiscussionContent: FC = (): ReactElement => {
                 <section>
                   {dummyComments.map((comment, index) => {
                     return (
-                      <section
-                        key={index}
-                        className="mb-10 pl-6 md:pl-8 lg:pl-14"
-                      >
+                      <section key={index} className="mb-10 pl-6 md:pl-8 lg:pl-14">
                         <DiscussionCard
                           hasImage={comment.hasImage}
                           countLikes={comment.countLikes}
@@ -125,7 +118,7 @@ export const DiscussionContent: FC = (): ReactElement => {
                           userName={comment.userName}
                           text={comment.text}
                           imgSource={comment.imgSource as unknown as string}
-                          title={''}
+                          title={""}
                           option={
                             <DiscussionPostOption
                               id={`test id ${(index + 1) as unknown as string}`}
@@ -147,14 +140,12 @@ export const DiscussionContent: FC = (): ReactElement => {
         lookup={isOptionOpen}
         onClose={() => setOptionOpen(false)}
       >
-        {getSelectedOption === 'create' && (
-          <PostCreateEditModal type="create" />
-        )}
-        {getSelectedOption === 'edit' && <PostCreateEditModal type="edit" />}
-        {getSelectedOption === 'report' && <PostReportModal />}
-        {getSelectedOption === 'reportDetail' && <PostSpamModal />}
-        {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}
-        {getSelectedOption === 'delete' && <DeleteConfirmModal />}
+        {getSelectedOption === "create" && <PostCreateEditModal type="create" />}
+        {getSelectedOption === "edit" && <PostCreateEditModal type="edit" />}
+        {getSelectedOption === "report" && <PostReportModal />}
+        {getSelectedOption === "reportDetail" && <PostSpamModal />}
+        {getSelectedOption === "reportSuccess" && <ReportSuccessModal />}
+        {getSelectedOption === "delete" && <DeleteConfirmModal />}
       </Modal>
     </section>
   );

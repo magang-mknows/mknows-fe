@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
-import Alert from '../../assets/alert.svg';
-import Image from 'next/image';
+import React, { ReactElement } from "react";
+import Alert from "../../assets/alert.svg";
+import Image from "next/image";
 
 export const HeroSection = (): ReactElement => {
   return (
@@ -14,10 +14,10 @@ export const HeroSection = (): ReactElement => {
         <div className="container px-[36px] lg:pt-[28px] lg:py-[16px] py-[10px]">
           <h1 className="text-[18px] font-[700] dark:text-black ">Penting !</h1>
           <div className="flex mt-[10px] gap-[17px] items-center ">
-            <Image src={Alert} alt={'alert'} />
+            <Image src={Alert} alt={"alert"} />
             <h1 className="lg:text-[18px] font-[300] dark:text-black">
-              Silahkan cek email mu karena verifikasi hanya dikirimkan melalui
-              email yang kamu daftarkan saja.
+              Silahkan cek email mu karena verifikasi hanya dikirimkan melalui email yang kamu
+              daftarkan saja.
             </h1>
           </div>
         </div>

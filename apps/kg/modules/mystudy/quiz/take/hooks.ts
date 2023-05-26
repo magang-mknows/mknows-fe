@@ -1,9 +1,5 @@
-import { useRecoilState } from 'recoil';
-import {
-  quizQuestionState,
-  currentQuizNumberState,
-  quizRequestSubmitState,
-} from './store';
+import { useRecoilState } from "recoil";
+import { quizQuestionState, currentQuizNumberState, quizRequestSubmitState } from "./store";
 import {
   TuseCurrentQuizNumber,
   TuseQuizQuestion,
@@ -13,16 +9,11 @@ import {
   TuseQuizRequestSubmit,
   TQuizSubmitResponse,
   TQuizSubmitPayload,
-} from './type';
-import {
-  UseMutationResult,
-  UseQueryResult,
-  useMutation,
-  useQuery,
-} from '@tanstack/react-query';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { quizSubmitRequest, quizTakeGetRequest } from './api';
-import { useEffect, useState } from 'react';
+} from "./type";
+import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { quizSubmitRequest, quizTakeGetRequest } from "./api";
+import { useEffect, useState } from "react";
 
 export const useQuizQuestion = (): TuseQuizQuestion => {
   const [getQuestion, setQuestion] = useRecoilState(quizQuestionState);
@@ -41,9 +32,7 @@ export const useQuizRequestSubmit = (): TuseQuizRequestSubmit => {
 };
 
 export const useCurrentQuizNumber = (): TuseCurrentQuizNumber => {
-  const [getCurrentState, setCurrentData] = useRecoilState(
-    currentQuizNumberState
-  );
+  const [getCurrentState, setCurrentData] = useRecoilState(currentQuizNumberState);
   return {
     setCurrNumber: (val: number) => setCurrentData(val),
     getCurrNumber: getCurrentState,
@@ -51,12 +40,10 @@ export const useCurrentQuizNumber = (): TuseCurrentQuizNumber => {
 };
 
 export const useAutoSaveQuizAnswer = () => {
-  const [newStoredAnswer, setNewStoredAnswer] = useState<
-    TQuizRequestSubmit[] | []
-  >([]);
+  const [newStoredAnswer, setNewStoredAnswer] = useState<TQuizRequestSubmit[] | []>([]);
   const [_, setQuizRequestSubmit] = useRecoilState(quizRequestSubmitState);
   const [storedAnswer, setStoredAnswer] = useState<TQuizRequestSubmit[]>(() => {
-    const storageValue = localStorage.getItem('quiz.answer');
+    const storageValue = localStorage.getItem("quiz.answer");
     if (storageValue) {
       const storageValueParsed = JSON.parse(storageValue);
       setQuizRequestSubmit(storageValueParsed as TQuizRequestSubmit[]);
@@ -66,7 +53,7 @@ export const useAutoSaveQuizAnswer = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem('quiz.answer', JSON.stringify(storedAnswer));
+    localStorage.setItem("quiz.answer", JSON.stringify(storedAnswer));
   }, [storedAnswer]);
 
   useEffect(() => {
@@ -74,7 +61,7 @@ export const useAutoSaveQuizAnswer = () => {
   }, [newStoredAnswer]);
 
   function resetStoredAnswer() {
-    localStorage.removeItem('quiz.answer');
+    localStorage.removeItem("quiz.answer");
   }
 
   return { storedAnswer, setNewStoredAnswer, resetStoredAnswer };
@@ -83,24 +70,19 @@ export const useAutoSaveQuizAnswer = () => {
 // SERVICE API HOOKS
 
 export const useGetQuizTakeById = (
-  id: string | number
+  id: string | number,
 ): UseQueryResult<TQuizTakeResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ['quiz-take-get', id],
+    queryKey: ["quiz-take-get", id],
     queryFn: async () => await quizTakeGetRequest(id),
   });
 
 // type TuseSubmitQuizParam =
 
 export const useSubmitQuiz = (
-  id: string
-): UseMutationResult<
-  TQuizSubmitResponse,
-  TMetaErrorResponse,
-  TQuizSubmitPayload,
-  unknown
-> =>
+  id: string,
+): UseMutationResult<TQuizSubmitResponse, TMetaErrorResponse, TQuizSubmitPayload, unknown> =>
   useMutation({
-    mutationKey: ['submit-quiz'],
+    mutationKey: ["submit-quiz"],
     mutationFn: async (payload) => await quizSubmitRequest(id, payload),
   });

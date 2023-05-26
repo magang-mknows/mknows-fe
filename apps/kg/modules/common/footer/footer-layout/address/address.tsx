@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const FooterAddress: FC = (): ReactElement => {
   return (
@@ -12,8 +12,7 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>:</span>
           </section>
           <span>
-            Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta
-            Selatan, Jakarta 12130
+            Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta Selatan, Jakarta 12130
           </span>
         </li>
         <li className="flex gap-2 ">
@@ -21,10 +20,7 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>Cabang</span>
             <span>:</span>
           </section>
-          <span>
-            Jl. Cireundeu Raya No. 59 ,Ciputat Timur, Tangerang Selatan, Banten
-            15419
-          </span>
+          <span>Jl. Cireundeu Raya No. 59 ,Ciputat Timur, Tangerang Selatan, Banten 15419</span>
         </li>
       </ul>
     </div>

@@ -1,12 +1,12 @@
-import { FC, ReactElement } from 'react';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { FC, ReactElement } from "react";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   useFamilyInformation,
   useJobInformationStatus,
   usePrivateInformationStatus,
-} from '../hooks';
+} from "../hooks";
 import {
   optionFatherJob,
   optionMotherJob,
@@ -16,38 +16,22 @@ import {
   optionCollegeFeesPaid,
   optionLiveWith,
   optionOwnJob,
-} from '../constant';
-import {
-  Button,
-  SelectField,
-  TextField,
-} from '@mknows-frontend-services/components/atoms';
-import { Accordion } from '@mknows-frontend-services/components/molecules';
+} from "../constant";
+import { Button, SelectField, TextField } from "@mknows-frontend-services/components/atoms";
+import { Accordion } from "@mknows-frontend-services/components/molecules";
 
 export const JobsInformation: FC = (): ReactElement => {
   const schema = z.object({
-    father_name: z.string().min(1, { message: 'Nama ayah harus diisi' }),
-    father_occupation: z
-      .string()
-      .min(1, { message: 'Pekerjaan ayah harus diisi' }),
-    father_salary: z
-      .string()
-      .min(1, { message: 'Penghasilan ayah harus diisi' }),
-    mother_name: z.string().min(1, { message: 'Nama ibu harus diisi' }),
-    mother_occupation: z
-      .string()
-      .min(1, { message: 'Pekerjaan ibu harus diisi' }),
-    mother_salary: z
-      .string()
-      .min(1, { message: 'Penghasilan ibu harus diisi' }),
-    self_salary: z
-      .string()
-      .min(1, { message: 'Penghasilan sendiri harus diisi' }),
-    live_with: z.string().min(1, { message: 'Tinggal dengan harus diisi' }),
-    tuition_payer: z.string().min(1, { message: 'Biaya kuliah harus diisi' }),
-    self_occupation: z
-      .string()
-      .min(1, { message: 'Pekerjaan sendiri harus diisi' }),
+    father_name: z.string().min(1, { message: "Nama ayah harus diisi" }),
+    father_occupation: z.string().min(1, { message: "Pekerjaan ayah harus diisi" }),
+    father_salary: z.string().min(1, { message: "Penghasilan ayah harus diisi" }),
+    mother_name: z.string().min(1, { message: "Nama ibu harus diisi" }),
+    mother_occupation: z.string().min(1, { message: "Pekerjaan ibu harus diisi" }),
+    mother_salary: z.string().min(1, { message: "Penghasilan ibu harus diisi" }),
+    self_salary: z.string().min(1, { message: "Penghasilan sendiri harus diisi" }),
+    live_with: z.string().min(1, { message: "Tinggal dengan harus diisi" }),
+    tuition_payer: z.string().min(1, { message: "Biaya kuliah harus diisi" }),
+    self_occupation: z.string().min(1, { message: "Pekerjaan sendiri harus diisi" }),
   });
 
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
@@ -62,17 +46,17 @@ export const JobsInformation: FC = (): ReactElement => {
     formState: { isValid },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(schema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      father_name: '',
-      father_occupation: '',
-      father_salary: '',
-      mother_name: '',
-      mother_occupation: '',
-      mother_salary: '',
-      self_salary: '',
-      live_with: '',
-      tuition_payer: '',
+      father_name: "",
+      father_occupation: "",
+      father_salary: "",
+      mother_name: "",
+      mother_occupation: "",
+      mother_salary: "",
+      self_salary: "",
+      live_with: "",
+      tuition_payer: "",
     },
   });
 
@@ -91,31 +75,31 @@ export const JobsInformation: FC = (): ReactElement => {
   return (
     <Accordion
       title="Informasi Pekerjaan"
-      idAccordion={getJobStatus ? '' : 'privat-information'}
+      idAccordion={getJobStatus ? "" : "privat-information"}
       disabled={getPrivateStatus ? (getJobStatus ? true : false) : true}
     >
       <form className="flex w-full flex-col" onSubmit={onSubmit}>
         <div className="lg:flex w-full gap-[55px] ">
           <div className="w-full">
             <TextField
-              name={'father_name'}
+              name={"father_name"}
               control={control}
-              label={'Nama Ayah'}
-              type={'text'}
+              label={"Nama Ayah"}
+              type={"text"}
               variant="md"
               required
-              placeholder={'Masukan nama ayah'}
+              placeholder={"Masukan nama ayah"}
               className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
             />
 
             <TextField
-              name={'mother_name'}
+              name={"mother_name"}
               control={control}
-              label={'Nama Ibu'}
+              label={"Nama Ibu"}
               variant="md"
-              type={'text'}
+              type={"text"}
               required
-              placeholder={'Masukan nama ibu'}
+              placeholder={"Masukan nama ibu"}
               className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
             />
           </div>
@@ -124,8 +108,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionFatherJob}
-              name={'father_occupation'}
-              label={'Pekerjaan Ayah'}
+              name={"father_occupation"}
+              label={"Pekerjaan Ayah"}
               required
               placeholder="Pilih pekerjaan ayah"
               styleText="!text-black text-[10px]"
@@ -135,8 +119,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionMotherJob}
-              name={'mother_occupation'}
-              label={'Pekerjaan Ibu'}
+              name={"mother_occupation"}
+              label={"Pekerjaan Ibu"}
               required
               placeholder="Pilih pekerjaan ibu"
             />
@@ -146,8 +130,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionFatherIncome}
-              name={'father_salary'}
-              label={'Penghasilan Ayah'}
+              name={"father_salary"}
+              label={"Penghasilan Ayah"}
               required
               placeholder="Pilih penghasilan ayah"
             />
@@ -156,8 +140,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionMotherIncome}
-              name={'mother_salary'}
-              label={'Penghasilan Ibu'}
+              name={"mother_salary"}
+              label={"Penghasilan Ibu"}
               required
               placeholder="Pilih penghasilan ibu"
               styleText="!text-black text-[10px]"
@@ -171,8 +155,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionOwnIncome}
-              name={'self_salary'}
-              label={'Pekerjaan Sendiri'}
+              name={"self_salary"}
+              label={"Pekerjaan Sendiri"}
               required
               placeholder="Pilih pekerjaan sendiri"
               styleText="!text-black text-[10px]"
@@ -181,8 +165,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionLiveWith}
-              name={'live_with'}
-              label={'Tinggal Dengan'}
+              name={"live_with"}
+              label={"Tinggal Dengan"}
               required
               placeholder="Pilih tinggal dengan"
               styleText="!text-black text-[10px]"
@@ -193,8 +177,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionCollegeFeesPaid}
-              name={'tuition_payer'}
-              label={'Biaya Kuliah Ditanggung Oleh'}
+              name={"tuition_payer"}
+              label={"Biaya Kuliah Ditanggung Oleh"}
               required
               placeholder="Masukan biaya kuliah ditanggung oleh"
               styleText="!text-black text-[10px]"
@@ -203,8 +187,8 @@ export const JobsInformation: FC = (): ReactElement => {
               variant="md"
               control={control}
               options={optionOwnJob}
-              name={'self_occupation'}
-              label={'Penghasilan Sendiri'}
+              name={"self_occupation"}
+              label={"Penghasilan Sendiri"}
               required
               placeholder="Masukan biaya kuliah ditanggung oleh"
               styleText="!text-black text-[10px]"
@@ -213,7 +197,7 @@ export const JobsInformation: FC = (): ReactElement => {
               <Button
                 disabled={!isValid}
                 className="my-4 w-[211px] rounded-[8px] disabled:bg-[#c5c3c3] disabled:text-white bg-[#106FA4] text-white font-bold p-3 text-1xl"
-                type={'submit'}
+                type={"submit"}
               >
                 Simpan Informasi Pekerjaan
               </Button>

@@ -1,24 +1,24 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 
-import DetailCard from './DetailCard';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { myTrainingQuizBreadCumbs } from '../../../constant';
+import DetailCard from "./DetailCard";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { myTrainingQuizBreadCumbs } from "../../../constant";
 // import Button from "@/components/Common/Button";
 // import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
-import { ClientProvider } from '../../../../common/provider';
+import { ClientProvider } from "../../../../common/provider";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScore: FC = (): ReactElement => {
   const data = {
-    labels: ['Your Score'],
+    labels: ["Your Score"],
     datasets: [
       {
         data: [90, 10],
-        backgroundColor: ['#9de6f5c3', '#E5E5E5'],
+        backgroundColor: ["#9de6f5c3", "#E5E5E5"],
         borderWidth: 0,
       },
     ],
@@ -45,12 +45,8 @@ export const QuizScore: FC = (): ReactElement => {
               <Doughnut data={data} options={options} className="p-4" />
             </div>
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl text-neutral-900 dark:text-white/90 font-black">
-                90
-              </h1>
-              <p className="text-xl text-neutral-800 dark:text-white/80">
-                Point
-              </p>
+              <h1 className="text-4xl text-neutral-900 dark:text-white/90 font-black">90</h1>
+              <p className="text-xl text-neutral-800 dark:text-white/80">Point</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 ">

@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
-import { ReactElement } from 'react';
-import { FC } from 'react';
-import { AboutJobList } from './const';
-import Image from 'next/image';
+import { Fragment } from "react";
+import { ReactElement } from "react";
+import { FC } from "react";
+import { AboutJobList } from "./const";
+import Image from "next/image";
 
 export const JobsSection: FC = (): ReactElement => {
   return (
@@ -32,8 +32,8 @@ export const JobsSection: FC = (): ReactElement => {
               <section
                 className={` ${
                   (index + 1) % 2 !== 0
-                    ? 'bg-version2-400  text-neutral-100 '
-                    : 'bg-version2-200  text-version2-400 '
+                    ? "bg-version2-400  text-neutral-100 "
+                    : "bg-version2-200  text-version2-400 "
                 } flex justify-center items-center py-5 h-20 px-10`}
               >
                 <h1 className=" text-center font-bold text-lg">{job.title}</h1>

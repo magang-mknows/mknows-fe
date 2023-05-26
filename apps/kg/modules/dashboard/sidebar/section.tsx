@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { ArticleSection } from './article';
-import { LeaderboardSection } from './leaderboard';
-import { ResumeSection } from './resume';
+import { FC, ReactElement } from "react";
+import { ArticleSection } from "./article";
+import { LeaderboardSection } from "./leaderboard";
+import { ResumeSection } from "./resume";
 
 export const SidebarSection: FC = (): ReactElement => {
   return (

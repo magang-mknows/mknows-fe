@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
-import TokenService from '../../../services/token';
-import { useLocation, Navigate } from 'react-router-dom';
+import { FC, ReactNode } from "react";
+import TokenService from "../../../services/token";
+import { useLocation, Navigate } from "react-router-dom";
 
 export const Protected: FC<{ children: ReactNode }> = ({ children }) => {
   const isAuthenticated = !!TokenService.getToken();

@@ -1,2 +1,2 @@
-export * from './module';
-export * from './scoreDetailTable';
+export * from "./module";
+export * from "./scoreDetailTable";

@@ -1,7 +1,7 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import { IoMdAdd } from 'react-icons/io';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import { IoMdAdd } from "react-icons/io";
 
 export const RepeatTrainingTable: FC = (): ReactElement => {
   return (
@@ -12,16 +12,10 @@ export const RepeatTrainingTable: FC = (): ReactElement => {
             <table className="min-w-full  divide-neutral-400 ">
               <thead className="bg-secondary-blue-100/20 border-b-2 border-neutral-200">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     No
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Nama Pelatihan
                   </th>
                   <th
@@ -30,34 +24,19 @@ export const RepeatTrainingTable: FC = (): ReactElement => {
                   >
                     Kode
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Poin
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Batch
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Nilai
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Pertemuan
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Aksi
                   </th>
                 </tr>

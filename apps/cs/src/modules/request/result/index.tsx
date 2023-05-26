@@ -1,8 +1,8 @@
-import { ReactElement, FC } from 'react';
-import Table from './table';
-import Pagination from '../../../components/atoms/pagination';
-import Search from '../../../components/atoms/search';
-import { useResultQuery } from '../hooks';
+import { ReactElement, FC } from "react";
+import Table from "./table";
+import Pagination from "../../../components/atoms/pagination";
+import Search from "../../../components/atoms/search";
+import { useResultQuery } from "../hooks";
 
 const ResultModule: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();
@@ -29,9 +29,7 @@ const ResultModule: FC = (): ReactElement => {
             <div className="w-full">
               <Search
                 value={getResultQuery}
-                onChange={(e: { target: { value: string } }) =>
-                  setResultQuery(e.target.value)
-                }
+                onChange={(e: { target: { value: string } }) => setResultQuery(e.target.value)}
                 placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
               />
             </div>
@@ -42,9 +40,9 @@ const ResultModule: FC = (): ReactElement => {
       {/* table */}
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
-        Untuk melihat riwayat permintaan sebelumnya{' '}
+        Untuk melihat riwayat permintaan sebelumnya{" "}
         <span className="text-[#4FA0CF]">
-          {' '}
+          {" "}
           <a href="/dashboard/report">Klik Disini</a>
         </span>
       </div>
