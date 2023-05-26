@@ -241,3 +241,9 @@ Untuk bisa menggunakan husky agar berjalan baik dan benar maka perlu di inisiali
 
 - Jalankan perintah
   > `npx husky-init`
+
+## Static Site Generator (Node.js)
+
+```
+yarn build.server
+```
