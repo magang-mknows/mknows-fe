@@ -312,6 +312,7 @@ export const allFeatures = [
     link: "/semmua-fitur",
   },
 ];
+
 export const rescheduleSimulationBreadCumbs = [
   {
     name: "Home",
