@@ -12,10 +12,16 @@ import { useCreateDiscussion, useDiscussionById } from "./hooks";
 import { TDiscussionPayload } from "./types";
 import Image from "next/image";
 
-export const PostEditModal: FC = (): ReactElement => {
+export type DataId = {
+  id: string;
+};
+
+export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
+  console.log(id);
+
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
-  const { data, refetch } = useDiscussionById("941166a2-583e-4764-9f94-628b16ab5cd1");
+  const { data, refetch } = useDiscussionById(id);
   const discussionData = data?.data;
   const { mutate, isLoading } = useCreateDiscussion();
 
