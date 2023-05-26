@@ -1,9 +1,9 @@
-import { MaintnenceModule } from "../../modules/common/maintnence";
 import { NextPage } from "next";
 import { ReactElement } from "react";
+import { DistributionOfWorkModule } from "../../modules";
 
 const DistributionOfWorkPage: NextPage = (): ReactElement => {
-  return <MaintnenceModule />;
+  return <DistributionOfWorkModule />;
 };
 
 export default DistributionOfWorkPage;
