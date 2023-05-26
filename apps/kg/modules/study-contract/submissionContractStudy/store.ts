@@ -3,32 +3,56 @@ import { DataCard, DataTable } from "./type";
 import Example1 from "../assets/example1.svg";
 import Example2 from "../assets/example2.svg";
 
+
 export const PopupModalConfirmCard = atom({
   key: "modal-popup-confirm-card",
   default: false,
 });
 
-export const dataStudyCardState = atom<Array<DataCard>>({
-  key: "data-card-state",
-  default: [
-    {
-      label: "Jurusan",
-      desc: "Teknik Informatika",
-    },
-    {
-      label: "Semester Saat ini",
-      desc: "1",
-    },
-    {
-      label: "Total SKS",
-      desc: "144",
-    },
-    {
-      label: "Kepala Prodi",
-      desc: "Rama S.Kom M.Kom",
-    },
-  ],
-});
+// export const dataStudyCardState = atom<Array<DataCard>>({
+//   key: "data-card-state",
+//   default: [
+//     {
+//       label: "Jurusan",
+//       desc: "Teknik Informatika",
+//     },
+//     {
+//       label: "Semester Saat ini",
+//       desc: "1",
+//     },
+//     {
+//       label: "Total SKS",
+//       desc: "144",
+//     },
+//     {
+//       label: "Kepala Prodi",
+//       desc: "Rama S.Kom M.Kom",
+//     },
+//   ],
+// });
+export const dataStudyCardState = (major:string, semester:number, totalCredit:number, teacher: string) =>
+  atom<Array<DataCard>>({
+    key: "data-card-state",
+    default: [
+      {
+        label: "Jurusan",
+        desc: major,
+      },
+      {
+        label: "Semester Saat ini",
+        desc: semester,
+      },
+      {
+        label: "Total SKS",
+        desc: totalCredit,
+      },
+      {
+        label: "Kepala Prodi",
+        desc: teacher,
+      },
+    ],
+  });
+
 
 export const dataTableState = atom<Array<DataTable>>({
   key: "data-table-state-2",

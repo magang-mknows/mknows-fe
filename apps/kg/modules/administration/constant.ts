@@ -116,6 +116,25 @@ export const studyPlanBreadCumbs = [
   },
 ];
 
+export const studyContractBreadCumbs = [
+  {
+    name: 'Home',
+    link: '/',
+  },
+  {
+    name: 'Fakultas',
+    link: '/rencana-studi',
+  },
+  {
+    name: 'Program Studi',
+    link: '/rencana-studi/fakultas/{id}',
+  },
+  {
+    name: 'Kontrak KRS',
+    link: '/kontrak-krs/{matkul}',
+  },
+];
+
 export const courseBreadCumbs = [
   {
     name: "Home",
@@ -228,6 +247,7 @@ export const studyProgramBreadCumbs = [
     link: "/program-studi",
   },
 ];
+
 
 export const contractStudyBreadCumbs = [
   {
