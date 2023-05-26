@@ -1,11 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { TtoolTip } from './types';
+import { FC, ReactElement } from "react";
+import { TtoolTip } from "./types";
 
-const ToolTip: FC<TtoolTip> = ({
-  children,
-  tooltip,
-  className,
-}): ReactElement => {
+const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement => {
   return (
     <div className="group relative inline-block">
       {children}

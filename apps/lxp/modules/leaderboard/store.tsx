@@ -1,37 +1,37 @@
-import { atom } from 'recoil';
-import { leaderBoardRankProps } from './type';
-import Avatar from './assets/avatar.svg';
+import { atom } from "recoil";
+import { leaderBoardRankProps } from "./type";
+import Avatar from "./assets/avatar.svg";
 
 export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
-  key: 'leaderboard-rank',
+  key: "leaderboard-rank",
   default: [
     {
-      id: '1',
-      name: 'Garnes',
+      id: "1",
+      name: "Garnes",
       img: Avatar,
       score: 4900,
     },
     {
-      id: '2',
-      name: 'Alex',
+      id: "2",
+      name: "Alex",
       img: Avatar,
       score: 4100,
     },
     {
-      id: '3',
-      name: 'Adit',
+      id: "3",
+      name: "Adit",
       img: Avatar,
       score: 5000,
     },
     {
-      id: '4',
-      name: 'Garnes',
+      id: "4",
+      name: "Garnes",
       img: Avatar,
       score: 4800,
     },
     {
-      id: '5',
-      name: 'Thor',
+      id: "5",
+      name: "Thor",
       img: Avatar,
       score: 5800,
     },
@@ -39,16 +39,16 @@ export const LeaderboardRankState = atom<Array<leaderBoardRankProps>>({
 });
 
 export const popupGetUser = atom<leaderBoardRankProps>({
-  key: 'popup-get-user-3',
+  key: "popup-get-user-3",
   default: {
-    id: '',
-    name: '',
-    img: '',
+    id: "",
+    name: "",
+    img: "",
     score: 0,
   },
 });
 
 export const PopupProfilLeaderboard = atom({
-  key: 'modal-popup-profil-leaderboard',
+  key: "modal-popup-profil-leaderboard",
   default: false,
 });

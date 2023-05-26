@@ -1,5 +1,5 @@
-import { FC, ReactElement, useState } from 'react';
-import { TAccordionProps } from './types';
+import { FC, ReactElement, useState } from "react";
+import { TAccordionProps } from "./types";
 
 const Accordion: FC<TAccordionProps> = ({
   title,
@@ -7,14 +7,12 @@ const Accordion: FC<TAccordionProps> = ({
   children,
   disabled,
 }): ReactElement => {
-  const [isOpen, setIsOpen] = useState('');
+  const [isOpen, setIsOpen] = useState("");
   return (
     <div data-accordion="collapse" data-testid="accordion" className="mb-8">
       <h2>
         <button
-          onClick={() =>
-            isOpen === '' ? setIsOpen(`${idAccordion}`) : setIsOpen('')
-          }
+          onClick={() => (isOpen === "" ? setIsOpen(`${idAccordion}`) : setIsOpen(""))}
           type="button"
           className="flex items-center justify-between w-full p-5 font-medium text-left rounded-xl  bg-[#F5F5F5]"
           disabled={disabled}
@@ -30,7 +28,7 @@ const Accordion: FC<TAccordionProps> = ({
           </div>
         </div>
       ) : (
-        ''
+        ""
       )}
     </div>
   );

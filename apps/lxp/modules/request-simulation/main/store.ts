@@ -1,14 +1,14 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const selectedDateSimulation = atom({
-  key: 'selected-date-simulation',
+  key: "selected-date-simulation",
   default: {
-    date: '',
-    time: '',
+    date: "",
+    time: "",
   },
 });
 
 export const successPopupState = atom({
-  key: 'show-suceess-popup',
+  key: "show-suceess-popup",
   default: false,
 });

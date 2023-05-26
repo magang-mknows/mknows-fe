@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const PopupModalSubmissionOpen = atom({
-  key: 'modal-popup-submission',
+  key: "modal-popup-submission",
   default: false,
 });

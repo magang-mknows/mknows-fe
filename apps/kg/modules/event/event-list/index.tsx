@@ -1,60 +1,60 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
-import ImageEventList from '../assets/event-list.svg';
-import { CardList } from '../common/card-list';
-import { Pagination } from '../common/pagination';
-import { SearchBar } from '../common/search-bar';
-import { SideBar } from '../common/side-bar';
+import ImageEventList from "../assets/event-list.svg";
+import { CardList } from "../common/card-list";
+import { Pagination } from "../common/pagination";
+import { SearchBar } from "../common/search-bar";
+import { SideBar } from "../common/side-bar";
 
 export const EventList: FC = (): ReactElement => {
   const data = [
     {
       src: ImageEventList,
-      title: 'Webinar Cyber Security',
-      price: 'Gratis',
-      day: 'Monday',
-      date: '28 February 2023',
-      slug: '/webinar-cyber-security',
+      title: "Webinar Cyber Security",
+      price: "Gratis",
+      day: "Monday",
+      date: "28 February 2023",
+      slug: "/webinar-cyber-security",
     },
     {
       src: ImageEventList,
-      title: 'Pembiayaan dan Optimalisasi Bisnis',
-      price: 'Gratis',
-      day: 'Tuesday',
-      date: '28 February 2023',
-      slug: '/pembiayaan-optimasi-bisnis',
+      title: "Pembiayaan dan Optimalisasi Bisnis",
+      price: "Gratis",
+      day: "Tuesday",
+      date: "28 February 2023",
+      slug: "/pembiayaan-optimasi-bisnis",
     },
     {
       src: ImageEventList,
-      title: 'Japanese Culture',
-      price: 'Gratis',
-      day: 'Wednesday',
-      date: '28 February 2023',
-      slug: '/japanese-culture',
+      title: "Japanese Culture",
+      price: "Gratis",
+      day: "Wednesday",
+      date: "28 February 2023",
+      slug: "/japanese-culture",
     },
     {
       src: ImageEventList,
-      title: 'Design Digitals',
-      price: 'Gratis',
-      day: 'Thursday',
-      date: '28 February 2023',
-      slug: '/design-digital',
+      title: "Design Digitals",
+      price: "Gratis",
+      day: "Thursday",
+      date: "28 February 2023",
+      slug: "/design-digital",
     },
     {
       src: ImageEventList,
-      title: 'Design Digitals',
-      price: 'Gratis',
-      day: 'Thursday',
-      date: '28 February 2023',
-      slug: '/design-digital',
+      title: "Design Digitals",
+      price: "Gratis",
+      day: "Thursday",
+      date: "28 February 2023",
+      slug: "/design-digital",
     },
     {
       src: ImageEventList,
-      title: 'Design Digitals',
-      price: 'Gratis',
-      day: 'Thursday',
-      date: '28 February 2023',
-      slug: '/design-digital',
+      title: "Design Digitals",
+      price: "Gratis",
+      day: "Thursday",
+      date: "28 February 2023",
+      slug: "/design-digital",
     },
   ];
   return (

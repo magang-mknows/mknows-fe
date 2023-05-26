@@ -1,22 +1,18 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
-import {
-  Button,
-  TextField,
-  Checkbox,
-} from '@mknows-frontend-services/components/atoms';
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useLogin } from './hooks';
+import { FC, ReactElement, useEffect, useState } from "react";
+import { Button, TextField, Checkbox } from "@mknows-frontend-services/components/atoms";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useLogin } from "./hooks";
 
 const LoginModules: FC = (): ReactElement => {
   const navigate = useNavigate();
   const validationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    password: z.string().min(1, { message: 'Password harus diisi' }),
+    password: z.string().min(1, { message: "Password harus diisi" }),
     remember: z.boolean().optional(),
   });
 
@@ -24,20 +20,20 @@ const LoginModules: FC = (): ReactElement => {
 
   const { control, formState, handleSubmit } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       remember: false,
     },
   });
 
   const { mutate, isLoading } = useLogin();
-  const [getError, setError] = useState<string | undefined>('');
+  const [getError, setError] = useState<string | undefined>("");
 
   useEffect(() => {
     setTimeout(() => {
-      setError('');
+      setError("");
     }, 3000);
   }, [getError]);
 
@@ -50,13 +46,13 @@ const LoginModules: FC = (): ReactElement => {
       },
       {
         onSuccess: () => {
-          navigate('/dashboard/home');
-          console.log('berhasil masuk');
+          navigate("/dashboard/home");
+          console.log("berhasil masuk");
         },
         onError: (e) => {
           setError(e.response?.data.message);
         },
-      }
+      },
     );
   });
 
@@ -66,9 +62,7 @@ const LoginModules: FC = (): ReactElement => {
       className="bg-white items-center justify-center px-8 py-12 shadow-gray-300 shadow-lg lg:w-[512px] w-[400px] h-auto rounded-sm overflow-hidden"
     >
       <div className="space-y-5">
-        <h1 className="text-primary-base text-center font-semibold font-sans text-4xl">
-          Masuk
-        </h1>
+        <h1 className="text-primary-base text-center font-semibold font-sans text-4xl">Masuk</h1>
         <p className="lg:text-base text-sm text-gray-400 text-center">
           Silahkan masuk dengan email dan kata sandi anda
         </p>
@@ -83,7 +77,7 @@ const LoginModules: FC = (): ReactElement => {
           name="email"
           control={control}
           placeholder="msdqn@psu.org"
-          status={formState.errors.email ? 'error' : 'none'}
+          status={formState.errors.email ? "error" : "none"}
           message={formState.errors.email?.message}
           variant="md"
           required
@@ -96,7 +90,7 @@ const LoginModules: FC = (): ReactElement => {
           label="Password"
           name="password"
           required
-          status={formState.errors.password ? 'error' : 'none'}
+          status={formState.errors.password ? "error" : "none"}
           message={formState.errors.password?.message}
           rules={{
             required: true,
@@ -105,16 +99,11 @@ const LoginModules: FC = (): ReactElement => {
           control={control}
           variant="md"
         />
-        <Checkbox
-          name="remember"
-          variant="md"
-          control={control}
-          label="Ingatkan Saya"
-        />
+        <Checkbox name="remember" variant="md" control={control} label="Ingatkan Saya" />
       </div>
       <Button
         type="submit"
-        loading={isLoading ? 'Sedang Masuk...' : undefined}
+        loading={isLoading ? "Sedang Masuk..." : undefined}
         className="flex disabled:bg-neutral-200 justify-center w-full p-3 mt-8 rounded-md border bg-primary-400 text-white font-bold"
         disabled={!formState.isValid}
       >

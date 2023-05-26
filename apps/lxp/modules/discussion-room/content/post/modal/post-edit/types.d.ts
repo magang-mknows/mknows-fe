@@ -1,3 +1,3 @@
 export type TEditCreateProps = {
-  type: 'edit' | 'create';
+  type: "edit" | "create";
 };

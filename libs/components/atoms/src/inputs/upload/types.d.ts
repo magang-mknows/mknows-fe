@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChangeEventHandler } from 'react';
-import { FieldValues, UseControllerProps } from 'react-hook-form';
+import { ChangeEventHandler } from "react";
+import { FieldValues, UseControllerProps } from "react-hook-form";
 
 export type TUploadFieldProps<T extends FieldValues> = UseControllerProps<T> & {
   multiple?: boolean;
@@ -16,7 +16,7 @@ export type TUploadFieldProps<T extends FieldValues> = UseControllerProps<T> & {
   onDrop?: (acceptedFiles: any) => void;
   path?: File;
   type?: string;
-  variant: 'sm' | 'md' | 'lg';
-  status?: 'error' | 'success' | 'warning' | 'none';
+  variant: "sm" | "md" | "lg";
+  status?: "error" | "success" | "warning" | "none";
   message?: string;
 };

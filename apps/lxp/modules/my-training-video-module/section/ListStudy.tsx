@@ -1,7 +1,7 @@
-import React, { ReactElement, useState } from 'react';
-import Image from 'next/image';
-import VideoImage from '../assets/video.svg';
-import DocumentImage from '../assets/document.svg';
+import React, { ReactElement, useState } from "react";
+import Image from "next/image";
+import VideoImage from "../assets/video.svg";
+import DocumentImage from "../assets/document.svg";
 
 const ListStudy = (): ReactElement => {
   const [popup, setpopup] = useState(false);
@@ -10,26 +10,14 @@ const ListStudy = (): ReactElement => {
       <div className="flex flex-col h-[40%]">
         <h1 className="font-bold text-xl">Video Lainnya</h1>
         <div className="flex items-center gap-y-4 py-4 gap-x-2">
-          <Image
-            src={VideoImage}
-            width={200}
-            height={200}
-            className="w-auto"
-            alt="icon"
-          />
+          <Image src={VideoImage} width={200} height={200} className="w-auto" alt="icon" />
           <p className="font-bold">Introduce Manajemen Keuangan</p>
         </div>
       </div>
       <div className="flex flex-col h-[60%]">
         <h1 className="font-bold text-xl">Dokumen Lainnya</h1>
         <div className="flex items-center gap-x-3  gap-y-4 py-4">
-          <Image
-            src={DocumentImage}
-            width={200}
-            height={200}
-            className="w-auto"
-            alt="icon"
-          />
+          <Image src={DocumentImage} width={200} height={200} className="w-auto" alt="icon" />
           <p className="font-bold">Fungsi Manajemen Keuangan</p>
         </div>
       </div>
@@ -57,11 +45,7 @@ const ListStudy = (): ReactElement => {
               stroke="white"
               stroke-width="1.5"
             />
-            <path
-              d="M6.49561 4.49609H10.4981"
-              stroke="white"
-              stroke-width="1.5"
-            />
+            <path d="M6.49561 4.49609H10.4981" stroke="white" stroke-width="1.5" />
             <path d="M4.49463 7.5H10.4984" stroke="white" stroke-width="1.5" />
             <path d="M4.49463 10.5H9.49775" stroke="white" stroke-width="1.5" />
           </svg>

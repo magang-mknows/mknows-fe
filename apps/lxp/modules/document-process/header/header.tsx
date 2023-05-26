@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { FaCheck, FaStar, FaTimes } from 'react-icons/fa';
+import { FC, ReactElement } from "react";
+import { FaCheck, FaStar, FaTimes } from "react-icons/fa";
 
 const DocumentProcessHeader: FC = (): ReactElement => {
   return (

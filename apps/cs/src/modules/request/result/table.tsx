@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { useRequest } from '../hooks';
-import { formatDate } from '@mknows-frontend-services/utils';
-import { IconDropdown, IconTable } from '../../../components/atoms';
+import { FC, ReactElement } from "react";
+import { useRequest } from "../hooks";
+import { formatDate } from "@mknows-frontend-services/utils";
+import { IconDropdown, IconTable } from "../../../components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { data } = useRequest();
@@ -60,16 +60,10 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td className="px-1 py-2 text-[#262626]">{key + 1}</td>
                 <td className="px-4 py-2 text-[#262626] ">100865</td>
-                <td className="px-8 py-2 font-semibold text-[#262626]">
-                  {item.name}
-                </td>
+                <td className="px-8 py-2 font-semibold text-[#262626]">{item.name}</td>
                 <td className="px-8 py-2 text-[#262626]">{item.number}</td>
-                <td className="px-8 py-2 ">
-                  {formatDate(new Date(item.created_at))}
-                </td>
-                <td className="px-8 py-2">
-                  {formatDate(new Date(item.updated_at))}
-                </td>
+                <td className="px-8 py-2 ">{formatDate(new Date(item.created_at))}</td>
+                <td className="px-8 py-2">{formatDate(new Date(item.updated_at))}</td>
               </tr>
             </tbody>
           );

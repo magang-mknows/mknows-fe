@@ -1,14 +1,14 @@
 export const guideDictionary = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Panduan',
-    link: '/panduan',
+    name: "Panduan",
+    link: "/panduan",
   },
   {
-    name: 'Kamus Kampus Gratis',
-    link: '/panduan/kamus-kampus-gratis',
+    name: "Kamus Kampus Gratis",
+    link: "/panduan/kamus-kampus-gratis",
   },
 ];

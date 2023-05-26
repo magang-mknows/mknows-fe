@@ -1,16 +1,16 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, TextField } from '@mknows-frontend-services/components/atoms';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, TextField } from "@mknows-frontend-services/components/atoms";
 
 export const ContactForm = () => {
   const validationSchema = z.object({
-    name: z.string().min(1, { message: 'Masukan Nama Anda' }),
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    name: z.string().min(1, { message: "Masukan Nama Anda" }),
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    question: z.string().min(1, { message: 'Masukan pertanyaan Anda' }),
+    question: z.string().min(1, { message: "Masukan pertanyaan Anda" }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -21,11 +21,11 @@ export const ContactForm = () => {
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      name: '',
-      email: '',
-      question: '',
+      name: "",
+      email: "",
+      question: "",
     },
   });
 
@@ -36,7 +36,7 @@ export const ContactForm = () => {
           type="text"
           variant="sm"
           control={control}
-          name={'name'}
+          name={"name"}
           placeholder="Masukan Nama"
           label="Name"
           className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-xs !ring-0 "
@@ -45,7 +45,7 @@ export const ContactForm = () => {
           type="email"
           variant="sm"
           control={control}
-          name={'email'}
+          name={"email"}
           placeholder="Masukan Email"
           label="Email"
           className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-xs !ring-0 "
@@ -54,7 +54,7 @@ export const ContactForm = () => {
           type="text"
           variant="sm"
           control={control}
-          name={'question'}
+          name={"question"}
           placeholder="Masukan Pertanyaan"
           label="Pertanyaan"
           isTextArea={true}

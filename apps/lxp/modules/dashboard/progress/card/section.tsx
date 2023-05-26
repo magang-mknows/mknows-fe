@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { TProgressCardProps } from './types';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { Card } from '@mknows-frontend-services/components/molecules';
+import { FC, ReactElement } from "react";
+import { TProgressCardProps } from "./types";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Card } from "@mknows-frontend-services/components/molecules";
 
 export const ProgressCard: FC<TProgressCardProps> = ({
   topic,

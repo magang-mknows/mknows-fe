@@ -1,16 +1,14 @@
-import React, { FC, ReactElement } from 'react';
-import { useRecoilValue } from 'recoil';
-import Description from './Description';
-import ListStudy from './ListStudy';
-import YoutubeSection from './YoutubeSection';
-import { filterOption } from '../store';
-import { useRouter } from 'next/router';
+import React, { FC, ReactElement } from "react";
+import { useRecoilValue } from "recoil";
+import Description from "./Description";
+import ListStudy from "./ListStudy";
+import YoutubeSection from "./YoutubeSection";
+import { filterOption } from "../store";
+import { useRouter } from "next/router";
 
 const ContentSection: FC = (): ReactElement => {
   const { query } = useRouter();
-  const getOption = useRecoilValue(
-    filterOption(query.videoId as unknown as string)
-  );
+  const getOption = useRecoilValue(filterOption(query.videoId as unknown as string));
   console.log(query);
   return (
     <div className="mx-6 md:mx-8 lg:px10 my-2  bg-[#FFFF] shadow-sm rounded-[8px]">
@@ -25,10 +23,7 @@ const ContentSection: FC = (): ReactElement => {
           >
             <div className="w-full">
               <YoutubeSection videoId={item.videoId} />
-              <Description
-                titleVideo={item.titleVideo}
-                descVideo={item.descVideo}
-              />
+              <Description titleVideo={item.titleVideo} descVideo={item.descVideo} />
             </div>
             <div className="w-full">
               <ListStudy />

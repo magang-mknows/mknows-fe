@@ -1,11 +1,11 @@
-import { FC, ReactElement, Suspense } from 'react';
-import { TNavbarProps } from './types';
-import { lazily } from 'react-lazily';
-import { LBottomNav, LTopNav } from './section';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { FC, ReactElement, Suspense } from "react";
+import { TNavbarProps } from "./types";
+import { lazily } from "react-lazily";
+import { LBottomNav, LTopNav } from "./section";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
-const { BottomNav, TopNav } = lazily(() => import('./section'));
+const { BottomNav, TopNav } = lazily(() => import("./section"));
 
 export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
   const { data: session } = useSession();

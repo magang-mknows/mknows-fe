@@ -1,18 +1,17 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { dummyRegisteredSimulation, finishPopupState } from './store';
-import Image from 'next/image';
-import { AiFillCheckCircle } from 'react-icons/ai';
-import Link from 'next/link';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { RequestSceduleSuccessModal } from './modal';
+import { FC, Fragment, ReactElement } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { dummyRegisteredSimulation, finishPopupState } from "./store";
+import Image from "next/image";
+import { AiFillCheckCircle } from "react-icons/ai";
+import Link from "next/link";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { RequestSceduleSuccessModal } from "./modal";
 
 export const HistorySimulation: FC = (): ReactElement => {
   const registeredSimulation = useRecoilValue(dummyRegisteredSimulation);
 
-  const [isShowFinishPopup, setShowFinishPopup] =
-    useRecoilState(finishPopupState);
+  const [isShowFinishPopup, setShowFinishPopup] = useRecoilState(finishPopupState);
 
   return (
     <Fragment>
@@ -26,7 +25,7 @@ export const HistorySimulation: FC = (): ReactElement => {
               <figure className="h-[80px] rounded-md overflow-hidden  w-52 grid place-items-center ">
                 <Image
                   src={
-                    'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630131/sub_thumbnail_eff70dfe-3df7-497f-ab45-2901975024ad.png'
+                    "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630131/sub_thumbnail_eff70dfe-3df7-497f-ab45-2901975024ad.png"
                   }
                   alt="dummy-view"
                   width={100}
@@ -36,14 +35,12 @@ export const HistorySimulation: FC = (): ReactElement => {
                 />
               </figure>
               <main>
-                <h1 className="text-base text-neutral-800 mb-2 font-bold">
-                  {item.title}
-                </h1>
+                <h1 className="text-base text-neutral-800 mb-2 font-bold">{item.title}</h1>
                 <p className="text-sm text-neutral-500">{item.lecture}</p>
               </main>
             </section>
             <section className="px-4 py-4 flex flex-col items-center gap-2 ">
-              {item.status === 'finished' ? (
+              {item.status === "finished" ? (
                 <div
                   className="flex  w-full items-start lg:items-center flex-col gap-1"
                   onClick={() => {
@@ -54,10 +51,7 @@ export const HistorySimulation: FC = (): ReactElement => {
                   <h1 className="text-sm font-bold text-[#3EB449]">SELESAI</h1>
                 </div>
               ) : (
-                <Link
-                  passHref
-                  href={`drill-simulasi/perubahan-jadwal/${item.title}`}
-                >
+                <Link passHref href={`drill-simulasi/perubahan-jadwal/${item.title}`}>
                   <Button
                     type="button"
                     className="py-2 text-xs font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2  w-[200px] disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
@@ -93,7 +87,7 @@ export const HistorySimulation: FC = (): ReactElement => {
                 type="finished"
               >
                 <p className="text-neutral-500 text-sm text-center">
-                  Kamu telah melakukan simulasi di tanggal{' '}
+                  Kamu telah melakukan simulasi di tanggal{" "}
                   {item.schedule.map((item, index) => {
                     return (
                       <span key={index} className="font-bold">

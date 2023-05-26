@@ -1,7 +1,4 @@
-import {
-  TMetaErrorResponse,
-  TMetaResponseSingle,
-} from '@mknows-frontend-services/utils';
+import { TMetaErrorResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export interface ISubjectItem {
   id: string;

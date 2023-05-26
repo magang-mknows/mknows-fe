@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const userAskDeptStatus = atom({
-  key: 'ask-dept-status',
-  default: '',
+  key: "ask-dept-status",
+  default: "",
 });

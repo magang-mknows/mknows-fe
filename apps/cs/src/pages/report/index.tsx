@@ -1,7 +1,7 @@
-import { FC, ReactElement, Suspense, lazy } from 'react';
-import { LoadingReport } from '../../modules/report/loading';
+import { FC, ReactElement, Suspense, lazy } from "react";
+import { LoadingReport } from "../../modules/report/loading";
 
-const ReportPage = lazy(() => import('../../modules/report'));
+const ReportPage = lazy(() => import("../../modules/report"));
 
 const ReportPages: FC = (): ReactElement => {
   return (

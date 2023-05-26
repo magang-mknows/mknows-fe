@@ -1,1 +1,1 @@
-export * from './recent';
+export * from "./recent";

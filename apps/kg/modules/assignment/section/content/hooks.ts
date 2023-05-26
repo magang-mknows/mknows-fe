@@ -1,6 +1,6 @@
-import { assigmentState } from './store';
-import { T } from './types';
-import { useRecoilState } from 'recoil';
+import { assigmentState } from "./store";
+import { T } from "./types";
+import { useRecoilState } from "recoil";
 
 type AssigmentTypes = {
   setAssigment: (val: Array<T>) => void;

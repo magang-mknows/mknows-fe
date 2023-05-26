@@ -1,5 +1,5 @@
-import React, { FC, ReactElement } from 'react';
-import { HiBuildingOffice2 } from 'react-icons/hi2';
+import React, { FC, ReactElement } from "react";
+import { HiBuildingOffice2 } from "react-icons/hi2";
 
 export const ContactCard: FC = (): ReactElement => {
   return (
@@ -7,9 +7,7 @@ export const ContactCard: FC = (): ReactElement => {
       <header className="flex items-center gap-3 mb-10">
         <HiBuildingOffice2 className="text-[30px] text-yellow-500" />
 
-        <p className="text-lg font-thin text-neutral-800">
-          Abdul - Ketua Panitia
-        </p>
+        <p className="text-lg font-thin text-neutral-800">Abdul - Ketua Panitia</p>
       </header>
       <main className="text-neutral-500 text-sm">
         <section className="mb-4">

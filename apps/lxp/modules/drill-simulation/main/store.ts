@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const queryScheduleSimulation = atom({
-  key: 'query-schedule-simulation',
-  default: '',
+  key: "query-schedule-simulation",
+  default: "",
 });

@@ -1,21 +1,21 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { FcGoogle } from 'react-icons/fc';
-import { ImSpinner5 } from 'react-icons/im';
-import { ErrorBoundary } from 'react-error-boundary';
-import { useSetRecoilState } from 'recoil';
-import { ForgotPasswordPopupState, LoginPopupState } from './store';
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { FC, ReactElement, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { FcGoogle } from "react-icons/fc";
+import { ImSpinner5 } from "react-icons/im";
+import { ErrorBoundary } from "react-error-boundary";
+import { useSetRecoilState } from "recoil";
+import { ForgotPasswordPopupState, LoginPopupState } from "./store";
 import {
   Button,
   Checkbox,
   DashedText,
   TextField,
-} from '@mknows-frontend-services/components/atoms';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
+} from "@mknows-frontend-services/components/atoms";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export const LoginFormPopup: FC = (): ReactElement => {
   const [loading, setLoading] = useState(false);
@@ -25,10 +25,10 @@ export const LoginFormPopup: FC = (): ReactElement => {
   const setLoginPopup = useSetRecoilState(LoginPopupState);
 
   const validationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    password: z.string().min(1, { message: 'Password harus diisi' }),
+    password: z.string().min(1, { message: "Password harus diisi" }),
     remember: z.boolean(),
   });
   const openForgot = () => {
@@ -43,10 +43,10 @@ export const LoginFormPopup: FC = (): ReactElement => {
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       remember: false,
     },
   });
@@ -54,13 +54,13 @@ export const LoginFormPopup: FC = (): ReactElement => {
   const onSubmit = handleSubmit(async (data) => {
     setLoading(true);
     try {
-      const response = await signIn('login', {
+      const response = await signIn("login", {
         email: data.email,
         password: data.password,
         redirect: false,
       });
       if (response?.ok) {
-        router.push('/');
+        router.push("/");
         setLoginPopup(false);
       } else {
         setError(response?.error);
@@ -72,7 +72,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
   });
 
   const onGoogleLogin = async () => {
-    await signIn('google', {
+    await signIn("google", {
       redirect: false,
     });
   };
@@ -83,20 +83,17 @@ export const LoginFormPopup: FC = (): ReactElement => {
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
-      <form
-        onSubmit={onSubmit}
-        className=" flex flex-col px-8 md:px-10 lg:px-14 -mt-4 pb-10"
-      >
+      <form onSubmit={onSubmit} className=" flex flex-col px-8 md:px-10 lg:px-14 -mt-4 pb-10">
         <section className="flex flex-col w-full gap-y-1 mb-6 mt-10">
           <h1 className="text-left md:text-center font-bold text-4xl">Masuk</h1>
           <p className="text-left md:text-center text-sm">
-            Silahkan masuk menggunakan email dan kata sandi yang terdaftar{' '}
+            Silahkan masuk menggunakan email dan kata sandi yang terdaftar{" "}
           </p>
         </section>
         {getError && (
           <span className="bg-warning-100/30 mb-4 text-warning-500 w-full text-xs p-4 rounded-lg border-2 border-error-500 flex justify-between">
             <strong>Oppss.. {getError}</strong>
-            <span onClick={() => setError('')} className="text-right">
+            <span onClick={() => setError("")} className="text-right">
               x
             </span>
           </span>
@@ -107,10 +104,10 @@ export const LoginFormPopup: FC = (): ReactElement => {
             type="email"
             variant="md"
             control={control}
-            name={'email'}
+            name={"email"}
             placeholder="bangrudy@gmail.com"
             label="Email"
-            status={errors.email ? 'error' : 'none'}
+            status={errors.email ? "error" : "none"}
             message={errors.email?.message}
             className="!h-[46px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
           />
@@ -119,22 +116,17 @@ export const LoginFormPopup: FC = (): ReactElement => {
             type="password"
             variant="md"
             control={control}
-            name={'password'}
+            name={"password"}
             placeholder="**********"
             label="Password"
-            status={errors.password ? 'error' : 'none'}
+            status={errors.password ? "error" : "none"}
             message={errors.password?.message}
             className="!h-[46px] text-sm !rounded-[8px] !border-2 !border-[#A3A3A3]"
           />
         </section>
 
         <div className="flex justify-between items-center w-full -mt-4 pt-1 mb-8">
-          <Checkbox
-            name="remember"
-            control={control}
-            variant="sm"
-            label="Remember me"
-          />
+          <Checkbox name="remember" control={control} variant="sm" label="Remember me" />
           <section
             className="text-version2-400 font-bold text-xs md:text-sm  hover:underline cursor-pointer"
             onClick={() => openForgot()}
@@ -150,9 +142,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
             disabled={!isValid}
           >
             <h1>Masuk</h1>
-            {loading ? (
-              <ImSpinner5 className="animate-spin duration-200 delay-150" />
-            ) : null}
+            {loading ? <ImSpinner5 className="animate-spin duration-200 delay-150" /> : null}
           </Button>
           <DashedText />
           <Button
@@ -173,7 +163,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
                   setLoginPopup(false);
                 }}
               >
-                <Link href={'auth/register'}> Daftar disini</Link>
+                <Link href={"auth/register"}> Daftar disini</Link>
               </span>
             </h1>
           </div>

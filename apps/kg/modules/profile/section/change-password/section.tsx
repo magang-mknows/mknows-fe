@@ -1,26 +1,26 @@
-import { Button, TextField } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement } from 'react';
+import { Button, TextField } from "@mknows-frontend-services/components/atoms";
+import { FC, ReactElement } from "react";
 
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useUpdatePassword } from './hooks';
-import { TPasswordPayload } from './types';
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useUpdatePassword } from "./hooks";
+import { TPasswordPayload } from "./types";
 
 export const ChangePasswordSection: FC = (): ReactElement => {
   const { mutate, isLoading } = useUpdatePassword();
 
   const validationSchema = z
     .object({
-      old_password: z.string().min(1, { message: 'Password harus diisi' }),
-      new_password: z.string().min(1, { message: 'Password harus diisi' }),
+      old_password: z.string().min(1, { message: "Password harus diisi" }),
+      new_password: z.string().min(1, { message: "Password harus diisi" }),
       new_password_confirmation: z
         .string()
-        .min(1, { message: 'Konfirmasi kata sandi harus disisi' }),
+        .min(1, { message: "Konfirmasi kata sandi harus disisi" }),
     })
     .refine((data) => data.new_password === data.new_password_confirmation, {
-      message: 'Konfirmasi kata sandi tidak valid',
-      path: ['password_confirmation'],
+      message: "Konfirmasi kata sandi tidak valid",
+      path: ["password_confirmation"],
     });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -31,11 +31,11 @@ export const ChangePasswordSection: FC = (): ReactElement => {
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      old_password: '',
-      new_password: '',
-      new_password_confirmation: '',
+      old_password: "",
+      new_password: "",
+      new_password_confirmation: "",
     },
   });
 
@@ -59,10 +59,10 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           type="password"
           variant="md"
           control={control}
-          name={'old_password'}
+          name={"old_password"}
           placeholder="Masukan Password Lama"
           label="Password Lama"
-          status={errors.old_password ? 'error' : 'none'}
+          status={errors.old_password ? "error" : "none"}
           message={errors.old_password?.message}
           className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#D4D4D4] mb-2 "
         />
@@ -73,10 +73,10 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           type="password"
           variant="md"
           control={control}
-          name={'new_password'}
+          name={"new_password"}
           placeholder="Masukan Password Baru"
           label="Password Baru"
-          status={errors.new_password ? 'error' : 'none'}
+          status={errors.new_password ? "error" : "none"}
           message={errors.new_password?.message}
           className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#D4D4D4] mb-2"
         />
@@ -85,10 +85,10 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           type="password"
           variant="md"
           control={control}
-          name={'new_password_confirmation'}
+          name={"new_password_confirmation"}
           placeholder="Konfirmasi Password Baru"
           label="Konfirmasi Password"
-          status={errors.new_password_confirmation ? 'error' : 'none'}
+          status={errors.new_password_confirmation ? "error" : "none"}
           message={errors.new_password_confirmation?.message}
           className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#D4D4D4] mb-4"
         />
@@ -98,7 +98,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
             type="submit"
             className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-neutral-300 disabled:border-none bg-[#106FA4] text-neutral-100 hover:border-version2-300 w-36"
           >
-            <h1>{isLoading ? 'Loading' : 'Reset Password'}</h1>
+            <h1>{isLoading ? "Loading" : "Reset Password"}</h1>
           </Button>
         </section>
       </form>

@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { TProgress, TProgressReturnTypes } from './types';
-import { ProgressState } from './store';
+import { useRecoilState } from "recoil";
+import { TProgress, TProgressReturnTypes } from "./types";
+import { ProgressState } from "./store";
 
 export const useProgress = (): TProgressReturnTypes => {
   const [getProgress, setProgress] = useRecoilState(ProgressState);

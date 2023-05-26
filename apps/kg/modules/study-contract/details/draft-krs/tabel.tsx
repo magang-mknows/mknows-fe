@@ -1,9 +1,9 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import { useDataTable, usePopupDeleteStudy } from '../hooks';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import Delete from '../../assets/Delete.svg';
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { useDataTable, usePopupDeleteStudy } from "../hooks";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Delete from "../../assets/Delete.svg";
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
 
 const TabelDraft: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
@@ -71,12 +71,10 @@ const TabelDraft: FC = (): ReactElement => {
                 <button
                   onClick={() => setPopupDelete(true)}
                   className={`flex gap-2 items-center p-4 font-semibold ${
-                    x.tindakan_draft === 'tambah'
-                      ? 'text-blue-600'
-                      : 'text-red-600'
+                    x.tindakan_draft === "tambah" ? "text-blue-600" : "text-red-600"
                   }`}
                 >
-                  {x.tindakan_draft === 'tambah' ? (
+                  {x.tindakan_draft === "tambah" ? (
                     <svg
                       width="25"
                       height="25"
@@ -111,7 +109,7 @@ const TabelDraft: FC = (): ReactElement => {
                     </svg>
                   )}
 
-                  {x.tindakan_draft === 'tambah' ? ' tambah ' : 'hapus'}
+                  {x.tindakan_draft === "tambah" ? " tambah " : "hapus"}
                 </button>
               </div>
             </div>
@@ -133,20 +131,18 @@ const TabelDraft: FC = (): ReactElement => {
             lookup={getPopupDelete}
             className="!h-80 !w-[100%] text-md py-10"
           >
-            <h1 className="py-2 text-2xl">
-              Apakah anda ingin mengahpus mata kuliah ini?
-            </h1>
+            <h1 className="py-2 text-2xl">Apakah anda ingin mengahpus mata kuliah ini?</h1>
             <div className="flex gap-3 my-2 py-4">
               <Button
                 className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
                 onClick={() => setPopupDelete(false)}
-                type={'button'}
+                type={"button"}
               >
                 Ya, Hapus
               </Button>
               <Button
                 className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-                type={'button'}
+                type={"button"}
                 onClick={() => setPopupDelete(false)}
               >
                 Tidak

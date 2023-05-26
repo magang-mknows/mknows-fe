@@ -1,8 +1,8 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { ContentSection, HeroSection } from './section';
-import { BaseLayout } from '../common';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { drillSimulasionBreadCumbs } from './constant';
+import { FC, Fragment, ReactElement } from "react";
+import { ContentSection, HeroSection } from "./section";
+import { BaseLayout } from "../common";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { drillSimulasionBreadCumbs } from "./constant";
 
 export const DrillSimulasiModule: FC = (): ReactElement => {
   return (

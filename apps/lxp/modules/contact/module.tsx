@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { ClientProvider } from '../common/provider';
-import { ContactContainer } from './container';
+import { FC, ReactElement } from "react";
+import { ClientProvider } from "../common/provider";
+import { ContactContainer } from "./container";
 
 export const ContactModule: FC = (): ReactElement => {
   return (

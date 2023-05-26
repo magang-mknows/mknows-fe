@@ -1,14 +1,13 @@
-import { FC, ReactElement } from 'react';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
-import { usePopupDeleteDiscussionStatus } from '../hooks/usePopupDeleteDiscussionStatus';
+import { usePopupDeleteDiscussionStatus } from "../hooks/usePopupDeleteDiscussionStatus";
 
-import { PopupModalProps } from '../types';
+import { PopupModalProps } from "../types";
 
 const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupDeleteStatus, getPopupDeleteStatus } =
-    usePopupDeleteDiscussionStatus();
+  const { setPopupDeleteStatus, getPopupDeleteStatus } = usePopupDeleteDiscussionStatus();
 
   return (
     <Modal
@@ -17,7 +16,7 @@ const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={'!w-full md:!w-2/5'}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <div className="flex flex-col items-center justify-center bg-white rounded-lg center md:gap-8">
         <div className="grid gap-3 text-center">
@@ -40,18 +39,10 @@ const PopupModalDeleteDiscussion: FC<PopupModalProps> = (): ReactElement => {
           </section>
         </div>
         <div className="flex flex-row justify-center gap-4">
-          <Button
-            className="md:!w-[192px] h-[36px]"
-            color="blueBorder"
-            type={'button'}
-          >
+          <Button className="md:!w-[192px] h-[36px]" color="blueBorder" type={"button"}>
             Ya, Hapus
           </Button>
-          <Button
-            className="md:!w-[192px] h-[36px]"
-            color="blue"
-            type={'button'}
-          >
+          <Button className="md:!w-[192px] h-[36px]" color="blue" type={"button"}>
             Tidak
           </Button>
         </div>

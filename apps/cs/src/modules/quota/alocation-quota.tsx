@@ -1,15 +1,14 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement, useState, Fragment } from 'react';
-import Card from '../../components/molecules/card';
-import { useQuota } from './hooks';
-import { Dialog, Transition } from '@headlessui/react';
-import { useQuotaData } from './hooks';
-import cursorLoading from '/assets/quota/cursor-loading.webp';
+import { FC, ReactElement, useState, Fragment } from "react";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Card from "../../components/molecules/card";
+import { Dialog, Transition } from "@headlessui/react";
+import { useQuotaData, useQuota } from "./hooks";
+import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getQuotaData } = useQuotaData();
   const [Quota, setQuota] = useState<number>(0);
-  const [ProductName, setProductName] = useState<string>('default');
+  const [ProductName, setProductName] = useState<string>("default");
   const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -41,7 +40,7 @@ const AlokasiKuota: FC = (): ReactElement => {
   }
 
   const { data } = useQuota({
-    date_from: '',
+    date_from: "",
   });
 
   return (
@@ -52,12 +51,8 @@ const AlokasiKuota: FC = (): ReactElement => {
         {/* content 1 */}
         <div className="flex flex-col">
           <div className="flex flex-col gap gap-y-2">
-            <span className="font-semibold text-base text-[#262626]">
-              Jenis Produk
-            </span>
-            <span className="font-semibold text-sm text-neutral-400">
-              Pilih satu jenis
-            </span>
+            <span className="font-semibold text-base text-[#262626]">Jenis Produk</span>
+            <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
@@ -70,17 +65,11 @@ const AlokasiKuota: FC = (): ReactElement => {
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
-                        <img
-                          src={getQuotaData[index]}
-                          alt="icon"
-                          className="w-16 hidden md:flex"
-                        />
+                        <img src={getQuotaData[index]} alt="icon" className="w-16 hidden md:flex" />
                       </div>
 
                       <div className="flex flex-col w-full h-full items-center space-y-1">
-                        <p className="text-sm font-semibold">
-                          {item.feature.name}
-                        </p>
+                        <p className="text-sm font-semibold">{item.feature.name}</p>
                       </div>
                     </div>
                   </Card>
@@ -88,12 +77,8 @@ const AlokasiKuota: FC = (): ReactElement => {
               })}
             </div>
             <div className="flex flex-col pt-6 pb-3 gap gap-y-2">
-              <span className="font-semibold text-base text-[#262626]">
-                Jumlah Kuota
-              </span>
-              <span className="font-semibold text-sm text-neutral-400">
-                Pilih Jumlah Kuota
-              </span>
+              <span className="font-semibold text-base text-[#262626]">Jumlah Kuota</span>
+              <span className="font-semibold text-sm text-neutral-400">Pilih Jumlah Kuota</span>
             </div>
             <div className="grid md:gap-2 lg:grid-cols-4 grid-cols-2 gap-1 mt-5 font-bold">
               <span
@@ -125,7 +110,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         </div>
 
         {/* content 2 */}
-        {ProductName === 'default' ? (
+        {ProductName === "default" ? (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
               <img src={cursorLoading} alt="loading..." />
@@ -148,9 +133,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                       alt="information"
                       className="w-fit h-fit"
                     />
-                    <span className="w-full lg:text-lg text-sm font-semibold">
-                      {ProductName}
-                    </span>
+                    <span className="w-full lg:text-lg text-sm font-semibold">{ProductName}</span>
                     <span className="flex items-center md:w-[35%] w-full justify-end text-neutral-400 lg:text-sm text-xs font-normal">
                       x {Quota}
                     </span>
@@ -212,15 +195,12 @@ const AlokasiKuota: FC = (): ReactElement => {
                     <img src="/assets/Vceort.webp" alt="check" />
                   </Dialog.Title>
                   <Dialog.Title>
-                    <span className="font-semibold text-base">
-                      Permintaan Kuota Terkirim
-                    </span>
+                    <span className="font-semibold text-base">Permintaan Kuota Terkirim</span>
                   </Dialog.Title>
                   <div>
                     <p className="text-sm text-gray-500">
-                      Proses permintaan kuota Anda sedang berlangsung. Untuk
-                      memantau status pembaruan kuota, silakan masuk ke bagian
-                      "Riwayat Kuota".
+                      Proses permintaan kuota Anda sedang berlangsung. Untuk memantau status
+                      pembaruan kuota, silakan masuk ke bagian "Riwayat Kuota".
                     </p>
                   </div>
 

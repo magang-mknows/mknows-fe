@@ -1,7 +1,7 @@
-import { useRecoilState } from 'recoil';
-import { PopupModalSuccessOpen } from './store';
-import { CertificateStatus } from './store';
-import { certificateTypes } from './type';
+import { useRecoilState } from "recoil";
+import { PopupModalSuccessOpen } from "./store";
+import { CertificateStatus } from "./store";
+import { certificateTypes } from "./type";
 
 type ReturnTypes = {
   setPopupStatus: (val: boolean) => void;

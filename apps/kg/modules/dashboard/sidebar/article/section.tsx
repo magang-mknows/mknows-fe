@@ -1,11 +1,11 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { FC, Fragment, ReactElement } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import { Mitra } from './store';
+import { Mitra } from "./store";
 
 export const ArticleSection: FC = (): ReactElement => {
   return (
@@ -13,7 +13,7 @@ export const ArticleSection: FC = (): ReactElement => {
       <div className=" w-full  ">
         <div className="flex flex-row items-center justify-between mb-4">
           <h1 className="text-[20px]">Sekilas Ilmu</h1>
-          <Link className="text-[14px] text-[#106FA4]" href={'/'}>
+          <Link className="text-[14px] text-[#106FA4]" href={"/"}>
             Lihat Detail
           </Link>
         </div>
@@ -26,16 +26,10 @@ export const ArticleSection: FC = (): ReactElement => {
           {Mitra.map((x, i) => (
             <div key={i} className="flex flex-col justify-center shadow-md">
               <div className="block w-full rounded-lg bg-neutral-100">
-                <Image
-                  src={x.image}
-                  className="w-full object-fill rounded-t-lg"
-                  alt="Image"
-                />
+                <Image src={x.image} className="w-full object-fill rounded-t-lg" alt="Image" />
               </div>
               <div className="bg-white text-start w-full px-7 py-4 mb-10 rounded-lg">
-                <h1 className="font-bold text-black dark:text-yellow-500">
-                  {x.text}
-                </h1>
+                <h1 className="font-bold text-black dark:text-yellow-500">{x.text}</h1>
                 <div className="flex flex-row items-center gap-x-2 font-normal text-[12px] text-[#A3A3A3]">
                   <p className="">Artikel Teknologi</p>
                   <svg
@@ -50,9 +44,7 @@ export const ArticleSection: FC = (): ReactElement => {
 
                   <p className="">Artikel Teknologi</p>
                 </div>
-                <p className="font-normal text-end text-[12px] text-[#A3A3A3]">
-                  Februari 2023
-                </p>
+                <p className="font-normal text-end text-[12px] text-[#A3A3A3]">Februari 2023</p>
               </div>
             </div>
           ))}

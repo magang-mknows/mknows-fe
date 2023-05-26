@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { IoAlertCircle } from 'react-icons/io5';
+import { FC, ReactElement } from "react";
+import { IoAlertCircle } from "react-icons/io5";
 
 export const TrainingContractHeader: FC = (): ReactElement => {
   return (
@@ -10,7 +10,7 @@ export const TrainingContractHeader: FC = (): ReactElement => {
       <section className="flex gap-2 w-full items-center bg-secondary-blue-100/50 px-4 py-2 rounded-md shadow-sm">
         <IoAlertCircle className="text-xl text-secondary-blue-500" />
         <h1 className="text-sm text-secondary-blue-500">
-          Pelatihan yang ditambahkan dapat dilihat pada tab{' '}
+          Pelatihan yang ditambahkan dapat dilihat pada tab{" "}
           <span className="font-bold">Draft Pelatihan</span>
         </h1>
       </section>

@@ -1,14 +1,14 @@
-import { FC, ReactElement, useState } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { FC, ReactElement, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { filterOptionSubject, queryOptionSubject } from '../stores';
-import Card from '../components/Card';
+import { useRecoilState, useRecoilValue } from "recoil";
+import { filterOptionSubject, queryOptionSubject } from "../stores";
+import Card from "../components/Card";
 
-import DefaultView from '../assets/data-kosong.png';
-import Search from '../assets/search.svg';
-import { useMajorById } from './hooks';
+import DefaultView from "../assets/data-kosong.png";
+import Search from "../assets/search.svg";
+import { useMajorById } from "./hooks";
 
 export const StudyProgram: FC = (): ReactElement => {
   const router = useRouter();
@@ -28,9 +28,9 @@ export const StudyProgram: FC = (): ReactElement => {
       <div className="flex flex-col items-center justify-center p-8">
         <div className="bg-gray-200 dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex py-4 ml-5">
-            <Image src={Search} alt={'search'} width={28} />
+            <Image src={Search} alt={"search"} width={28} />
             <input
-              type={'text'}
+              type={"text"}
               // value={query}
               className="w-full bg-transparent focus:outline-none"
               placeholder="Cari Mata Kuliah"
@@ -42,7 +42,7 @@ export const StudyProgram: FC = (): ReactElement => {
       <div className="px-10">
         <div
           className={`${
-            isClose && 'hidden'
+            isClose && "hidden"
           } flex bg-yellow-100 dark:bg-yellow-300 border border-yellow-400 dark:border-yellow-100 dark:text-whitetext-yellow-700 py-3 rounded relative px-6`}
           role="alert"
         >
@@ -84,21 +84,19 @@ export const StudyProgram: FC = (): ReactElement => {
                 <div className="hidden w-auto h-auto p-1 bg-gray-100 rounded-full lg:flex dark:bg-gray-600 lg:p-4">
                   <Image src={DefaultView} alt="simulasi-null" />
                 </div>
-                <h1 className="text-xl font-bold">
-                  Tidak Ada Data Program Studi
-                </h1>
+                <h1 className="text-xl font-bold">Tidak Ada Data Program Studi</h1>
               </div>
             ) : (
               <>
                 {majorData?.map((x, i) => (
                   <Card
-                    href={'/kontrak-krs/' + x.slug}
+                    href={'/kontrak-krs/' + x.id}
                     key={i}
                     className="px-3 rounded-lg "
                     hasImage={true}
                     imgStyle="rounded-lg"
                     // src={x.src}
-                    titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
+                    titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                     icon={
                       <div className="flex flex-row gap-2 px-4 space-x-1">
                         <div className="lg:h-[22px] text-[#3EB449] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E3FBDA]">
@@ -110,9 +108,7 @@ export const StudyProgram: FC = (): ReactElement => {
                       </div>
                     }
                   >
-                    <div className="text-xl mt-0 text-[#106FA4] w-full">
-                      {x.name}
-                    </div>
+                    <div className="text-xl mt-0 text-[#106FA4] w-full">{x.name}</div>
                   </Card>
                 ))}
               </>

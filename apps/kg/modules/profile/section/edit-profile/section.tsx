@@ -1,21 +1,21 @@
-import { FC, ReactElement, Fragment, useEffect } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import Image from 'next/image';
-import { z } from 'zod';
-import { Menu, Transition } from '@headlessui/react';
+import { FC, ReactElement, Fragment, useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import Image from "next/image";
+import { z } from "zod";
+import { Menu, Transition } from "@headlessui/react";
 
 import {
   TextField,
   SelectField,
   UploadField,
   Button,
-} from '@mknows-frontend-services/components/atoms';
+} from "@mknows-frontend-services/components/atoms";
 
-import { useProfile, useUpdateUserProfile } from './hooks';
+import { useProfile, useUpdateUserProfile } from "./hooks";
 
-import userProfileImg from '../../assets/cewe-cantik.webp';
-import camera from '../../assets/camera-ojan.webp';
+import userProfileImg from "../../assets/cewe-cantik.webp";
+import camera from "../../assets/camera-ojan.webp";
 
 export const EditProfileModule: FC = (): ReactElement => {
   const { data, refetch } = useProfile();
@@ -25,18 +25,18 @@ export const EditProfileModule: FC = (): ReactElement => {
   const userData = data?.data?.user;
 
   const options = [
-    { id: 1, value: 'L', label: 'Laki-Laki' },
-    { id: 2, value: 'P', label: 'Perempuan' },
+    { id: 1, value: "L", label: "Laki-Laki" },
+    { id: 2, value: "P", label: "Perempuan" },
   ];
 
   const validationSchema = z.object({
     avatar: z.any().optional(),
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
-    gender: z.string().min(1, { message: 'Gender harus dipilih' }),
+    full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    phone_number: z.string().min(1, { message: "Nomor handphone harus diisi" }),
+    gender: z.string().min(1, { message: "Gender harus dipilih" }),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -48,12 +48,12 @@ export const EditProfileModule: FC = (): ReactElement => {
     reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      full_name: '',
-      phone_number: '',
-      gender: '',
+      email: "",
+      full_name: "",
+      phone_number: "",
+      gender: "",
     },
   });
   const onCancel = () => reset(userData);
@@ -119,20 +119,14 @@ export const EditProfileModule: FC = (): ReactElement => {
                       >
                         <Menu.Items className="absolute w-40 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg left-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <div className="px-1 py-1 ">
-                            <UploadField
-                              name={'avatar'}
-                              control={control}
-                              variant={'md'}
-                            />
+                            <UploadField name={"avatar"} control={control} variant={"md"} />
                           </div>
                         </Menu.Items>
                       </Transition>
                     </Menu>
 
                     <div className="flex items-center flex-col justify-center">
-                      <p className="text-lg font-semibold">
-                        {userData?.full_name}
-                      </p>
+                      <p className="text-lg font-semibold">{userData?.full_name}</p>
                       <p className="text-[#737373] px-4">{userData?.role}</p>
                     </div>
                   </form>
@@ -147,9 +141,9 @@ export const EditProfileModule: FC = (): ReactElement => {
                     control={control}
                     placeholder="Masukkan Email"
                     label="Email"
-                    type={'email'}
+                    type={"email"}
                     name="email"
-                    variant={'md'}
+                    variant={"md"}
                     disabled
                   />
                   <SelectField
@@ -157,43 +151,43 @@ export const EditProfileModule: FC = (): ReactElement => {
                     control={control}
                     label="Jenis Kelamin"
                     options={options}
-                    name={'gender'}
-                    variant={'md'}
+                    name={"gender"}
+                    variant={"md"}
                   />
                   <TextField
                     control={control}
                     placeholder="Masukkan Nama Lengkap"
                     label="Nama Lengkap"
-                    type={'text'}
+                    type={"text"}
                     name="full_name"
-                    variant={'md'}
-                    status={errors.full_name ? 'error' : undefined}
+                    variant={"md"}
+                    status={errors.full_name ? "error" : undefined}
                     message={errors.full_name?.message}
                   />
                   <TextField
                     control={control}
                     placeholder="Masukkan Nomor Handphone"
                     label="Nomor Handphone"
-                    type={'number'}
+                    type={"number"}
                     name="phone_number"
-                    status={errors.phone_number ? 'error' : undefined}
-                    variant={'md'}
+                    status={errors.phone_number ? "error" : undefined}
+                    variant={"md"}
                     message={errors.phone_number?.message}
                   />
                 </div>
               </div>
               <div className="flex justify-center gap-x-3 w-full my-2 lg:justify-end">
                 <Button
-                  type={'button'}
+                  type={"button"}
                   onClick={onCancel}
-                  loading={isLoading ? 'Sedang Mereset' : undefined}
+                  loading={isLoading ? "Sedang Mereset" : undefined}
                   className="text-white cursor-pointer font-[700] bg-error-500 rounded-lg p-3"
                 >
                   Batalkan
                 </Button>
                 <Button
-                  type={'submit'}
-                  loading={isLoading ? 'Sedang Menyimpan' : undefined}
+                  type={"submit"}
+                  loading={isLoading ? "Sedang Menyimpan" : undefined}
                   disabled={!isValid}
                   className="text-white disabled:bg-neutral-400 cursor-pointer font-[700] bg-primary-500 rounded-lg p-3"
                 >

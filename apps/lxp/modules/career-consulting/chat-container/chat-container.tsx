@@ -1,6 +1,6 @@
-import React, { FC, Fragment, ReactElement } from 'react';
-import Image from 'next/image';
-import exampleAvatar from '../chat-list/chat-card/assets/user.svg';
+import React, { FC, Fragment, ReactElement } from "react";
+import Image from "next/image";
+import exampleAvatar from "../chat-list/chat-card/assets/user.svg";
 
 export const ConsultingChatContainer: FC = (): ReactElement => {
   return (

@@ -1,14 +1,14 @@
 export const guideBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Panduan',
-    link: '/panduan',
+    name: "Panduan",
+    link: "/panduan",
   },
   {
-    name: 'Panduan',
-    link: '/buku-panduan',
+    name: "Panduan",
+    link: "/buku-panduan",
   },
 ];
