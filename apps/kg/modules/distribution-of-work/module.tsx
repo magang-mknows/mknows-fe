@@ -24,6 +24,15 @@ export const DistributionOfWorkModule: FC = (): ReactElement => {
           <p className="text-neutral-500 py-3">
             Temukan beragam informasi karir yang menarik, hanya di halaman ini.
           </p>
+          <h1 className="text-[18px] font-bold py-4">Urut Berdasarkan</h1>
+          <div className="flex gap-2">
+            <div className="flex justify-center items-center w-[124px] h-[36px] bg-neutral-100 border border-primary-500 text-primary-500 rounded-md">
+              Paling Sesuai
+            </div>
+            <div className="flex justify-center items-center w-[120px] h-[36px] bg-neutral-100 border border-neutral-600 text-neutral-600 rounded-md ">
+              Paling Baru
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-3 gap-[28px]">
           <div className="bg-white w-[280px] h-[350px] rounded-md my-6 shadow-xl"></div>
