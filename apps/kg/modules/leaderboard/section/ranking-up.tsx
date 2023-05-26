@@ -25,7 +25,9 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[40px] lg:left-[40px] md:top-[50px] md:left-[32px] sm:top-[20px] sm:left-[34px] top-6 left-7">
                   <div className="rounded-full outline outline-4 outline-[#67A5C8]">
                     <Image
-                      src={Avatar}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
                       alt={"avatar"}
                       className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
                       onClick={() => {
@@ -45,7 +47,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317]  text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
@@ -56,7 +58,9 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[280px] lg:left-[40px] md:top-[180px] md:left-[36px] sm:top-[140px] sm:left-[32px] top-36 left-7">
                   <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50] ">
                     <Image
-                      src={Avatar}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
                       alt={"avatar"}
                       className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px] cursor-pointer"
                       onClick={() => {
@@ -81,7 +85,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
@@ -92,7 +96,9 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[40px] lg:left-[40px] md:top-[50px] md:left-[32px] sm:top-[20px] sm:left-[34px] top-6 left-7">
                   <div className="rounded-full outline outline-4 outline-[#6AD26A]">
                     <Image
-                      src={Avatar}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
                       alt={"avatar"}
                       className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
                       onClick={() => {
@@ -112,7 +118,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
