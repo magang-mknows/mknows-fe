@@ -9,8 +9,20 @@ export const PopupProfilLeaderborad = atom({
 export const popupGetUser = atom<TLeaderboardItem>({
   key: "popup-get-user-2",
   default: {
+    student_id: "",
     student_name: "",
-    averageScore: 0,
     subjectCount: "",
+    averageScore: 0,
+    author: {
+      avatar: "",
+      discussion_likes: 0,
+      discussion_posted: 0,
+      full_name: "",
+      ipk: 0,
+      major: "",
+      poin: "",
+      role: "",
+      total_certificates: 0,
+    },
   },
 });

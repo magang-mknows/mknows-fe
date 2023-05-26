@@ -3,15 +3,27 @@ import { StaticImageData } from "next/image";
 import { MouseEventHandler, ReactNode } from "react";
 
 export interface PopupProfilProps {
-  id?: string;
-  img?: string;
-  averageScore: number;
   lookup?: boolean;
-  student_name: string;
-  subjectCount: string;
-  stylePopup?: string;
   widthModal?: string;
   onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
+  stylePopup?: string;
+  student_id?: string;
+  student_name?: string;
+  subjectCount?: string;
+  averageScore?: string;
+  author?: AuthorLead;
+}
+
+export interface AuthorLead {
+  avatar?: string;
+  discussion_likes?: number;
+  discussion_posted?: number;
+  full_name?: string;
+  ipk?: string;
+  major?: string;
+  poin?: string;
+  role?: string;
+  total_certificates: number;
 }
 
 export interface StepLadderProps {
