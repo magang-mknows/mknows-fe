@@ -6,10 +6,11 @@ import { studyContractBreadCumbs } from '../../../modules/administration/constan
 
 const StudyContractPage: NextPage = (): ReactElement => {
   return (
-  <BaseLayout>
-  <BreadCrumb bgColor='bg-white' items={studyContractBreadCumbs}/>
-  <StudyContractModules /></BaseLayout>
- );
+    <BaseLayout>
+      <BreadCrumb bgColor="bg-white" items={studyContractBreadCumbs} />
+      <StudyContractModules />
+    </BaseLayout>
+  );
 };
 
 export default StudyContractPage;
