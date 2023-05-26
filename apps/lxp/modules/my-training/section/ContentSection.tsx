@@ -1,47 +1,46 @@
-import Image from 'next/image';
-import React, { Fragment, ReactElement } from 'react';
-import ChoiceFaculty from '../assets/choicefaculty.svg';
-import { Card } from '@mknows-frontend-services/components/molecules';
-import Search from '../assets/search.svg';
-
+import Image from "next/image";
+import React, { Fragment, ReactElement } from "react";
+import ChoiceFaculty from "../assets/choicefaculty.svg";
+import { Card } from "@mknows-frontend-services/components/molecules";
+import Search from "../assets/search.svg";
 
 const ContentSection = (): ReactElement => {
   const content = [
     {
       src: ChoiceFaculty,
-      namaDosen: 'Indah Saritem, S. AK, M.Ak',
+      namaDosen: "Indah Saritem, S. AK, M.Ak",
       tipematkul: 4,
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/kursus/1',
+      slug: "/pelatihanku/kursus/1",
     },
     {
       src: ChoiceFaculty,
-      namaDosen: 'Indah Saritem, S. AK, M.Ak',
+      namaDosen: "Indah Saritem, S. AK, M.Ak",
       tipematkul: 4,
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/kursus/1',
+      slug: "/pelatihanku/kursus/1",
     },
     {
       src: ChoiceFaculty,
-      namaDosen: 'Indah Saritem, S. AK, M.Ak',
+      namaDosen: "Indah Saritem, S. AK, M.Ak",
       tipematkul: 4,
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/kursus/1',
+      slug: "/pelatihanku/kursus/1",
     },
     {
       src: ChoiceFaculty,
-      namaDosen: 'Indah Saritem, S. AK, M.Ak',
+      namaDosen: "Indah Saritem, S. AK, M.Ak",
       tipematkul: 4,
       pertemuan: 14,
       kodematkul: 1142,
       sks: 131,
-      slug: '/pelatihanku/kursus/1',
+      slug: "/pelatihanku/kursus/1",
     },
   ];
   return (
@@ -50,15 +49,9 @@ const ContentSection = (): ReactElement => {
         <h1 className="text-[#171717] text-[24px] font-[700]">Mata Kuliah</h1>
         <div className="bg-[#FAFAFA] dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex lg:ml-5 px-3 py-4">
-            <Image
-              src={Search}
-              alt={'search'}
-              className="w-auto"
-              width={100}
-              height={100}
-            />
+            <Image src={Search} alt={"search"} className="w-auto" width={100} height={100} />
             <input
-              type={'text'}
+              type={"text"}
               className="bg-[#FAFAFA] w-full focus:outline-none"
               placeholder="Cari Mata Kuliah"
             />
@@ -72,7 +65,7 @@ const ContentSection = (): ReactElement => {
             <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
               <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
                 <Image
-                  src={'/assets/StudyPlan/DataKosong.png'}
+                  src={"/assets/StudyPlan/DataKosong.png"}
                   width={100}
                   height={100}
                   alt="simulasi-null w-auto"
@@ -91,7 +84,7 @@ const ContentSection = (): ReactElement => {
                 imgheight={100}
                 className="rounded-lg shadow-lg lg:w-full md:w-[47%] w-full"
                 imgwidth={100}
-                titleStyle={'text-xl font-bold mt-0 text-[#106FA4]'}
+                titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                 icon={
                   <div className="flex justify-end gap-2 py-2">
                     <div className="lg:h-[22px] text-[#FAB317] px-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
@@ -110,10 +103,7 @@ const ContentSection = (): ReactElement => {
                   </h1>
                   <p className="text-md text-gray-500 pb-4">{x.namaDosen}</p>
                   <div className="flex w-[100%] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                    <div
-                      className="bg-green-600 h-2.5 rounded-full"
-                      style={{ width: '45%' }}
-                    ></div>
+                    <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "45%" }}></div>
                   </div>
                 </div>
                 <p className="text-gray-400 ext-sm pt-20 pl-2">45%</p>

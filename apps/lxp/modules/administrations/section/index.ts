@@ -1,2 +1,2 @@
-export * from './ContentAdministration';
-export * from './TitleAdministration';
+export * from "./ContentAdministration";
+export * from "./TitleAdministration";

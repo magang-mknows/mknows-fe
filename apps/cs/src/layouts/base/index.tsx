@@ -1,8 +1,8 @@
-import { FC, ReactElement, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import Spinner from '../../components/atoms/loading/spinner';
-import Sidebar from '../../components/organisms/sidebar';
-import SidebarSkeleton from '../../components/organisms/sidebar/sidebar-skeleton';
+import { FC, ReactElement, Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import Spinner from "../../components/atoms/loading/spinner";
+import Sidebar from "../../components/organisms/sidebar";
+import SidebarSkeleton from "../../components/organisms/sidebar/sidebar-skeleton";
 
 export const BaseLayout: FC = (): ReactElement => {
   return (

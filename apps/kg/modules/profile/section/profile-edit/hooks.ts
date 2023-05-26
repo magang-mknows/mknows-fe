@@ -1,27 +1,14 @@
-import {
-  UseMutationResult,
-  useMutation,
-  UseQueryResult,
-  useQuery,
-} from '@tanstack/react-query';
-import { UpdateAvatarProfile, UpdateUserProfile, profileRequest } from './api';
-import {
-  TAvatarPayload,
-  TAvatarResponse,
-  TProfilePayload,
-  TUserDetailResponse,
-} from './types';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { useSession } from 'next-auth/react';
+import { UseMutationResult, useMutation, UseQueryResult, useQuery } from "@tanstack/react-query";
+import { UpdateAvatarProfile, UpdateUserProfile, profileRequest } from "./api";
+import { TAvatarPayload, TAvatarResponse, TProfilePayload, TUserDetailResponse } from "./types";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { useSession } from "next-auth/react";
 
-export const useProfile = (): UseQueryResult<
-  TUserDetailResponse,
-  TMetaErrorResponse
-> => {
+export const useProfile = (): UseQueryResult<TUserDetailResponse, TMetaErrorResponse> => {
   const { data: session } = useSession();
   return useQuery({
     enabled: !!session,
-    queryKey: ['get-user-me'],
+    queryKey: ["get-user-me"],
     queryFn: async () => await profileRequest(),
   });
 };
@@ -33,7 +20,7 @@ export const useUpdateUserProfile = (): UseMutationResult<
   unknown
 > => {
   return useMutation({
-    mutationKey: ['update-user-profile'],
+    mutationKey: ["update-user-profile"],
     mutationFn: async (payload) => await UpdateUserProfile(payload),
   });
 };
@@ -45,7 +32,7 @@ export const useUpdateAvatar = (): UseMutationResult<
   unknown
 > => {
   return useMutation({
-    mutationKey: ['update-avatar-profile'],
+    mutationKey: ["update-avatar-profile"],
     mutationFn: async (payload) => await UpdateAvatarProfile(payload),
   });
 };

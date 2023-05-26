@@ -1,6 +1,8 @@
-import { FC, ReactElement, useState } from 'react';
-import { FieldValues, useController } from 'react-hook-form';
-import { TTextFieldProps } from './types';
+import { FC, ReactElement, useState } from "react";
+import { FieldValues, useController } from "react-hook-form";
+import { TTextFieldProps } from "./types";
+import clsx from "clsx";
+import { MdChecklist } from "react-icons/md";
 
 const EyeClose: FC = (): ReactElement => (
   <svg
@@ -33,18 +35,14 @@ const EyeOpen: FC = (): ReactElement => (
       strokeLinejoin="round"
       d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
     />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-    />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
   </svg>
 );
 
 export const TextField = <T extends FieldValues>({
-  variant = 'lg',
-  type = 'text',
-  status = 'none',
+  variant = "lg",
+  type = "text",
+  status = "none",
   isTextArea = false,
   textAreaRow = 12,
   ...props
@@ -55,27 +53,54 @@ export const TextField = <T extends FieldValues>({
     setShowPassword((prevState) => !prevState);
   };
 
-  const { field } = useController(props);
+  const { field } = useController({
+    ...props,
+    rules: {
+      required: props.required,
+    },
+  });
+
+  const labelVariant = clsx("text-[#000] ", {
+    "text-[18px] font-bold": variant === "lg",
+    "text-[16px] font-bold": variant === "md",
+    "text-[14px] font-bold": variant === "sm",
+  });
+
+  const inputStatus = clsx({
+    "focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base text-sm":
+      status === "error",
+    "focus:ring-1 focus:ring-success-base bg-success-100 text-sm": status === "success",
+    "focus:ring-1 focus:ring-warning-base bg-warning-100 text-sm": status === "warning",
+    "border-[0.5px] border-neutral-400 shadow-sm": status === "none" || status === undefined,
+  });
+
+  const inputVariant = clsx({
+    "py-4 rounded-lg": variant === "lg",
+    "py-2 rounded-md": variant === "md",
+    "p-1 rounded-md": variant === "sm",
+  });
+
+  const inputDefaultStyle = "outline-none focus:outline-none w-full text-[#000] text-sm";
+
+  const inputExtras = clsx({
+    "pl-[40px]": props.prepend,
+    "pr-[40px]": props.append,
+    "px-4": !props.append && !props.prepend,
+  });
+
+  const messageStatus = clsx({
+    "text-error-base": status === "error",
+    "text-warning-base": status === "warning",
+    "text-success-base": status === "success",
+    hidden: status === "none",
+  });
 
   return (
     <section className="flex flex-col w-auto my-1 gap-y-2 ">
       {props.label && (
-        <label
-          htmlFor={props.name}
-          className={`text-[#000] ${
-            variant === 'lg'
-              ? 'text-[18px] font-bold'
-              : variant === 'md'
-              ? 'text-[16px] font-bold'
-              : variant === 'sm'
-              ? 'text-[14px] font-bold'
-              : ''
-          } ${props.labelClassName}`}
-        >
+        <label htmlFor={props.name} className={`${labelVariant} ${props.labelClassName}`}>
           {props.label}
-          {props.required && (
-            <span className="ml-1 font-bold  text-error-600">*</span>
-          )}
+          {props.required && <span className="ml-1 font-bold text-error-600">*</span>}
         </label>
       )}
 
@@ -90,94 +115,29 @@ export const TextField = <T extends FieldValues>({
         )}
         {!isTextArea ? (
           <input
-            type={type === 'password' ? (!showPassword ? type : 'text') : type}
+            type={type === "password" ? (!showPassword ? type : "text") : type}
             {...{ ...props, ...field }}
-            className={`
-            ${
-              status === 'error' &&
-              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base text-sm'
-            }
-
-            ${
-              status === 'success' &&
-              'focus:ring-1 focus:ring-success-base bg-success-100 text-sm'
-            }
-
-            ${
-              status === 'warning' &&
-              'focus:ring-1 focus:ring-warning-base bg-warning-100 text-sm'
-            }
-
-            ${
-              !status ||
-              (status === 'none' &&
-                `border-[0.5px] border-neutral-400 shadow-sm ${props.className}`)
-            }
-
-             ${
-               variant === 'lg'
-                 ? 'py-4 rounded-lg'
-                 : variant === 'md'
-                 ? 'py-2 rounded-md'
-                 : variant === 'sm'
-                 ? 'p-1 rounded-md'
-                 : ''
-             } outline-none focus:outline-none w-full text-[#000] text-sm
-            ${props.prepend ? 'pl-[40px]' : props.append ? 'pr-[40px]' : 'px-4'}
-                `}
+            className={`${inputDefaultStyle} ${inputStatus} ${inputVariant}  ${inputExtras} `}
           />
         ) : (
           <textarea
             rows={textAreaRow}
             {...{ ...props, ...field }}
-            className={`w-full  ${
-              status === 'error' &&
-              'focus:ring-1 focus:ring-error-base bg-error-100 placeholder:text-white ring-1 ring-error-base'
-            }
-        ${
-          status === 'success' &&
-          'focus:ring-1 focus:ring-success-base bg-success-100'
-        }
-
-        ${
-          status === 'warning' &&
-          'focus:ring-1 focus:ring-warning-base bg-warning-100'
-        }
-
-        ${
-          !status ||
-          (status === 'none' &&
-            `focus:outline-none  bg-gray-100 resize-none ${props.className}`)
-        }
-       `}
+            className={`w-full ${inputStatus} `}
           />
         )}
 
         <div className="absolute flex space-x-2 transform -translate-y-1/2 right-4 top-1/2">
-          {status === 'success' && (
-            <img
-              src="./assets/check-circle.svg"
-              alt="check circle"
-              width={20}
-              height={20}
-            />
-          )}
-          {type === 'password' && (
+          {status === "success" && <MdChecklist size={20} />}
+          {type === "password" && (
             <button type="button" onClick={toggleShowPassword}>
-              {type === 'password' && !showPassword ? (
-                <EyeClose />
-              ) : (
-                <EyeOpen />
-              )}
+              {type === "password" && !showPassword ? <EyeClose /> : <EyeOpen />}
             </button>
           )}
         </div>
 
         {props.append && (
-          <label
-            className="flex items-end justify-center w-auto "
-            htmlFor={props.name}
-          >
+          <label className="flex items-end justify-center w-auto " htmlFor={props.name}>
             {props.append}
           </label>
         )}
@@ -185,19 +145,7 @@ export const TextField = <T extends FieldValues>({
 
       <div className="flex flex-col items-start w-full gap-x-1">
         <span className="text-grey-600">{props.hint}</span>
-        <span
-          className={`${
-            status === 'error'
-              ? 'text-error-base'
-              : status === 'success'
-              ? 'text-success-base'
-              : status === 'warning'
-              ? 'text-warning-base'
-              : ''
-          } text-xs`}
-        >
-          {props.message}
-        </span>
+        <span className={`${messageStatus} text-xs`}>{props.message}</span>
       </div>
     </section>
   );

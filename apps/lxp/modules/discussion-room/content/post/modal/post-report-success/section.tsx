@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { useSetRecoilState } from 'recoil';
-import { isModalOpen } from '../../../store';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { useSetRecoilState } from "recoil";
+import { isModalOpen } from "../../../store";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 const ReportSuccessModal: FC = (): ReactElement => {
   const setOptionOpen = useSetRecoilState(isModalOpen);
@@ -14,12 +14,10 @@ const ReportSuccessModal: FC = (): ReactElement => {
         <span className="h-10 w-10 right-0 left-0 block bg-blue-100 rounded-full absolute z-10"></span>
       </div>
       <div className="flex flex-col gap-3 items-center justify-center py-2 w-[490px]">
-        <h1 className="font-bold text-lg text-neutral-800">
-          Terima kasih telah memberi tahu kami
-        </h1>
+        <h1 className="font-bold text-lg text-neutral-800">Terima kasih telah memberi tahu kami</h1>
         <p className="w-full text-center text-sm mb-2 ">
-          Masukan dari Anda sangat penting untuk membantu kami menjaga komunitas
-          LMS M-Knows agar tetap aman.
+          Masukan dari Anda sangat penting untuk membantu kami menjaga komunitas LMS M-Knows agar
+          tetap aman.
         </p>
 
         <Button

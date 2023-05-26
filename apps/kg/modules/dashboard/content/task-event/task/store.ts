@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const selectedTasks = atom({
-  key: 'selectedTasks',
+  key: "selectedTasks",
   default: 1,
 });

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { FC, ReactElement, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { TCardProps } from './types';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { FC, ReactElement, Fragment } from "react";
+import { Link } from "react-router-dom";
+import { TCardProps } from "./types";
 
 const Card: FC<TCardProps> = ({
   className,
@@ -46,10 +46,7 @@ const Card: FC<TCardProps> = ({
               {hasButton && (
                 <Link to={`${buttonHref}`}>
                   <section className="flex justify-end items-end">
-                    <Button
-                      type="button"
-                      className={buttonClassName + ' ' + buttonColor}
-                    >
+                    <Button type="button" className={buttonClassName + " " + buttonColor}>
                       {buttonText}
                     </Button>
                   </section>

@@ -1,14 +1,12 @@
-import api from '../../services/api';
-import { TQuotaParams, TQuotaResponse } from './types';
+import api from "../../services/api";
+import { TQuotaParams, TQuotaResponse } from "./types";
 
-export const getQuotaResponse = async (
-  params: TQuotaParams
-): Promise<TQuotaResponse> => {
+export const getQuotaResponse = async (params: TQuotaParams): Promise<TQuotaResponse> => {
   const { data } = await api({
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    url: '/quotas/request',
+    url: "/quotas/request",
     params,
   });
   return data;

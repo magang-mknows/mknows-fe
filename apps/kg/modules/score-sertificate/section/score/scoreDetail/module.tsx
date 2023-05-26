@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { ScoreDetailTable } from './scoreDetailTable/scoreDetailTable';
+import { FC, ReactElement } from "react";
+import { ScoreDetailTable } from "./scoreDetailTable/scoreDetailTable";
 
 export const ScoreDetail: FC = (): ReactElement => {
   return (

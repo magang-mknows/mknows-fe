@@ -1,1 +1,1 @@
-export * from './UniqueEventContent';
+export * from "./UniqueEventContent";

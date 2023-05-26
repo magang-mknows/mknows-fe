@@ -1,20 +1,20 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 
-import { DetailCard } from '../common/components/detail-card';
-import Link from 'next/link';
+import { DetailCard } from "../common/components/detail-card";
+import Link from "next/link";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
   const data = {
-    labels: ['Your Score'],
+    labels: ["Your Score"],
     datasets: [
       {
         data: [90, 10],
-        backgroundColor: ['#9de6f5c3', '#E5E5E5'],
+        backgroundColor: ["#9de6f5c3", "#E5E5E5"],
         borderWidth: 0,
       },
     ],

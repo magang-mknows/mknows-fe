@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
 
 export const HeroSection: FC = (): ReactElement => {
   return (
@@ -10,7 +10,7 @@ export const HeroSection: FC = (): ReactElement => {
       <div className="w-full h-[253px]">
         <Image
           src={
-            'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png'
+            "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png"
           }
           alt=""
           className="h-full object-cover rounded-lg mx-auto w-auto"
@@ -19,14 +19,12 @@ export const HeroSection: FC = (): ReactElement => {
         />
       </div>
       <p className="text-sm font-normal text-neutral-800 text-justify py-10 ">
-        Manajemen Keuangan belajar tentang bagaimana merencanakan, mengelola,
-        serta menggunakan sumber daya keuangan perusahaan. Perkuliahan jurusan
-        ini juga tentang lembaga perbankan, kinerja perusahaan, perpajakan,
-        akuntansi, perdagangan internasional, perencanaan modal, asuransi,
-        anggaran, analisis keuangan, akuisisi dana, manajemen utang dan aset,
-        hingga portofolio dan manajemen investasi. Pengawasan berbagai aspek
-        keuangan guna mencegah kesalahan atau kecurangan juga dipelajari selama
-        kuliah.
+        Manajemen Keuangan belajar tentang bagaimana merencanakan, mengelola, serta menggunakan
+        sumber daya keuangan perusahaan. Perkuliahan jurusan ini juga tentang lembaga perbankan,
+        kinerja perusahaan, perpajakan, akuntansi, perdagangan internasional, perencanaan modal,
+        asuransi, anggaran, analisis keuangan, akuisisi dana, manajemen utang dan aset, hingga
+        portofolio dan manajemen investasi. Pengawasan berbagai aspek keuangan guna mencegah
+        kesalahan atau kecurangan juga dipelajari selama kuliah.
       </p>
     </div>
   );

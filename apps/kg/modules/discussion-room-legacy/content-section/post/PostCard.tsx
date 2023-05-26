@@ -1,12 +1,12 @@
-import { FC, Fragment, ReactElement } from 'react';
-import Image from 'next/image';
+import { FC, Fragment, ReactElement } from "react";
+import Image from "next/image";
 
-import { TCommentCardProps } from './coment/type';
+import { TCommentCardProps } from "./coment/type";
 
-import { AiFillCloseCircle, AiFillLike } from 'react-icons/ai';
-import { GoCommentDiscussion } from 'react-icons/go';
-import userIcon from '../../assets/userIcon.svg';
-import dummyCourse from '../../assets/dummyCourse.png';
+import { AiFillCloseCircle, AiFillLike } from "react-icons/ai";
+import { GoCommentDiscussion } from "react-icons/go";
+import userIcon from "../../assets/userIcon.svg";
+import dummyCourse from "../../assets/dummyCourse.png";
 
 const CommentCard: FC<TCommentCardProps> = ({
   hasImage,
@@ -29,24 +29,14 @@ const CommentCard: FC<TCommentCardProps> = ({
               <h1 className="text-xs font-bold dark:text-neutral-100 text-neutral-800 md:text-sm">
                 {userName}
               </h1>
-              <p className="text-xs text-neutral-400 dark:text-white/80">
-                {time}
-              </p>
+              <p className="text-xs text-neutral-400 dark:text-white/80">{time}</p>
             </div>
           </section>
           {children}
         </div>
         <section className="text-sm text-neutral-900">
-          {hasImage && (
-            <Image
-              src={imgSource}
-              alt={`imageby${userName}`}
-              className="w-40"
-            />
-          )}
-          <h1 className="mb-3 text-sm font-bold md:text-base dark:text-neutral-100">
-            {title}
-          </h1>
+          {hasImage && <Image src={imgSource} alt={`imageby${userName}`} className="w-40" />}
+          <h1 className="mb-3 text-sm font-bold md:text-base dark:text-neutral-100">{title}</h1>
           <p className="pr-0 mb-6 text-xs text-neutral-700 dark:text-neutral-300 md:text-sm md:pr-4 lg:pr-20 md:mb-8 lg:mb-10">
             {text}
           </p>
@@ -63,7 +53,7 @@ const CommentCard: FC<TCommentCardProps> = ({
           </div>
         </section>
       </div>
-      {type == 'post' && (
+      {type == "post" && (
         <section className="relative my-5 w-fit">
           <Image src={dummyCourse} alt="test" className="w-36" />
           <AiFillCloseCircle className="absolute top-0 text-2xl text-neutral-300 md:text-3xl -right-8" />

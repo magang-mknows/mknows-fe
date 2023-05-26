@@ -1,4 +1,4 @@
-import { FieldValues, UseControllerProps } from 'react-hook-form';
+import { FieldValues, UseControllerProps } from "react-hook-form";
 
 export type TCheckbox<T extends FieldValues> = UseControllerProps<T> & {
   label?: string;
@@ -10,6 +10,6 @@ export type TCheckbox<T extends FieldValues> = UseControllerProps<T> & {
   className?: string;
   success?: string | boolean;
   warning?: string;
-  variant: 'lg' | 'md' | 'sm';
+  variant: "lg" | "md" | "sm";
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };

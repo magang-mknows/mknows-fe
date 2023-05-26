@@ -1,6 +1,6 @@
-import axios from 'axios';
-import type { AxiosRequestConfig } from 'axios';
-import TokenService from './token';
+import axios from "axios";
+import type { AxiosRequestConfig } from "axios";
+import TokenService from "./token";
 
 const config: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_API_URL,
@@ -19,7 +19,7 @@ api.interceptors.request.use(
   (error) => {
     Promise.reject(error);
     TokenService.removeToken();
-  }
+  },
 );
 
 export default api;

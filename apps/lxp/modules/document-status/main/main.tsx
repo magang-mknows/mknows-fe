@@ -1,23 +1,23 @@
-import { Tab } from '@headlessui/react';
-import { FC, ReactElement } from 'react';
-import { DocumentStatusTab } from './tab';
-import { DocumentStatusCard } from './status-card';
+import { Tab } from "@headlessui/react";
+import { FC, ReactElement } from "react";
+import { DocumentStatusTab } from "./tab";
+import { DocumentStatusCard } from "./status-card";
 
 export const DocumentStatusMain: FC = (): ReactElement => {
   const dummyStoredDocument = [
     {
-      title: 'Surat Keterangan KIP',
-      status: 'processed',
-      desc: '3 - 5 Hari',
+      title: "Surat Keterangan KIP",
+      status: "processed",
+      desc: "3 - 5 Hari",
     },
     {
-      title: 'Surat Keterangan Cuti ',
-      status: 'rejected',
-      desc: 'Dokumen kurang jelas',
+      title: "Surat Keterangan Cuti ",
+      status: "rejected",
+      desc: "Dokumen kurang jelas",
     },
     {
-      title: 'Surat Keterangan Kinerja',
-      status: 'accepted',
+      title: "Surat Keterangan Kinerja",
+      status: "accepted",
     },
   ];
 
@@ -41,7 +41,7 @@ export const DocumentStatusMain: FC = (): ReactElement => {
           <Tab.Panel>
             {dummyStoredDocument
               .filter((doc) => {
-                return doc.status === 'processed';
+                return doc.status === "processed";
               })
               .map((item, index) => {
                 return (
@@ -57,7 +57,7 @@ export const DocumentStatusMain: FC = (): ReactElement => {
           <Tab.Panel>
             {dummyStoredDocument
               .filter((doc) => {
-                return doc.status === 'rejected';
+                return doc.status === "rejected";
               })
               .map((item, index) => {
                 return (
@@ -73,16 +73,10 @@ export const DocumentStatusMain: FC = (): ReactElement => {
           <Tab.Panel>
             {dummyStoredDocument
               .filter((doc) => {
-                return doc.status === 'accepted';
+                return doc.status === "accepted";
               })
               .map((item, index) => {
-                return (
-                  <DocumentStatusCard
-                    key={index}
-                    title={item?.title}
-                    status={item?.status}
-                  />
-                );
+                return <DocumentStatusCard key={index} title={item?.title} status={item?.status} />;
               })}
           </Tab.Panel>
         </Tab.Panels>

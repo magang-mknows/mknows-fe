@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { People } from './ilustration/people';
+import { FC, ReactElement } from "react";
+import { People } from "./ilustration/people";
 
 export const ErrorAssignment: FC = (): ReactElement => {
   return (

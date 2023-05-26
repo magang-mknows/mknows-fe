@@ -1,10 +1,10 @@
 export const scoreBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Nilai & Sertfikat',
-    link: '/nilai-dan-sertifikat',
+    name: "Nilai & Sertfikat",
+    link: "/nilai-dan-sertifikat",
   },
 ];

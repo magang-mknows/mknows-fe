@@ -1,24 +1,24 @@
-import { FC, ReactElement } from 'react';
-import { BsDot } from 'react-icons/bs';
+import { FC, ReactElement } from "react";
+import { BsDot } from "react-icons/bs";
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const ArticleCarousel: FC = (): ReactElement => {
   const dummyArticle = [
     {
       id: 1,
-      title: 'Apa itu Cyber Attack?',
-      catogory: 'Technologi',
-      type: 'Article',
-      date: '29 Feb 2023',
+      title: "Apa itu Cyber Attack?",
+      catogory: "Technologi",
+      type: "Article",
+      date: "29 Feb 2023",
     },
     {
       id: 2,
-      title: 'Apa itu Cyber Crime?',
-      catogory: 'Technologi',
-      type: 'Article',
-      date: '34 Feb 2023',
+      title: "Apa itu Cyber Crime?",
+      catogory: "Technologi",
+      type: "Article",
+      date: "34 Feb 2023",
     },
   ];
 
@@ -35,7 +35,7 @@ export const ArticleCarousel: FC = (): ReactElement => {
           return (
             <span
               className={`${
-                isSelected ? 'bg-blue-600 w-6' : 'w-2 bg-neutral-300'
+                isSelected ? "bg-blue-600 w-6" : "w-2 bg-neutral-300"
               } flex h-2 rounded-full transition-all ease-in-out duration-300`}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
@@ -66,9 +66,7 @@ export const ArticleCarousel: FC = (): ReactElement => {
                     {article.catogory}
                   </p>
                   <div className=" mb-4 flex justify-end items-center w-full">
-                    <p className="text-xs text-neutral-400 flex items-center">
-                      {article.date}
-                    </p>
+                    <p className="text-xs text-neutral-400 flex items-center">{article.date}</p>
                   </div>
                 </div>
               </section>

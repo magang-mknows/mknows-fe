@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { UniqueSidebarHeader } from './header';
-import { UniqueSidebarOptions } from './options';
+import { FC, ReactElement } from "react";
+import { UniqueSidebarHeader } from "./header";
+import { UniqueSidebarOptions } from "./options";
 
 export const UniqueEventSidebar: FC = (): ReactElement => {
   return (

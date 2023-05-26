@@ -1,46 +1,41 @@
-'use client';
-import type { NextPage } from 'next';
-import type { ReactElement } from 'react';
-import {
-  Button,
-  TextField,
-  UploadDragbleField,
-} from '@mknows-frontend-services/components/atoms';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useProfile } from '../lib/profile/hooks';
-import { useCreateFaculty } from '../lib/faculty/hooks';
+"use client";
+import type { NextPage } from "next";
+import type { ReactElement } from "react";
+import { Button, TextField, UploadDragbleField } from "@mknows-frontend-services/components/atoms";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useProfile } from "../lib/profile/hooks";
+import { useCreateFaculty } from "../lib/faculty/hooks";
 
 const RootPage: NextPage = (): ReactElement => {
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/gif"];
 
   const authValidationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    password: z.string().min(1, { message: 'Password harus diisi' }),
+    password: z.string().min(1, { message: "Password harus diisi" }),
     remember: z.boolean().optional(),
   });
 
   const facultyValidationSchema = z.object({
-    name: z.string().min(1, { message: 'Nama harus diisi' }),
+    name: z.string().min(1, { message: "Nama harus diisi" }),
     thumbnail: z
       .any()
       .refine(
         (files: File[]) => files !== undefined && files?.length >= 1,
-        'Harus ada file yang di upload.'
+        "Harus ada file yang di upload.",
       )
       .refine(
-        (files: File[]) =>
-          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-        'Ukuran maksimun adalah 3mb.'
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
       )
       .refine(
         (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0].type),
-        'hanya menerima .jpg, .jpeg, dan .webp.'
+        "hanya menerima .jpg, .jpeg, dan .webp.",
       ),
   });
 
@@ -57,10 +52,10 @@ const RootPage: NextPage = (): ReactElement => {
     formState: { isValid: facultyIsValid, errors: facultyError },
     handleSubmit: facultySubmit,
   } = useForm<FacultyValidationSchema>({
-    mode: 'all',
+    mode: "all",
     resolver: zodResolver(facultyValidationSchema),
     defaultValues: {
-      name: '',
+      name: "",
       thumbnail: undefined,
     },
   });
@@ -72,13 +67,13 @@ const RootPage: NextPage = (): ReactElement => {
   } = useForm<AuthValidationSchema>({
     resolver: zodResolver(authValidationSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
   const onAuthSubmit = authSubmit(async (data) => {
-    await signIn('login', {
+    await signIn("login", {
       email: data.email,
       password: data.password,
       redirect: false,
@@ -106,23 +101,23 @@ const RootPage: NextPage = (): ReactElement => {
             <form onSubmit={onAuthSubmit} className="w-full flex flex-col">
               <TextField
                 label="Alamat Email"
-                name={'email'}
-                type={'email'}
+                name={"email"}
+                type={"email"}
                 control={controlAuth}
                 variant="lg"
                 placeholder="Masukan email anda"
               />
               <TextField
                 label="Kata Sandi"
-                name={'password'}
-                type={'password'}
+                name={"password"}
+                type={"password"}
                 control={controlAuth}
                 variant="lg"
                 placeholder="Masukan password anda"
               />
               <Button
                 disabled={!authIsValid}
-                type={'submit'}
+                type={"submit"}
                 className="w-auto h-auto p-4 rounded-lg bg-primary-300 font-[700] disabled:bg-neutral-400 text-white"
               >
                 Masuk
@@ -148,11 +143,11 @@ const RootPage: NextPage = (): ReactElement => {
             <form onSubmit={onFacultySubmit} className="w-full flex-col flex">
               <TextField
                 label="Nama Lengkap"
-                name={'name'}
+                name={"name"}
                 control={controlFaculty}
                 variant="md"
                 placeholder="Masukan nama anda"
-                status={facultyError.name ? 'error' : 'none'}
+                status={facultyError.name ? "error" : "none"}
                 message={facultyError.name?.message}
               />
               <UploadDragbleField
@@ -160,21 +155,19 @@ const RootPage: NextPage = (): ReactElement => {
                 label="Thumbnail"
                 control={controlFaculty}
                 name="thumbnail"
-                status={facultyError.thumbnail ? 'error' : 'none'}
+                status={facultyError.thumbnail ? "error" : "none"}
                 message={facultyError.thumbnail?.message as string}
               />
               <Button
                 disabled={!facultyIsValid}
-                type={'submit'}
+                type={"submit"}
                 className="w-auto h-auto p-4 rounded-lg bg-success-400 font-[700] disabled:bg-neutral-400 text-white"
               >
                 Buat Fakultas
               </Button>
             </form>
           ) : (
-            <h1 className="text-black text-4xl font-[700]">
-              Need Authentication
-            </h1>
+            <h1 className="text-black text-4xl font-[700]">Need Authentication</h1>
           )}
         </div>
         <div className="flex"></div>

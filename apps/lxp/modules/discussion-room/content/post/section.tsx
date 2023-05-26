@@ -1,9 +1,9 @@
-import { FC, Fragment, ReactElement } from 'react';
-import Image from 'next/image';
+import { FC, Fragment, ReactElement } from "react";
+import Image from "next/image";
 
-import { AiFillLike } from 'react-icons/ai';
-import { GoCommentDiscussion } from 'react-icons/go';
-import { TDiscussinCardProps } from './types';
+import { AiFillLike } from "react-icons/ai";
+import { GoCommentDiscussion } from "react-icons/go";
+import { TDiscussinCardProps } from "./types";
 
 const DiscussionCard: FC<TDiscussinCardProps> = ({
   hasImage,
@@ -21,23 +21,21 @@ const DiscussionCard: FC<TDiscussinCardProps> = ({
     <Fragment>
       <div
         className={`${
-          type === 'post' ? 'bg-neutral-50' : 'bg-neutral-100'
+          type === "post" ? "bg-neutral-50" : "bg-neutral-100"
         } px-5 md:px-8 lg:px-10 py-5 mb-6  border-neutral-100 border-2 rounded-md shadow-sm`}
       >
         <div className="flex justify-between relative">
           <section className=" border-neutral-100/60 flex gap-4 items-center mb-6">
             <Image
               src={
-                'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630203/sub_thumbnail_c63ea956-d2ae-48bb-851b-64c4ad74e580.png'
+                "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630203/sub_thumbnail_c63ea956-d2ae-48bb-851b-64c4ad74e580.png"
               }
               height={32}
               width={32}
               alt="userIcon"
             />
             <div className="flex flex-col">
-              <h1 className="font-bold text-neutral-800 text-xs md:text-sm">
-                {userName}
-              </h1>
+              <h1 className="font-bold text-neutral-800 text-xs md:text-sm">{userName}</h1>
               <p className="text-neutral-400  text-xs">{time}</p>
             </div>
           </section>

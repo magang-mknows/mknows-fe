@@ -1,47 +1,38 @@
-import { ChangeEvent, FC, ReactElement, useState } from 'react';
-import NextImage from 'next/image';
-import { TNavbarProps, TPopUpAllFeaturesProps, TPopUpProps } from '../../types';
-import { useSession } from 'next-auth/react';
-import { motion } from 'framer-motion';
-import { IconFeature, IconRing } from '../icons';
-import Image from 'next/image';
-import {
-  Button,
-  SearchInput,
-} from '@mknows-frontend-services/components/atoms';
-import Link from 'next/link';
-import Avatar from 'react-avatar';
+import { ChangeEvent, FC, ReactElement, useState } from "react";
+import NextImage from "next/image";
+import { TNavbarProps, TPopUpAllFeaturesProps, TPopUpProps } from "../../types";
+import { useSession } from "next-auth/react";
+import { motion } from "framer-motion";
+import { IconFeature, IconRing } from "../icons";
+import Image from "next/image";
+import { Button, SearchInput } from "@mknows-frontend-services/components/atoms";
+import Link from "next/link";
+import Avatar from "react-avatar";
 
 const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   return (
     <motion.section
-      initial={{ opacity: '20%', top: 30 }}
-      animate={{ opacity: '100%', top: 50 }}
-      exit={{ opacity: '100%', top: 100 }}
+      initial={{ opacity: "20%", top: 30 }}
+      animate={{ opacity: "100%", top: 50 }}
+      exit={{ opacity: "100%", top: 100 }}
       className="flex flex-col font-bold gap-y-3 w-[318px] bg-white absolute top-[60px] rounded-lg right-[-20px] z-30 shadow-lg p-4"
     >
       <div className="flex gap-x-4 items-center">
         {userData?.avatar ? (
           <Image
             src={userData.avatar}
-            alt={'user avatar'}
+            alt={"user avatar"}
             width={36}
             height={36}
             className="bg-white rounded-lg flex text-neutral-600 items-center justify-center font-[700]"
           />
         ) : (
-          <Avatar
-            name={userData?.full_name}
-            className="rounded-full w-[36px] h-[36px]"
-            size="36"
-          />
+          <Avatar name={userData?.full_name} className="rounded-full w-[36px] h-[36px]" size="36" />
         )}
 
         <div className="flex flex-col gap-y-2">
           <span className="text-[16px]">{userData.full_name}</span>
-          <span className="text-[14px] text-neutral-base font-normal">
-            {userData.email}
-          </span>
+          <span className="text-[14px] text-neutral-base font-normal">{userData.email}</span>
         </div>
       </div>
       <hr className="w-full text-neutral-base" />
@@ -50,7 +41,7 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
           <div
             key={key}
             onClick={item.onClick}
-            className={'flex items-center gap-x-3 cursor-pointer'}
+            className={"flex items-center gap-x-3 cursor-pointer"}
           >
             {item.icon}
             <span>{item.name}</span>
@@ -61,22 +52,17 @@ const PopUpMenu: FC<TPopUpProps> = ({ items, userData }): ReactElement => {
   );
 };
 
-const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
-  features,
-  onClick,
-}): ReactElement => {
+const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({ features, onClick }): ReactElement => {
   return (
     <motion.section
-      initial={{ opacity: '20%', top: 30 }}
-      animate={{ opacity: '100%', top: 50 }}
-      exit={{ opacity: '100%', top: 120 }}
+      initial={{ opacity: "20%", top: 30 }}
+      animate={{ opacity: "100%", top: 50 }}
+      exit={{ opacity: "100%", top: 120 }}
       className="flex flex-col bg-white font-bold gap-y-3  absolute items-center w-auto top-0 rounded-lg right-[180px] shadow-lg"
     >
       <div className="flex w-full h-[91px] rounded-tl-lg rounded-tr-lg flex-col p-[16px] justify-center items-center bg-yellow-200">
         <h1 className="text-[20px]">Fitur</h1>
-        <div className="flex bg-yellow-500 text-white p-2 rounded-lg">
-          Total 16 Fitur
-        </div>
+        <div className="flex bg-yellow-500 text-white p-2 rounded-lg">Total 16 Fitur</div>
       </div>
       <div className="grid grid-rows-2 gap-4 p-4 grid-cols-2 w-full items-center justify-center place-items-center">
         {features.map((item, key) => (
@@ -85,9 +71,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
             type="button"
             href={item.link}
             key={key}
-            className={
-              'flex flex-col justify-start items-center gap-y-2 w-[137px] h-auto'
-            }
+            className={"flex flex-col justify-start items-center gap-y-2 w-[137px] h-auto"}
           >
             <div>{item.icon}</div>
             <span className="text-sm font-normal">{item.name}</span>
@@ -95,7 +79,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({
         ))}
       </div>
       <Link
-        href={'/semua-fitur'}
+        href={"/semua-fitur"}
         className="flex bg-primary-500 p-4 items-center justify-center rounded-bl-lg rounded-br-lg w-full text-white font-[700]"
       >
         Lihat Semua
@@ -118,7 +102,7 @@ export const TopNav: FC<TNavbarProps> = ({
 
   return (
     <header className="flex w-full justify-between px-[72px] relative py-[12px] bg-white">
-      <Link href={'/'} className="flex items-center">
+      <Link href={"/"} className="flex items-center">
         <NextImage
           src={logo}
           alt="logo navbar"
@@ -133,9 +117,9 @@ export const TopNav: FC<TNavbarProps> = ({
         {withSearch && (
           <SearchInput
             onChange={function (event: ChangeEvent<HTMLInputElement>): void {
-              throw new Error('Function not implemented.');
+              throw new Error("Function not implemented.");
             }}
-            value={''}
+            value={""}
           />
         )}
       </div>
@@ -158,7 +142,7 @@ export const TopNav: FC<TNavbarProps> = ({
             </div>
             <Avatar
               src={userData?.avatar}
-              alt={'user avatar'}
+              alt={"user avatar"}
               size="36"
               name={userData.full_name}
               onClick={() => {

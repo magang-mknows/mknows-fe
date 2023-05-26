@@ -1,28 +1,28 @@
-import { Tab } from '@headlessui/react';
+import { Tab } from "@headlessui/react";
 
-import ImageEventList from '@/assets/event/event-list.svg';
-import eventSuccess from '@/assets/event/eventSuccess.svg';
-import checklist from '@/assets/event/checklist.svg';
+import ImageEventList from "@/assets/event/event-list.svg";
+import eventSuccess from "@/assets/event/eventSuccess.svg";
+import checklist from "@/assets/event/checklist.svg";
 
-import Image from 'next/image';
-import { FC, Fragment, ReactElement } from 'react';
+import Image from "next/image";
+import { FC, Fragment, ReactElement } from "react";
 
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { AiFillInfoCircle } from 'react-icons/ai';
-import Contact from './contact';
-import { Description } from './description';
-import { Information } from './information';
-import Link from 'next/link';
-import { BaseLayout } from '../../common';
-import { BreadCrumb, Button } from '@mknows-frontend-services/components/atoms';
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
-import { acaraKampusBreadCumbs } from '../../administration/constant';
-import { usePopupEvent } from '../hooks';
+import { BsCheckCircleFill } from "react-icons/bs";
+import { AiFillInfoCircle } from "react-icons/ai";
+import Contact from "./contact";
+import { Description } from "./description";
+import { Information } from "./information";
+import Link from "next/link";
+import { BaseLayout } from "../../common";
+import { BreadCrumb, Button } from "@mknows-frontend-services/components/atoms";
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import { acaraKampusBreadCumbs } from "../../administration/constant";
+import { usePopupEvent } from "../hooks";
 
 const dummyBenefits = [
-  'Sertifikat',
-  'Pemahaman tentang Cyber Security',
-  'Ilmu langsung dari seorang Cyber Security',
+  "Sertifikat",
+  "Pemahaman tentang Cyber Security",
+  "Ilmu langsung dari seorang Cyber Security",
 ];
 
 const EventDetail: FC = (): ReactElement => {
@@ -41,9 +41,7 @@ const EventDetail: FC = (): ReactElement => {
             className="w-full lg:w-[720px]"
           />
           <div className="py-4">
-            <h1 className="text-lg font-bold mb-7 text-neutral-900">
-              Webinar Cyber Security
-            </h1>
+            <h1 className="text-lg font-bold mb-7 text-neutral-900">Webinar Cyber Security</h1>
             <div className="mb-7">
               <h1 className="mb-2 text-lg text-neutral-600">Benefit</h1>
               {dummyBenefits.map((item, index) => {
@@ -59,9 +57,7 @@ const EventDetail: FC = (): ReactElement => {
               })}
             </div>
             <h1 className="text-lg font-bold text-red-500 mb-7">GRATIS</h1>
-            <p className="text-sm text-neutral-600 mb-7">
-              Tuesday, 28 February 2023 19:00 WIB
-            </p>
+            <p className="text-sm text-neutral-600 mb-7">Tuesday, 28 February 2023 19:00 WIB</p>
             <Button
               onClick={() => setPopupStatus(true)}
               type="submit"
@@ -76,7 +72,7 @@ const EventDetail: FC = (): ReactElement => {
         <main className=" min-h-[80vh] py-4 ">
           <Tab.Group>
             <Tab.List
-              as={'div'}
+              as={"div"}
               className="flex gap-2 mb-5 text-sm font-medium border-b-2 text-neutral-400"
             >
               <Tab as={Fragment}>
@@ -85,8 +81,8 @@ const EventDetail: FC = (): ReactElement => {
                   <div
                     className={`${
                       selected
-                        ? 'border-b-2 outline-none   border-primary-500 text-primary-500'
-                        : ''
+                        ? "border-b-2 outline-none   border-primary-500 text-primary-500"
+                        : ""
                     } py-2 px-4 cursor-pointer  font-bold`}
                   >
                     Deskripsi
@@ -98,9 +94,7 @@ const EventDetail: FC = (): ReactElement => {
                   /* Use the `selected` state to conditionally style the selected tab. */
                   <div
                     className={`${
-                      selected
-                        ? 'border-b-2 outline-none  border-primary-500 text-primary-500'
-                        : ''
+                      selected ? "border-b-2 outline-none  border-primary-500 text-primary-500" : ""
                     } py-2 px-4 cursor-pointer  font-bold`}
                   >
                     Informasi
@@ -112,9 +106,7 @@ const EventDetail: FC = (): ReactElement => {
                   /* Use the `selected` state to conditionally style the selected tab. */
                   <div
                     className={`${
-                      selected
-                        ? 'border-b-2 outline-none  border-primary-500 text-primary-500'
-                        : ''
+                      selected ? "border-b-2 outline-none  border-primary-500 text-primary-500" : ""
                     } py-2 px-4 cursor-pointer  font-bold`}
                   >
                     Kontak
@@ -139,18 +131,18 @@ const EventDetail: FC = (): ReactElement => {
           icon={checklist}
           lookup={getPopupStatus}
           image={eventSuccess}
-          popupTitle={'Kamu Berhasil Mendaftar'}
+          popupTitle={"Kamu Berhasil Mendaftar"}
           description={
-            'Kamu telah mendaftar webinar di hari Selasa, 28 Februari 2023 Pukul 19:00 WIB'
+            "Kamu telah mendaftar webinar di hari Selasa, 28 Februari 2023 Pukul 19:00 WIB"
           }
-          className={''}
+          className={""}
         >
           <div className="flex items-center gap-2 py-2 mt-4 mb-5 text-base rounded-md shadow-sm bg-primary-100 px-7">
             <AiFillInfoCircle className="text-primary-500" />
             <p className="text-primary-500/60">
-              Untuk informasi lebih lanjut silakan pergi ke page{' '}
+              Untuk informasi lebih lanjut silakan pergi ke page{" "}
               <span className="font-bold text-primary-500">
-                <Link passHref href={'/event'}>
+                <Link passHref href={"/event"}>
                   Event Terdaftar
                 </Link>
               </span>
@@ -163,16 +155,16 @@ const EventDetail: FC = (): ReactElement => {
               }}
               type="button"
               className={
-                'bg-white hover:bg-neutral-100 transition-colors ease-in-out duration-300 py-3 w-72 text-primary-500 font-bold border-2 border-primary-500 rounded-md'
+                "bg-white hover:bg-neutral-100 transition-colors ease-in-out duration-300 py-3 w-72 text-primary-500 font-bold border-2 border-primary-500 rounded-md"
               }
             >
               Tutup
             </Button>
-            <Link href={'/event'}>
+            <Link href={"/event"}>
               <Button
                 type="button"
                 className={
-                  'text-white hover:bg-primary-600 transition-colors ease-in-out duration-300 py-3 w-72 bg-primary-500 font-bold border-2 border-primary-500 rounded-md'
+                  "text-white hover:bg-primary-600 transition-colors ease-in-out duration-300 py-3 w-72 bg-primary-500 font-bold border-2 border-primary-500 rounded-md"
                 }
                 onClick={() => {
                   setPopupStatus(false);

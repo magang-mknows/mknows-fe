@@ -1,19 +1,27 @@
-import { FC, ReactElement, useState } from 'react';
-import { useUserData } from './hooks';
-import { Link } from 'react-router-dom';
-import Card from '../../components/molecules/card';
-import { Dialog } from '@headlessui/react';
+import { FC, ReactElement, useState } from "react";
+import { Link } from "react-router-dom";
+import Card from "../../components/molecules/card";
+import { Dialog } from "@headlessui/react";
 import {
   IconDropdown,
   IconEdit,
   IConDelete,
   IconCheck,
+<<<<<<< HEAD
   IconError,
 } from '../../components/atoms';
 import ToolTip from '../../components/atoms/tooltip/toolTip';
+=======
+  // IconError,
+} from "../../components/atoms";
+import ToolTip from "./toolTip";
+import { useUser, useFilterAction } from "./hooks";
+import { formatDate } from "@mknows-frontend-services/utils";
+>>>>>>> 1c6d27fc30e454d22023442e30c16a4c69b1fb92
 
 const Table: FC = (): ReactElement => {
-  const { getUserData } = useUserData();
+  const { getFilterAction } = useFilterAction();
+  const { data } = useUser(getFilterAction);
   const [isOpen, setisOpen] = useState(false);
 
   return (
@@ -59,28 +67,22 @@ const Table: FC = (): ReactElement => {
             </th>
           </tr>
         </thead>
-        {getUserData.map((item, key) => {
+        {data?.data.map((item, key) => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b ">
+                <td className="px-6 py-4 text-[#262626] cursor-default">{key + 1}</td>
+                <td className="px-6 py-4 text-[#262626] cursor-default">{item.nik}</td>
+                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">{item.name}</td>
                 <td className="px-6 py-4 text-[#262626] cursor-default">
-                  {key + 1}
-                </td>
-                <td className="px-6 py-4 text-[#262626] cursor-default">
-                  {item.nik}
-                </td>
-                <td className="px-6 py-4 font-bold text-[#262626] cursor-default">
-                  {item.nama}
-                </td>
-                <td className="px-6 py-4 text-[#262626] cursor-default">
-                  {item.tanggal}
+                  {formatDate({ date: new Date(item.createdAt) })}
                 </td>
                 <td className="px-6 py-4 text-[#262626] text-blue-500 font-semibold">
-                  <Link to={'/dashboard/user/detail-data'}>
+                  <Link to={"/dashboard/user/detail-data"}>
                     <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
                       <p>Lihat Detail</p>
                       <div className="">
-                        {item.berkas === 'success' ? (
+                        {/* {item.berkas === 'success' ? (
                           <ToolTip
                             tooltip="3/3 Data Terisi"
                             className="border-[#54B435] text-[#54B435] bg-white"
@@ -94,14 +96,20 @@ const Table: FC = (): ReactElement => {
                           >
                             <IconError />
                           </ToolTip>
-                        )}
+                        )} */}{" "}
+                        <ToolTip
+                          tooltip="3/3 Data Terisi"
+                          className="border-[#54B435] text-[#54B435] bg-white"
+                        >
+                          <IconCheck />
+                        </ToolTip>
                       </div>
                     </div>
                   </Link>
                 </td>
                 <td>
                   <div className="flex gap-2">
-                    <Link to={'/dashboard/user/edit-data'}>
+                    <Link to={"/dashboard/user/edit-data"}>
                       <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
                         <ToolTip className="bg-white" tooltip="Edit">
                           <IconEdit />

@@ -1,11 +1,11 @@
-import { FC, Fragment, ReactElement, useState, Suspense } from 'react';
-import { LoadingReport } from './loading';
-import Card from '../../components/molecules/card';
-import { Tab } from '@headlessui/react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { FC, Fragment, ReactElement, useState, Suspense } from "react";
+import { LoadingReport } from "./loading";
+import Card from "../../components/molecules/card";
+import { Tab } from "@headlessui/react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const ReportPage: FC = (): ReactElement => {
-  const [active, setActive] = useState('laporan');
+  const [active, setActive] = useState("laporan");
   return (
     <Suspense fallback={<LoadingReport />}>
       <Tab.Group>
@@ -14,17 +14,17 @@ const ReportPage: FC = (): ReactElement => {
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
-                style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' }}
+                style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
               >
                 <Tab as={Fragment}>
                   <button>
                     <NavLink
                       to="/dashboard/report"
                       className={`inline-block p-4 ${
-                        active === 'laporan' ? 'text-primary-400 ' : ''
+                        active === "laporan" ? "text-primary-400 " : ""
                       }       text-neutral-400 text-xs md:text-base `}
                       aria-current="page"
-                      onClick={() => setActive('laporan')}
+                      onClick={() => setActive("laporan")}
                     >
                       Laporan User
                     </NavLink>
@@ -35,12 +35,12 @@ const ReportPage: FC = (): ReactElement => {
                     <NavLink
                       to="/dashboard/report/request"
                       className={`inline-block p-4 ${
-                        active === 'report-request'
-                          ? 'text-primary-400 border-b-4 border-primary-400'
-                          : ''
+                        active === "report-request"
+                          ? "text-primary-400 border-b-4 border-primary-400"
+                          : ""
                       }       text-neutral-400 text-xs md:text-base`}
                       aria-current="page"
-                      onClick={() => setActive('report-request')}
+                      onClick={() => setActive("report-request")}
                     >
                       Laporan Permintaan
                     </NavLink>

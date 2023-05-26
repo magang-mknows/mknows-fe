@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import BannerAssets1 from '../assets/b1.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import BannerAssets1 from "../assets/b1.svg";
 
 export const Banner1Module: FC = (): ReactElement => {
   return (
@@ -12,15 +12,14 @@ export const Banner1Module: FC = (): ReactElement => {
               Dapatkan sertifikat Gratis!!
             </h1>
             <p className="text-white font-[700] text-[18px] text-center">
-              Sertifikat iSertifikat iSertifikat iSertifikat iSertifikat
-              iSertifikat iSertifikat i
+              Sertifikat iSertifikat iSertifikat iSertifikat iSertifikat iSertifikat iSertifikat i
             </p>
           </div>
           <Image
             src={BannerAssets1}
             width={410}
             height={438}
-            alt={'Banner 1'}
+            alt={"Banner 1"}
             priority={false}
             loading="lazy"
             className="rounded-tr-lg md:block hidden rounded-br-lg"

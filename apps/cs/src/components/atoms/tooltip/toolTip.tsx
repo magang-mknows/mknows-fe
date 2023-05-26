@@ -1,11 +1,12 @@
+<<<<<<< HEAD:apps/cs/src/components/atoms/tooltip/toolTip.tsx
 import { FC, ReactElement } from 'react';
 import { TtoolTip } from './type';
+=======
+import { FC, ReactElement } from "react";
+import { TtoolTip } from "./types";
+>>>>>>> 1c6d27fc30e454d22023442e30c16a4c69b1fb92:apps/cs/src/modules/user/toolTip.tsx
 
-const ToolTip: FC<TtoolTip> = ({
-  children,
-  tooltip,
-  className,
-}): ReactElement => {
+const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement => {
   return (
     <div className="group relative inline-block">
       {children}

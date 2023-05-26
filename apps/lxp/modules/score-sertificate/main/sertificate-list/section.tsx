@@ -1,6 +1,6 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { SertificateFilter } from './filter';
-import { Sertificate } from './main';
+import { FC, Fragment, ReactElement } from "react";
+import { SertificateFilter } from "./filter";
+import { Sertificate } from "./main";
 
 const SertificateList: FC = (): ReactElement => {
   return (

@@ -1,11 +1,11 @@
-import { FC, ReactElement, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Card from '../../../components/molecules/card';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { Dialog } from '@headlessui/react';
-import { useRequestData } from '../hooks';
-import { IconWarning } from '../../../components/atoms';
-import { useRequest } from '../hooks';
+import { FC, ReactElement, useState } from "react";
+import { Link } from "react-router-dom";
+import Card from "../../../components/molecules/card";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Dialog } from "@headlessui/react";
+import { useRequestData } from "../hooks";
+import { IconWarning } from "../../../components/atoms";
+import { useRequest } from "../hooks";
 
 const RequestModule: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -29,18 +29,12 @@ const RequestModule: FC = (): ReactElement => {
             >
               <div className="flex flex-row w-full h-full space-x-[10px]">
                 <div>
-                  <img
-                    src={getRequestData[index]}
-                    alt="icon"
-                    className="w-16 hidden md:flex"
-                  />
+                  <img src={getRequestData[index]} alt="icon" className="w-16 hidden md:flex" />
                 </div>
 
                 <div className="flex-col w-full space-y-1">
                   <p className="text-sm font-semibold">{item.name}</p>
-                  <p className="text-neutral-400 font-normal text-xs">
-                    Data Masuk 500
-                  </p>
+                  <p className="text-neutral-400 font-normal text-xs">Data Masuk 500</p>
                 </div>
                 <div className="text-center text-sm right-2 top-2 absolute rounded-[40px] w-[22px] h-[22px] bg-neutral-200">
                   {item.number}
@@ -103,8 +97,8 @@ const RequestModule: FC = (): ReactElement => {
                 </div>
                 <p className="font-semibold text-sm">Something went wrong!</p>
                 <p className="font-base text-xs text-neutral-400">
-                  Maaf, saat ini anda tidak dapat melanjutkan proses permintaan.
-                  Anda belum melengkapi data yang dibutuhkan.
+                  Maaf, saat ini anda tidak dapat melanjutkan proses permintaan. Anda belum
+                  melengkapi data yang dibutuhkan.
                 </p>
                 <div className="flex flex-row w-full gap gap-x-3">
                   <Button
@@ -115,11 +109,7 @@ const RequestModule: FC = (): ReactElement => {
                   >
                     Kembali
                   </Button>
-                  <Button
-                    type="button"
-                    className="w-full text-sm py-1"
-                    color="warning"
-                  >
+                  <Button type="button" className="w-full text-sm py-1" color="warning">
                     Lengkapi Data
                   </Button>
                 </div>

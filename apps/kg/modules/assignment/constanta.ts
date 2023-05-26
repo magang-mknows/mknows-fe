@@ -1,10 +1,10 @@
 export const assignmentBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Penugasan',
-    link: '/penugasan',
+    name: "Penugasan",
+    link: "/penugasan",
   },
 ];

@@ -1,26 +1,22 @@
-import { FC, ReactElement } from 'react';
-import { useRecoilState } from 'recoil';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { useRecoilState } from "recoil";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
-import { useGetAllDiscussion } from './hooks';
-import { isModalOpen, selectedOption } from './store';
-import { DiscussionPostOption } from './post/option';
-import {
-  DeleteConfirmModal,
-  PostReportModal,
-  PostSpamModal,
-} from './post/modal';
-import ReportSuccessModal from './post/modal/post-report-success/section';
+import { useGetAllDiscussion } from "./hooks";
+import { isModalOpen, selectedOption } from "./store";
+import { DiscussionPostOption } from "./post/option";
+import { DeleteConfirmModal, PostReportModal, PostSpamModal } from "./post/modal";
+import ReportSuccessModal from "./post/modal/post-report-success/section";
 
-import { IoMdAddCircleOutline } from 'react-icons/io';
-import { AiOutlineSearch } from 'react-icons/ai';
-import DiscussionCard from './post/section';
-import { FaTelegramPlane } from 'react-icons/fa';
-import { TiCamera } from 'react-icons/ti';
-import { CommentSection } from './CommentSection';
-import { PostCreateModal } from './post/modal/post-create';
-import { PostEditModal } from './post/modal/post-edit';
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { AiOutlineSearch } from "react-icons/ai";
+import DiscussionCard from "./post/section";
+import { FaTelegramPlane } from "react-icons/fa";
+import { TiCamera } from "react-icons/ti";
+import { CommentSection } from "./CommentSection";
+import { PostCreateModal } from "./post/modal/post-create";
+import { PostEditModal } from "./post/modal/post-edit";
 
 export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
@@ -59,7 +55,7 @@ export const DiscussionContent: FC = (): ReactElement => {
             className="relative z-10 flex items-center justify-center w-full gap-2 py-4 text-sm font-bold transition-colors duration-300 ease-in-out border-2 rounded-md border-version2-500 disabled:bg-[#106FA4]-200/70 disabled:border-none bg-[#106FA4] text-neutral-100 hover:opacity-50 hover:border-version2-300"
             onClick={() => {
               setOptionOpen(true);
-              setSelectedOption('create');
+              setSelectedOption("create");
             }}
           >
             <h1>Buat Diskusi</h1>
@@ -80,11 +76,7 @@ export const DiscussionContent: FC = (): ReactElement => {
               userName={discussion.author.full_name}
               title={discussion.title}
               text={discussion.content}
-              option={
-                <DiscussionPostOption
-                  id={`test id ${(index + 1) as unknown as string}`}
-                />
-              }
+              option={<DiscussionPostOption id={`test id ${(index + 1) as unknown as string}`} />}
             >
               <section className="w-full gap-5 mb-6 border-2 rounded-md shadow-sm border-neutral-100">
                 <label
@@ -119,12 +111,12 @@ export const DiscussionContent: FC = (): ReactElement => {
         lookup={isOptionOpen}
         onClose={() => setOptionOpen(false)}
       >
-        {getSelectedOption === 'create' && <PostCreateModal />}
-        {getSelectedOption === 'edit' && <PostEditModal />}
-        {getSelectedOption === 'report' && <PostReportModal />}
-        {getSelectedOption === 'reportDetail' && <PostSpamModal />}
-        {getSelectedOption === 'reportSuccess' && <ReportSuccessModal />}
-        {getSelectedOption === 'delete' && <DeleteConfirmModal />}
+        {getSelectedOption === "create" && <PostCreateModal />}
+        {getSelectedOption === "edit" && <PostEditModal />}
+        {getSelectedOption === "report" && <PostReportModal />}
+        {getSelectedOption === "reportDetail" && <PostSpamModal />}
+        {getSelectedOption === "reportSuccess" && <ReportSuccessModal />}
+        {getSelectedOption === "delete" && <DeleteConfirmModal />}
       </Modal>
     </section>
   );

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const UnChoosenIcon: FC = (): ReactElement => {
   return (
@@ -327,10 +327,7 @@ export const UnChoosenIcon: FC = (): ReactElement => {
         fill="#263238"
       />
       <g opacity="0.3">
-        <path
-          d="M104.619 284.219L104.644 286.958H116.194V284.475L104.619 284.219Z"
-          fill="black"
-        />
+        <path d="M104.619 284.219L104.644 286.958H116.194V284.475L104.619 284.219Z" fill="black" />
       </g>
       <path
         d="M97.9797 198.45L94.4416 232.558L91.9019 283.92H78.3486L77.9805 174.607L116.787 177.372L124.83 234.724L117.867 284.924H102.997L106.472 237.195L97.9797 198.45Z"
