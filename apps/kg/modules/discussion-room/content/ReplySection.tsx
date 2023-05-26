@@ -1,7 +1,7 @@
-import { FC, Fragment, ReactElement } from 'react';
-import DiscussionCard from './post/section';
-import { DiscussionPostOption } from './post/option';
-import { CommentReply } from './types';
+import { FC, Fragment, ReactElement } from "react";
+import DiscussionCard from "./post/section";
+import { DiscussionPostOption } from "./post/option";
+import { CommentReply } from "./types";
 
 type TReplyProps = {
   data: CommentReply[];
@@ -16,7 +16,7 @@ export const ReplySection: FC<TReplyProps> = ({ data }): ReactElement => {
     today.setHours(0, 0, 0, 0);
     return String((+today - +createdOn) / msInDay);
   }
-  
+
   return (
     <Fragment>
       {data?.map((reply, index) => {
@@ -31,11 +31,7 @@ export const ReplySection: FC<TReplyProps> = ({ data }): ReactElement => {
               text={reply.content}
               imgSource={reply.image as unknown as string}
               title="title"
-              option={
-                <DiscussionPostOption
-                  id={`test id ${(index + 1) as unknown as string}`}
-                />
-              }
+              option={<DiscussionPostOption id={`test id ${(index + 1) as unknown as string}`} />}
             />
           </section>
         );

@@ -1,11 +1,11 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export type TSubjectDetails = {
   conference: number;
   status: {
-    [key: string]: 'Done' | 'In Progress';
+    [key: string]: "Done" | "In Progress";
   };
-  progress: Array<'Done' | 'In Progress'>;
+  progress: Array<"Done" | "In Progress">;
   isOpen: boolean;
 };
 

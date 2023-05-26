@@ -1,7 +1,7 @@
-import { EmailSentModule } from '../../modules';
-import { NextPage } from 'next';
-import { GetSessionParams, getSession } from 'next-auth/react';
-import { ReactElement } from 'react';
+import { EmailSentModule } from "../../modules";
+import { NextPage } from "next";
+import { GetSessionParams, getSession } from "next-auth/react";
+import { ReactElement } from "react";
 
 const EmailSentPages: NextPage = (): ReactElement => {
   return <EmailSentModule />;
@@ -9,15 +9,13 @@ const EmailSentPages: NextPage = (): ReactElement => {
 
 export default EmailSentPages;
 
-export async function getServerSideProps(
-  context: GetSessionParams | undefined
-) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const session = await getSession(context);
 
   if (session) {
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };

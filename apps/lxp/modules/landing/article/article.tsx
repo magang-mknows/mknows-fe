@@ -1,23 +1,23 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import { BsCalendarDate } from 'react-icons/bs';
-import { BiRefresh } from 'react-icons/bi';
-import articleBg from '../assets/article1.svg';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import { BsCalendarDate } from "react-icons/bs";
+import { BiRefresh } from "react-icons/bi";
+import articleBg from "../assets/article1.svg";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const ArticleSection: FC = (): ReactElement => {
   const dummyArticles = [
     {
-      title: 'Meningkatkan Output Perusahaan dengan Pelatihan Karyawan',
-      text: 'Pelatihan karyawan telah menjadi salah satu elemen penting dalam pengembangan organisasi dan peningkatan produktivitas perusahaan.',
+      title: "Meningkatkan Output Perusahaan dengan Pelatihan Karyawan",
+      text: "Pelatihan karyawan telah menjadi salah satu elemen penting dalam pengembangan organisasi dan peningkatan produktivitas perusahaan.",
     },
     {
-      title: 'Apa Guna Pelatihan Karyawan',
-      text: 'Pelatihan karyawan adalah proses pendidikan yang penting dalam setiap bisnis yang sukses. Ini adalah metode pendidikan yang dirancang.',
+      title: "Apa Guna Pelatihan Karyawan",
+      text: "Pelatihan karyawan adalah proses pendidikan yang penting dalam setiap bisnis yang sukses. Ini adalah metode pendidikan yang dirancang.",
     },
     {
-      title: 'Maximizing Employee Effectivity: Tips for Achieving Success',
-      text: 'The success of a company relies heavily on the effectiveness of its employees. Employee effectivity refers to the ability of employees to perform their job  ',
+      title: "Maximizing Employee Effectivity: Tips for Achieving Success",
+      text: "The success of a company relies heavily on the effectiveness of its employees. Employee effectivity refers to the ability of employees to perform their job  ",
     },
   ];
 
@@ -41,9 +41,7 @@ export const ArticleSection: FC = (): ReactElement => {
                 />
                 <div className="bg-neutral-100 flex items-center gap-2 absolute bottom-3 text-sm left-4  px-4 py-1 rounded-md w-fit">
                   <BsCalendarDate className="text-version3-500" />
-                  <p className="text-neutral-900 font-medium">
-                    Februari 21, 2023
-                  </p>
+                  <p className="text-neutral-900 font-medium">Februari 21, 2023</p>
                 </div>
               </div>
               <h1 className="font-bold text-neutral-900 text-sm md:text-base mb-1">

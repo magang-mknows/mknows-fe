@@ -1,10 +1,10 @@
 export const rescheduleBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Simulasi, Drill & Assessment',
-    link: '/drill-simulasi',
+    name: "Simulasi, Drill & Assessment",
+    link: "/drill-simulasi",
   },
 ];

@@ -11,18 +11,17 @@ import {
 } from "react";
 
 export interface CardProps {
-    className?: string;
-    title?: string;
-    icon?: ReactNode;
-    children?: ReactNode;
-    titleStyle?: string;
-    imgwidth?: number;
-    imgheight?: number;
-    src?: StaticImport;
-    topText?: string;
-    hasImage: boolean;
-    href?: string;
-    imgStyle?: string;
-    onClick?: MouseEventHandler<HTMLDivElement>;
-  }
-  
+  className?: string;
+  title?: string;
+  icon?: ReactNode;
+  children?: ReactNode;
+  titleStyle?: string;
+  imgwidth?: number;
+  imgheight?: number;
+  src?: StaticImport;
+  topText?: string;
+  hasImage: boolean;
+  href?: string;
+  imgStyle?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+}

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const IconLogout: FC = (): ReactElement => {
   return (
@@ -10,11 +10,7 @@ export const IconLogout: FC = (): ReactElement => {
       xmlns="http://www.w3.org/2000/svg"
       className="w-full mb-[4px]"
     >
-      <path
-        d="M5.99814 8.00293H16.5047"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
+      <path d="M5.99814 8.00293H16.5047" stroke="currentColor" strokeWidth="1.5" />
       <path
         d="M14.0031 10.5051L16.5047 8.00352L14.0031 5.50195"
         stroke="currentColor"

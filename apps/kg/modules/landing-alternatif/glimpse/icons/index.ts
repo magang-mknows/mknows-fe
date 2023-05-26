@@ -1,1 +1,1 @@
-export * from './ic-check-green';
+export * from "./ic-check-green";

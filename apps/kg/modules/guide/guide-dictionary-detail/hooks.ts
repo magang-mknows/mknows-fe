@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { DictionaryType } from './constant';
-import { GuideDictionaryState } from './store';
+import { useRecoilState } from "recoil";
+import { DictionaryType } from "./constant";
+import { GuideDictionaryState } from "./store";
 
 type GuideDictionary = {
   setGuideDictionary: (val: Array<DictionaryType>) => void;

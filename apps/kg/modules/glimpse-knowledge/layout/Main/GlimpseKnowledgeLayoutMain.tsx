@@ -1,5 +1,5 @@
-import React, { FC, ReactElement } from 'react';
-import { RelatedGlimpseKnowledgeCard } from './Card/RelatedGlimpseKnowledgeCard';
+import React, { FC, ReactElement } from "react";
+import { RelatedGlimpseKnowledgeCard } from "./Card/RelatedGlimpseKnowledgeCard";
 
 export const GlimpseKnowledgeLayoutMain: FC = (): ReactElement => {
   return (

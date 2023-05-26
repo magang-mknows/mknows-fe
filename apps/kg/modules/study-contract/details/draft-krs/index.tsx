@@ -37,18 +37,21 @@ export const Draft: FC = (): ReactElement => {
                 setPopupStatus(false);
               }}
               type={"button"}
-            >Kembali</Button>
+            >
+              Kembali
+            </Button>
             <Button
               className="w-[230px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
               type={"button"}
               onClick={() => {
                 setPopupStatus(false);
               }}
-            >Lanjut</Button>
+            >
+              Lanjut
+            </Button>
           </div>
         </PopupModal>
       </div>
     </>
   );
 };
-

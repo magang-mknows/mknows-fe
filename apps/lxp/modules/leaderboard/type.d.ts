@@ -1,10 +1,10 @@
 export type leaderBoardRankProps = {
-    id?: string,
-    img: string;
-    score: number;
-    name: string;
-    index?: string | number;
-  };
+  id?: string;
+  img: string;
+  score: number;
+  name: string;
+  index?: string | number;
+};
 export interface PopupProfilProps {
   id?: string;
   img: string;
@@ -16,18 +16,18 @@ export interface PopupProfilProps {
   widthModal?: string;
   onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
 }
-  
+
 export const leaderBoardBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Dashboard',
-    link: '/dashboard',
+    name: "Dashboard",
+    link: "/dashboard",
   },
   {
-    name: 'Papan Skor',
-    link: '/papan-skor',
+    name: "Papan Skor",
+    link: "/papan-skor",
   },
 ];

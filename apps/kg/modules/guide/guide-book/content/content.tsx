@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { dummyGuide } from './store';
+import React, { ReactElement } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { dummyGuide } from "./store";
 
 export const ContentSection = (): ReactElement => {
   return (
@@ -11,10 +11,8 @@ export const ContentSection = (): ReactElement => {
           return (
             <Link key={index} href={item.href}>
               <div className="content bg-white dark:bg-[#232529]  w-full h-[54px] shadow-md rounded-[8px] flex justify-between items-center p-[24px] mt-[16px]">
-                <h1 className="font-[600] text-[16px] dark:text-white">
-                  {item.title}
-                </h1>
-                <Image src={item.img} alt={'book'} />
+                <h1 className="font-[600] text-[16px] dark:text-white">{item.title}</h1>
+                <Image src={item.img} alt={"book"} />
               </div>
             </Link>
           );

@@ -4,30 +4,28 @@ import {
   DashedText,
   LoadingSpinner,
   TextField,
-} from '@mknows-frontend-services/components/atoms';
-import { useForm } from 'react-hook-form';
-import { FC, ReactElement, Suspense, useEffect, useState } from 'react';
-import { lazily } from 'react-lazily';
-import { ErrorBoundary } from 'react-error-boundary';
-import Link from 'next/link';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { IconGoogle } from '../icons/ic-google';
+} from "@mknows-frontend-services/components/atoms";
+import { useForm } from "react-hook-form";
+import { FC, ReactElement, Suspense, useEffect, useState } from "react";
+import { lazily } from "react-lazily";
+import { ErrorBoundary } from "react-error-boundary";
+import Link from "next/link";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { IconGoogle } from "../icons/ic-google";
 
-import { usePopupForgotPass } from '../forgot/hooks';
-import { ForgotModule } from '../forgot';
+import { usePopupForgotPass } from "../forgot/hooks";
+import { ForgotModule } from "../forgot";
 
-const { AuthLayout } = lazily(
-  () => import('@mknows-frontend-services/modules')
-);
+const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
 const validationSchema = z.object({
-  email: z.string().min(1, { message: 'Email harus diisi' }).email({
-    message: 'Email harus valid',
+  email: z.string().min(1, { message: "Email harus diisi" }).email({
+    message: "Email harus valid",
   }),
-  password: z.string().min(1, { message: 'Password harus diisi' }),
+  password: z.string().min(1, { message: "Password harus diisi" }),
   remember: z.boolean().optional(),
 });
 
@@ -44,10 +42,10 @@ export const LoginModule: FC = (): ReactElement => {
     handleSubmit,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       remember: false,
     },
   });
@@ -55,13 +53,13 @@ export const LoginModule: FC = (): ReactElement => {
   const onSubmit = handleSubmit(async (data) => {
     setLoading(true);
     try {
-      const response = await signIn('login', {
+      const response = await signIn("login", {
         email: data.email,
         password: data.password,
         redirect: false,
       });
       if (response?.ok) {
-        router.push('/');
+        router.push("/dashboard");
       } else {
         setError(response?.error);
       }
@@ -72,9 +70,12 @@ export const LoginModule: FC = (): ReactElement => {
   });
 
   const onGoogleLogin = async () => {
-    await signIn('google', {
+    const res = await signIn("google", {
       redirect: false,
     });
+    if (res?.ok) {
+      router.push("./dashboard");
+    }
   };
 
   useEffect(() => {
@@ -90,18 +91,15 @@ export const LoginModule: FC = (): ReactElement => {
           title="Masuk"
           description="Silahkan masuk menggunakan email dan kata sandi yang terdaftar"
         >
-          <form
-            onSubmit={onSubmit}
-            className="flex flex-col w-full justify-start"
-          >
+          <form onSubmit={onSubmit} className="flex flex-col w-full justify-start">
             <TextField
               type="email"
               variant="lg"
               control={control}
-              name={'email'}
+              name={"email"}
               placeholder="maulana@sodiqin.com"
               label="Email"
-              status={errors.email ? 'error' : 'none'}
+              status={errors.email ? "error" : "none"}
               message={errors.email?.message}
               required
             />
@@ -109,20 +107,15 @@ export const LoginModule: FC = (): ReactElement => {
               type="password"
               variant="lg"
               control={control}
-              name={'password'}
+              name={"password"}
               placeholder="************"
               label="Kata Sandi"
-              status={errors.password ? 'error' : 'none'}
+              status={errors.password ? "error" : "none"}
               message={errors.password?.message}
               required
             />
             <div className="flex w-full justify-between my-2">
-              <Checkbox
-                variant="lg"
-                control={control}
-                name={'remember'}
-                label="Ingat Saya"
-              />
+              <Checkbox variant="lg" control={control} name={"remember"} label="Ingat Saya" />
               <div
                 className="text-primary-base cursor-pointer"
                 onClick={() => setPopupStatus(true)}
@@ -134,7 +127,7 @@ export const LoginModule: FC = (): ReactElement => {
               <Button
                 type="submit"
                 disabled={!isValid}
-                loading={loading ? 'Sedang Masuk..' : ''}
+                loading={loading ? "Sedang Masuk.." : ""}
                 className="w-auto disabled:bg-neutral-300 h-auto text-[18px] text-white p-4 rounded-lg border-2 border-neutral-200 appearance-none bg-primary-600 font-[700]"
               >
                 Masuk
@@ -151,7 +144,7 @@ export const LoginModule: FC = (): ReactElement => {
               </Button>
               <div className="flex w-full items-center justify-center my-4 gap-x-4 mb-4 font-[500] text-[18px] text-neutral-500">
                 <span>Belum punya akun?</span>
-                <Link className="text-primary-600" href={'/auth/register'}>
+                <Link className="text-primary-600" href={"/auth/register"}>
                   Daftar Disini
                 </Link>
               </div>

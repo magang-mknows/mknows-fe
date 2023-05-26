@@ -1,4 +1,4 @@
-import { TMetaResponse } from '@/services/types';
+import { TMetaResponse } from "@/services/types";
 
 export type T = {
   schedule: number;

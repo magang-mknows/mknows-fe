@@ -1,29 +1,29 @@
-import Image from 'next/image';
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { TsubjectItems } from './types';
+import Image from "next/image";
+import { FC, ReactElement, useEffect, useState } from "react";
+import { TsubjectItems } from "./types";
 
 export const TrainingContractTable: FC = (): ReactElement => {
   const subjects = [
     {
-      id: '9abad3e2-ed12-4968-a3dd-4c759f368620',
-      teacher_id: 'fac8531a-11c1-4d59-8634-b073acfe1b30',
-      department_id: '597c9a4d-5db2-4686-a53f-2ece479123c2',
-      name: 'Jembotos',
-      subject_code: 'PK_01',
-      degree: 'Degree',
+      id: "9abad3e2-ed12-4968-a3dd-4c759f368620",
+      teacher_id: "fac8531a-11c1-4d59-8634-b073acfe1b30",
+      department_id: "597c9a4d-5db2-4686-a53f-2ece479123c2",
+      name: "Jembotos",
+      subject_code: "PK_01",
+      degree: "Degree",
       level: 1,
-      indicator: 'indi',
-      study_experience: 'studt',
-      teaching_materials: 'materials',
-      basic_competencies: 'basic',
-      tools_needed: 'needed',
-      scoring: 'scoring',
-      description: 'description',
+      indicator: "indi",
+      study_experience: "studt",
+      teaching_materials: "materials",
+      basic_competencies: "basic",
+      tools_needed: "needed",
+      scoring: "scoring",
+      description: "description",
       thumbnail:
-        'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png',
+        "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png",
       credit: 3,
       session_total_number: 3,
-      slug: 'jembotos',
+      slug: "jembotos",
     },
   ];
 
@@ -45,16 +45,10 @@ export const TrainingContractTable: FC = (): ReactElement => {
             <table className="min-w-full  divide-neutral-400 ">
               <thead className="bg-secondary-blue-100/20 border-b-2 border-neutral-200">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     No
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Nama Pelatihan
                   </th>
                   <th
@@ -63,22 +57,13 @@ export const TrainingContractTable: FC = (): ReactElement => {
                   >
                     Kode Pelatihan
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Jumlah Poin
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Batch
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center  text-neutral-800 text-base "
-                  >
+                  <th scope="col" className="px-6 py-3 text-center  text-neutral-800 text-base ">
                     Jumlah Pertemuan
                   </th>
                 </tr>
@@ -135,9 +120,8 @@ export const TrainingContractTable: FC = (): ReactElement => {
                   </td>
                   <td className="col-span-4 py-4 ">
                     {subjects?.reduce(
-                      (prev: number, subject: TsubjectItems) =>
-                        prev + subject.credit,
-                      0
+                      (prev: number, subject: TsubjectItems) => prev + subject.credit,
+                      0,
                     )}
                   </td>
                 </tr>

@@ -1,9 +1,9 @@
-import { FC, ReactElement, useState } from 'react';
-import Image from 'next/image';
-import dummyImg from '../../assets/dummyCourse.png';
-import moreIcon from '../../assets/LihatSemua.svg';
-import { useRecoilValue } from 'recoil';
-import { ProgressState, progressSectionDummyData as dataDummy } from './store';
+import { FC, ReactElement, useState } from "react";
+import Image from "next/image";
+import dummyImg from "../../assets/dummyCourse.png";
+import moreIcon from "../../assets/LihatSemua.svg";
+import { useRecoilValue } from "recoil";
+import { ProgressState, progressSectionDummyData as dataDummy } from "./store";
 
 export const ProgressSection: FC = (): ReactElement => {
   const getProgress = useRecoilValue(ProgressState);
@@ -20,15 +20,11 @@ export const ProgressSection: FC = (): ReactElement => {
   };
   return (
     <section className="bg-white w-full pt-[28px] px-[24px] rounded-md pb-[44px] mb-[48px]">
-      <p className="font-semibold text-xl text-[#171717] mb-[8px] ">
-        Lanjutkan Mata Kuliah Kamu
-      </p>
+      <p className="font-semibold text-xl text-[#171717] mb-[8px] ">Lanjutkan Mata Kuliah Kamu</p>
       <p className="text-sm font-normal text-[#171717]">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
         {getProgress.slice(0, lengthData).map((dummy, i) => {
-          const percent = Math.floor(
-            (dummy.pertemuanDone / dummy.totalPertemuan) * 100
-          ).toString();
+          const percent = Math.floor((dummy.pertemuanDone / dummy.totalPertemuan) * 100).toString();
           const classDiv = `${percent}%`;
           return (
             <div
@@ -53,13 +49,13 @@ export const ProgressSection: FC = (): ReactElement => {
                     >
                       .
                     </div>
-                  </div>{' '}
+                  </div>{" "}
                   <p className="text-[14px] text-[#737373] font-normal inline mt-0 leading-none">
                     {dummy.pertemuanDone}/{dummy.totalPertemuan}
                     <span className="text-[12px]">Pertemuan</span>
                   </p>
                 </div>
-                {percent != '100' ? (
+                {percent != "100" ? (
                   <button className="bg-primary-500 h-fit text-neutral-200 text-sm px-6 py-3 hover:bg-primary-600 transition-colors lg:w-[200px] ease-in-out duration-300 rounded-md w-full">
                     Lanjut Belajar
                   </button>
@@ -77,13 +73,9 @@ export const ProgressSection: FC = (): ReactElement => {
         })}
         <button onClick={handleMore}>
           <p className="text-center text-[12px] text-[#737373] font-normal mb-[16px]">
-            {more ? 'Lihat Lebih Sedikit' : 'Lihat Semua'}
+            {more ? "Lihat Lebih Sedikit" : "Lihat Semua"}
           </p>
-          <Image
-            className={`mx-auto ${more && 'rotate-180'}`}
-            src={moreIcon}
-            alt="Lihat Semua"
-          />
+          <Image className={`mx-auto ${more && "rotate-180"}`} src={moreIcon} alt="Lihat Semua" />
         </button>
       </div>
     </section>

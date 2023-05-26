@@ -1,12 +1,12 @@
-import { Tab } from '@headlessui/react';
-import { ReactElement } from 'react';
-import AssigmentAssigned from '../../assets/assigned-assigment.svg';
-import AssigmentDone from '../../assets/assigned-done.svg';
-import AssignedAssesment from '../../assets/assigned-assesment.svg';
-import AssignedLate from '../../assets/assigned-late.svg';
-import AssigmentStatusTab from '../../common/AssigmenttStatusTab';
-import AssigmentStatusCard from '../../common/AssigmentStatusCard';
-import { useTabAssigment } from '../../hooks';
+import { Tab } from "@headlessui/react";
+import { ReactElement } from "react";
+import AssigmentAssigned from "../../assets/assigned-assigment.svg";
+import AssigmentDone from "../../assets/assigned-done.svg";
+import AssignedAssesment from "../../assets/assigned-assesment.svg";
+import AssignedLate from "../../assets/assigned-late.svg";
+import AssigmentStatusTab from "../../common/AssigmenttStatusTab";
+import AssigmentStatusCard from "../../common/AssigmentStatusCard";
+import { useTabAssigment } from "../../hooks";
 
 const AssigmentStatus = (): ReactElement => {
   const { getTabAssigment } = useTabAssigment();
@@ -14,35 +14,35 @@ const AssigmentStatus = (): ReactElement => {
   const dummyStoredDocument = [
     {
       id: 1,
-      title: 'tes',
-      course: 'Japanese-anime',
-      category: 'Ditugaskan',
-      date: '20-09-2021',
-      time: '20:00:00',
+      title: "tes",
+      course: "Japanese-anime",
+      category: "Ditugaskan",
+      date: "20-09-2021",
+      time: "20:00:00",
     },
     {
       id: 2,
-      title: 'tes',
-      course: 'Japanese-culture',
-      category: 'Terlambat',
-      date: '20-09-2021',
-      time: '20:00:00',
+      title: "tes",
+      course: "Japanese-culture",
+      category: "Terlambat",
+      date: "20-09-2021",
+      time: "20:00:00",
     },
     {
       id: 2,
-      title: 'tes',
-      course: 'Japanese-culture',
-      category: 'Sedang Dinilai',
-      date: '20-09-2021',
-      time: '20:00:00',
+      title: "tes",
+      course: "Japanese-culture",
+      category: "Sedang Dinilai",
+      date: "20-09-2021",
+      time: "20:00:00",
     },
     {
       id: 2,
-      title: 'tes',
-      course: 'Japanese-culture',
-      category: 'Selesai',
-      date: '20-09-2021',
-      time: '20:00:00',
+      title: "tes",
+      course: "Japanese-culture",
+      category: "Selesai",
+      date: "20-09-2021",
+      time: "20:00:00",
     },
   ];
 
@@ -51,7 +51,7 @@ const AssigmentStatus = (): ReactElement => {
       <Tab.Group as="div" className="py-4">
         <AssigmentStatusTab />
         <Tab.Panels as="div" className="px-8 md:px-14 lg:px-16 mt-5">
-          {getTabAssigment == 'Semua Tugas' ? (
+          {getTabAssigment == "Semua Tugas" ? (
             <Tab.Panel>
               {dummyStoredDocument.map((item, index) => {
                 return (
@@ -63,37 +63,37 @@ const AssigmentStatus = (): ReactElement => {
                     date={item.date}
                     time={item.time}
                     bgLine={
-                      item.category === 'Ditugaskan'
-                        ? 'bg-[#003A63]'
-                        : item.category === 'Terlambat'
-                        ? 'bg-[#D79210]'
-                        : item.category === 'Selesai'
-                        ? 'bg-[#3EB449]'
-                        : item.category === 'Sedang Dinilai'
-                        ? 'bg-[#737373]'
-                        : ''
+                      item.category === "Ditugaskan"
+                        ? "bg-[#003A63]"
+                        : item.category === "Terlambat"
+                        ? "bg-[#D79210]"
+                        : item.category === "Selesai"
+                        ? "bg-[#3EB449]"
+                        : item.category === "Sedang Dinilai"
+                        ? "bg-[#737373]"
+                        : ""
                     }
                     classNameCategory={
-                      item.category === 'Ditugaskan'
-                        ? 'text-[#003A63]'
-                        : item.category === 'Terlambat'
-                        ? 'text-[#D79210]'
-                        : item.category === 'Selesai'
-                        ? 'text-[#3EB449]'
-                        : item.category === 'Sedang Dinilai'
-                        ? 'text-[#737373]'
-                        : ''
+                      item.category === "Ditugaskan"
+                        ? "text-[#003A63]"
+                        : item.category === "Terlambat"
+                        ? "text-[#D79210]"
+                        : item.category === "Selesai"
+                        ? "text-[#3EB449]"
+                        : item.category === "Sedang Dinilai"
+                        ? "text-[#737373]"
+                        : ""
                     }
                     imgAssigment={
-                      item.category === 'Ditugaskan'
+                      item.category === "Ditugaskan"
                         ? AssigmentAssigned
-                        : item.category === 'Terlambat'
+                        : item.category === "Terlambat"
                         ? AssignedLate
-                        : item.category === 'Selesai'
+                        : item.category === "Selesai"
                         ? AssigmentDone
-                        : item.category === 'Sedang Dinilai'
+                        : item.category === "Sedang Dinilai"
                         ? AssignedAssesment
-                        : ''
+                        : ""
                     }
                   />
                 );
@@ -116,37 +116,37 @@ const AssigmentStatus = (): ReactElement => {
                       date={item.date}
                       time={item.time}
                       bgLine={
-                        item.category === 'Ditugaskan'
-                          ? 'bg-[#003A63]'
-                          : item.category === 'Terlambat'
-                          ? 'bg-[#D79210]'
-                          : item.category === 'Selesai'
-                          ? 'bg-[#3EB449]'
-                          : item.category === 'Sedang Dinilai'
-                          ? 'bg-[#737373]'
-                          : ''
+                        item.category === "Ditugaskan"
+                          ? "bg-[#003A63]"
+                          : item.category === "Terlambat"
+                          ? "bg-[#D79210]"
+                          : item.category === "Selesai"
+                          ? "bg-[#3EB449]"
+                          : item.category === "Sedang Dinilai"
+                          ? "bg-[#737373]"
+                          : ""
                       }
                       classNameCategory={
-                        item.category === 'Ditugaskan'
-                          ? 'text-[#003A63]'
-                          : item.category === 'Terlambat'
-                          ? 'text-[#D79210]'
-                          : item.category === 'Selesai'
-                          ? 'text-[#3EB449]'
-                          : item.category === 'Sedang Dinilai'
-                          ? 'text-[#737373]'
-                          : ''
+                        item.category === "Ditugaskan"
+                          ? "text-[#003A63]"
+                          : item.category === "Terlambat"
+                          ? "text-[#D79210]"
+                          : item.category === "Selesai"
+                          ? "text-[#3EB449]"
+                          : item.category === "Sedang Dinilai"
+                          ? "text-[#737373]"
+                          : ""
                       }
                       imgAssigment={
-                        item.category === 'Ditugaskan'
+                        item.category === "Ditugaskan"
                           ? AssigmentAssigned
-                          : item.category === 'Terlambat'
+                          : item.category === "Terlambat"
                           ? AssignedLate
-                          : item.category === 'Selesai'
+                          : item.category === "Selesai"
                           ? AssigmentDone
-                          : item.category === 'Sedang Dinilai'
+                          : item.category === "Sedang Dinilai"
                           ? AssignedAssesment
-                          : ''
+                          : ""
                       }
                     />
                   );

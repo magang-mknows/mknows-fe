@@ -1,14 +1,8 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const IConCalendar: FC = (): ReactElement => {
   return (
-    <svg
-      width="26"
-      height="24"
-      viewBox="0 0 26 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M8.67188 2V5M17.2969 2V5"
         stroke="#787878"

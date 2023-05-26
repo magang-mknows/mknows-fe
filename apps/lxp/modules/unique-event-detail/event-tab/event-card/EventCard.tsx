@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { HiOutlineTicket } from 'react-icons/hi';
-import { TbCalendarStats } from 'react-icons/tb';
-import { TEventCardProps } from '../../types';
+import { FC, ReactElement } from "react";
+import { HiOutlineTicket } from "react-icons/hi";
+import { TbCalendarStats } from "react-icons/tb";
+import { TEventCardProps } from "../../types";
 
 export const EventCard: FC<TEventCardProps> = ({ isOrder }): ReactElement => {
   return (
@@ -12,9 +12,7 @@ export const EventCard: FC<TEventCardProps> = ({ isOrder }): ReactElement => {
         ) : (
           <TbCalendarStats className="text-[30px]" />
         )}
-        <p className="text-lg font-thin ">
-          {isOrder ? 'Pemesanan Tiket' : 'Acara'}
-        </p>
+        <p className="text-lg font-thin ">{isOrder ? "Pemesanan Tiket" : "Acara"}</p>
       </header>
       <main className="text-sm text-neutral-500">
         {isOrder ? (

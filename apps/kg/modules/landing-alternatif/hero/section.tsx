@@ -1,14 +1,14 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import bg from './assets/bg.svg';
-import model from './assets/model.png';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import bg from "./assets/bg.svg";
+import model from "./assets/model.png";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const HeroAlternatif: FC = (): ReactElement => {
   return (
     <section>
       <div className="flex absolute w-full z-0">
-        <Image src={bg} alt={'tes'} />
+        <Image src={bg} alt={"tes"} />
       </div>
       <div className="flex relative z-20">
         <div className="flex p-16">
@@ -20,8 +20,8 @@ export const HeroAlternatif: FC = (): ReactElement => {
               Kuliah, Pelatihan, Magang & Pengalaman Kerja
             </p>
             <p className="text-[20px] py-4">
-              Platform Pendidikan Tinggi Gratis Pertama di Indonesia. Dengan
-              akses belajar yang mudah bagi semua tanpa syarat
+              Platform Pendidikan Tinggi Gratis Pertama di Indonesia. Dengan akses belajar yang
+              mudah bagi semua tanpa syarat
             </p>
             <Button
               type="button"
@@ -32,7 +32,7 @@ export const HeroAlternatif: FC = (): ReactElement => {
             </Button>
           </div>
           <div>
-            <Image src={model} width={700} alt={'model'} />
+            <Image src={model} width={700} alt={"model"} />
           </div>
         </div>
       </div>

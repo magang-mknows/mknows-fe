@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { HistoryCard } from './components/history-card';
+import { FC, ReactElement } from "react";
+import { HistoryCard } from "./components/history-card";
 
 export const QuizHistoryModule: FC = (): ReactElement => {
   return (

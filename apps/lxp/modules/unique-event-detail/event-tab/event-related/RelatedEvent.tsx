@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React, { FC } from 'react';
+import Image from "next/image";
+import React, { FC } from "react";
 
-import dummyImg from '../../../unique-event/event-content/dummy-img/event.svg';
+import dummyImg from "../../../unique-event/event-content/dummy-img/event.svg";
 
 export const RelatedEvent: FC = () => {
   return (
@@ -22,12 +22,8 @@ export const RelatedEvent: FC = () => {
         </figure>
         <div className="flex flex-col pt-4 text-neutral-800 ">
           <p className="mb-2 text-lg">Webinar Cyber Security</p>
-          <h1 className="text-[18px] text-version3-500 mb-2 font-bold">
-            GRATIS
-          </h1>
-          <p className="text-[14px] text-neutral-500">
-            Tuesday, 28 February 2023 19:00 WIB
-          </p>
+          <h1 className="text-[18px] text-version3-500 mb-2 font-bold">GRATIS</h1>
+          <p className="text-[14px] text-neutral-500">Tuesday, 28 February 2023 19:00 WIB</p>
         </div>
       </section>
     </section>

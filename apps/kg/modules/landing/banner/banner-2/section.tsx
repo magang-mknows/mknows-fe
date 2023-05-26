@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import BannerAssets2 from '../assets/b2.png';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import BannerAssets2 from "../assets/b2.png";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const Banner2Module: FC = (): ReactElement => {
   return (
@@ -13,12 +13,12 @@ export const Banner2Module: FC = (): ReactElement => {
               Yuk, Mulai Bangun MASA DEPAN-mu Disini!
             </h1>
             <p className="text-white font-[300] text-[24px] ">
-              Belajar 100% gratis, SELAMANYA, TANPA SYARAT, bersama mentor yang
-              ahli dibidangnya..... Tunggu apa lagi?
+              Belajar 100% gratis, SELAMANYA, TANPA SYARAT, bersama mentor yang ahli
+              dibidangnya..... Tunggu apa lagi?
             </p>
             <Button
               className="bg-[#2D9A41] flex items-center gap-x-4 w-full justify-center text-white font-[700] p-4 rounded-lg"
-              type={'button'}
+              type={"button"}
             >
               <span>Daftar Sekarang!</span>
             </Button>
@@ -27,7 +27,7 @@ export const Banner2Module: FC = (): ReactElement => {
             src={BannerAssets2}
             width={410}
             height={438}
-            alt={'Banner 2'}
+            alt={"Banner 2"}
             priority={false}
             loading="lazy"
             className="rounded-tr-lg md:block hidden rounded-br-lg py-[44px]"

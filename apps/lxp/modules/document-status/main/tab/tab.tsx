@@ -1,6 +1,6 @@
-import { Tab } from '@headlessui/react';
-import { FC, Fragment, ReactElement } from 'react';
-import { ducumentStatus } from './const';
+import { Tab } from "@headlessui/react";
+import { FC, Fragment, ReactElement } from "react";
+import { ducumentStatus } from "./const";
 
 export const DocumentStatusTab: FC = (): ReactElement => {
   return (
@@ -15,8 +15,8 @@ export const DocumentStatusTab: FC = (): ReactElement => {
               <button
                 className={`${
                   selected
-                    ? 'text-version3-500 border-b-2 border-version3-500 outline-none  focus:outline-none active:outline-none'
-                    : 'text-neutral-900'
+                    ? "text-version3-500 border-b-2 border-version3-500 outline-none  focus:outline-none active:outline-none"
+                    : "text-neutral-900"
                 } font-bold py-4 focus:outline-none outline-none `}
               >
                 {status}

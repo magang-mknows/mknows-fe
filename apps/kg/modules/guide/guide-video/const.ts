@@ -1,14 +1,14 @@
 export const guideVideoBreadCumbs = [
   {
-    name: 'Home',
-    link: '/',
+    name: "Home",
+    link: "/",
   },
   {
-    name: 'Panduan',
-    link: '/panduan',
+    name: "Panduan",
+    link: "/panduan",
   },
   {
-    name: 'Video Panduan',
-    link: '/panduan/video-panduan',
+    name: "Video Panduan",
+    link: "/panduan/video-panduan",
   },
 ];

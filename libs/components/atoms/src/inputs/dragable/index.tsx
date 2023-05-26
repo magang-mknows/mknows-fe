@@ -1,32 +1,27 @@
-import { ReactElement, useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
-import Image from 'next/image';
-import { TUploadFieldProps } from './types';
-import { FieldValues, useController } from 'react-hook-form';
+import { ReactElement, useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
+import Image from "next/image";
+import { TUploadFieldProps } from "./types";
+import { FieldValues, useController } from "react-hook-form";
 
 export const UploadDragbleField = <T extends FieldValues>(
-  props: TUploadFieldProps<T>
+  props: TUploadFieldProps<T>,
 ): ReactElement => {
   const { field } = useController(props);
-  const [type, setType] = useState('');
-  const [getName, setName] = useState('');
+  const [type, setType] = useState("");
+  const [getName, setName] = useState("");
   const onDrop = useCallback(
     (acceptedFiles: Array<File>) => {
       field.onChange(acceptedFiles[0]);
       setType(acceptedFiles[0]?.type);
       setName(acceptedFiles[0]?.name);
     },
-    [field, setType]
+    [field, setType],
   );
   const { getRootProps, getInputProps } = useDropzone({ ...props, onDrop });
-  const ACCEPTED_IMAGE_TYPES = [
-    'image/jpeg',
-    'image/jpg',
-    'image/webp',
-    'image/png',
-  ];
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "image/png"];
 
-  const ACCEPTED_VIDEO_TYPES = ['video/ogg', 'video/webm', 'video/mp4'];
+  const ACCEPTED_VIDEO_TYPES = ["video/ogg", "video/webm", "video/mp4"];
 
   return (
     <div
@@ -36,8 +31,8 @@ export const UploadDragbleField = <T extends FieldValues>(
       {type && getName && (
         <span
           onClick={() => {
-            setType('');
-            setName('');
+            setType("");
+            setName("");
           }}
           className="text-error-600 right-10 shadow-sm bg-white rounded-full p-4 w-[30px] h-[30px] items-center flex justify-center font-bold  absolute top-10"
         >
@@ -45,20 +40,10 @@ export const UploadDragbleField = <T extends FieldValues>(
         </span>
       )}
       {field.value && ACCEPTED_IMAGE_TYPES.includes(type) ? (
-        <Image
-          src={URL.createObjectURL(field.value)}
-          width={400}
-          height={400}
-          alt={'drag'}
-        />
+        <Image src={URL.createObjectURL(field.value)} width={400} height={400} alt={"drag"} />
       ) : field.value && ACCEPTED_VIDEO_TYPES.includes(type) ? (
-        <video
-          width={400}
-          controls
-          height={400}
-          src={URL.createObjectURL(field.value)}
-        />
-      ) : field.value && type === 'application/pdf' ? (
+        <video width={400} controls height={400} src={URL.createObjectURL(field.value)} />
+      ) : field.value && type === "application/pdf" ? (
         <span className="text-black">{getName}</span>
       ) : (
         <label className="flex flex-col items-center w-full px-4 py-6 bg-[#F5F5F5] dark:bg-transparent rounded-lg cursor-pointer hover:text-white">
@@ -145,9 +130,7 @@ export const UploadDragbleField = <T extends FieldValues>(
             />
           </svg>
 
-          <span className="mt-2 text-[14px] text-black dark:text-white">
-            Tambahkan foto/video
-          </span>
+          <span className="mt-2 text-[14px] text-black dark:text-white">Tambahkan foto/video</span>
           <span className="mt-2 text-[12px] text-[#737373] dark:text-white">
             atau seret dan letakkan
           </span>

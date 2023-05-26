@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const editPhotoState = atom({
-  key: 'edit-photo',
+  key: "edit-photo",
   default: false,
 });

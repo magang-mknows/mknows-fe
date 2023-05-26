@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { ViewProfileHero } from './hero';
-import { ViewProfilInfo } from './info';
-import { ViewProfileStats } from './stats';
+import { ViewProfileHero } from "./hero";
+import { ViewProfilInfo } from "./info";
+import { ViewProfileStats } from "./stats";
 
 export const ViewProfileSection: FC = (): ReactElement => {
   return (

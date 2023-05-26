@@ -1,13 +1,13 @@
-import { FC, ReactElement } from 'react';
-import Confirm from '../assets/Confirm.svg';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
-import Image, { StaticImageData } from 'next/image';
-import { useDataTable } from './hook';
-import { useDataCard } from './hook';
-import Download from '../assets/download1.svg';
-import Warning from '../assets/warning.svg';
-import { usePopupConfirmCardStudy } from './hook';
+import { FC, ReactElement } from "react";
+import Confirm from "../assets/Confirm.svg";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import Image, { StaticImageData } from "next/image";
+import { useDataTable } from "./hook";
+import { useDataCard } from "./hook";
+import Download from "../assets/download1.svg";
+import Warning from "../assets/warning.svg";
+import { usePopupConfirmCardStudy } from "./hook";
 // import SuspenseError from "@/modules/Common/SuspenseError";
 // import Loading from "../Loading";
 
@@ -28,7 +28,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               <Button
                 className="text-center lg:!w-44 !w-36 lg:h-[48px] !h-10 text-[16px]  bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] rounded-lg"
                 onClick={() => setPopupStatus(true)}
-                type={'button'}
+                type={"button"}
               >
                 + Mengajukan
               </Button>
@@ -52,12 +52,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           className="flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000 lg:text-center text-start text-md mx-8 px-3 lg:ml-80 w-full lg:w-[200px] lg:h-[48px] !h-10 text-[14px] font-normal bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]"
           type={'button'}
         >
-          <Image
-            width={30}
-            height={30}
-            alt="download"
-            src={Download as StaticImageData}
-          />
+          <Image width={30} height={30} alt="download" src={Download as StaticImageData} />
           Download Silabus
         </Button>
       </div>
@@ -100,9 +95,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
                     <Image src={x.img} alt="User" />
                     <div className="flex w-full flex-col w-auto">
                       <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
-                      <p className="pt-3 text-gray-400 text-start">
-                        {x.jmlh_mahasiswa}
-                      </p>
+                      <p className="pt-3 text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
                     </div>
                   </div>
                 </div>
@@ -133,8 +126,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
         className="!h-80 lg:!w-[100%] text-md py-10"
       >
         <h1 className="py-2">
-          Kamu akan mengajukan program study{' '}
-          <span className="font-bold">Software Engineering</span>
+          Kamu akan mengajukan program study <span className="font-bold">Software Engineering</span>
         </h1>
         <div
           className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
@@ -151,17 +143,17 @@ const SubmissionContractStudy: FC = (): ReactElement => {
           <Button
             className="lg:w-[230px] lg:h-[56px] w-[100px] h-[56px] h border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
             onClick={() => setPopupStatus(false)}
-            type={'button'}
+            type={"button"}
           >
             Batal
           </Button>
 
           <Button
             className="lg:w-[230px] lg:h-[56px] w-[110px] h-[56px] bg-[#106FA4] rounded-[8px] text-white"
-            type={'button'}
-            href={'/kontrak-krs/detail'}
+            type={"button"}
+            href={"/kontrak-krs/detail"}
           >
-            {' '}
+            {" "}
             Konfirmasi
           </Button>
         </div>

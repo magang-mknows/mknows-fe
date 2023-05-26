@@ -1,32 +1,26 @@
-import { FC, ReactElement } from 'react';
-import {
-  FeatureIcon1,
-  FeatureIcon2,
-  FeatureIcon3,
-  FeatureIcon4,
-  FeatureIcon5,
-} from '../icons';
+import { FC, ReactElement } from "react";
+import { FeatureIcon1, FeatureIcon2, FeatureIcon3, FeatureIcon4, FeatureIcon5 } from "../icons";
 
 export const FeatureSection: FC = (): ReactElement => {
   const _feature = [
     {
-      title: 'Instruktur Profesional',
+      title: "Instruktur Profesional",
       icon: <FeatureIcon1 />,
     },
     {
-      title: 'Perencanaan Studi & Karir',
+      title: "Perencanaan Studi & Karir",
       icon: <FeatureIcon2 />,
     },
     {
-      title: 'Asesment Kompetensi',
+      title: "Asesment Kompetensi",
       icon: <FeatureIcon3 />,
     },
     {
-      title: 'Penyaluran Kerja',
+      title: "Penyaluran Kerja",
       icon: <FeatureIcon4 />,
     },
     {
-      title: '50.000 Peserta',
+      title: "50.000 Peserta",
       icon: <FeatureIcon5 />,
     },
   ];

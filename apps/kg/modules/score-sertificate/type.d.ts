@@ -1,7 +1,10 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
 // certificate
 
 type TCertificate = {
+  certificates: TItemCertificate[];
+};
+type TItemCertificate = {
   id: string;
   student_id: string;
   subject_id: string;
@@ -27,4 +30,4 @@ type UserCertificate = {
   user_name: string;
 };
 
-export type TCertificateResponse = TMetaResponse<TCertificate>;
+export type TCertificateResponse = TMetaResponseSingle<TCertificate>;

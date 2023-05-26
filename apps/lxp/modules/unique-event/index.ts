@@ -1,1 +1,1 @@
-export * from './UniqueEventModule';
+export * from "./UniqueEventModule";

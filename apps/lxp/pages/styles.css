@@ -2,38 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-    /* Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }
 
 .carousel {
-    position: relative;
+  position: relative;
 }
 
 .content-carousel .carousel .control-dots {
-    position: absolute;
-    top: 0px;
-    width: fit-content;
-    right: 0;
-    margin-top: 10px;
-    display: flex;
-    gap: 3px;
+  position: absolute;
+  top: 0px;
+  width: fit-content;
+  right: 0;
+  margin-top: 10px;
+  display: flex;
+  gap: 3px;
 }
 
 .article-carousel .carousel .control-dots {
-    position: absolute;
-    bottom: 0;
-    width: auto;
-    right: 50%;
-    margin-top: 10px;
-    display: flex;
-    gap: 3px;
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  right: 50%;
+  margin-top: 10px;
+  display: flex;
+  gap: 3px;
 }

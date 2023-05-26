@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
-import { TBottomNavProps } from './types';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { FC, ReactElement } from "react";
+import { TBottomNavProps } from "./types";
+import { useRouter } from "next/router";
 
 export const BottomNav: FC<TBottomNavProps> = ({
   bottomNavItemStyle,
@@ -15,9 +15,7 @@ export const BottomNav: FC<TBottomNavProps> = ({
           href={nav.link}
           key={key}
           className={
-            router.pathname !== nav.link
-              ? 'text-neutral-base bg-none'
-              : bottomNavItemStyle
+            router.pathname !== nav.link ? "text-neutral-base bg-none" : bottomNavItemStyle
           }
         >
           {nav.name}

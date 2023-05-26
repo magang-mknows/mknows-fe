@@ -1,9 +1,9 @@
-import { FC, ReactElement } from 'react';
-import { administrationBreadCumbs } from './constant';
-import { ContentAdministration } from './content-administration/section';
-import { TitleAdministration } from './title-information';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { BaseLayout } from '../common';
+import { FC, ReactElement } from "react";
+import { administrationBreadCumbs } from "./constant";
+import { ContentAdministration } from "./content-administration/section";
+import { TitleAdministration } from "./title-information";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { BaseLayout } from "../common";
 
 export const AdministrationModule: FC = (): ReactElement => {
   return (

@@ -1,7 +1,7 @@
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { ShowDetailStatus } from '../../../store';
-import React, { FC, ReactElement } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { ShowDetailStatus } from "../../../store";
+import React, { FC, ReactElement } from "react";
+import { useSetRecoilState } from "recoil";
 
 export const SummaryTable: FC = (): ReactElement => {
   const setDetailStatus = useSetRecoilState(ShowDetailStatus);
@@ -14,16 +14,10 @@ export const SummaryTable: FC = (): ReactElement => {
             <table className="min-w-full divide-y divide-neutral-400 dark:divide-gray-700">
               <thead className="bg-primary-500">
                 <tr className="divide-x divide-neutral-300 dark:divide-gray-700">
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     Semester
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     SKS Diambil
                   </th>
                   <th
@@ -32,10 +26,7 @@ export const SummaryTable: FC = (): ReactElement => {
                   >
                     SKS Luus
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center font-medium text-white text-sm"
-                  >
+                  <th scope="col" className="px-6 py-3 text-center font-medium text-white text-sm">
                     IPK
                   </th>
                 </tr>
@@ -84,11 +75,7 @@ export const SummaryTable: FC = (): ReactElement => {
                   </td>
                 </tr>
                 <tr>
-                  <td
-                    scope="col"
-                    className="text-centerpy-4 dark:text-white"
-                    colSpan={3}
-                  >
+                  <td scope="col" className="text-centerpy-4 dark:text-white" colSpan={3}>
                     Rata-rata
                   </td>
                   <td className="col-span-4 py-4 dark:text-white">4.00</td>
@@ -106,7 +93,7 @@ export const SummaryTable: FC = (): ReactElement => {
       >
         <Button
           className=" bg-[#3EB449] hover:bg-[#339c3e] cursor-pointer transition-colors ease-in-out duration-300 shadow-md text-sm rounded-lg flex relative items-center justify-center text-white dark:bg-primary-500 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium"
-          type={'button'}
+          type={"button"}
         >
           Lihat Detail Nilai
         </Button>

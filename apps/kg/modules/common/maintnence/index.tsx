@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import maintnence from '../assets/images/maintnence.svg';
-import Image from 'next/image';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { BaseLayout } from '../layout';
+import { FC, ReactElement } from "react";
+import maintnence from "../assets/images/maintnence.svg";
+import Image from "next/image";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { BaseLayout } from "../layout";
 
 export const MaintnenceModule: FC = (): ReactElement => {
   return (
@@ -10,9 +10,7 @@ export const MaintnenceModule: FC = (): ReactElement => {
       <section className="flex items-center flex-col justify-center w-full h-screen">
         <Image src={maintnence} alt="maintnence" />
         <span className="text-2xl font-[600]">Mohon maaf halaman ini</span>
-        <span className="text-4xl font-[700] text-primary-base">
-          Sedang dalam Maintenence
-        </span>
+        <span className="text-4xl font-[700] text-primary-base">Sedang dalam Maintenence</span>
         <Button
           type="button"
           href="/"

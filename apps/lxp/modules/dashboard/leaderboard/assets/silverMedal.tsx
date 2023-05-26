@@ -1,12 +1,6 @@
 export const SilverMedal = () => {
   return (
-    <svg
-      width="37"
-      height="37"
-      viewBox="0 0 37 37"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_990_10497)">
         <path
           d="M14.1794 4.06725C14.0439 3.84135 13.7997 3.70312 13.5363 3.70312H6.28558C5.70261 3.70312 5.34252 4.3391 5.64246 4.839L13.7425 18.339C13.878 18.5649 14.1221 18.7031 14.3856 18.7031H21.6363C22.2193 18.7031 22.5793 18.0671 22.2794 17.5673L14.1794 4.06725Z"
@@ -157,11 +151,7 @@ export const SilverMedal = () => {
             type="matrix"
             values="0 0 0 0 0.637788 0 0 0 0 0.545996 0 0 0 0 0.47948 0 0 0 0.2 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_990_10497"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_990_10497" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

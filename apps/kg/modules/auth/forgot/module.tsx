@@ -1,17 +1,17 @@
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
-import { FC, ReactElement } from 'react';
-import { Button, TextField } from '@mknows-frontend-services/components/atoms';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
-import { usePopupForgotPass } from './hooks';
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import { FC, ReactElement } from "react";
+import { Button, TextField } from "@mknows-frontend-services/components/atoms";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { usePopupForgotPass } from "./hooks";
 
 export const ForgotModule: FC = (): ReactElement => {
   const { setPopupStatus, getPopupStatus } = usePopupForgotPass();
   const validationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
   });
 
@@ -21,9 +21,9 @@ export const ForgotModule: FC = (): ReactElement => {
     formState: { isValid, errors },
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
   return (
@@ -45,16 +45,16 @@ export const ForgotModule: FC = (): ReactElement => {
           <TextField
             type="email"
             variant="lg"
-            name={'email'}
+            name={"email"}
             control={control}
             placeholder="Masukan email"
-            status={errors.email ? 'error' : 'none'}
+            status={errors.email ? "error" : "none"}
             message={errors.email?.message}
           />
         </label>
 
         <div className="flex justify-center text-center w-full">
-          <Link href={'/auth/otp'}>
+          <Link href={"/auth/otp"}>
             <Button
               type="submit"
               disabled={!isValid}

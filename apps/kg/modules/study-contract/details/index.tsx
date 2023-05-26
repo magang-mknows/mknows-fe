@@ -22,6 +22,7 @@ const DetailContract: FC = (): ReactElement => {
     setPopupSuccess(false);
   };
   return (
+
     /* <Suspense fallback={<Loading />}>
         <BreadCrumbs items={contractStudyBreadCumbs} /> */
     <MainLayouts className="bg-[#FAFAFA]">
@@ -115,6 +116,7 @@ const DetailContract: FC = (): ReactElement => {
       </div>
     </MainLayouts>
     /* </Suspense> */
+
   );
 };
 

@@ -18,7 +18,6 @@ export const useDataTable = (): DataTableTypes => {
   };
 };
 
-
 type DataCardTypes = {
   setDataCard: (val: Array<DataCard>) => void;
   getDataCard: Array<DataCard>;

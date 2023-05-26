@@ -1,14 +1,14 @@
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { useRecoilState } from 'recoil';
-import { PopupProfilLeaderborad, popupGetUser } from './store';
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { useRecoilState } from "recoil";
+import { PopupProfilLeaderborad, popupGetUser } from "./store";
 import {
   ReturnTypesPopupProfil,
   ReturnTypesPopupGetUser,
   TLeaderboardItem,
   TLeaderboardResponse,
-} from './type';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { leaderboardGetRequest } from './api';
+} from "./type";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { leaderboardGetRequest } from "./api";
 
 export const usePopupProfilLeaderboard = (): ReturnTypesPopupProfil => {
   const [get, set] = useRecoilState(PopupProfilLeaderborad);
@@ -26,11 +26,8 @@ export const usePopupGetUser = (): ReturnTypesPopupGetUser => {
   };
 };
 
-export const useGetLeaderboard = (): UseQueryResult<
-  TLeaderboardResponse,
-  TMetaErrorResponse
-> =>
+export const useGetLeaderboard = (): UseQueryResult<TLeaderboardResponse> =>
   useQuery({
-    queryKey: ['get-leader-board'],
+    queryKey: ["get-leaderboard-user"],
     queryFn: async () => await leaderboardGetRequest(),
   });

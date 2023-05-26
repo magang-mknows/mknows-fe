@@ -1,7 +1,4 @@
-import {
-  TMetaResponse,
-  TMetaResponseSingle,
-} from '@mknows-frontend-services/utils';
+import { TMetaResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 type TMyStudyItem = {
   dataMajor: TDataMajor;

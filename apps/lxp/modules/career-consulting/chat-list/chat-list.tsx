@@ -1,6 +1,6 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import ConsultingChatCard from './chat-card/chat-card';
+import { FC, Fragment, ReactElement } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import ConsultingChatCard from "./chat-card/chat-card";
 
 export const CareerChatList: FC = (): ReactElement => {
   return (

@@ -1,5 +1,5 @@
-import { ReactElement, FC, ReactNode, RefObject } from 'react';
-import AliceCarousel from 'react-alice-carousel';
+import { ReactElement, FC, ReactNode, RefObject } from "react";
+import AliceCarousel from "react-alice-carousel";
 
 export const Carousel: FC<{
   children: ReactNode[];

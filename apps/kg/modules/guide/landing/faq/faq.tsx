@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { FC, ReactElement } from 'react';
-import { dummyTopik } from './store';
+import Link from "next/link";
+import { FC, ReactElement } from "react";
+import { dummyTopik } from "./store";
 
 export const FaqSection: FC = (): ReactElement => {
   return (

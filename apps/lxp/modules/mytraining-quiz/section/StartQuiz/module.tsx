@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import Question from './Question';
-import Count from './Count';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { myTrainingQuizBreadCumbs } from '../../constant';
-import { ClientProvider } from '../../../common/provider';
+import React, { Fragment } from "react";
+import Question from "./Question";
+import Count from "./Count";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { myTrainingQuizBreadCumbs } from "../../constant";
+import { ClientProvider } from "../../../common/provider";
 
 export const QuizStartPage = () => {
   return (

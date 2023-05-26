@@ -1,12 +1,4 @@
-import { Control } from 'react-hook-form';
-
-export type TUserDataDummy = {
-  no: number;
-  nik: number;
-  nama: string;
-  tanggal: string;
-  berkas: string;
-};
+import { Control } from "react-hook-form";
 
 export type TDataUploader = {
   name: string;

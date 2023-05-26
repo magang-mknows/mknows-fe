@@ -1,36 +1,31 @@
-import { AiFillCamera } from 'react-icons/ai';
-import { useRecoilState } from 'recoil';
-import { editPhotoState } from './store';
+import { AiFillCamera } from "react-icons/ai";
+import { useRecoilState } from "recoil";
+import { editPhotoState } from "./store";
 import {
   TextField,
   UploadField,
   SelectField,
   Button,
-} from '@mknows-frontend-services/components/atoms';
+} from "@mknows-frontend-services/components/atoms";
 
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useUpdateUserData, useUpdateUserProfile } from './hook';
-import { useEffect } from 'react';
-import Image from 'next/image';
-import { ImSpinner5 } from 'react-icons/im';
-import { useProfile } from '../../hooks';
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useUpdateUserData, useUpdateUserProfile } from "./hook";
+import { useEffect } from "react";
+import Image from "next/image";
+import { ImSpinner5 } from "react-icons/im";
+import { useProfile } from "../../hooks";
 
 export const EditProfileSection = () => {
   const [isEditPhoto, setEditPhoto] = useRecoilState(editPhotoState);
 
   const MAX_FILE_SIZE = 3000000;
-  const ACCEPTED_IMAGE_TYPES = [
-    'image/jpeg',
-    'image/jpg',
-    'image/webp',
-    'image/png',
-  ];
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/webp", "image/png"];
 
   const genders = [
-    { id: 1, value: 'LAKI-LAKI', label: 'Laki-Laki' },
-    { id: 2, value: 'PEREMPUAN', label: 'Perempuan' },
+    { id: 1, value: "LAKI-LAKI", label: "Laki-Laki" },
+    { id: 2, value: "PEREMPUAN", label: "Perempuan" },
   ];
 
   const avatarValidationSchema = z.object({
@@ -38,35 +33,32 @@ export const EditProfileSection = () => {
       .any()
       .refine(
         (files: File[]) => files !== undefined && files?.length >= 1,
-        'Harus ada file yang di upload.'
+        "Harus ada file yang di upload.",
       )
       .refine(
-        (files: File[]) =>
-          files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
-        'Ukuran maksimun adalah 3mb.'
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
       )
       .refine(
         (files: File[]) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
-        'hanya menerima .jpg, .jpeg, dan .webp.'
+        "hanya menerima .jpg, .jpeg, dan .webp.",
       ),
   });
 
   const informationvalidationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
-    full_name: z.string().min(1, { message: 'Nama lengkap harus diisi' }),
-    phone_number: z.string().min(1, { message: 'Nomor handphone harus diisi' }),
+    full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
+    phone_number: z.string().min(1, { message: "Nomor handphone harus diisi" }),
     gender: z.string(),
   });
 
-  type InformationValidationSchema = z.infer<
-    typeof informationvalidationSchema
-  >;
+  type InformationValidationSchema = z.infer<typeof informationvalidationSchema>;
   type AvatarValidationSchema = z.infer<typeof avatarValidationSchema>;
 
   const { data } = useProfile();
-  const userData = data?.data.user;
+  const userData = data;
 
   const {
     control: avatarControl,
@@ -75,7 +67,7 @@ export const EditProfileSection = () => {
     reset: avatarReset,
   } = useForm<AvatarValidationSchema>({
     resolver: zodResolver(avatarValidationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
       avatar: undefined,
     },
@@ -88,12 +80,12 @@ export const EditProfileSection = () => {
     reset: informationReset,
   } = useForm<InformationValidationSchema>({
     resolver: zodResolver(informationvalidationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
-      full_name: '',
-      phone_number: '',
-      gender: '',
+      email: "",
+      full_name: "",
+      phone_number: "",
+      gender: "",
     },
   });
 
@@ -109,9 +101,9 @@ export const EditProfileSection = () => {
       },
       {
         onSuccess: () => {
-          console.log('data terupdate');
+          console.log("data terupdate");
         },
-      }
+      },
     );
   });
 
@@ -121,9 +113,9 @@ export const EditProfileSection = () => {
       { ...data, avatar: data?.avatar[0] as File },
       {
         onSuccess: () => {
-          console.log('profile terupdate');
+          console.log("profile terupdate");
         },
-      }
+      },
     );
   });
 
@@ -145,7 +137,7 @@ export const EditProfileSection = () => {
                 src={userData?.avatar}
                 alt="avatar"
                 height={100}
-                width={'100'}
+                width={"100"}
                 loading="eager"
                 priority
                 className="h-full w-full rounded-full  object-cover  border-[1px] border-neutral-100"
@@ -162,7 +154,7 @@ export const EditProfileSection = () => {
               </div>
               <form
                 className={`${
-                  isEditPhoto ? 'absolute' : 'hidden'
+                  isEditPhoto ? "absolute" : "hidden"
                 }  flex flex-col border-[1px] h-[4.3rem] overflow-hidden  border-neutral-100 rounded-md  transition-all duration-100 ease-in-out shadow-sm w-36 text-xs mt-2 `}
               >
                 <p
@@ -184,7 +176,7 @@ export const EditProfileSection = () => {
                   <UploadField
                     onChange={handleSubmitAvatar}
                     variant="sm"
-                    name={'avatar'}
+                    name={"avatar"}
                     control={avatarControl}
                     className="hidden"
                   />
@@ -200,10 +192,10 @@ export const EditProfileSection = () => {
             type="email"
             variant="md"
             control={informationControl}
-            name={'email'}
+            name={"email"}
             placeholder="bangrudy@gmail.com"
             label="Email"
-            status={informationError.email ? 'error' : 'none'}
+            status={informationError.email ? "error" : "none"}
             message={informationError.email?.message}
             className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] disabled:!bg-neutral-100 disabled:!text-neutral-500"
           />
@@ -212,8 +204,8 @@ export const EditProfileSection = () => {
             control={informationControl}
             label="Jenis Kelamin"
             options={genders}
-            name={'gender'}
-            variant={'md'}
+            name={"gender"}
+            variant={"md"}
             labelClassName="text-sm"
             styleText="!text-sm"
             className="!h-[40px] !rounded-[8px] !text-neutral-800"
@@ -223,10 +215,10 @@ export const EditProfileSection = () => {
             type="text"
             variant="md"
             control={informationControl}
-            name={'full_name'}
+            name={"full_name"}
             placeholder="Mamang Racing"
             label="Nama Lengkap"
-            status={informationError.full_name ? 'error' : 'none'}
+            status={informationError.full_name ? "error" : "none"}
             message={informationError.full_name?.message}
             className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3]"
           />
@@ -235,10 +227,10 @@ export const EditProfileSection = () => {
             type="number"
             variant="md"
             control={informationControl}
-            name={'phone_number'}
+            name={"phone_number"}
             placeholder="089277771623"
             label="Nomer Handphone"
-            status={informationError.phone_number ? 'error' : 'none'}
+            status={informationError.phone_number ? "error" : "none"}
             message={informationError.phone_number?.message}
             className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />

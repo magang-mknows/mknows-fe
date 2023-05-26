@@ -1,25 +1,25 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { Disclosure } from '@headlessui/react';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { BiCalendarEvent } from 'react-icons/bi';
-import { BsCheck } from 'react-icons/bs';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { FC, Fragment, ReactElement } from "react";
+import { Disclosure } from "@headlessui/react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { BiCalendarEvent } from "react-icons/bi";
+import { BsCheck } from "react-icons/bs";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   RequestSceduleSuccessModal,
   dummyRegisteredSimulation,
   dummySceduleSimulation,
-} from '../../drill-simulation';
-import { selectedDateSimulation, successPopupState } from './store';
-import { RequestScheduleInstrucion } from './instruction';
-import { IoMdArrowDropdown } from 'react-icons/io';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { DayIcon, NightIcon } from './assets';
+} from "../../drill-simulation";
+import { selectedDateSimulation, successPopupState } from "./store";
+import { RequestScheduleInstrucion } from "./instruction";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { DayIcon, NightIcon } from "./assets";
 
 export const RequestSceduleMain: FC = (): ReactElement => {
   const pathname = usePathname() as unknown as string;
-  const currentPath = decodeURIComponent(pathname).split('/');
+  const currentPath = decodeURIComponent(pathname).split("/");
   const getSelectedDrill = useRecoilValue(dummySceduleSimulation);
   const setSelectedSimulation = useSetRecoilState(dummyRegisteredSimulation);
 
@@ -36,7 +36,7 @@ export const RequestSceduleMain: FC = (): ReactElement => {
         <figure className="h-[220px]  rounded-md overflow-hidden mb-4  w-full">
           <Image
             src={
-              'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630131/sub_thumbnail_eff70dfe-3df7-497f-ab45-2901975024ad.png'
+              "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1683630131/sub_thumbnail_eff70dfe-3df7-497f-ab45-2901975024ad.png"
             }
             alt="dummy-view"
             width={100}
@@ -50,18 +50,12 @@ export const RequestSceduleMain: FC = (): ReactElement => {
         return (
           <article key={index}>
             <header className="mb-6">
-              <h1 className="text-xl font-bold text-neutral-900 mb-1">
-                {item.title}
-              </h1>
+              <h1 className="text-xl font-bold text-neutral-900 mb-1">{item.title}</h1>
               <p className="text-sm text-neutral-500 mb-1">{item.category}</p>
-              <p className="text-sm text-neutral-500">
-                Lokasi : {item.location}
-              </p>
+              <p className="text-sm text-neutral-500">Lokasi : {item.location}</p>
             </header>
             <main>
-              <h1 className="text-sm font-bold mb-3">
-                Pilih tanggal dan waktu Simulasi
-              </h1>
+              <h1 className="text-sm font-bold mb-3">Pilih tanggal dan waktu Simulasi</h1>
               <section className="w-full flex flex-wrap lg:flex-nowrap  mb-4 gap-2">
                 {item.schedule.map((time, index) => {
                   return (
@@ -69,14 +63,14 @@ export const RequestSceduleMain: FC = (): ReactElement => {
                       key={index}
                       className={`${
                         time.date === getSelected.date
-                          ? 'bg-version3-500 text-neutral-50'
-                          : 'bg-neutral-50 text-neutral-500 hover:text-neutral-100 '
+                          ? "bg-version3-500 text-neutral-50"
+                          : "bg-neutral-50 text-neutral-500 hover:text-neutral-100 "
                       } flex gap-2 w-full  px-4 py-2 cursor-pointer hover:bg-version2-500 transition-all ease-out duration-300 shadow-sm hover:shadow-md  items-center border-[1px] border-neutral-500 rounded-md`}
                       onClick={() => {
                         setSelected({
                           ...getSelected,
                           date: time.date,
-                          time: '',
+                          time: "",
                         });
                       }}
                     >
@@ -106,24 +100,15 @@ export const RequestSceduleMain: FC = (): ReactElement => {
                             >
                               <section className="flex justify-between">
                                 <div className="flex items-center gap-2">
-                                  {time.title === 'siang' ? (
-                                    <DayIcon />
-                                  ) : (
-                                    <NightIcon />
-                                  )}
+                                  {time.title === "siang" ? <DayIcon /> : <NightIcon />}
                                   <h1 className="font-bold text-sm">
-                                    {`${time.title
-                                      .charAt(0)
-                                      .toUpperCase()}${time.title.slice(1)}`}
+                                    {`${time.title.charAt(0).toUpperCase()}${time.title.slice(1)}`}
                                   </h1>
                                 </div>
                                 <IoMdArrowDropdown className="text-neutral-500 text-2xl" />
                               </section>
                             </Disclosure.Button>
-                            <Disclosure.Panel
-                              as="div"
-                              className={'bg-neutral-100/60 px-6'}
-                            >
+                            <Disclosure.Panel as="div" className={"bg-neutral-100/60 px-6"}>
                               {({ close }) => (
                                 <section className="py-3 flex w-full gap-2 ">
                                   {time.value.map((val, index) => {
@@ -138,8 +123,8 @@ export const RequestSceduleMain: FC = (): ReactElement => {
                                         key={index}
                                         className={`${
                                           val == getSelected.time
-                                            ? 'bg-version3-500 text-neutral-50 '
-                                            : 'bg-neutral-50 text-neutral-700 hover:text-neutral-100 hover:bg-version3-500 '
+                                            ? "bg-version3-500 text-neutral-50 "
+                                            : "bg-neutral-50 text-neutral-700 hover:text-neutral-100 hover:bg-version3-500 "
                                         } min-w-[80px] flex  px-3 py-1  cursor-pointer hover:shadow-md transition-all ease-in-out  gap-1 border-r-neutral-500 duration-150 rounded-md shadow-sm items-center  border-[1px] `}
                                       >
                                         <BsCheck className="text-2xl" />
@@ -159,11 +144,7 @@ export const RequestSceduleMain: FC = (): ReactElement => {
             </main>
             <div className="w-full flex justify-end py-4">
               <Button
-                disabled={
-                  getSelected.time === '' || getSelected.date === ''
-                    ? true
-                    : false
-                }
+                disabled={getSelected.time === "" || getSelected.date === "" ? true : false}
                 type="button"
                 className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300 text-sm py-3 w-[200px] md:w-[240px] lg:w-[300px]"
                 onClick={() => {
@@ -184,10 +165,10 @@ export const RequestSceduleMain: FC = (): ReactElement => {
                         },
                       ],
                       title: item.title,
-                      ImgSrc: '/assets/drill/dummyImg.svg',
+                      ImgSrc: "/assets/drill/dummyImg.svg",
                       category: item.category,
                       location: item.location,
-                      status: 'registered',
+                      status: "registered",
                     },
                   ]);
                 }}
@@ -207,15 +188,12 @@ export const RequestSceduleMain: FC = (): ReactElement => {
           setShowPopup(false);
         }}
       >
-        <RequestSceduleSuccessModal
-          title="Berhasil Mengajukan Simulasi!"
-          type="sent"
-        >
+        <RequestSceduleSuccessModal title="Berhasil Mengajukan Simulasi!" type="sent">
           <p className="text-neutral-500 text-sm text-center py-2">
             Kamu telah mengajukan simulasi di hari
             <span className="font-bold">
               {getSelected.date} Pukul {getSelected.time} WIB,
-            </span>{' '}
+            </span>{" "}
             Link Zoom simulasi akan dikirimkan melalui email.
           </p>
           <section className="w-full flex justify-center pt-4">
