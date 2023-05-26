@@ -3,6 +3,8 @@ import Image from "next/image";
 import random from "./icon/random.svg";
 import consultasion from "./icon/consultasion.svg";
 import option from "./icon/option.svg";
+import service from "./icon/service.svg";
+import headset from "./icon/ic-service.svg";
 
 export const ConsultationAndServiceModule: FC = (): ReactElement => {
   return (
@@ -43,7 +45,29 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center bg-white w-[420px] h-[450px] rounded-md shadow-xl"></div>
+        <div className="flex flex-col justify-center items-center bg-white w-[420px] h-[450px] rounded-md shadow-xl gap-4">
+          <div className="flex absolute top-80 pt-28">
+            <Image src={service} alt="consul" />
+          </div>
+          <div className="flex absolute top-80 pt-36">
+            <Image src={headset} alt="consul" />
+          </div>
+          <h1 className="text-black font-semibold text-[28px]">Layanan</h1>
+          <div className="flex flex-col text-left px-12 gap-y-4">
+            <div className="flex gap-2">
+              <Image src={option} alt=">" />
+              <p>Dokumen (Unduh berbagai dokumen)</p>
+            </div>
+            <div className="flex gap-2">
+              <Image src={option} alt=">" />
+              <p>Proses Dokumen (Ajukan dokumen yang telah di Unduh)</p>
+            </div>
+            <div className="flex gap-2">
+              <Image src={option} alt=">" />
+              <p>Cek Status Dokumen</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
