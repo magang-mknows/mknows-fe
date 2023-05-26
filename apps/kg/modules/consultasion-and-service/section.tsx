@@ -5,6 +5,7 @@ import consultasion from "./icon/consultasion.svg";
 import option from "./icon/option.svg";
 import service from "./icon/service.svg";
 import headset from "./icon/ic-service.svg";
+import { Accordion } from "@mknows-frontend-services/components/molecules";
 
 export const ConsultationAndServiceModule: FC = (): ReactElement => {
   return (
@@ -72,6 +73,12 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
       <section className="flex flex-col gap-3 mx-[136px]">
         <h1 className="text-[28px] font-semibold">Petanyaan yang sering Ditanyakan</h1>
         <p>Berikut list pertanyaan-pertanyaan yang sering ditanyakan kepada kami </p>
+        <Accordion title="Apa itu Kampus Gratis?" idAccordion="what" className="bg-neutral-200">
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
       </section>
     </main>
   );
