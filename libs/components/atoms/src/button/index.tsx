@@ -1,13 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { IButtonProps } from './types';
-import Link from 'next/link';
+import { FC, ReactElement } from "react";
+import { IButtonProps } from "./types";
+import Link from "next/link";
 
-export const Button: FC<IButtonProps> = ({
-  children,
-  loading,
-  href,
-  ...props
-}): ReactElement => {
+export const Button: FC<IButtonProps> = ({ children, loading, href, ...props }): ReactElement => {
   if (href) {
     return (
       <Link href={href}>

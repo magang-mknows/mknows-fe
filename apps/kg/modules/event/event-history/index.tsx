@@ -1,28 +1,22 @@
-import { FC, Fragment, ReactElement } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
+import { FC, Fragment, ReactElement } from "react";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
-import ImageEventList from '../assets/event-list.svg';
-import { SideBar } from '../common/side-bar';
-import { SearchBar } from '../common/search-bar';
-import { Pagination } from '../common/pagination';
-import { CardListProps } from '../types';
+import ImageEventList from "../assets/event-list.svg";
+import { SideBar } from "../common/side-bar";
+import { SearchBar } from "../common/search-bar";
+import { Pagination } from "../common/pagination";
+import { CardListProps } from "../types";
 
-const CardList: FC<CardListProps> = ({
-  title,
-  slug,
-  image,
-  price,
-  status,
-}): ReactElement => {
+const CardList: FC<CardListProps> = ({ title, slug, image, price, status }): ReactElement => {
   return (
     <div
       className={
-        'flex auto bg-white rounded-lg w-full h-fit py-2 lg:py-0 flex-row gap-2 lg:gap-10 items-center dark:bg-[#1b1e21]'
+        "flex auto bg-white rounded-lg w-full h-fit py-2 lg:py-0 flex-row gap-2 lg:gap-10 items-center dark:bg-[#1b1e21]"
       }
     >
       <Image
-        className={'w-5/12 rounded-lg'}
+        className={"w-5/12 rounded-lg"}
         src={image as StaticImageData}
         alt="Picture of the author"
       />
@@ -34,11 +28,9 @@ const CardList: FC<CardListProps> = ({
               {price && price} {status && status}
             </h1>
           )}
-          {status && (
-            <h1 className="text-[18px] text-[#3EB449]">{status && status}</h1>
-          )}
+          {status && <h1 className="text-[18px] text-[#3EB449]">{status && status}</h1>}
         </div>
-        <Link href={'/download' + slug} className="flex gap-2">
+        <Link href={"/download" + slug} className="flex gap-2">
           <svg
             width="24"
             height="24"
@@ -62,35 +54,35 @@ const EventHistory: FC = (): ReactElement => {
   const data = [
     {
       src: ImageEventList,
-      title: 'Webinar Cyber Security',
-      status: 'Terdaftar',
-      day: 'Monday',
-      date: '28 February 2023',
-      slug: '/webinar-cyber-security',
+      title: "Webinar Cyber Security",
+      status: "Terdaftar",
+      day: "Monday",
+      date: "28 February 2023",
+      slug: "/webinar-cyber-security",
     },
     {
       src: ImageEventList,
-      title: 'Pembiayaan dan Optimalisasi Bisnis',
-      status: 'Terdaftar',
-      day: 'Tuesday',
-      date: '28 February 2023',
-      slug: '/pembiayaan-optimasi-bisnis',
+      title: "Pembiayaan dan Optimalisasi Bisnis",
+      status: "Terdaftar",
+      day: "Tuesday",
+      date: "28 February 2023",
+      slug: "/pembiayaan-optimasi-bisnis",
     },
     {
       src: ImageEventList,
-      title: 'Japanese Culture',
-      status: 'Terdaftar',
-      day: 'Wednesday',
-      date: '28 February 2023',
-      slug: '/japanese-culture',
+      title: "Japanese Culture",
+      status: "Terdaftar",
+      day: "Wednesday",
+      date: "28 February 2023",
+      slug: "/japanese-culture",
     },
     {
       src: ImageEventList,
-      title: 'Design Digitals',
-      status: 'Terdaftar',
-      day: 'Thursday',
-      date: '28 February 2023',
-      slug: '/design-digital',
+      title: "Design Digitals",
+      status: "Terdaftar",
+      day: "Thursday",
+      date: "28 February 2023",
+      slug: "/design-digital",
     },
   ];
   return (

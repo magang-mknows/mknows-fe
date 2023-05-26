@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { TaskSection } from './task-event/task';
-import { EventSection } from './task-event/event';
-import { ProgressSection } from './progress';
-import { CalendarSection } from './calendar';
+import { FC, ReactElement } from "react";
+import { TaskSection } from "./task-event/task";
+import { EventSection } from "./task-event/event";
+import { ProgressSection } from "./progress";
+import { CalendarSection } from "./calendar";
 
 export const ContentSection: FC = (): ReactElement => {
   return (

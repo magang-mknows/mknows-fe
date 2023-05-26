@@ -1,31 +1,30 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import viteTsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(({ mode }) => ({
-  cacheDir: '../../node_modules/.vite/cs-vite',
+  cacheDir: "../../node_modules/.vite/cs-vite",
 
   define: {
-    'process.env.NODE_ENV':
-      mode === 'production' ? '"production"' : '"development"',
-    'process.env': {},
+    "process.env.NODE_ENV": mode === "production" ? '"production"' : '"development"',
+    "process.env": {},
   },
 
   server: {
     port: 4200,
-    host: 'localhost',
+    host: "localhost",
   },
 
   preview: {
     port: 4300,
-    host: 'localhost',
+    host: "localhost",
   },
 
   plugins: [
     react(),
     viteTsConfigPaths({
-      root: '../../',
+      root: "../../",
     }),
   ],
 
@@ -41,9 +40,9 @@ export default defineConfig(({ mode }) => ({
   test: {
     globals: true,
     cache: {
-      dir: '../../node_modules/.vitest',
+      dir: "../../node_modules/.vitest",
     },
-    environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    environment: "jsdom",
+    include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
   },
 }));

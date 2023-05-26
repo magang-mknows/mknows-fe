@@ -1,8 +1,8 @@
-import { FC, ReactElement } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { TdetailInformation } from './types';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { showDetailTraining } from '../table';
+import { FC, ReactElement } from "react";
+import { useSetRecoilState } from "recoil";
+import { TdetailInformation } from "./types";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { showDetailTraining } from "../table";
 
 const TrainingDetail: FC<TdetailInformation> = ({
   name,
@@ -18,9 +18,7 @@ const TrainingDetail: FC<TdetailInformation> = ({
   return (
     <section className="px-8 text-left md:px-14 py-8 bg-neutral-50 rounded-sm ">
       <header className="mb-4 ">
-        <h1 className="text-base font-bold text-neutral-800">
-          Kompetensi yang dikembangkan
-        </h1>
+        <h1 className="text-base font-bold text-neutral-800">Kompetensi yang dikembangkan</h1>
         <p className="text-sm text-neutral-700">Mata Kuliah {name}</p>
       </header>
       <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -45,9 +43,7 @@ const TrainingDetail: FC<TdetailInformation> = ({
           <p className="text-sm font-normal">{session_total_number}</p>
         </section>
         <section className="bg-version2-400 text-neutral-50 px-10 py-4 rounded-md shadow-sm overflow-hidden">
-          <h1 className="text-base font-bold mb-1">
-            Alat, Bahan, Sumber Belajar
-          </h1>
+          <h1 className="text-base font-bold mb-1">Alat, Bahan, Sumber Belajar</h1>
           <p className="text-sm font-normal">{tools_needed}</p>
         </section>
       </main>

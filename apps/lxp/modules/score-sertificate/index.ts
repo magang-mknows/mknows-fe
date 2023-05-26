@@ -1,2 +1,2 @@
-export * from './score-sertificate';
-export * from './main';
+export * from "./score-sertificate";
+export * from "./main";

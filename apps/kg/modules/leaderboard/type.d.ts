@@ -1,4 +1,4 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
 
 export type ReturnTypesPopupProfil = {
   getPopupLeaderboardStatus: boolean;
@@ -10,9 +10,23 @@ export type ReturnTypesPopupGetUser = {
   getPopupUser: TLeaderboard;
 };
 
-export type TLeaderboardItem = {
+type TLeaderboardItem = {
+  student_id: string;
   student_name: string;
   subjectCount: string;
-  averageScore: number;
+  averageScore: any;
+  author: AuthorLeaderboard;
+};
+
+type AuthorLeaderboard = {
+  avatar: string;
+  discussion_likes: number;
+  discussion_posted: number;
+  full_name: string;
+  ipk: any;
+  major: string;
+  poin: string;
+  role: string;
+  total_certificates: number;
 };
 export type TLeaderboardResponse = TMetaResponse<TLeaderboardItem>;

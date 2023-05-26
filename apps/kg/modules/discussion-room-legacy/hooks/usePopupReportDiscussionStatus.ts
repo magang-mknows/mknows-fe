@@ -1,5 +1,5 @@
-import { useRecoilState } from 'recoil';
-import { PopupModalReportDiscussion } from '../stores';
+import { useRecoilState } from "recoil";
+import { PopupModalReportDiscussion } from "../stores";
 
 type ReturnTypes = {
   setPopupReportStatus: (val: boolean) => void;

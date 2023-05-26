@@ -1,14 +1,14 @@
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { DashboardBreadCumbs } from './const';
-import { ClientProvider } from '../common/provider';
-import { ResumeSection } from './resume';
-import { LeaderBoardSection } from './leaderboard';
-import { ArticleSection } from './article';
-import { TaskSection } from './task';
-import { EventSection } from './event';
-import { ProgressSection } from './progress';
-import { CalendarSection } from './calendar';
-import { ContentFooter } from '../common/footer/footer-content';
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { DashboardBreadCumbs } from "./const";
+import { ClientProvider } from "../common/provider";
+import { ResumeSection } from "./resume";
+import { LeaderBoardSection } from "./leaderboard";
+import { ArticleSection } from "./article";
+import { TaskSection } from "./task";
+import { EventSection } from "./event";
+import { ProgressSection } from "./progress";
+import { CalendarSection } from "./calendar";
+import { ContentFooter } from "../common/footer/footer-content";
 
 export const DashboardModule = () => {
   return (

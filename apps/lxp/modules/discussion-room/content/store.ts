@@ -1,26 +1,26 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const selectedOption = atom({
-  key: 'post-option',
-  default: '',
+  key: "post-option",
+  default: "",
 });
 
 export const isModalOpen = atom({
-  key: 'modal-opened',
+  key: "modal-opened",
   default: false,
 });
 
 export const reportDetailTitle = atom({
-  key: 'report-detail-title',
-  default: '',
+  key: "report-detail-title",
+  default: "",
 });
 
 export const reportSuccess = atom({
-  key: 'report-success',
+  key: "report-success",
   default: false,
 });
 
 export const selectedPostId = atom({
-  key: 'post-id',
-  default: '',
+  key: "post-id",
+  default: "",
 });

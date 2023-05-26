@@ -1,2 +1,2 @@
-export * from './section';
-export * from './icons';
+export * from "./section";
+export * from "./icons";

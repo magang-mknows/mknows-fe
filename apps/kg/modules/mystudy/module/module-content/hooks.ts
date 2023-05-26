@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { PopupModalConfirmModul } from './store';
-import { TusePopupConfirmModul } from './types';
+import { useRecoilState } from "recoil";
+import { PopupModalConfirmModul } from "./store";
+import { TusePopupConfirmModul } from "./types";
 
 export const usePopupConfirmModul = (): TusePopupConfirmModul => {
   const [get, set] = useRecoilState(PopupModalConfirmModul);

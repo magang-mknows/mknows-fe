@@ -4,8 +4,8 @@ import {
   PopupModalEditDiscussion,
   chooseSidebar,
   discussionSidebar,
-} from './store';
-import { Sidebar } from './type';
+} from "./store";
+import { Sidebar } from "./type";
 
 type ChooseSidebar = {
   setChoose: (val: string) => void;
@@ -58,4 +58,3 @@ export const usePopupEditDiscussion = (): ReturnPopupEditTypes => {
     getPopupEditStatus: get,
   };
 };
-

@@ -1,5 +1,5 @@
-import { LeaderBoardModule } from '../../modules/leaderboard';
-import React from 'react';
+import { LeaderBoardModule } from "../../modules/leaderboard";
+import React from "react";
 
 const page = () => {
   return <LeaderBoardModule />;

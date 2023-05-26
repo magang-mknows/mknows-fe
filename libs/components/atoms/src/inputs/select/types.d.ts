@@ -1,7 +1,7 @@
-import { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
-import { ChangeEventHandler } from 'react';
-import { FieldValues, UseControllerProps } from 'react-hook-form';
+import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
+import { ChangeEventHandler } from "react";
+import { FieldValues, UseControllerProps } from "react-hook-form";
 export type TOptionFieldProps = {
   value: string;
   label: string;
@@ -40,7 +40,7 @@ export type ISelect<T extends FieldValues> = UseControllerProps<T> & {
   onChange?: (value: string | number) => void;
   success?: string | boolean;
   warning?: string;
-  variant: 'lg' | 'md' | 'sm';
+  variant: "lg" | "md" | "sm";
   icon?: ReactNode | StaticImageData;
   hint?: string;
   options: TOption[];

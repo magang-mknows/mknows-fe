@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { DropDownDashboard } from '../../molecules/dropdown';
-import ChartBar from '../../molecules/chart/chart-bar';
+import { FC, ReactElement } from "react";
+import { DropDownDashboard } from "../../molecules/dropdown";
+import ChartBar from "../../molecules/chart/chart-bar";
 
 const SalaryTrack: FC = (): ReactElement => {
   return (

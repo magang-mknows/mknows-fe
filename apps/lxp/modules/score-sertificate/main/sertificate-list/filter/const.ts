@@ -1,1 +1,1 @@
-export const SertificateFilterOptions = ['Semua', 'Pelatihan', 'Webinar'];
+export const SertificateFilterOptions = ["Semua", "Pelatihan", "Webinar"];

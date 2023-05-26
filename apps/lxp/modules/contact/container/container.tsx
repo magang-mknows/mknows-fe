@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import React, { FC, ReactElement } from 'react';
-import companyLogo from '../assets/logo.svg';
-import Link from 'next/link';
-import { ContactInformation } from './information';
-import { ContactForm } from './form/form';
+import Image from "next/image";
+import React, { FC, ReactElement } from "react";
+import companyLogo from "../assets/logo.svg";
+import Link from "next/link";
+import { ContactInformation } from "./information";
+import { ContactForm } from "./form/form";
 
 export const ContactContainer: FC = (): ReactElement => {
   return (
@@ -11,7 +11,7 @@ export const ContactContainer: FC = (): ReactElement => {
       <div className="bg-neutral-50 px-8 md:px-10 lg:px-10 min-h-[740px] xl:px-20 w-[1200px] py-10 md:py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-2">
         <section>
           <section className=" flex justify-center">
-            <Link href={'/'} passHref>
+            <Link href={"/"} passHref>
               <Image
                 src={companyLogo}
                 alt="M-Know Logo's"

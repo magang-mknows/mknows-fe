@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { FC, Fragment, ReactElement } from "react";
 
 export const UniqueSidebarHeader: FC = (): ReactElement => {
   return (

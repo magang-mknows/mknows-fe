@@ -1,10 +1,5 @@
-import { FC, Fragment, ReactElement } from 'react';
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from 'react-icons/fa';
+import { FC, Fragment, ReactElement } from "react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 export const ContactInformation: FC = (): ReactElement => {
   return (
@@ -24,8 +19,8 @@ export const ContactInformation: FC = (): ReactElement => {
         <section>
           <h1 className="font-bold mb-1 text-neutral-900">Alamat</h1>
           <p className="mb-4 text-neutral-800">
-            Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota
-            Tangerang Selatan, Banten 15419
+            Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan, Banten
+            15419
           </p>
         </section>
       </div>

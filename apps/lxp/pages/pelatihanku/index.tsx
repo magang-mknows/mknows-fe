@@ -1,5 +1,5 @@
-import { MyTrainingModule } from '../../modules/my-training';
-import React from 'react';
+import { MyTrainingModule } from "../../modules/my-training";
+import React from "react";
 
 const page = () => {
   return <MyTrainingModule />;

@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { selectedTasks } from './store';
-import { TUseSelectedTask } from './types';
+import { useRecoilState } from "recoil";
+import { selectedTasks } from "./store";
+import { TUseSelectedTask } from "./types";
 
 export const useSelectedTask = (): TUseSelectedTask => {
   const [getTask, setTask] = useRecoilState(selectedTasks);

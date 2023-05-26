@@ -1,6 +1,6 @@
-import { ReactElement } from 'react';
-import { useGuideDictionary } from './hook';
-import { Card } from '@mknows-frontend-services/components/molecules';
+import { ReactElement } from "react";
+import { useGuideDictionary } from "./hook";
+import { Card } from "@mknows-frontend-services/components/molecules";
 
 export const Sidebar = (): ReactElement => {
   const { getGuideDictionary } = useGuideDictionary();
@@ -18,9 +18,7 @@ export const Sidebar = (): ReactElement => {
               titleStyle="font-bold text-[16px]"
               className="bg-[#F5F5F5] dark:bg-[#232529] rounded-lg max-w-xs my-2 min-h-max "
             >
-              <p className="text-[12px] font-normal line-clamp-3 ">
-                {dummy.description}
-              </p>
+              <p className="text-[12px] font-normal line-clamp-3 ">{dummy.description}</p>
             </Card>
           );
         })}

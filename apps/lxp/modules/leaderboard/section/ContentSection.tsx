@@ -1,19 +1,15 @@
-import React, { ReactElement } from 'react';
-import Image from 'next/image';
-import Medal1 from '../assets/medal-1.svg';
-import Medal3 from '../assets/medal-3.svg';
-import Medal from '../assets/medal.svg';
-import Crown from '../assets/crown.svg';
-import dynamic from 'next/dynamic';
-import {
-  usePopupGetUser,
-  usePopupProfilLeaderboard,
-  useRankLeaderboard,
-} from '../hooks';
-import { Pagination } from '@mknows-frontend-services/components/molecules';
+import React, { ReactElement } from "react";
+import Image from "next/image";
+import Medal1 from "../assets/medal-1.svg";
+import Medal3 from "../assets/medal-3.svg";
+import Medal from "../assets/medal.svg";
+import Crown from "../assets/crown.svg";
+import dynamic from "next/dynamic";
+import { usePopupGetUser, usePopupProfilLeaderboard, useRankLeaderboard } from "../hooks";
+import { Pagination } from "@mknows-frontend-services/components/molecules";
 
-const RankingSection = dynamic(() => import('./RankingSection'));
-const Filter = dynamic(() => import('../common/filter'));
+const RankingSection = dynamic(() => import("./RankingSection"));
+const Filter = dynamic(() => import("../common/filter"));
 
 export const ContentSection = (): ReactElement => {
   const { setPopupLeaderboardStatus } = usePopupProfilLeaderboard();
@@ -21,9 +17,7 @@ export const ContentSection = (): ReactElement => {
   const { getRank } = useRankLeaderboard();
   return (
     <div className="mt-[71px] w-full lg:px-[130px] md:px-[100px] px-3  mb-10 ">
-      <h1 className="text-center  text-black text-28px font-[700] rounded-[8px]">
-        Papan Skor
-      </h1>
+      <h1 className="text-center  text-black text-28px font-[700] rounded-[8px]">Papan Skor</h1>
       <div className="card bg-[#FFFF] mt-[39px] w-full rounded-[8px] py-10 ">
         <div className="flex justify-end md:px-10 px-5">
           <Filter />
@@ -42,14 +36,14 @@ export const ContentSection = (): ReactElement => {
                       <div className="rounded-full outline outline-4 outline-[#67A5C8]">
                         <Image
                           src={item.img}
-                          alt={'avatar'}
+                          alt={"avatar"}
                           className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
                         />
                         <Image
                           src={Medal}
                           width={50}
                           height={50}
-                          alt={'medal'}
+                          alt={"medal"}
                           className="lg:top-24 lg:right-[25px] md:top-20 md:right-[22px] sm:top-[65px] sm:right-[20px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[55px] right-[13px] absolute "
                         />
                       </div>
@@ -71,7 +65,7 @@ export const ContentSection = (): ReactElement => {
                       <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50] ">
                         <Image
                           src={item.img}
-                          alt={'avatar'}
+                          alt={"avatar"}
                           className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px] cursor-pointer"
                           onClick={() => {
                             setPopupUser(item);
@@ -87,7 +81,7 @@ export const ContentSection = (): ReactElement => {
                         />
                         <Image
                           src={Medal1}
-                          alt={'medal'}
+                          alt={"medal"}
                           className="lg:top-28 lg:right-[30px] md:top-[90px] md:right-[27px] sm:top-[74px] sm:right-[22px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[60px] right-[16px] absolute "
                         />
                       </div>
@@ -109,12 +103,12 @@ export const ContentSection = (): ReactElement => {
                       <div className="rounded-full outline outline-4 outline-[#6AD26A]">
                         <Image
                           src={item.img}
-                          alt={'avatar'}
+                          alt={"avatar"}
                           className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16"
                         />
                         <Image
                           src={Medal3}
-                          alt={'medal'}
+                          alt={"medal"}
                           className="lg:top-24 lg:right-[25px] md:top-20 md:right-[22px] sm:top-[65px] sm:right-[20px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[55px] right-[13px] absolute "
                         />
                       </div>
@@ -130,7 +124,7 @@ export const ContentSection = (): ReactElement => {
                   </div>
                 </div>
               ) : (
-                ''
+                ""
               );
             })}
         </div>

@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { ArticleCard } from './components';
-import { CARD } from './constant';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { ArticleCard } from "./components";
+import { CARD } from "./constant";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const Article: FC = (): ReactElement => {
   return (
@@ -9,9 +9,7 @@ export const Article: FC = (): ReactElement => {
       <section className="flex flex-col gap-y-[90.94px]">
         <div className="flex w-full flex-col justify-center items-center">
           <h1 className="text-black font-[700] text-[44px]">Sekilas Ilmu</h1>
-          <p className="text-black text-[28px] font-[500]">
-            Informasi untuk membangun karirmu
-          </p>
+          <p className="text-black text-[28px] font-[500]">Informasi untuk membangun karirmu</p>
         </div>
         <div className="grid grid-cols-3 gap-[42px] grid-rows-1">
           {CARD.map((card, key) => (

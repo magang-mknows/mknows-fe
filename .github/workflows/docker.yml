@@ -1,0 +1,13 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  docker-build-kg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.kg --tag kg:$(date +%s)
+   

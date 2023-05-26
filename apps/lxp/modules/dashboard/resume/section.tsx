@@ -1,23 +1,23 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
-import { LabIcon, HomeIcon, ClockIcon, ThropyIcon } from './assets';
+import { FC, ReactElement, useEffect, useState } from "react";
+import { LabIcon, HomeIcon, ClockIcon, ThropyIcon } from "./assets";
 
 export const ResumeSection: FC = (): ReactElement => {
   const dummySidebarItems = [
     {
       desc: 0,
-      title: 'Kelas Terdaftar',
+      title: "Kelas Terdaftar",
     },
     {
       desc: 0,
-      title: 'Sertifikat',
+      title: "Sertifikat",
     },
     {
       desc: 0,
-      title: 'IPK Rata-rata',
+      title: "IPK Rata-rata",
     },
     {
       desc: 0,
-      title: 'Total Poin',
+      title: "Total Poin",
     },
   ];
 
@@ -57,12 +57,8 @@ export const ResumeSection: FC = (): ReactElement => {
                   {index + 1 === 3 && <ClockIcon />}
                   {index + 1 === 4 && <ThropyIcon />}
                   <section>
-                    <h1 className=" text-4xl font-black text-neutral-500 mb-2">
-                      {desc}
-                    </h1>
-                    <h1 className="text-xs lg:text-sm text-neutral-500 ">
-                      {title}
-                    </h1>
+                    <h1 className=" text-4xl font-black text-neutral-500 mb-2">{desc}</h1>
+                    <h1 className="text-xs lg:text-sm text-neutral-500 ">{title}</h1>
                   </section>
                 </div>
               </div>

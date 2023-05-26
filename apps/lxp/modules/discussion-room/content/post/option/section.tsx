@@ -1,28 +1,26 @@
-import { FC, ReactElement } from 'react';
-import { GoKebabVertical } from 'react-icons/go';
-import { AiFillFlag } from 'react-icons/ai';
-import { Menu, Transition } from '@headlessui/react';
-import { BsPencilFill } from 'react-icons/bs';
-import { MdDelete } from 'react-icons/md';
-import { useSetRecoilState } from 'recoil';
+import { FC, ReactElement } from "react";
+import { GoKebabVertical } from "react-icons/go";
+import { AiFillFlag } from "react-icons/ai";
+import { Menu, Transition } from "@headlessui/react";
+import { BsPencilFill } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
+import { useSetRecoilState } from "recoil";
 
-import { TSelectedOptionId } from './types';
-import { isModalOpen, selectedOption, selectedPostId } from '../../store';
+import { TSelectedOptionId } from "./types";
+import { isModalOpen, selectedOption, selectedPostId } from "../../store";
 
-export const DiscussionPostOption: FC<TSelectedOptionId> = ({
-  id,
-}): ReactElement => {
+export const DiscussionPostOption: FC<TSelectedOptionId> = ({ id }): ReactElement => {
   const options = [
     {
-      title: 'Report',
+      title: "Report",
       icon: <AiFillFlag className="text-blue-600" />,
     },
     {
-      title: 'Edit',
+      title: "Edit",
       icon: <BsPencilFill className="text-version3-400" />,
     },
     {
-      title: 'Delete',
+      title: "Delete",
       icon: <MdDelete className="text-warning-500" />,
     },
   ];
@@ -32,10 +30,7 @@ export const DiscussionPostOption: FC<TSelectedOptionId> = ({
   const setSelectedPosId = useSetRecoilState(selectedPostId);
 
   return (
-    <Menu
-      as="div"
-      className={' inline-block bg-neutral-50/0   text-left left-0 mt-1.5'}
-    >
+    <Menu as="div" className={" inline-block bg-neutral-50/0   text-left left-0 mt-1.5"}>
       <Menu.Button>
         <div className="cursor-pointer text-neutral-800 group">
           <GoKebabVertical />
@@ -58,7 +53,7 @@ export const DiscussionPostOption: FC<TSelectedOptionId> = ({
               key={index}
               as="div"
               className={
-                'flex gap-3 items-center px-4 py-3 cursor-pointer  hover:bg-neutral-100 transition-all duration-300 ease-in-out'
+                "flex gap-3 items-center px-4 py-3 cursor-pointer  hover:bg-neutral-100 transition-all duration-300 ease-in-out"
               }
               onClick={() => {
                 setSelectedPosId(id as unknown as string);
@@ -67,10 +62,7 @@ export const DiscussionPostOption: FC<TSelectedOptionId> = ({
               }}
             >
               {icon}
-              <h1
-                id="post-option"
-                className="text-neutral-800  text-xs text-center"
-              >
+              <h1 id="post-option" className="text-neutral-800  text-xs text-center">
                 {title}
               </h1>
             </Menu.Item>

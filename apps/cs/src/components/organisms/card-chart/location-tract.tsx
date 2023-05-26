@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { DropDownDashboard } from '../../molecules/dropdown';
-import { IconMap } from '../../atoms';
+import { FC, ReactElement } from "react";
+import { DropDownDashboard } from "../../molecules/dropdown";
+import { IconMap } from "../../atoms";
 
 const locationTrack: FC = (): ReactElement => {
   return (

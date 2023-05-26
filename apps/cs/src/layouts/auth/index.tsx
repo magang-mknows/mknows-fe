@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { Outlet } from 'react-router-dom';
+import { FC, ReactElement } from "react";
+import { Outlet } from "react-router-dom";
 
 export const AuthLayout: FC = (): ReactElement => {
   return (
@@ -13,7 +13,7 @@ export const AuthLayout: FC = (): ReactElement => {
       </div>
 
       <img
-        src={'/assets/auth/asset3.svg'}
+        src={"/assets/auth/asset3.svg"}
         alt="variasi"
         width={400}
         className="items-end absolute bottom-0 lg:mx-40 "
@@ -21,12 +21,12 @@ export const AuthLayout: FC = (): ReactElement => {
 
       <div className="flex w-screen justify-end items-start overflow-hidden">
         <img
-          src={'/assets/auth/asset2.svg'}
+          src={"/assets/auth/asset2.svg"}
           alt="variasi"
           width={250}
           className="absolute  mx-20"
         />
-        <img src={'/assets/auth/asset1.svg'} alt="variasi" width={250} />
+        <img src={"/assets/auth/asset1.svg"} alt="variasi" width={250} />
       </div>
     </section>
   );

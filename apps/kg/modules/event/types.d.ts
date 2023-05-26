@@ -1,5 +1,5 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
-import { StaticImageData } from 'next/image';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
+import { StaticImageData } from "next/image";
 
 export interface CardListProps {
   slug?: string;
@@ -12,7 +12,7 @@ export interface CardListProps {
 }
 
 export interface SideBarProps {
-  active?: 'EventList' | 'RegisteredEvent' | 'EventHistory';
+  active?: "EventList" | "RegisteredEvent" | "EventHistory";
 }
 
 export type TEventPayload = {

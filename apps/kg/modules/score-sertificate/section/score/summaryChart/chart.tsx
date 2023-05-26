@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { Line } from 'react-chartjs-2';
+import { FC, ReactElement } from "react";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -10,7 +10,7 @@ import {
   PointElement,
   LineElement,
   Filler,
-} from 'chart.js';
+} from "chart.js";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -19,41 +19,41 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Filler
+  Filler,
 );
 
 const labels = [
-  'Semester 1',
-  'Semester 2',
-  'Semester 3',
-  'Semester 4',
-  'Semester 5',
-  'Semester 6',
-  'Semester 7',
-  'Semester 8',
+  "Semester 1",
+  "Semester 2",
+  "Semester 3",
+  "Semester 4",
+  "Semester 5",
+  "Semester 6",
+  "Semester 7",
+  "Semester 8",
 ];
 const dataLine = {
   labels: labels,
   datasets: [
     {
-      label: 'IPK',
+      label: "IPK",
       data: [3.0, 2.5, 3.0, 4.0, 3.59, 0, 0, 0],
-      borderColor: 'white',
+      borderColor: "white",
       tension: 0.1,
       fill: true,
       backgroundColor: (context: any) => {
         const ctx = context.chart.ctx;
         const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, '#1070a4cd');
-        gradient.addColorStop(1, '#1070a423');
+        gradient.addColorStop(0, "#1070a4cd");
+        gradient.addColorStop(1, "#1070a423");
         return gradient;
       },
-      hoverBackgroundColor: '#3b83f67e',
-      hoverBorderColor: '#3b83f652',
+      hoverBackgroundColor: "#3b83f67e",
+      hoverBorderColor: "#3b83f652",
       pointRadius: 6,
       pointHoverRadius: 20,
-      pointStyle: 'circle',
-      pointBackgroundColor: '#737373',
+      pointStyle: "circle",
+      pointBackgroundColor: "#737373",
       borderWidth: 2,
     },
   ],
@@ -69,7 +69,7 @@ const optionsLine = {
         max: 4,
         callback: function (value: any) {
           if (value === 4.5) {
-            return '';
+            return "";
           } else {
             return value;
           }
@@ -93,9 +93,9 @@ const optionsLine = {
     line: {
       tension: 0,
       borderwidth: 2,
-      borderColor: 'rgba (47, 97, 68, 1) ',
-      fill: 'start',
-      backgroundColor: 'rgba (47, 97, 68, 0.3) ',
+      borderColor: "rgba (47, 97, 68, 1) ",
+      fill: "start",
+      backgroundColor: "rgba (47, 97, 68, 0.3) ",
     },
     point: {
       radius: 0,
