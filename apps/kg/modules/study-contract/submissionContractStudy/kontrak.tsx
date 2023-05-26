@@ -1,27 +1,37 @@
-import { FC, ReactElement } from 'react';
-import Confirm from '../assets/Confirm.svg';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { PopupModal } from '@mknows-frontend-services/components/molecules';
-import Image, { StaticImageData } from 'next/image';
-import { useDataTable, useKrsById } from './hook';
-import { useDataCard } from './hook';
-import Download from '../assets/download1.svg';
-import Warning from '../assets/warning.svg';
-import { usePopupConfirmCardStudy } from './hook';
-import { useRouter } from 'next/router';
+import { FC, ReactElement } from "react";
+import Confirm from "../assets/Confirm.svg";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { PopupModal } from "@mknows-frontend-services/components/molecules";
+import Image, { StaticImageData } from "next/image";
+import { useDataTable, useKrsById } from "./hook";
+import { useDataCard } from "./hook";
+import Download from "../assets/download1.svg";
+import Warning from "../assets/warning.svg";
+import { usePopupConfirmCardStudy } from "./hook";
+import { useRouter } from "next/router";
 // import SuspenseError from "@/modules/Common/SuspenseError";
 // import Loading from "../Loading";
 
 const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
-  const { getDataCard } = useDataCard();
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   const router = useRouter();
   const { matkul } = router.query;
   const { data } = useKrsById(matkul as string);
   const majorData = data?.data;
+  const name = data?.data.dataMajor.name;
+  const semester = data?.data.dataMajor.current_semester;
+  const totalCredit = data?.data.dataMajor.credit_count;
+  const teacher = data?.data.dataMajor.head_of_major;
   console.log(majorData);
+
+  const { getDataCard } = useDataCard(
+    name as string,
+    semester as number,
+    totalCredit as number,
+    teacher as string,
+  );
 
   return (
     <div className="flex flex-col w-full lg:px-16 px-0 py-6">
@@ -57,7 +67,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
       <div className="flex justify-end items-center ">
         <Button
           className="flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000 lg:text-center text-start text-md mx-8 px-3 lg:ml-80 w-full lg:w-[200px] lg:h-[48px] !h-10 text-[14px] font-normal bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]"
-          type={'button'}
+          type={"button"}
         >
           <Image width={30} height={30} alt="download" src={Download as StaticImageData} />
           Download Silabus
@@ -88,8 +98,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               <p>Pertemuan</p>
             </div>
 
-            {majorData?.dataSubjects.map((x, i) => 
-              (
+            {majorData?.dataSubjects.map((x, i) => (
               <>
                 <div
                   key={i}

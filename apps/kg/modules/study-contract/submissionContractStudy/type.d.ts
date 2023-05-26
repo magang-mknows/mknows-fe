@@ -19,7 +19,7 @@ export type DataTable = {
 
 export type DataCard = {
   label: string;
-  desc: string;
+  desc: string | number;
 };
 
 // ----------batas--------
