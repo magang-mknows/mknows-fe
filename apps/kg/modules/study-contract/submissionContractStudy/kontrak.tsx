@@ -104,11 +104,11 @@ const SubmissionContractStudy: FC = (): ReactElement => {
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
                   <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
-                    <Image src={x.img} alt="User" />
+                    <Image src={Download} alt="User" />
                     <div className="flex w-full flex-col w-auto">
                       <h1 className="pt-3 font-bold text-start ">{x.name}</h1>
                       <p className="pt-3 text-gray-400 text-start">
-                        {x.enrolled_count}
+                        {x.enrolled_count} Mahasiswa Terdaftar
                       </p>
                     </div>
                   </div>
