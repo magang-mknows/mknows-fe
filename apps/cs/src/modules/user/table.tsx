@@ -10,7 +10,7 @@ import {
   IconCheck,
   IconError,
 } from '../../components/atoms';
-import ToolTip from './toolTip';
+import ToolTip from '../../components/atoms/tooltip/toolTip';
 
 const Table: FC = (): ReactElement => {
   const { getUserData } = useUserData();

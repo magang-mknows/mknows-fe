@@ -48,7 +48,7 @@ const Table: FC = (): ReactElement => {
                 <td className="px-10 py-1 font-semibold text-neutral-800">
                   {item.feature.name}
                 </td>
-                <td className="px-14 py-1">
+                <td className="px-0 py-1">
                   {formatDate({ date: new Date(item.created_at) })}
                 </td>
                 <td className="px-20 py-1">{item.quantity}</td>

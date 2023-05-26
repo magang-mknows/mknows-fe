@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { TtoolTip } from './types';
+import { TtoolTip } from './type';
 
 const ToolTip: FC<TtoolTip> = ({
   children,

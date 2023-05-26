@@ -2,6 +2,7 @@ import { useRecoilValue, useRecoilState } from 'recoil';
 import { icon, resultFilter, resultSearch } from './store';
 import {
   TRequestDataResponse,
+  TRequestItem,
   TRequestResponse,
   TResultDataResponse,
   TResultQueryResponse,
@@ -34,7 +35,7 @@ export const useResultQuery = (): TResultQueryResponse => {
 
 export const useRequest = (): UseQueryResult<
   TRequestResponse,
-  TMetaErrorResponse
+  TRequestItem
 > => {
   return useQuery({
     queryKey: ['get-request'],

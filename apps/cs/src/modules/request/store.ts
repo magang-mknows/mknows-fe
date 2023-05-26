@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { TResultDataDummy } from './types';
+import { TRequestResponse, TResultDataDummy } from './types';
 
 export const icon = atom<string[]>({
   key: 'request-data-icons',
@@ -132,4 +132,9 @@ export const resultFilter = selector({
           .toLowerCase()
           .includes(get(resultSearch).toLowerCase())
     ),
+});
+
+export const tableDataState = atom<TRequestResponse[]>({
+  key: 'table-data-state',
+  default: [],
 });
