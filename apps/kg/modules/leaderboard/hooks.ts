@@ -26,8 +26,8 @@ export const usePopupGetUser = (): ReturnTypesPopupGetUser => {
   };
 };
 
-export const useGetLeaderboard = (): UseQueryResult<TLeaderboardResponse, TMetaErrorResponse> =>
+export const useGetLeaderboard = (): UseQueryResult<TLeaderboardResponse> =>
   useQuery({
-    queryKey: ["get-leader-board"],
+    queryKey: ["get-leaderboard-user"],
     queryFn: async () => await leaderboardGetRequest(),
   });

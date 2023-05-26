@@ -27,7 +27,9 @@ export const RankingSection: FC = (): ReactElement => {
                       <div className="flex items-center gap-[30px] p-2">
                         <h1 className="font-[400] lg:text-[24px] text-[20px]">{x.subjectCount}</h1>
                         <Image
-                          src={Avatar}
+                          src={x?.author?.avatar === null ? Avatar : x?.author?.avatar}
+                          width={30}
+                          height={30}
                           alt="avatar"
                           className="w-[56px] h-[56px] rounded-full overflow-hidden cursor-pointer"
                           onClick={() => {
@@ -39,7 +41,7 @@ export const RankingSection: FC = (): ReactElement => {
                       </div>
                       <div className="flex items-center">
                         <h1 className="font-[600] lg:text-[16px] text-[14px] text-[#0B568D]">
-                          {x.averageScore} poin
+                          {x.averageScore === null ? "0" : x?.averageScore} Poin
                         </h1>
                       </div>
                     </div>
