@@ -91,17 +91,12 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
 
   const _features = [
     {
-      name: "Ruang Diskusi",
-      link: "/ruang-diskusi",
-      icon: <DiscussionRoomIcon />,
-    },
-    {
       name: "Panduan",
       link: "/panduan",
       icon: <CareerPlanIcon />,
     },
     {
-      name: "Konsultasi & Layanan",
+      name: "Konsultasi Layanan",
       link: "/konsultasi-dan-layanan",
       icon: <ConsultationIcon />,
     },
@@ -109,6 +104,11 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
       name: "Penyaluran Kerja",
       link: "/penyaluran-kerja",
       icon: <WorkOpportunityIcon />,
+    },
+    {
+      name: "Ruang Diskusi",
+      link: "/ruang-diskusi",
+      icon: <DiscussionRoomIcon />,
     },
   ];
 
