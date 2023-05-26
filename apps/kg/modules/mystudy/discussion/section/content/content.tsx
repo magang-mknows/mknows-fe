@@ -6,18 +6,36 @@ import { CardComment } from "../../components/card/comment";
 import profileDummy from "../../assets/profile-dummy.svg";
 import down from "../../assets/down.svg";
 import redo from "../../assets/redo.svg";
+import { useGetAllDiscuss, useGetAllDiscussion } from "./hooks";
+import { useRouter } from "next/router";
 
 export const ContentSection: FC = (): ReactElement => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data } = useGetAllDiscussion(id as string);
+  // const { data } = useGetAllDiscussion("6bc3b730-8c7d-41f0-a1dc-03bac621a824");
+  const listDiscussionData = data?.data;
+  console.log(listDiscussionData);
+
   return (
     <>
-      <CardAuthor
-        title={"Manajemen Keuangan"}
-        author={"Bakti Husada"}
-        avatar={profileDummy}
-        time={"20 menit"}
-        content={"halo"}
-        role={"mahasiswa"}
-      />
+      {listDiscussionData?.map((discussion, index) => {
+        const tanggalDibuat = new Date(discussion.created_at);
+        console.log(tanggalDibuat);
+
+        return (
+          <CardAuthor
+            key={index}
+            title={discussion.title}
+            author={discussion.author.full_name}
+            avatar={profileDummy}
+            time={discussion.created_at}
+            content={discussion.title}
+            role={discussion.author.role}
+          />
+        );
+      })}
       {/* reply */}
       <div className="flex flex-row gap-4">
         <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>

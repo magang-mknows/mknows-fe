@@ -24,6 +24,7 @@ export const DiscussionContent: FC = (): ReactElement => {
 
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
+  console.log(listDiscussionData);
 
   function daysAgo(days: string) {
     const today = new Date();
@@ -35,6 +36,7 @@ export const DiscussionContent: FC = (): ReactElement => {
   }
 
   return (
+    // Suspense untuk loading lalu dibungkus ErrorBoundaries, data empty
     <section className="px-8 py-8 mx-8 my-8 bg-white rounded-md shadow-sm md:mx-14 lg:mx-16 md:px-14 lg:px-16 ">
       <section className="flex flex-wrap items-center justify-between w-full mb-6 md:flex-nowrap gap-x-2 gap-y-3">
         <label
