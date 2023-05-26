@@ -74,7 +74,7 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
         <h1 className="text-[28px] font-semibold">Petanyaan yang sering Ditanyakan</h1>
         <p>Berikut list pertanyaan-pertanyaan yang sering ditanyakan kepada kami </p>
         <Accordion title="Apa itu Kampus Gratis?" idAccordion="what" className="bg-neutral-200">
-          <p className="bg-white p-6 text-[16px] text-neutral-500">
+          <p className="bg-white p-6 text-[16px] text-neutral-500 ">
             Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
             diakses siapapun, kapanpun, dimanapun, dan selalu update.
           </p>
@@ -85,8 +85,8 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           className="bg-neutral-200"
         >
           <p className="bg-white p-6 text-[16px] text-neutral-500">
-            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
-            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+            Gratis , hanya saja kamu harus melakukan komitmen dan mengikuti seluruh kelas dengan
+            baik
           </p>
         </Accordion>
         <Accordion
@@ -95,8 +95,7 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           className="bg-neutral-200"
         >
           <p className="bg-white p-6 text-[16px] text-neutral-500">
-            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
-            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+            Anda harus memiliki akun dan mengikut seluruh sosial media yang dimiliki kampus gratis
           </p>
         </Accordion>
         <Accordion
@@ -105,8 +104,7 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           className="bg-neutral-200"
         >
           <p className="bg-white p-6 text-[16px] text-neutral-500">
-            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
-            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+            Berbagai macam pelatihan hardskill maupun softskill
           </p>
         </Accordion>
         <Accordion
@@ -115,8 +113,7 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           className="bg-neutral-200"
         >
           <p className="bg-white p-6 text-[16px] text-neutral-500">
-            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
-            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+            Boleh jika kampusnya bisa melakukan koversi sks
           </p>
         </Accordion>
         <Accordion
@@ -125,8 +122,8 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           className="bg-neutral-200"
         >
           <p className="bg-white p-6 text-[16px] text-neutral-500">
-            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
-            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+            Maka dilakukan sosialisasi terlebih dahulu agar kampus dan kampus gratis dapat memiliki
+            persetujuan
           </p>
         </Accordion>
       </section>
