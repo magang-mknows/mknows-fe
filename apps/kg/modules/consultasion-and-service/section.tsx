@@ -69,6 +69,10 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           </div>
         </div>
       </section>
+      <section className="mx-[136px]">
+        <h1 className="text-[28px] font-semibold">Petanyaan yang sering Ditanyakan</h1>
+        <p>Berikut list pertanyaan-pertanyaan yang sering ditanyakan kepada kami </p>
+      </section>
     </main>
   );
 };
