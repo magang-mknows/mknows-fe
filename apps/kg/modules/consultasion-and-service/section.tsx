@@ -21,6 +21,12 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
       <div className="flex absolute pt-8 pl-16">
         <Image src={star} alt="svg" />
       </div>
+      <div className="flex absolute pt-12 left-60">
+        <Image src={random} alt="svg" />
+      </div>
+      <div className="flex absolute pt-8 right-20">
+        <Image src={star} alt="svg" />
+      </div>
       <section className="flex justify-center items-center py-40 gap-[132px]">
         <div className="flex flex-col justify-center items-center bg-white w-[420px] h-[450px] rounded-md shadow-xl gap-4">
           <div className="flex absolute top-80 pt-28">
