@@ -1,9 +1,11 @@
-import { useAutoSaveQuizAnswer, useSubmitQuiz } from '../../hooks';
+import { useAutoSaveQuizAnswer } from '../../hooks';
 import { useCountdownTimer } from './hooks';
 import { FC, ReactElement, useEffect } from 'react';
 import InfoIcon from '../../../assets/info.svg';
 import Image from 'next/image';
 import { TRemainingTimeProps } from './types';
+import { useTimerByGlobalState } from '../static-timer/hooks';
+import { useRouter } from 'next/router';
 
 export const QuizTimer: FC<TRemainingTimeProps> = ({
   expiryTimestamp,
@@ -11,19 +13,38 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
   quizTakeId,
   payload,
 }): ReactElement => {
+  const router = useRouter();
   const { hours, minutes, seconds, isComplete } = useCountdownTimer({
     targetHours: expiryTimestamp,
   });
+  const { setTimerByGlobalState } = useTimerByGlobalState();
   const { resetStoredAnswer } = useAutoSaveQuizAnswer();
-  const { mutate } = useSubmitQuiz(quizTakeId);
+
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout;
+
+    if (!isComplete) {
+      intervalId = setInterval(() => {
+        setTimerByGlobalState({
+          hours,
+          minutes,
+          seconds,
+          isComplete: minutes + seconds === '0000' ? true : false,
+        });
+      }, 200);
+    }
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [hours, seconds, minutes, isComplete, setTimerByGlobalState]);
 
   useEffect(() => {
     if (isComplete) {
       resetStoredAnswer();
-      mutate(payload);
-      // router.push(`${prevPath}/${quizTakeId}`);
+      router.push(`${prevPath}/skor/${quizTakeId}`);
     }
-  }, [isComplete]);
+  }, [isComplete, resetStoredAnswer]);
 
   return (
     <div className="bg-[#FEDBD7] rounded-md shadow-sm">

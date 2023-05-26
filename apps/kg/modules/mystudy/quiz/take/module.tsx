@@ -1,4 +1,11 @@
-import { FC, Fragment, ReactElement, useEffect, useMemo } from 'react';
+import {
+  FC,
+  Fragment,
+  ReactElement,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { QuizTimer } from './components/quiz-timer';
 import { useWindowSize } from '../../../common/hooks/use-window-size';
 import {
@@ -7,7 +14,6 @@ import {
   useGetQuizTakeById,
   useQuizQuestion,
   useQuizRequestSubmit,
-  useSubmitQuiz,
 } from './hooks';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
@@ -21,6 +27,10 @@ import {
 } from './type';
 import { QuizSubmitPopup } from './components/pop-up/submit';
 import { useQuizSubmitPopup } from './components/pop-up/submit/hooks';
+import { QuizQuitPopup } from './components/pop-up/quit';
+import { useQuizQuitPopup } from './components/pop-up/quit/hooks';
+import { TQuizSubmitPopup } from './components/pop-up/submit/types';
+import { QuizTakeBreadCrumb } from './components/bread-crumb';
 
 export const QuizTakeModule: FC = (): ReactElement => {
   const router = useRouter();
@@ -28,12 +38,11 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const { getQuestionsData, setQuestionsData } = useQuizQuestion();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizNumber();
   const { getQuizRequestSubmit, setQuizRequestSubmit } = useQuizRequestSubmit();
-  const { storedAnswer, setNewStoredAnswer, resetStoredAnswer } =
-    useAutoSaveQuizAnswer();
-  const { setQuizSubmitPopupStatus } = useQuizSubmitPopup();
-  const prevPath = router.asPath.split('/').slice(0, -1).join('/');
+  const { storedAnswer, setNewStoredAnswer } = useAutoSaveQuizAnswer();
+  const { getQuizQuitPopup, setQuizQuitPopup } = useQuizQuitPopup();
+  const { getQuizSubmitPopup, setQuizSubmitPopup } = useQuizSubmitPopup();
 
-  const { mutate } = useSubmitQuiz(router.query.quizTakeId as string);
+  const prevPath = router.asPath.split('/').slice(0, -2).join('/');
 
   // const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
   // const dataQuizTake: TQuizTakeItem = data?.data;
@@ -89,23 +98,45 @@ export const QuizTakeModule: FC = (): ReactElement => {
 
   useEffect(() => {
     setQuestionsData(dataQuizTake?.questions_answers);
-  }, [setQuestionsData, dataQuizTake]);
+  }, [dataQuizTake]);
 
   useEffect(() => {
-    if (storedAnswer.length === 0 && getQuestionsData.length > 0) {
+    const subjectDetailPath = prevPath.split('/')[2];
+    if (subjectDetailPath !== '[detail-matkul]') {
+      setQuizQuitPopup({
+        ...getQuizQuitPopup,
+        prevPath: prevPath,
+        quizTakeId: router.query.quizTakeId as string,
+      });
+    }
+  }, [prevPath]);
+
+  const [storageAnswer, setStorageAnswer] = useState(() => {
+    const storageValue = localStorage.getItem('quiz.answer');
+    return storageValue ? JSON.parse(storageValue) : null;
+  });
+
+  useEffect(() => {
+    if (
+      !storageAnswer ||
+      (storageAnswer.length === 0 && getQuestionsData.length > 0)
+    ) {
+      setStorageAnswer(
+        JSON.parse(localStorage.getItem('quiz.answer') as unknown as string)
+      );
       const temp: Array<TQuizRequestSubmit> = [];
       getQuestionsData.forEach(() => {
         temp.push({ answer: '', question: '' });
       });
       setQuizRequestSubmit(temp);
     }
-  }, [getQuestionsData]);
+  }, [storageAnswer]);
 
   useEffect(() => {
     if (getQuizRequestSubmit.length > 0) {
       setNewStoredAnswer(getQuizRequestSubmit);
     }
-  }, [getQuizRequestSubmit]);
+  }, [getQuizRequestSubmit, setNewStoredAnswer]);
 
   function duplicateQuizRequestSubmit() {
     const newQuizSubmit: Array<TQuizRequestSubmit> = [...getQuizRequestSubmit];
@@ -174,11 +205,18 @@ export const QuizTakeModule: FC = (): ReactElement => {
     if (getCurrNumber < getQuestionsData.length) {
       setCurrNumber(getCurrNumber + 1);
     } else {
-      router.push(`${prevPath}/${router.query.quizTakeId}`);
-      setQuizSubmitPopupStatus(true);
       const submitPayload = handleReturnPayload();
-      mutate(submitPayload);
-      resetStoredAnswer();
+      const subjectDetailPath = prevPath.split('/')[2];
+      if (subjectDetailPath !== '[detail-matkul]') {
+        const newQuizSubmitPopupValue: TQuizSubmitPopup = {
+          ...getQuizSubmitPopup,
+          prevPath: prevPath,
+          quizTakeId: router.query.quizTakeId as string,
+          payload: submitPayload,
+          status: true,
+        };
+        setQuizSubmitPopup(newQuizSubmitPopupValue);
+      }
     }
   }
   function handleHelpButton() {
@@ -223,6 +261,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
   return (
     <Fragment>
       <QuizSubmitPopup />
+      <QuizQuitPopup />
+      <QuizTakeBreadCrumb />
       <div className="px-0 lg:px-[88px]">
         <div className="py-[52px] px-4 sm:px-[38px] flex flex-col-reverse xl:flex-row gap-x-[55px]">
           <div className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
@@ -332,7 +372,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
                 prevPath={prevPath}
                 quizTakeId={router.query.quizTakeId as string}
                 payload={handleReturnPayload()}
-                expiryTimestamp={1 / 60}
+                expiryTimestamp={2.5}
               />
             </div>
           </div>
