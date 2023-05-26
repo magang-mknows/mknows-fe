@@ -5,6 +5,7 @@ import consultasion from "./icon/consultasion.svg";
 import option from "./icon/option.svg";
 import service from "./icon/service.svg";
 import headset from "./icon/ic-service.svg";
+import star from "./icon/star.svg";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 
 export const ConsultationAndServiceModule: FC = (): ReactElement => {
@@ -17,6 +18,9 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           <Image src={random} width={20} alt="?" />
         </div>
       </section>
+      <div className="flex absolute pt-8 pl-16">
+        <Image src={star} alt="svg" />
+      </div>
       <section className="flex justify-center items-center py-40 gap-[132px]">
         <div className="flex flex-col justify-center items-center bg-white w-[420px] h-[450px] rounded-md shadow-xl gap-4">
           <div className="flex absolute top-80 pt-28">
@@ -70,6 +74,7 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           </div>
         </div>
       </section>
+
       <section className="flex flex-col gap-3 mx-[136px] mb-40">
         <h1 className="text-[28px] font-semibold py-4">Petanyaan yang sering Ditanyakan</h1>
         <p className="py-4">
