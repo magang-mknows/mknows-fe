@@ -8,7 +8,7 @@ import { BaseLayout } from "../common";
 export const DiscussionRoomModule: FC = (): ReactElement => {
   return (
     <BaseLayout>
-      <section className="bg-neutral-100/60 min-h-[100vh] pb-20">
+      <section className="bg-neutral-100 min-h-[100vh] ">
         <BreadCrumb items={discussionRoomBreadCumbs} textColor="text-version2-400" />
         <DiscussionHero />
         <DiscussionContent />
