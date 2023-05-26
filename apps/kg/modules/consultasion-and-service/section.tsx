@@ -79,6 +79,56 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
             diakses siapapun, kapanpun, dimanapun, dan selalu update.
           </p>
         </Accordion>
+        <Accordion
+          title="Berapakah biaya kuliah di Kampus Gratis?"
+          idAccordion="what"
+          className="bg-neutral-200"
+        >
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
+        <Accordion
+          title="Bagaimana alur pendaftaran kuliah di Kampus Gratis?"
+          idAccordion="what"
+          className="bg-neutral-200"
+        >
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
+        <Accordion
+          title="Program studi apa saja yang ditawarkan oleh Kampus Gratis?"
+          idAccordion="what"
+          className="bg-neutral-200"
+        >
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
+        <Accordion
+          title="Bolehkah mahasiswa yang kampusnya di bawah naungan Kementrian di luar Kemendikbud Ristek  mendaftar kuliah di Kampus Gratis"
+          idAccordion="what"
+          className="bg-neutral-200"
+        >
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
+        <Accordion
+          title="Jika ada kampus yang belum bermitra tetapi ingin ikut program Kampus Gratis?"
+          idAccordion="what"
+          className="bg-neutral-200"
+        >
+          <p className="bg-white p-6 text-[16px] text-neutral-500">
+            Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
+            diakses siapapun, kapanpun, dimanapun, dan selalu update.
+          </p>
+        </Accordion>
       </section>
     </main>
   );
