@@ -19,7 +19,7 @@ export const DistributionOfWorkModule: FC = (): ReactElement => {
         </div>
       </section>
       <section className="flex gap-[60px]">
-        <div className="bg-white w-[328px] h-[500px] rounded-md my-6 shadow-xl p-12 gap-3">
+        <div className="bg-white w-[328px] h-auto rounded-md my-6 shadow-xl p-12 gap-3">
           <h1 className="text-[18px] font-bold">Daftar Lowongan</h1>
           <p className="text-neutral-500 py-3">
             Temukan beragam informasi karir yang menarik, hanya di halaman ini.
@@ -33,46 +33,91 @@ export const DistributionOfWorkModule: FC = (): ReactElement => {
               Paling Baru
             </div>
           </div>
-          <h1 className="text-[18px] font-bold py-8">Tipe Pekerjaan</h1>
-          <div className="flex gap-4">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-              />
+          <h1 className="text-[18px] font-bold py-6">Tipe Pekerjaan</h1>
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Magang</p>
             </div>
-            <p>Magang</p>
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Full Time</p>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Part Time</p>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Freelance</p>
+            </div>
           </div>
-          <div className="flex gap-4">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-              />
+          <h1 className="text-[18px] font-bold py-6">Kota</h1>
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Jakarta, Indonesia</p>
             </div>
-            <p>Full Time</p>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-              />
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Tangerang, indonesia</p>
             </div>
-            <p>Part Time</p>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-              />
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Yogyakarta, Indonesia</p>
             </div>
-            <p>Freelance</p>
+            <div className="flex gap-4">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+              </div>
+              <p>Bandung, Idonesia</p>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-[28px]">
