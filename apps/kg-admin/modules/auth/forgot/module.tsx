@@ -43,18 +43,16 @@ export const ForgotModule: FC = (): ReactElement => {
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col w-full !justify-end">
-      <label className="text-start font-[500] text-[16px] mb-1">
-        Email
-        <TextField
-          type="email"
-          variant="lg"
-          name={"email"}
-          control={control}
-          placeholder="Masukan email"
-          status={errors.email ? "error" : "none"}
-          message={errors.email?.message}
-        />
-      </label>
+      <TextField
+        type="email"
+        label="Email"
+        variant="lg"
+        name={"email"}
+        control={control}
+        placeholder="Masukan email"
+        status={errors.email ? "error" : "none"}
+        message={errors.email?.message}
+      />
 
       <div className="flex justify-center text-center w-full">
         <Button
