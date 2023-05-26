@@ -3,6 +3,7 @@ import { DataCard, DataTable } from './type';
 import Example1 from '../assets/example1.svg';
 import Example2 from '../assets/example2.svg';
 
+
 export const PopupModalConfirmCard = atom({
   key: 'modal-popup-confirm-card',
   default: false,

@@ -3,11 +3,12 @@ import Confirm from '../assets/Confirm.svg';
 import { Button } from '@mknows-frontend-services/components/atoms';
 import { PopupModal } from '@mknows-frontend-services/components/molecules';
 import Image, { StaticImageData } from 'next/image';
-import { useDataTable } from './hook';
+import { useDataTable, useKrsById } from './hook';
 import { useDataCard } from './hook';
 import Download from '../assets/download1.svg';
 import Warning from '../assets/warning.svg';
 import { usePopupConfirmCardStudy } from './hook';
+import { useRouter } from 'next/router';
 // import SuspenseError from "@/modules/Common/SuspenseError";
 // import Loading from "../Loading";
 
@@ -15,6 +16,12 @@ const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
   const { getDataCard } = useDataCard();
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
+
+  const router = useRouter();
+  const { matkul } = router.query;
+  const { data } = useKrsById(matkul as string);
+  const majorData = data?.data;
+  console.log(majorData);
 
   return (
     <div className="flex flex-col w-full lg:px-16 px-0 py-6">
@@ -86,37 +93,37 @@ const SubmissionContractStudy: FC = (): ReactElement => {
               <p>Pertemuan</p>
             </div>
 
-            {getDataTable.map((x, i) => 
+            {majorData?.dataSubjects.map((x, i) => 
               (
               <>
                 <div
                   key={i}
                   className="p-3 text-center border-t border-[#E5E5E5] dark:divide-gray-700 col-span-1 lg:text-[16px] md:text-[16px] text-[12px]"
                 >
-                  {x.no}
+                  {1}
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
                   <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
                     <Image src={x.img} alt="User" />
                     <div className="flex w-full flex-col w-auto">
-                      <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
+                      <h1 className="pt-3 font-bold text-start ">{x.name}</h1>
                       <p className="pt-3 text-gray-400 text-start">
-                        {x.jmlh_mahasiswa}
+                        {x.enrolled_count}
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.kode_matkul}
+                  {x.subject_code}
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.jmlh_sks} SKS
+                  {x.credit} SKS
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.semester}
+                  {x.current_semester}
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.jmlh_pertemuan} Pertemuan
+                  {x.session_count} Pertemuan
                 </div>
               </>
             ))}
