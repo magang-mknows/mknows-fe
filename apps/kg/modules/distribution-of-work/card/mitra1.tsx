@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import mayora from "./assets/mayora.svg";
+import mayora from "../assets/mayora.svg";
 
 export const Mitra1: FC = (): ReactElement => {
   return (

@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import gojek from "./assets/gojek.svg";
+import gojek from "../assets/gojek.svg";
 
 export const Mitra2: FC = (): ReactElement => {
   return (

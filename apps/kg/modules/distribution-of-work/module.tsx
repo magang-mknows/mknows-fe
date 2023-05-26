@@ -2,10 +2,12 @@ import { FC, ReactElement } from "react";
 import Image from "next/image";
 import search from "./assets/search.svg";
 import { Mitra1 } from "./card/mitra1";
+import { Mitra2 } from "./card/mitra2";
+import { Mitra3 } from "./card/mitra3";
 
 export const DistributionOfWorkModule: FC = (): ReactElement => {
   return (
-    <main className="bg-neutral-100 h-screen px-[66px] py-[30px]">
+    <main className="bg-neutral-100 h-full px-[66px] py-[30px]">
       <section>
         <h1 className="text-[24px] font-bold">Penyaluran Kerja</h1>
         <div className="seacrh w-full h-[56px]  bg-neutral-200 dark:bg-[#232529] rounded-[8px] mt-[28px] flex items-center gap-4  ">
@@ -123,8 +125,9 @@ export const DistributionOfWorkModule: FC = (): ReactElement => {
         </div>
         <div className="grid grid-cols-3 gap-[28px]">
           <Mitra1 />
-          <div className="bg-white w-[280px] h-[350px] rounded-md my-6 shadow-xl"></div>
-          <div className="bg-white w-[280px] h-[350px] rounded-md my-6 shadow-xl"></div>
+          <Mitra2 />
+          <Mitra3 />
+          <Mitra1 />
         </div>
       </section>
     </main>

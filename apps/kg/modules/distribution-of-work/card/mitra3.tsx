@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import goggle from "./assets/google.svg";
+import goggle from "../assets/google.svg";
 
 export const Mitra3: FC = (): ReactElement => {
   return (
