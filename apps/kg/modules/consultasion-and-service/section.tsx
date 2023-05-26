@@ -70,9 +70,11 @@ export const ConsultationAndServiceModule: FC = (): ReactElement => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col gap-3 mx-[136px]">
-        <h1 className="text-[28px] font-semibold">Petanyaan yang sering Ditanyakan</h1>
-        <p>Berikut list pertanyaan-pertanyaan yang sering ditanyakan kepada kami </p>
+      <section className="flex flex-col gap-3 mx-[136px] mb-40">
+        <h1 className="text-[28px] font-semibold py-4">Petanyaan yang sering Ditanyakan</h1>
+        <p className="py-4">
+          Berikut list pertanyaan-pertanyaan yang sering ditanyakan kepada kami{" "}
+        </p>
         <Accordion title="Apa itu Kampus Gratis?" idAccordion="what" className="bg-neutral-200">
           <p className="bg-white p-6 text-[16px] text-neutral-500 ">
             Kampus Gratis adalah sebuah sistem manajemen e-learning yang gratis, berkualitas, bisa
