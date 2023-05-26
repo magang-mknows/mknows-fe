@@ -96,8 +96,8 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
       icon: <DiscussionRoomIcon />,
     },
     {
-      name: "Perencanaan Karir",
-      link: "/perencanaan-karir",
+      name: "Panduan",
+      link: "/panduan",
       icon: <CareerPlanIcon />,
     },
     {

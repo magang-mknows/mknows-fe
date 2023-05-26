@@ -34,7 +34,7 @@ export const semuaFiturState = atom<Array<T>>({
       namaFitur: "Studi Ku",
       icon: icon1,
       warna: "#FEDBD7",
-      slug: "/studiku",
+      slug: "/studi-ku",
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ export const semuaFiturState = atom<Array<T>>({
       namaFitur: "Diskusi Global",
       icon: icon5,
       warna: "#E3FBDA",
-      slug: "/diskusi-global",
+      slug: "/ruang-diskusi",
     },
     {
       id: 7,
