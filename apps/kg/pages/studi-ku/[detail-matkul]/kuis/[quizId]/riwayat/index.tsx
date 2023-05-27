@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
-import { QuizHistoryModule } from '../../../../../modules/mystudy/quiz/history';
-import { BaseLayout } from '../../../../../modules/common/layout/base';
+import { QuizHistoryModule } from '../../../../../../modules/mystudy/quiz/history';
+import { BaseLayout } from '../../../../../../modules/common/layout/base';
 
 const MyStudyQuizHistoryPage: FC = (): ReactElement => {
   return (
