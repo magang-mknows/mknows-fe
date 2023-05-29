@@ -1,4 +1,4 @@
-import { FC, lazy, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import { ContentSection } from "./section/content";
 import { SidebarSection } from "./section/sidebar";
 
