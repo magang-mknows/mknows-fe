@@ -15,6 +15,7 @@ type TLeaderboardItem = {
   student_name: string;
   subjectCount: string;
   averageScore: any;
+  poin: any;
   author: AuthorLeaderboard;
 };
 
