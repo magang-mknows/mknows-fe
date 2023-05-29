@@ -1,8 +1,20 @@
 import api from "../../../services/api";
-import { TCommentResponse, TDiscussionPayload, TDiscussionResponse } from "./types";
+import {
+  TCommentResponse,
+  TDiscussionPayload,
+  TDiscussionResponse,
+  TDiscussionSingleResponse,
+} from "./types";
 
 export const getDisscussionRequest = async (): Promise<TDiscussionResponse> => {
   const { data } = await api.get("/discussion-forums/global");
+  return data;
+};
+
+export const getDisscussionDetailRequest = async (
+  id: string,
+): Promise<TDiscussionSingleResponse> => {
+  const { data } = await api.get(`/discussion-forums/forum/${id}`);
   return data;
 };
 

@@ -73,11 +73,6 @@ export const CardAuthor: FC<cardAuthor> = ({
         <LikeComment />
         <form onSubmit={onSubmit}>
           <div className="comment border rounded-[8px] mt-4 px-3 flex justify-end h-[44px] ">
-            {/* <input
-            type="text"
-            className="w-full px-3 outline-none text-[14px] font-[400]"
-            placeholder="Ketikan Balasan disini"
-          /> */}
             <TextField
               placeholder="Ketikan Balasan disini"
               name={"content"}
