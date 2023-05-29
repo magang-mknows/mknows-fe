@@ -1903,12 +1903,12 @@
   dependencies:
     "@nx/devkit" "16.2.2"
 
-"@nrwl/eslint-plugin-nx@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-16.2.1.tgz#601a95deaba99e79579596b19400c0b0ad299a2d"
-  integrity sha512-bTpM+Qj5e5XdZtMTWJg3U72Sh+LCARNIQZt2W9uVEkWBTmknAAyZjn9BlQDskZbaMIwNL7TjG5Py836lpOAMCw==
+"@nrwl/eslint-plugin-nx@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-16.2.2.tgz#be3b6cbef1f11274c901a3b29366cd81db95e414"
+  integrity sha512-h+5iiKBFC7mZ+07Jntdio1JQkNwf2fEhEpXOCD9gbGCMwtiAvvSP4AHG8rTrMAehMKKEh0cxAbN+8cr0JZQs4A==
   dependencies:
-    "@nx/eslint-plugin" "16.2.1"
+    "@nx/eslint-plugin" "16.2.2"
 
 "@nrwl/jest@16.2.2":
   version "16.2.2"
@@ -2090,14 +2090,14 @@
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nx/eslint-plugin@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/eslint-plugin/-/eslint-plugin-16.2.1.tgz#3d7fdb71000566db139bd7b619e324ab8b2dca59"
-  integrity sha512-TOPXsKb7HtEvdmV5feX2nInPGrd61rj7EC+tl/Lz9aQDWm7VyROmMZomgfRsa/sS54jWch4YCz+8amCyw4I4cA==
+"@nx/eslint-plugin@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/eslint-plugin/-/eslint-plugin-16.2.2.tgz#d292edbf65b637f997ce2767005cf23f5dc90d8c"
+  integrity sha512-qIfMG0NbtvKZT6bX20mokKnzAlBMuS00xoqEIwykJnWSYbqTLMOpSxCtgwzAE2yGqmN6/NRHS/yU5Kd6VMtzzw==
   dependencies:
-    "@nrwl/eslint-plugin-nx" "16.2.1"
-    "@nx/devkit" "16.2.1"
-    "@nx/js" "16.2.1"
+    "@nrwl/eslint-plugin-nx" "16.2.2"
+    "@nx/devkit" "16.2.2"
+    "@nx/js" "16.2.2"
     "@typescript-eslint/type-utils" "^5.58.0"
     "@typescript-eslint/utils" "^5.58.0"
     chalk "^4.1.0"
@@ -3155,10 +3155,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*", "@types/node@20.2.4":
-  version "20.2.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.4.tgz#e6c3345f7ed9c6df41fdc288a94e2633167bc15d"
-  integrity sha512-ni5f8Xlf4PwnT/Z3f0HURc3ZSw8UyrqMqmM3L5ysa7VjHu8c3FOmIo1nKCcLrV/OAmtf3N4kFna/aJqxsfEtnA==
+"@types/node@*", "@types/node@20.2.5":
+  version "20.2.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.5.tgz#26d295f3570323b2837d322180dfbf1ba156fefb"
+  integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
 
 "@types/node@^14.14.31":
   version "14.18.43"
