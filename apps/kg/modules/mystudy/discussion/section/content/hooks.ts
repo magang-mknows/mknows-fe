@@ -1,12 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { TDiscussionResponse } from "./types";
-import { getDisscussionReq, getDisscussionRequest, getDisscussionRequestById } from "./api";
-
-export const useGetAllDiscuss = (): UseQueryResult<TDiscussionResponse> =>
-  useQuery({
-    queryKey: ["get-all-discussion"],
-    queryFn: async () => await getDisscussionReq(),
-  });
+import { getDisscussionRequest, getDisscussionRequestById } from "./api";
 
 export const useGetAllDiscussion = (id: string): UseQueryResult<TDiscussionResponse> =>
   useQuery({
