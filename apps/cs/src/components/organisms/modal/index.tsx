@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { createPortal } from 'react-dom';
-import Card from '../../molecules/card';
+import { FC, ReactElement } from "react";
+import { createPortal } from "react-dom";
+import Card from "../../molecules/card";
 
 const Modal: FC = (): ReactElement => {
   return createPortal(
@@ -10,7 +10,7 @@ const Modal: FC = (): ReactElement => {
       </div>
       <Card />
     </section>,
-    document.getElementById('modal') as HTMLElement
+    document.getElementById("modal") as HTMLElement,
   );
 };
 

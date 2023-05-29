@@ -1,9 +1,9 @@
-import { ReactElement } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import PlayButton from '../../assets/play-button.svg';
-import { useGuideVideo } from './hooks';
-import { Card } from '@mknows-frontend-services/components/molecules';
+import { ReactElement } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import PlayButton from "../../assets/play-button.svg";
+import { useGuideVideo } from "./hooks";
+import { Card } from "@mknows-frontend-services/components/molecules";
 
 export const ContentSection = (): ReactElement => {
   const { getGuideVideo } = useGuideVideo();
@@ -20,7 +20,7 @@ export const ContentSection = (): ReactElement => {
                 imgheight={170}
                 imgStyle="w-full rounded-[8px]"
                 hasImage={true}
-                titleStyle={'text-xl font-bold mt-2'}
+                titleStyle={"text-xl font-bold mt-2"}
                 title={item.titleVideo}
                 icon={
                   <div className="absolute bottom-[60%] left-[45%]">

@@ -1,15 +1,11 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import Medal1 from '../assets/medal-1.svg';
-import Medal3 from '../assets/medal-3.svg';
-import Medal from '../assets/medal.svg';
-import Crown from '../assets/crown.svg';
-import Avatar from '../assets/avatar.svg';
-import {
-  useGetLeaderboard,
-  usePopupGetUser,
-  usePopupProfilLeaderboard,
-} from '../hooks';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import Medal1 from "../assets/medal-1.svg";
+import Medal3 from "../assets/medal-3.svg";
+import Medal from "../assets/medal.svg";
+import Crown from "../assets/crown.svg";
+import Avatar from "../assets/avatar.svg";
+import { useGetLeaderboard, usePopupGetUser, usePopupProfilLeaderboard } from "../hooks";
 
 export const StepRanking: FC = (): ReactElement => {
   const { data } = useGetLeaderboard();
@@ -29,8 +25,10 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[40px] lg:left-[40px] md:top-[50px] md:left-[32px] sm:top-[20px] sm:left-[34px] top-6 left-7">
                   <div className="rounded-full outline outline-4 outline-[#67A5C8]">
                     <Image
-                      src={Avatar}
-                      alt={'avatar'}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
+                      alt={"avatar"}
                       className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
                       onClick={() => {
                         setPopupUser(item);
@@ -39,7 +37,7 @@ export const StepRanking: FC = (): ReactElement => {
                     />
                     <Image
                       src={Medal}
-                      alt={'medal'}
+                      alt={"medal"}
                       className="lg:top-24 lg:right-[25px] md:top-20 md:right-[22px] sm:top-[65px] sm:right-[20px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[55px] right-[13px] absolute "
                     />
                   </div>
@@ -49,7 +47,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317]  text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
@@ -60,8 +58,10 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[280px] lg:left-[40px] md:top-[180px] md:left-[36px] sm:top-[140px] sm:left-[32px] top-36 left-7">
                   <div className="rounded-full lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] outline outline-4 outline-[#FBCB50] ">
                     <Image
-                      src={Avatar}
-                      alt={'avatar'}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
+                      alt={"avatar"}
                       className="lg:w-32 lg:h-32 md:w-[105px] md:h-[105px] sm:w-[88px] sm:h-[88px] w-[70px] h-[70px] cursor-pointer"
                       onClick={() => {
                         setPopupUser(item);
@@ -75,7 +75,7 @@ export const StepRanking: FC = (): ReactElement => {
                     />
                     <Image
                       src={Medal1}
-                      alt={'medal'}
+                      alt={"medal"}
                       className="lg:top-28 lg:right-[30px] md:top-[90px] md:right-[27px] sm:top-[74px] sm:right-[22px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[60px] right-[16px] absolute "
                     />
                   </div>
@@ -85,7 +85,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
@@ -96,8 +96,10 @@ export const StepRanking: FC = (): ReactElement => {
                 <div className="absolute lg:top-[40px] lg:left-[40px] md:top-[50px] md:left-[32px] sm:top-[20px] sm:left-[34px] top-6 left-7">
                   <div className="rounded-full outline outline-4 outline-[#6AD26A]">
                     <Image
-                      src={Avatar}
-                      alt={'avatar'}
+                      src={item?.author?.avatar === null ? Avatar : item?.author?.avatar}
+                      width={30}
+                      height={30}
+                      alt={"avatar"}
                       className="lg:w-28 lg:h-28 md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16 cursor-pointer"
                       onClick={() => {
                         setPopupUser(item);
@@ -106,7 +108,7 @@ export const StepRanking: FC = (): ReactElement => {
                     />
                     <Image
                       src={Medal3}
-                      alt={'medal'}
+                      alt={"medal"}
                       className="lg:top-24 lg:right-[25px] md:top-20 md:right-[22px] sm:top-[65px] sm:right-[20px] lg:w-[65px] md:w-[50px] sm:w-[45px] w-10 top-[55px] right-[13px] absolute "
                     />
                   </div>
@@ -116,13 +118,13 @@ export const StepRanking: FC = (): ReactElement => {
                     {item.student_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.averageScore} Poin
+                    {item.averageScore === null ? "0" : item?.averageScore} Poin
                   </button>
                 </div>
               </div>
             </div>
           ) : (
-            ''
+            ""
           );
         })}
     </div>

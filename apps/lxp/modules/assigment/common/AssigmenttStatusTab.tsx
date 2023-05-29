@@ -1,7 +1,7 @@
-import { Tab } from '@headlessui/react';
-import { FC, ReactElement } from 'react';
-import { AssigmentStatus } from '../constant';
-import { useTabAssigment } from '../hooks';
+import { Tab } from "@headlessui/react";
+import { FC, ReactElement } from "react";
+import { AssigmentStatus } from "../constant";
+import { useTabAssigment } from "../hooks";
 
 const AssigmentStatusTab: FC = (): ReactElement => {
   const { setTabAssigment } = useTabAssigment();
@@ -17,8 +17,8 @@ const AssigmentStatusTab: FC = (): ReactElement => {
               <button
                 className={`${
                   selected
-                    ? 'text-version3-500 border-b-2 border-version3-500 '
-                    : 'text-neutral-900'
+                    ? "text-version3-500 border-b-2 border-version3-500 "
+                    : "text-neutral-900"
                 } font-bold py-4 focus:outline-none outline-none `}
                 onClick={() => setTabAssigment(status)}
               >

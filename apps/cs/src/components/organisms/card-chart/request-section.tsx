@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { DropDownDashboard } from '../../molecules/dropdown';
-import ChartLine from '../../molecules/chart/chart-line';
+import { DropDownDashboard } from "../../molecules/dropdown";
+import ChartLine from "../../molecules/chart/chart-line";
 
 const RequestSection: FC = (): ReactElement => {
   return (
@@ -25,12 +25,8 @@ const RequestSection: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex px-8 justify-end gap-4">
-        <button className="border border-primary-500 rounded-full w-6 text-md">
-          +
-        </button>
-        <button className="border border-primary-500 rounded-full w-6 text-md">
-          -
-        </button>
+        <button className="border border-primary-500 rounded-full w-6 h-6 text-md">+</button>
+        <button className="border border-primary-500 rounded-full w-6 text-md">-</button>
       </div>
       <div className="px-4 w-full py-8 flex justify-center">
         <ChartLine />

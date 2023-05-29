@@ -1,5 +1,5 @@
-import { FC, ReactElement, Suspense } from 'react';
-import Card from '../../components/molecules/card';
+import { FC, ReactElement, Suspense } from "react";
+import Card from "../../components/molecules/card";
 
 const LoadingRequest: FC = (): ReactElement => {
   return (

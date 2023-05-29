@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { Line } from 'react-chartjs-2';
+import { FC, ReactElement } from "react";
+import { Line } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -11,8 +11,8 @@ import {
   PointElement,
   LineElement,
   Filler,
-} from 'chart.js';
-import { TChartProps } from '../types';
+} from "chart.js";
+import { TChartProps } from "../types";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -21,19 +21,9 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Filler
+  Filler,
 );
 
-export const LineChart: FC<TChartProps> = ({
-  data,
-  option,
-  className,
-}): ReactElement => {
-  return (
-    <Line
-      data={data}
-      options={option}
-      className={`h-full w-full ${className}`}
-    />
-  );
+export const LineChart: FC<TChartProps> = ({ data, option, className }): ReactElement => {
+  return <Line data={data} options={option} className={`h-full w-full ${className}`} />;
 };

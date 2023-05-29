@@ -1,1 +1,1 @@
-export * from './UniqueEventDetail';
+export * from "./UniqueEventDetail";

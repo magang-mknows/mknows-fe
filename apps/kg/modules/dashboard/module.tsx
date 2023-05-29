@@ -1,6 +1,6 @@
-import { FC, Fragment, ReactElement } from 'react';
-import { ContentSection } from './content';
-import { SidebarSection } from './sidebar';
+import { FC, Fragment, ReactElement } from "react";
+import { ContentSection } from "./content";
+import { SidebarSection } from "./sidebar";
 
 export const DashboardModule: FC = (): ReactElement => {
   return (

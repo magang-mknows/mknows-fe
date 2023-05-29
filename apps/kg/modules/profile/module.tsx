@@ -1,28 +1,28 @@
-import { FC, ReactElement } from 'react';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { ViewProfileBreadCumbs } from './const';
-import { ProfileSidebar } from './sidebar';
+import { FC, ReactElement } from "react";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { ViewProfileBreadCumbs } from "./const";
+import { ProfileSidebar } from "./sidebar";
 import {
   ViewProfileModule,
   CVPortofolioModule,
   EditProfileSection,
   ChangePasswordSection,
-} from './section';
-import { useRouter } from 'next/router';
+} from "./section";
+import { useRouter } from "next/router";
 
 export const ProfileModule: FC = (): ReactElement => {
   const router = useRouter();
   const pathname = router.asPath;
 
   const eventPath = [
-    '/profile',
-    '/profile/edit-profile',
-    '/profile/ubah-password',
-    '/profile/cv-portofolio',
+    "/profile",
+    "/profile/edit-profile",
+    "/profile/ubah-password",
+    "/profile/cv-portofolio",
   ];
 
   if (!eventPath.includes(pathname)) {
-    router.push('/profile');
+    router.push("/profile");
   }
 
   return (
@@ -34,10 +34,10 @@ export const ProfileModule: FC = (): ReactElement => {
       <section className="grid grid-cols-1 gap-20 px-8 lg:grid-cols-3 md:px-14 lg:px-16">
         <ProfileSidebar />
         <section className="col-span-2">
-          {pathname === '/profile' && <ViewProfileModule />}
-          {pathname === '/profile/edit-profile' && <EditProfileSection />}
-          {pathname === '/profile/cv-portofolio' && <CVPortofolioModule />}
-          {pathname === '/profile/ubah-password' && <ChangePasswordSection />}
+          {pathname === "/profile" && <ViewProfileModule />}
+          {pathname === "/profile/edit-profile" && <EditProfileSection />}
+          {pathname === "/profile/cv-portofolio" && <CVPortofolioModule />}
+          {pathname === "/profile/ubah-password" && <ChangePasswordSection />}
         </section>
       </section>
     </section>

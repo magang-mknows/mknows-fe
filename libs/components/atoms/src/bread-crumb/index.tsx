@@ -1,15 +1,16 @@
-import { FC, ReactElement, Fragment } from 'react';
-import Link from 'next/link';
-import { TBreadCrumbProps } from './types';
-import { MdChevronRight } from 'react-icons/md';
+import { FC, ReactElement, Fragment } from "react";
+import Link from "next/link";
+import { TBreadCrumbProps } from "./types";
+import { MdChevronRight } from "react-icons/md";
 
 export const BreadCrumb: FC<TBreadCrumbProps> = ({
   items,
-  textColor = 'text-[#106FA4]',
+  textColor = "text-[#106FA4]",
+  bgColor = "bg-neutral-100",
 }): ReactElement => {
   return (
     <div
-      className="grid place-content-start w-full px-8 md:px-14 lg:px-16 py-4 !font-extrabold text-xs md:text-sm bg-neutral-100"
+      className={`grid place-content-start w-full px-8 md:px-14 lg:px-16 py-4 !font-extrabold text-xs md:text-sm ${bgColor}`}
       aria-label="Breadcrumb"
     >
       <ol className="flex w-full items-center gap-x-2">
@@ -31,9 +32,7 @@ export const BreadCrumb: FC<TBreadCrumbProps> = ({
           } else {
             return (
               <Link key={index} href={crumb.link}>
-                <span className="text-neutral-500 font-[600] cursor-pointer">
-                  {crumb.name}
-                </span>
+                <span className="text-neutral-500 font-[600] cursor-pointer">{crumb.name}</span>
               </Link>
             );
           }

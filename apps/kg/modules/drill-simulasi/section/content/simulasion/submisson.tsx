@@ -1,17 +1,17 @@
-import { FC, ReactElement } from 'react';
-import simulasiNull from '../../../assets/simualasi-null.svg';
-import drillDummy from '../../../assets/dummy-drill.svg';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { useGetAllSimulation } from '../../../hooks';
-import { Card } from '@mknows-frontend-services/components/molecules';
-import { TSimulationItem } from '../../../type';
+import { FC, ReactElement } from "react";
+import simulasiNull from "../../../assets/simualasi-null.svg";
+import drillDummy from "../../../assets/dummy-drill.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { useGetAllSimulation } from "../../../hooks";
+import { Card } from "@mknows-frontend-services/components/molecules";
+import { TSimulationItem } from "../../../type";
 
 export const SubmissonSimulasion: FC = (): ReactElement => {
   const { data } = useGetAllSimulation();
   const getSubmission = data?.data;
-  console.log('getSubmission', getSubmission);
+  console.log("getSubmission", getSubmission);
 
   return (
     <>
@@ -33,29 +33,29 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
               <div className="mb-10 px-5 w-full relative">
                 <div
                   className={`text-black text-[12px] font-[500] rounded-[7px] inline-block px-3 absolute z-20 sm:-top-[170px] -top-[160px] md:-top-[180px] right-6 justify-end ${
-                    items.meeting_type === 'SIMULATION'
-                      ? 'bg-primary-500 text-white '
-                      : items.meeting_type === 'DRILL'
-                      ? 'bg-secondary-yellow-600 text-white '
-                      : items.meeting_type === 'ASSESSMEN'
-                      ? 'bg-white'
-                      : ''
+                    items.meeting_type === "SIMULATION"
+                      ? "bg-primary-500 text-white "
+                      : items.meeting_type === "DRILL"
+                      ? "bg-secondary-yellow-600 text-white "
+                      : items.meeting_type === "ASSESSMEN"
+                      ? "bg-white"
+                      : ""
                   }`}
                 >
-                  {items.meeting_type === 'SIMULATION'
-                    ? 'Simulasi'
-                    : items.meeting_type === 'DRILL'
-                    ? 'Drill'
-                    : items.meeting_type === 'ASSESSMEN'
-                    ? 'Assessmen'
-                    : ''}
+                  {items.meeting_type === "SIMULATION"
+                    ? "Simulasi"
+                    : items.meeting_type === "DRILL"
+                    ? "Drill"
+                    : items.meeting_type === "ASSESSMEN"
+                    ? "Assessmen"
+                    : ""}
                 </div>
                 <div className="flex font-[500] text-[12px] text-[#404040] rounded-[7px] gap-4 mt-5">
                   <div className=" bg-[#E9F6FD] px-3 py-1 rounded-[9px] dark:bg-[#222529] dark:text-white">
                     {items.assessor_name}
                   </div>
-                  {items.schedules.length === 0 ? (
-                    ''
+                  {items.schedules.length === undefined ? (
+                    ""
                   ) : (
                     <div className="bg-[#E3FBDA] px-3 py-1 rounded-[9px]">
                       {items.schedules.length} Jadwal Tersedia
@@ -70,7 +70,7 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
                     href={`${
                       items.schedules.length !== 0
                         ? `/simulasi-drill-dan-assestment/perubahan-jadwal/${items.topic}`
-                        : ''
+                        : ""
                     } `}
                   >
                     <Button
@@ -80,8 +80,8 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
                     >
                       <h1>
                         {items.schedules.length === 0
-                          ? 'Tidak Ada Jadwal Tersedia'
-                          : 'Lihat Jadwal Simulasi'}
+                          ? "Tidak Ada Jadwal Tersedia"
+                          : "Lihat Jadwal Simulasi"}
                       </h1>
                     </Button>
                   </Link>

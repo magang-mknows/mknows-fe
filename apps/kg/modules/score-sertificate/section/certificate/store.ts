@@ -1,25 +1,25 @@
-import { atom } from 'recoil';
-import { certificateTypes } from './type';
+import { atom } from "recoil";
+import { certificateTypes } from "./type";
 
 export const PopupModalSuccessOpen = atom({
-  key: 'modal-popup-success-2',
+  key: "modal-popup-success-2",
   default: false,
 });
 
 export const ShowDetailStatus = atom({
-  key: 'show-detail-status-2',
+  key: "show-detail-status-2",
   default: false,
 });
 
 export const CertificateStatus = atom<Array<certificateTypes>>({
-  key: 'certificate-status',
+  key: "certificate-status",
   default: [
     {
       id: 1,
-      name: 'tes',
-      role: 'Webinar',
-      type: 'webinar',
-      urlDownload: '',
+      name: "tes",
+      role: "Webinar",
+      type: "webinar",
+      urlDownload: "",
     },
   ],
 });

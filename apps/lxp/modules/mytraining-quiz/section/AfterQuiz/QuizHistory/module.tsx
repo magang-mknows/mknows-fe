@@ -1,8 +1,8 @@
-import { FC, Fragment, ReactElement } from 'react';
-import HistoryCard from './HistoryCard';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { myTrainingQuizBreadCumbs } from '../../../constant';
-import { ClientProvider } from '../../../../common/provider';
+import { FC, Fragment, ReactElement } from "react";
+import HistoryCard from "./HistoryCard";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { myTrainingQuizBreadCumbs } from "../../../constant";
+import { ClientProvider } from "../../../../common/provider";
 
 export const QuizHistory: FC = (): ReactElement => {
   return (

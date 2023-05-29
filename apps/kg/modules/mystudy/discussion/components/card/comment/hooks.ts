@@ -1,6 +1,6 @@
-import { useRecoilState } from 'recoil';
-import { PopupModalEditDiscussion, PopupModalDeleteDiscussion } from './store';
-import { TusePopupDeleteDiscussion, TusePopupEditDiscussion } from './types';
+import { useRecoilState } from "recoil";
+import { PopupModalEditDiscussion, PopupModalDeleteDiscussion } from "./store";
+import { TusePopupDeleteDiscussion, TusePopupEditDiscussion } from "./types";
 
 export const usePopupEditDiscussion = (): TusePopupEditDiscussion => {
   const [get, set] = useRecoilState(PopupModalEditDiscussion);

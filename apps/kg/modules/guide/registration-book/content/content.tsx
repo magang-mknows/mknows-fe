@@ -1,18 +1,17 @@
-import { ReactElement } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Daftar from '../../assets/daftar.svg';
-import Form from '../../assets/form.svg';
-import Check from '../../assets/check.svg';
-import Login from '../../assets/login.svg';
+import { ReactElement } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Daftar from "../../assets/daftar.svg";
+import Form from "../../assets/form.svg";
+import Check from "../../assets/check.svg";
+import Login from "../../assets/login.svg";
 
 export const ContentSection = (): ReactElement => {
   return (
     <div className=" w-full px-6 md:px-8 lg:px-16 ">
       <div className="title">
         <h1 className="text-[16px] font-[500]">
-          Halo , silakan ikuti panduan di bawah ini apabila kamu kebingungan
-          terkait{' '}
+          Halo , silakan ikuti panduan di bawah ini apabila kamu kebingungan terkait{" "}
         </h1>
       </div>
       <div className="lg:flex mt-[34px] justify-between mb-5">
@@ -25,7 +24,7 @@ export const ContentSection = (): ReactElement => {
               <h1 className="text-black dark:text-white">
                 Silahkan buka <span className="font-[700]">website</span>
                 <span className="text-[#106FA4] font-[700] ml-1">
-                  <Link href={'/'}>https://kampusgratis.id</Link>
+                  <Link href={"/"}>https://kampusgratis.id</Link>
                 </span>
               </h1>
             </div>
@@ -36,11 +35,10 @@ export const ContentSection = (): ReactElement => {
                 <span className="text-white">2</span>
               </div>
               <h1 className="text-black dark:text-white">
-                Klik pojok kanan atas{' '}
-                <span className="font-[700]">&lsquo;Daftar&lsquo;</span>
+                Klik pojok kanan atas <span className="font-[700]">&lsquo;Daftar&lsquo;</span>
               </h1>
             </div>
-            <Image src={Daftar} alt={'daftar'} />
+            <Image src={Daftar} alt={"daftar"} />
           </div>
           <div className="step-3">
             <div className="flex items-center gap-[14px]">
@@ -52,7 +50,7 @@ export const ContentSection = (): ReactElement => {
                 yang diperlukan
               </h1>
             </div>
-            <Image src={Form} alt={'form'} />
+            <Image src={Form} alt={"form"} />
           </div>
         </div>
         <div className="lg:-mt-5">
@@ -67,11 +65,7 @@ export const ContentSection = (): ReactElement => {
                 untuk menyetujui syarat & ketentuan
               </h1>
             </div>
-            <Image
-              src={Check}
-              alt={'check'}
-              className={'ml-[20px] mt-[20px]'}
-            />
+            <Image src={Check} alt={"check"} className={"ml-[20px] mt-[20px]"} />
           </div>
           <div className="step-5 mt-[28px]">
             <div className="flex items-center gap-[14px]">
@@ -80,15 +74,11 @@ export const ContentSection = (): ReactElement => {
               </div>
               <h1 className="text-black dark:text-white">
                 Klik tombol
-                <span className="font-[700]"> daftar </span>untuk melakukan
-                pendaftaran akun Klik pojok kanan atas
+                <span className="font-[700]"> daftar </span>untuk melakukan pendaftaran akun Klik
+                pojok kanan atas
               </h1>
             </div>
-            <Image
-              src={Login}
-              alt={'login'}
-              className={'ml-[20px] mt-[20px]'}
-            />
+            <Image src={Login} alt={"login"} className={"ml-[20px] mt-[20px]"} />
           </div>
           <div className="step-6">
             <div className="flex items-center gap-[14px]">

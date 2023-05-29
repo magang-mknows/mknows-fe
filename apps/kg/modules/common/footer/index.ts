@@ -1,2 +1,2 @@
-export * from './footer-content';
-export * from './footer-layout';
+export * from "./footer-content";
+export * from "./footer-layout";

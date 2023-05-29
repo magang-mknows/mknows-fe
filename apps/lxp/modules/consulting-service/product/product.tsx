@@ -1,32 +1,32 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import { RiCustomerService2Fill } from 'react-icons/ri';
-import { BsPersonCheck } from 'react-icons/bs';
-import { MdOutlineNavigateNext } from 'react-icons/md';
-import Link from 'next/link';
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { BsPersonCheck } from "react-icons/bs";
+import { MdOutlineNavigateNext } from "react-icons/md";
+import Link from "next/link";
 
 export const ConsultingAndServiceProduct: FC = (): ReactElement => {
   const consultingAndServiceProducts = [
     {
-      title: 'Konsultasi',
+      title: "Konsultasi",
       detailList: [
-        { text: 'Konsultasi Karir dan Cita-Cita', link: 'konsultasi-karir' },
-        { text: 'Konsultasi Masalah Keluarga dan Keuangan', link: 'dokumen' },
-        { text: 'Konsultasi Masalah Pribadi', link: 'dokumen' },
-        { text: 'Konsultasi Kinerja', link: 'dokumen' },
-        { text: 'Konsultasi Lainnya', link: 'dokumen' },
+        { text: "Konsultasi Karir dan Cita-Cita", link: "konsultasi-karir" },
+        { text: "Konsultasi Masalah Keluarga dan Keuangan", link: "dokumen" },
+        { text: "Konsultasi Masalah Pribadi", link: "dokumen" },
+        { text: "Konsultasi Kinerja", link: "dokumen" },
+        { text: "Konsultasi Lainnya", link: "dokumen" },
       ],
       icon: <BsPersonCheck />,
     },
     {
-      title: 'Layanan',
+      title: "Layanan",
       detailList: [
-        { text: 'Dokumen (Unduh berbagai dokumen)', link: 'dokumen' },
+        { text: "Dokumen (Unduh berbagai dokumen)", link: "dokumen" },
         {
-          text: 'Proses Dokumen (Ajukan dokumen yang telah di download)',
-          link: 'proses-dokumen',
+          text: "Proses Dokumen (Ajukan dokumen yang telah di download)",
+          link: "proses-dokumen",
         },
-        { text: 'Cek Status Dokumen', link: 'status-dokumen' },
+        { text: "Cek Status Dokumen", link: "status-dokumen" },
       ],
       icon: <RiCustomerService2Fill />,
     },
@@ -53,9 +53,7 @@ export const ConsultingAndServiceProduct: FC = (): ReactElement => {
                 <section className="flex gap-2 px-4 text-2xl mb-2" key={index}>
                   <MdOutlineNavigateNext className="w-5 flex-shrink-0 " />
                   <Link
-                    href={`/konsultasi-layanan/${
-                      list.link as unknown as string
-                    }`}
+                    href={`/konsultasi-layanan/${list.link as unknown as string}`}
                     passHref
                     className="hover:underline-offset-4 hover:underline"
                   >

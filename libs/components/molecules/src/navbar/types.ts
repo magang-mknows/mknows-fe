@@ -1,5 +1,5 @@
-import { TBottomNavProps } from './section';
-import { MouseEventHandler, ReactNode } from 'react';
+import { TBottomNavProps } from "./section";
+import { MouseEventHandler, ReactNode } from "react";
 
 type TNavbarItem = {
   name: string;
@@ -38,6 +38,7 @@ export type TNavbarProps = {
   logoStyle?: string;
   showBottomNav?: boolean;
   button?: ReactNode;
+  withSearch?: boolean;
   // avatar?: string;
   userData?: {
     full_name?: string;

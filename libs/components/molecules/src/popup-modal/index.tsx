@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { Modal } from '../modal';
-import { TPopupModalProps } from './types';
+import { FC, ReactElement } from "react";
+import Image, { StaticImageData } from "next/image";
+import { Modal } from "../modal";
+import { TPopupModalProps } from "./types";
 
 export const PopupModal: FC<TPopupModalProps> = ({
   popupTitle,
@@ -30,12 +30,7 @@ export const PopupModal: FC<TPopupModalProps> = ({
       >
         {icon ? (
           <>
-            <Image
-              src={icon as StaticImageData}
-              height={55.7}
-              width={55.7}
-              alt="Popup-Image"
-            />
+            <Image src={icon as StaticImageData} height={55.7} width={55.7} alt="Popup-Image" />
             {hasImg && (
               <Image
                 src={image as StaticImageData}
@@ -51,7 +46,7 @@ export const PopupModal: FC<TPopupModalProps> = ({
             {hasImg && (
               <Image
                 src={image as StaticImageData}
-                className={'w-full'}
+                className={"w-full"}
                 height={280.75}
                 width={280.75}
                 alt="Popup-Image"
@@ -59,12 +54,8 @@ export const PopupModal: FC<TPopupModalProps> = ({
             )}
           </>
         )}
-        <h1 className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>
-          {popupTitle}
-        </h1>
-        <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10">
-          {description}
-        </h5>
+        <h1 className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>{popupTitle}</h1>
+        <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10">{description}</h5>
         {children}
       </div>
     </Modal>

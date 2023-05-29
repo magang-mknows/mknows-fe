@@ -1,16 +1,16 @@
-import { FC, ReactElement } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-import { DetailCard } from '../common/components/detail-card';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { TQuizScoreItem } from './types';
+import { FC, ReactElement } from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+import { DetailCard } from "../common/components/detail-card";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { TQuizScoreItem } from "./types";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
   const router = useRouter();
-  const quizPath = router.asPath.split('/').slice(0, -2).join('/');
+  const quizPath = router.asPath.split("/").slice(0, -2).join("/");
   const dataQuizScores: TQuizScoreItem = {
     right: 7,
     wrong: 8,
@@ -36,11 +36,11 @@ export const QuizScoreModule: FC = (): ReactElement => {
   const timeElapsed = changeFormatByMinutes(dataQuizScores.time_elapsed);
 
   const data = {
-    labels: ['Your Score'],
+    labels: ["Your Score"],
     datasets: [
       {
         data: [rightAnswer, wrongAnswer],
-        backgroundColor: ['#106FA4', '#E5E5E5'],
+        backgroundColor: ["#106FA4", "#E5E5E5"],
         borderWidth: 0,
       },
     ],
@@ -70,9 +70,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
             <Doughnut data={data} options={options} className="p-4" />
           </div>
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl text-neutral-900 font-black">
-              {rightAnswer}
-            </h1>
+            <h1 className="text-4xl text-neutral-900 font-black">{rightAnswer}</h1>
             <p className="text-xl text-neutral-800">Point</p>
           </div>
         </div>
@@ -80,10 +78,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
           <DetailCard type="trueAnswer" value={dataQuizScores.right} />
           <DetailCard type="falseAnswer" value={dataQuizScores.wrong} />
           <DetailCard type="timeFinished" value={timeElapsed} />
-          <DetailCard
-            type="totalQuestions"
-            value={dataQuizScores.total_question}
-          />
+          <DetailCard type="totalQuestions" value={dataQuizScores.total_question} />
         </div>
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">

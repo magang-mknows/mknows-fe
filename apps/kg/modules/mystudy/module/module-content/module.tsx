@@ -1,23 +1,23 @@
-import Image from 'next/image';
-import { ReactElement } from 'react';
-import YouTube, { YouTubeProps } from 'react-youtube';
-import { PopupModal } from '../../discussion/components/modal/pop-up';
-import { ModuleButton } from '../components/button';
-import { usePopupConfirmModul } from './hooks';
-import { useConfirmModul } from '../hooks';
+import Image from "next/image";
+import { ReactElement } from "react";
+import YouTube, { YouTubeProps } from "react-youtube";
+import { PopupModal } from "../../discussion/components/modal/pop-up";
+import { ModuleButton } from "../components/button";
+import { usePopupConfirmModul } from "./hooks";
+import { useConfirmModul } from "../hooks";
 
-import Play from '../assets/button-play.svg';
-import Document from '../assets/iconDoc.svg';
+import Play from "../assets/button-play.svg";
+import Document from "../assets/iconDoc.svg";
 
 export const ModuleContentModule = (): ReactElement => {
-  const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+  const onPlayerReady: YouTubeProps["onReady"] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
 
-  const opts: YouTubeProps['opts'] = {
-    height: '300',
-    width: '800',
+  const opts: YouTubeProps["opts"] = {
+    height: "300",
+    width: "800",
     playerVars: {
       autoplay: 0,
     },
@@ -41,15 +41,12 @@ export const ModuleContentModule = (): ReactElement => {
                 iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[360px] h-[320px]"
               />
               <div className="shadow-md rounded-lg lg:p-10 w-full h-full">
-                <h1 className="font-bold text-xl">
-                  Introduce Manajemen Keuangan
-                </h1>
+                <h1 className="font-bold text-xl">Introduce Manajemen Keuangan</h1>
                 <p className="text-gray-500 py-4">
-                  Manajemen keuangan merupakan segala aktivitas perusahaan yang
-                  berkaitan dengan usaha untuk mendapatkan pendanaan yang
-                  diperlukan dengan biaya minimal dan syarat-syarat yang paling
-                  menguntungkan, serta usaha untuk menggunakan dana tersebut
-                  se-efisien mungkin.
+                  Manajemen keuangan merupakan segala aktivitas perusahaan yang berkaitan dengan
+                  usaha untuk mendapatkan pendanaan yang diperlukan dengan biaya minimal dan
+                  syarat-syarat yang paling menguntungkan, serta usaha untuk menggunakan dana
+                  tersebut se-efisien mungkin.
                 </p>
               </div>
             </div>
@@ -71,7 +68,7 @@ export const ModuleContentModule = (): ReactElement => {
             </div>
             <div className="flex w-full justify-center items-center">
               <ModuleButton
-                color={getConfirmModul ? 'gray' : 'blue'}
+                color={getConfirmModul ? "gray" : "blue"}
                 text="Selesaikan Modul"
                 size="regular"
                 onClick={() => setPopupStatus(true)}
@@ -95,21 +92,9 @@ export const ModuleContentModule = (): ReactElement => {
                       stroke="white"
                       stroke-width="1.5"
                     />
-                    <path
-                      d="M6.49561 4.49609H10.4981"
-                      stroke="white"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M4.49463 7.5H10.4984"
-                      stroke="white"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M4.49463 10.5H9.49775"
-                      stroke="white"
-                      stroke-width="1.5"
-                    />
+                    <path d="M6.49561 4.49609H10.4981" stroke="white" stroke-width="1.5" />
+                    <path d="M4.49463 7.5H10.4984" stroke="white" stroke-width="1.5" />
+                    <path d="M4.49463 10.5H9.49775" stroke="white" stroke-width="1.5" />
                   </svg>
                 }
               />
@@ -134,8 +119,8 @@ export const ModuleContentModule = (): ReactElement => {
             />
           </div>
           <p className="text-gray-400 lg:text-lg text-sm">
-            Materi kamu akan di-review oleh dosen atau pembimbing kamu. Pastikan
-            kamu mengisi dengan sesuai!
+            Materi kamu akan di-review oleh dosen atau pembimbing kamu. Pastikan kamu mengisi dengan
+            sesuai!
           </p>
           <div className="p-4 flex w-full justify-end items-end">
             <ModuleButton

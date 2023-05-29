@@ -1,3 +1,3 @@
-export * from './content/faq';
-export * from './content/guide';
-export * from './hero/hero';
+export * from "./content/faq";
+export * from "./content/guide";
+export * from "./hero/hero";

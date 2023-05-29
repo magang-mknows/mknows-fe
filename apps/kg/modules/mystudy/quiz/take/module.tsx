@@ -1,37 +1,30 @@
-import {
-  FC,
-  Fragment,
-  ReactElement,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import { QuizTimer } from './components/quiz-timer';
-import { useWindowSize } from '../../../common/hooks/use-window-size';
+import { FC, Fragment, ReactElement, useEffect, useMemo, useState } from "react";
+import { QuizTimer } from "./components/quiz-timer";
+import { useWindowSize } from "../../../common/hooks/use-window-size";
 import {
   useAutoSaveQuizAnswer,
   useCurrentQuizNumber,
   useQuizQuestion,
   useQuizRequestSubmit,
-} from './hooks';
+} from "./hooks";
 
-import { AiOutlineQuestionCircle } from 'react-icons/ai';
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
-import { useRouter } from 'next/router';
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/router";
 import {
   TQuestionsAnswersPayloadItem,
   TQuizRequestSubmit,
   TQuizSubmitPayload,
   TQuizTakeItem,
-} from './type';
-import { QuizSubmitPopup } from './components/pop-up/submit';
-import { useQuizSubmitPopup } from './components/pop-up/submit/hooks';
-import { QuizQuitPopup } from './components/pop-up/quit';
-import { useQuizQuitPopup } from './components/pop-up/quit/hooks';
-import { TQuizSubmitPopup } from './components/pop-up/submit/types';
-import { QuizTakeBreadCrumb } from './components/bread-crumb';
-import { useAlreadyReturnQuiz } from './return/hooks';
-import { ReturnToQuizTake } from './return/section';
+} from "./type";
+import { QuizSubmitPopup } from "./components/pop-up/submit";
+import { useQuizSubmitPopup } from "./components/pop-up/submit/hooks";
+import { QuizQuitPopup } from "./components/pop-up/quit";
+import { useQuizQuitPopup } from "./components/pop-up/quit/hooks";
+import { TQuizSubmitPopup } from "./components/pop-up/submit/types";
+import { QuizTakeBreadCrumb } from "./components/bread-crumb";
+import { useAlreadyReturnQuiz } from "./return/hooks";
+import { ReturnToQuizTake } from "./return/section";
 
 export const QuizTakeModule: FC = (): ReactElement => {
   const router = useRouter();
@@ -42,54 +35,52 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const { storedAnswer, setNewStoredAnswer } = useAutoSaveQuizAnswer();
   const { getQuizQuitPopup, setQuizQuitPopup } = useQuizQuitPopup();
   const { getQuizSubmitPopup, setQuizSubmitPopup } = useQuizSubmitPopup();
-  const { getAlreadyReturnQuizProp, setAlreadyReturnQuizProp } =
-    useAlreadyReturnQuiz();
+  const { getAlreadyReturnQuizProp, setAlreadyReturnQuizProp } = useAlreadyReturnQuiz();
 
-  const prevPath = router.asPath.split('/').slice(0, -2).join('/');
+  const prevPath = router.asPath.split("/").slice(0, -2).join("/");
 
   const dataQuizTake: TQuizTakeItem = useMemo(() => {
     return {
-      type: 'QUIZ',
+      type: "QUIZ",
       duration: 3200,
       questions_answers: [
         {
-          id: 'question-1',
-          question:
-            'Mengapa dibutuhkan dua ekor tupai untuk memasang satu buah bola lampu?',
+          id: "question-1",
+          question: "Mengapa dibutuhkan dua ekor tupai untuk memasang satu buah bola lampu?",
           answers: [
             {
-              id: 'memski4241',
-              answer: 'karena memasang lampu itu sulit',
+              id: "memski4241",
+              answer: "karena memasang lampu itu sulit",
             },
             {
-              id: 'kuntul123',
-              answer: 'karena mereka jelek',
+              id: "kuntul123",
+              answer: "karena mereka jelek",
             },
           ],
         },
         {
-          id: 'question-2',
-          question: 'Siapakah presiden indonesisa ke-8',
+          id: "question-2",
+          question: "Siapakah presiden indonesisa ke-8",
           answers: [
             {
-              id: 'imsama146463',
-              answer: 'Mega-chan',
+              id: "imsama146463",
+              answer: "Mega-chan",
             },
             {
-              id: 'imam124145r4',
-              answer: 'Optimus-chan',
+              id: "imam124145r4",
+              answer: "Optimus-chan",
             },
             {
-              id: 'yassalam145231',
-              answer: 'Bumblebee-chan',
+              id: "yassalam145231",
+              answer: "Bumblebee-chan",
             },
             {
-              id: 'yayaya124t234',
-              answer: 'Starscream-chan',
+              id: "yayaya124t234",
+              answer: "Starscream-chan",
             },
             {
-              id: 'bleh141251',
-              answer: 'Sam-chan',
+              id: "bleh141251",
+              answer: "Sam-chan",
             },
           ],
         },
@@ -103,8 +94,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }, [dataQuizTake]);
 
   useEffect(() => {
-    const subjectDetailPath = prevPath.split('/')[2];
-    if (subjectDetailPath !== '[detail-matkul]') {
+    const subjectDetailPath = prevPath.split("/")[2];
+    if (subjectDetailPath !== "[detail-matkul]") {
       setQuizQuitPopup({
         ...getQuizQuitPopup,
         prevPath: prevPath,
@@ -115,21 +106,16 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }, [prevPath]);
 
   const [storageAnswer, setStorageAnswer] = useState(() => {
-    const storageValue = localStorage.getItem('quiz.answer');
+    const storageValue = localStorage.getItem("quiz.answer");
     return storageValue ? JSON.parse(storageValue) : null;
   });
 
   useEffect(() => {
-    if (
-      !storageAnswer ||
-      (storageAnswer.length === 0 && getQuestionsData.length > 0)
-    ) {
-      setStorageAnswer(
-        JSON.parse(localStorage.getItem('quiz.answer') as unknown as string)
-      );
+    if (!storageAnswer || (storageAnswer.length === 0 && getQuestionsData.length > 0)) {
+      setStorageAnswer(JSON.parse(localStorage.getItem("quiz.answer") as unknown as string));
       const temp: Array<TQuizRequestSubmit> = [];
       getQuestionsData.forEach(() => {
-        temp.push({ answer: '', question: '' });
+        temp.push({ answer: "", question: "" });
       });
       setQuizRequestSubmit(temp);
     }
@@ -161,12 +147,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
     return temp;
   }
   function handleSaveAnswer(questionId: string, answerId: string) {
-    const isQuestionSame = getQuizRequestSubmit.some(
-      (req) => req.question === questionId
-    );
-    const isAnswerSame = getQuizRequestSubmit.some(
-      (req) => req.answer === answerId
-    );
+    const isQuestionSame = getQuizRequestSubmit.some((req) => req.question === questionId);
+    const isAnswerSame = getQuizRequestSubmit.some((req) => req.answer === answerId);
 
     if (!isQuestionSame && !isAnswerSame) {
       const newQuizSubmit = duplicateQuizRequestSubmit();
@@ -188,7 +170,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
         newQuizSubmit[indexFound].answer = answerId;
         setQuizRequestSubmit(newQuizSubmit);
       } else if (indexFound === undefined) {
-        console.log('indexFound variable is undefined!!!');
+        console.log("indexFound variable is undefined!!!");
       }
     }
   }
@@ -197,19 +179,17 @@ export const QuizTakeModule: FC = (): ReactElement => {
     return getQuizRequestSubmit.some((req) => req.answer === answerId);
   }
   function handleReturnPayload(): TQuizSubmitPayload {
-    const removedHelpKey: TQuestionsAnswersPayloadItem[] =
-      getQuizRequestSubmit.map((quiz) => {
-        return Object.keys(quiz).includes('help')
-          ? {
-              answer: quiz.answer,
-              question: quiz.question,
-            }
-          : { ...quiz };
-      });
-    const removedEmptyAnswer: TQuestionsAnswersPayloadItem[] =
-      removedHelpKey.filter(
-        (quiz) => quiz.answer !== '' || quiz.question !== ''
-      );
+    const removedHelpKey: TQuestionsAnswersPayloadItem[] = getQuizRequestSubmit.map((quiz) => {
+      return Object.keys(quiz).includes("help")
+        ? {
+            answer: quiz.answer,
+            question: quiz.question,
+          }
+        : { ...quiz };
+    });
+    const removedEmptyAnswer: TQuestionsAnswersPayloadItem[] = removedHelpKey.filter(
+      (quiz) => quiz.answer !== "" || quiz.question !== "",
+    );
     return {
       questions_answers: removedEmptyAnswer,
     };
@@ -219,8 +199,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
       setCurrNumber(getCurrNumber + 1);
     } else {
       const submitPayload = handleReturnPayload();
-      const subjectDetailPath = prevPath.split('/')[2];
-      if (subjectDetailPath !== '[detail-matkul]') {
+      const subjectDetailPath = prevPath.split("/")[2];
+      if (subjectDetailPath !== "[detail-matkul]") {
         const newQuizSubmitPopupValue: TQuizSubmitPopup = {
           ...getQuizSubmitPopup,
           prevPath: prevPath,
@@ -234,7 +214,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }
   function handleHelpButton() {
     const isQuestionIdSame = getQuizRequestSubmit.some(
-      (req) => req.question === getQuestionsData[getCurrNumber - 1].id
+      (req) => req.question === getQuestionsData[getCurrNumber - 1].id,
     );
     if (isQuestionIdSame) {
       const temp: Array<TQuizRequestSubmit> = [...getQuizRequestSubmit];
@@ -248,25 +228,25 @@ export const QuizTakeModule: FC = (): ReactElement => {
   function handleClassNameButtonGroup(index: number) {
     if (
       getQuizRequestSubmit[index] &&
-      Object.prototype.hasOwnProperty.call(getQuizRequestSubmit[index], 'help')
+      Object.prototype.hasOwnProperty.call(getQuizRequestSubmit[index], "help")
     ) {
       return `border-2 border-yellow-500 ${
         index + 1 === getCurrNumber
-          ? 'text-yellow-500 hover:bg-neutral-200'
-          : 'bg-yellow-500 text-white hover:opacity-75'
+          ? "text-yellow-500 hover:bg-neutral-200"
+          : "bg-yellow-500 text-white hover:opacity-75"
       }`;
     }
     if (
       isAnswerAlreadyExist(getQuizRequestSubmit[index]?.answer) &&
-      getQuizRequestSubmit[index].answer !== ''
+      getQuizRequestSubmit[index].answer !== ""
     ) {
       return `bg-primary-500 border-2 border-primary-500 text-neutral-200 hover:opacity-75 ${
-        index + 1 === getCurrNumber ? 'border-yellow-500' : 'border-none'
+        index + 1 === getCurrNumber ? "border-yellow-500" : "border-none"
       }`;
     }
-    if (getQuizRequestSubmit[index]?.answer === '') {
+    if (getQuizRequestSubmit[index]?.answer === "") {
       return `text-neutral-500 border hover:bg-neutral-200 hover:text-neutral-800 ${
-        index + 1 === getCurrNumber ? 'border-primary-500' : 'border-none'
+        index + 1 === getCurrNumber ? "border-primary-500" : "border-none"
       }`;
     }
   }
@@ -285,7 +265,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
               <div className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
                 {/* Question section */}
                 <p className="text-black text-center w-full text-xl font-semibold ">
-                  {getCurrNumber}.{' '}
+                  {getCurrNumber}.{" "}
                   {dataQuizTake &&
                     dataQuizTake?.questions_answers.length > 0 &&
                     getQuestionsData[getCurrNumber - 1]?.question}
@@ -294,27 +274,21 @@ export const QuizTakeModule: FC = (): ReactElement => {
                 <div className="flex flex-col items-center gap-y-7 w-full min-h-[120px]">
                   {dataQuizTake &&
                     dataQuizTake?.questions_answers.length > 0 &&
-                    getQuestionsData[getCurrNumber - 1]?.answers.map(
-                      (answers, index) => (
-                        <button
-                          key={index}
-                          onClick={() =>
-                            handleSaveAnswer(
-                              getQuestionsData[getCurrNumber - 1]?.id,
-                              answers.id
-                            )
-                          }
-                          className={`relative w-full sm:w-[70%] py-4 border-[#106FA4] border-2 text-base rounded-lg text-[#106FA4]  flex place-content-center hover:bg-primary-500 hover:text-neutral-200 ${
-                            isAnswerAlreadyExist(answers.id) &&
-                            'bg-primary-500 text-neutral-200'
-                          }`}
-                        >
-                          <p className="min-w-[120px] text-left">
-                            {String.fromCharCode(97 + index)}. {answers.answer}
-                          </p>
-                        </button>
-                      )
-                    )}
+                    getQuestionsData[getCurrNumber - 1]?.answers.map((answers, index) => (
+                      <button
+                        key={index}
+                        onClick={() =>
+                          handleSaveAnswer(getQuestionsData[getCurrNumber - 1]?.id, answers.id)
+                        }
+                        className={`relative w-full sm:w-[70%] py-4 border-[#106FA4] border-2 text-base rounded-lg text-[#106FA4]  flex place-content-center hover:bg-primary-500 hover:text-neutral-200 ${
+                          isAnswerAlreadyExist(answers.id) && "bg-primary-500 text-neutral-200"
+                        }`}
+                      >
+                        <p className="min-w-[120px] text-left">
+                          {String.fromCharCode(97 + index)}. {answers.answer}
+                        </p>
+                      </button>
+                    ))}
                 </div>
                 {/* Button Section */}
                 <div className="w-full flex justify-between sm:justify-around items-center gap-x-4 px-0 sm:px-10">
@@ -323,8 +297,8 @@ export const QuizTakeModule: FC = (): ReactElement => {
                     className={`bg-transparent border-2 !h-12
               w-full lg:w-[160px] lg:h-[48px] text-[16px] font-medium flex gap-x-2 rounded justify-center items-center hover:bg-neutral-200 ${
                 getCurrNumber === 1
-                  ? 'border-neutral-400 text-neutral-400'
-                  : 'text-[#106FA4] border-[#106FA4]'
+                  ? "border-neutral-400 text-neutral-400"
+                  : "text-[#106FA4] border-[#106FA4]"
               }`}
                     disabled={getCurrNumber === 1}
                     onClick={() => {
@@ -332,9 +306,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
                     }}
                   >
                     <IoIosArrowBack />
-                    {(windowSize?.width as number) > 640
-                      ? 'Sebelumnya'
-                      : undefined}
+                    {(windowSize?.width as number) > 640 ? "Sebelumnya" : undefined}
                   </button>
                   {/* Help Button */}
                   <button
@@ -342,9 +314,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
                     className="h-12 w-full lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#FAB317] text-white flex gap-x-2 rounded justify-center items-center hover:opacity-75"
                   >
                     <AiOutlineQuestionCircle />
-                    {(windowSize?.width as number) > 640
-                      ? 'Ragu-Ragu'
-                      : undefined}
+                    {(windowSize?.width as number) > 640 ? "Ragu-Ragu" : undefined}
                   </button>
                   {/* Next Button */}
                   <button
@@ -354,40 +324,37 @@ export const QuizTakeModule: FC = (): ReactElement => {
                     <IoIosArrowForward />
                     {(windowSize?.width as number) > 640
                       ? getCurrNumber >= getQuestionsData.length
-                        ? 'Kirim'
-                        : 'Selanjutnya'
-                      : ''}
+                        ? "Kirim"
+                        : "Selanjutnya"
+                      : ""}
                   </button>
                 </div>
               </div>
               {/* Timer Section */}
               <div className="flex flex-col h-[232px] gap-5 lg:w-[35%] w-full mx-auto">
                 <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
-                  <p className="text-base text-black font-bold mb-6">
-                    Daftar Soal :
-                  </p>
-                  {dataQuizTake &&
-                    dataQuizTake?.questions_answers.length > 0 && (
-                      <div className="flex flex-wrap gap-1">
-                        {[...Array(getQuestionsData.length)].map((_, index) => (
-                          <div
-                            key={index}
-                            className="w-12 h-12 bg-transparent p-1"
-                            onClick={() => {
-                              setCurrNumber(index + 1);
-                            }}
+                  <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
+                  {dataQuizTake && dataQuizTake?.questions_answers.length > 0 && (
+                    <div className="flex flex-wrap gap-1">
+                      {[...Array(getQuestionsData.length)].map((_, index) => (
+                        <div
+                          key={index}
+                          className="w-12 h-12 bg-transparent p-1"
+                          onClick={() => {
+                            setCurrNumber(index + 1);
+                          }}
+                        >
+                          <button
+                            className={`${handleClassNameButtonGroup(
+                              index,
+                            )} w-full h-full transition-colors ease-in-out duration-300 rounded-lg m-auto text-base font-bold `}
                           >
-                            <button
-                              className={`${handleClassNameButtonGroup(
-                                index
-                              )} w-full h-full transition-colors ease-in-out duration-300 rounded-lg m-auto text-base font-bold `}
-                            >
-                              {index + 1}
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                            {index + 1}
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-end">
                   <QuizTimer

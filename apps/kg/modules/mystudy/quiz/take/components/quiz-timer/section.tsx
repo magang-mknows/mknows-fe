@@ -1,11 +1,11 @@
-import { useAutoSaveQuizAnswer } from '../../hooks';
-import { useCountdownTimer } from './hooks';
-import { FC, ReactElement, useEffect } from 'react';
-import InfoIcon from '../../../assets/info.svg';
-import Image from 'next/image';
-import { TRemainingTimeProps } from './types';
-import { useTimerByGlobalState } from '../static-timer/hooks';
-import { useRouter } from 'next/router';
+import { useAutoSaveQuizAnswer } from "../../hooks";
+import { useCountdownTimer } from "./hooks";
+import { FC, ReactElement, useEffect } from "react";
+import InfoIcon from "../../../assets/info.svg";
+import Image from "next/image";
+import { TRemainingTimeProps } from "./types";
+import { useTimerByGlobalState } from "../static-timer/hooks";
+import { useRouter } from "next/router";
 
 export const QuizTimer: FC<TRemainingTimeProps> = ({
   expiryTimestamp,
@@ -29,7 +29,7 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
           hours,
           minutes,
           seconds,
-          isComplete: minutes + seconds === '0000' ? true : false,
+          isComplete: minutes + seconds === "0000" ? true : false,
         });
       }, 200);
     }

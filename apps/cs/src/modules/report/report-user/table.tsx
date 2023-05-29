@@ -1,12 +1,12 @@
-import { FC, ReactElement, Fragment } from 'react';
+import { FC, ReactElement, Fragment } from "react";
 
-import { useReportData } from '../hooks';
-import { IconDropdown, IconTable } from '../../../components/atoms';
+import { useReportData } from "../hooks";
+import { IconDropdown, IconTable } from "../../../components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
   return (
-    <div className="relative overflow-x-auto">
+    <div className="relative overflow-x-auto mb-4">
       <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400 overflow-x-scroll ">
         <thead className="text-xs border text-[#A3A3A3] font-semibold bg-[#F6FBFA] dark:bg-[#F5F8FF] ">
           <tr>
@@ -54,11 +54,11 @@ const Table: FC = (): ReactElement => {
                   <td className="px-4 py-2 bg-green-400">
                     <button
                       className={` ${
-                        item.status === 'Sangat Baik'
-                          ? 'bg-success-400'
-                          : item.status === 'Cukup Buruk'
-                          ? 'bg-warning-500'
-                          : 'bg-error-400'
+                        item.status === "Sangat Baik"
+                          ? "bg-success-400"
+                          : item.status === "Cukup Buruk"
+                          ? "bg-warning-500"
+                          : "bg-error-400"
                       } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
                     >
                       {item.status}

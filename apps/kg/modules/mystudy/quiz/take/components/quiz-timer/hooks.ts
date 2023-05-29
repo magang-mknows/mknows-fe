@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react';
-import { TCountdownTimerProps, TCountdownTimerReturn } from './types';
+import { useState, useEffect } from "react";
+import { TCountdownTimerProps, TCountdownTimerReturn } from "./types";
 
-export const useCountdownTimer = ({
-  targetHours,
-}: TCountdownTimerProps): TCountdownTimerReturn => {
+export const useCountdownTimer = ({ targetHours }: TCountdownTimerProps): TCountdownTimerReturn => {
   const [targetTime] = useState(() => {
-    const storedTargetTime = localStorage.getItem('targetTime');
+    const storedTargetTime = localStorage.getItem("targetTime");
     if (storedTargetTime) {
       return new Date(JSON.parse(storedTargetTime));
     } else {
@@ -16,7 +14,7 @@ export const useCountdownTimer = ({
   });
 
   const [timeRemaining, setTimeRemaining] = useState(() => {
-    const storedTimeRemaining = localStorage.getItem('timeRemaining');
+    const storedTimeRemaining = localStorage.getItem("timeRemaining");
     if (storedTimeRemaining) {
       return Math.max(JSON.parse(storedTimeRemaining), 0);
     } else {
@@ -33,8 +31,8 @@ export const useCountdownTimer = ({
         const timeDiff = targetTime.getTime() - Date.now();
 
         if (timeDiff <= 0) {
-          localStorage.removeItem('timeRemaining');
-          localStorage.removeItem('targetTime');
+          localStorage.removeItem("timeRemaining");
+          localStorage.removeItem("targetTime");
           setIsComplete(true);
           return 0;
         }
@@ -47,24 +45,16 @@ export const useCountdownTimer = ({
   }, [targetTime]);
 
   useEffect(() => {
-    localStorage.setItem('targetTime', JSON.stringify(targetTime));
+    localStorage.setItem("targetTime", JSON.stringify(targetTime));
   }, [targetTime]);
 
   useEffect(() => {
-    localStorage.setItem('timeRemaining', JSON.stringify(timeRemaining));
+    localStorage.setItem("timeRemaining", JSON.stringify(timeRemaining));
   }, [timeRemaining]);
 
-  const hours = String(Math.floor(timeRemaining / (1000 * 60 * 60))).padStart(
-    2,
-    '0'
-  );
-  const minutes = String(
-    Math.floor((timeRemaining / (1000 * 60)) % 60)
-  ).padStart(2, '0');
-  const seconds = String(Math.floor((timeRemaining / 1000) % 60)).padStart(
-    2,
-    '0'
-  );
+  const hours = String(Math.floor(timeRemaining / (1000 * 60 * 60))).padStart(2, "0");
+  const minutes = String(Math.floor((timeRemaining / (1000 * 60)) % 60)).padStart(2, "0");
+  const seconds = String(Math.floor((timeRemaining / 1000) % 60)).padStart(2, "0");
 
   return {
     hours,

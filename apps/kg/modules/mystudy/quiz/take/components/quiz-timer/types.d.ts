@@ -1,4 +1,4 @@
-import { TQuizSubmitPayload } from '../../type';
+import { TQuizSubmitPayload } from "../../type";
 
 export type TCountdownTimerProps = {
   targetHours: number;

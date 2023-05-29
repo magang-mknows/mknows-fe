@@ -1,7 +1,7 @@
-import { FC, lazy, ReactElement, Suspense } from 'react';
-import { LoadingHome } from '../../modules/home/loading';
+import { FC, lazy, ReactElement, Suspense } from "react";
+import { LoadingHome } from "../../modules/home/loading";
 
-const HomeModules = lazy(() => import('../../modules/home'));
+const HomeModules = lazy(() => import("../../modules/home"));
 
 const HomePages: FC = (): ReactElement => {
   return (
