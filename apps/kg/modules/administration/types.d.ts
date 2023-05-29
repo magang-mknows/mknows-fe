@@ -19,6 +19,7 @@ export type TAdministrationItem = {
   user_id: string;
   status: string;
   type: string;
+  reason: string;
   action_by: string;
   biodata: TBiodataAdm;
   familial: TFamilyAdm;
@@ -26,8 +27,9 @@ export type TAdministrationItem = {
 };
 
 export type TBiodataAdm = {
+  full_name: string;
   gender: string;
-  phone: string;
+  phone_number: string;
   birthdate: string;
   birthplace: string;
   address: string;
