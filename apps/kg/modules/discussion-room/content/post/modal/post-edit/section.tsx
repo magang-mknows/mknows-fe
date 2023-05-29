@@ -83,7 +83,7 @@ export const PostEditModal: FC = (): ReactElement => {
           }}
         />
       </header>
-      <main className="px-4 py-8">
+      <main className="px-4 py-8">  
         <form onSubmit={onSubmit}>
           <TextField
             required

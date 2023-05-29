@@ -97,7 +97,6 @@ export const DiscussionContent: FC = (): ReactElement => {
                   </label>
                 </section>
                 <section>
-                  <h1>Id : {discussion.id}</h1>
                   <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
                     {discussion?.comments} balasan
                   </h1>
