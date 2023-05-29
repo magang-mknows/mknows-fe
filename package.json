@@ -126,7 +126,7 @@
     "node-fetch": "~3.3.0",
     "nx": "^16.2.2",
     "nx-cloud": "16.0.5",
-    "postcss": "^8.4.23",
+    "postcss": "^8.4.24",
     "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
     "qwik-nx": "^1.0.3",
