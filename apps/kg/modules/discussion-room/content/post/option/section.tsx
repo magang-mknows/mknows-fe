@@ -4,16 +4,10 @@ import { AiFillFlag } from "react-icons/ai";
 import { Menu, Transition } from "@headlessui/react";
 import { BsPencilFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 import { TSelectedOptionId } from "./types";
 import { isModalOpen, selectedOption, selectedPostId } from "../../store";
-
-import { Modal } from "@mknows-frontend-services/components/molecules";
-import { PostReportModal, PostSpamModal, DeleteConfirmModal } from "../modal";
-import { PostCreateModal } from "../modal/post-create";
-import { PostEditModal } from "../modal/post-edit";
-import ReportSuccessModal from "../modal/post-report-success/section";
 
 export const DiscussionPostOption: FC<TSelectedOptionId> = ({ id }): ReactElement => {
   const options = [

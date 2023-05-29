@@ -11,26 +11,14 @@ import { isModalOpen, selectedPostId } from "../../../store";
 import { useCreateDiscussion, useDiscussionById } from "./hooks";
 import Image from "next/image";
 
-export type DataId = {
-  id?: string;
-};
-
-export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
+export const PostEditModal: FC = (): ReactElement => {
   const getSeletedPostId = useRecoilValue(selectedPostId);
-
-  // console.log(id, "1");
 
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
 
-  // useEffect(() => {
-  //   const { data, refetch } = useDiscussionById(id as string);
-  //   const discussionData = data?.data;
-  // });
-
   const { data, refetch } = useDiscussionById(getSeletedPostId as string);
   const discussionData = data?.data;
-  // console.log(discussionData);
 
   const { mutate, isLoading } = useCreateDiscussion();
 
@@ -83,16 +71,6 @@ export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
     reset(discussionData);
   }, [discussionData]);
 
-  // const onSubmit = handleSubmit(async (data) => {
-  //   try {
-  //     mutate(data as TDiscussionPayload);
-  //     setOptionOpen(false);
-  //     reset(data);
-  //   } catch (err) {
-  //     console.log('Gagal Mengunggah');
-  //   }
-  // });
-
   const [isEdit, setIsEdit] = useState(false);
   return (
     <section className="bg-neutral-50 min-w-[500px]">
@@ -106,7 +84,6 @@ export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
         />
       </header>
       <main className="px-4 py-8">
-        <h1>{id}</h1>
         <form onSubmit={onSubmit}>
           <TextField
             required

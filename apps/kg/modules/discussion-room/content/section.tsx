@@ -19,14 +19,11 @@ import { PostCreateModal } from "./post/modal/post-create";
 import { PostEditModal } from "./post/modal/post-edit";
 
 export const DiscussionContent: FC = (): ReactElement => {
-  const [selectedDiscussionId, setSelectedDiscussionId] = useState(null);
-
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
   const [getSelectedOption, setSelectedOption] = useRecoilState(selectedOption);
 
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
-  // console.log(listDiscussionData);
 
   function daysAgo(days: string) {
     const today = new Date();
