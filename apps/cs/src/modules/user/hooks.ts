@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import {
-  userFilter,
+  
   userSearch,
   CategoryStatusState,
   IdentityStatusState,
@@ -8,7 +8,6 @@ import {
   CapabilityStatusState,
 } from "./store";
 import {
-  TUserDataResponse,
   TUserQueryResponse,
   StatusReturnTypeCategory,
   ReturnTypesDataCapabiity,
@@ -22,12 +21,6 @@ import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { filterAction } from "../quota/store";
 import { getUserResponse } from "./api";
 
-export const useUserData = (): TUserDataResponse => {
-  const get = useRecoilValue(userFilter);
-  return {
-    getUserData: get,
-  };
-};
 
 export const useUserQuery = (): TUserQueryResponse => {
   const [get, set] = useRecoilState(userSearch);

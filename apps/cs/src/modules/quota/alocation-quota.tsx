@@ -1,9 +1,8 @@
-import { Button } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement, useState, Fragment } from "react";
+import { Button } from "@mknows-frontend-services/components/atoms";
 import Card from "../../components/molecules/card";
-import { useQuota } from "./hooks";
 import { Dialog, Transition } from "@headlessui/react";
-import { useQuotaData } from "./hooks";
+import { useQuotaData, useQuota } from "./hooks";
 import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {

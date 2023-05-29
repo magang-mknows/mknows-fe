@@ -74,7 +74,7 @@ const PopUpAllFeature: FC<TPopUpAllFeaturesProps> = ({ features, onClick }): Rea
             className={"flex flex-col justify-start items-center gap-y-2 w-[137px] h-auto"}
           >
             <div>{item.icon}</div>
-            <span className="text-sm font-normal">{item.name}</span>
+            <span className="text-sm font-normal w-full">{item.name}</span>
           </Button>
         ))}
       </div>

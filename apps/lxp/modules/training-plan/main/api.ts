@@ -7,10 +7,5 @@ export const getAllDepartments = async (keyword: string): Promise<TDepartmentRes
     keyword === "" ? "/departments/active" : `/departments/active/filter`,
     { params },
   );
-  if (data.ok) {
-    // throw new Error('Network response was not ok');
-    console.log("kimey");
-  }
-
   return data;
 };
