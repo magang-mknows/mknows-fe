@@ -12,9 +12,12 @@ export const QuizReviewModule: FC = (): ReactElement => {
   const router = useRouter();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizReviewNumber();
   const quizReviewBreadCrumbItems = useHandleQuizReviewBreadCrumb({
+    quizPath: router.asPath.split('/').slice(0, -2).join('/'),
     subjectDetailPath: router.asPath.split('/').slice(0, -4).join('/'),
-    quizPath: router.asPath.split('/').slice(0, -1).join('/'),
-    quizHistoryPath: router.asPath.split('/').slice(0, -2).join('/'),
+    quizHistoryPath:
+      router.asPath.split('/').slice(0, -2).join('/') +
+      '/riwayat/' +
+      router.query.quizReviewId,
   });
 
   console.log(quizReviewBreadCrumbItems);

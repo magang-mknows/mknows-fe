@@ -1,10 +1,13 @@
 import { FC, ReactElement } from 'react';
 import { DetailCard } from '../../../common/components/detail-card';
 import { TQuizHistoryItem } from '../../types';
+import { Button } from '@mknows-frontend-services/components/atoms';
+import Link from 'next/link';
 
-export const HistoryCard: FC<{ dataQuizHistory: TQuizHistoryItem }> = ({
-  dataQuizHistory,
-}): ReactElement => {
+export const HistoryCard: FC<{
+  dataQuizHistory: TQuizHistoryItem;
+  quizPath: string;
+}> = ({ dataQuizHistory, quizPath }): ReactElement => {
   function changeFormatByDate(iso: string): string {
     const date = new Date(iso);
     const options: Intl.DateTimeFormatOptions = {
@@ -40,6 +43,8 @@ export const HistoryCard: FC<{ dataQuizHistory: TQuizHistoryItem }> = ({
     dataQuizHistory.time_elapsed
   );
 
+  const quizReviewLink = `${quizPath}/review/${dataQuizHistory.id}`;
+
   return (
     <section className="bg-white shadow-sm rounded-md px-5 py-4 w-full">
       <section className="flex justify-between text-xs">
@@ -52,20 +57,38 @@ export const HistoryCard: FC<{ dataQuizHistory: TQuizHistoryItem }> = ({
           <p className="lg:text-end">{timeFormatted}</p>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row justify-between lg:gap-x-2 my-6">
-        <div className="flex flex-col w-full lg:w-28 py-9 mb-2 lg:mb-0 items-center justify-center rounded-md">
-          <h1 className="text-3xl font-bold">{dataQuizHistory.score}</h1>
-          <p>
-            {dataQuizHistory.status === 'FINISHED' ? 'Lulus' : 'Tidak Lulus'}
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 lg:grid lg:grid-cols-2">
-          <DetailCard type="trueAnswer" value={dataQuizHistory.correct} />
-          <DetailCard type="timeFinished" value={minutesFormatted} />
-          <DetailCard type="falseAnswer" value={dataQuizHistory.wrong} />
+      <section className="flex flex-col sm:flex-row justify-between items-center lg:gap-x-2 mt-3">
+        <Link
+          href={quizReviewLink}
+          className="flex flex-col w-full h-auto lg:w-28 py-2 lg:py-0 mb-2 lg:mb-0 items-center justify-center rounded-md hover:bg-neutral-200/80 transition-colors ease-in duration-300"
+        >
+          <button>
+            <h1 className="text-3xl font-bold">{dataQuizHistory.score}</h1>
+            <p>
+              {dataQuizHistory.status === 'FINISHED' ? 'Lulus' : 'Tidak Lulus'}
+            </p>
+          </button>
+        </Link>
+        <div className="gap-2 grid grid-cols-1 md:grid-cols-2">
+          <DetailCard
+            type="trueAnswer"
+            value={dataQuizHistory.correct}
+            link={quizReviewLink}
+          />
+          <DetailCard
+            type="timeFinished"
+            value={minutesFormatted}
+            link={quizReviewLink}
+          />
+          <DetailCard
+            type="falseAnswer"
+            value={dataQuizHistory.wrong}
+            link={quizReviewLink}
+          />
           <DetailCard
             type="totalQuestions"
             value={dataQuizHistory.total_question}
+            link={quizReviewLink}
           />
         </div>
       </section>

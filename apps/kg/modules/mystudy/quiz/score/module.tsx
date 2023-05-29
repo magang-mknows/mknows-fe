@@ -5,16 +5,12 @@ import { DetailCard } from '../common/components/detail-card';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { TQuizScoreItem } from './types';
-// import { useGetQuizScoreById } from './hooks';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
   const router = useRouter();
-  // const { data: responseData } = useGetQuizScoreById(
-  //   router.query.quizScoreId as string
-  // );
-  // const dataQuizScores = responseData?.data as TQuizScoreItem;
+  const quizPath = router.asPath.split('/').slice(0, -2).join('/');
   const dataQuizScores: TQuizScoreItem = {
     right: 7,
     wrong: 8,
@@ -92,7 +88,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">
         <div className="w-full lg:w-80 ">
-          <Link href="/">
+          <Link href={`${quizPath}/riwayat/${router.query.quizScoreId}`}>
             <button
               type="button"
               className="text-primary-500 border-2 border-primary-500 bg-white hover:bg-neutral-50 w-full h-12 rounded-md shadow-sm font-bold transition-colors ease-out duration-300"
@@ -102,7 +98,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
           </Link>
         </div>
         <div className="w-full lg:w-80 ">
-          <Link href="">
+          <Link href={quizPath}>
             <button
               type="button"
               className="bg-primary-500 border-2 border-primary-500 text-white hover:bg-primary-600  w-full h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"

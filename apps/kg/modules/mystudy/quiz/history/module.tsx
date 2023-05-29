@@ -3,12 +3,12 @@ import { HistoryCard } from './components/history-card';
 import { useGetQuizHistoryById } from './hooks';
 import { useRouter } from 'next/router';
 import { TQuizHistoryItem } from './types';
+import { Button } from '@mknows-frontend-services/components/atoms';
+import Link from 'next/link';
 
 export const QuizHistoryModule: FC = (): ReactElement => {
   const router = useRouter();
-  const { data } = useGetQuizHistoryById(router.query.quizHistoryId as string);
-
-  // const dataQuizHistories = data?.data as TQuizHistoryItem[];
+  const quizPath = router.asPath.split('/').slice(0, -2).join('/');
   const dataQuizHistories: TQuizHistoryItem[] = [
     {
       id: '26b6416f-d4aa-4da3-a332-0cc9fe687772',
@@ -46,9 +46,16 @@ export const QuizHistoryModule: FC = (): ReactElement => {
     <div className="w-[90%] md:w-[85%] min-h-screen mx-auto my-20">
       <section className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         {dataQuizHistories.map((historyData) => (
-          <HistoryCard dataQuizHistory={historyData} />
+          <HistoryCard dataQuizHistory={historyData} quizPath={quizPath} />
         ))}
       </section>
+      <div className="w-full flex justify-center mt-9">
+        <Link href={quizPath} className="w-1/4 mx-auto">
+          <button className="w-full bg-[#106FA4] py-4 rounded-lg text-base font-bold text-white">
+            Coba Kembali (Sisa 2)
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
