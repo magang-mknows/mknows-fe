@@ -13,7 +13,7 @@ export const useGetAllDepartments = (
     queryKey: ["get-all-department", keyword],
     queryFn: async () => {
       try {
-        await getAllDepartments(keyword);
+        return await getAllDepartments(keyword);
       } catch (error) {
         const customError = error as CustomError;
         if (customError.response && customError.response.status === 403) {

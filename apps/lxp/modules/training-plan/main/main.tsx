@@ -42,16 +42,7 @@ export const TrainingPlanMain: FC = (): ReactElement => {
         </div>
       </div>
       <h1 className="text-xl font-bold text-neutral-900 mb-8">Pilihan Pelatihan</h1>
-      {/* {!loadingCheckStatus && administrationStatus === 'ACCEPTED' && (
-        <section className=" w-full text-sm font-bold flex gap-2 items-center  py-2 px-4 rounded-md shadow-sm">
-          <AiFillInfoCircle className="text-lg" />
-          <h1>
-            Maaf Proses Registrasi-mu{' '}
-            <span className="font-bold">belum selesai</span> / {''}
-            <span className="font-bold">belum diterim</span>
-          </h1>
-        </section>
-      )} */}
+
       <section className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {isLoading ? (
           <CardLoading />
