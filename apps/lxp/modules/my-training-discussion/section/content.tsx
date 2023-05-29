@@ -7,6 +7,7 @@ import Redo from "../assets/redo.svg";
 import { useGetAllDiscussion } from "./hooks";
 
 const Content: FC = (): ReactElement => {
+  
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
   console.log(listDiscussionData);

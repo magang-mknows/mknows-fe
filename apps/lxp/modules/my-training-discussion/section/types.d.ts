@@ -14,37 +14,16 @@ export type TDiscussionItem = {
   content: string;
   is_global: boolean;
   images: string[];
+  discussion_comments: DiscussionComment[];
 };
 
 export interface DiscussionComment {
   id: string;
   user_id: string;
+  discussion_forum_id: string;
   content: string;
-  image: string[];
-  created_at: string;
-  comment_replies: CommentReply[];
-  likes: number;
-  replies: number;
-  author: Author2;
-  isLiked: boolean;
-}
-
-export interface CommentReply {
-  id: string;
-  user_id: string;
-  content: string;
-  image: string[];
-  created_at: string;
-  likes: number;
-  author: Author;
-  isLiked: boolean;
-}
-
-export interface Author {
-  avatar: string;
-  full_name: string;
-  major: string;
-  role: string;
+  image: string;
+  comment_replies: string[];
 }
 
 export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;
