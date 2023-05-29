@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import {
   quizQuestionState,
   currentQuizNumberState,
@@ -54,7 +54,7 @@ export const useAutoSaveQuizAnswer = () => {
   const [newStoredAnswer, setNewStoredAnswer] = useState<
     TQuizRequestSubmit[] | []
   >([]);
-  const [_, setQuizRequestSubmit] = useRecoilState(quizRequestSubmitState);
+  const setQuizRequestSubmit = useSetRecoilState(quizRequestSubmitState);
   const [storedAnswer, setStoredAnswer] = useState<TQuizRequestSubmit[]>(() => {
     const storageValue = localStorage.getItem('quiz.answer');
     if (storageValue) {
@@ -89,8 +89,6 @@ export const useGetQuizTakeById = (
     queryKey: ['quiz-take-get', id],
     queryFn: async () => await quizTakeGetRequest(id),
   });
-
-// type TuseSubmitQuizParam =
 
 export const useSubmitQuiz = (
   id: string

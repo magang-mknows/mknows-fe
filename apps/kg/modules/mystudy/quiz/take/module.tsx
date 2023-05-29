@@ -11,7 +11,6 @@ import { useWindowSize } from '../../../common/hooks/use-window-size';
 import {
   useAutoSaveQuizAnswer,
   useCurrentQuizNumber,
-  useGetQuizTakeById,
   useQuizQuestion,
   useQuizRequestSubmit,
 } from './hooks';
@@ -48,8 +47,6 @@ export const QuizTakeModule: FC = (): ReactElement => {
 
   const prevPath = router.asPath.split('/').slice(0, -2).join('/');
 
-  // const { data } = useGetQuizTakeById(router.query.quizTakeId as string);
-  // const dataQuizTake: TQuizTakeItem = data?.data;
   const dataQuizTake: TQuizTakeItem = useMemo(() => {
     return {
       type: 'QUIZ',
@@ -102,6 +99,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
 
   useEffect(() => {
     setQuestionsData(dataQuizTake?.questions_answers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataQuizTake]);
 
   useEffect(() => {
@@ -113,6 +111,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
         quizTakeId: router.query.quizTakeId as string,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prevPath]);
 
   const [storageAnswer, setStorageAnswer] = useState(() => {
@@ -134,6 +133,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
       });
       setQuizRequestSubmit(temp);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageAnswer]);
 
   useEffect(() => {

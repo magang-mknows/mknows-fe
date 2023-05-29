@@ -1,14 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { TCountdownTimerProps, TCountdownTimerReturn } from './types';
 
 export const useCountdownTimer = ({
   targetHours,
 }: TCountdownTimerProps): TCountdownTimerReturn => {
-  const targetMinutes = useMemo(
-    () => Math.floor(targetHours * 60),
-    [targetHours]
-  );
-
   const [targetTime] = useState(() => {
     const storedTargetTime = localStorage.getItem('targetTime');
     if (storedTargetTime) {

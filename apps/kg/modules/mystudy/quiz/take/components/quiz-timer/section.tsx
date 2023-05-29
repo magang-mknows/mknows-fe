@@ -44,7 +44,7 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
       resetStoredAnswer();
       router.push(`${prevPath}/skor/${quizTakeId}`);
     }
-  }, [isComplete, resetStoredAnswer]);
+  }, [isComplete, resetStoredAnswer, prevPath, quizTakeId, router]);
 
   return (
     <div className="bg-[#FEDBD7] rounded-md shadow-sm">

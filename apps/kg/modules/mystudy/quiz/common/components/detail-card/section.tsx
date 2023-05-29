@@ -4,7 +4,6 @@ import { FaTimesCircle } from 'react-icons/fa';
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { AiFillInfoCircle } from 'react-icons/ai';
 import { DetailCardProps } from './types';
-import { Button } from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
 
 export const DetailCard: FC<DetailCardProps> = ({

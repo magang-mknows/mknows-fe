@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 import { FC, Fragment, ReactElement } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Button } from '@mknows-frontend-services/components/atoms';

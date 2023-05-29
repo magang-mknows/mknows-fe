@@ -20,8 +20,6 @@ export const QuizReviewModule: FC = (): ReactElement => {
       router.query.quizReviewId,
   });
 
-  console.log(quizReviewBreadCrumbItems);
-
   const dataQuizReview: Array<TQuizReviewItem> = dummyQuizReview;
 
   function handleAnswerColor(index: number) {

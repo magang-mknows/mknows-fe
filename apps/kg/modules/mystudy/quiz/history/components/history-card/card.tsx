@@ -1,13 +1,13 @@
 import { FC, ReactElement } from 'react';
 import { DetailCard } from '../../../common/components/detail-card';
 import { TQuizHistoryItem } from '../../types';
-import { Button } from '@mknows-frontend-services/components/atoms';
 import Link from 'next/link';
 
 export const HistoryCard: FC<{
   dataQuizHistory: TQuizHistoryItem;
   quizPath: string;
-}> = ({ dataQuizHistory, quizPath }): ReactElement => {
+  key: number;
+}> = ({ dataQuizHistory, quizPath, key }): ReactElement => {
   function changeFormatByDate(iso: string): string {
     const date = new Date(iso);
     const options: Intl.DateTimeFormatOptions = {
@@ -46,7 +46,10 @@ export const HistoryCard: FC<{
   const quizReviewLink = `${quizPath}/review/${dataQuizHistory.id}`;
 
   return (
-    <section className="bg-white shadow-sm rounded-md px-5 py-4 w-full">
+    <section
+      key={key}
+      className="bg-white shadow-sm rounded-md px-5 py-4 w-full"
+    >
       <section className="flex justify-between text-xs">
         <div className="flex flex-col md:flex-row md:gap-x-1 font-bold">
           <h1>Percobaan</h1>
