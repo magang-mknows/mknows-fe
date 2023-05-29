@@ -23,7 +23,7 @@ export type TQuotaDataResponse = { getQuotaData: string[] };
 
 export type TQuotaItem = {
   id: string;
-  feature: FeatureId;
+  feature: string;
   request_number: string;
   quantity: number;
   status: string;

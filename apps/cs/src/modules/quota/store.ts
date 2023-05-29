@@ -29,6 +29,6 @@ export const quotaSearch = atom({
 });
 
 export const resultOption = atom({
-  key: "result-option-query",
+  key: "quota-option-query",
   default: "",
 });
