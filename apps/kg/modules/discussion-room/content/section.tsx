@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Modal } from "@mknows-frontend-services/components/molecules";
 import { Button } from "@mknows-frontend-services/components/atoms";
@@ -19,12 +19,14 @@ import { PostCreateModal } from "./post/modal/post-create";
 import { PostEditModal } from "./post/modal/post-edit";
 
 export const DiscussionContent: FC = (): ReactElement => {
+  const [selectedDiscussionId, setSelectedDiscussionId] = useState(null);
+
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
   const [getSelectedOption, setSelectedOption] = useRecoilState(selectedOption);
 
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
-  console.log(listDiscussionData);
+  // console.log(listDiscussionData);
 
   function daysAgo(days: string) {
     const today = new Date();
@@ -78,7 +80,7 @@ export const DiscussionContent: FC = (): ReactElement => {
                 userName={discussion.author.full_name}
                 title={discussion.title}
                 text={discussion.content}
-                option={<DiscussionPostOption id={`test id ${(index + 1) as unknown as string}`} />}
+                option={<DiscussionPostOption id={discussion.id as unknown as string} />}
               >
                 <section className="w-full gap-5 mb-6 border-2 rounded-md shadow-sm border-neutral-100">
                   <label
@@ -98,30 +100,30 @@ export const DiscussionContent: FC = (): ReactElement => {
                   </label>
                 </section>
                 <section>
+                  <h1>Id : {discussion.id}</h1>
                   <h1 className="mb-6 text-sm font-bold md:mb-8 lg:mb-10 text-[#106FA4]">
                     {discussion?.comments} balasan
                   </h1>
                   <CommentSection id={discussion.id} />
                 </section>
               </DiscussionCard>
-              <Modal
-                withClose={false}
-                hasImage={false}
-                lookup={isOptionOpen}
-                onClose={() => setOptionOpen(false)}
-              >
-                {getSelectedOption === "create" && <PostCreateModal />}
-                {getSelectedOption === "edit" && <PostEditModal id={discussion.id} />}
-                {getSelectedOption === "report" && <PostReportModal />}
-                {getSelectedOption === "reportDetail" && <PostSpamModal />}
-                {getSelectedOption === "reportSuccess" && <ReportSuccessModal />}
-                {getSelectedOption === "delete" && <DeleteConfirmModal />}
-              </Modal>
-              ;
             </div>
           );
         })}
       </section>
+      <Modal
+        withClose={false}
+        hasImage={false}
+        lookup={isOptionOpen}
+        onClose={() => setOptionOpen(false)}
+      >
+        {getSelectedOption === "create" && <PostCreateModal />}
+        {getSelectedOption === "edit" && <PostEditModal />}
+        {getSelectedOption === "report" && <PostReportModal />}
+        {getSelectedOption === "reportDetail" && <PostSpamModal />}
+        {getSelectedOption === "reportSuccess" && <ReportSuccessModal />}
+        {getSelectedOption === "delete" && <DeleteConfirmModal />}
+      </Modal>
     </section>
   );
 };

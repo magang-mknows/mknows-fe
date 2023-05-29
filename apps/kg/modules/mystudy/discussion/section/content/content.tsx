@@ -6,7 +6,7 @@ import { CardComment } from "../../components/card/comment";
 import profileDummy from "../../assets/profile-dummy.svg";
 import down from "../../assets/down.svg";
 import redo from "../../assets/redo.svg";
-import { useGetAllDiscuss, useGetAllDiscussion } from "./hooks";
+import { useGetAllDiscussion } from "./hooks";
 import { useRouter } from "next/router";
 
 export const ContentSection: FC = (): ReactElement => {
@@ -14,7 +14,6 @@ export const ContentSection: FC = (): ReactElement => {
   const { id } = router.query;
 
   const { data } = useGetAllDiscussion(id as string);
-  // const { data } = useGetAllDiscussion("6bc3b730-8c7d-41f0-a1dc-03bac621a824");
   const listDiscussionData = data?.data;
   console.log(listDiscussionData);
 

@@ -7,10 +7,10 @@ import { useSession } from "next-auth/react";
 export const useDiscussionById = (
   id: string,
 ): UseQueryResult<TDiscussionDetailResponse, TMetaErrorResponse> => {
-  const { data: session } = useSession();
+  // console.log(id, "2");
+
   return useQuery({
-    enabled: !!session,
-    queryKey: ["get-discussion-by-id"],
+    queryKey: ["get-discussion-by-id", id],
     queryFn: async () => await DiscussionByIdRequest(id),
   });
 };

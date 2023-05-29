@@ -6,23 +6,32 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, TextField, UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { RxCross1 } from "react-icons/rx";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { useSetRecoilState } from "recoil";
-import { isModalOpen } from "../../../store";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isModalOpen, selectedPostId } from "../../../store";
 import { useCreateDiscussion, useDiscussionById } from "./hooks";
-import { TDiscussionPayload } from "./types";
 import Image from "next/image";
 
 export type DataId = {
-  id: string;
+  id?: string;
 };
 
 export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
-  console.log(id);
+  const getSeletedPostId = useRecoilValue(selectedPostId);
+
+  // console.log(id, "1");
 
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
-  const { data, refetch } = useDiscussionById(id);
+
+  // useEffect(() => {
+  //   const { data, refetch } = useDiscussionById(id as string);
+  //   const discussionData = data?.data;
+  // });
+
+  const { data, refetch } = useDiscussionById(getSeletedPostId as string);
   const discussionData = data?.data;
+  // console.log(discussionData);
+
   const { mutate, isLoading } = useCreateDiscussion();
 
   const MAX_FILE_SIZE = 3 * 1024 * 1024;
@@ -68,7 +77,7 @@ export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
     await refetch();
   });
 
-  console.log(!!data?.data?.images);
+  // console.log(!!data?.data?.images);
 
   useEffect(() => {
     reset(discussionData);
@@ -97,6 +106,7 @@ export const PostEditModal: FC<DataId> = ({ id }): ReactElement => {
         />
       </header>
       <main className="px-4 py-8">
+        <h1>{id}</h1>
         <form onSubmit={onSubmit}>
           <TextField
             required

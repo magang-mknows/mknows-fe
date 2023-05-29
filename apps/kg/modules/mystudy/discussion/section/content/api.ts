@@ -15,7 +15,7 @@ export const getDisscussionRequest = async (id: string): Promise<TDiscussionResp
     params: {
       session_id: id,
     },
-    url: "/disscussion",
+    url: "/discussion",
   });
   return data;
 };
