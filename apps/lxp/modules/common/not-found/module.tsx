@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { TNotFoundProps } from './types';
-import { NotFoundIcon } from './icon';
+import { FC } from "react";
+import { TNotFoundProps } from "./types";
+import { NotFoundIcon } from "./icon";
 
 export const NotFound: FC<TNotFoundProps> = ({ keyword, title }) => {
   return (

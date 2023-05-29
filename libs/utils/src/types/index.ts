@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import { AxiosError } from "axios";
 
 export type TMetaItem = {
   code: number;
@@ -15,3 +15,9 @@ export type TMetaResponseSingle<T> = {
 } & TMetaItem;
 
 export type TMetaErrorResponse = AxiosError<TMetaItem>;
+
+export interface CustomError extends Error {
+  response?: {
+    status: number;
+  };
+}

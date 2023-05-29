@@ -1,25 +1,22 @@
-import { ReactElement, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { RxSlider } from 'react-icons/rx';
-import dummyCertificate from '../../assets/dummy-certificate.svg';
-import download from '../../assets/download.svg';
-import ImageNull from '../../../assignment/assets/data-null.svg';
-import { usePopupCertificate } from './hooks';
-import {
-  Card,
-  PopupModal,
-} from '@mknows-frontend-services/components/molecules';
-import { useGetAllCertificate } from '../../hook';
-import { TCertificate, TItemCertificate } from '../../type';
+import { ReactElement, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { RxSlider } from "react-icons/rx";
+import dummyCertificate from "../../assets/dummy-certificate.svg";
+import download from "../../assets/download.svg";
+import ImageNull from "../../../assignment/assets/data-null.svg";
+import { usePopupCertificate } from "./hooks";
+import { Card, PopupModal } from "@mknows-frontend-services/components/molecules";
+import { useGetAllCertificate } from "../../hook";
+import { TCertificate, TItemCertificate } from "../../type";
 
 export const CertificateSection = (): ReactElement => {
   const { data } = useGetAllCertificate();
   const getCertif = data?.data?.certificates;
-  console.log('cek certificate', getCertif);
+  console.log("cek certificate", getCertif);
 
   const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState('semua');
+  const [filter, setFilter] = useState("semua");
   const { setPopupStatus, getPopupStatus } = usePopupCertificate();
 
   return (
@@ -38,42 +35,36 @@ export const CertificateSection = (): ReactElement => {
               <div className="w-[160px] h-[114px] rounded-[8px] text-center  overflow-hidden shadow-2xl ">
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter('semua')}
+                  onClick={() => setFilter("semua")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == 'semua' ? 'bg-[#67A5C8]' : 'bg-[#FFFF]'
+                      filter == "semua" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
                   ></div>
-                  <p className="text-[#262626] text-[14px] my-auto ml-3">
-                    Semua
-                  </p>
+                  <p className="text-[#262626] text-[14px] my-auto ml-3">Semua</p>
                 </button>
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter('mata-kuliah')}
+                  onClick={() => setFilter("mata-kuliah")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == 'mata-kuliah' ? 'bg-[#67A5C8]' : 'bg-[#FFFF]'
+                      filter == "mata-kuliah" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
                   ></div>
-                  <p className="text-[#262626] text-[14px] my-auto ml-3">
-                    Mata Kuliah
-                  </p>
+                  <p className="text-[#262626] text-[14px] my-auto ml-3">Mata Kuliah</p>
                 </button>
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter('webinar')}
+                  onClick={() => setFilter("webinar")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == 'webinar' ? 'bg-[#67A5C8]' : 'bg-[#FFFF]'
+                      filter == "webinar" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden`}
                   ></div>
-                  <p className="text-[#262626] text-[14px] my-auto ml-3">
-                    Webinar
-                  </p>
+                  <p className="text-[#262626] text-[14px] my-auto ml-3">Webinar</p>
                 </button>
               </div>
             </div>
@@ -81,7 +72,7 @@ export const CertificateSection = (): ReactElement => {
         </button>
       </div>
 
-      <div className={'lg:grid grid-cols-12 gap-[36px] relative mt-4'}>
+      <div className={"lg:grid grid-cols-12 gap-[36px] relative mt-4"}>
         {getCertif?.map((item: TItemCertificate) => {
           return (
             <div className="lg:col-span-4 w-full h-full" key={item?.id}>
@@ -91,7 +82,7 @@ export const CertificateSection = (): ReactElement => {
                 imgwidth={100}
                 imgheight={100}
                 className={
-                  'container mx-auto w-full h-full rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] '
+                  "container mx-auto w-full h-full rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] "
                 }
                 onClick={() => setPopupStatus(true)}
               >
@@ -110,14 +101,14 @@ export const CertificateSection = (): ReactElement => {
                   image={item?.thumbnail_link}
                   hasImg
                   onClose={() => setPopupStatus(false)}
-                  className={'!py-2'}
+                  className={"!py-2"}
                 >
                   <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
                     <Link href={item?.link} download>
                       <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
                         <div className=" flex justify-center gap-3">
                           <div>
-                            <Image src={download} alt={'download-icon'} />
+                            <Image src={download} alt={"download-icon"} />
                           </div>
 
                           <div>Unduh</div>

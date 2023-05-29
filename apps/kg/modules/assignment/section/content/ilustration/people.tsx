@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const People: FC = (): ReactElement => {
   return (
@@ -327,10 +327,7 @@ export const People: FC = (): ReactElement => {
         fill="#263238"
       />
       <g opacity="0.3">
-        <path
-          d="M104.62 284.22L104.645 286.959H116.195V284.476L104.62 284.22Z"
-          fill="black"
-        />
+        <path d="M104.62 284.22L104.645 286.959H116.195V284.476L104.62 284.22Z" fill="black" />
       </g>
       <path
         d="M97.9806 198.451L94.4426 232.559L91.9029 283.92H78.3496L77.9814 174.608L116.788 177.372L124.831 234.724L117.868 284.925H102.998L106.473 237.195L97.9806 198.451Z"

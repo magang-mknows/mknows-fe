@@ -1,18 +1,18 @@
-import api from '../../services/api';
+import api from "../../services/api";
 import {
   TDiscussionPayload,
   TDiscussionResponse,
   TDiscussionSingleResponse,
-} from './component/types';
+} from "./component/types";
 
 export const createDisscussionRequest = async (
-  payload: TDiscussionPayload
+  payload: TDiscussionPayload,
 ): Promise<TDiscussionSingleResponse> => {
-  const { data } = await api.post('/discussion/', payload);
+  const { data } = await api.post("/discussion/", payload);
   return data;
 };
 
 export const getDisscussionRequest = async (): Promise<TDiscussionResponse> => {
-  const { data } = await api.get('/discussion');
+  const { data } = await api.get("/discussion");
   return data;
 };

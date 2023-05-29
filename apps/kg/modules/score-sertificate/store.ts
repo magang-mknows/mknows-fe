@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const ShowDetailStatus = atom({
-  key: 'show-detail-status-1',
+  key: "show-detail-status-1",
   default: false,
 });

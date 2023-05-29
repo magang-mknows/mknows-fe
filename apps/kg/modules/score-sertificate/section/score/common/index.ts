@@ -1,2 +1,2 @@
-export * from './contentLayout';
-export * from './type.d';
+export * from "./contentLayout";
+export * from "./type.d";

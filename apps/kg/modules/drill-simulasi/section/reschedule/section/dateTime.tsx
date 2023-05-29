@@ -1,46 +1,40 @@
-import { FC, ReactElement, useState } from 'react';
-import afternoon from '../assets/afternoon.svg';
-import warning from '../assets/warning.svg';
-import pengajuan from '../assets/pengajuan.svg';
-import checked from '../assets/checked.svg';
-import rescheduleJadwal from '../assets/reschedule-jadwal.svg';
-import { BsCalendarDate } from 'react-icons/bs';
-import { AiOutlineCheck } from 'react-icons/ai';
+import { FC, ReactElement, useState } from "react";
+import afternoon from "../assets/afternoon.svg";
+import warning from "../assets/warning.svg";
+import pengajuan from "../assets/pengajuan.svg";
+import checked from "../assets/checked.svg";
+import rescheduleJadwal from "../assets/reschedule-jadwal.svg";
+import { BsCalendarDate } from "react-icons/bs";
+import { AiOutlineCheck } from "react-icons/ai";
 import {
   useChooseSimulation,
   useCategorySimulation,
   useScheduleSimulation,
   usePopupScheduleStatus,
   useChooseTimeSimulation,
-} from '../hooks';
-import { useGetAllSimulation } from '../../../hooks';
-import {
-  Accordion,
-  PopupModal,
-} from '@mknows-frontend-services/components/molecules';
-import { TSimulationItem } from '../../../type';
+} from "../hooks";
+import { useGetAllSimulation } from "../../../hooks";
+import { Accordion, PopupModal } from "@mknows-frontend-services/components/molecules";
+import { TSimulationItem } from "../../../type";
 
 const DateTime: FC = (): ReactElement => {
-  const [isOpen] = useState('');
+  const [isOpen] = useState("");
   const { getChooseSimulation, setChooseSimulation } = useChooseSimulation();
-  const { getChooseTimeSimulation, setChooseTimeSimulation } =
-    useChooseTimeSimulation();
+  const { getChooseTimeSimulation, setChooseTimeSimulation } = useChooseTimeSimulation();
   const { setPopupStatus, getPopupStatus } = usePopupScheduleStatus();
-  const [active, setactive] = useState('');
-  const { getScheduleSimulation, setScheduleSimulation } =
-    useScheduleSimulation();
-  const { getCategorySimulation, setCategorySimulation } =
-    useCategorySimulation();
+  const [active, setactive] = useState("");
+  const { getScheduleSimulation, setScheduleSimulation } = useScheduleSimulation();
+  const { getCategorySimulation, setCategorySimulation } = useCategorySimulation();
 
   const { data } = useGetAllSimulation();
   const getSchedule = data?.data;
-  console.log('dataa', getSchedule);
+  console.log("dataa", getSchedule);
 
   const onSucces = (): void => {
     if (!getScheduleSimulation) {
-      setCategorySimulation('Active');
+      setCategorySimulation("Active");
     } else {
-      setCategorySimulation('Reschedule');
+      setCategorySimulation("Reschedule");
     }
     setPopupStatus(true);
     setScheduleSimulation(true);
@@ -50,14 +44,10 @@ const DateTime: FC = (): ReactElement => {
     <section className="lg:basis-7/12">
       {getSchedule?.map((items: TSimulationItem, y: any) => (
         <div key={y}>
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">
-            {items.topic}
-          </h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">
-            {items.assessor_name}
-          </p>
+          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
+          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_name}</p>
           <p className="text-[#737373] text-[16px] font-[400]">
-            Lokasi : {items.place !== null ? items.place : 'Tidak ada lokasi'}
+            Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
         </div>
       ))}
@@ -69,15 +59,15 @@ const DateTime: FC = (): ReactElement => {
       <div className="flex md:flex-row flex-col md:gap-4 gap-0 mb-5">
         {getSchedule?.map((item: TSimulationItem) =>
           item.schedules.map((x, y) => {
-            const Day = new Intl.DateTimeFormat('id', {
-              dateStyle: 'full',
+            const Day = new Intl.DateTimeFormat("id", {
+              dateStyle: "full",
             }).format(new Date(x.date));
             return (
               <button
                 className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
                   getChooseSimulation === Day
-                    ? 'bg-[#3EB449] dark:bg-[#17A2B8] border-none'
-                    : 'border-2 border-[#737373]'
+                    ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none"
+                    : "border-2 border-[#737373]"
                 } `}
                 key={y}
                 onClick={() => {
@@ -87,9 +77,7 @@ const DateTime: FC = (): ReactElement => {
               >
                 <div
                   className={`flex items-center gap-2 text-[#737373] dark:text-white ${
-                    getChooseSimulation === Day
-                      ? 'dark:text-white text-white'
-                      : ''
+                    getChooseSimulation === Day ? "dark:text-white text-white" : ""
                   }`}
                 >
                   <BsCalendarDate />
@@ -97,7 +85,7 @@ const DateTime: FC = (): ReactElement => {
                 </div>
               </button>
             );
-          })
+          }),
         )}
       </div>
       <Accordion
@@ -105,16 +93,16 @@ const DateTime: FC = (): ReactElement => {
         hasImage
         src={afternoon}
         className="bg-[#ffff] drop-shadow-xl border-2 border-[#dedcdc] rounded-tb-xl "
-        idAccordion={isOpen === '' ? 'open' : ''}
-        disabled={getChooseSimulation === '' ? true : false}
+        idAccordion={isOpen === "" ? "open" : ""}
+        disabled={getChooseSimulation === "" ? true : false}
         classNameChildren="rounded-2 rounded-xl drop-shadow-xl bg-white border border-[#dedcdc]"
       >
         <div className="flex gap-5 ">
           {getSchedule?.map((item: TSimulationItem) =>
             item.schedules?.map((x: any) => {
               const stringToDate = new Date(x.date);
-              const Day = new Intl.DateTimeFormat('id', {
-                dateStyle: 'full',
+              const Day = new Intl.DateTimeFormat("id", {
+                dateStyle: "full",
               }).format(stringToDate);
               return x.times
                 .filter(() => Day.includes(active))
@@ -126,8 +114,8 @@ const DateTime: FC = (): ReactElement => {
                       key={i}
                       className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px]  ${
                         getChooseTimeSimulation === TimeShort
-                          ? 'bg-[#3EB449] dark:bg-[#17A2B8] border border-[#3EB449]'
-                          : 'border border-[#737373]'
+                          ? "bg-[#3EB449] dark:bg-[#17A2B8] border border-[#3EB449]"
+                          : "border border-[#737373]"
                       } `}
                       onClick={() => {
                         setChooseTimeSimulation(TimeShort);
@@ -135,9 +123,7 @@ const DateTime: FC = (): ReactElement => {
                     >
                       <div
                         className={`flex items-center gap-2  dark:text-white ${
-                          getChooseTimeSimulation === TimeShort
-                            ? ' text-white '
-                            : 'text-[#525252]'
+                          getChooseTimeSimulation === TimeShort ? " text-white " : "text-[#525252]"
                         }`}
                       >
                         <AiOutlineCheck className=" text-sm font-bold" />
@@ -146,7 +132,7 @@ const DateTime: FC = (): ReactElement => {
                     </button>
                   );
                 });
-            })
+            }),
           )}
         </div>
       </Accordion>
@@ -154,18 +140,15 @@ const DateTime: FC = (): ReactElement => {
       <div className="flex justify-end mt-3">
         <button
           onClick={() => {
-            getChooseSimulation !== '' ||
-              (getChooseTimeSimulation !== '' && onSucces());
+            getChooseSimulation !== "" || (getChooseTimeSimulation !== "" && onSucces());
           }}
           className={` text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4 ${
-            getCategorySimulation === 'Active'
-              ? 'bg-[#FAB317]'
-              : 'bg-[#3EB449] dark:bg-[#17A2B8]'
+            getCategorySimulation === "Active" ? "bg-[#FAB317]" : "bg-[#3EB449] dark:bg-[#17A2B8]"
           }`}
         >
-          {getCategorySimulation == 'Active'
-            ? 'Ajukan Perubahan Simulasi '
-            : 'Ajukan Jadwal Simulasi'}
+          {getCategorySimulation == "Active"
+            ? "Ajukan Perubahan Simulasi "
+            : "Ajukan Jadwal Simulasi"}
         </button>
       </div>
 
@@ -173,41 +156,41 @@ const DateTime: FC = (): ReactElement => {
       <div>
         <PopupModal
           icon={
-            getCategorySimulation === 'Reschedule'
+            getCategorySimulation === "Reschedule"
               ? warning
-              : getCategorySimulation === 'Active'
+              : getCategorySimulation === "Active"
               ? checked
-              : ''
+              : ""
           }
           hasImg={true}
           image={
-            getCategorySimulation === 'Reschedule'
+            getCategorySimulation === "Reschedule"
               ? rescheduleJadwal
-              : getCategorySimulation === 'Active'
+              : getCategorySimulation === "Active"
               ? pengajuan
-              : ''
+              : ""
           }
           popupTitle={
-            getCategorySimulation === 'Active'
-              ? 'Berhasil Mengajukan Simulasi!'
-              : getCategorySimulation === 'Reschedule'
-              ? 'Reschedule Jadwal'
-              : ''
+            getCategorySimulation === "Active"
+              ? "Berhasil Mengajukan Simulasi!"
+              : getCategorySimulation === "Reschedule"
+              ? "Reschedule Jadwal"
+              : ""
           }
-          stylePopup={'font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]'}
+          stylePopup={"font-[700] text-[16px] md:text-[20px] lg:text-[23.4px]"}
           lookup={getPopupStatus}
           className="!h-85 w-[100%] text-md py-10"
           onClose={() => setPopupStatus(false)}
         >
           <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
             Kamu telah mengajukan <br />
-            {getCategorySimulation === 'Reschedule'
-              ? ' Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal simulasi terbaru.'
-              : getCategorySimulation === 'Active'
+            {getCategorySimulation === "Reschedule"
+              ? " Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal simulasi terbaru."
+              : getCategorySimulation === "Active"
               ? ` simulasi  di hari ${getChooseSimulation} Pukul
                   ${getChooseTimeSimulation} WIB, Link Zoom simulasi akan dikirimkan melalui
                   email.`
-              : ''}
+              : ""}
           </p>
         </PopupModal>
       </div>

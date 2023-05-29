@@ -1,1 +1,1 @@
-export * from './UniqueSidebarOptions';
+export * from "./UniqueSidebarOptions";

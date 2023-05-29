@@ -1,7 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { showDetailState } from '../store';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { useSetRecoilState } from "recoil";
+import { showDetailState } from "../store";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const ScoreSummaryTable: FC = (): ReactElement => {
   const setShowDetail = useSetRecoilState(showDetailState);
@@ -42,46 +42,22 @@ export const ScoreSummaryTable: FC = (): ReactElement => {
               </thead>
               <tbody className="divide-y divide-neutral-400  text-neutral-800 font-bold text-center ">
                 <tr>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">
-                    3
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">
-                    108
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">
-                    96
-                  </td>
-                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">
-                    4.00
-                  </td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">3</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">108</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm  ">96</td>
+                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">4.00</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    3
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    108
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    96
-                  </td>
-                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">
-                    4.00
-                  </td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">3</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">108</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">96</td>
+                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">4.00</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    3
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    108
-                  </td>
-                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">
-                    96
-                  </td>
-                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">
-                    4.00
-                  </td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">3</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">108</td>
+                  <td className="px-6 py-4 border-r  whitespace-nowrap text-sm ">96</td>
+                  <td className="px-6 py-4  border-r  whitespace-nowrap text-sm ">4.00</td>
                 </tr>
                 <tr>
                   <td scope="col" className="text-centerpy-4 " colSpan={3}>

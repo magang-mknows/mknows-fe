@@ -1,2 +1,2 @@
-export * from './ic-feature';
-export * from './ic-ring';
+export * from "./ic-feature";
+export * from "./ic-ring";

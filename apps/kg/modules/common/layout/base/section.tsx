@@ -1,20 +1,20 @@
-import { logoutRequest } from '../../../auth/logout/api';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { FC, Fragment, ReactElement } from 'react';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { FcDocument } from 'react-icons/fc';
-import { MdDashboard, MdLogout } from 'react-icons/md';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { TBaseLayoutProps } from './types';
-import Head from 'next/head';
-import { DiscussionRoomIcon } from '../../assets/icons/ic-disccussion-room';
-import { CareerPlanIcon } from '../../assets/icons/ic-career-plan';
-import { ConsultationIcon } from '../../assets/icons/ic-consultation';
-import { WorkOpportunityIcon } from '../../assets/icons/ic-work';
-import { useProfile } from '../../../../modules/profile/section/edit-profile';
-import Logo from './logo.svg';
-import { Navbar } from '@mknows-frontend-services/components/molecules';
+import { logoutRequest } from "../../../auth/logout/api";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { FC, Fragment, ReactElement } from "react";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FcDocument } from "react-icons/fc";
+import { MdDashboard, MdLogout } from "react-icons/md";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { TBaseLayoutProps } from "./types";
+import Head from "next/head";
+import { DiscussionRoomIcon } from "../../assets/icons/ic-disccussion-room";
+import { CareerPlanIcon } from "../../assets/icons/ic-career-plan";
+import { ConsultationIcon } from "../../assets/icons/ic-consultation";
+import { WorkOpportunityIcon } from "../../assets/icons/ic-work";
+import { useProfile } from "../../../../modules/profile/section/edit-profile";
+import Logo from "./logo.svg";
+import { Navbar } from "@mknows-frontend-services/components/molecules";
 
 const AuthButton: FC = (): ReactElement => (
   <Fragment>
@@ -35,32 +35,28 @@ const AuthButton: FC = (): ReactElement => (
   </Fragment>
 );
 
-export const BaseLayout: FC<TBaseLayoutProps> = ({
-  children,
-  title,
-  addSearch,
-}): ReactElement => {
+export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch }): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
 
   const _pop_up_menu = [
     {
-      name: 'Dashboard',
-      onClick: () => router.push('/dashboard'),
+      name: "Dashboard",
+      onClick: () => router.push("/dashboard"),
       icon: <MdDashboard size={20} className="text-primary-base" />,
     },
     {
-      name: 'Profile',
-      onClick: () => router.push('/profile'),
+      name: "Profile",
+      onClick: () => router.push("/profile"),
       icon: <FaRegUserCircle size={20} className="text-warning-base" />,
     },
     {
-      name: 'Administrasi',
+      name: "Administrasi",
       icon: <FcDocument size={20} className="text-success-base" />,
-      onClick: () => router.push('/administrasi'),
+      onClick: () => router.push("/administrasi"),
     },
     {
-      name: 'Logout',
+      name: "Logout",
       icon: <MdLogout size={20} className="text-error-base" />,
       onClick: async () => {
         await logoutRequest({
@@ -72,56 +68,56 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({
 
   const _bottom_nav_items = [
     {
-      name: 'Dashboard',
-      link: '/dashboard',
+      name: "Dashboard",
+      link: "/dashboard",
     },
     {
-      name: 'Studi Ku',
-      link: '/studi-ku',
+      name: "Studi Ku",
+      link: "/studi-ku",
     },
     {
-      name: 'Penugasan',
-      link: '/penugasan',
+      name: "Penugasan",
+      link: "/penugasan",
     },
     {
-      name: 'Rencana Studi',
-      link: '/rencana-studi',
+      name: "Rencana Studi",
+      link: "/rencana-studi",
     },
     {
-      name: 'Nilai & Sertifikat',
-      link: '/nilai-dan-sertifikat',
+      name: "Nilai & Sertifikat",
+      link: "/nilai-dan-sertifikat",
     },
   ];
 
   const _features = [
     {
-      name: 'Ruang Diskusi',
-      link: '/ruang-diskusi',
-      icon: <DiscussionRoomIcon />,
-    },
-    {
-      name: 'Perencanaan Karir',
-      link: '/perencanaan-karir',
+      name: "Panduan",
+      link: "/panduan",
       icon: <CareerPlanIcon />,
     },
     {
-      name: 'Konsultasi & Layanan',
-      link: '/konsultasi-dan-layanan',
+      name: "Konsultasi Layanan",
+      link: "/konsultasi-dan-layanan",
       icon: <ConsultationIcon />,
     },
     {
-      name: 'Penyaluran Kerja',
-      link: '/penyaluran-kerja',
+      name: "Penyaluran Kerja",
+      link: "/penyaluran-kerja",
       icon: <WorkOpportunityIcon />,
+    },
+    {
+      name: "Ruang Diskusi",
+      link: "/ruang-diskusi",
+      icon: <DiscussionRoomIcon />,
     },
   ];
 
   const _nav_rules = [
-    '/dashboard',
-    '/studi-ku',
-    '/penugasan',
-    '/rencana-studi',
-    '/nilai-dan-sertifikat',
+    "/dashboard",
+    "/studi-ku",
+    "/penugasan",
+    "/rencana-studi",
+    "/nilai-dan-sertifikat",
   ];
 
   const { data: profileData } = useProfile();

@@ -1,7 +1,7 @@
-import { ForgotModule } from '../../modules/auth/forgot';
-import { NextPage } from 'next';
-import { GetSessionParams, getSession } from 'next-auth/react';
-import { ReactElement } from 'react';
+import { ForgotModule } from "../../modules/auth/forgot";
+import { NextPage } from "next";
+import { GetSessionParams, getSession } from "next-auth/react";
+import { ReactElement } from "react";
 
 const ForgotPages: NextPage = (): ReactElement => {
   return <ForgotModule />;
@@ -9,15 +9,13 @@ const ForgotPages: NextPage = (): ReactElement => {
 
 export default ForgotPages;
 
-export async function getServerSideProps(
-  context: GetSessionParams | undefined
-) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const session = await getSession(context);
 
   if (session) {
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };

@@ -1,4 +1,4 @@
-import { useEffect, useCallback, DependencyList } from 'react';
+import { useEffect, useCallback, DependencyList } from "react";
 
 /**
  * Debounce Function.
@@ -19,7 +19,7 @@ import { useEffect, useCallback, DependencyList } from 'react';
 export function useDebounce(
   effect: VoidFunction,
   dependencies: DependencyList,
-  delay: number
+  delay: number,
 ): void {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const callback = useCallback(effect, dependencies);

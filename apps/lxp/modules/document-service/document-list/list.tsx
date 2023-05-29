@@ -1,17 +1,17 @@
-import { FC, ReactElement } from 'react';
-import { AiOutlineCloudDownload } from 'react-icons/ai';
-import { FcFolder } from 'react-icons/fc';
+import { FC, ReactElement } from "react";
+import { AiOutlineCloudDownload } from "react-icons/ai";
+import { FcFolder } from "react-icons/fc";
 
 export const DocumentServiceList: FC = (): ReactElement => {
   const dummyDocTemplate = [
-    { title: 'Administrasi Pengguna Baru', total: 1 },
-    { title: 'Pelayanan Daftar Ulang', total: 1 },
-    { title: 'Pembuatan KIP Fisik', total: 1 },
-    { title: 'Surat Keterangan Aktif Bekerja', total: 1 },
-    { title: 'Surat Keterangan Cuti', total: 1 },
-    { title: 'Penerbitan Ijazah, Akta, Transkrip, Dan KIP', total: 1 },
-    { title: 'Administrasi Kinerja', total: 1 },
-    { title: 'Surat Keterangan Kinerja', total: 1 },
+    { title: "Administrasi Pengguna Baru", total: 1 },
+    { title: "Pelayanan Daftar Ulang", total: 1 },
+    { title: "Pembuatan KIP Fisik", total: 1 },
+    { title: "Surat Keterangan Aktif Bekerja", total: 1 },
+    { title: "Surat Keterangan Cuti", total: 1 },
+    { title: "Penerbitan Ijazah, Akta, Transkrip, Dan KIP", total: 1 },
+    { title: "Administrasi Kinerja", total: 1 },
+    { title: "Surat Keterangan Kinerja", total: 1 },
   ];
 
   return (

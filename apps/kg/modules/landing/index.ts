@@ -1,2 +1,2 @@
-export * from './module';
-export * from './random-shit';
+export * from "./module";
+export * from "./random-shit";

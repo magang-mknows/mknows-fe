@@ -1,6 +1,6 @@
-import { DocumentProcessModule } from '../../../modules';
-import { NextPage } from 'next';
-import React, { ReactElement } from 'react';
+import { DocumentProcessModule } from "../../../modules";
+import { NextPage } from "next";
+import React, { ReactElement } from "react";
 
 const DocumentServicePage: NextPage = (): ReactElement => {
   return <DocumentProcessModule />;

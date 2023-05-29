@@ -1,12 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { AiTwotoneCopy, AiTwotoneLike } from 'react-icons/ai';
-import {
-  BsBuildingsFill,
-  BsClockFill,
-  BsDot,
-  BsFillChatLeftFill,
-} from 'react-icons/bs';
-import { useProfile } from '../profile-edit/hooks';
+import { FC, ReactElement } from "react";
+import { AiTwotoneCopy, AiTwotoneLike } from "react-icons/ai";
+import { BsBuildingsFill, BsClockFill, BsDot, BsFillChatLeftFill } from "react-icons/bs";
+import { useProfile } from "../profile-edit/hooks";
 
 export const ViewProfileModule: FC = (): ReactElement => {
   const { data, refetch } = useProfile();
@@ -26,9 +21,7 @@ export const ViewProfileModule: FC = (): ReactElement => {
       {/* Profile Info */}
       <section className="w-full pl-2 mt-16 capitalize">
         <header className="flex flex-wrap justify-between w-full">
-          <h1 className="text-base font-bold text-neutral-800">
-            {userData?.full_name}
-          </h1>
+          <h1 className="text-base font-bold text-neutral-800">{userData?.full_name}</h1>
           <section className="flex items-center gap-2 text-sm text-neutral-500">
             <AiTwotoneCopy className="text-xl cursor-pointer" />
             <p>{userData?.id}</p>
@@ -40,9 +33,7 @@ export const ViewProfileModule: FC = (): ReactElement => {
           <h1 className="text-sm text-neutral-500">Semester 1</h1>
         </main>
         <footer className="flex items-center w-full gap-0">
-          <h1 className="text-base text-neutral-600">
-            FK. Teknologi Ekonomi Digital
-          </h1>
+          <h1 className="text-base text-neutral-600">FK. Teknologi Ekonomi Digital</h1>
           <BsDot className="text-2xl text-version2-400" />
           <h1 className="text-base text-neutral-600">Blokchain</h1>
         </footer>

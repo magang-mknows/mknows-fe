@@ -1,11 +1,11 @@
-import { FC, ReactElement } from 'react';
-import Card from '../component/Card';
-import search from '../assets/search.svg';
-import random from '../assets/random.svg';
-import random2 from '../assets/random2.svg';
-import Image from 'next/image';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { filterSemuaFitur, querySemuaFitur } from '../store';
+import { FC, ReactElement } from "react";
+import Card from "../component/Card";
+import search from "../assets/search.svg";
+import random from "../assets/random.svg";
+import random2 from "../assets/random2.svg";
+import Image from "next/image";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { filterSemuaFitur, querySemuaFitur } from "../store";
 
 const Features: FC = (): ReactElement => {
   const [query, setQuery] = useRecoilState(querySemuaFitur);
@@ -14,21 +14,19 @@ const Features: FC = (): ReactElement => {
   return (
     <section className="py-[40px] lg:px-[72px] md:px-[72px] px-[20px] bg-neutral-100 dark:bg-[#222529] w-full">
       <div className="flex absolute z-0 top-20">
-        <Image src={random} alt={'tes'} />
+        <Image src={random} alt={"tes"} />
       </div>
       <div className="flex absolute z-0 bottom-24 right-0">
-        <Image src={random2} alt={'tes'} />
+        <Image src={random2} alt={"tes"} />
       </div>
       <div className="flex relative flex-col items-center">
-        <h1 className="font-bold text-[28px] text-center">
-          Fitur Kampus Gratis
-        </h1>
+        <h1 className="font-bold text-[28px] text-center">Fitur Kampus Gratis</h1>
         <p className="text-[#A3A3A3] font-semibold text-[16px] max-w-1/2 text-center">
-          Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di
-          Kampus Gratis. Berbagai macam jenis materi tersedia.
+          Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
+          Berbagai macam jenis materi tersedia.
         </p>
         <div className="flex bg-white my-[36px] z-10 rounded-lg py-[16px] px-[26px] w-2/3 items-center">
-          <Image src={search} alt={'tes'} />
+          <Image src={search} alt={"tes"} />
           <input
             type="text"
             placeholder="Cari Fitur"
@@ -58,8 +56,7 @@ const Features: FC = (): ReactElement => {
                     {fitur.namaFitur}
                   </h1>
                   <p className="text-neutral-base w-full">
-                    Isi administrasi kamu sekarang untuk dapat mengikuti program
-                    Kampus Gratis
+                    Isi administrasi kamu sekarang untuk dapat mengikuti program Kampus Gratis
                   </p>
                 </div>
               </Card>

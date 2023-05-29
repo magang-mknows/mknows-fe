@@ -1,1 +1,1 @@
-export const ScoreSertificateMenu = ['Nilai', 'Sertifikat'];
+export const ScoreSertificateMenu = ["Nilai", "Sertifikat"];

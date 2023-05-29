@@ -1,4 +1,4 @@
-import { ICommonMetaResponse } from '../../service/types';
+import { ICommonMetaResponse } from "../../service/types";
 
 export type TDepartmentItems = {
   name: string;

@@ -1,49 +1,49 @@
-import Book from '../../assets/book.svg';
+import Book from "../../assets/book.svg";
 
 export const dummyGuide = [
   {
-    title: 'Panduan pendaftaran',
+    title: "Panduan pendaftaran",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Panduan masuk',
+    title: "Panduan masuk",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Bagaimana caranya jika mengalami kesulitan',
+    title: "Bagaimana caranya jika mengalami kesulitan",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Bagaimana caranya jika saya ingin melakukan diskusi pada dosen',
+    title: "Bagaimana caranya jika saya ingin melakukan diskusi pada dosen",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Panduan mendaftar studi',
+    title: "Panduan mendaftar studi",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Hal apa saja yang saya lakukan saat melakukan quiz',
+    title: "Hal apa saja yang saya lakukan saat melakukan quiz",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Panduan diskusi global',
+    title: "Panduan diskusi global",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Panduan  perencanaan karir',
+    title: "Panduan  perencanaan karir",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: 'Panduan mendapatkan sertifikat',
+    title: "Panduan mendapatkan sertifikat",
     img: Book,
-    href: '/panduan/buku-panduan/panduan-pendaftaran',
+    href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
 ];

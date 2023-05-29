@@ -1,17 +1,18 @@
-import { FC, ReactElement } from 'react';
-import { Button, TextField } from '@mknows-frontend-services/components/atoms';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForgot } from './hooks';
-import { useRouter } from 'next/router';
+import { FC, ReactElement } from "react";
+import { Button, TextField } from "@mknows-frontend-services/components/atoms";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForgot } from "./hooks";
+import { useRouter } from "next/router";
+import { useErrorMessage } from "../common/hook";
 
 export const ForgotModule: FC = (): ReactElement => {
   const router = useRouter();
 
   const validationSchema = z.object({
-    email: z.string().min(1, { message: 'Email harus diisi' }).email({
-      message: 'Email harus valid',
+    email: z.string().min(1, { message: "Email harus diisi" }).email({
+      message: "Email harus valid",
     }),
   });
 
@@ -23,34 +24,35 @@ export const ForgotModule: FC = (): ReactElement => {
     handleSubmit,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
 
   const { mutate } = useForgot();
 
+  const { set: setError } = useErrorMessage();
+
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => router.push('/otp'),
+      onSuccess: () => router.push("/otp"),
+      onError: (err) => setError(err?.response?.data?.message as string),
     });
   });
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col w-full !justify-end">
-      <label className="text-start font-[500] text-[16px] mb-1">
-        Email
-        <TextField
-          type="email"
-          variant="lg"
-          name={'email'}
-          control={control}
-          placeholder="Masukan email"
-          status={errors.email ? 'error' : 'none'}
-          message={errors.email?.message}
-        />
-      </label>
+      <TextField
+        type="email"
+        label="Email"
+        variant="lg"
+        name={"email"}
+        control={control}
+        placeholder="Masukan email"
+        status={errors.email ? "error" : "none"}
+        message={errors.email?.message}
+      />
 
       <div className="flex justify-center text-center w-full">
         <Button

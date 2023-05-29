@@ -1,15 +1,14 @@
-import { FC, ReactElement } from 'react';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { Button } from '@mknows-frontend-services/components/atoms';
+import { FC, ReactElement } from "react";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
-import { usePopupReportDiscussionStatus } from '../hooks/usePopupReportDiscussionStatus';
-import { usePopupSuccessDiscussionStatus } from '../hooks/usePopupSuccessDiscussionStatus';
+import { usePopupReportDiscussionStatus } from "../hooks/usePopupReportDiscussionStatus";
+import { usePopupSuccessDiscussionStatus } from "../hooks/usePopupSuccessDiscussionStatus";
 
-import { PopupModalProps } from '../types';
+import { PopupModalProps } from "../types";
 
 const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
-  const { setPopupReportStatus, getPopupReportStatus } =
-    usePopupReportDiscussionStatus();
+  const { setPopupReportStatus, getPopupReportStatus } = usePopupReportDiscussionStatus();
   const { setPopupSuccessStatus } = usePopupSuccessDiscussionStatus();
 
   return (
@@ -19,7 +18,7 @@ const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
       hasButton={true}
       hasImage={false}
       withClose={true}
-      widthModal={'!w-full md:!w-2/5'}
+      widthModal={"!w-full md:!w-2/5"}
     >
       <form>
         <div className="flex flex-col justify-center w-full gap-4 text-center bg-white rounded-lg">
@@ -70,7 +69,7 @@ const PopupModalReportDiscussion: FC<PopupModalProps> = (): ReactElement => {
               className="!w-full h-[40px]"
               color="blue"
               onClick={() => setPopupSuccessStatus(true)}
-              type={'button'}
+              type={"button"}
             >
               Lapor
             </Button>

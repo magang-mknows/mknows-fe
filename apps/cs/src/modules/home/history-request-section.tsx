@@ -1,9 +1,9 @@
-import { FC, ReactElement, lazy } from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import { useCardData } from './hooks';
+import { FC, ReactElement, lazy } from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { useCardData } from "./hooks";
 
-const Card = lazy(() => import('../../components/molecules/card'));
+const Card = lazy(() => import("../../components/molecules/card"));
 
 const CardSection: FC = (): ReactElement => {
   const { getCardData } = useCardData();
@@ -51,7 +51,7 @@ const CardSection: FC = (): ReactElement => {
       },
       1024: {
         items: 4,
-        itemsFit: 'contain',
+        itemsFit: "contain",
       },
     },
     autoPlay: true,

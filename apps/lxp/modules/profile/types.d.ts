@@ -1,7 +1,6 @@
-import { TMetaResponseSingle } from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export type TUser = {
-  // user: {
   id: string;
   email: string;
   full_name: string;
@@ -13,8 +12,6 @@ export type TUser = {
   role: string;
   created_at: string;
   updated_at: string;
-  // };
 };
 
-// export type TUserDetailResponse = TMetaResponseSingle<TUser>;
-export type TUserDetailResponse = TUser;
+export type TUserDetailResponse = TMetaResponseSingle<TUser>;

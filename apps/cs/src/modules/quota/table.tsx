@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { formatDate } from '@mknows-frontend-services/utils';
-import { useFilterAction, useQuota } from './hooks';
+import { FC, ReactElement } from "react";
+import { formatDate } from "@mknows-frontend-services/utils";
+import { useFilterAction, useQuota } from "./hooks";
 
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
@@ -42,24 +42,18 @@ const Table: FC = (): ReactElement => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b dark:bg-[#ffff]">
-                <td className="px-8 py-1 text-[#262626]">
-                  {item.request_number}
-                </td>
-                <td className="px-10 py-1 font-semibold text-neutral-800">
-                  {item.feature.name}
-                </td>
-                <td className="px-14 py-1">
-                  {formatDate({ date: new Date(item.created_at) })}
-                </td>
-                <td className="px-20 py-1">{item.quantity}</td>
-                <td className="px-6 py-1 bg-green-400">
+                <td className="pl-12 py-1 text-[#262626]">{item.request_number}</td>
+                <td className="px-0 py-1 font-semibold text-neutral-800">{item.feature}</td>
+                <td className="pl-14 py-1">{formatDate({ date: new Date(item.created_at) })}</td>
+                <td className="pl-12 py-1">{item.quantity}</td>
+                <td className="pl-8 py-1 bg-green-400">
                   <button
                     className={` ${
-                      item.status === 'SUCCESS'
-                        ? 'bg-success-500'
-                        : item.status === 'PROCESS'
-                        ? 'bg-[#3B8BDB]'
-                        : 'bg-[#EE2D24]'
+                      item.status === "SUCCESS"
+                        ? "bg-success-500"
+                        : item.status === "PROCESS"
+                        ? "bg-[#3B8BDB]"
+                        : "bg-[#EE2D24]"
                     } text-white w-[100px] text-sm font-semibold uppercase py-1.5 rounded-md cursor-default`}
                   >
                     {item.status}

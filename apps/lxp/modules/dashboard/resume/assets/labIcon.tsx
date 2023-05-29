@@ -1,22 +1,9 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const LabIcon: FC = (): ReactElement => {
   return (
-    <svg
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="0.585938"
-        y="0.25"
-        width="30"
-        height="30"
-        rx="12.35"
-        fill="#F5F5F5"
-      />
+    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.585938" y="0.25" width="30" height="30" rx="12.35" fill="#F5F5F5" />
       <g clipPath="url(#clip0_579_19355)">
         <path
           opacity="0.3"
@@ -30,12 +17,7 @@ export const LabIcon: FC = (): ReactElement => {
       </g>
       <defs>
         <clipPath id="clip0_579_19355">
-          <rect
-            width="22.75"
-            height="22.75"
-            fill="white"
-            transform="translate(4.21094 3.875)"
-          />
+          <rect width="22.75" height="22.75" fill="white" transform="translate(4.21094 3.875)" />
         </clipPath>
       </defs>
     </svg>

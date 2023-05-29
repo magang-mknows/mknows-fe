@@ -1,22 +1,9 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const ThropyIcon: FC = (): ReactElement => {
   return (
-    <svg
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="0.742188"
-        y="0.203125"
-        width="30"
-        height="30"
-        rx="12.35"
-        fill="#F5F5F5"
-      />
+    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.742188" y="0.203125" width="30" height="30" rx="12.35" fill="#F5F5F5" />
       <g clip-path="url(#clip0_579_19382)">
         <path
           d="M17.638 20.8906V18.9948H13.8464V20.8906L12.8984 22.7864H18.5859L17.638 20.8906Z"
@@ -30,12 +17,7 @@ export const ThropyIcon: FC = (): ReactElement => {
       </g>
       <defs>
         <clipPath id="clip0_579_19382">
-          <rect
-            width="22.75"
-            height="22.75"
-            fill="white"
-            transform="translate(4.36719 3.82812)"
-          />
+          <rect width="22.75" height="22.75" fill="white" transform="translate(4.36719 3.82812)" />
         </clipPath>
       </defs>
     </svg>

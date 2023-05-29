@@ -1,4 +1,4 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
 
 type TPassword = {
   message: string;

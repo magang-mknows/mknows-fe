@@ -1,6 +1,6 @@
-import { FC, lazy, ReactElement } from 'react';
-import { ContentSection } from './section/content';
-import { SidebarSection } from './section/sidebar';
+import { FC, ReactElement } from "react";
+import { ContentSection } from "./section/content";
+import { SidebarSection } from "./section/sidebar";
 
 export const DiscussionMyStudyModule: FC = (): ReactElement => {
   return (

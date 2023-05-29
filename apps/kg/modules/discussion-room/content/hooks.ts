@@ -1,15 +1,15 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { TCommentResponse, TDiscussionResponse } from './types';
-import { CommentGetByIdRequest, getDisscussionRequest } from './api';
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { TCommentResponse, TDiscussionResponse } from "./types";
+import { CommentGetByIdRequest, getDisscussionRequest } from "./api";
 
-export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
+export const useGetAllDiscussion = (limit: string): UseQueryResult<TDiscussionResponse> =>
   useQuery({
-    queryKey: ['get-all-discussion'],
-    queryFn: async () => await getDisscussionRequest(),
+    queryKey: ["get-all-discussion", limit],
+    queryFn: async () => await getDisscussionRequest(limit),
   });
 
 export const useGetCommentById = (id: string): UseQueryResult<TCommentResponse> =>
   useQuery({
-    queryKey: ['comment-get-by-id', id],
+    queryKey: ["comment-get-by-id", id],
     queryFn: async () => await CommentGetByIdRequest(id),
   });

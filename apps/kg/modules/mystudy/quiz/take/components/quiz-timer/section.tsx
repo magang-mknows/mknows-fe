@@ -1,9 +1,9 @@
-import { useAutoSaveQuizAnswer, useSubmitQuiz } from '../../hooks';
-import { useCountdownTimer } from './hooks';
-import { FC, ReactElement, useEffect } from 'react';
-import InfoIcon from '../../../assets/info.svg';
-import Image from 'next/image';
-import { TRemainingTimeProps } from './types';
+import { useAutoSaveQuizAnswer, useSubmitQuiz } from "../../hooks";
+import { useCountdownTimer } from "./hooks";
+import { FC, ReactElement, useEffect } from "react";
+import InfoIcon from "../../../assets/info.svg";
+import Image from "next/image";
+import { TRemainingTimeProps } from "./types";
 
 export const QuizTimer: FC<TRemainingTimeProps> = ({
   expiryTimestamp,

@@ -1,9 +1,9 @@
-import { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import { useUserSearch } from '../content/hook';
-import { useRecoilValue } from 'recoil';
-import { FilteredFeatures } from '../content/store';
-import notfound from './assets/notFound.svg';
+import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { useUserSearch } from "../content/hook";
+import { useRecoilValue } from "recoil";
+import { FilteredFeatures } from "../content/store";
+import notfound from "./assets/notFound.svg";
 
 export const FeaturesNotFound: FC = (): ReactElement => {
   const { getUserSearch } = useUserSearch();
@@ -22,12 +22,10 @@ export const FeaturesNotFound: FC = (): ReactElement => {
             loading="eager"
           />
           <h1 className="text-sm text-neutral-800">
-            Yah.. Saat ini fitur{' '}
-            <span className="font-bold">`{getUserSearch}`</span> belum tersedia,
+            Yah.. Saat ini fitur <span className="font-bold">`{getUserSearch}`</span> belum
+            tersedia,
           </h1>
-          <h1 className="text-sm text-neutral-800">
-            tunggu kabar dari kami ya!
-          </h1>
+          <h1 className="text-sm text-neutral-800">tunggu kabar dari kami ya!</h1>
         </div>
       )}
     </section>

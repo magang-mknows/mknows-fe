@@ -1,17 +1,17 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import penugasan from '../../../assets/penugasan.svg';
-import acara from '../../../assets/acara.svg';
-import emptyTask from '../../../assets/emptyTask.svg';
+import penugasan from "../../../assets/penugasan.svg";
+import acara from "../../../assets/acara.svg";
+import emptyTask from "../../../assets/emptyTask.svg";
 
-import { MdNavigateNext } from 'react-icons/md';
-import { AiFillWarning } from 'react-icons/ai';
+import { MdNavigateNext } from "react-icons/md";
+import { AiFillWarning } from "react-icons/ai";
 
-import Image from 'next/image';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Image from "next/image";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import { useSelectedTask } from './hooks';
+import { useSelectedTask } from "./hooks";
 
 export const TaskSection: FC = (): ReactElement => {
   const { setSelectedTask, getSelectedTask } = useSelectedTask();
@@ -20,29 +20,29 @@ export const TaskSection: FC = (): ReactElement => {
     {
       id: 1,
       image: penugasan,
-      topic: 'Japanese Culture',
-      title: 'Introduction to Japanese Culture',
-      milstone: 'Tugas Pertemuan 1',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 Februari 2023',
+      topic: "Japanese Culture",
+      title: "Introduction to Japanese Culture",
+      milstone: "Tugas Pertemuan 1",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 Februari 2023",
     },
     {
       id: 2,
       image: acara,
-      topic: 'Indonesia Culture',
-      title: 'Introduction to Indonesia Culture',
-      milstone: 'Tugas Pertemuan 2',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 April 2023',
+      topic: "Indonesia Culture",
+      title: "Introduction to Indonesia Culture",
+      milstone: "Tugas Pertemuan 2",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 April 2023",
     },
     {
       id: 3,
       image: penugasan,
-      topic: 'Bekasi Culture',
-      title: 'Introduction to Bekasi Culture',
-      milstone: 'Tugas Pertemuan 1',
-      teacher: 'Bagas Saputra, M. Kom.',
-      dueDate: 'Terakhir 28 Maret 2023',
+      topic: "Bekasi Culture",
+      title: "Introduction to Bekasi Culture",
+      milstone: "Tugas Pertemuan 1",
+      teacher: "Bagas Saputra, M. Kom.",
+      dueDate: "Terakhir 28 Maret 2023",
     },
   ];
   return (
@@ -77,7 +77,7 @@ export const TaskSection: FC = (): ReactElement => {
           return (
             <span
               className={`${
-                isSelected ? 'bg-primary-500 w-6' : 'w-2 bg-neutral-300'
+                isSelected ? "bg-primary-500 w-6" : "w-2 bg-neutral-300"
               } flex flex-row  h-2 rounded-full transition-all ease-in-out duration-300`}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
@@ -116,17 +116,13 @@ export const TaskSection: FC = (): ReactElement => {
                     <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center">
                       <MdNavigateNext className="text-primary-500" />
                     </div>
-                    <p className="text-xs lg:text-sm text-neutral-400">
-                      {item.milstone}
-                    </p>
+                    <p className="text-xs lg:text-sm text-neutral-400">{item.milstone}</p>
                   </section>
                   <section className="flex gap-2 items-start lg:items-centers">
                     <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center">
                       <MdNavigateNext className="text-primary-500" />
                     </div>
-                    <p className="text-xs lg:text-sm text-neutral-400">
-                      {item.teacher}
-                    </p>
+                    <p className="text-xs lg:text-sm text-neutral-400">{item.teacher}</p>
                   </section>
                 </div>
               </section>
@@ -135,7 +131,7 @@ export const TaskSection: FC = (): ReactElement => {
                   Kerjakan Sekarang
                 </button>
                 <div
-                  style={{ color: 'red' }}
+                  style={{ color: "red" }}
                   className="text-red-500 lg:justify-end flex items-center gap-2 text-xs lg:text-sm w-52"
                 >
                   <AiFillWarning />

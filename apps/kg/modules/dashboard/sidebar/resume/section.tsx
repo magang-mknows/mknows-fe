@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from 'react';
-import Image from 'next/image';
-import { dummySidebarItems } from './store';
+import React, { FC, ReactElement } from "react";
+import Image from "next/image";
+import { dummySidebarItems } from "./store";
 
 export const ResumeSection: FC = (): ReactElement => {
   return (
@@ -31,9 +31,7 @@ export const ResumeSection: FC = (): ReactElement => {
                 <div className="flex flex-col justify-between gap-y-4 text-neutral-500 hover:text-neutral-600 ">
                   <Image className="w-8 " src={src} alt="kelas" />
                   <section>
-                    <h1 className=" text-3xl font-black text-neutral-800 mb-2">
-                      {number}
-                    </h1>
+                    <h1 className=" text-3xl font-black text-neutral-800 mb-2">{number}</h1>
                     <h1 className="text-xs lg:text-sm">{title}</h1>
                   </section>
                 </div>

@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import { FC, ReactElement } from 'react';
-import { useRecoilState } from 'recoil';
-import { showDetailSertificate } from '../../store';
-import { Modal } from '@mknows-frontend-services/components/molecules';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { IoMdCloudDownload } from 'react-icons/io';
+import Image from "next/image";
+import { FC, ReactElement } from "react";
+import { useRecoilState } from "recoil";
+import { showDetailSertificate } from "../../store";
+import { Modal } from "@mknows-frontend-services/components/molecules";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { IoMdCloudDownload } from "react-icons/io";
 
 export const Sertificate: FC = (): ReactElement => {
   const [isModalOpen, setModalOpen] = useRecoilState(showDetailSertificate);
@@ -12,7 +12,7 @@ export const Sertificate: FC = (): ReactElement => {
     <main className="flex max-h-[320px] min-h-[320px]  px-4 py-3 bg-neutral-50 rounded-md shadow-sm overflow-hidden flex-col items-center justify-start">
       <Image
         src={
-          'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png'
+          "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png"
         }
         alt="sertificate-view"
         height={100}
@@ -35,7 +35,7 @@ export const Sertificate: FC = (): ReactElement => {
           <figure className="max-h-[320px] min-h-[320px] bg-primary-400 object-cover bg-cover">
             <Image
               src={
-                'https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png'
+                "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png"
               }
               alt="sertificate-view"
               height={100}

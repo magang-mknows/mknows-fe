@@ -1,14 +1,8 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
 export const FeatureIcon2: FC = (): ReactElement => {
   return (
-    <svg
-      width="70"
-      height="70"
-      viewBox="0 0 70 70"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="70" height="70" rx="35" fill="white" fill-opacity="0.1" />
       <path
         fill-rule="evenodd"

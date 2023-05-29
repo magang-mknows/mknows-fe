@@ -1,11 +1,7 @@
-import { FC, ReactElement } from 'react';
-import { TOptionFieldProps } from './types';
+import { FC, ReactElement } from "react";
+import { TOptionFieldProps } from "./types";
 
-const OptionField: FC<TOptionFieldProps> = ({
-  className,
-  value,
-  label,
-}): ReactElement => {
+const OptionField: FC<TOptionFieldProps> = ({ className, value, label }): ReactElement => {
   return (
     <option value={value} className={className}>
       {label}

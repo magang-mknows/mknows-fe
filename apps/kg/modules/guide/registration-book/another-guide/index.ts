@@ -1,2 +1,2 @@
-export * from './anotherGuide';
-export * from './store';
+export * from "./anotherGuide";
+export * from "./store";

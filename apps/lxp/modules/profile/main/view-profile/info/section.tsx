@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { AiTwotoneCopy } from 'react-icons/ai';
-import { BsDot } from 'react-icons/bs';
+import { FC, ReactElement } from "react";
+import { AiTwotoneCopy } from "react-icons/ai";
+import { BsDot } from "react-icons/bs";
 
 export const ViewProfilInfo: FC = (): ReactElement => {
   return (
@@ -18,9 +18,7 @@ export const ViewProfilInfo: FC = (): ReactElement => {
         <h1 className="text-neutral-500 text-sm">Semester 1</h1>
       </main>
       <footer className="w-full flex gap-0 items-center">
-        <h1 className="text-neutral-600 text-base">
-          FK. Teknologi Ekonomi Digital
-        </h1>
+        <h1 className="text-neutral-600 text-base">FK. Teknologi Ekonomi Digital</h1>
         <BsDot className="text-version2-400 text-2xl" />
         <h1 className="text-neutral-600 text-base">Blokchain</h1>
       </footer>

@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
-import { useRequest } from '../hooks';
-import { formatDate } from '@mknows-frontend-services/utils';
+import { FC, ReactElement } from "react";
+import { useRequest } from "../hooks";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
   const { data } = useRequest();
@@ -18,37 +18,25 @@ const Table: FC = (): ReactElement => {
             <th scope="col" className="px-4 py-2 cursor-default">
               <div className="flex gap-2 justify-center items-center">
                 <p>No. Permintaan</p>
-                <img
-                  src="/assets/request-page/markdown-icon.svg"
-                  alt="markdown icon"
-                />
+                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
               </div>
             </th>
             <th scope="col" className="px-2 py-2 cursor-default">
               <div className="flex gap-2 justify-center items-center">
                 <p>NIK</p>
-                <img
-                  src="/assets/request-page/markdown-icon.svg"
-                  alt="markdown icon"
-                />
+                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
               </div>
             </th>
             <th scope="col" className="w-auto px-6 py-2 cursor-default">
               <div className=" flex gap-2 justify-center items-center">
                 <p>Nama</p>
-                <img
-                  src="/assets/request-page/markdown-icon.svg"
-                  alt="markdown icon"
-                />
+                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
               </div>
             </th>
             <th scope="col" className="px-4 py-2 cursor-default">
               <div className="flex gap-2 items-center">
                 <p>Tanggal Permintaan</p>
-                <img
-                  src="/assets/request-page/markdown-icon.svg"
-                  alt="markdown icon"
-                />
+                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
               </div>
             </th>
             <th scope="col" className=" py-2 cursor-default">
@@ -64,14 +52,11 @@ const Table: FC = (): ReactElement => {
         <tbody>
           {data?.data.map((item, key) => {
             return (
-              <tr
-                key={key}
-                className="text-[#262626] bg-white border-b dark:bg-[#ffff] "
-              >
+              <tr key={key} className="text-[#262626] bg-white border-b dark:bg-[#ffff] ">
                 <td className="px-6">{key + 1}</td>
-                <td className="px-8 py-2">100865</td>
+                <td className="pl-4 py-2">100865</td>
                 <td className="px-2 py-2">327001625398</td>
-                <td className="px-2 py-2 font-semibold text-xs">{item.name}</td>
+                <td className="pl-8 py-2 font-semibold text-xs">{item.name}</td>
                 <td className="px-4 py-2 text-gray-500 ">
                   {formatDate(new Date(item.created_at))}
                 </td>

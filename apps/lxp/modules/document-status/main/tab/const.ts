@@ -1,6 +1,1 @@
-export const ducumentStatus = [
-  'Semua Status',
-  'Diproses',
-  'Ditolak',
-  'Selesai',
-];
+export const ducumentStatus = ["Semua Status", "Diproses", "Ditolak", "Selesai"];
