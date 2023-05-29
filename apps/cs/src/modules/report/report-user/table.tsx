@@ -6,7 +6,7 @@ import { IconDropdown, IconTable } from "../../../components/atoms";
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
   return (
-    <div className="relative overflow-x-auto">
+    <div className="relative overflow-x-auto mb-4">
       <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400 overflow-x-scroll ">
         <thead className="text-xs border text-[#A3A3A3] font-semibold bg-[#F6FBFA] dark:bg-[#F5F8FF] ">
           <tr>

@@ -2,17 +2,10 @@ import { FC, ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../components/molecules/card";
 import { Dialog } from "@headlessui/react";
-import {
-  IconDropdown,
-  IconEdit,
-  IConDelete,
-  IconCheck,
-  // IconError,
-} from "../../components/atoms";
-import ToolTip from "./toolTip";
+import { IconDropdown, IconEdit, IConDelete, IconCheck, IconError } from "../../components/atoms";
+import ToolTip from "../../components/atoms/tooltip";
 import { useUser, useFilterAction } from "./hooks";
 import { formatDate } from "@mknows-frontend-services/utils";
-
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
   const { data } = useUser(getFilterAction);

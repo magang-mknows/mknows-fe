@@ -8,7 +8,7 @@ const Table: FC = (): ReactElement => {
 
   return (
     <div className="overflow-x-scroll">
-      <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
+      {/* <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
         <thead className="text-xs border text-[#A3A3A3] font-light bg-[#F6FBFA] dark:bg-[#F5F8FF]">
           <tr>
             <th></th>
@@ -68,7 +68,7 @@ const Table: FC = (): ReactElement => {
             </tbody>
           );
         })}
-      </table>
+      </table> */}
     </div>
   );
 };
