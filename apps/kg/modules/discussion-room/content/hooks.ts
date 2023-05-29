@@ -4,7 +4,7 @@ import { CommentGetByIdRequest, getDisscussionRequest } from "./api";
 
 export const useGetAllDiscussion = (limit: string): UseQueryResult<TDiscussionResponse> =>
   useQuery({
-    queryKey: ["get-all-discussion"],
+    queryKey: ["get-all-discussion", limit],
     queryFn: async () => await getDisscussionRequest(limit),
   });
 

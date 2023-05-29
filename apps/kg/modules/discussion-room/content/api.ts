@@ -8,7 +8,7 @@ export const getDisscussionRequest = async (limit: string): Promise<TDiscussionR
       "Content-Type": "application/json",
     },
     params: {
-      limit: limit,
+      limit,
     },
     url: "/discussion",
   });
