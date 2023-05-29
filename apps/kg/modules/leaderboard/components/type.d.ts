@@ -11,6 +11,7 @@ export interface PopupProfilProps {
   student_name?: string;
   subjectCount?: string;
   averageScore?: string;
+  poin?: any;
   author?: AuthorLead;
 }
 
@@ -19,7 +20,7 @@ export interface AuthorLead {
   discussion_likes?: number;
   discussion_posted?: number;
   full_name?: string;
-  ipk?: string;
+  ipk?: number;
   major?: string;
   poin?: string;
   role?: string;
