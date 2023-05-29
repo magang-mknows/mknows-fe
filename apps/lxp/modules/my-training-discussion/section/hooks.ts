@@ -5,6 +5,7 @@ import {
   CommentGetByIdRequest,
   getDisscussionDetailRequest,
   getDisscussionRequest,
+  ReplyCreateByIdRequest,
 } from "./api";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 
@@ -32,5 +33,14 @@ export const useCreateCommentById = (
   return useMutation({
     mutationKey: ["create-comment-by-id", id],
     mutationFn: async (payload) => await CommentCreateByIdRequest(id, payload),
+  });
+};
+
+export const useCreateReplyById = (
+  id: string,
+): UseMutationResult<TCommentResponse, TMetaErrorResponse, TDiscussionPayload, unknown> => {
+  return useMutation({
+    mutationKey: ["create-reply-by-id", id],
+    mutationFn: async (payload) => await ReplyCreateByIdRequest(id, payload),
   });
 };

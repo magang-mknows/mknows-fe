@@ -30,3 +30,11 @@ export const CommentCreateByIdRequest = async (
   const { data } = await api.post(`/discussion-forums/comment/${id}`, payload);
   return data;
 };
+
+export const ReplyCreateByIdRequest = async (
+  id: string,
+  payload: TDiscussionPayload,
+): Promise<TCommentResponse> => {
+  const { data } = await api.post(`/discussion-forums/reply/${id}`, payload);
+  return data;
+};
