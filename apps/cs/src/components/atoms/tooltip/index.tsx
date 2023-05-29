@@ -1,10 +1,5 @@
-<<<<<<< HEAD:apps/cs/src/components/atoms/tooltip/toolTip.tsx
-import { FC, ReactElement } from 'react';
-import { TtoolTip } from './type';
-=======
 import { FC, ReactElement } from "react";
-import { TtoolTip } from "./types";
->>>>>>> 1c6d27fc30e454d22023442e30c16a4c69b1fb92:apps/cs/src/modules/user/toolTip.tsx
+import { TtoolTip } from "./type";
 
 const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement => {
   return (

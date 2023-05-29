@@ -42,23 +42,11 @@ const Table: FC = (): ReactElement => {
           return (
             <tbody key={key}>
               <tr className="bg-white border-b dark:bg-[#ffff]">
-<<<<<<< HEAD
-                <td className="px-8 py-1 text-[#262626]">
-                  {item.request_number}
-                </td>
-                <td className="px-10 py-1 font-semibold text-neutral-800">
-                  {item.feature.name}
-                </td>
-                <td className="px-0 py-1">
-                  {formatDate({ date: new Date(item.created_at) })}
-                </td>
-=======
-                <td className="px-8 py-1 text-[#262626]">{item.request_number}</td>
-                <td className="px-10 py-1 font-semibold text-neutral-800">{item.feature.name}</td>
-                <td className="px-14 py-1">{formatDate({ date: new Date(item.created_at) })}</td>
->>>>>>> 1c6d27fc30e454d22023442e30c16a4c69b1fb92
-                <td className="px-20 py-1">{item.quantity}</td>
-                <td className="px-6 py-1 bg-green-400">
+                <td className="pl-12 py-1 text-[#262626]">{item.request_number}</td>
+                <td className="px-0 py-1 font-semibold text-neutral-800">{item.feature}</td>
+                <td className="pl-14 py-1">{formatDate({ date: new Date(item.created_at) })}</td>
+                <td className="pl-12 py-1">{item.quantity}</td>
+                <td className="pl-8 py-1 bg-green-400">
                   <button
                     className={` ${
                       item.status === "SUCCESS"
