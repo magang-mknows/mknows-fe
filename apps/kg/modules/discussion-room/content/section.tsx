@@ -22,7 +22,7 @@ export const DiscussionContent: FC = (): ReactElement => {
   const [isOptionOpen, setOptionOpen] = useRecoilState(isModalOpen);
   const [getSelectedOption, setSelectedOption] = useRecoilState(selectedOption);
 
-  const { data } = useGetAllDiscussion();
+  const { data } = useGetAllDiscussion("100");
   const listDiscussionData = data?.data;
 
   function daysAgo(days: string) {

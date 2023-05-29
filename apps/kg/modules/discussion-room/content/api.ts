@@ -1,14 +1,14 @@
 import api from "../../../services/api";
 import { TCommentResponse, TDiscussionResponse } from "./types";
 
-export const getDisscussionRequest = async (): Promise<TDiscussionResponse> => {
+export const getDisscussionRequest = async (limit: string): Promise<TDiscussionResponse> => {
   const { data } = await api({
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
     params: {
-      limit: "100",
+      limit: limit,
     },
     url: "/discussion",
   });
