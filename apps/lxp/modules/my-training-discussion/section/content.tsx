@@ -7,10 +7,8 @@ import Redo from "../assets/redo.svg";
 import { useGetAllDiscussion } from "./hooks";
 
 const Content: FC = (): ReactElement => {
-  
   const { data } = useGetAllDiscussion();
   const listDiscussionData = data?.data;
-  console.log(listDiscussionData);
 
   return (
     <>
@@ -24,6 +22,7 @@ const Content: FC = (): ReactElement => {
               time={"20 menit"}
               content={discussion.content}
               role={"mahasiswa"}
+              id={discussion.id}
             />
             {/* reply */}
             <div className="flex flex-row gap-4">

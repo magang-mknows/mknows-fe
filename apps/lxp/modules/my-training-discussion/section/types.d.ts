@@ -1,9 +1,9 @@
 import { TMetaResponseSingle, TMetaResponse } from "@mknows-frontend-services/utils";
 
 export type TDiscussionPayload = {
-  title: string;
-  content: string;
-  images: File;
+  title?: string;
+  content?: string;
+  images?: File;
 };
 
 export type TDiscussionItem = {
@@ -24,6 +24,9 @@ export interface DiscussionComment {
   content: string;
   image: string;
   comment_replies: string[];
+  updated_at: string;
+  created_at: string;
+  deleted_at: string;
 }
 
 export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;

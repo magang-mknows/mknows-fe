@@ -1,6 +1,7 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { TCommentResponse, TDiscussionResponse } from "./types";
-import { CommentGetByIdRequest, getDisscussionRequest } from "./api";
+import { useMutation, UseMutationResult, useQuery, UseQueryResult } from "@tanstack/react-query";
+import { TCommentResponse, TDiscussionPayload, TDiscussionResponse } from "./types";
+import { CommentCreateByIdRequest, CommentGetByIdRequest, getDisscussionRequest } from "./api";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 
 export const useGetAllDiscussion = (): UseQueryResult<TDiscussionResponse> =>
   useQuery({
@@ -13,3 +14,12 @@ export const useGetCommentById = (id: string): UseQueryResult<TCommentResponse> 
     queryKey: ["comment-get-by-id", id],
     queryFn: async () => await CommentGetByIdRequest(id),
   });
+
+export const useCreateCommentById = (
+  id: string,
+): UseMutationResult<TCommentResponse, TMetaErrorResponse, TDiscussionPayload, unknown> => {
+  return useMutation({
+    mutationKey: ["create-comment-by-id", id],
+    mutationFn: async (payload) => await CommentCreateByIdRequest(id, payload),
+  });
+};
