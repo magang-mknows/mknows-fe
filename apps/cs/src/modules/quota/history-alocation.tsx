@@ -52,7 +52,7 @@ const RiwayatAlokasi: FC = (): ReactElement => {
                 id="category"
                 className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
-                <option value="" selected>
+                <option value="" defaultValue={"Halo"}>
                   Semua
                 </option>
                 {featureId?.data?.map((item, key) => (

@@ -2,12 +2,13 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { icon, resultFilter, resultSearch } from "./store";
 import {
   TRequestDataResponse,
+  TRequestItem,
   TRequestResponse,
   TResultDataResponse,
   TResultQueryResponse,
 } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+// import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { getDataRequest } from "./api";
 
 export const useRequestData = (): TRequestDataResponse => {
@@ -32,7 +33,7 @@ export const useResultQuery = (): TResultQueryResponse => {
   };
 };
 
-export const useRequest = (): UseQueryResult<TRequestResponse, TMetaErrorResponse> => {
+export const useRequest = (): UseQueryResult<TRequestResponse, TRequestItem> => {
   return useQuery({
     queryKey: ["get-request"],
     queryFn: async () => await getDataRequest(),

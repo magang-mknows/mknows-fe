@@ -61,7 +61,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <Card
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
-                    onClick={() => setProductName(item.feature.name)}
+                    onClick={() => setProductName(item.feature)}
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
@@ -69,7 +69,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                       </div>
 
                       <div className="flex flex-col w-full h-full items-center space-y-1">
-                        <p className="text-sm font-semibold">{item.feature.name}</p>
+                        <p className="text-sm font-semibold">{item.feature}</p>
                       </div>
                     </div>
                   </Card>
