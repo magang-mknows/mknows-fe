@@ -15,11 +15,11 @@ import { useProfile } from "../../profile/section/edit-profile/hooks";
 export const PrivateInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
     full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
-    email: z.string().min(1, { message: "Email harus diisi" }).email({
-      message: "Email harus valid",
-    }),
+    // email: z.string().min(1, { message: "Email harus diisi" }).email({
+    //   message: "Email harus valid",
+    // }),
     gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
-    phone: z.string().max(13).min(11, {
+    phone_number: z.string().max(13).min(11, {
       message: "Nomor handphone harus diisi",
     }),
     birthdate: z.string().min(1, { message: "Tanggal lahir harus diisi" }),
@@ -51,9 +51,9 @@ export const PrivateInformation: FC = (): ReactElement => {
     mode: "all",
     defaultValues: {
       full_name: "",
-      email: "",
+      // email: "",
       gender: "",
-      phone: "",
+      phone_number: "",
       birthdate: "",
       birthplace: "",
       address: "",
@@ -182,7 +182,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
-            <div className="form-label mb-4">
+            {/* <div className="form-label mb-4">
               <TextField
                 variant="md"
                 control={control}
@@ -197,7 +197,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 message={errors.email?.message}
                 disabled
               />
-            </div>
+            </div> */}
             <div className="form-label mb-2">
               <TextField
                 variant="md"
@@ -205,11 +205,11 @@ export const PrivateInformation: FC = (): ReactElement => {
                 className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
                 type={"number"}
                 label={"Nomor Handphone"}
-                name={"phone"}
+                name={"phone_number"}
                 placeholder={"Masukkan nomor handphone"}
                 required={true}
-                status={errors.phone ? "error" : "none"}
-                message={errors.phone?.message}
+                status={errors.phone_number ? "error" : "none"}
+                message={errors.phone_number?.message}
               />
             </div>
             <div className="form-label mb-2">
