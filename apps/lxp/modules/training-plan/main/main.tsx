@@ -13,8 +13,6 @@ export const TrainingPlanMain: FC = (): ReactElement => {
 
   const { data: departmentsList, isLoading } = useGetAllDepartments(getDebounceKeyword);
 
-  console.log(departmentsList);
-
   useEffect(() => {
     const changeDebounce = setTimeout(() => {
       setDebounceKeyword(getKeyword);
