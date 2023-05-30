@@ -18,7 +18,7 @@ import { Navbar } from "@mknows-frontend-services/components/molecules";
 import { TbCategory2 } from "react-icons/tb";
 
 const AuthButton: FC = (): ReactElement => (
-  <Fragment>
+  <div className="flex gap-4">
     <Button
       href="/auth/login"
       type="button"
@@ -33,7 +33,7 @@ const AuthButton: FC = (): ReactElement => (
     >
       Daftar
     </Button>
-  </Fragment>
+  </div>
 );
 
 export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch }): ReactElement => {

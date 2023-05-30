@@ -17,7 +17,7 @@ export const Navbar: FC<TNavbarProps> = (props): ReactElement => {
           <TopNav {...props} />
         </Suspense>
       </header>
-      {session && props?.bottomNavRules?.includes(router.pathname) && (
+      {session && props.bottomNavRules?.includes(router.pathname) && (
         <Suspense fallback={<LBottomNav />}>
           <BottomNav {...props} />
         </Suspense>

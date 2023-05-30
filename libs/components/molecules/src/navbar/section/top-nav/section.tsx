@@ -11,6 +11,7 @@ import {
   NavbarNotification,
   NavbarUserMenu,
 } from "./dropdown-menu";
+import { useRouter } from "next/router";
 
 export const TopNav: FC<TNavbarProps> = ({
   logo,
@@ -21,6 +22,7 @@ export const TopNav: FC<TNavbarProps> = ({
   mobileMenuItems,
   ...props
 }): ReactElement => {
+  const router = useRouter();
   const { data: session } = useSession();
 
   return (
@@ -38,7 +40,12 @@ export const TopNav: FC<TNavbarProps> = ({
             priority
           />
         </Link>
-        <NavMenuDropDown bottomNavItems={props.bottomNavItems} />
+        {session && props?.bottomNavRules?.includes(router.pathname) && (
+          <NavMenuDropDown
+            bottomNavItems={props.bottomNavItems}
+            bottomNavItemStyle={props.bottomNavItemStyle}
+          />
+        )}
       </div>
       <div className="flex gap-2 md:gap-3 lg:gap-4 items-center ">
         <NavbarFeatureMenu features={props.features} />

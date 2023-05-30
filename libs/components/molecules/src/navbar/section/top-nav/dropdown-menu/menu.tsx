@@ -1,20 +1,29 @@
-import { FC, Fragment, ReactElement, useState } from "react";
+import { FC, Fragment, ReactElement } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { TBottomNavProps } from "../../bottom-nav";
 import { MdOutlineNavigateNext } from "react-icons/md";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-export const NavMenuDropDown: FC<TBottomNavProps> = ({ bottomNavItems }): ReactElement => {
-  const bottomNavItemsName = bottomNavItems.map((item) => {
-    return item.name;
+export const NavMenuDropDown: FC<TBottomNavProps> = ({
+  bottomNavItems,
+  bottomNavItemStyle,
+}): ReactElement => {
+  const router = useRouter();
+
+  const currentPage = bottomNavItems.filter((item) => {
+    return router.pathname.includes(item.link);
   });
 
-  const [selected, setSelected] = useState(bottomNavItemsName[0]);
-
   return (
-    <Listbox value={selected} onChange={setSelected} as="div" className="lg:hidden">
+    <Listbox as="div" className="lg:hidden">
       <div className="relative mt-1">
         <Listbox.Button className="relative w-auto justify-between flex items-center  py-2 pl-2  text-left  text-sm gap-2">
-          <span className="block text-neutral-600 font-bold">{selected}</span>
+          <span className="block text-neutral-600 font-bold">
+            {currentPage.map((item) => {
+              return item.name;
+            })}
+          </span>
           <MdOutlineNavigateNext className="rotate-90 text-neutral-600 text-xl " />
         </Listbox.Button>
         <Transition
@@ -23,12 +32,18 @@ export const NavMenuDropDown: FC<TBottomNavProps> = ({ bottomNavItems }): ReactE
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute mt-1 max-h-60 w-36 rounded-md py-2  text-sm bg-white shadow-md ">
+          <Listbox.Options className="absolute mt-1  w-40 rounded-md py-2  text-sm bg-white shadow-md ">
             {bottomNavItems.map((item, index) => (
               <Listbox.Option key={index} value={item.name}>
-                {({ selected }) => (
-                  <span className="block py-3 px-3 text-neutral-600">{item.name}</span>
-                )}
+                <Link href={item.link}>
+                  <span
+                    className={`block py-3 px-3  mx-2 text-neutral-600 ${
+                      router.pathname === item.link ? bottomNavItemStyle : "hover:text-version3-500"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+                </Link>
               </Listbox.Option>
             ))}
           </Listbox.Options>
