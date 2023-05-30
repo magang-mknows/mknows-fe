@@ -4,7 +4,7 @@ import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
 import { IconDropdown } from "../../../components/atoms";
 
-const Table2: FC = (): ReactElement => {
+const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
   const [isOpen, setisOpen] = useState(false);
   const paginationComponentOptions = {
@@ -181,4 +181,4 @@ const Table2: FC = (): ReactElement => {
   );
 };
 
-export default Table2;
+export default Table;

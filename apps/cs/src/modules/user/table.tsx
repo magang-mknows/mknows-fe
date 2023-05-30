@@ -7,7 +7,7 @@ import { IConDelete, IconCheck, IconEdit, IconDropdown } from "../../components/
 import ToolTip from "../../components/atoms/tooltip";
 import { Link } from "react-router-dom";
 
-const Table2: FC = (): ReactElement => {
+const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
   const { data } = useUser(getFilterAction);
   const [isOpen, setisOpen] = useState(false);
@@ -139,4 +139,4 @@ const Table2: FC = (): ReactElement => {
   );
 };
 
-export default Table2;
+export default Table;
