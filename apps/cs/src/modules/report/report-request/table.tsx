@@ -1,80 +1,184 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
+import DataTable, { TableColumn } from "react-data-table-component";
+import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
-import { IconDropdown, IconTable } from "../../../components/atoms";
+import { IconDropdown } from "../../../components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
+  const [isOpen, setisOpen] = useState(false);
+  const paginationComponentOptions = {
+    rowsPerPageText: "Data per halaman",
+    rangeSeparatorText: "dari",
+  };
+
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
+  const columns: TableColumn<TReportDataDummy>[] = [
+    {
+      name: "No",
+      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+    },
+    {
+      name: "No Permintaan",
+      selector: (row) => row.no,
+      sortable: true,
+    },
+    {
+      name: "Jenis Permintaan",
+      cell: (row) => row.jenis_produk,
+      sortable: true,
+    },
+    {
+      name: "Jumlah User",
+      cell: (row) => row.jumlah_user,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Permintaan",
+      cell: (row) => row.tggl_permintaan,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Selesai",
+      cell: (row) => row.tggl_selesai,
+      sortable: true,
+    },
+  ];
+
+  const ExpandedComponent = () => (
+    <div className="flex justify-center overflow-x-scroll">
+      <DataTable columns={columnsExpand} data={getReportData} customStyles={ExpandRowStyle} />
+    </div>
+  );
+
+  const columnsExpand: TableColumn<TReportDataDummy>[] = [
+    {
+      name: "No",
+      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+    },
+    {
+      name: "Nik",
+      selector: (row) => row.nik,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Permintaan",
+      cell: (row) => row.tggl_permintaan,
+      sortable: true,
+    },
+    {
+      name: "Nama",
+      cell: (row) => row.nama,
+      sortable: true,
+    },
+    {
+      name: "Status",
+      cell: (row) => (
+        <button
+          className={` ${
+            row.status === "Sangat Baik"
+              ? "bg-success-400"
+              : row.status === "Cukup Buruk"
+              ? "bg-warning-500"
+              : "bg-error-400"
+          } text-white w-[120px] text-sm p-1 rounded-md cursor-default`}
+        >
+          {row.status}
+        </button>
+      ),
+    },
+
+    {
+      name: "Semua",
+      cell: (row) => (
+        <div className="mx-2">
+          <input type="checkbox" />
+        </div>
+      ),
+    },
+  ];
+
+  const ExpandRowStyle = {
+    rows: {
+      style: {
+        minHeight: "45px",
+      },
+    },
+    table: {
+      style: {
+        paddingLeft: "100px",
+        paddingRight: "100px",
+      },
+    },
+    headCells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+        backgroundColor: "#F5F8FF",
+        textColor: "#A3A3A3",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+      },
+    },
+  };
+
+  const customStyles = {
+    rows: {
+      style: {
+        minHeight: "45px",
+      },
+    },
+    expanderButton: {
+      style: {
+        color: "white",
+        borderRadius: "100%",
+        backgroundColor: "#1B9984",
+        width: "50%",
+        height: "50%",
+        svg: {
+          width: "70%",
+        },
+      },
+    },
+    headCells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+        backgroundColor: "#F5F8FF",
+        textColor: "#A3A3A3",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+      },
+    },
+  };
 
   return (
-    <div className="overflow-x-scroll">
-      <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
-        <thead className="text-xs border text-[#A3A3A3] font-light bg-[#F6FBFA] dark:bg-[#F5F8FF]">
-          <tr>
-            <th></th>
-            <th>No. </th>
-            <th scope="col" className="px-4 py-2 cursor-default w-[10%]">
-              <div className="flex gap-2 justify-center items-center">
-                <p>No. Permintaan</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Jenis Permintaan</p>
-                <IconDropdown />
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Jumlah User</p>
-                <IconDropdown />
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Tanggal Permintaan</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Tanggal Selesai</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        {getReportData.map((item, key) => {
-          return (
-            <tbody key={key}>
-              <tr className="bg-white border-b dark:bg-[#ffff] ">
-                <td className="px-4">
-                  <IconTable />
-                </td>
-                <td className="py-2 text-[#262626]">{key + 1}</td>
-                <td className="px-4 py-2 text-[#262626] ">{item.no}</td>
-                <td className="px-8 py-2 font-semibold text-[#262626]">{item.jenis_produk}</td>
-                <td className="flex items-center justify-center py-2 text-[#262626]">
-                  {item.jumlah_user}
-                </td>
-                <td className="px-8 py-2 ">
-                  {item.tggl_permintaan} {item.waktu_permintaan}
-                </td>
-                <td className="px-8 py-2">
-                  {item.tggl_selesai} {item.waktu_selesai}
-                </td>
-              </tr>
-            </tbody>
-          );
-        })}
-      </table>
+    <div>
+      <DataTable
+        columns={columns}
+        data={getReportData}
+        customStyles={customStyles}
+        fixedHeader={true}
+        expandableRows={true}
+        expandableRowsComponent={ExpandedComponent}
+        sortIcon={sortIcon}
+        pagination
+        paginationComponentOptions={paginationComponentOptions}
+      />
     </div>
   );
 };
+
 export default Table;

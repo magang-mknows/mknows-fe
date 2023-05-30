@@ -32,6 +32,7 @@ export type TUserItem = {
   admin_id: string;
   createdAt: string;
   updatedAt: string;
+  file?: string;
   __v: number;
 };
 
