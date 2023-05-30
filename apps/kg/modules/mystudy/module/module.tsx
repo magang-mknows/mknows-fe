@@ -9,13 +9,15 @@ import DoneIcon from "./assets/done-icon.svg";
 export const ModuleMyStudyModule: FC = (): ReactElement => {
   const router = useRouter();
   const { data } = useGetModuleById(router.query.moduleId as string);
+  const splitedPath = router.asPath.split("/");
+  const sessionIndex = splitedPath[splitedPath.length - 2].split("-")[1];
 
   const dataModules: Array<TModuleItem> = data?.data as Array<TModuleItem>;
 
   return (
     <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
       <div className="w-full mb-8">
-        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">Mata Kuliah 1</h3>
+        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">Mata Kuliah</h3>
       </div>
       <div className="flex flex-col gap-y-8">
         {dataModules?.map((module, index) => (
@@ -33,7 +35,8 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
               <h1 className="font-bold text-xl">{module.title}</h1>
 
               <p className="text-md text-gray-600 py-4">
-                Pertemuan 1 | <span className="text-gray-400">{module.description}</span>
+                Pertemuan {sessionIndex} |{" "}
+                <span className="text-gray-400">{module.description}</span>
               </p>
               <div className="flex gap-3">
                 <div className=" flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px]  bg-[#E3FBDA]">

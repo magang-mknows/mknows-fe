@@ -1,4 +1,4 @@
-import { Status } from "../../../../modules/mystudy/assignment";
+import { Status } from "../../../../../modules/mystudy/assignment";
 import { NextPage } from "next";
 import { ReactElement } from "react";
 

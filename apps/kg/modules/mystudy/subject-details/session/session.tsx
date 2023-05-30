@@ -12,9 +12,9 @@ import imgDoneIcon from "../assets/done-icon.svg";
 import imgLockIcon from "../assets/lock-icon.svg";
 import { useRouter } from "next/router";
 
-export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
+export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
   session,
-  key,
+  index,
 }): ReactElement => {
   const [isOpen, setIsOpen] = useState("");
   const router = useRouter();
@@ -24,7 +24,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
   }
 
   return (
-    <div key={key} className="flex flex-col">
+    <div key={index} className="flex flex-col">
       <button
         onClick={() =>
           isOpen == "" ? setIsOpen(`Accordion-${session.session_no}`) : setIsOpen("")
@@ -49,7 +49,7 @@ export const SessionSection: FC<{ session: TDataSession; key: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgModuleIcon} alt="" />
               <Link
-                href={`${router.asPath}/modul/${session.id}`}
+                href={`${router.asPath}/modul-${index + 1}/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Modul
