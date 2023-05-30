@@ -87,7 +87,7 @@
     "@nx/linter": "16.2.2",
     "@nx/nest": "^16.2.2",
     "@nx/node": "16.2.2",
-    "@nx/react": "16.2.1",
+    "@nx/react": "16.2.2",
     "@nx/vite": "16.2.2",
     "@nx/webpack": "16.2.2",
     "@nx/workspace": "16.2.2",
