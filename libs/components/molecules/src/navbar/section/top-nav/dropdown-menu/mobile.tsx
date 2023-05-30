@@ -48,7 +48,7 @@ export const NavbarMobileMenu: FC<TMobileMenuProps> = ({
           onClick={() => setMobileNavbar(!getMobileNavbar)}
         />
       </section>
-      {session ? (
+      {!session ? (
         <section className="w-full pb-4 mb-4 px-1  flex items-center gap-3 border-b-[1px] border-neutral-200">
           {userData?.avatar ? (
             <Image
@@ -83,7 +83,7 @@ export const NavbarMobileMenu: FC<TMobileMenuProps> = ({
           );
         })}
       </section>
-      {session ? (
+      {!session ? (
         <section className=" px-1 py-2">
           {items.map(({ icon, name, onClick }, index) => (
             <div key={index} className={"flex gap-3 items-center  py-3 "}>

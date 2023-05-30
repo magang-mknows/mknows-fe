@@ -41,13 +41,15 @@ export const NavbarUserMenu: FC<TNavbarUserProps> = ({ items, userData }): React
         >
           <div className="w-[300px] px-4 py-4 flex items-center gap-3 border-b-2 border-neutral-200">
             {userData?.avatar ? (
-              <Image
-                src={userData.avatar}
-                alt={"user avatar"}
-                width={36}
-                height={36}
-                className="bg-white  flex text-neutral-600 items-center justify-center font-[700]"
-              />
+              <figure className="h-9 w-9 bg-neutral-200 overflow-hidden">
+                <Image
+                  src={userData.avatar}
+                  alt={"user avatar"}
+                  width={36}
+                  height={36}
+                  className="bg-white w-full  flex text-neutral-600 items-center justify-center font-[700]"
+                />
+              </figure>
             ) : (
               <Avatar
                 name={userData?.full_name}
