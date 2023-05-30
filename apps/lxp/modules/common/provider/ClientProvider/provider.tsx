@@ -1,4 +1,4 @@
-import { ReactElement, FC, Fragment } from "react";
+import { ReactElement, FC } from "react";
 import { TProviderProps } from "../types";
 import { Montserrat } from "next/font/google";
 import { Modal, Navbar } from "@mknows-frontend-services/components/molecules";
@@ -116,7 +116,7 @@ export const ClientProvider: FC<TProviderProps> = ({
   ];
 
   return (
-    <div className={`${montserrat.className} max-w-[2200px] container mx-auto`}>
+    <div className={`${montserrat.className} max-w-[2200px]  container mx-auto`}>
       <Navbar
         items={_pop_up_menu}
         features={_features}
@@ -127,7 +127,7 @@ export const ClientProvider: FC<TProviderProps> = ({
         bottomNavItems={_bottom_nav_items}
         bottomNavRules={_nav_rules}
         mobileMenuItems={_mobile_menu_item}
-        bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
+        bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-version3-500 text-white font-reguler`}
         button={
           <section className="flex gap-4 w-full items-center justify-center">
             <Button
