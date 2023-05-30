@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 import { useReportQuery } from "../hooks";
 import Search from "../../../components/atoms/search";
 import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
-import Table from "./table2";
+import Table from "./table";
 
 const ReportModules: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();

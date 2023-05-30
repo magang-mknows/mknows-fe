@@ -1,12 +1,11 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import Table from "./table2";
+import Table from "./table";
 import { Link } from "react-router-dom";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
 import { useFilterAction } from "./hooks";
 import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
 import Search from "../../components/atoms/search";
-import Pagination from "../../components/atoms/pagination";
 
 const UserModules: FC = (): ReactElement => {
   const [option, setOption] = useState({

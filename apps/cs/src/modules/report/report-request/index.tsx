@@ -1,5 +1,5 @@
 import { ReactElement, FC } from "react";
-import Table from "./table2";
+import Table from "./table";
 import Search from "../../../components/atoms/search";
 import { useReportQuery } from "../hooks";
 import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
