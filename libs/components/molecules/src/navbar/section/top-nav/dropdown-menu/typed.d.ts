@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { TNavbarProps } from "../../../types";
 
 export type TNavbarFeaturesProps = {
   features: Array<{
@@ -31,4 +30,5 @@ export type TMobileMenuProps = {
     href: string;
   }[];
   button: ReactNode;
+  logo?: string;
 } & TNavbarUserProps;

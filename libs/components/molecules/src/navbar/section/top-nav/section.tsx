@@ -75,6 +75,7 @@ export const TopNav: FC<TNavbarProps> = ({
           avatar: userData?.avatar,
         }}
         button={button}
+        logo={logo}
         {...props}
       />
     </header>

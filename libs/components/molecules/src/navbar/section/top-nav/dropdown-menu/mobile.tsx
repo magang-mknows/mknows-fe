@@ -31,6 +31,7 @@ export const NavbarMobileMenu: FC<TMobileMenuProps> = ({
   mobileitems,
   userData,
   button,
+  logo,
 }): ReactElement => {
   const [getMobileNavbar, setMobileNavbar] = useRecoilState(MobileNavbarState);
 
@@ -42,7 +43,17 @@ export const NavbarMobileMenu: FC<TMobileMenuProps> = ({
         getMobileNavbar ? "top-0" : "-top-[100vh]"
       } px-4 py-4 absolute left-0 lg:hidden right-0 bg-white transition-all ease-in-out duration-300`}
     >
-      <section className="w-full flex justify-end px-4 py-1.5">
+      <section className="w-full flex justify-between pr-4 py-1.5 mb-4">
+        <Image
+          src={logo as string}
+          alt="platform-logo"
+          loading="eager"
+          width={40}
+          height={45}
+          className="w-auto h-6 md:h-8 lg:h-9"
+          quality={75}
+          priority
+        />
         <AiOutlineClose
           className="text-neutral-base font-bold text-xl"
           onClick={() => setMobileNavbar(!getMobileNavbar)}
