@@ -11,7 +11,6 @@ export const QuizModule: FC = (): ReactElement => {
 
   const { data } = useGetQuizDescById(router.query.quizId as unknown as string);
   const dataQuizDesc = data?.data as unknown as TQuizDescItem;
-  const prevPath = router.asPath.split("/").slice(0, -1).join("/");
 
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
@@ -56,7 +55,7 @@ export const QuizModule: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href={`${prevPath}/ambil/${dataQuizDesc?.id}`}>
+          <Link href={`${router.asPath}/ambil/${dataQuizDesc?.id}`}>
             <button className="w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-[#106FA4] text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
               Mulai Quiz (Sisa {dataQuizDesc?.remaining_attempt || "unknown"})
             </button>
