@@ -1,5 +1,5 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import Table from "./table";
+import Table from "./table2";
 import { Link } from "react-router-dom";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
@@ -63,7 +63,6 @@ const UserModules: FC = (): ReactElement => {
         <div className="py-4">
           <Table />
         </div>
-        <Pagination />
       </div>
     </div>
   );
