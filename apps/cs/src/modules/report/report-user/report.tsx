@@ -3,7 +3,7 @@ import { useReportQuery } from "../hooks";
 import Search from "../../../components/atoms/search";
 import Pagination from "../../../components/atoms/pagination";
 import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
-import Table from "./table";
+import Table from "./table2";
 
 const ReportModules: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
@@ -39,10 +39,7 @@ const ReportModules: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-
       <Table />
-
-      <Pagination />
     </div>
   );
 };
