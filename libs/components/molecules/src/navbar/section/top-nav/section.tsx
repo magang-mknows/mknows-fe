@@ -37,7 +37,7 @@ export const TopNav: FC<TNavbarProps> = ({
       </Link>
       <div className="flex gap-2 md:gap-3 lg:gap-4 items-center ">
         <NavbarFeatureMenu features={props.features} />
-        {session ? (
+        {!session ? (
           <NavbarUserMenu
             userData={{
               full_name: userData?.full_name,
@@ -47,7 +47,7 @@ export const TopNav: FC<TNavbarProps> = ({
             {...props}
           />
         ) : (
-          <section className="lg:flex gap-4 hidden">{button}</section>
+          <section className="lg:inline-block hidden">{button}</section>
         )}
 
         <HamburgerIcon />

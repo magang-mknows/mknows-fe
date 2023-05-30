@@ -129,24 +129,26 @@ export const ClientProvider: FC<TProviderProps> = ({
         mobileMenuItems={_mobile_menu_item}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-primary-500 text-white font-reguler`}
         button={
-          <Fragment>
+          <section className="flex gap-4 w-full items-center justify-center">
             <Button
               onClick={() => {
                 setLoginPopup(true);
               }}
               type="button"
-              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 bg-neutral-50 text-version2-500 hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400 text-sm py-2 w-44 lg:w-24"
+              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 bg-neutral-50 text-version2-500 hover:border-version2-300 hover:bg-neutral-100 hover:text-version2-400 text-sm py-2 w-full lg:w-24"
             >
               <h1>Masuk</h1>
             </Button>
             <Button
               type="button"
-              href="/auth/register"
-              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 text-sm py-2 lg:w-24  w-44 disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
+              onClick={() => {
+                router.push("auth/register");
+              }}
+              className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 text-sm py-2 lg:w-24  w-full disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
             >
               <h1>Daftar</h1>
             </Button>
-          </Fragment>
+          </section>
         }
       />
       <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>{children}</section>
