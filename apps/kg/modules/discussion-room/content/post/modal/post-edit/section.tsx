@@ -1,4 +1,4 @@
-import { FC, ReactElement, useEffect } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,16 +6,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, TextField, UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { RxCross1 } from "react-icons/rx";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { useSetRecoilState } from "recoil";
-import { isModalOpen } from "../../../store";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isModalOpen, selectedPostId } from "../../../store";
 import { useCreateDiscussion, useDiscussionById } from "./hooks";
-import { TDiscussionPayload } from "./types";
+import Image from "next/image";
 
 export const PostEditModal: FC = (): ReactElement => {
+  const getSeletedPostId = useRecoilValue(selectedPostId);
+
   type ValidationSchema = z.infer<typeof validationSchema>;
   const setOptionOpen = useSetRecoilState(isModalOpen);
-  const { data, refetch } = useDiscussionById("941166a2-583e-4764-9f94-628b16ab5cd1");
+
+  const { data, refetch } = useDiscussionById(getSeletedPostId as string);
   const discussionData = data?.data;
+
   const { mutate, isLoading } = useCreateDiscussion();
 
   const MAX_FILE_SIZE = 3 * 1024 * 1024;
@@ -61,20 +65,13 @@ export const PostEditModal: FC = (): ReactElement => {
     await refetch();
   });
 
+  // console.log(!!data?.data?.images);
+
   useEffect(() => {
     reset(discussionData);
   }, [discussionData]);
 
-  // const onSubmit = handleSubmit(async (data) => {
-  //   try {
-  //     mutate(data as TDiscussionPayload);
-  //     setOptionOpen(false);
-  //     reset(data);
-  //   } catch (err) {
-  //     console.log('Gagal Mengunggah');
-  //   }
-  // });
-
+  const [isEdit, setIsEdit] = useState(false);
   return (
     <section className="bg-neutral-50 min-w-[500px]">
       <header className=" flex justify-center border-b-[0.5px] pt-2 pb-4 border-neutral-300  relative">
@@ -86,7 +83,7 @@ export const PostEditModal: FC = (): ReactElement => {
           }}
         />
       </header>
-      <main className="px-4 py-8">
+      <main className="px-4 py-8">  
         <form onSubmit={onSubmit}>
           <TextField
             required
@@ -118,14 +115,22 @@ export const PostEditModal: FC = (): ReactElement => {
               message={errors.content?.message}
             />
             <section className="border-[1px] p-2 -mt-2 border-[#D4D4D4] rounded-md flex flex-col justify-center items-center  m-4 gap-2">
-              <UploadDragbleField
-                className="border-none min-h-[110px]"
-                name={"images"}
-                variant={"lg"}
-                control={control}
-                status={errors.images ? "error" : undefined}
-                // message={errors.images?.message}
-              />
+              {data?.data?.images && !isEdit ? (
+                <div className="absolute z-10 bg-black" onClick={() => setIsEdit(true)}>
+                  {data?.data?.images.map((image, key) => (
+                    <Image key={key} src={image} alt="image" width={100} height={100} />
+                  ))}
+                </div>
+              ) : (
+                <UploadDragbleField
+                  className="border-none min-h-[110px]"
+                  name={"images"}
+                  variant={"lg"}
+                  control={control}
+                  status={errors.images ? "error" : undefined}
+                  // message={errors.images?.message}
+                />
+              )}
             </section>
           </section>
           <p className="mt-2 mb-4 text-xs text-neutral-400">Maks. 250 karakter</p>

@@ -14,7 +14,7 @@ export const RankingSection: FC = (): ReactElement => {
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
       {getRank
         ?.sort((a, b) => {
-          return b.averageScore - a.averageScore;
+          return b.poin - a.poin;
         })
         ?.map((x, y) => {
           console.log(x);
@@ -25,7 +25,7 @@ export const RankingSection: FC = (): ReactElement => {
                   <div className="flex lg:px-[56px] px-3 mt-[15px] ">
                     <div className="w-full dark:bg-[#222529] bg-white flex justify-between dark:border-b-[#222529] border-b-[#F5F5F5] border-b-2 px-[20px] rounded-[8px]">
                       <div className="flex items-center gap-[30px] p-2">
-                        <h1 className="font-[400] lg:text-[24px] text-[20px]">{x.subjectCount}</h1>
+                        <h1 className="font-[400] lg:text-[24px] text-[20px]">1</h1>
                         <Image
                           src={x?.author?.avatar === null ? Avatar : x?.author?.avatar}
                           width={30}
@@ -41,7 +41,7 @@ export const RankingSection: FC = (): ReactElement => {
                       </div>
                       <div className="flex items-center">
                         <h1 className="font-[600] lg:text-[16px] text-[14px] text-[#0B568D]">
-                          {x.averageScore === null ? "0" : x?.averageScore} Poin
+                          {x.poin === null ? "0" : x?.poin} Poin
                         </h1>
                       </div>
                     </div>

@@ -2,15 +2,12 @@ import { UseMutationResult, useMutation, UseQueryResult, useQuery } from "@tanst
 import { CreateDiscussion, DiscussionByIdRequest } from "./api";
 import { TDiscussionPayload, TDiscussionDetailResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { useSession } from "next-auth/react";
 
 export const useDiscussionById = (
   id: string,
 ): UseQueryResult<TDiscussionDetailResponse, TMetaErrorResponse> => {
-  const { data: session } = useSession();
   return useQuery({
-    enabled: !!session,
-    queryKey: ["get-discussion-by-id"],
+    queryKey: ["get-discussion-by-id", id],
     queryFn: async () => await DiscussionByIdRequest(id),
   });
 };
