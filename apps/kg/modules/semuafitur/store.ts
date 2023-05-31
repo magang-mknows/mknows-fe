@@ -101,6 +101,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon8,
       warna: "#FEDBD7",
       slug: "/analitik",
+      desc: "",
     },
     {
       id: 12,
@@ -108,6 +109,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon9,
       warna: "#E3FBDA",
       slug: "/panduan",
+      desc: "Fitur Panduan memberikan akses mudah dan cepat untuk informasi yang dibutuhkan, seperti aturan pelatihan, petunjuk teknis, dan cara mengakses fitur-fitur pada website KG.",
     },
     {
       id: 13,
