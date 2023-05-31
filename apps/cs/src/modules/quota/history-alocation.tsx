@@ -52,7 +52,9 @@ const RiwayatAlokasi: FC = (): ReactElement => {
                 id="category"
                 className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
-                <option selected>Semua</option>
+                <option value="" defaultValue={"Halo"}>
+                  Semua
+                </option>
                 {featureId?.data?.map((item, key) => (
                   <option key={key} value={item._id}>
                     {item.name}
@@ -64,7 +66,7 @@ const RiwayatAlokasi: FC = (): ReactElement => {
               <Search
                 value={deb}
                 onChange={(e) => setDeb(e.target.value)}
-                placeholder="Search No Permintaan, NIK, Nama, Tanggal, Status"
+                placeholder="Search No Permintaan"
               />
             </div>
           </div>

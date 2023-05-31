@@ -10,16 +10,6 @@ export type TRequestDummyData = {
 
 export type TRequestDataResponse = { getRequestData: TRequestDummyData[] };
 
-export type TResultDataDummy = {
-  no: number;
-  tggl_permintaan: string;
-  skor: string;
-  jenis_produk: string;
-  jumlah_kuota: number;
-};
-
-export type TResultDataResponse = { getResultData: TResultDataDummy[] };
-
 export type TQuotaQueryResponse = {
   getQuotaQuery: string;
   setQuotaQuery: (val: string) => void;
@@ -33,7 +23,7 @@ export type TQuotaDataResponse = { getQuotaData: string[] };
 
 export type TQuotaItem = {
   id: string;
-  feature: FeatureId;
+  feature: string;
   request_number: string;
   quantity: number;
   status: string;

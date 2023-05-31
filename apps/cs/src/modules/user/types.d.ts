@@ -1,13 +1,5 @@
 import { Control } from "react-hook-form";
 
-export type TUserDataDummy = {
-  no: number;
-  nik: number;
-  nama: string;
-  tanggal: string;
-  berkas: string;
-};
-
 export type TDataUploader = {
   name: string;
   hasLabel: boolean;
@@ -16,12 +8,6 @@ export type TDataUploader = {
   accepted: string;
   label: string;
 };
-
-export interface TtoolTip {
-  children: ReactNode;
-  tooltip?: string;
-  className?: string;
-}
 
 export type TUserDataResponse = { getUserData: TUserDataDummy[] };
 

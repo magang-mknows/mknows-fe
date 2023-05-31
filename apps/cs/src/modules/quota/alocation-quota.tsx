@@ -1,9 +1,8 @@
-import { Button } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement, useState, Fragment } from "react";
+import { Button } from "@mknows-frontend-services/components/atoms";
 import Card from "../../components/molecules/card";
-import { useQuota } from "./hooks";
 import { Dialog, Transition } from "@headlessui/react";
-import { useQuotaData } from "./hooks";
+import { useQuotaData, useQuota } from "./hooks";
 import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {
@@ -62,7 +61,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <Card
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
-                    onClick={() => setProductName(item.feature.name)}
+                    onClick={() => setProductName(item.feature)}
                   >
                     <div className="flex flex-row w-full h-full space-x-[10px]">
                       <div>
@@ -70,7 +69,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                       </div>
 
                       <div className="flex flex-col w-full h-full items-center space-y-1">
-                        <p className="text-sm font-semibold">{item.feature.name}</p>
+                        <p className="text-sm font-semibold">{item.feature}</p>
                       </div>
                     </div>
                   </Card>

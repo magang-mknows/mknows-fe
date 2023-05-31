@@ -1,5 +1,5 @@
 import { ReactElement, FC } from "react";
-import Table from "./table";
+import Table from "./table2";
 import Pagination from "../../../components/atoms/pagination";
 import Search from "../../../components/atoms/search";
 import { useResultQuery } from "../hooks";
@@ -19,7 +19,7 @@ const ResultModule: FC = (): ReactElement => {
                 id="category"
                 className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
-                <option selected>Semua</option>
+                <option defaultValue={""}>Semua</option>
                 <option value="US">AI Identity</option>
                 <option value="CA">AI Document Verification</option>
                 <option value="FR">AI Condition Analysis</option>

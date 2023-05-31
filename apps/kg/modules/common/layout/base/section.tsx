@@ -15,9 +15,10 @@ import { WorkOpportunityIcon } from "../../assets/icons/ic-work";
 import { useProfile } from "../../../../modules/profile/section/edit-profile";
 import Logo from "./logo.svg";
 import { Navbar } from "@mknows-frontend-services/components/molecules";
+import { TbCategory2 } from "react-icons/tb";
 
 const AuthButton: FC = (): ReactElement => (
-  <Fragment>
+  <div className="flex gap-4">
     <Button
       href="/auth/login"
       type="button"
@@ -32,7 +33,7 @@ const AuthButton: FC = (): ReactElement => (
     >
       Daftar
     </Button>
-  </Fragment>
+  </div>
 );
 
 export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch }): ReactElement => {
@@ -91,17 +92,12 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
 
   const _features = [
     {
-      name: "Ruang Diskusi",
-      link: "/ruang-diskusi",
-      icon: <DiscussionRoomIcon />,
-    },
-    {
-      name: "Perencanaan Karir",
-      link: "/perencanaan-karir",
+      name: "Panduan",
+      link: "/panduan",
       icon: <CareerPlanIcon />,
     },
     {
-      name: "Konsultasi & Layanan",
+      name: "Konsultasi Layanan",
       link: "/konsultasi-dan-layanan",
       icon: <ConsultationIcon />,
     },
@@ -109,6 +105,11 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
       name: "Penyaluran Kerja",
       link: "/penyaluran-kerja",
       icon: <WorkOpportunityIcon />,
+    },
+    {
+      name: "Ruang Diskusi",
+      link: "/ruang-diskusi",
+      icon: <DiscussionRoomIcon />,
     },
   ];
 
@@ -126,12 +127,22 @@ export const BaseLayout: FC<TBaseLayoutProps> = ({ children, title, addSearch })
     full_name: profileData?.data?.user?.full_name as string,
     avatar: profileData?.data.user.avatar as string,
   };
+
+  const _mobile_menu_item = [
+    {
+      name: "Semua Fitur",
+      icon: <TbCategory2 className="text-neutral-500 p-1 text-3xl" />,
+      href: "/semua-fitur",
+    },
+  ];
+
   return (
     <Fragment>
       <Head>
         <title>Kampus Gratis - {title}</title>
       </Head>
       <Navbar
+        mobileMenuItems={_mobile_menu_item}
         items={_pop_up_menu}
         features={_features}
         logo={Logo}

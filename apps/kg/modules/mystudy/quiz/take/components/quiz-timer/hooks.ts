@@ -1,16 +1,14 @@
-import { useState, useEffect, useMemo } from "react";
-import { CountdownTimerProps, CountdownTimerReturn } from "./types";
+import { useState, useEffect } from "react";
+import { TCountdownTimerProps, TCountdownTimerReturn } from "./types";
 
-export const useCountdownTimer = ({ targetHours }: CountdownTimerProps): CountdownTimerReturn => {
-  const targetMinutes = useMemo(() => Math.floor(targetHours * 60), [targetHours]);
-
+export const useCountdownTimer = ({ targetHours }: TCountdownTimerProps): TCountdownTimerReturn => {
   const [targetTime] = useState(() => {
     const storedTargetTime = localStorage.getItem("targetTime");
     if (storedTargetTime) {
       return new Date(JSON.parse(storedTargetTime));
     } else {
       const time = new Date();
-      time.setMinutes(time.getMinutes() + targetMinutes);
+      time.setMinutes(time.getMinutes() + targetHours);
       return time;
     }
   });

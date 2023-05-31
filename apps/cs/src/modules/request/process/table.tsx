@@ -54,9 +54,9 @@ const Table: FC = (): ReactElement => {
             return (
               <tr key={key} className="text-[#262626] bg-white border-b dark:bg-[#ffff] ">
                 <td className="px-6">{key + 1}</td>
-                <td className="px-8 py-2">100865</td>
+                <td className="pl-4 py-2">100865</td>
                 <td className="px-2 py-2">327001625398</td>
-                <td className="px-2 py-2 font-semibold text-xs">{item.name}</td>
+                <td className="pl-8 py-2 font-semibold text-xs">{item.name}</td>
                 <td className="px-4 py-2 text-gray-500 ">
                   {formatDate(new Date(item.created_at))}
                 </td>

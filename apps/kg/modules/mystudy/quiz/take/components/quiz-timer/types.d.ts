@@ -1,10 +1,10 @@
 import { TQuizSubmitPayload } from "../../type";
 
-export type CountdownTimerProps = {
+export type TCountdownTimerProps = {
   targetHours: number;
 };
 
-export type CountdownTimerReturn = {
+export type TCountdownTimerReturn = {
   hours: string;
   minutes: string;
   seconds: string;
@@ -16,4 +16,5 @@ export type TRemainingTimeProps = {
   prevPath: string;
   quizTakeId: string;
   payload: TQuizSubmitPayload;
+  setTimerProps?: Dispatch<SetStateAction<TCurrentTimerProp>>;
 };

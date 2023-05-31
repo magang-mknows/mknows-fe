@@ -15,3 +15,9 @@ export type TMetaResponseSingle<T> = {
 } & TMetaItem;
 
 export type TMetaErrorResponse = AxiosError<TMetaItem>;
+
+export interface CustomError extends Error {
+  response?: {
+    status: number;
+  };
+}
