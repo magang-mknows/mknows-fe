@@ -2,7 +2,6 @@ import { useMutation, UseMutationResult, useQuery, UseQueryResult } from "@tanst
 import { TCommentResponse, TDiscussionPayload, TDiscussionResponse } from "./types";
 import {
   CommentCreateByIdRequest,
-  CommentGetByIdRequest,
   getDisscussionDetailRequest,
   getDisscussionRequest,
   ReplyCreateByIdRequest,
