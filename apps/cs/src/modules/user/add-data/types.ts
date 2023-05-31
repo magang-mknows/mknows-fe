@@ -15,6 +15,7 @@ export type TIdentityFile = {
 export type TIdentityResponse = TMetaResponseSingle<TIdentityFile>;
 
 export type TCapabilityFile = {
+  user_id?: string;
   ktp?: File;
   selfie?: File;
   surat_nomor_induk_berusaha?: File;
