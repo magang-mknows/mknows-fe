@@ -93,6 +93,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon7,
       warna: "#FEF6D0",
       slug: "/papan-skor",
+      desc: "Periksa skor kamu dan pantau kemajuan pengetahuan dan keterampilan kamu untuk mencapai hasil yang lebih maksimal",
     },
     {
       id: 11,
