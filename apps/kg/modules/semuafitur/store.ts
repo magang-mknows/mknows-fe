@@ -45,6 +45,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#E3FBDA",
       slug: "/nilai-dan-sertifikat",
+      desc: "Fitur Nilai & sertifikat pada website KG berisi informasi mengenai nilai dan sertifikat yang kamu peroleh setelah menyelesaikan pembelajarn yang disediakan oleh website ini.",
     },
     {
       id: 5,
