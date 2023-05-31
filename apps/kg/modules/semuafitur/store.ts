@@ -69,6 +69,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#FEF6D0",
       slug: "/konsultasi-dan-layanan",
+      desc: "Fitur Konsultasi dan Layanan memberikan kesempatan bagi kamu untuk memperoleh bantuan dan panduan dari mentor secara personal dalam memahami materi pembelajaran.",
     },
     {
       id: 8,
