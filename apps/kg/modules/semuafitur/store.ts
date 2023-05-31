@@ -125,6 +125,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#E9F6FD",
       slug: "/acara-kampus",
+      desc: "Ikuti beragam acara unik yang dirancang khusus untuk memberikan pengalaman belajar yang menyenangkan dan interaktif",
     },
     {
       id: 15,
@@ -132,6 +133,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon11,
       warna: "#E3FBDA",
       slug: "/perencanaan-karir",
+      desc: "Fitur Perencanaan Karir dirancang khusus untuk membantu kamu mengembangkan keterampilan yang penting untuk kesuksesan dalam karir",
     },
     {
       id: 16,
