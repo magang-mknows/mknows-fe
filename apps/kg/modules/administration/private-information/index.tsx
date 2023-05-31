@@ -15,9 +15,6 @@ import { useProfile } from "../../profile/section/edit-profile/hooks";
 export const PrivateInformation: FC = (): ReactElement => {
   const validationSchema = z.object({
     full_name: z.string().min(1, { message: "Nama lengkap harus diisi" }),
-    // email: z.string().min(1, { message: "Email harus diisi" }).email({
-    //   message: "Email harus valid",
-    // }),
     gender: z.string().min(1, { message: "Jenis kelamin harus diisi" }),
     phone_number: z.string().max(13).min(11, {
       message: "Nomor handphone harus diisi",
@@ -51,7 +48,6 @@ export const PrivateInformation: FC = (): ReactElement => {
     mode: "all",
     defaultValues: {
       full_name: "",
-      // email: "",
       gender: "",
       phone_number: "",
       birthdate: "",
@@ -182,22 +178,15 @@ export const PrivateInformation: FC = (): ReactElement => {
             </div>
           </div>
           <div className="w-full">
-            {/* <div className="form-label mb-4">
-              <TextField
-                variant="md"
-                control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3] bg-[#DDE0E3]"
-                type="text"
-                label={"Alamat Email"}
-                name="email"
-                placeholder={"Email"}
-                required
-                defaultValue={getUserMe?.email}
-                status={errors.email ? "error" : "none"}
-                message={errors.email?.message}
-                disabled
-              />
-            </div> */}
+            <div className="form-label mb-5 cursor-default">
+              <label className="text-[#000] text-[16px] font-bold">
+                Email <span className="ml-1 font-bold text-error-600">*</span>
+              </label>
+              <div className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3] bg-[#DDE0E3] py-2 w-full rounded-md mt-3 ">
+                <div className="ml-4">{getUserMe?.email}</div>
+              </div>
+            </div>
+
             <div className="form-label mb-2">
               <TextField
                 variant="md"
@@ -207,7 +196,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 label={"Nomor Handphone"}
                 name={"phone_number"}
                 placeholder={"Masukkan nomor handphone"}
-                required={true}
+                required
                 status={errors.phone_number ? "error" : "none"}
                 message={errors.phone_number?.message}
               />
