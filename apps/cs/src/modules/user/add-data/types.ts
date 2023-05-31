@@ -31,6 +31,7 @@ export type TCapabilityFile = {
 export type TCapabilityResponse = TMetaResponseSingle<TCapabilityFile>;
 
 export type TCharacterFile = {
+  user_id?: string;
   ktp?: File;
   selfie?: File;
   surat_nomor_induk_berusaha?: File;
