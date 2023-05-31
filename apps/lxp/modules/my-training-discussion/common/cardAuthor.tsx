@@ -59,7 +59,7 @@ export const CardAuthor: FC<cardAuthor> = ({
           <div className="">
             <h1 className="text-[##171717] font-[600] text-[14px]">{title}</h1>
             <p className="font-[400] text-[12px] text-[#171717] flex flex-row gap-1">
-              oleh{" "}
+              oleh
               <span className="text-[#2D9A41] ">
                 {author} <span>({role})</span>
               </span>

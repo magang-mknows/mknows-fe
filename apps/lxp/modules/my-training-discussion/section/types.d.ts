@@ -12,21 +12,44 @@ export type TDiscussionItem = {
   session_id: string;
   title: string;
   content: string;
-  is_global: boolean;
   images: string[];
+  is_global: boolean;
+  created_at: string;
   discussion_comments: DiscussionComment[];
+  likes: number;
+  comments: number;
+  author: Author;
+  isLiked: boolean;
 };
 
 export interface DiscussionComment {
   id: string;
   user_id: string;
-  discussion_forum_id: string;
   content: string;
-  image: string;
-  comment_replies: string[];
-  updated_at: string;
+  image?: string;
   created_at: string;
-  deleted_at: string;
+  comment_replies: CommentReply[];
+  likes: number;
+  replies: number;
+  author: Author;
+  isLiked: boolean;
+}
+
+export interface CommentReply {
+  id: string;
+  user_id: string;
+  content: string;
+  image: string[];
+  created_at: string;
+  likes: number;
+  author: Author;
+  isLiked: boolean;
+}
+
+export interface Author {
+  avatar: string;
+  full_name: string;
+  department: string;
 }
 
 export type TDiscussionResponse = TMetaResponse<TDiscussionItem>;

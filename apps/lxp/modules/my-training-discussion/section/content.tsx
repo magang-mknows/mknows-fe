@@ -5,7 +5,7 @@ import profileDummy from "../assets/profile-dummy.svg";
 import Down from "../assets/down.svg";
 import Redo from "../assets/redo.svg";
 import { useGetAllDiscussion } from "./hooks";
-import { CommentReply } from "./CommentReply";
+import { CommentSection } from "./CommentSection";
 
 const Content: FC = (): ReactElement => {
   const { data: getAllDiscusiion } = useGetAllDiscussion();
@@ -30,7 +30,7 @@ const Content: FC = (): ReactElement => {
               <p className="text-[#106FA4] font-[600] text-[16px]">3 Balasan</p>
               <Image src={Down} className="w-auto" width={100} height={100} alt={"down"} />
             </div>
-            <CommentReply id={discussion.id} />
+            <CommentSection id={discussion.id} />
           </section>
         );
       })}
