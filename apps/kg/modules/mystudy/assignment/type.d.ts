@@ -16,7 +16,7 @@ export type TAssignmentItem = {
   student_progress: TStudentProgress;
 };
 
-type TAssignment = {
+export type TAssignment = {
   id: string;
   documents: string[];
   title: string;
@@ -40,7 +40,7 @@ type TTeacherSubject = {
   full_name: string;
 };
 
-type TStudentProgress = {
+export type TStudentProgress = {
   status: string;
   type: string;
   score: any;

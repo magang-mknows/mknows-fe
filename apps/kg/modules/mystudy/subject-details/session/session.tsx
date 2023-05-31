@@ -77,7 +77,7 @@ export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
             <div className="flex gap-x-6">
               <Image src={imgAssignmentIcon} alt="" />
               <Link
-                href={`${router.asPath}/penugasan/${session.id}`}
+                href={`${router.asPath}/tugas/${session.id}`}
                 className="text-base text-neutral-800 hover:underline"
               >
                 Tugas
