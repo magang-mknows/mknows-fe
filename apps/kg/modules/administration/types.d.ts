@@ -61,6 +61,47 @@ export type TFileAdm = {
   letter_of_recommendation?: File;
 };
 
+// TConstants
+export type TConstantsAdm = {
+  gender: Gender;
+  last_education: LastEducation;
+  occupation: Occupation;
+  salary: Salary;
+  live_with: LiveWith;
+  tuition_payer: TuitionPayer;
+};
+export type Gender = {
+  keys: string[];
+  values: string[];
+};
+
+export type LastEducation = {
+  keys: string[];
+  values: string[];
+};
+
+export type Occupation = {
+  keys: string[];
+  values: string[];
+};
+
+export type Salary = {
+  keys: string[];
+  values: string[];
+};
+
+export type LiveWith = {
+  keys: string[];
+  values: string[];
+};
+
+export type TuitionPayer = {
+  keys: string[];
+  values: string[];
+};
+
 export type TBiodataResponse = TMetaResponseSingle<TBiodataAdm>;
 export type TFamilyResponse = TMetaResponseSingle<TFamilyAdm>;
 export type TFileResponse = TMetaResponseSingle<TFileAdm>;
+export type TConstantsResponse = TMetaResponseSingle<TConstantsAdm>;
+export type TGetAdmResponse = TMetaResponseSingle<TAdministrationItem>;
