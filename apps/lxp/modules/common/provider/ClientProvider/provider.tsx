@@ -31,6 +31,8 @@ export const ClientProvider: FC<TProviderProps> = ({
 }): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
+  const { data: profileData } = useProfile();
+
   const _pop_up_menu = [
     {
       name: "Dashboard",
@@ -57,8 +59,6 @@ export const ClientProvider: FC<TProviderProps> = ({
       },
     },
   ];
-
-  const { data: profileData } = useProfile();
 
   const [getLoginPopup, setLoginPopup] = useRecoilState(LoginPopupState);
 
@@ -92,11 +92,6 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
-  // const _profile_user = {
-  //   email: profileData?.data?.user?.email as string,
-  //   full_name: profileData?.data?.user?.full_name as string,
-  //   avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
-  // };
   const _profile_user = {
     email: profileData?.data?.email as string,
     full_name: profileData?.data?.full_name as string,

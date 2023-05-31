@@ -11,15 +11,17 @@ export const Question = () => {
         </h1>
       </div>
       <div className="flex mb-5">
-        <label className="relative min-w-[600px] py-3 border-version3-300 border-2 text-sm rounded-lg text-version3-300 cursor-pointer hover:bg-neutral-100 transition-all ease-in-out duration-75 hover:font-bold block">
+        <label
+          className="relative min-w-[600px] py-3 border-version3-300 border-2 text-sm rounded-lg text-version3-300 cursor-pointer hover:bg-neutral-100 transition-all ease-in-out duration-75 hover:font-bold block "
+          htmlFor="choice"
+        >
           <h1 className="text-center">a. Rp 70.000</h1>
-          <input type="radio" name="choice" className="absolute appearance-none cursor-pointer" />
-        </label>
-      </div>
-      <div className="flex mb-5">
-        <label className="relative min-w-[600px] py-3 border-version3-300 border-2 text-sm rounded-lg text-version3-300 cursor-pointer hover:bg-neutral-100 transition-all ease-in-out duration-75 hover:font-bold block">
-          <h1 className="text-center">a. Rp 70.000</h1>
-          <input type="radio" name="choice" className="absolute appearance-none cursor-pointer" />
+          <input
+            id="choice"
+            type="radio"
+            name="choice"
+            className="absolute appearance-none cursor-pointer"
+          />
         </label>
       </div>
 
