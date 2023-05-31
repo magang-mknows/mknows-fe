@@ -61,6 +61,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon5,
       warna: "#E3FBDA",
       slug: "/ruang-diskusi",
+      desc: "Diskusi Global pada Kampus Gratis memungkinkan kamu untuk berinteraksi dan berbagi pengalaman dengan pelajar lain serta mentor dalam lingkungan virtual.",
     },
     {
       id: 7,
