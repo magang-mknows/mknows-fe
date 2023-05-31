@@ -117,6 +117,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon10,
       warna: "#FEDBD7",
       slug: "/sekilas-ilmu",
+      desc: "Dapatkan informasi menarik yang berguna untuk meningkatkan pengetahuan dan keterampilan kamu",
     },
     {
       id: 14,
