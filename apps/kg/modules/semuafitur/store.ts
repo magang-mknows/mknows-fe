@@ -77,6 +77,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon6,
       warna: "#E9F6FD",
       slug: "/simulasi-drill-dan-assestment",
+      desc: "Fitur Simulasi, Drill, dan Asesmen memberikan pengalaman belajar yang interaktif dan menyeluruh bagi kamu dalam menguji dan meningkatkan pemahaman terhadap materi pembelajaran.",
     },
     {
       id: 9,
