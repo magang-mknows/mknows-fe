@@ -21,14 +21,14 @@ export const ContentSection: FC = (): ReactElement => {
   console.log("data", data);
   return (
     <div className="gap-[30px] min-h-[60vh] px-8 md:px-14 lg:px-16 mt-[25px]">
-      {data?.data?.dataSessions.map((item: any, index: number) => {
+      {data?.data?.dataSessions.map((items: any, index: number) => {
         return (
           <Disclosure as={"div"} className={"flex flex-col mb-5"} key={index}>
             <Disclosure.Button
               className={`px-[30px] py-[14px] flex justify-between items-center rounded-lg text-white  ${
-                item.is_locked ? " bg-[#A3A3A3]" : "bg-[#053D38] cursor-pointer"
+                items.is_locked ? " bg-[#A3A3A3]" : "bg-[#053D38] cursor-pointer"
               }`}
-              disabled={item.is_locked}
+              disabled={items.is_locked}
             >
               <p className="text-base text-neutral-50 font-medium">Pertemuan {index + 1}</p>
 
@@ -36,7 +36,8 @@ export const ContentSection: FC = (): ReactElement => {
             </Disclosure.Button>
 
             <Disclosure.Panel className={"w-[98%] mx-auto bg-neutral-50"} key={index}>
-              {item.progress.reverse().map((item: any, index: number) => {
+              {items.progress.reverse().map((item: any, index: number) => {
+                console.log(item.id);
                 return (
                   <>
                     <PanelSection
@@ -50,7 +51,7 @@ export const ContentSection: FC = (): ReactElement => {
                       }
                       href={
                         item.type == "MODULE"
-                          ? `/pelatihanku/modul/${item.id}/${query.batchID}`
+                          ? `/pelatihanku/modul/${items.id}/${params.batchID}`
                           : item.type == "ASSIGNMENT"
                           ? "Penugasan"
                           : ""

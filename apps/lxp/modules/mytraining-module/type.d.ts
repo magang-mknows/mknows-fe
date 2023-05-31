@@ -7,5 +7,8 @@ export interface MyTrainingModuleItem {
   submitted: boolean;
   batch_id: string;
 }
-
+export type params = {
+  subjectID: string;
+  batchID: string;
+};
 export type TMyTrainingModuleResponse = ICommonMetaResponse<MyTrainingModuleItem>;

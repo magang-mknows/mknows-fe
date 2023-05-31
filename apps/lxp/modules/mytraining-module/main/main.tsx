@@ -4,11 +4,15 @@ import { FC, ReactElement } from "react";
 import { HiDocumentText } from "react-icons/hi2";
 import { RiVideoFill } from "react-icons/ri";
 import { useGetMyWorkModule } from "../hooks";
-import { MyTrainingModuleItem } from "../type";
+import { MyTrainingModuleItem, params } from "../type";
 
 export const MtTrainingModuleMain: FC = (): ReactElement => {
   const { query } = useRouter();
-  const { data } = useGetMyWorkModule(query.batchID as string, query.sessionID as string);
+  const params: params = {
+    subjectID: query.subjectID as string,
+    batchID: query.batchID as string,
+  };
+  const { data } = useGetMyWorkModule(params);
   console.log("tes data", data);
   return (
     <div className="min-h-[100vh] pt-10">
