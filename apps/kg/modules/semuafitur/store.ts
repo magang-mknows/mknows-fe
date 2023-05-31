@@ -37,6 +37,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#FEDBD7",
       slug: "/studi-ku",
+      desc: "Fitur Studi Ku pada website KG memungkinkan kamu untuk mengetahui informasi dan riwayat pembelajaran yang telah kamu ikuti.",
     },
     {
       id: 4,
