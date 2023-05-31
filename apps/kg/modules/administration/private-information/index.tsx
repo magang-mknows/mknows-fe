@@ -41,7 +41,6 @@ export const PrivateInformation: FC = (): ReactElement => {
     control,
     handleSubmit,
     formState: { isValid, errors },
-    watch,
     reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
