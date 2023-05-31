@@ -2150,13 +2150,6 @@
   dependencies:
     nx-cloud "16.0.5"
 
-"@nrwl/react@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/react/-/react-16.2.1.tgz#1de8d8b9f2d354b5375e0ad1b228bba8ded67cc7"
-  integrity sha512-3YSu7t/u+u0tp9YY5k1OrX6ayCHT12gcyYxjFTbj197UgKhexzgOujW9hNqMhk4tNdxGv9WTGEzLYRnLqYhAtQ==
-  dependencies:
-    "@nx/react" "16.2.1"
-
 "@nrwl/react@16.2.2":
   version "16.2.2"
   resolved "https://registry.yarnpkg.com/@nrwl/react/-/react-16.2.2.tgz#bb21230a967720cada0794d06edfbd1afd061abc"
@@ -2184,13 +2177,6 @@
   integrity sha512-ccBem+qOhYvl5XoKyyn6NeVL4jtEDaJH5kbfNtQG0zpsRl6M8Ng4Izsm9o4sEcAOT3dS1hpUIhiCUFG+8e5fPw==
   dependencies:
     "@nx/vite" "16.2.2"
-
-"@nrwl/web@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/web/-/web-16.2.1.tgz#8c2e7a4e8f2d7722d437c8ec26cd694557051139"
-  integrity sha512-RT3vf3Ztfa/7IwuTeRy4e9OFkmyTaDLVy/OlMpT0LcrjqLDrWssGTluaiyCGI/S3Ep3sGXjyA6SiZasKrrZb1Q==
-  dependencies:
-    "@nx/web" "16.2.1"
 
 "@nrwl/web@16.2.2":
   version "16.2.2"
@@ -2524,22 +2510,6 @@
   resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-16.2.2.tgz#0afbeb2133613a5a3b0083e18a250472ccf45932"
   integrity sha512-liHtyVVOttcqHIV3Xrg/1AJzEgfiOCeqJsleHXHGgPr1fxPx7SIZaa3/QnDY1lNMN+t6Gvj0/r2Ba3iuptYD3Q==
 
-"@nx/react@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/react/-/react-16.2.1.tgz#b1b7dbc73f8bcf52065e2853e79509e1f88e6923"
-  integrity sha512-7joDiK6QEVZgQKjSOVJIZVkESIQV0wXOyvTDwiE/V6uF4TMzpMzMUDbUgsgqO7U5TZcerOoyFMZXpnEeU3l4gA==
-  dependencies:
-    "@nrwl/react" "16.2.1"
-    "@nx/devkit" "16.2.1"
-    "@nx/js" "16.2.1"
-    "@nx/linter" "16.2.1"
-    "@nx/web" "16.2.1"
-    "@phenomnomnominal/tsquery" "~5.0.1"
-    "@svgr/webpack" "^6.1.2"
-    chalk "^4.1.0"
-    file-loader "^6.2.0"
-    minimatch "3.0.5"
-
 "@nx/react@16.2.2":
   version "16.2.2"
   resolved "https://registry.yarnpkg.com/@nx/react/-/react-16.2.2.tgz#590a103fba8ad0e36c927f600ecd72ab54f1a3e0"
@@ -2568,20 +2538,6 @@
     "@swc/helpers" "~0.5.0"
     dotenv "~10.0.0"
     enquirer "~2.3.6"
-
-"@nx/web@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/web/-/web-16.2.1.tgz#4d3d756ddc325566cbd484aeacda35eefef1b68b"
-  integrity sha512-ObtiHOIijMmi4Ls+tlLpgwolqp2Sjw/yGkD9WDmtWG+ebwOkwcgAa4hKCaBxt37W7qVa371FMhFJ1WGEzCkjnw==
-  dependencies:
-    "@nrwl/web" "16.2.1"
-    "@nx/devkit" "16.2.1"
-    "@nx/js" "16.2.1"
-    chalk "^4.1.0"
-    chokidar "^3.5.1"
-    http-server "^14.1.0"
-    ignore "^5.0.4"
-    tslib "^2.3.0"
 
 "@nx/web@16.2.2":
   version "16.2.2"
