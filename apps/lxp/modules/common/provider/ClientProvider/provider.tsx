@@ -18,6 +18,7 @@ import { BsFileEarmarkPlus, BsFileEarmarkTextFill, BsFillBuildingFill } from "re
 import { IoAnalyticsOutline } from "react-icons/io5";
 import { BiBuilding } from "react-icons/bi";
 import { MdOutlineContactPage } from "react-icons/md";
+import { TbCategory2 } from "react-icons/tb";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,6 +31,8 @@ export const ClientProvider: FC<TProviderProps> = ({
 }): ReactElement => {
   const router = useRouter();
   const { data } = useSession();
+  const { data: profileData } = useProfile();
+
   const _pop_up_menu = [
     {
       name: "Dashboard",
@@ -57,8 +60,6 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
-  const { data: profileData } = useProfile();
-
   const [getLoginPopup, setLoginPopup] = useRecoilState(LoginPopupState);
 
   const _features = [
@@ -72,7 +73,7 @@ export const ClientProvider: FC<TProviderProps> = ({
 
     {
       name: "Pelatihan-ku",
-      link: "/pelatihan-ku",
+      link: "/pelatihanku",
       icon: <MdEmojiPeople className="bg-[#3EB449] text-neutral-50 rounded-md p-2" size={32} />,
     },
     {
@@ -91,11 +92,6 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
-  // const _profile_user = {
-  //   email: profileData?.data?.user?.email as string,
-  //   full_name: profileData?.data?.user?.full_name as string,
-  //   avatar: profileData?.data.user.avatar || '/assets/images/avatar-dummy.png',
-  // };
   const _profile_user = {
     email: profileData?.data?.email as string,
     full_name: profileData?.data?.full_name as string,
@@ -112,6 +108,11 @@ export const ClientProvider: FC<TProviderProps> = ({
       name: "Kontak kami",
       icon: <MdOutlineContactPage className="text-neutral-500 p-1 text-3xl" />,
       href: "/kontak",
+    },
+    {
+      name: "Semua Fitur",
+      icon: <TbCategory2 className="text-neutral-500 p-1 text-3xl" />,
+      href: "/semua-fitur",
     },
   ];
 

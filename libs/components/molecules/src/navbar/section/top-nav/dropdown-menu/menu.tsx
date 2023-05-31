@@ -32,7 +32,7 @@ export const NavMenuDropDown: FC<TBottomNavProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute mt-1  w-40 rounded-md py-2  text-sm bg-white shadow-md ">
+          <Listbox.Options className="absolute mt-1  w-44 rounded-md py-2  text-sm bg-white shadow-md ">
             {bottomNavItems.map((item, index) => (
               <Listbox.Option key={index} value={item.name}>
                 <Link href={item.link}>
