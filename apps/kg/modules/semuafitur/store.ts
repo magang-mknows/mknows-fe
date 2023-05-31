@@ -101,7 +101,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon8,
       warna: "#FEDBD7",
       slug: "/analitik",
-      desc: "",
+      desc: "Menganalisa penilaian kamu selama melakukan pembelajaran di Kampus Gratis untuk memastikan nilai mu tidak berada pada grafik menurun",
     },
     {
       id: 12,

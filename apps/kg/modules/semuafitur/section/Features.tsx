@@ -41,10 +41,10 @@ const Features: FC = (): ReactElement => {
           return (
             <div
               key={fitur.id}
-              className="lg:col-span-3 md:col-span-4 col-span-6 lg:py-[8px] md:py-[25px] py-[15px] rounded-lg bg-white z-10"
+              className="lg:col-span-3 md:col-span-4 col-span-6 lg:py-[8px] md:py-[25px] py-[15px] rounded-lg bg-white z-10 shadow-2xl"
             >
               <Card
-                className="items-start justify-start flex"
+                className="items-start justify-start flex "
                 href={fitur.slug}
                 hasImage={true}
                 src={fitur.icon}
@@ -55,7 +55,7 @@ const Features: FC = (): ReactElement => {
                   <h1 className="font-bold text-left dark:text-black lg:text-[16px] md:text-[16px] text-[10px]">
                     {fitur.namaFitur}
                   </h1>
-                  <p className="text-neutral-base text-sm w-full">{fitur.desc}</p>
+                  <p className="text-neutral-base text-sm w-full py-2">{fitur.desc}</p>
                 </div>
               </Card>
             </div>
