@@ -1,15 +1,26 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect } from "react";
 import {
   usePrivateInformationStatus,
   useJobInformationStatus,
   useFileInformationStatus,
 } from "./hooks";
 import { BiCheck } from "react-icons/bi";
+import { useGetAllAdministration } from "../hooks";
 
 export const Stepper: FC = (): ReactElement => {
-  const { getPrivateStatus } = usePrivateInformationStatus();
-  const { getJobStatus } = useJobInformationStatus();
-  const { getFileStatus } = useFileInformationStatus();
+  const { getPrivateStatus, setPrivateStatus } = usePrivateInformationStatus();
+  const { getJobStatus, setJobStatus } = useJobInformationStatus();
+  const { getFileStatus, setFileStatus } = useFileInformationStatus();
+  const { data } = useGetAllAdministration();
+  const getAll = data?.data;
+  console.log("cek all adm: ", getAll);
+  useEffect(() => {
+    if (getAll?.biodata === null && getAll?.familial === null && getAll?.file === null) {
+      setPrivateStatus(false);
+      setJobStatus(false);
+      setFileStatus(false);
+    }
+  }, [data]);
 
   return (
     <div className="flex justify-center mt-[48px] mb-[40px]">

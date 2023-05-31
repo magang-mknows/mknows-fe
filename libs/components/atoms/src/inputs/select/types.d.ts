@@ -27,6 +27,11 @@ export type TOption = {
   label: string;
   value: string | number;
 };
+
+export type TOptionConstant = {
+  keys: string;
+  values: string;
+};
 export type ISelect<T extends FieldValues> = UseControllerProps<T> & {
   label?: string;
   name: string;
