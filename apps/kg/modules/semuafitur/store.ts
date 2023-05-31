@@ -53,6 +53,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon4,
       warna: "#FEDBD7",
       slug: "/penugasan",
+      desc: "Fitur Penugasan pada website KG memungkinkan kamu untuk mengetahui  informasi dan instruksi mengenai tugas atau pekerjaan yang harus dikerjakan oleh kamu dalam rangka menyelesaikan pembelajaran yang telah diambil di website KG.",
     },
     {
       id: 6,
