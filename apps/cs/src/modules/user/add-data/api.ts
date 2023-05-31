@@ -15,13 +15,13 @@ export const fileIdentityRequest = async (payload: TIdentityFile): Promise<TIden
     headers: {
       "Content-Type": "multipart/form-data",
     },
-    url: `/user/identity-scoring/${payload.user_id}`,
+    url: `/user/identity-scoring`,
     data: serialize(payload),
   });
   return data;
 };
 
-export const fileCapabiltyRequest = async (
+export const fileCapabilityRequest = async (
   payload: TCapabilityFile,
 ): Promise<TCapabilityResponse> => {
   const { data } = await api({
@@ -43,7 +43,7 @@ export const fileCharacterRequest = async (
     headers: {
       "Content-Type": "multipart/form-data",
     },
-    url: `/user/character-scoring/${payload.user_id}`,
+    url: `/user/character-scoring/`,
     data: serialize(payload),
   });
   return data;

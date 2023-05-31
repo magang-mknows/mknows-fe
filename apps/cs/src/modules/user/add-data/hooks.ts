@@ -1,7 +1,14 @@
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { fileIdentityRequest } from "./api";
-import { TIdentityFile, TIdentityResponse } from "./types";
+import { fileIdentityRequest, fileCapabilityRequest, fileCharacterRequest } from "./api";
+import {
+  TIdentityFile,
+  TIdentityResponse,
+  TCapabilityFile,
+  TCapabilityResponse,
+  TCharacterFile,
+  TCharacterResponse,
+} from "./types";
 
 export const useIdentityInformation = (): UseMutationResult<
   TIdentityResponse,
@@ -12,5 +19,29 @@ export const useIdentityInformation = (): UseMutationResult<
   return useMutation({
     mutationKey: ["identity-information-post"],
     mutationFn: async (payload) => await fileIdentityRequest(payload),
+  });
+};
+
+export const useCharacterInformation = (): UseMutationResult<
+  TCharacterResponse,
+  TMetaErrorResponse,
+  TCharacterFile,
+  unknown
+> => {
+  return useMutation({
+    mutationKey: ["character-information-post"],
+    mutationFn: async (payload) => await fileCharacterRequest(payload),
+  });
+};
+
+export const useCapabilityInformation = (): UseMutationResult<
+  TCapabilityResponse,
+  TMetaErrorResponse,
+  TCapabilityFile,
+  unknown
+> => {
+  return useMutation({
+    mutationKey: ["capability-information-post"],
+    mutationFn: async (payload) => await fileCapabilityRequest(payload),
   });
 };
