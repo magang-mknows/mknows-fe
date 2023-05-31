@@ -7,7 +7,6 @@ import { Accordion } from "@mknows-frontend-services/components/molecules";
 import { IconNotif } from "../../../../components/atoms";
 import { useCategoryStatus, useIdentityStatus } from "../../hooks";
 import { useIdentityInformation } from "../hooks";
-import { useProfile } from "../../../../components/organisms/sidebar/profile/hooks";
 
 const AiIdentityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 30000000;
@@ -123,14 +122,11 @@ const AiIdentityScoring: FC = (): ReactElement => {
     },
   });
 
-  const { data: profile } = useProfile();
-
   const onSubmit = handleSubmit((data) => {
     try {
       mutate(
         {
           ...data,
-          user_id: profile?.data?._id,
           ktp: data.image_ktp[0] as File,
           selfie: data.image_selfie[0] as File,
           surat_nomor_induk_berusaha: data.image_surat_nomor_induk_berusaha[0] as File,

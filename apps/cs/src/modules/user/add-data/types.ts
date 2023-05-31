@@ -21,11 +21,11 @@ export type TCapabilityFile = {
   surat_nomor_induk_berusaha?: File;
   surat_izin_usaha_perdagangan?: File;
   surat_nomor_akta_notaris?: File;
-  surat_keterangan_domisili_usaha: File;
-  npwp: File;
-  surat_tanda_daftar_perusahaan: File;
-  form_credit_applicant: File;
-  surat_laporan_keuangan: File;
+  surat_keterangan_domisili_usaha?: File;
+  npwp?: File;
+  surat_tanda_daftar_perusahaan?: File;
+  form_credit_applicant?: File;
+  surat_laporan_keuangan?: File;
 };
 
 export type TCapabilityResponse = TMetaResponseSingle<TCapabilityFile>;
@@ -37,14 +37,14 @@ export type TCharacterFile = {
   surat_nomor_induk_berusaha?: File;
   surat_izin_usaha_perdagangan?: File;
   surat_nomor_akta_notaris?: File;
-  surat_keterangan_domisili_usaha: File;
-  npwp: File;
-  surat_tanda_daftar_perusahaan: File;
-  surat_laporan_keuangan: File;
-  form_credit_applicant: File;
-  surat_kepemilikan_kendaraan: File;
-  nota_kepemilikan_rumah: File;
-  nota_kepemilikan_saham: File;
+  surat_keterangan_domisili_usaha?: File;
+  npwp?: File;
+  surat_tanda_daftar_perusahaan?: File;
+  surat_laporan_keuangan?: File;
+  form_credit_applicant?: File;
+  surat_kepemilikan_kendaraan?: File;
+  nota_kepemilikan_rumah?: File;
+  nota_kepemilikan_saham?: File;
 };
 
 export type TCharacterResponse = TMetaResponseSingle<TCharacterFile>;
