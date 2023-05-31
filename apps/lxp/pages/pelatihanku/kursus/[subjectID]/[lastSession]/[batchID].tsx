@@ -1,4 +1,4 @@
-import { MyTrainingCourseModule } from "../../../modules";
+import { MyTrainingCourseModule } from "../../../../../modules";
 import { NextPage } from "next";
 import { ReactElement } from "react";
 

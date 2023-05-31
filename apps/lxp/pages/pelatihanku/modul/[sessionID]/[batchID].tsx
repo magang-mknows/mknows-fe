@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { MyTrainingModulModules } from "../../../modules";
+import { MyTrainingModulModules } from "../../../../modules";
 import { ReactElement } from "react";
 
 const MyTrainingModulePage: NextPage = (): ReactElement => {
