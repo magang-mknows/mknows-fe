@@ -1,7 +1,8 @@
 import api from "../../services/api";
-export const getMyWorkCourse = async (subjectID: string, lastSession: string, batchID: string) => {
+import { params } from "./type";
+export const getMyWorkCourse = async (params: params) => {
   const { data } = await api.get(
-    `/my-works/me/subject/${subjectID}/last-session/${lastSession}/batch/${batchID}`,
+    `/my-works/me/subject/${params.subjectID}/last-session/${params.lastSession}/batch/${params.batchID}`,
   );
   return data;
 };

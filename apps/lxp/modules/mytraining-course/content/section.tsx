@@ -6,14 +6,18 @@ import { Disclosure } from "@headlessui/react";
 import { PanelSection } from "./panel";
 import { useRouter } from "next/router";
 import { useGetMyWorkCourse } from "../hooks";
+import { params } from "../type";
 
 export const ContentSection: FC = (): ReactElement => {
   const { query } = useRouter();
-  const { data } = useGetMyWorkCourse(
-    query.subjectID as string,
-    query.lastSession as string,
-    query.batchID as string,
-  );
+
+  const params: params = {
+    subjectID: query.subjectID as string,
+    lastSession: query.lastSession as string,
+    batchID: query.batchID as string,
+  };
+
+  const { data } = useGetMyWorkCourse(params);
   console.log("data", data);
   return (
     <div className="gap-[30px] min-h-[60vh] px-8 md:px-14 lg:px-16 mt-[25px]">

@@ -21,6 +21,10 @@ export type TFinalProgressSubject = {
   last_session: string;
   batch_id: string;
 };
-
+export type params = {
+  subjectID: string;
+  lastSession: string;
+  batchID: string;
+};
 
 export type TDepartmentResponse = ICommonMetaResponse<TDepartmentItems>;

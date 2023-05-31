@@ -2,14 +2,17 @@ import Image from "next/image";
 import { FC, ReactElement } from "react";
 import { useGetMyWorkCourse } from "../hooks";
 import { useRouter } from "next/router";
+import { params } from "../type";
 
 export const HeroSection: FC = (): ReactElement => {
   const { query } = useRouter();
-  const { data } = useGetMyWorkCourse(
-    query.subjectID as string,
-    query.lastSession as string,
-    query.batchID as string,
-  );
+  const params: params = {
+    subjectID: query.subjectID as string,
+    lastSession: query.lastSession as string,
+    batchID: query.batchID as string,
+  };
+
+  const { data } = useGetMyWorkCourse(params);
   console.log("tes", data?.dataSubject?.name);
   return (
     <div className="items-center mx-8 md:mx-14 lg:mx-16 bg-neutral-50 rounded-lg px-8 md:px-14 py-6 ">
