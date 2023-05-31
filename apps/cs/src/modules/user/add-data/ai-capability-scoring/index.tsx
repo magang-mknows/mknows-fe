@@ -11,7 +11,7 @@ import {
   useCharacterStatus,
   useIdentityStatus,
 } from "../../hooks";
-import { useProfile } from "../../../../components/organisms/sidebar/profile/hooks";
+import { useProfile } from "../../../common/hooks";
 import { useCapabilityInformation } from "../hooks";
 
 const AiCapabilityScoring: FC = (): ReactElement => {
