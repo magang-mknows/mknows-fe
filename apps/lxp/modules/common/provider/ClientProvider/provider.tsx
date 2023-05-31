@@ -18,6 +18,7 @@ import { BsFileEarmarkPlus, BsFileEarmarkTextFill, BsFillBuildingFill } from "re
 import { IoAnalyticsOutline } from "react-icons/io5";
 import { BiBuilding } from "react-icons/bi";
 import { MdOutlineContactPage } from "react-icons/md";
+import { TbCategory2 } from "react-icons/tb";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -72,7 +73,7 @@ export const ClientProvider: FC<TProviderProps> = ({
 
     {
       name: "Pelatihan-ku",
-      link: "/pelatihan-ku",
+      link: "/pelatihanku",
       icon: <MdEmojiPeople className="bg-[#3EB449] text-neutral-50 rounded-md p-2" size={32} />,
     },
     {
@@ -112,6 +113,11 @@ export const ClientProvider: FC<TProviderProps> = ({
       name: "Kontak kami",
       icon: <MdOutlineContactPage className="text-neutral-500 p-1 text-3xl" />,
       href: "/kontak",
+    },
+    {
+      name: "Semua Fitur",
+      icon: <TbCategory2 className="text-neutral-500 p-1 text-3xl" />,
+      href: "/semua-fitur",
     },
   ];
 
