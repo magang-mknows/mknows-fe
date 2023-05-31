@@ -8,7 +8,7 @@ export const fileIdentityRequest = async (payload: TIdentityFile): Promise<TIden
     headers: {
       "Content-Type": "multipart/form-data",
     },
-    url: "/user/identity-scoring",
+    url: `/user/identity-scoring/${payload.user_id}`,
     data: serialize(payload),
   });
   return data;
