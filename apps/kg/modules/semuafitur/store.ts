@@ -141,6 +141,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon12,
       warna: "#FEF6D0",
       slug: "/penyaluran-kerja",
+      desc: "Kampus Gratis menyediakan layanan penyaluran kerja yang membantumu terhubung dengan peluang kerja yang relevan sesuai dengan keterampilan yang telah diperoleh melalui pembelajaran di Kampus Gratis.",
     },
   ],
 });
