@@ -30,7 +30,7 @@
   },
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.1",
     "@headlessui/react": "^1.7.14",
     "@hookform/resolvers": "^3.1.0",
     "@nestjs/common": "^9.1.1",
