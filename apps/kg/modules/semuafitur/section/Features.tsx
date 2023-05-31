@@ -55,9 +55,7 @@ const Features: FC = (): ReactElement => {
                   <h1 className="font-bold text-left dark:text-black lg:text-[16px] md:text-[16px] text-[10px]">
                     {fitur.namaFitur}
                   </h1>
-                  <p className="text-neutral-base w-full">
-                    Isi administrasi kamu sekarang untuk dapat mengikuti program Kampus Gratis
-                  </p>
+                  <p className="text-neutral-base text-sm w-full">{fitur.desc}</p>
                 </div>
               </Card>
             </div>

@@ -21,6 +21,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#E9F6FD",
       slug: "/administrasi",
+      desc: "Fitur administrasi pada website KG berisi informasi dan fitur yang memungkinkan Kamu untuk bisa mengelola dan mengakses semua fitur pada website.",
     },
     {
       id: 2,
