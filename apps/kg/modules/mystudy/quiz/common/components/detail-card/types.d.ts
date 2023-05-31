@@ -1,4 +1,5 @@
 export type DetailCardProps = {
-  value: string;
+  value: string | number;
   type: "trueAnswer" | "falseAnswer" | "timeFinished" | "totalQuestions";
+  link?: string;
 };
