@@ -14,8 +14,8 @@ type TLeaderboardItem = {
   student_id: string;
   student_name: string;
   subjectCount: string;
-  averageScore: any;
-  poin: any;
+  averageScore: number;
+  poin: number;
   author: AuthorLeaderboard;
 };
 
@@ -24,9 +24,8 @@ type AuthorLeaderboard = {
   discussion_likes: number;
   discussion_posted: number;
   full_name: string;
-  ipk: any;
+  ipk: number;
   major: string;
-  poin: string;
   role: string;
   total_certificates: number;
 };

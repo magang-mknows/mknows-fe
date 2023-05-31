@@ -10,6 +10,7 @@ import { useGetLeaderboard, usePopupGetUser, usePopupProfilLeaderboard } from ".
 export const StepRanking: FC = (): ReactElement => {
   const { data } = useGetLeaderboard();
   const getRank = data?.data;
+
   const { setPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   const { setPopupUser } = usePopupGetUser();
   return (
