@@ -29,6 +29,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#FEF6D0",
       slug: "/rencana-studi",
+      desc: "Fitur Rencana studi pada website KG berisi informasi mengenai rencana dan jadwal pembelajaran yang akan diadakan.",
     },
     {
       id: 3,
