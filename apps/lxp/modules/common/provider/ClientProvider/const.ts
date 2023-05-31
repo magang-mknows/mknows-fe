@@ -9,7 +9,7 @@ export const _bottom_nav_items = [
   },
   {
     name: "Pelatihanku",
-    link: "/pelatihanki",
+    link: "/pelatihanku",
   },
   {
     name: "Nilai & Sertifikat",
