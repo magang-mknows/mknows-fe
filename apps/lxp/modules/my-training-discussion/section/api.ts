@@ -18,11 +18,6 @@ export const getDisscussionDetailRequest = async (
   return data;
 };
 
-export const CommentGetByIdRequest = async (id: string): Promise<TCommentResponse> => {
-  const { data } = await api.get(`/discussion-forums/comment/:discussion_forum_id/${id}`);
-  return data;
-};
-
 export const CommentCreateByIdRequest = async (
   id: string,
   payload: TDiscussionPayload,

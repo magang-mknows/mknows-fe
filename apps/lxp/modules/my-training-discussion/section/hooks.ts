@@ -21,12 +21,6 @@ export const useGetDetailDiscussionById = (id: string): UseQueryResult<TCommentR
     queryFn: async () => await getDisscussionDetailRequest(id),
   });
 
-export const useGetCommentById = (id: string): UseQueryResult<TCommentResponse> =>
-  useQuery({
-    queryKey: ["comment-get-by-id", id],
-    queryFn: async () => await CommentGetByIdRequest(id),
-  });
-
 export const useCreateCommentById = (
   id: string,
 ): UseMutationResult<TCommentResponse, TMetaErrorResponse, TDiscussionPayload, unknown> => {
