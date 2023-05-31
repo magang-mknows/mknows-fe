@@ -85,6 +85,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#E9F6FD",
       slug: "/kalender-saya",
+      desc: "Fitur Kalender Saya memungkinkan kamu untuk mengakses jadwal pembelajaran dan mengatur jadwal belajar kamu dengan mudah.",
     },
     {
       id: 10,
