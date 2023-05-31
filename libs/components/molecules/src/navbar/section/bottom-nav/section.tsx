@@ -9,18 +9,20 @@ export const BottomNav: FC<TBottomNavProps> = ({
 }): ReactElement => {
   const router = useRouter();
   return (
-    <nav className="flex items-center gap-x-6 border-t-[1px] border-neutral-200 px-[75px] bg-white py-[20px]">
-      {bottomNavItems.map((nav, key) => (
-        <Link
-          href={nav.link}
-          key={key}
-          className={
-            router.pathname !== nav.link ? "text-neutral-base bg-none" : bottomNavItemStyle
-          }
-        >
-          {nav.name}
-        </Link>
-      ))}
+    <nav className="bg-neutral-50 hidden border-b-[1px] border-t-[1px] border-neutral-100 py-3 w-full px-8 md:-px-14 lg:px-16 lg:flex gap-4">
+      {bottomNavItems.map((item, index) => {
+        return (
+          <Link
+            href={item.link}
+            key={index}
+            className={`${
+              router.pathname === item.link ? bottomNavItemStyle : "hover:text-version3-500 "
+            }  px-4 py-2.5 text-sm transition-all ease-in-out duration-300`}
+          >
+            <p>{item.name}</p>
+          </Link>
+        );
+      })}
     </nav>
   );
 };
