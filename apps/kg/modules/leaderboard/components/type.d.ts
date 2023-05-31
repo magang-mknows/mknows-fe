@@ -10,8 +10,8 @@ export interface PopupProfilProps {
   student_id?: string;
   student_name?: string;
   subjectCount?: string;
-  averageScore?: string;
-  poin?: any;
+  averageScore?: number;
+  poin?: number;
   author?: AuthorLead;
 }
 
