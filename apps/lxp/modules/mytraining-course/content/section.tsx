@@ -66,12 +66,8 @@ export const ContentSection: FC = (): ReactElement => {
                         )
                       }
                     />
+
                     {/* <PanelSection
-                      title="Quiz"
-                      href={`/pelatihanku/quiz/${item.id}/${query.batchID}`}
-                      icon={<MdOutlineQuiz className="text-xl text-[#FAB317]" />}
-                    />
-                    <PanelSection
                       title="Tugas"
                       href="/penugasan"
                       icon={<RiTodoLine className="text-xl text-[#F4677F]" />}
@@ -82,10 +78,15 @@ export const ContentSection: FC = (): ReactElement => {
                       icon={
                         <HiOutlineChatBubbleBottomCenterText className="text-xl text-[#3EB449]" />
                       }
-                    /> */}
+                    />  */}
                   </>
                 );
               })}
+              <PanelSection
+                title="Quiz"
+                href={`/pelatihanku/quiz/${items.id}/${query.batchID}`}
+                icon={<MdOutlineQuiz className="text-xl text-[#FAB317]" />}
+              />
             </Disclosure.Panel>
           </Disclosure>
         );

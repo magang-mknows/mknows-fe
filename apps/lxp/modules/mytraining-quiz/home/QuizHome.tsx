@@ -5,10 +5,15 @@ import Link from "next/link";
 import QuizHomeImage from "../assets/quiz-start.svg";
 import { useGetMyWorkQuizId } from "../hooks";
 import { useRouter } from "next/router";
+import { params } from "../../mytraining-module/type";
 
 const QuizHome: FC = (): ReactElement => {
   const { query } = useRouter();
-  const { data } = useGetMyWorkQuizId(query.subjectID as string, query.batchID as string);
+  const params: params = {
+    subjectID: query.subjectID as string,
+    batchID: query.batchID as string,
+  };
+  const { data } = useGetMyWorkQuizId(params);
   console.log("tes", data);
   return (
     <div className="flex flex-col pt-10 items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] ">

@@ -1,9 +1,13 @@
 import api from "../../services/api";
-export const getMyWorkQuizId = async (subjectID: string, batchID: string) => {
-  const { data } = await api.get(`/my-works/quiz/session/${subjectID}/batch/${batchID}`);
+import { params } from "../mytraining-module/type";
+
+export const getMyWorkQuizId = async (params: params) => {
+  const { data } = await api.get(
+    `/my-works/quiz/session/${params.subjectID}/batch/${params.batchID}`,
+  );
   return data;
 };
-export const getMyWorkTakeQuiz = async (subjectID: string, batchID: string) => {
-  const { data } = await api.get(`/my-works/quiz/${subjectID}/batch/${batchID}/take`);
+export const getMyWorkTakeQuiz = async (params: params) => {
+  const { data } = await api.get(`/my-works/quiz/${params.subjectID}/batch/${params.batchID}/take`);
   return data;
 };
