@@ -27,13 +27,13 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-y-7 gap-x-9 mt-[30px] pb-40">
+      <div className="relative grid lg:grid-cols-3 grid-cols-1 gap-y-7 gap-x-9 mt-[30px] pb-40">
         {dataSubjectProps?.length === 0 ? (
-          <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
-            <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
+          <div className="w-full absolute">
+            <div className="w-fit m-auto p-1 lg:p-4 bg-gray-100 dark:bg-gray-600">
               <Image src={OrangBingungIcon} alt="simulasi-null" />
+              <h1 className="text-xl font-bold text-center">Tidak Ada Data Mata Kuliah</h1>
             </div>
-            <h1 className="text-xl font-bold">Tidak Ada Data Mata Kuliah</h1>
           </div>
         ) : (
           <>
