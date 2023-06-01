@@ -3,8 +3,18 @@ import { FC, ReactElement } from "react";
 // import LayoutProvider from "@/providers/LayoutProvider";
 import Link from "next/link";
 import QuizHomeImage from "../assets/quiz-start.svg";
+import { useGetMyWorkQuizId } from "../hooks";
+import { useRouter } from "next/router";
+import { params } from "../../mytraining-module/type";
 
 const QuizHome: FC = (): ReactElement => {
+  const { query } = useRouter();
+  const params: params = {
+    subjectID: query.subjectID as string,
+    batchID: query.batchID as string,
+  };
+  const { data } = useGetMyWorkQuizId(params);
+  console.log("tes", data);
   return (
     <div className="flex flex-col pt-10 items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] ">
       <div className="flex flex-col items-center gap-y-4 text-center">
@@ -48,9 +58,9 @@ const QuizHome: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href={"/pelatihanku/quiz/mulai-quiz"}>
+          <Link href={`/pelatihanku/quiz/mulai-quiz/${data?.data?.quiz?.id}/${query.batchID}`}>
             <button className="bg-version3-500 hover:bg-version2-500 transition-all ease-in-out duration-150 text-neutral-100 px-8 py-2.5 w-fit rounded-md">
-              Mulai Quiz (Sisa 3)
+              Mulai Quiz (Sisa {data?.data?.countQuiz})
             </button>
           </Link>
         </div>
