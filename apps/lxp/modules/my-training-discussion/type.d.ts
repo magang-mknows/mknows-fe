@@ -8,6 +8,7 @@ export type t = {
   modul: string;
 };
 export interface cardAuthor {
+  id?: string;
   title: string;
   avatar: StaticImageData;
   time: string;

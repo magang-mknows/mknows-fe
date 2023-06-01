@@ -21,6 +21,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#E9F6FD",
       slug: "/administrasi",
+      desc: "Fitur administrasi pada website KG berisi informasi dan fitur yang memungkinkan Kamu untuk bisa mengelola dan mengakses semua fitur pada website.",
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#FEF6D0",
       slug: "/rencana-studi",
+      desc: "Fitur Rencana studi pada website KG berisi informasi mengenai rencana dan jadwal pembelajaran yang akan diadakan.",
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#FEDBD7",
       slug: "/studi-ku",
+      desc: "Fitur Studi Ku pada website KG memungkinkan kamu untuk mengetahui informasi dan riwayat pembelajaran yang telah kamu ikuti.",
     },
     {
       id: 4,
@@ -42,6 +45,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#E3FBDA",
       slug: "/nilai-dan-sertifikat",
+      desc: "Fitur Nilai & sertifikat pada website KG berisi informasi mengenai nilai dan sertifikat yang kamu peroleh setelah menyelesaikan pembelajarn yang disediakan oleh website ini.",
     },
     {
       id: 5,
@@ -49,6 +53,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon4,
       warna: "#FEDBD7",
       slug: "/penugasan",
+      desc: "Fitur Penugasan pada website KG memungkinkan kamu untuk mengetahui  informasi dan instruksi mengenai tugas atau pekerjaan yang harus dikerjakan oleh kamu dalam rangka menyelesaikan pembelajaran yang telah diambil di website KG.",
     },
     {
       id: 6,
@@ -56,6 +61,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon5,
       warna: "#E3FBDA",
       slug: "/ruang-diskusi",
+      desc: "Diskusi Global pada Kampus Gratis memungkinkan kamu untuk berinteraksi dan berbagi pengalaman dengan pelajar lain serta mentor dalam lingkungan virtual.",
     },
     {
       id: 7,
@@ -63,6 +69,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#FEF6D0",
       slug: "/konsultasi-dan-layanan",
+      desc: "Fitur Konsultasi dan Layanan memberikan kesempatan bagi kamu untuk memperoleh bantuan dan panduan dari mentor secara personal dalam memahami materi pembelajaran.",
     },
     {
       id: 8,
@@ -70,6 +77,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon6,
       warna: "#E9F6FD",
       slug: "/simulasi-drill-dan-assestment",
+      desc: "Fitur Simulasi, Drill, dan Asesmen memberikan pengalaman belajar yang interaktif dan menyeluruh bagi kamu dalam menguji dan meningkatkan pemahaman terhadap materi pembelajaran.",
     },
     {
       id: 9,
@@ -77,6 +85,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon1,
       warna: "#E9F6FD",
       slug: "/kalender-saya",
+      desc: "Fitur Kalender Saya memungkinkan kamu untuk mengakses jadwal pembelajaran dan mengatur jadwal belajar kamu dengan mudah.",
     },
     {
       id: 10,
@@ -84,6 +93,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon7,
       warna: "#FEF6D0",
       slug: "/papan-skor",
+      desc: "Periksa skor kamu dan pantau kemajuan pengetahuan dan keterampilan kamu untuk mencapai hasil yang lebih maksimal",
     },
     {
       id: 11,
@@ -91,6 +101,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon8,
       warna: "#FEDBD7",
       slug: "/analitik",
+      desc: "Menganalisa penilaian kamu selama melakukan pembelajaran di Kampus Gratis untuk memastikan nilai mu tidak berada pada grafik menurun",
     },
     {
       id: 12,
@@ -98,6 +109,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon9,
       warna: "#E3FBDA",
       slug: "/panduan",
+      desc: "Fitur Panduan memberikan akses mudah dan cepat untuk informasi yang dibutuhkan, seperti aturan pelatihan, petunjuk teknis, dan cara mengakses fitur-fitur pada website KG.",
     },
     {
       id: 13,
@@ -105,6 +117,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon10,
       warna: "#FEDBD7",
       slug: "/sekilas-ilmu",
+      desc: "Dapatkan informasi menarik yang berguna untuk meningkatkan pengetahuan dan keterampilan kamu",
     },
     {
       id: 14,
@@ -112,6 +125,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon3,
       warna: "#E9F6FD",
       slug: "/acara-kampus",
+      desc: "Ikuti beragam acara unik yang dirancang khusus untuk memberikan pengalaman belajar yang menyenangkan dan interaktif",
     },
     {
       id: 15,
@@ -119,6 +133,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon11,
       warna: "#E3FBDA",
       slug: "/perencanaan-karir",
+      desc: "Fitur Perencanaan Karir dirancang khusus untuk membantu kamu mengembangkan keterampilan yang penting untuk kesuksesan dalam karir",
     },
     {
       id: 16,
@@ -126,6 +141,7 @@ export const semuaFiturState = atom<Array<T>>({
       icon: icon12,
       warna: "#FEF6D0",
       slug: "/penyaluran-kerja",
+      desc: "Kampus Gratis menyediakan layanan penyaluran kerja yang membantumu terhubung dengan peluang kerja yang relevan sesuai dengan keterampilan yang telah diperoleh melalui pembelajaran di Kampus Gratis.",
     },
   ],
 });

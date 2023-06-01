@@ -2,16 +2,24 @@ import { useRecoilState } from "recoil";
 import {
   TBiodataAdm,
   TBiodataResponse,
+  TConstantsResponse,
   TFamilyAdm,
   TFamilyResponse,
   TFileAdm,
   TFileResponse,
+  TGetAdmResponse,
   TStatusReturnAdministration,
 } from "./types";
 import { AdministrationStatusState } from "./store";
-import { UseMutationResult, useMutation } from "@tanstack/react-query";
+import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { familyInformationRequest, fileInformationRequest, privateInformationRequest } from "./api";
+import {
+  constantsRequest,
+  familyInformationRequest,
+  fileInformationRequest,
+  getAdmRequest,
+  privateInformationRequest,
+} from "./api";
 
 export * from "./common/hooks";
 
@@ -22,6 +30,12 @@ export const useAdministrationStatus = (): TStatusReturnAdministration => {
     getAdministrationStatus: getStatus,
   };
 };
+
+export const useGetAllAdministration = (): UseQueryResult<TGetAdmResponse> =>
+  useQuery({
+    queryKey: ["get-all-adminitration"],
+    queryFn: async () => await getAdmRequest(),
+  });
 
 export const usePrivateInformation = (): UseMutationResult<
   TBiodataResponse,
@@ -59,4 +73,8 @@ export const useFileInformation = (): UseMutationResult<
   });
 };
 
-// export const useGetAdministration = (): UseQueryResult<>
+export const useConstants = (): UseQueryResult<TConstantsResponse> =>
+  useQuery({
+    queryKey: ["get-constants-adm"],
+    queryFn: async () => await constantsRequest(),
+  });
