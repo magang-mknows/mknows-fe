@@ -1,51 +1,73 @@
 import Image from "next/image";
-import { Fragment, ReactElement, useState } from "react";
-import YouTube, { YouTubeProps } from "react-youtube";
-import { PopupModal } from "../../discussion/components/modal/pop-up";
+import { Fragment, ReactElement, useEffect, useMemo, useState } from "react";
+import YouTube, { YouTubeProps, YouTubePlayer } from "react-youtube";
 import { ModuleButton } from "../components/button";
-import { useGetModuleContentById, usePopupConfirmModul } from "./hooks";
+import { useGetModuleContentById, usePopupConfirmModul, useWatchedVideoSubmitById } from "./hooks";
 import { useConfirmModul } from "../hooks";
-
 import Play from "../assets/button-play.svg";
 import Document from "../assets/iconDoc.svg";
 import { useRouter } from "next/router";
 import { TModuleContentItem } from "./types";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { ModulePopup } from "./pop-up";
 
 export const ModuleContentModule = (): ReactElement => {
   const router = useRouter();
   const { data } = useGetModuleContentById(router.query.moduleContentId as string);
-  const [videoId, setVideoId] = useState<string>("wqFzwWRdteM");
-
+  const { mutate } = useWatchedVideoSubmitById();
   const dataModuleContents: TModuleContentItem = data?.data as TModuleContentItem;
+  const idVideoGroup = useMemo(() => {
+    return dataModuleContents?.module_moduleVideos.map((video, i) => {
+      return {
+        id: video.id,
+        title: video.title,
+        desc: video.description,
+        youtubeId: video.url.match(
+          /(?<=v=|v\/|vi\/|vi=|youtu\.be\/|\/v\/|\/embed\/|\/shorts\/|\/youtu.be\/|\/v=|\/e\/|\/u\/\w\/|\/embed\/|\/v\/|\/watch\?v=|youtube.com\/watch\?v=|youtu.be\/)([^#&?\n]*)/,
+        )?.[0] as string,
+      };
+    });
+  }, [dataModuleContents]);
 
-  const idVideoGroup = [
-    { title: "Calo Tiket Panik", id: "MMrCXMpL8cA" },
-    { title: "AI di Sekolah Cina", id: "Tu4H03vN838" },
-    { title: "Intel vs AMD", id: "254PirhmZQk" },
-  ];
+  type TVideoItem = {
+    id: string;
+    title: string;
+    desc: string;
+    youtubeId: string;
+  };
 
-  const documentsGroup = [
-    {
-      title: "Introduce Manajemen Keuangan",
-      id: "",
-    },
-    {
-      title: "Fungsi Manajemen Keuangan",
-      id: "",
-    },
-    {
-      title: "Tujuan Manajemen Keuangan",
-      id: "",
-    },
-  ];
+  const [isExecuted, setIsExecuted] = useState(false);
+  const [videoItem, setVideoItem] = useState<TVideoItem>({
+    title: "",
+    id: "",
+    desc: "",
+    youtubeId: "",
+  });
 
-  function handleSidebarVideosClicked(val: string) {
-    setVideoId(val);
+  useEffect(() => {
+    setIsExecuted(true);
+    if (idVideoGroup && isExecuted) {
+      setVideoItem({
+        id: idVideoGroup[0].id,
+        title: idVideoGroup[0].title,
+        desc: idVideoGroup[0].desc,
+        youtubeId: idVideoGroup[0].youtubeId,
+      });
+      setIsExecuted(false);
+    }
+  }, [idVideoGroup, isExecuted]);
+
+  function handleSidebarVideosClicked(val: TVideoItem) {
+    setVideoItem(val);
   }
 
   const onPlayerReady: YouTubeProps["onReady"] = (event) => {
-    // access to player in all event handlers via event.target
     event.target.pauseVideo();
+  };
+  const onPlayerStateChange = (event: { target: YouTubePlayer; data: number }): void => {
+    if (event.data === YouTube.PlayerState.ENDED) {
+      mutate(videoItem.id);
+    }
   };
 
   const opts: YouTubeProps["opts"] = {
@@ -55,11 +77,12 @@ export const ModuleContentModule = (): ReactElement => {
       autoplay: 0,
     },
   };
-  const { setPopupStatus, getPopupStatus } = usePopupConfirmModul();
-  const { getConfirmModul, setConfirmModul } = useConfirmModul();
+  const { setPopupStatus } = usePopupConfirmModul();
+  const { getConfirmModul } = useConfirmModul();
 
   return (
     <Fragment>
+      <ModulePopup />
       {dataModuleContents && (
         <div className="flex flex-col h-full w-full items-center px-4 lg:px-32 ">
           <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">Mata Kuliah 1</h1>
@@ -67,14 +90,15 @@ export const ModuleContentModule = (): ReactElement => {
             <section className="flex w-full md:w-fit">
               <div className="flex flex-col w-full h-auto gap-4 justify-center items-center">
                 <YouTube
-                  videoId={videoId}
+                  videoId={videoItem.youtubeId}
                   opts={opts}
                   onReady={onPlayerReady}
+                  onStateChange={onPlayerStateChange}
                   iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[360px] h-[320px]"
                 />
                 <div className="shadow-md rounded-lg lg:p-10 w-full h-full">
-                  <h1 className="font-bold text-xl">{dataModuleContents.title}</h1>
-                  <p className="text-gray-500 py-4">{dataModuleContents.description}</p>
+                  <h1 className="font-bold text-xl">{videoItem.title}</h1>
+                  <p className="text-gray-500 py-4">{videoItem.desc}</p>
                 </div>
               </div>
             </section>
@@ -85,11 +109,25 @@ export const ModuleContentModule = (): ReactElement => {
                   {idVideoGroup.map((video, index) => (
                     <button
                       key={index}
-                      onClick={() => handleSidebarVideosClicked(video.id)}
-                      className="flex items-center gap-x-2"
+                      onClick={() =>
+                        handleSidebarVideosClicked({
+                          title: video.title,
+                          id: video.id,
+                          desc: video.desc,
+                          youtubeId: video.youtubeId,
+                        })
+                      }
+                      className="flex justify-between items-center pr-8"
                     >
-                      <Image src={Play} alt="icon" />
-                      <p className="font-bold">{video.title}</p>
+                      <div className="flex items-center gap-x-2">
+                        <Image src={Play} alt="icon" />
+                        <p className="font-bold">{video.title}</p>
+                      </div>
+                      {video.id === videoItem.id && (
+                        <div className="bg-[#A3A3A3] py-2 px-3 rounded-lg">
+                          <p className="text-white text-xs font-semibold">Sedang dibuka</p>
+                        </div>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -97,11 +135,16 @@ export const ModuleContentModule = (): ReactElement => {
               <section className="flex flex-col">
                 <h1 className="font-bold text-xl">Dokumen Lainnya</h1>
                 <div className="flex flex-col gap-y-4 py-4">
-                  {documentsGroup.map((doc, i) => (
-                    <button className="flex items-center gap-x-2">
+                  {dataModuleContents.module_moduleDocuments.map((doc, i) => (
+                    <Button
+                      key={i}
+                      type="button"
+                      href={doc.document_file}
+                      className="flex items-center gap-x-2"
+                    >
                       <Image src={Document} alt="icon" />
                       <p className="font-bold">{doc.title}</p>
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </section>
@@ -142,40 +185,6 @@ export const ModuleContentModule = (): ReactElement => {
           </div>
         </div>
       )}
-
-      <div>
-        <PopupModal
-          onClose={() => setPopupStatus(false)}
-          lookup={getPopupStatus}
-          className="!h-60 !w-[100%] text-md"
-        >
-          <h1 className="flex p-4 pt-2 rounded-md bg-yellow-400 text-white w-full">
-            Apa Pelajaran yang kamu pelajari hari ini?
-          </h1>
-          <div className="shadow flex justify-start p-2 w-full my-3">
-            <input
-              className="w-full h-auto lg:p-5 p-2 rounded-md outline-none"
-              type="text"
-              placeholder="Tulis materi yang kamu dapat disini..."
-            />
-          </div>
-          <p className="text-gray-400 lg:text-lg text-sm">
-            Materi kamu akan di-review oleh dosen atau pembimbing kamu. Pastikan kamu mengisi dengan
-            sesuai!
-          </p>
-          <div className="p-4 flex w-full justify-end items-end">
-            <ModuleButton
-              onClick={() => {
-                setPopupStatus(false);
-                setConfirmModul(true);
-              }}
-              text="Kirim"
-              color="yellow"
-              size="base"
-            />
-          </div>
-        </PopupModal>
-      </div>
     </Fragment>
   );
 };

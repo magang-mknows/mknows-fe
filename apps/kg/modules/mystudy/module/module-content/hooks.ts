@@ -1,9 +1,13 @@
 import { useRecoilState } from "recoil";
 import { PopupModalConfirmModul } from "./store";
-import { TModuleContentResponse, TusePopupConfirmModul } from "./types";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import {
+  TModuleContentResponse,
+  TWatchedVideoProgressReponse,
+  TusePopupConfirmModul,
+} from "./types";
+import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { moduleContentGetRequest } from "./api";
+import { moduleContentGetRequest, watchedVideoProgressRequest } from "./api";
 
 export const usePopupConfirmModul = (): TusePopupConfirmModul => {
   const [get, set] = useRecoilState(PopupModalConfirmModul);
@@ -19,4 +23,15 @@ export const useGetModuleContentById = (
   useQuery({
     queryKey: ["module-content-get", id],
     queryFn: async () => await moduleContentGetRequest(id),
+  });
+
+export const useWatchedVideoSubmitById = (): UseMutationResult<
+  TWatchedVideoProgressReponse,
+  TMetaErrorResponse,
+  string,
+  unknown
+> =>
+  useMutation({
+    mutationKey: ["module-watched-video-progress"],
+    mutationFn: async (videoId) => await watchedVideoProgressRequest(videoId),
   });

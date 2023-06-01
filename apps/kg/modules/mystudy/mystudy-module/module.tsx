@@ -13,7 +13,7 @@ export const MyStudyModule: FC = (): ReactElement => {
 
   return (
     <div className="w-full">
-      {dataMajorProps && dataSubjectProps && dataSubjectProps.length > 0 ? (
+      {dataMajorProps ? (
         <Fragment>
           <MajorSection {...(dataMajorProps as TDataMajor)} />
           <SubjectSection dataSubjectProps={dataSubjectProps as Array<TDataSubject>} />

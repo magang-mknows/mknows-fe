@@ -1,6 +1,5 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import imgCourseHome from "./assets/course-home-1.svg";
 import { SessionSection } from "./session";
 import { useGetSubjectDetailsById } from "./hooks";
 import { useRouter } from "next/router";
