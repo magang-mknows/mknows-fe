@@ -3,8 +3,11 @@ import React, { Fragment, ReactElement } from "react";
 import ChoiceFaculty from "../assets/choicefaculty.svg";
 import { Card } from "@mknows-frontend-services/components/molecules";
 import Search from "../assets/search.svg";
+import { useGetDepartment } from "../hooks";
+import { TFinalProgressSubject } from "../type";
 
 const ContentSection = (): ReactElement => {
+  const { data } = useGetDepartment();
   const content = [
     {
       src: ChoiceFaculty,
@@ -59,28 +62,28 @@ const ContentSection = (): ReactElement => {
         </div>
       </div>
 
-      <div className="flex md:flex-row md:flex-wrap flex-col gap-7 md:justify-start justify-center pb-40">
+      <div className="flex lg:flex-row md:flex-col md:flex-wrap flex-col gap-7 md:justify-start justify-center pb-40">
         <>
-          {content.length === 0 ? (
+          {data?.data?.finalProgressSubject === undefined ? (
             <div className="flex flex-col w-screen h-screen gap-8 justify-center lg:items-center ">
               <div className="lg:flex hidden h-auto w-auto bg-gray-100 dark:bg-gray-600 rounded-full p-1 lg:p-4">
                 <Image
                   src={"/assets/StudyPlan/DataKosong.png"}
                   width={100}
                   height={100}
-                  alt="simulasi-null w-auto"
+                  alt="simulasi-null"
                 />
               </div>
               <h1 className="text-xl font-bold">Tidak Ada Data Mata Kuliah</h1>
             </div>
           ) : (
-            content.map((x, i) => (
+            data?.data?.finalProgressSubject.map((x: TFinalProgressSubject, i: number) => (
               <Card
                 hasImage={true}
-                href={x.slug}
+                href={`/pelatihanku/kursus/${x.subject_id}/${x.last_session}/${x.batch_id}`}
                 key={i}
-                imgStyle="rounded-lg h-[210px] w-auto "
-                src={x.src}
+                imgStyle="rounded-lg h-[210px] w-full "
+                src={x.thumbnail}
                 imgheight={100}
                 className="rounded-lg shadow-lg lg:w-full md:w-[47%] w-full"
                 imgwidth={100}
@@ -88,25 +91,23 @@ const ContentSection = (): ReactElement => {
                 icon={
                   <div className="flex justify-end gap-2 py-2">
                     <div className="lg:h-[22px] text-[#FAB317] px-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
-                      {x.sks} SKS
+                      {x.credit} SKS
                     </div>
                     <div className="lg:h-[22px] text-[#106FA4] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E9F6FD]">
-                      {x.pertemuan} Pertemuan
+                      {x.session_total_number} Pertemuan
                     </div>
                   </div>
                 }
               >
                 <div className="flex flex-col w-full">
-                  <p className="text-md text-gray-500">{x.kodematkul}</p>
-                  <h1 className="text-lg font-bold mt-0 text-[#106FA4] w-full">
-                    Matkul {x.tipematkul}
-                  </h1>
-                  <p className="text-md text-gray-500 pb-4">{x.namaDosen}</p>
+                  <p className="text-md text-gray-500">{x.subject_code}</p>
+                  <h1 className="text-lg font-bold mt-0 text-[#106FA4] w-full">Matkul {x.name}</h1>
+                  <p className="text-md text-gray-500 pb-4">{x.teacherName}</p>
                   <div className="flex w-[100%] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                     <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "45%" }}></div>
                   </div>
                 </div>
-                <p className="text-gray-400 ext-sm pt-20 pl-2">45%</p>
+                <p className="text-gray-400 ext-sm pt-20 pl-2">{x.progress}%</p>
               </Card>
             ))
           )}

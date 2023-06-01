@@ -10,7 +10,7 @@ import {
   IconToggle,
   IconLogout,
 } from "../../atoms";
-import { useProfile } from "./profile/hooks";
+import { useProfile } from "../../../modules/common/hooks";
 import { useLogout } from "./profile/hooks";
 
 const Sidebar: FC = (): ReactElement => {
