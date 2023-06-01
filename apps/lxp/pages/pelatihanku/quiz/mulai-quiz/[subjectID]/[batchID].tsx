@@ -1,8 +1,8 @@
 import { QuizStartPage } from "../../../../../modules/mytraining-quiz";
 import React from "react";
 
-const page = () => {
+const QuizPageStart = () => {
   return <QuizStartPage />;
 };
 
-export default page;
+export default QuizPageStart;
