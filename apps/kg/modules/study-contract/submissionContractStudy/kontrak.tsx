@@ -97,8 +97,8 @@ const SubmissionContractStudy: FC = (): ReactElement => {
             </div>
 
             {majorData?.dataSubjects.map((x, i) => {
-              let index = 1+i;
-              let grey = "bg-[#F5F5F5]";
+              const index = 1+i;
+              const grey = "bg-[#F5F5F5]";
               return (
                 <>
                   <div
