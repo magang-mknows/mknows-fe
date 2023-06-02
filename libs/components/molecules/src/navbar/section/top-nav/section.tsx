@@ -35,7 +35,7 @@ export const TopNav: FC<TNavbarProps> = ({
             loading="eager"
             width={40}
             height={45}
-            className={`${logoStyle} w-auto h-6 md:h-8 lg:h-9`}
+            className={`${logoStyle} w-auto h-2 md:h-8 lg:h-9`}
             quality={75}
             priority
           />

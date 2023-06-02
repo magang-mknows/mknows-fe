@@ -6,6 +6,7 @@ import { UploadField, Button } from "@mknows-frontend-services/components/atoms"
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 import { IconUpload, IconDownload, IconNotif } from "../../../../components/atoms";
 import { useCharacterStatus, useIdentityStatus } from "../../hooks";
+import { useCharacterInformation } from "../hooks";
 
 const AiCharacterScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -143,6 +144,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
       ),
   });
 
+  const { mutate } = useCharacterInformation();
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
   const { setDataCharacter, getDataCharacter } = useCharacterStatus();
@@ -172,9 +174,31 @@ const AiCharacterScoring: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const onSubmit = handleSubmit((data) => {
     try {
-      setDataCharacter(true);
+      mutate(
+        {
+          ...data,
+          ktp: data.image_ktp[0] as File,
+          selfie: data.image_selfie[0] as File,
+          surat_nomor_induk_berusaha: data.image_surat_nomor_induk_berusaha[0] as File,
+          surat_izin_usaha_perdagangan: data.image_surat_izin_usaha_perdagangan[0] as File,
+          surat_nomor_akta_notaris: data.image_surat_nomor_akta_notaris[0] as File,
+          surat_keterangan_domisili_usaha: data.image_surat_keterangan_domisili_usaha[0] as File,
+          surat_tanda_daftar_perusahaan: data.image_surat_tanda_daftar_perusahaan[0] as File,
+          npwp: data.image_surat_nomor_pokok_wajib_pajak[0] as File,
+          surat_laporan_keuangan: data.image_surat_laporan_keuangan[0] as File,
+          form_credit_applicant: data.image_credit_applicant[0] as File,
+          surat_kepemilikan_kendaraan: data.image_surat_kepemilikan_kendaraan[0] as File,
+          nota_kepemilikan_rumah: data.image_surat_kepemilikan_rumah[0] as File,
+          nota_kepemilikan_saham: data.image_nota_saham[0] as File,
+        },
+        {
+          onSuccess: () => {
+            setDataCharacter(true);
+          },
+        },
+      );
     } catch (err) {
       setDataCharacter(false);
       throw err;

@@ -27,8 +27,19 @@ export const familyInformationRequest = async (payload: TFamilyAdm): Promise<TFa
   return data;
 };
 
+// export const fileInformationRequest = async (payload: TFileAdm): Promise<TFileResponse> => {
+//   const { data } = await api.post("/administration/file", serialize(payload));
+//   return data;
+// };
 export const fileInformationRequest = async (payload: TFileAdm): Promise<TFileResponse> => {
-  const { data } = await api.post("/administration/file", serialize(payload));
+  const { data } = await api({
+    method: "post",
+    url: "/administration/file",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    data: serialize(payload),
+  });
   return data;
 };
 

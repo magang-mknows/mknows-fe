@@ -6,6 +6,7 @@ import { UploadField, Button } from "@mknows-frontend-services/components/atoms"
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 import { IconNotif } from "../../../../components/atoms";
 import { useCategoryStatus, useIdentityStatus } from "../../hooks";
+import { useIdentityInformation } from "../hooks";
 
 const AiIdentityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 30000000;
@@ -96,6 +97,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       ),
   });
 
+  const { mutate } = useIdentityInformation();
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
   const { setDataCategory } = useCategoryStatus();
@@ -120,10 +122,27 @@ const AiIdentityScoring: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const onSubmit = handleSubmit((data) => {
     try {
-      setDataIdentity(true);
-      setDataCategory("onProgress");
+      mutate(
+        {
+          ...data,
+          ktp: data.image_ktp[0] as File,
+          selfie: data.image_selfie[0] as File,
+          surat_nomor_induk_berusaha: data.image_surat_nomor_induk_berusaha[0] as File,
+          surat_izin_usaha_perdagangan: data.image_surat_izin_usaha_perdagangan[0] as File,
+          surat_nomor_akta_notaris: data.image_surat_nomor_akta_notaris[0] as File,
+          surat_keterangan_domisili_usaha: data.image_surat_keterangan_domisili_usaha[0] as File,
+          surat_tanda_daftar_perusahaan: data.image_surat_tanda_daftar_perusahaan[0] as File,
+          npwp: data.image_surat_nomor_pokok_wajib_pajak[0] as File,
+        },
+        {
+          onSuccess: () => {
+            setDataIdentity(true);
+            setDataCategory("onProgress");
+          },
+        },
+      );
     } catch (err) {
       setDataIdentity(false);
       throw err;
