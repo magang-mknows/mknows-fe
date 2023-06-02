@@ -44,6 +44,7 @@ const SubmissionContractStudy: FC = (): ReactElement => {
                 className="text-center lg:!w-44 !w-36 lg:h-[48px] !h-10 text-[16px]  bg-[#3EB449] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] rounded-lg"
                 onClick={() => setPopupStatus(true)}
                 type={"button"}
+                href={`${matkul}/detail`}
               >
                 + Mengajukan
               </Button>
