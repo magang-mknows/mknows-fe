@@ -67,7 +67,7 @@ export const PopupProfil: FC<PopupProfilProps> = ({
             />
             <div className="sm:mt-0 -mt-5">
               <p className="text-[#171717] font-[600] sm:text-[24px] text-[20px] text-left">
-                {props.student_name}
+                {props?.author?.full_name}
               </p>
               <div className="flex flex-row text-[#737373] sm:text-[20px] text-[16px] font-[500] gap-2">
                 <p>{props.author?.major}</p>
