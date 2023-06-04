@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, ReactNode } from "react";
 import pdf from "./assets/pdf.svg";
 import Image from "next/image";
 import { Button } from "@mknows-frontend-services/components/atoms";
@@ -10,6 +10,7 @@ import { UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { BaseLayout } from "../../common";
 import { useRouter } from "next/router";
 import { TAssignment, TStudentProgress } from "./type";
+import Link from "next/link";
 
 export const Status: FC = (): ReactElement => {
   const router = useRouter();
@@ -18,19 +19,62 @@ export const Status: FC = (): ReactElement => {
   const assignment: TAssignment = data?.data.assignment as TAssignment;
   const studentProgress: TStudentProgress = data?.data.student_progress as TStudentProgress;
 
+  function timestampRemainingHandler(timestamp_taken: string, deadline: string) {
+    const timestamp_taken_formatted = new Date(timestamp_taken);
+    const deadline_formatted = new Date(deadline);
+
+    const time_difference = deadline_formatted.getTime() - timestamp_taken_formatted.getTime();
+
+    if (time_difference < 0) {
+      return "Telah melewati batas waktu";
+    }
+
+    const seconds = Math.floor(time_difference / 1000) % 60;
+    const minutes = Math.floor(time_difference / 1000 / 60) % 60;
+    const hours = Math.floor(time_difference / 1000 / 3600) % 24;
+    const days = Math.floor(time_difference / 1000 / 3600 / 24);
+
+    return `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+  }
+
+  const timestamp_remaining = timestampRemainingHandler(
+    studentProgress?.timestamp_taken,
+    studentProgress?.deadline,
+  );
+
+  console.log(timestamp_remaining);
+
   const tabelState: {
     namaTabel: string;
-    response: string;
+    response: string | string[] | number | ReactNode;
   }[] = [
-    { namaTabel: "Status Pengumpulan", response: "Belum Mengumpulkan" },
-    { namaTabel: "Status Penilaian", response: "Belum dinilai" },
+    {
+      namaTabel: "Status Pengumpulan",
+      response:
+        studentProgress?.assignment_answer === null || studentProgress?.assignment_answer.length < 1
+          ? "Belum Mengumpulkan"
+          : "Terkirim",
+    },
+    {
+      namaTabel: "Status Penilaian",
+      response: studentProgress?.score === null ? "Belum dinilai" : studentProgress?.score,
+    },
     {
       namaTabel: "Tanggal batas pengumpulan ",
       response: studentProgress?.deadline + " WIB",
     },
-    { namaTabel: "Waktu tersisa", response: "Telah melewati batas waktu" },
-    { namaTabel: "Terakhir diubah", response: "" },
-    { namaTabel: "Pengiriman Tugas", response: "link" },
+    { namaTabel: "Waktu tersisa", response: timestamp_remaining },
+    {
+      namaTabel: "Terakhir diubah",
+      response: studentProgress?.timestamp_submitted ? studentProgress?.timestamp_submitted : "",
+    },
+    {
+      namaTabel: "Pengiriman Tugas",
+      response:
+        studentProgress?.assignment_answer === null
+          ? ([] as string[])
+          : (studentProgress?.assignment_answer as string[]),
+    },
   ];
 
   const { control, handleSubmit } = useForm({
@@ -74,7 +118,9 @@ export const Status: FC = (): ReactElement => {
                   alt="File tugas"
                   className="inline-block mr-[8px] scale-[0.8] lg:scale-[1]"
                 />
-                <p className="inline">{document}</p>
+                <Link href={document} className="inline hover:underline hover:text-[#106FA4]">
+                  {document}
+                </Link>
               </div>
             ))}
           </div>
@@ -99,7 +145,22 @@ export const Status: FC = (): ReactElement => {
                   }
                   ${row.response === "Telah melewati batas waktu" && "text-[#EE2D24] font-bold"}`}
                     >
-                      {row.response}
+                      {row.namaTabel === "Pengiriman Tugas" ? (
+                        row.response instanceof Array && row.response.length > 0 ? (
+                          <>
+                            {row.response instanceof Array &&
+                              row.response.map((link, index) => (
+                                <Link href={link as string} key={index} className="hover:underline">
+                                  {link}
+                                </Link>
+                              ))}
+                          </>
+                        ) : (
+                          ""
+                        )
+                      ) : (
+                        row.response
+                      )}
                     </div>
                   </>
                 );
