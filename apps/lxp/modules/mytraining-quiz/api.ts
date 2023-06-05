@@ -7,7 +7,3 @@ export const getMyWorkQuizId = async (params: params) => {
   );
   return data;
 };
-export const getMyWorkTakeQuiz = async (params: params) => {
-  const { data } = await api.get(`/my-works/quiz/${params.subjectID}/batch/${params.batchID}/take`);
-  return data;
-};
