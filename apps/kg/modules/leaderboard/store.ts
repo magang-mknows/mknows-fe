@@ -10,7 +10,6 @@ export const popupGetUser = atom<TLeaderboardItem>({
   key: "popup-get-user-2",
   default: {
     student_id: "",
-    student_name: "",
     subjectCount: "",
     averageScore: 0,
     poin: 0,

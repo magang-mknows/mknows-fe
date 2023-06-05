@@ -3,12 +3,15 @@ import Avatar from "../assets/avatar.svg";
 import React, { FC, ReactElement } from "react";
 import { usePopupProfilLeaderboard, usePopupGetUser, useGetLeaderboard } from "../hooks";
 import PopupProfil from "../components/popup-profil";
+import { useFaculty } from "../../study-plan/choice-faculty/hooks";
 
 export const RankingSection: FC = (): ReactElement => {
   const { setPopupLeaderboardStatus, getPopupLeaderboardStatus } = usePopupProfilLeaderboard();
-  const { data } = useGetLeaderboard();
-  const getRank = data?.data;
+  const { data: dataLeaderboard } = useGetLeaderboard();
+  const getRank = dataLeaderboard?.data;
   const { setPopupUser, getPopupUser } = usePopupGetUser();
+  const { data: dataFaculty } = useFaculty();
+  console.log("cek faculty", dataFaculty?.data);
 
   return (
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
@@ -37,7 +40,9 @@ export const RankingSection: FC = (): ReactElement => {
                             setPopupLeaderboardStatus(true);
                           }}
                         />
-                        <h1 className="font-[600] lg:text-[18px] text-[14px]">{x.student_name}</h1>
+                        <h1 className="font-[600] lg:text-[18px] text-[14px]">
+                          {x?.author?.full_name}
+                        </h1>
                       </div>
                       <div className="flex items-center">
                         <h1 className="font-[600] lg:text-[16px] text-[14px] text-[#0B568D]">

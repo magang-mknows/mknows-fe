@@ -41,3 +41,26 @@ export type TRequestItem = {
 };
 
 export type TRequestResponse = TMetaResponse<TRequestItem>;
+
+export type TProcessItem = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  result: null;
+  status: string;
+  problem: string;
+  __v: number;
+  requested_at: string;
+  finished_at: string;
+  name: string;
+  nik: string;
+};
+
+export type TProcessResponse = TMetaResponse<TProcessItem>;
+
+export type TProcessParams = {
+  search?: string;
+  feature?: string;
+  per_page?: string;
+  page?: string;
+};
