@@ -1,3 +1,4 @@
+import { IconEmptyState } from "../../../components/atoms/icons";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 
@@ -306,6 +307,13 @@ const Table2: FC = (): ReactElement => {
         fixedHeader={true}
         expandableRows={true}
         expandableRowsComponent={ExpandedComponent}
+        noDataComponent={
+          <div className="flex flex-col w-full h-screen justify-center items-center">
+            <IconEmptyState />
+            <h1 className="font-bold my-2">Data Tidak Tersedia</h1>
+            <p>Data akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
+          </div>
+        }
       />
     </div>
   );

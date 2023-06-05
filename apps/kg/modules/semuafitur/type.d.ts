@@ -4,4 +4,5 @@ export type T = {
   icon: StaticImageData;
   warna: string;
   slug: string;
+  desc?: string;
 };

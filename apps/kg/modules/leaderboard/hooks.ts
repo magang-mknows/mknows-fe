@@ -7,8 +7,8 @@ import {
   TLeaderboardItem,
   TLeaderboardResponse,
 } from "./type";
-import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { leaderboardGetRequest } from "./api";
+import { TFacultyResponse } from "../study-plan/choice-faculty/types";
 
 export const usePopupProfilLeaderboard = (): ReturnTypesPopupProfil => {
   const [get, set] = useRecoilState(PopupProfilLeaderborad);
@@ -29,5 +29,11 @@ export const usePopupGetUser = (): ReturnTypesPopupGetUser => {
 export const useGetLeaderboard = (): UseQueryResult<TLeaderboardResponse> =>
   useQuery({
     queryKey: ["get-leaderboard-user"],
+    queryFn: async () => await leaderboardGetRequest(),
+  });
+
+export const useGetFacultyLeaderboard = (id: string): UseQueryResult<TFacultyResponse> =>
+  useQuery({
+    queryKey: ["get-leaderboard-faculty", id],
     queryFn: async () => await leaderboardGetRequest(),
   });

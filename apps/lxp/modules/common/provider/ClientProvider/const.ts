@@ -4,12 +4,12 @@ export const _bottom_nav_items = [
     link: "/dashboard",
   },
   {
-    name: "Studi Ku",
-    link: "/studi-ku",
+    name: "Rencana Pelatihan",
+    link: "/rencana-pelatihan",
   },
   {
-    name: "Penugasan",
-    link: "/penugasan",
+    name: "Pelatihanku",
+    link: "/pelatihanku",
   },
   {
     name: "Nilai & Sertifikat",
@@ -17,4 +17,4 @@ export const _bottom_nav_items = [
   },
 ];
 
-export const _nav_rules = ["/dashboard", "/studi-ku", "/penugasan", "/nilai-sertifikat"];
+export const _nav_rules = ["/dashboard", "/pelatihanku", "/nilai-sertifikat", "/rencana-pelatihan"];
