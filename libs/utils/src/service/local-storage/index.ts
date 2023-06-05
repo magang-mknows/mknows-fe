@@ -11,6 +11,10 @@ export const getFromLocalStorage = (key_name: string) => {
   return null; // Add a default return value when storedData is falsy
 };
 
+// ============================
+//  set data to local storage
+// ============================
+
 export const storeToLocalStorage = (key: string, data: object[] | [] | number | string) => {
   const stringValue = JSON.stringify(data);
   localStorage.setItem(key, stringValue);
