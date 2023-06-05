@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { TRequestResponse, TResultDataDummy } from "./types";
+import { TProcessParams, TRequestResponse, TResultDataDummy } from "./types";
 
 export const icon = atom<string[]>({
   key: "request-data-icons",
@@ -122,4 +122,14 @@ export const resultFilter = selector({
 export const tableDataState = atom<TRequestResponse[]>({
   key: "table-data-state",
   default: [],
+});
+
+export const filterActionProcess = atom<TProcessParams>({
+  key: "process-filter-action",
+  default: {
+    search: "",
+    feature: "",
+    per_page: "",
+    page: "",
+  },
 });
