@@ -1,12 +1,12 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { TGetQuizPayload, TQuizQuestionResponse } from "./types";
+import { TGetQuizParams, TQuizQuestionResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { getQuizQuestion } from "./api";
 
 export const useGetQuizQuestion = (
-  payload: TGetQuizPayload,
+  params: TGetQuizParams,
 ): UseQueryResult<TQuizQuestionResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ["quiz-questions-lxp", payload],
-    queryFn: async () => await getQuizQuestion(payload),
+    queryKey: ["quiz-questions-lxp", params],
+    queryFn: async () => await getQuizQuestion(params),
   });

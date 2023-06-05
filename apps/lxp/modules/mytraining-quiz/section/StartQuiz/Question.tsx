@@ -4,10 +4,8 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { currentQuestionState } from "./store";
 import { useCallback, useEffect, useState } from "react";
-import { TGetQuizPayload, TStoreQuestionAnswer } from "./types";
+import { TStoreQuestionAnswer } from "./types";
 import { getFromLocalStorage, storeToLocalStorage } from "@mknows-frontend-services/utils";
-import { useRouter } from "next/router";
-import { useGetQuizQuestion } from "./hook";
 
 export const Question = () => {
   // ================================
@@ -157,14 +155,6 @@ export const Question = () => {
     storeAnswertoLocalStorage();
     storeCurrentNumber();
   }, [storeAnswertoLocalStorage, storeCurrentNumber]);
-
-  // const router = useRouter();
-  // const { subjectID, batchID } = router.query;
-  // const payload: TGetQuizPayload = {
-  //   quizId: subjectID as string,
-  //   batchId: batchID as string,
-  // };
-  // const { data: quizData, isLoading: subjectLoading } = useGetQuizQuestion(payload);
 
   return (
     <div className="grid grid-cols-3 p-8  lg:gap-[52px]">

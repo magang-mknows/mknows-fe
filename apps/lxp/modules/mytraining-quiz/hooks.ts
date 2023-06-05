@@ -3,9 +3,9 @@ import { TMyTrainingModuleResponse, TQuizParams } from "../mytraining-module/typ
 import { getMyWorkQuizId } from "./api";
 
 export const useGetMyWorkQuizId = (
-  payload: TQuizParams,
+  params: TQuizParams,
 ): UseQueryResult<TMyTrainingModuleResponse, unknown> =>
   useQuery<TMyTrainingModuleResponse>({
-    queryKey: ["get-subject-by-dept-id", payload],
-    queryFn: async () => await getMyWorkQuizId(payload),
+    queryKey: ["get-subject-by-dept-id", params],
+    queryFn: async () => await getMyWorkQuizId(params),
   });

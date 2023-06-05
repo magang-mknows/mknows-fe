@@ -1,5 +1,5 @@
 import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
-type TGetQuizPayload = {
+type TGetQuizParams = {
   quizId: string;
   batchId: string;
 };
