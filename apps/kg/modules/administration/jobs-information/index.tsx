@@ -7,16 +7,7 @@ import {
   useJobInformationStatus,
   usePrivateInformationStatus,
 } from "../hooks";
-import {
-  optionFatherJob,
-  optionMotherJob,
-  optionFatherIncome,
-  optionMotherIncome,
-  optionOwnIncome,
-  optionCollegeFeesPaid,
-  optionLiveWith,
-  optionOwnJob,
-} from "../constant";
+import { optionOccupation, optionSalary, optionCollegeFeesPaid, optionLiveWith } from "../constant";
 import { Button, SelectField, TextField } from "@mknows-frontend-services/components/atoms";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 
@@ -55,6 +46,7 @@ export const JobsInformation: FC = (): ReactElement => {
       mother_occupation: "",
       mother_salary: "",
       self_salary: "",
+      self_occupation: "",
       live_with: "",
       tuition_payer: "",
     },
@@ -107,7 +99,7 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionFatherJob}
+              options={optionOccupation}
               name={"father_occupation"}
               label={"Pekerjaan Ayah"}
               required
@@ -118,7 +110,7 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionMotherJob}
+              options={optionOccupation}
               name={"mother_occupation"}
               label={"Pekerjaan Ibu"}
               required
@@ -129,7 +121,7 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionFatherIncome}
+              options={optionSalary}
               name={"father_salary"}
               label={"Penghasilan Ayah"}
               required
@@ -139,7 +131,7 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionMotherIncome}
+              options={optionSalary}
               name={"mother_salary"}
               label={"Penghasilan Ibu"}
               required
@@ -154,8 +146,8 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionOwnIncome}
-              name={"self_salary"}
+              options={optionOccupation}
+              name={"self_occupation"}
               label={"Pekerjaan Sendiri"}
               required
               placeholder="Pilih pekerjaan sendiri"
@@ -186,8 +178,8 @@ export const JobsInformation: FC = (): ReactElement => {
             <SelectField
               variant="md"
               control={control}
-              options={optionOwnJob}
-              name={"self_occupation"}
+              options={optionSalary}
+              name={"self_salary"}
               label={"Penghasilan Sendiri"}
               required
               placeholder="Masukan biaya kuliah ditanggung oleh"

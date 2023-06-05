@@ -1,6 +1,5 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
-import imgCourseHome from "./assets/course-home-1.svg";
 import { SessionSection } from "./session";
 import { useGetSubjectDetailsById } from "./hooks";
 import { useRouter } from "next/router";
@@ -37,7 +36,7 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
 
       <div className="flex flex-col gap-[25px] select-none">
         {dataSessions?.map((session, index) => (
-          <SessionSection key={index} session={session as TDataSession} />
+          <SessionSection key={index} index={index} session={session as TDataSession} />
         ))}
       </div>
     </div>

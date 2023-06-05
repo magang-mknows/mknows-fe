@@ -45,7 +45,7 @@ export const StepRanking: FC = (): ReactElement => {
                 </div>
                 <div className="relative lg:-bottom-[115px] md:-bottom-[100px] sm:-bottom-[70px] -bottom-14">
                   <div className="lg:mt-24 md:mt-[90px] mt-[70px] text-[#000000] font-[500] lg:text-[16px] md:text-[14px] text-[12px]">
-                    {item.student_name}
+                    {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317]  text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
                     {item.poin === null ? "0" : item?.poin} Poin
@@ -83,7 +83,7 @@ export const StepRanking: FC = (): ReactElement => {
                 </div>
                 <div className="relative lg:top-[240px] md:-bottom-[170px] sm:-bottom-[145px] -bottom-32">
                   <div className="lg:mt-56 md:mt-[160px] mt-32 text-[#000000] font-[500] lg:text-[16px] md:text-[14px] text-[12px]">
-                    {item.student_name}
+                    {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
                     {item.poin === null ? "0" : item?.poin} Poin
@@ -116,7 +116,7 @@ export const StepRanking: FC = (): ReactElement => {
                 </div>
                 <div className="relative lg:top-[115px] md:-bottom-[100px] sm:-bottom-[70px] -bottom-14">
                   <div className="lg:mt-24 md:mt-[90px] mt-[70px] text-[#000000] font-[500] lg:text-[16px] md:text-[14px] text-[12px]">
-                    {item.student_name}
+                    {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
                     {item.poin === null ? "0" : item?.poin} Poin

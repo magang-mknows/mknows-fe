@@ -14,3 +14,4 @@ export * from "./study-plan";
 export * from "./guide";
 export * from "./consultasion-and-service";
 export * from "./distribution-of-work";
+export * from "./career-planing";

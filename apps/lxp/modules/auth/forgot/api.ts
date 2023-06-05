@@ -5,6 +5,6 @@ import { TForgotPasswordPayload } from "./types";
 export const forgotPasswordRequest = async (
   payload: TForgotPasswordPayload,
 ): Promise<TMetaItem> => {
-  const { data } = await api.post<TMetaItem>("/", payload);
+  const { data } = await api.post<TMetaItem>("/auth/reset-password", payload);
   return data;
 };
