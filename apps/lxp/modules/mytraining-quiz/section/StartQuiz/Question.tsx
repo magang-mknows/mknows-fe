@@ -4,8 +4,10 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { currentQuestionState } from "./store";
 import { useCallback, useEffect, useState } from "react";
-import { TStoreQuestionAnswer } from "./types";
+import { TGetQuizPayload, TStoreQuestionAnswer } from "./types";
 import { getFromLocalStorage, storeToLocalStorage } from "@mknows-frontend-services/utils";
+import { useRouter } from "next/router";
+import { useGetQuizQuestion } from "./hook";
 
 export const Question = () => {
   // ================================
@@ -156,6 +158,14 @@ export const Question = () => {
     storeCurrentNumber();
   }, [storeAnswertoLocalStorage, storeCurrentNumber]);
 
+  // const router = useRouter();
+  // const { subjectID, batchID } = router.query;
+  // const payload: TGetQuizPayload = {
+  //   quizId: subjectID as string,
+  //   batchId: batchID as string,
+  // };
+  // const { data: quizData, isLoading: subjectLoading } = useGetQuizQuestion(payload);
+
   return (
     <div className="grid grid-cols-3 p-8  lg:gap-[52px]">
       <div className=" col-span-2 border-2 rounded-md w-full border-neutral-100  py-10 px-8">
@@ -193,7 +203,7 @@ export const Question = () => {
                   </label>
                 ))}
               </div>
-              <div className="flex gap-4 mt-12">
+              <div className="flex flex-col lg:flex-row gap-4 mt-12">
                 <Button
                   disabled={getCurrentNumber === 1}
                   type="button"
