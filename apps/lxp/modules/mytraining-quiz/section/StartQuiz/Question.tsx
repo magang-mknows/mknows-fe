@@ -167,7 +167,7 @@ export const Question = () => {
                   {index + 1}. {question.question}
                 </h1>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {question.answers.map((answer, index) => (
                   <label
                     key={answer.id}
@@ -193,7 +193,7 @@ export const Question = () => {
                   </label>
                 ))}
               </div>
-              <div className="flex gap-4 mt-12">
+              <div className="flex flex-col lg:flex-row gap-4 mt-12">
                 <Button
                   disabled={getCurrentNumber === 1}
                   type="button"
@@ -261,7 +261,11 @@ export const Question = () => {
                   index + 1 === (getCurrentNumber as number) ? "bg-neutral-200" : "bg-neutral-50 "
                 } ${
                   questionsAnswer.some((obj) => obj.ques_id === item.id)
-                    ? "bg-version3-300 text-white"
+                    ? questionsAnswer[index]?.doubt
+                      ? "bg-version3-500 text-neutral-50"
+                      : questionsAnswer[index]?.ans_id
+                      ? "bg-version3-300 text-neutral-50"
+                      : ""
                     : "bg-neutral-50"
                 }  cursor-pointer h-10 w-10 rounded-md border-[1px] border-version2-400 grid place-items-center`}
               >
