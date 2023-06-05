@@ -1,5 +1,5 @@
 import { useRecoilValue, useRecoilState } from "recoil";
-import { filterActionProcess, icon, resultFilter, resultSearch } from "./store";
+import { filterActionProcess, icon, processFilter, resultFilter, resultSearch } from "./store";
 import {
   TProcessItem,
   TProcessParams,
@@ -7,8 +7,8 @@ import {
   TRequestDataResponse,
   TRequestItem,
   TRequestResponse,
-  TResultDataResponse,
   TResultQueryResponse,
+  TResultResponse,
 } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
@@ -21,10 +21,17 @@ export const useRequestData = (): TRequestDataResponse => {
   };
 };
 
-export const useResultData = (): TResultDataResponse => {
+export const useResultData = (): TResultResponse => {
   const get = useRecoilValue(resultFilter);
   return {
     getResultData: get,
+  };
+};
+
+export const useProcessData = (): TProcessResponse => {
+  const get = useRecoilValue(processFilter);
+  return {
+    getProcessData: get,
   };
 };
 

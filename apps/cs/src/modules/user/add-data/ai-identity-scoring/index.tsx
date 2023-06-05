@@ -95,6 +95,16 @@ const AiIdentityScoring: FC = (): ReactElement => {
         (files: File[]) => files !== undefined && ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
         "Only .jpg, .jpeg, and .png formats are supported",
       ),
+    image_surat_nomor_pokok_wajib_pajak_perusahaan: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+        "Only .jpg, .jpeg, and .png formats are supported",
+      ),
   });
 
   const { mutate } = useIdentityInformation();
@@ -118,6 +128,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       image_surat_nomor_akta_notaris: undefined,
       image_surat_nomor_induk_berusaha: undefined,
       image_surat_nomor_pokok_wajib_pajak: undefined,
+      image_surat_nomor_pokok_wajib_pajak_perusahaan: undefined,
       image_surat_tanda_daftar_perusahaan: undefined,
     },
   });
@@ -135,6 +146,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
           surat_keterangan_domisili_usaha: data.image_surat_keterangan_domisili_usaha[0] as File,
           surat_tanda_daftar_perusahaan: data.image_surat_tanda_daftar_perusahaan[0] as File,
           npwp: data.image_surat_nomor_pokok_wajib_pajak[0] as File,
+          npwp_perusahaan: data.image_surat_nomor_pokok_wajib_pajak_perusahaan[0] as File,
         },
         {
           onSuccess: () => {
@@ -180,6 +192,17 @@ const AiIdentityScoring: FC = (): ReactElement => {
       notif: "*Pastikan wajah Anda dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
+      name: "image_surat_nomor_pokok_wajib_pajak",
+      control,
+      required: true,
+      accepted: ".jpg, .jpeg, .png",
+      label: "Surat Nomor Pokok Wajib Pajak",
+      message: errors.image_surat_nomor_pokok_wajib_pajak?.message,
+      status: errors.image_surat_nomor_pokok_wajib_pajak ? "error" : "none",
+      notif:
+        "*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baik",
+    },
+    {
       name: "image_surat_nomor_induk_berusaha",
       control,
       required: true,
@@ -191,15 +214,15 @@ const AiIdentityScoring: FC = (): ReactElement => {
         "*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
-      name: "image_surat_izin_usaha_perdagangan",
+      name: "image_surat_nomor_pokok_wajib_pajak_perusahaan",
       control,
       required: true,
       accepted: ".jpg, .jpeg, .png",
-      label: "Surat Izin Usaha Perdagangan",
-      message: errors.image_surat_izin_usaha_perdagangan?.message,
-      status: errors.image_surat_izin_usaha_perdagangan ? "error" : "none",
+      label: "Surat Nomor Pokok Wajib Pajak Perusahaan",
+      message: errors.image_surat_nomor_pokok_wajib_pajak_perusahaan?.message,
+      status: errors.image_surat_nomor_pokok_wajib_pajak_perusahaan ? "error" : "none",
       notif:
-        "*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik",
+        "*Pastikan foto Surat Nomor Pokok Wajib Pajak Perusahaan dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
       name: "image_surat_nomor_akta_notaris",
@@ -224,15 +247,15 @@ const AiIdentityScoring: FC = (): ReactElement => {
         "*Pastikan foto Surat Keterangan Domisili Usaha dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
-      name: "image_surat_nomor_pokok_wajib_pajak",
+      name: "image_surat_izin_usaha_perdagangan",
       control,
       required: true,
       accepted: ".jpg, .jpeg, .png",
-      label: "Surat Nomor Pokok Wajib Pajak",
-      message: errors.image_surat_nomor_pokok_wajib_pajak?.message,
-      status: errors.image_surat_nomor_pokok_wajib_pajak ? "error" : "none",
+      label: "Surat Izin Usaha Perdagangan",
+      message: errors.image_surat_izin_usaha_perdagangan?.message,
+      status: errors.image_surat_izin_usaha_perdagangan ? "error" : "none",
       notif:
-        "*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baik",
+        "*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
       name: "image_surat_tanda_daftar_perusahaan",
