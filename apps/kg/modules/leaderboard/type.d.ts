@@ -12,7 +12,6 @@ export type ReturnTypesPopupGetUser = {
 
 type TLeaderboardItem = {
   student_id: string;
-  student_name: string;
   subjectCount: string;
   averageScore: number;
   poin: number;
