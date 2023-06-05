@@ -100,7 +100,7 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "Jumlah User",
+      name: "Jumlah Customer",
       selector: (row) => row.jumlah_user,
       sortable: true,
     },
