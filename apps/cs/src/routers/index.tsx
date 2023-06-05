@@ -17,6 +17,7 @@ const ChoiceFeature = lazy(() => import("../modules/request/feature/choice-featu
 const RequestModule = lazy(() => import("../modules/request/feature/request"));
 const ProcessModule = lazy(() => import("../modules/request/process"));
 const ResultModule = lazy(() => import("../modules/request/result"));
+const CheckResultModule = lazy(() => import("../modules/request/check-result"));
 const ReportPage = lazy(() => import("../pages/report"));
 const ReportModules = lazy(() => import("../modules/report/report-user/report"));
 const QuotaPages = lazy(() => import("../pages/quota"));
@@ -92,10 +93,10 @@ export const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/request/choice-feature",
+        path: "/dashboard/request/check-result",
         element: (
           <Suspense fallback={<Spinner />}>
-            <ChoiceFeature />
+            <CheckResultModule />
           </Suspense>
         ),
       },
@@ -120,8 +121,8 @@ export const routes = createBrowserRouter([
             element: <ResultModule />,
           },
           {
-            path: "/dashboard/request/result",
-            element: <ResultModule />,
+            path: "/dashboard/request/choice",
+            element: <ChoiceFeature />,
           },
         ],
       },

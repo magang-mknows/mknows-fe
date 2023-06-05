@@ -7,7 +7,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 export const HeroAlternatif: FC = (): ReactElement => {
   return (
     <section>
-      <div className="flex absolute w-full z-0">
+      <div className="flex absolute lg:w-full w-screen z-0">
         <Image src={bg} alt={"tes"} />
       </div>
       <div className="flex relative z-20">
