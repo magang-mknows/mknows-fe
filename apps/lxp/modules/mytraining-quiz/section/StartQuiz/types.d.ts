@@ -18,9 +18,9 @@ export interface IQuestionsAnswer {
   answers: Answer[];
 }
 
-export interface IAnswer {
+export type IAnswer = {
   id: string;
   answer: string;
-}
+};
 
 export type TQuizQuestionResponse = TMetaResponseSingle<IQuizItem>;

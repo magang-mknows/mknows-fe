@@ -1,11 +1,11 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { TMyTrainingModuleResponse, params } from "../mytraining-module/type";
+import { TMyTrainingModuleResponse, TQuizParams } from "../mytraining-module/type";
 import { getMyWorkQuizId } from "./api";
 
 export const useGetMyWorkQuizId = (
-  params: params,
+  payload: TQuizParams,
 ): UseQueryResult<TMyTrainingModuleResponse, unknown> =>
   useQuery<TMyTrainingModuleResponse>({
-    queryKey: ["get-subject-by-dept-id", params],
-    queryFn: async () => await getMyWorkQuizId(params),
+    queryKey: ["get-subject-by-dept-id", payload],
+    queryFn: async () => await getMyWorkQuizId(payload),
   });

@@ -7,6 +7,6 @@ export const useGetQuizQuestion = (
   payload: TGetQuizPayload,
 ): UseQueryResult<TQuizQuestionResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ["quiz-questions-lxp", payload.batchId, payload.quizId],
+    queryKey: ["quiz-questions-lxp", payload],
     queryFn: async () => await getQuizQuestion(payload),
   });
