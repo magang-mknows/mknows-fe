@@ -1,9 +1,11 @@
 import { ReactElement, FC, useState, useEffect } from "react";
-import { useProcessFilter } from "../hooks";
+import { useRequest } from "../hooks";
 import Search from "../../../components/atoms/search";
 import Pagination from "../../../components/atoms/pagination";
 import Table from "./table2";
 import { useFilterAction } from "../../quota/hooks";
+import Table from "./table";
+import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";
 import { any } from "prop-types";
 
@@ -16,15 +18,15 @@ const ProcessModule: FC = (): ReactElement => {
     page: "",
   });
 
-  const { data: featureId } = useProcessFilter();
+  const { data: featureId } = useRequest();
 
   const [deb, setDeb] = useState("");
 
-  const { setFilterAction } = useFilterAction();
+  const { setFilterActionProcess } = useFilterActionProcess();
 
   useEffect(() => {
-    setFilterAction(option);
-  }, [option, setFilterAction]);
+    setFilterActionProcess(option);
+  }, [option]);
 
   useDebounce(
     () => {
@@ -38,25 +40,12 @@ const ProcessModule: FC = (): ReactElement => {
     <section>
       <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
         <p className="font-bold text-[#444444] text-[24px] ml-8 w-full">Permintaan Hari ini</p>
-        <div className="flex flex-row gap gap-x-3 w-full mt-4 lg:mt-0 ">
-          <div className="w-[50%]">
-            <select
-              onChange={(e) => setOption((prev) => ({ ...prev, feature: e.target.value }))}
-              value={option.feature}
-              id="category"
-              className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
-            >
-              <option value="" defaultValue={"Halo"}>
-                Semua
-              </option>
-              {featureId?.data?.map((item: any, key: any) => (
-                <option key={key} value={item._id}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <Search value={deb} onChange={(e) => setDeb(e.target.value)} placeholder="Search" />
+        <div className="flex flex-row gap gap-x-3 w-[50%] mt-4 lg:mt-0 ">
+          <Search
+            value={deb}
+            onChange={(e) => setDeb(e.target.value)}
+            placeholder="Search NIK dan Nama"
+          />
         </div>
       </div>
       {/* table */}

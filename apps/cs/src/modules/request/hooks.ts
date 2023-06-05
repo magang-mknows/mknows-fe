@@ -57,13 +57,6 @@ export const useDataProcess = (): UseQueryResult<TProcessResponse, TProcessItem>
   });
 };
 
-export const useProcessFilter = (): UseQueryResult<TProcessResponse, TRequestItem> => {
-  return useQuery({
-    queryKey: ["get-process-filter"],
-    queryFn: async () => await getDataProcess(),
-  });
-};
-
 export const useProcess = (
   params: TProcessParams,
 ): UseQueryResult<TProcessResponse, TMetaErrorResponse> => {

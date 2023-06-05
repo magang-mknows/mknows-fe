@@ -59,7 +59,7 @@ const Table: FC = (): ReactElement => {
                 <td className="px-0 py-2">{item.nik}</td>
                 <td className="w-[25%] pl-10 py-2 font-semibold">{item.name}</td>
                 <td className="px-4 py-2 text-gray-500 ">
-                  {formatDate(new Date(item.requested_at))}
+                  {formatDate({ date: new Date(item.requested_at) })}
                   {/* {item.requested_at} */}
                 </td>
                 <td className="px-1 py-2">{item.problem ? item.problem : "-"}</td>
