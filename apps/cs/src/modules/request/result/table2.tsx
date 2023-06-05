@@ -74,6 +74,7 @@ const Table2: FC = (): ReactElement => {
     no: number;
     nik: number;
     nama: string;
+    tggl_input: string;
     tggl_permintaan: string;
     waktu_permintaan: string;
     tggl_selesai: string;

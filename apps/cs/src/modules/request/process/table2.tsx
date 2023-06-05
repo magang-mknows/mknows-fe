@@ -12,6 +12,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "GAGAL",
       problem: "NIK SALAH",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -25,6 +26,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "GAGAL",
       problem: "TOKEN HABIS",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -38,6 +40,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "GAGAL",
       problem: "FOTO SELFIE TIDAK DI KENAL",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -51,6 +54,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "MENUNGGU",
       problem: "null",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -64,6 +68,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "MENUNGGU",
       problem: "null",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -77,6 +82,7 @@ const Table2: FC = (): ReactElement => {
       result: "null",
       status: "GAGAL",
       problem: "NIK SALAH",
+      request_input: "2023-05-27T12:14:02.856Z",
       __v: 0,
       requested_at: "2023-05-27T12:14:02.856Z",
       finished_at: "2023-05-27T12:14:02.856Z",
@@ -95,6 +101,7 @@ const Table2: FC = (): ReactElement => {
     __v: number;
     requested_at: string;
     finished_at: string;
+    request_input: string;
     name: string;
     nik: string;
   };
@@ -123,6 +130,11 @@ const Table2: FC = (): ReactElement => {
     {
       name: "Tanggal Permintaan",
       cell: (row) => <div>{formatDate(new Date(row.requested_at))}</div>,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Input",
+      cell: (row) => <div>{formatDate(new Date(row.request_input))}</div>,
       sortable: true,
     },
     {
