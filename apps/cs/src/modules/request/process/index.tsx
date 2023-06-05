@@ -2,9 +2,10 @@ import { ReactElement, FC, useState, useEffect } from "react";
 import { useProcessFilter } from "../hooks";
 import Search from "../../../components/atoms/search";
 import Pagination from "../../../components/atoms/pagination";
-import Table from "./table";
+import Table from "./table2";
 import { useFilterAction } from "../../quota/hooks";
 import { useDebounce } from "../../common/hooks";
+import { any } from "prop-types";
 
 const ProcessModule: FC = (): ReactElement => {
   // const { setResultQuery, getResultQuery } = useResultQuery();
@@ -48,7 +49,7 @@ const ProcessModule: FC = (): ReactElement => {
               <option value="" defaultValue={"Halo"}>
                 Semua
               </option>
-              {featureId?.data?.map((item, key) => (
+              {featureId?.data?.map((item: any, key: any) => (
                 <option key={key} value={item._id}>
                   {item.name}
                 </option>
@@ -69,7 +70,7 @@ const ProcessModule: FC = (): ReactElement => {
         </span>
       </div>
 
-      <Pagination />
+      {/* <Pagination /> */}
     </section>
   );
 };

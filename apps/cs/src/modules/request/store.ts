@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { TProcessParams, TRequestResponse, TResultDataDummy } from "./types";
+import { TProcessItem, TProcessParams, TRequestResponse, TResultDataDummy } from "./types";
 
 export const icon = atom<string[]>({
   key: "request-data-icons",
@@ -37,68 +37,104 @@ export const resultDummyData = atom<TResultDataDummy[]>({
   key: "result-dummy-data",
   default: [
     {
-      no: 10002345,
-      nik: 327000189266,
-      nama: "Albert Maniqueen",
-      tggl_permintaan: "11/2/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2021",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "-",
-      skor: "Sangat Baik",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Identity Scoring",
-      jumlah_kuota: 20,
-      status: "Menunggu",
-      jumlah_user: 4,
+      _id: "6455bba89d1bba63fbc8a801",
+      request_number: "0007821",
+      feature: "AI Identity Scoring",
+      finished_at: "Sat May 27 2023 19:14:02 GMT+0700 (Indochina Time)",
+      requested_at: "2023-05-27T12:14:02.856Z",
+      total_user: 1,
     },
     {
-      no: 11122334,
-      nik: 32356789,
-      nama: "Ludwig Bethoven",
-      tggl_permintaan: "15/3/2022",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2023",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "NIK salah",
-      skor: "Cukup Buruk",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Character Scoring",
-      jumlah_kuota: 50,
-      status: "Menunggu",
-      jumlah_user: 12,
+      _id: "6455bba89d1bba63fbc8a805",
+      request_number: "0007823",
+      feature: "AI Character Scoring",
+      finished_at: "Sat May 27 2023 19:14:02 GMT+0700 (Indochina Time)",
+      requested_at: "2023-05-27T12:14:02.857Z",
+      total_user: 1,
+    },
+  ],
+});
+
+export const processDummyData = atom<TProcessItem[]>({
+  key: "process-dummy-data",
+  default: [
+    {
+      _id: "646f6a0617887bd055d4ae04",
+      request_number: "0007821",
+      feature: "AI Capability Scoring",
+      result: null,
+      status: "GAGAL",
+      problem: "NIK SALAH",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Dr. Heidi Johnston",
+      nik: "6523154504332488",
     },
     {
-      no: 123578912,
-      nik: 3278532111,
-      nama: "Jawadal Al Hilal",
-      tggl_permintaan: "11/8/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2024",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "Kualitas KTP buruk",
-      skor: "-",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Capability Scoring",
-      jumlah_kuota: 200,
-      status: "Gagal",
-      jumlah_user: 20,
+      _id: "646f6a0617887bd055d4ac02",
+      request_number: "0007823",
+      feature: "AI Character Scoring",
+      result: null,
+      status: "GAGAL",
+      problem: "TOKEN HABIS",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Micheal Bogisich",
+      nik: "4689816324237624",
     },
     {
-      no: 10002345,
-      nik: 327000189266,
-      nama: "Yasmin Siahaan",
-      tggl_permintaan: "11/2/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2021",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "-",
-      skor: "Sangat Buruk",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Credit Scoring",
-      jumlah_kuota: 250,
-      status: "Gagal",
-      jumlah_user: 10,
+      _id: "646f6a0617887bd055d4ab03",
+      request_number: "0007822",
+      feature: "AI Character Scoring",
+      result: null,
+      status: "GAGAL",
+      problem: "FOTO SELFIE TIDAK DI KENAL",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Eddie Dickens",
+      nik: "5585148118074267",
+    },
+    {
+      _id: "646f6a0617887bd055d4ac04",
+      request_number: "0007823",
+      feature: "AI Character Scoring",
+      result: null,
+      status: "MENUNGGU",
+      problem: "-",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Dr. Heidi Johnston",
+      nik: "6523154504332488",
+    },
+    {
+      _id: "646f6a0617887bd055d4ac03",
+      request_number: "0007823",
+      feature: "AI Character Scoring",
+      result: null,
+      status: "MENUNGGU",
+      problem: "-",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Lora O'Conner",
+      nik: "5500026675168637",
+    },
+    {
+      _id: "646f6a0617887bd055d4ab04",
+      request_number: "0007822",
+      feature: "AI Character Scoring",
+      result: null,
+      status: "GAGAL",
+      problem: "NIK SALAH",
+      __v: 0,
+      requested_at: "2023-05-27T12:14:02.856Z",
+      finished_at: "2023-05-27T12:14:02.856Z",
+      name: "Dr. Heidi Johnston",
+      nik: "6523154504332488",
     },
   ],
 });
@@ -108,14 +144,22 @@ export const resultFilter = selector({
   get: ({ get }) =>
     get(resultDummyData).filter(
       (user) =>
-        user.nama.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.skor.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.tggl_permintaan.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.tggl_selesai.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.jenis_produk.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.nik.toString().toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.no.toString().toLowerCase().includes(get(resultSearch).toLowerCase()) ||
-        user.jumlah_user.toString().toLowerCase().includes(get(resultSearch).toLowerCase()),
+        user.feature.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.total_user.toString().toLowerCase().includes(get(resultSearch).toLowerCase()),
+    ),
+});
+
+export const processFilter = selector({
+  key: "result-filter",
+  get: ({ get }) =>
+    get(processDummyData).filter(
+      (user) =>
+        user.feature.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.name.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.nik.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.problem.toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.request_number.toString().toLowerCase().includes(get(resultSearch).toLowerCase()) ||
+        user.requested_at.toString().toLowerCase().includes(get(resultSearch).toLowerCase()),
     ),
 });
 
