@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 
 export const FooterLinks: FC = (): ReactElement => {
   return (
-    <section className="flex gap-20 w-full">
+    <section className="flex lg:gap-20 gap-8 w-full">
       <div className=" text-neutral-900">
         <h1 className=" mb-3 lg:mb-6 font-black text-base">Halaman</h1>
         <ul className="flex text-xs md:text-sm flex-col gap-1 lg:gap-3 xl:gap-4">

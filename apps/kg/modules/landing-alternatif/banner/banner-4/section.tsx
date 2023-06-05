@@ -5,7 +5,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 
 export const Banner4Module: FC = (): ReactElement => {
   return (
-    <main className="flex bg-white  pr-8 py-10 justify-center items-center ">
+    <main className="lg:flex hidden bg-white  pr-8 py-10 justify-center items-center ">
       <div className="flex right-0 absolute z-40 pb-36">
         <Image
           src={ArtisKG}

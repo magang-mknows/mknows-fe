@@ -6,7 +6,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 export const ArticleAlternatif: FC = (): ReactElement => {
   return (
     <main className="px-[80px] bg-white py-[135px] w-full">
-      <section className="flex flex-col gap-y-[20px]">
+      <section className="lg:flex hidden flex-col gap-y-[20px]">
         <div className="grid grid-cols-4 gap-[55px] grid-rows-1">
           {CARD.map((card, key) => (
             <ChoiceFacultyCard key={key} {...card} />
