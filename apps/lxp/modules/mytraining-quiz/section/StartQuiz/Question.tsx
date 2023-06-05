@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { currentQuestionState } from "./store";
 import { useCallback, useEffect, useState } from "react";
 import { TStoreQuestionAnswer } from "./types";
+import { getFromLocalStorage, storeToLocalStorage } from "@mknows-frontend-services/utils";
 
 export const Question = () => {
   // ================================
@@ -96,19 +97,18 @@ export const Question = () => {
   // store to local storage
   // on answer and curent number change
   // =================================
-  const storeDatatoLocalStorage = useCallback(() => {
-    const recentAnswer = JSON.stringify(questionsAnswer);
-    localStorage.setItem("questions_answers", recentAnswer);
+  const storeAnswertoLocalStorage = useCallback(() => {
+    storeToLocalStorage("questions_answers", questionsAnswer);
   }, [questionsAnswer]);
 
   const storeCurrentNumber = useCallback(() => {
-    const currentNumber = JSON.stringify(getCurrentNumber);
-    localStorage.setItem("current_number", currentNumber);
+    storeToLocalStorage("current_number", getCurrentNumber);
   }, [getCurrentNumber]);
 
-  // ==============================
-  // handle answer and doubt answer
-  // ===============================
+  // =======================
+  // handle answer change
+  // and doubt answer
+  // =======================
   const handleAnswerChange = (questionId: string, answerId: string) => {
     const asnweredQueston = questionsAnswer.filter((obj) => obj.ques_id === questionId);
     if (asnweredQueston.length > 0) {
@@ -116,7 +116,7 @@ export const Question = () => {
     } else {
       setQuestionsAnswer((prev) => [...prev, { ans_id: answerId, ques_id: questionId }]);
     }
-    storeDatatoLocalStorage();
+    storeAnswertoLocalStorage();
   };
 
   const handleDoubtAnswer = (questionId: string, doubt: boolean) => {
@@ -126,7 +126,7 @@ export const Question = () => {
     } else {
       setQuestionsAnswer((prev) => [...prev, { doubt: doubt, ques_id: questionId }]);
     }
-    storeDatatoLocalStorage();
+    storeAnswertoLocalStorage();
   };
 
   useEffect(() => {
@@ -140,28 +140,21 @@ export const Question = () => {
   // after first load
   // ============================
   useEffect(() => {
-    const storedData = localStorage.getItem("questions_answers");
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      setQuestionsAnswer(parsedData);
+    const questionAnswer = getFromLocalStorage("questions_answers");
+    const currentNumber = getFromLocalStorage("current_number");
+    if (questionAnswer !== null && questionAnswer !== undefined) {
+      setQuestionsAnswer(questionAnswer);
     }
-  }, []);
 
-  useEffect(() => {
-    storeDatatoLocalStorage();
-  }, [storeDatatoLocalStorage]);
-
-  useEffect(() => {
-    const storedData = localStorage.getItem("current_number");
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      setCurrentNumber(parsedData);
+    if (currentNumber !== null && currentNumber !== undefined) {
+      setCurrentNumber(currentNumber);
     }
-  }, [setCurrentNumber]);
+  }, [setQuestionsAnswer, setCurrentNumber]);
 
   useEffect(() => {
+    storeAnswertoLocalStorage();
     storeCurrentNumber();
-  }, [storeCurrentNumber]);
+  }, [storeAnswertoLocalStorage, storeCurrentNumber]);
 
   return (
     <div className="grid grid-cols-3 p-8  lg:gap-[52px]">
