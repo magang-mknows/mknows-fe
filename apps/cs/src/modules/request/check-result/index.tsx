@@ -9,7 +9,7 @@ import Search from "../../../components/atoms/search";
 import Table from "./table";
 import { useFilterAction } from "../../quota/hooks";
 import { useDebounce } from "../../common/hooks";
-import close from "../../../../public/assets/request-page/close.webp";
+import close from "assets/request-page/close.webp";
 import Pagination from "../../../components/atoms/pagination";
 import { IConDelete } from "../../../components/atoms";
 
@@ -93,7 +93,7 @@ const CheckResult: FC = (): ReactElement => {
                       onClick={() => setisOpenDelete(true)}
                       className="flex justify-center items-center w-4"
                     >
-                      <img src={close} alt="close button" />
+                      <img src={close} alt="close-button" />
                     </button>
                   </div>
                 );
@@ -114,7 +114,7 @@ const CheckResult: FC = (): ReactElement => {
                       onClick={() => setisOpenDelete(true)}
                       className="flex justify-center items-center w-4"
                     >
-                      <img src={close} alt="close button" />
+                      <img src={close} alt="close-button" />
                     </button>
                   </div>
                 );
