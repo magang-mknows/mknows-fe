@@ -261,7 +261,7 @@ export const Question = () => {
                   index + 1 === (getCurrentNumber as number) ? "bg-neutral-200" : "bg-neutral-50 "
                 } ${
                   questionsAnswer.some((obj) => obj.ques_id === item.id)
-                    ? questionsAnswer.some((obj) => obj.ques_id === item.id && obj.doubt === true)
+                    ? questionsAnswer.some((obj) => obj.ques_id === item.id && obj.doubt)
                       ? "bg-version3-500 text-white"
                       : questionsAnswer.some((obj) => obj.ques_id === item.id && obj.ans_id)
                       ? "bg-version3-300 text-white"
