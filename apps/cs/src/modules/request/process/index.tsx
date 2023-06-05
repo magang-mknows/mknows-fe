@@ -3,8 +3,6 @@ import { useRequest } from "../hooks";
 import Search from "../../../components/atoms/search";
 import Pagination from "../../../components/atoms/pagination";
 import Table from "./table2";
-import { useFilterAction } from "../../quota/hooks";
-import Table from "./table";
 import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";
 import { any } from "prop-types";
