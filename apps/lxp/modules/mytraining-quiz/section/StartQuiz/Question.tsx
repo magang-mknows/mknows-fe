@@ -261,10 +261,10 @@ export const Question = () => {
                   index + 1 === (getCurrentNumber as number) ? "bg-neutral-200" : "bg-neutral-50 "
                 } ${
                   questionsAnswer.some((obj) => obj.ques_id === item.id)
-                    ? questionsAnswer[index]?.doubt
-                      ? "bg-version3-500 text-neutral-50"
-                      : questionsAnswer[index]?.ans_id
-                      ? "bg-version3-300 text-neutral-50"
+                    ? questionsAnswer.some((obj) => obj.ques_id === item.id && obj.doubt === true)
+                      ? "bg-version3-500 text-white"
+                      : questionsAnswer.some((obj) => obj.ques_id === item.id && obj.ans_id)
+                      ? "bg-version3-300 text-white"
                       : ""
                     : "bg-neutral-50"
                 }  cursor-pointer h-10 w-10 rounded-md border-[1px] border-version2-400 grid place-items-center`}
