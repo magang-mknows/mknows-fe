@@ -5,11 +5,11 @@ import Link from "next/link";
 import QuizHomeImage from "../assets/quiz-start.svg";
 import { useGetMyWorkQuizId } from "../hooks";
 import { useRouter } from "next/router";
-import { params } from "../../mytraining-module/type";
+import { TModulParams } from "../../mytraining-module/type";
 
 const QuizHome: FC = (): ReactElement => {
   const { query } = useRouter();
-  const params: params = {
+  const params: TModulParams = {
     subjectID: query.subjectID as string,
     batchID: query.batchID as string,
   };
