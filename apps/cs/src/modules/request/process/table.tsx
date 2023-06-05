@@ -1,9 +1,10 @@
 import { FC, ReactElement } from "react";
-import { useRequest } from "../hooks";
+import { useFilterActionProcess, useProcess } from "../hooks";
 import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
-  const { data } = useRequest();
+  const { getFilterActionProcess } = useFilterActionProcess();
+  const { data } = useProcess(getFilterActionProcess);
 
   return (
     <div className="overflow-x-scroll mt-20 lg:mt-0">
@@ -52,30 +53,31 @@ const Table: FC = (): ReactElement => {
         <tbody>
           {data?.data.map((item, key) => {
             return (
-              <tr key={key} className="text-[#262626] bg-white border-b dark:bg-[#ffff] ">
+              <tr key={key} className="text-[#262626] bg-white border-b  dark:bg-[#ffff] ">
                 <td className="px-6">{key + 1}</td>
-                <td className="pl-4 py-2">100865</td>
-                <td className="px-2 py-2">327001625398</td>
-                <td className="pl-8 py-2 font-semibold text-xs">{item.name}</td>
+                <td className="pl-4 py-2">{item.request_number}</td>
+                <td className="px-0 py-2">{item.nik}</td>
+                <td className="w-[25%] pl-10 py-2 font-semibold">{item.name}</td>
                 <td className="px-4 py-2 text-gray-500 ">
-                  {formatDate(new Date(item.created_at))}
+                  {formatDate(new Date(item.requested_at))}
+                  {/* {item.requested_at} */}
                 </td>
-                <td className="px-1 py-2">-</td>
+                <td className="px-1 py-2">{item.problem ? item.problem : "-"}</td>
                 <td className="px-4 py-2 ">
-                  <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
+                  {/* <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
                     Menunggu
-                  </button>
-                  {/* {item.status === 'Menunggu' ? (
+                  </button> */}
+                  {item.status === "MENUNGGU" ? (
                     <button className="bg-[#F59E0B] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
                       {item.status}
                     </button>
-                  ) : item.status === 'Gagal' ? (
+                  ) : item.status === "GAGAL" ? (
                     <button className="bg-[#EE2D24] text-white w-[110px] text-sm p-2 rounded-md cursor-default">
                       {item.status}
                     </button>
                   ) : (
                     <span className="px-11">-</span>
-                  )} */}
+                  )}
                 </td>
               </tr>
             );
