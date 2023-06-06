@@ -1,4 +1,8 @@
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { useEffect, useCallback, DependencyList } from "react";
+import { getProfileMe } from "../../components/organisms/sidebar/profile/api";
+import { TProfileResponse } from "../../components/organisms/sidebar/profile/types";
 
 /**
  * Debounce Function.
@@ -29,3 +33,10 @@ export function useDebounce(
     return () => clearTimeout(timeout);
   }, [callback, delay]);
 }
+
+export const useProfile = (): UseQueryResult<TProfileResponse, TMetaErrorResponse> => {
+  return useQuery({
+    queryKey: ["get-profile"],
+    queryFn: async () => await getProfileMe(),
+  });
+};

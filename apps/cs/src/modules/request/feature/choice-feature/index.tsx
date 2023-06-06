@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IconBack, IconWarning } from "../../../../components/atoms";
 import Search from "../../../../components/atoms/search";
 import Table from "./table";
@@ -34,18 +34,18 @@ const ChoiceFeature: FC = (): ReactElement => {
           />
         </div>
       </div>
-      <div className="py-4">
+      <div className="pb-4">
         <Table />
       </div>
       <Pagination />
-      <div className="flex w-full justify-end">
+      <NavLink to={"/dashboard/request/check-result"} className="flex w-full justify-end">
         <Button
           type="button"
           className="w-auto px-16 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
         >
           Proses
         </Button>
-      </div>
+      </NavLink>
     </div>
   );
 };

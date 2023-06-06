@@ -21,3 +21,4 @@ export * from "./ic-toggle";
 export * from "./ic-user";
 export * from "./ic-upload";
 export * from "./ic-warning";
+export * from "./ic-empty-state";

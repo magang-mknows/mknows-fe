@@ -1,17 +1,27 @@
 import Image from "next/image";
 import { FC, ReactElement } from "react";
+import { useGetMyWorkCourse } from "../hooks";
+import { useRouter } from "next/router";
+import { params } from "../type";
 
 export const HeroSection: FC = (): ReactElement => {
+  const { query } = useRouter();
+  const params: params = {
+    subjectID: query.subjectID as string,
+    lastSession: query.lastSession as string,
+    batchID: query.batchID as string,
+  };
+
+  const { data } = useGetMyWorkCourse(params);
+  console.log("tes", data?.dataSubject?.name);
   return (
     <div className="items-center mx-8 md:mx-14 lg:mx-16 bg-neutral-50 rounded-lg px-8 md:px-14 py-6 ">
       <h3 className="text-neutral-800  lg:text-[25px] text-[20px] text-center font-bold pt-[13px] pb-5">
-        Pelatihan Keterampilan Komunikasi
+        {data?.data?.dataSubject?.name}
       </h3>
       <div className="w-full h-[253px]">
         <Image
-          src={
-            "https://res.cloudinary.com/dvsqy8n1a/image/upload/v1682825462/sub_thumbnail_f7b760be-5193-4bd4-aaa6-b57322bdf347.png"
-          }
+          src={data?.data?.dataSubject?.thumbnail}
           alt=""
           className="h-full object-cover rounded-lg mx-auto w-auto"
           width={100}
@@ -19,12 +29,7 @@ export const HeroSection: FC = (): ReactElement => {
         />
       </div>
       <p className="text-sm font-normal text-neutral-800 text-justify py-10 ">
-        Manajemen Keuangan belajar tentang bagaimana merencanakan, mengelola, serta menggunakan
-        sumber daya keuangan perusahaan. Perkuliahan jurusan ini juga tentang lembaga perbankan,
-        kinerja perusahaan, perpajakan, akuntansi, perdagangan internasional, perencanaan modal,
-        asuransi, anggaran, analisis keuangan, akuisisi dana, manajemen utang dan aset, hingga
-        portofolio dan manajemen investasi. Pengawasan berbagai aspek keuangan guna mencegah
-        kesalahan atau kecurangan juga dipelajari selama kuliah.
+        {data?.data?.dataSubject?.description}
       </p>
     </div>
   );

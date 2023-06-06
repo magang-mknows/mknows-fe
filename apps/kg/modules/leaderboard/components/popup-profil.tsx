@@ -54,7 +54,7 @@ export const PopupProfil: FC<PopupProfilProps> = ({
     <Modal lookup={lookup as boolean} withClose={true} widthModal={widthModal} onClose={onClose}>
       <div>
         <h1 className="mb-5 text-[#737373] font-[500] text-[18px]">
-          Peringkat <span className="text-[#106FA4] font-[600] text-[28px]">1</span> Umum
+          Peringkat <span className="text-[#106FA4] font-[600] text-[28px]">0</span> Umum
         </h1>
         <div className="flex sm:flex-row flex-col outline sm:justify-between justify-start outline-[#E5E5E5] bg-[#FAFAFA] rounded-[8px] md:px-10 px-0 h-[125px] w-full items-center">
           <div className="flex items-center sm:gap-7 gap-4 sm:-mt-3">
@@ -67,7 +67,7 @@ export const PopupProfil: FC<PopupProfilProps> = ({
             />
             <div className="sm:mt-0 -mt-5">
               <p className="text-[#171717] font-[600] sm:text-[24px] text-[20px] text-left">
-                {props.student_name}
+                {props?.author?.full_name}
               </p>
               <div className="flex flex-row text-[#737373] sm:text-[20px] text-[16px] font-[500] gap-2">
                 <p>{props.author?.major}</p>

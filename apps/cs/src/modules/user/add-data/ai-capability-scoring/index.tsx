@@ -11,6 +11,8 @@ import {
   useCharacterStatus,
   useIdentityStatus,
 } from "../../hooks";
+import { useProfile } from "../../../common/hooks";
+import { useCapabilityInformation } from "../hooks";
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
@@ -108,6 +110,7 @@ const AiCapabilityScoring: FC = (): ReactElement => {
       ),
   });
 
+  const { mutate } = useCapabilityInformation();
   type DataValidationSchema = z.infer<typeof dataValidationSchema>;
 
   const { setDataCapability, getDataCapability } = useCapabilityStatus();
@@ -136,10 +139,31 @@ const AiCapabilityScoring: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit(() => {
+  const { data: profile } = useProfile();
+
+  const onSubmit = handleSubmit((data) => {
     try {
-      setDataCategory("finished");
-      setDataCapability(true);
+      mutate(
+        {
+          ...data,
+          user_id: profile?.data?._id,
+          ktp: data.image_ktp[0] as File,
+          surat_nomor_induk_berusaha: data.image_surat_nomor_induk_berusaha[0] as File,
+          surat_izin_usaha_perdagangan: data.image_surat_izin_usaha_perdagangan[0] as File,
+          surat_nomor_akta_notaris: data.image_surat_nomor_akta_notaris[0] as File,
+          surat_keterangan_domisili_usaha: data.image_surat_keterangan_domisili_usaha[0] as File,
+          surat_tanda_daftar_perusahaan: data.image_surat_tanda_daftar_perusahaan[0] as File,
+          npwp: data.image_surat_nomor_pokok_wajib_pajak[0] as File,
+          form_credit_applicant: data.image_credit_applicant[0] as File,
+          surat_laporan_keuangan: data.image_laporan_keuangan[0] as File,
+        },
+        {
+          onSuccess: () => {
+            setDataCategory("finished");
+            setDataCapability(true);
+          },
+        },
+      );
     } catch (err) {
       setDataCapability(false);
       throw err;

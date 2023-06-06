@@ -1,10 +1,16 @@
 import React, { ReactElement, useState } from "react";
 import moduleFour from "../assets/module-four.svg";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useFaculty } from "../../study-plan/choice-faculty/hooks";
 
 export const Filter = (): ReactElement => {
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState("global");
+  const router = useRouter();
+  const { query } = useRouter();
+  const { data } = useFaculty();
+  console.log("cek fakultaas: ", data?.data);
   return (
     <button
       className="md:w-[109px] md:h-[40px] w-20 h-8 rounded-[8px] text-center border-[3px] border-[#106FA4] relative mt-[46px] "

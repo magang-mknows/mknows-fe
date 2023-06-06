@@ -1,6 +1,9 @@
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { dataTabelState } from "./stores";
-import { Instruction } from "./type";
+import { Instruction, TAssignmentResponse } from "./type";
 import { useRecoilState } from "recoil";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { assignmentGetRequest } from "./api";
 
 type Instructions = {
   setInstruction: (val: Array<Instruction>) => void;
@@ -14,3 +17,11 @@ export const useInstruction = (): Instructions => {
     getInstruction: getInstruction,
   };
 };
+
+export const useGetMyStudyAssignmentById = (
+  id: string | number,
+): UseQueryResult<TAssignmentResponse, TMetaErrorResponse> =>
+  useQuery({
+    queryKey: ["mystudy-assignment-get", id],
+    queryFn: async () => await assignmentGetRequest(id),
+  });

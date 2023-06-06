@@ -1,9 +1,15 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, Fragment, ReactElement, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useUser, useFilterAction } from "./hooks";
 import { TUserItem } from "./types";
 import { formatDate } from "@mknows-frontend-services/utils";
-import { IConDelete, IconCheck, IconEdit, IconDropdown } from "../../components/atoms";
+import {
+  IConDelete,
+  IconCheck,
+  IconEdit,
+  IconDropdown,
+  IconEmptyState,
+} from "../../components/atoms";
 import ToolTip from "../../components/atoms/tooltip";
 import { Link } from "react-router-dom";
 
@@ -125,17 +131,22 @@ const Table: FC = (): ReactElement => {
   };
 
   return (
-    <div>
-      <DataTable
-        columns={columns}
-        data={data?.data as TUserItem[]}
-        sortIcon={sortIcon}
-        customStyles={customStyles}
-        fixedHeader={true}
-        pagination
-        paginationComponentOptions={paginationComponentOptions}
-      />
-    </div>
+    <DataTable
+      columns={columns}
+      data={data?.data as TUserItem[]}
+      sortIcon={sortIcon}
+      customStyles={customStyles}
+      fixedHeader={true}
+      pagination
+      paginationComponentOptions={paginationComponentOptions}
+      noDataComponent={
+        <div className="flex flex-col w-full h-screen justify-center items-center">
+          <IconEmptyState />
+          <h1 className="font-bold my-2">Data Tidak Tersedia</h1>
+          <p>Data akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
+        </div>
+      }
+    />
   );
 };
 
