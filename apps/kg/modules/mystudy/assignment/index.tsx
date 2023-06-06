@@ -1,11 +1,8 @@
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, Fragment, ReactElement, ReactNode } from "react";
 import pdf from "./assets/pdf.svg";
 import Image from "next/image";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { useGetMyStudyAssignmentById, useInstruction } from "./hooks";
-import { useForm } from "react-hook-form";
-// import ControlledUploadDragbleField from '@/components/ControlledInputs/ControlledUploadDragbleField';
-// import StatusSkeleton from "@/components/Loading/MyStudy/StatusSkeleton";
 import { UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { BaseLayout } from "../../common";
 import { useRouter } from "next/router";
@@ -42,8 +39,6 @@ export const Status: FC = (): ReactElement => {
     studentProgress?.deadline,
   );
 
-  console.log(timestamp_remaining);
-
   const tabelState: {
     namaTabel: string;
     response: string | string[] | number | ReactNode;
@@ -76,18 +71,6 @@ export const Status: FC = (): ReactElement => {
           : (studentProgress?.assignment_answer as string[]),
     },
   ];
-
-  const { control, handleSubmit } = useForm({
-    defaultValues: {
-      name: "",
-      upload: undefined,
-      upload_media: undefined,
-    },
-  });
-
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
 
   const lateState = (): string => {
     if (tabelState[3].response === "Telah melewati batas waktu") {
@@ -147,14 +130,14 @@ export const Status: FC = (): ReactElement => {
                     >
                       {row.namaTabel === "Pengiriman Tugas" ? (
                         row.response instanceof Array && row.response.length > 0 ? (
-                          <>
+                          <Fragment>
                             {row.response instanceof Array &&
                               row.response.map((link, index) => (
                                 <Link href={link as string} key={index} className="hover:underline">
                                   {link}
                                 </Link>
                               ))}
-                          </>
+                          </Fragment>
                         ) : (
                           ""
                         )
@@ -167,10 +150,9 @@ export const Status: FC = (): ReactElement => {
               })}
             </div>
           </div>
-          <form action="" onSubmit={onSubmit}>
+          <form>
             <UploadDragbleField
-              control={control}
-              name="upload_media"
+              name="files"
               className="border-dashed border-2 border-[#D4D4D4] mt-[28px]"
               variant={"sm"}
             />
@@ -179,7 +161,7 @@ export const Status: FC = (): ReactElement => {
               ketentuan
             </p>
             <Button
-              type="submit"
+              type={"submit"}
               className="mx-auto w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000"
             >
               Unggah Tugas

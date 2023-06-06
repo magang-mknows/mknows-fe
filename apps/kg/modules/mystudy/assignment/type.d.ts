@@ -55,5 +55,5 @@ export type TAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
 
 export type TAssignmentSubmissionPayload = {
   files: File[];
-  filesToDelete: string[];
+  filesToDelete: string[] | null;
 };
