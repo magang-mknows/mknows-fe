@@ -4,11 +4,7 @@ import InfoIcon from "../../../assets/info.svg";
 import Image from "next/image";
 import { TRemainingTimeProps } from "./types";
 
-export const QuizTimer: FC<TRemainingTimeProps> = ({
-  expiryTimestamp,
-  prevPath,
-  quizTakeId,
-}): ReactElement => {
+export const QuizTimer: FC<TRemainingTimeProps> = ({ expiryTimestamp }): ReactElement => {
   const { hours, minutes, seconds, isComplete } = useCountdownTimer({
     targetHours: expiryTimestamp,
   });

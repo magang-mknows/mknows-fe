@@ -13,7 +13,4 @@ export type TCountdownTimerReturn = {
 
 export type TRemainingTimeProps = {
   expiryTimestamp: number;
-  prevPath: string;
-  quizTakeId: string;
-  setTimerProps?: Dispatch<SetStateAction<TCurrentTimerProp>>;
 };
