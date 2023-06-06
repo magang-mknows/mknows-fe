@@ -3,6 +3,8 @@ import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
 import { TResultItem } from "../types";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Download from "/assets/download-bottom.webp";
 
 const Table2: FC = (): ReactElement => {
   const getProcessData = [
@@ -19,7 +21,7 @@ const Table2: FC = (): ReactElement => {
       detail: "Lihat Detail",
       jenis_produk: "AI Identity Scoring",
       jumlah_kuota: 20,
-      status: "Menunggu",
+      status: "Sangat Buruk",
       jumlah_user: 4,
     },
     {
@@ -35,7 +37,7 @@ const Table2: FC = (): ReactElement => {
       detail: "Lihat Detail",
       jenis_produk: "AI Character Scoring",
       jumlah_kuota: 50,
-      status: "Menunggu",
+      status: "Sangat Buruk",
       jumlah_user: 12,
     },
     {
@@ -51,7 +53,7 @@ const Table2: FC = (): ReactElement => {
       detail: "Lihat Detail",
       jenis_produk: "AI Capability Scoring",
       jumlah_kuota: 200,
-      status: "Gagal",
+      status: "Sangat Baik",
       jumlah_user: 20,
     },
     {
@@ -67,7 +69,7 @@ const Table2: FC = (): ReactElement => {
       detail: "Lihat Detail",
       jenis_produk: "AI Credit Scoring",
       jumlah_kuota: 250,
-      status: "Gagal",
+      status: "Sangat Baik",
       jumlah_user: 10,
     },
   ];
@@ -93,37 +95,53 @@ const Table2: FC = (): ReactElement => {
   const { getFilterActionResult } = useFilterActionResult();
   const { data } = useResult(getFilterActionResult);
 
-  const columns: TableColumn<TResultItem>[] = [
+  const columns: TableColumn<TDataDummy>[] = [
     {
       name: "ID",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
       sortable: true,
     },
     {
-      name: "Jenis Permintaan",
-      selector: (row) => row.feature,
+      name: "Jenis Scoring",
+      selector: (row) => row.jenis_produk,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
-      selector: (row) => row.total_user,
+      selector: (row) => row.jumlah_user,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Input",
+      selector: (row) => row.tggl_permintaan,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-      selector: (row) => row.requested_at,
+      selector: (row) => row.tggl_permintaan,
       sortable: true,
     },
     {
       name: "Tanggal Selesai",
-      selector: (row) => row.finished_at,
+      selector: (row) => row.tggl_selesai,
       sortable: true,
     },
   ];
 
   const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
+    <div className="flex flex-col overflow-x-scroll">
       <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
+      <div className="flex justify-end mr-24 my-2">
+        <Button
+          type="button"
+          className="w-[15%] justify-center flex py-2 border-[#5E5E5E] border-[1px] rounded-[8px]"
+        >
+          <div className="flex flex-row space-x-1">
+            <img src={Download} alt="download-button" className="" />
+            <div className="text-[#5E5E5E] font-semibold text-sm">Unduh</div>
+          </div>
+        </Button>
+      </div>
     </div>
   );
 
@@ -247,7 +265,7 @@ const Table2: FC = (): ReactElement => {
     <div>
       <DataTable
         columns={columns}
-        data={data?.data as TResultItem[]}
+        data={getProcessData}
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}

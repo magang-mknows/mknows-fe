@@ -46,7 +46,7 @@ export type TProcessItem = {
   nik: string;
 };
 
-export type TProcessResponse = { getProcessData: TProcessItem[] };
+export type TProcessResponse = TMetaResponse<TProcessItem>;
 
 export type TProcessParams = {
   search?: string;
@@ -64,7 +64,8 @@ export type TResultItem = {
   total_user: number;
 };
 
-export type TResultResponse = { getResultData: TResultDataDummy[] };
+export type TResultResponse = TMetaResponse<TResultItem>;
+export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 export type TResultParams = {
   search?: string;
   feature?: string;
