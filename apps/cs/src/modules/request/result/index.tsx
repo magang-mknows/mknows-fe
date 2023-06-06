@@ -1,5 +1,5 @@
 import { ReactElement, FC } from "react";
-import Table from "./table3";
+import Table from "./table";
 import Pagination from "../../../components/atoms/pagination";
 import Search from "../../../components/atoms/search";
 import { useResultQuery } from "../hooks";

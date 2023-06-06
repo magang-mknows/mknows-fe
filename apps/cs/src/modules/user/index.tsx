@@ -1,5 +1,5 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import Table from "./table2";
+import Table from "./table";
 import { Link } from "react-router-dom";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";

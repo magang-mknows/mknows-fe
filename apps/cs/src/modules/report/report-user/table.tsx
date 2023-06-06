@@ -34,7 +34,7 @@ const Table: FC = (): ReactElement => {
     },
 
     {
-      name: "Berkas",
+      name: "Scoring",
       cell: (row) => (
         <button
           className={` ${
