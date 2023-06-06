@@ -11,14 +11,16 @@ const HomeModules: FC = (): ReactElement => {
   return (
     <section>
       <CardSection />
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 px-6">
-        <div>
+      <div className="flex flex-col">
+        <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
           <RequestSection />
           <AgeTrack />
         </div>
-        <div>
+        <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
           <SkorSection />
           <LocationTrack />
+        </div>
+        <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
           <SalaryTrack />
         </div>
       </div>

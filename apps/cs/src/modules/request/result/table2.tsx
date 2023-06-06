@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 
 const Table2: FC = (): ReactElement => {
-  const data = [
+  const getProcessData = [
     {
       no: 10002345,
       nik: 327000189266,
@@ -70,16 +70,15 @@ const Table2: FC = (): ReactElement => {
     },
   ];
 
-  // const { data } = useRequest();
-
-  type TResultDataDummy = {
+  type TDataDummy = {
     no: number;
     nik: number;
     nama: string;
+    tggl_input: string;
     tggl_permintaan: string;
     waktu_permintaan: string;
-    waktu_selesai: string;
     tggl_selesai: string;
+    waktu_selesai: string;
     kendala_proses: string;
     skor: string;
     detail: string;
@@ -89,10 +88,10 @@ const Table2: FC = (): ReactElement => {
     jumlah_user: number;
   };
 
-  const columns: TableColumn<TResultDataDummy>[] = [
+  const columns: TableColumn<TDataDummy>[] = [
     {
       name: "ID",
-      selector: (row) => row.no,
+      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
       sortable: true,
     },
     {
@@ -119,78 +118,14 @@ const Table2: FC = (): ReactElement => {
 
   const ExpandedComponent = () => (
     <div className="flex justify-center overflow-x-scroll">
-      {/* <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
-        <thead className="text-xs border text-[#A3A3A3] font-light bg-[#F6FBFA] dark:bg-[#F5F8FF]">
-          <tr>
-            <th></th>
-            <th>No. </th>
-            <th scope="col" className="px-4 py-2 cursor-default w-[10%]">
-              <div className="flex gap-2 justify-center items-center">
-                <p>No. Permintaan</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Jenis Permintaan</p>
-                <IconDropdown />
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Jumlah User</p>
-                <IconDropdown />
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Tanggal Permintaan</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Tanggal Selesai</p>
-                <div>
-                  <IconDropdown />
-                </div>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        {data.map((item, key) => {
-          return (
-            <tbody key={key}>
-              <tr className="bg-white border-b dark:bg-[#ffff] ">
-                <td className="px-4">
-                  <IconTable />
-                </td>
-                <td className="px-1 py-2 text-[#262626]">{key + 1}</td>
-                <td className="px-4 py-2 text-[#262626] ">100865</td>
-                <td className="px-8 py-2 font-semibold text-[#262626]">
-                  {item.nama}
-                </td>
-                <td className="px-8 py-2 text-[#262626]">{item.jumlah_user}</td>
-                <td className="px-8 py-2 ">{item.tggl_permintaan}</td>
-                <td className="px-8 py-2">{item.tggl_selesai}</td>
-              </tr>
-            </tbody>
-          );
-        })}
-      </table> */}
-
-      <DataTable columns={columnsExpand} data={data} customStyles={ExpandRowStyle} />
+      <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
     </div>
   );
 
-  const columnsExpand: TableColumn<TResultDataDummy>[] = [
+  const columnsExpand: TableColumn<TDataDummy>[] = [
     {
       name: "No",
-      selector: (row) => row.no,
+      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
       sortable: true,
     },
     {
@@ -209,7 +144,7 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "Status",
+      name: "Skor",
       selector: (row) => row.skor,
       sortable: true,
       conditionalCellStyles: [
@@ -297,12 +232,17 @@ const Table2: FC = (): ReactElement => {
       },
     },
   };
-
+  const paginationComponentOptions = {
+    rowsPerPageText: "Menampilkan hasil",
+    rangeSeparatorText: "dari",
+    selectAllRowsItem: true,
+    selectAllRowsItemText: "Page",
+  };
   return (
     <div>
       <DataTable
         columns={columns}
-        data={data}
+        data={getProcessData}
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}
@@ -314,6 +254,8 @@ const Table2: FC = (): ReactElement => {
             <p>Data akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
           </div>
         }
+        pagination
+        paginationComponentOptions={paginationComponentOptions}
       />
     </div>
   );
