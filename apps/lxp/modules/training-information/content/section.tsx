@@ -73,7 +73,7 @@ export const TrainingInformationContent: FC = (): ReactElement => {
               className="!bg-[#3EB449] px-6 !border-none hover:!bg-[#319a3b] disabled:bg-version2-200/70 disabled:border-none  text-neutral-100  hover:border-version2-300 text-sm py-2 w-[180px] font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2"
             >
               {pendingCount > 0 && ongoingCount === 0 && <h1>Dalam Proses</h1>}
-              {pendingCount === 0 && ongoingCount > 0 && <h1>Pengajuan Sukses</h1>}
+              {pendingCount === 0 && ongoingCount > 0 && <h1>Pengajuan Diterima</h1>}
               {pendingCount === 0 && ongoingCount === 0 && (
                 <>
                   <IoMdAdd />
