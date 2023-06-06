@@ -116,6 +116,17 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
+  const topNavLinks = [
+    {
+      name: "About us",
+      href: "/tentang",
+    },
+    {
+      name: "Contact us",
+      href: "/kontak",
+    },
+  ];
+
   return (
     <div className={`${montserrat.className} max-w-[2200px]  container mx-auto`}>
       <Navbar
@@ -126,6 +137,8 @@ export const ClientProvider: FC<TProviderProps> = ({
         logoStyle="w-auto h-auto"
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
+        withSearch
+        topNavLinks={topNavLinks}
         bottomNavRules={_nav_rules}
         mobileMenuItems={_mobile_menu_item}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-version3-500 text-white font-reguler`}
