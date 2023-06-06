@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { TQuizSubmitPayload } from "../../type";
 
 export type TCountdownTimerProps = {
@@ -13,4 +14,5 @@ export type TCountdownTimerReturn = {
 
 export type TRemainingTimeProps = {
   expiryTimestamp: number;
+  icon: StaticImageData;
 };

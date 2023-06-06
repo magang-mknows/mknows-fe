@@ -1,10 +1,9 @@
 import { useCountdownTimer } from "./hooks";
 import { FC, ReactElement } from "react";
-import InfoIcon from "../../../assets/info.svg";
 import Image from "next/image";
 import { TRemainingTimeProps } from "./types";
 
-export const QuizTimer: FC<TRemainingTimeProps> = ({ expiryTimestamp }): ReactElement => {
+export const QuizTimer: FC<TRemainingTimeProps> = ({ expiryTimestamp, icon }): ReactElement => {
   const { hours, minutes, seconds, isComplete } = useCountdownTimer({
     targetHours: expiryTimestamp,
   });
@@ -14,7 +13,7 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({ expiryTimestamp }): ReactEl
       <p className="flex items-center gap-x-2 w-fit p-3 text-[#EE2D24] text-base font-normal">
         {!isComplete ? (
           <>
-            <Image src={InfoIcon} alt="Timer Icon" className="w-5 h-5" />
+            <Image src={icon} alt="Timer Icon" className="w-5 h-5" />
             <span>Sisa waktu:</span>
             <span>
               {hours}:{minutes}:{seconds}
