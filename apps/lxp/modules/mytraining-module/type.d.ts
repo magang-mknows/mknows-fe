@@ -7,7 +7,7 @@ export interface MyTrainingModuleItem {
   submitted: boolean;
   batch_id: string;
 }
-export type params = {
+export type TModulParams = {
   subjectID: string;
   batchID: string;
 };
