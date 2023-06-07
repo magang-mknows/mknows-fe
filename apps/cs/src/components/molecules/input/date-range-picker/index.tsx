@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import { DateRangePicker } from "react-date-range";
 import { addDays } from "date-fns";
-import IConCalendar from "../../../atoms/icons/ic-calendar";
+import { IConCalendar } from "@mknows-frontend-services/components/atoms";
 import { DateTimeFormatOptions, formatDate } from "@mknows-frontend-services/utils";
 
 interface DateRange {

@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { useReportQuery } from "../hooks";
-import Search from "../../../components/atoms/search";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
 import Table from "./table";
 

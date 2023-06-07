@@ -1,7 +1,6 @@
 import { ReactElement, FC, useState, useEffect } from "react";
 import { useRequest } from "../hooks";
-import Search from "../../../components/atoms/search";
-import Pagination from "../../../components/atoms/pagination";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import Table from "./table";
 import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";

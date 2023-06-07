@@ -1,6 +1,6 @@
 import { FC, ReactElement, Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import Spinner from "../../components/atoms/loading/spinner";
+import { Spinner } from "@mknows-frontend-services/components/atoms";
 import Sidebar from "../../components/organisms/sidebar";
 import SidebarSkeleton from "../../components/organisms/sidebar/sidebar-skeleton";
 

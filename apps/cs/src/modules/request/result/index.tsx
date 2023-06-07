@@ -1,7 +1,6 @@
 import { ReactElement, FC } from "react";
 import Table from "./table";
-import Pagination from "../../../components/atoms/pagination";
-import Search from "../../../components/atoms/search";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import { useResultQuery } from "../hooks";
 
 const ResultModule: FC = (): ReactElement => {

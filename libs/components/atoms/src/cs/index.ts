@@ -2,3 +2,4 @@ export * from "./icons";
 export * from "./loading";
 export * from "./search";
 export * from "./pagination";
+export * from "./tooltip";
