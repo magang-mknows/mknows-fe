@@ -4,3 +4,4 @@ export * from "./dashed-text";
 export * from "./loading";
 export * from "./bread-crumb";
 export * from "./chart";
+export * from "./quiz-timer";
