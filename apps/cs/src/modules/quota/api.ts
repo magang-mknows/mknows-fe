@@ -1,5 +1,5 @@
-import api from "../../services/api";
 import { TQuotaParams, TQuotaResponse } from "./types";
+import api from "../../services/api";
 
 export const getQuotaResponse = async (params: TQuotaParams): Promise<TQuotaResponse> => {
   const { data } = await api({

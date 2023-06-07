@@ -1,10 +1,10 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
-import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
-import Table from "./table2";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
+import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
+import Table from "./table2";
 
 const RiwayatAlokasi: FC = (): ReactElement => {
   const [option, setOption] = useState({

@@ -1,7 +1,7 @@
 import { ReactElement, FC } from "react";
-import Table from "./table";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import { useResultQuery } from "../hooks";
+import Table from "./table";
 
 const ResultModule: FC = (): ReactElement => {
   const { setResultQuery, getResultQuery } = useResultQuery();

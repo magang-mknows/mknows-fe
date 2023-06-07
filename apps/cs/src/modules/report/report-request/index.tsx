@@ -1,8 +1,8 @@
 import { ReactElement, FC } from "react";
-import Table from "./table";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import { useReportQuery } from "../hooks";
 import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
+import Table from "./table";
 
 const ReportRequest: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();

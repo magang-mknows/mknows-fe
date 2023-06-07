@@ -2,8 +2,8 @@ import { FC, ReactElement } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { IconBack, IconWarning } from "@mknows-frontend-services/components/atoms";
 import { Search } from "@mknows-frontend-services/components/atoms";
-import Table from "./table";
 import { Button } from "@mknows-frontend-services/components/atoms";
+import Table from "./table";
 
 const ChoiceFeature: FC = (): ReactElement => {
   return (

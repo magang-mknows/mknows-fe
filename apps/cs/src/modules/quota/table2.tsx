@@ -1,8 +1,8 @@
 import { FC, ReactElement } from "react";
 import { useFilterAction, useQuota } from "./hooks";
+import { TQuotaItem } from "./types";
 import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TQuotaItem } from "./types";
 
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
