@@ -1,26 +1,19 @@
 import { FC, ReactElement } from "react";
 import { SearchProps } from "./types";
-import IconSearch from "./ic-search";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const SearchInput: FC<SearchProps> = ({ onChange, value }): ReactElement => {
   return (
-    <div className="px-8 lg:px-1 items-center w-full">
-      <label htmlFor="simple-search" className="sr-only">
-        Search
-      </label>
-      <div className="relative w-full ">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <IconSearch />
-        </div>
+    <div className="px-8 lg:px-1 items-center w-full hidden md:block">
+      <div className=" flex items-center  rounded-md bg-neutral-100 h-9 px-4  md:w-64 lg:w-72 justify-between">
         <input
           type="text"
+          placeholder="Cari"
           value={value}
           onChange={onChange}
-          id="simple-search"
-          className="bg-neutral-100 border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
-          placeholder="Search"
-          required
+          className="bg-neutral-100 w-full text-sm outline-none"
         />
+        <AiOutlineSearch className="text-[18px]  text-neutral-900 hover:text-version3-500 transition-colors ease-in-out duration-300 cursor-pointer" />
       </div>
     </div>
   );

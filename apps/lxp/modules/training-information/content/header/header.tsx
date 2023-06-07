@@ -29,7 +29,7 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
 
   return (
     <header className="px-8 pb-6 pt-6 md:px-14 lg:px-16 mb-8">
-      <h1 className="text-xl text-neutral-800 font-bold mb-6">Pengajuan Pelatihan {name}</h1>
+      <h1 className="text-xl text-neutral-800 font-bold mb-6">Pengajuan Kompetensi {name}</h1>
       <section className="flex flex-wrap gap-y-2 justify-between items-end">
         <main>
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
@@ -44,7 +44,7 @@ export const TrainingInformationHeader: FC<TSubjectHeaderProps> = ({
             <span> 1 (Satu)</span>
           </h1>
           <h1 className="flex gap-4 mb-2 text-sm md:text-base">
-            <span className="min-w-[140px] lg:min-w-[200px]">Total Poin</span>
+            <span className="min-w-[140px] lg:min-w-[200px]">Total Kredit</span>
             <span>:</span>
             <span> {point} Poin</span>
           </h1>
