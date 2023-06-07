@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { Instruction } from "./type";
+import { Instruction, TMyStudyAssignmentItem } from "./type";
 
 export const dataTabelState = atom<Array<Instruction>>({
   key: "instructions-assignment",
@@ -13,4 +13,9 @@ export const dataTabelState = atom<Array<Instruction>>({
       deadline: "25/02/2023 24:59 WIB",
     },
   ],
+});
+
+export const mystudyAssignmentState = atom<Array<TMyStudyAssignmentItem>>({
+  key: "mystudy-assignment-state",
+  default: [],
 });

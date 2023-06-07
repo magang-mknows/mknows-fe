@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement, ReactNode } from "react";
+import { FC, Fragment, ReactElement, ReactNode, useEffect } from "react";
 import pdf from "./assets/pdf.svg";
 import Image from "next/image";
 import { Button } from "@mknows-frontend-services/components/atoms";
@@ -6,15 +6,74 @@ import { useGetMyStudyAssignmentById, useInstruction } from "./hooks";
 import { UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { BaseLayout } from "../../common";
 import { useRouter } from "next/router";
-import { TAssignment, TStudentProgress } from "./type";
+import {
+  TAssignment,
+  TMyStudyAssignmentSubmissionPayload,
+  TPayloadRequest,
+  TStudentProgress,
+} from "./type";
 import Link from "next/link";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useUpdateSubmissionMyStudyAssigment } from "./hooks";
 
 export const Status: FC = (): ReactElement => {
   const router = useRouter();
   const { getInstruction } = useInstruction();
   const { data } = useGetMyStudyAssignmentById(router.query.assignmentId as string);
-  const assignment: TAssignment = data?.data.assignment as TAssignment;
-  const studentProgress: TStudentProgress = data?.data.student_progress as TStudentProgress;
+  const { data: afterSubmissionData, mutate } = useUpdateSubmissionMyStudyAssigment();
+
+  let assignment: TAssignment = data?.data.assignment as TAssignment;
+  let studentProgress: TStudentProgress = data?.data.student_progress as TStudentProgress;
+
+  useEffect(() => {
+    assignment = afterSubmissionData?.data.assignment as TAssignment;
+    studentProgress = afterSubmissionData?.data.student_progress as TStudentProgress;
+  }, [afterSubmissionData]);
+
+  const MAX_FILE_SIZE = 5 * 1024 * 1024;
+  const ACCEPTED_MEDIA_TYPES = ["application/pdf"];
+
+  const validationSchema = z.object({
+    files: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimum adalah 5mb.",
+      )
+      .refine(
+        (files: File[]) => ACCEPTED_MEDIA_TYPES.includes(files?.[0]?.type),
+        "hanya menerima .pdf",
+      ),
+    filesToDelete: z.any(),
+  });
+
+  type TValidationSchema = z.infer<typeof validationSchema>;
+
+  const { control, handleSubmit } = useForm<TValidationSchema>({
+    resolver: zodResolver(validationSchema),
+    mode: "all",
+    defaultValues: {
+      files: null,
+      filesToDelete: null,
+    },
+  });
+
+  const onSubmitHandler = handleSubmit((data) => {
+    if (data) {
+      const payloadReq: TPayloadRequest = {
+        files: data.files[0],
+        filesToDelete: data.filesToDelete ? data.filesToDelete : null,
+      };
+      const payload: TMyStudyAssignmentSubmissionPayload = {
+        id: router.query.assignmentId as string,
+        req: payloadReq,
+      };
+      console.log(payloadReq);
+      mutate(payload);
+    }
+  });
 
   function timestampRemainingHandler(timestamp_taken: string, deadline: string) {
     const timestamp_taken_formatted = new Date(timestamp_taken);
@@ -111,9 +170,9 @@ export const Status: FC = (): ReactElement => {
           <div className="mt-[36px]">
             <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
             <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-5 lg:text-[12px] text-[10px]">
-              {tabelState.map((row) => {
+              {tabelState.map((row, index) => {
                 return (
-                  <>
+                  <Fragment key={index}>
                     <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
                       {row.namaTabel}
                     </div>
@@ -145,13 +204,15 @@ export const Status: FC = (): ReactElement => {
                         row.response
                       )}
                     </div>
-                  </>
+                  </Fragment>
                 );
               })}
             </div>
           </div>
-          <form>
+          <form onSubmit={onSubmitHandler}>
             <UploadDragbleField
+              control={control}
+              // onChange={onChangeHandler}
               name="files"
               className="border-dashed border-2 border-[#D4D4D4] mt-[28px]"
               variant={"sm"}
@@ -162,7 +223,7 @@ export const Status: FC = (): ReactElement => {
             </p>
             <Button
               type={"submit"}
-              className="mx-auto w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-1000"
+              className="mx-auto py-6 lg:py-0 w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-300"
             >
               Unggah Tugas
             </Button>

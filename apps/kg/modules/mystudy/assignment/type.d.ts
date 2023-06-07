@@ -11,7 +11,7 @@ export type Instruction = {
 
 // Service API
 
-export type TAssignmentItem = {
+export type TMyStudyAssignmentItem = {
   assignment: TAssignment;
   student_progress: TStudentProgress;
 };
@@ -51,9 +51,14 @@ export type TStudentProgress = {
   deadline: string;
 };
 
-export type TAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
+export type TMyStudyAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
 
-export type TAssignmentSubmissionPayload = {
-  files: File[];
-  filesToDelete: string[] | null;
+export type TPayloadRequest = {
+  files: File[] | null;
+  filesToDelete?: string[] | null;
+};
+
+export type TMyStudyAssignmentSubmissionPayload = {
+  id: string;
+  req: TPayloadRequest;
 };
