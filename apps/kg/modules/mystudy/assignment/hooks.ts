@@ -16,8 +16,8 @@ type Instructions = {
 };
 
 type TuseMyStudyAssignmentItem = {
-  getMyStudyAssignmentItem: Array<TMyStudyAssignmentItem>;
-  setMyStudyAssignmentItem: (val: Array<TMyStudyAssignmentItem>) => void;
+  getMyStudyAssignmentItem: TMyStudyAssignmentItem | null;
+  setMyStudyAssignmentItem: (val: TMyStudyAssignmentItem) => void;
 };
 
 export const useInstruction = (): Instructions => {

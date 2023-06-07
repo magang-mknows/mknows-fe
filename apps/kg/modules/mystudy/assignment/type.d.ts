@@ -51,11 +51,11 @@ export type TStudentProgress = {
   deadline: string;
 };
 
-export type TMyStudyAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
+export type TMyStudyAssignmentResponse = TMetaResponseSingle<TMyStudyAssignmentItem>;
 
 export type TPayloadRequest = {
   files: File[] | null;
-  filesToDelete?: string[] | null;
+  filesToDelete?: string[] | string | null;
 };
 
 export type TMyStudyAssignmentSubmissionPayload = {

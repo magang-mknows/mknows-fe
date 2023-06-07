@@ -15,7 +15,7 @@ export const dataTabelState = atom<Array<Instruction>>({
   ],
 });
 
-export const mystudyAssignmentState = atom<Array<TMyStudyAssignmentItem>>({
+export const mystudyAssignmentState = atom<TMyStudyAssignmentItem | null>({
   key: "mystudy-assignment-state",
-  default: [],
+  default: null,
 });
