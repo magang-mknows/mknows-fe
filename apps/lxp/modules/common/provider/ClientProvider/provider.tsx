@@ -118,11 +118,11 @@ export const ClientProvider: FC<TProviderProps> = ({
 
   const topNavLinks = [
     {
-      name: "About us",
+      name: "Tentang",
       href: "/tentang",
     },
     {
-      name: "Contact us",
+      name: "Kontak Kami",
       href: "/kontak",
     },
   ];
