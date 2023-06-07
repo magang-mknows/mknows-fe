@@ -24,22 +24,14 @@ export const SideBar: FC<SideBarProps> = ({ active }): ReactElement => {
             active === "RegisteredEvent" && "bg-[#E9F6FD] dark:bg-[#a1a1a8]"
           } `}
         >
-<<<<<<< Updated upstream
-          <Link href={"/acara-kampus-terdaftar"}>Event Terdaftar</Link>
-=======
           <Link href={'/acara-kampus/terdaftar'}>Event Terdaftar</Link>
->>>>>>> Stashed changes
         </div>
         <div
           className={`flex items-center px-[12px] rounded-[8px] w-full h-full ${
             active === "EventHistory" && "bg-[#E9F6FD] dark:bg-[#a1a1a8]"
           } `}
         >
-<<<<<<< Updated upstream
-          <Link href={"/acara-kampus-riwayat"}>Riwayat Event</Link>
-=======
           <Link href={'/acara-kampus/riwayat'}>Riwayat Event</Link>
->>>>>>> Stashed changes
         </div>
       </div>
     </div>

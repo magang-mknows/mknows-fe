@@ -1,17 +1,17 @@
 import { FC, Fragment, ReactElement } from "react";
 
-import { CardList } from '../common/card-list';
-import { Pagination } from '../common/pagination';
-import { SearchBar } from '../common/search-bar';
-import { SideBar } from '../common/side-bar';
-import { useGetEventRegistered } from './hooks';
-import { StaticImageData } from 'next/image';
+import { CardList } from "../common/card-list";
+import { Pagination } from "../common/pagination";
+import { SearchBar } from "../common/search-bar";
+import { SideBar } from "../common/side-bar";
+import { useGetEventRegistered } from "./hooks";
+import { StaticImageData } from "next/image";
 
 export const RegisteredEvent: FC = (): ReactElement => {
   const { data } = useGetEventRegistered();
   const eventListData = data?.data;
   console.log(eventListData);
-
+  
   return (
     <Fragment>
       <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row">
@@ -28,7 +28,7 @@ export const RegisteredEvent: FC = (): ReactElement => {
                   slug={item.id}
                   title={item.name}
                   image={item.thumbnail as unknown as StaticImageData}
-                  price={'GRATIS'}
+                  price={"GRATIS"}
                   day={item.date_start}
                   date={item.date_start}
                   status={item.event_studentEvent[0].status}

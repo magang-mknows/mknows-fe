@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
-import { ReactElement } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { BaseLayout } from '../../../modules/common/layout/base/section';
-import { EventDetail } from '@kg/modules/event/event-detail';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { acaraKampusBreadCumbs } from '@kg/modules/administration/constant';
+import type { NextPage } from "next";
+import { ReactElement } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { BaseLayout } from "../../../modules/common/layout/base/section";
+import { EventDetail } from "../../../modules/event/event-detail";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { acaraKampusBreadCumbs } from "../../../modules/administration/constant";
 
 const StudyPlanPage: NextPage = (): ReactElement => {
   return (

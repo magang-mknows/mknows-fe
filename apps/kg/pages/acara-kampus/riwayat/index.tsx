@@ -1,9 +1,9 @@
-import { BaseLayout } from '@kg/modules';
-import { acaraKampusBreadCumbs } from '@kg/modules/administration/constant';
-import { EventHistory } from '../../../modules/event';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
+import { acaraKampusBreadCumbs } from "../../../modules/administration/constant";
+import { EventHistory } from "../../../modules/event";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { NextPage } from "next";
+import { ReactElement } from "react";
+import { BaseLayout } from "../../../modules";
 
 const EventPage: NextPage = (): ReactElement => {
   return (

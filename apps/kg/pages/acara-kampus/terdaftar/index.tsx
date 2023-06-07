@@ -1,11 +1,10 @@
-import { BaseLayout } from '@kg/modules';
-import { RegisteredEvent } from '../../../modules/event';
-import { NextPage } from 'next';
-import { ReactElement } from 'react';
-import { BreadCrumb } from '@mknows-frontend-services/components/atoms';
-import { acaraKampusBreadCumbs } from '@kg/modules/administration/constant';
+import { BaseLayout, RegisteredEvent } from "../../../modules";
+import { NextPage } from "next";
+import { ReactElement } from "react";
+import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
+import { acaraKampusBreadCumbs } from "../../../modules/administration/constant";
 
-const EventPage: NextPage = (): ReactElement => {
+const EventPages: NextPage = (): ReactElement => {
   return (
     <BaseLayout>
       <BreadCrumb items={acaraKampusBreadCumbs} />
@@ -16,4 +15,4 @@ const EventPage: NextPage = (): ReactElement => {
   );
 };
 
-export default EventPage;
+export default EventPages;

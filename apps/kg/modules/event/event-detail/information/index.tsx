@@ -1,12 +1,8 @@
 import { FC, ReactElement } from "react";
 import RelatedEvent from "../common/releted-event";
 
-<<<<<<< Updated upstream
-import { EventCard } from "../common/event-card";
-=======
 import { EventCard } from '../common/event-card';
 import { TEventResponse } from '../types';
->>>>>>> Stashed changes
 
 export const Information: FC = (): ReactElement => {
   return (
