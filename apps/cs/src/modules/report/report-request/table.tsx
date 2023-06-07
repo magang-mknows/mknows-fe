@@ -28,12 +28,12 @@ const Table: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "Jenis Permintaan",
+      name: "Jenis Scoring",
       cell: (row) => row.jenis_produk,
       sortable: true,
     },
     {
-      name: "Jumlah User",
+      name: "Jumlah Customer",
       cell: (row) => row.jumlah_user,
       sortable: true,
     },

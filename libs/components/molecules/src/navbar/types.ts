@@ -39,6 +39,7 @@ export type TNavbarProps = {
   showBottomNav?: boolean;
   button?: ReactNode;
   withSearch?: boolean;
+  topNavLinks?: { name: string; href: string }[];
   mobileMenuItems: {
     name: string;
     icon: ReactNode;

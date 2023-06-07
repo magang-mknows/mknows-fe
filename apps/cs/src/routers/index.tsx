@@ -121,7 +121,7 @@ export const routes = createBrowserRouter([
             element: <ResultModule />,
           },
           {
-            path: "/dashboard/request/choice",
+            path: "/dashboard/request/choice-feature",
             element: <ChoiceFeature />,
           },
         ],

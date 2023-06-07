@@ -4,11 +4,11 @@ import { FC, ReactElement } from "react";
 import { HiDocumentText } from "react-icons/hi2";
 import { RiVideoFill } from "react-icons/ri";
 import { useGetMyWorkModule } from "../hooks";
-import { MyTrainingModuleItem, params } from "../type";
+import { MyTrainingModuleItem, TModulParams } from "../type";
 
 export const MtTrainingModuleMain: FC = (): ReactElement => {
   const { query } = useRouter();
-  const params: params = {
+  const params: TModulParams = {
     subjectID: query.subjectID as string,
     batchID: query.batchID as string,
   };

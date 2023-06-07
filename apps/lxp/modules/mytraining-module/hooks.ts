@@ -1,9 +1,9 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { getMyWorkModule } from "./api";
-import { TMyTrainingModuleResponse, params } from "./type";
+import { TModulParams, TMyTrainingModuleResponse } from "./type";
 
 export const useGetMyWorkModule = (
-  params: params,
+  params: TModulParams,
 ): UseQueryResult<TMyTrainingModuleResponse, unknown> =>
   useQuery<TMyTrainingModuleResponse>({
     queryKey: ["get-subject-by-dept-id", params],

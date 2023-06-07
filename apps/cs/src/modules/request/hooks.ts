@@ -1,5 +1,5 @@
 import { useRecoilValue, useRecoilState } from "recoil";
-import { filterActionProcess, icon, resultFilter, resultSearch } from "./store";
+import { filterActionProcess, filterActionResult, icon, resultFilter, resultSearch } from "./store";
 import {
   TProcessItem,
   TProcessParams,
@@ -8,11 +8,13 @@ import {
   TRequestItem,
   TRequestResponse,
   TResultDataResponse,
+  TResultParams,
   TResultQueryResponse,
+  TResultResponse,
 } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { getDataProcess, getDataRequest, getProcessResponse } from "./api";
+import { getDataProcess, getDataRequest, getProcessResponse, getResultResponse } from "./api";
 
 export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(icon);
@@ -49,13 +51,7 @@ export const useDataProcess = (): UseQueryResult<TProcessResponse, TProcessItem>
     queryFn: async () => await getDataProcess(),
   });
 };
-
-export const useProcessFilter = (): UseQueryResult<TProcessResponse, TRequestItem> => {
-  return useQuery({
-    queryKey: ["get-process-filter"],
-    queryFn: async () => await getDataProcess(),
-  });
-};
+// proses page
 
 export const useProcess = (
   params: TProcessParams,
@@ -71,5 +67,24 @@ export const useFilterActionProcess = () => {
   return {
     getFilterActionProcess: get,
     setFilterActionProcess: (params: TProcessParams) => set(params),
+  };
+};
+
+// result page
+
+export const useResult = (
+  params: TResultParams,
+): UseQueryResult<TResultResponse, TMetaErrorResponse> => {
+  return useQuery({
+    queryKey: ["get-process", params],
+    queryFn: async () => await getResultResponse(params),
+  });
+};
+
+export const useFilterActionResult = () => {
+  const [get, set] = useRecoilState(filterActionResult);
+  return {
+    getFilterActionResult: get,
+    setFilterActionResult: (params: TResultParams) => set(params),
   };
 };

@@ -13,8 +13,7 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>:</span>
           </section>
           <span className="font-bold">
-            Jl. Radio IV No.8-B, RT.1/RW.4, Kramat Pela, Kec. Kby. Baru, Kota Jakarta Selatan. DKI
-            Jakarta 12240
+            Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta Selatan 12130
           </span>
         </li>
         <li className="flex gap-2 ">
@@ -23,7 +22,7 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>:</span>
           </section>
           <span>
-            Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan, Banten
+            Jl. Raya Cirendeu No.60, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan, Banten
             15419
           </span>
         </li>
