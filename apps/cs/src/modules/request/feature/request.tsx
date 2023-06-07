@@ -36,7 +36,7 @@ const RequestModule: FC = (): ReactElement => {
                   <p className="text-sm font-semibold">{item.name}</p>
                   <p className="text-neutral-400 font-normal text-xs">Data Masuk 500</p>
                 </div>
-                <div className="text-center text-sm right-2 top-2 absolute rounded-[40px] w-[22px] h-[22px] bg-neutral-200">
+                <div className="text-center text-xs right-2 top-2 absolute rounded-full w-[22px] h-[22px] bg-neutral-200 font-semibold py-1">
                   {item.number}
                 </div>
               </div>

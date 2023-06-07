@@ -38,7 +38,6 @@ export type TUserItem = {
 
 export type TUserParams = {
   date_from?: string;
-  date_to?: string;
   page?: string;
   per_page?: string;
   search?: string;
