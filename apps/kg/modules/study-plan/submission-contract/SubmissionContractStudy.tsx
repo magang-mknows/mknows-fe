@@ -7,10 +7,19 @@ import PopupModal from "../components/PopupModal";
 import Confirm from "../assets/confirm.svg";
 import Download from "../assets/download.svg";
 import Warning from "../assets/warning.svg";
+import { useContractById } from "./hooks";
+import { useRouter } from "next/router";
 
 export const SubmissionContractStudy: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
   const { getDataCard } = useDataCard();
+
+  const router = useRouter();
+  const { id_jurusan } = router.query;
+  const { data } = useContractById(id_jurusan as string);
+  const contractData = data?.data;
+  console.log(contractData);
+
   const { setPopupStatus, getPopupStatus } = usePopupConfirmCardStudy();
 
   return (
@@ -73,34 +82,34 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
               <p>Pertemuan</p>
             </div>
 
-            {getDataTable.map((x, i) => (
+            {contractData?.dataSubjects.map((x, i) => (
               <>
                 <div
                   key={i}
                   className="p-3 text-center border-t border-[#E5E5E5] dark:divide-gray-700 col-span-1 lg:text-[16px] md:text-[16px] text-[12px]"
                 >
-                  {x.no}
+                  {i}
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
                   <div className="w-full p-4 lg:flex lg:justify-center lg:gap-4">
-                    <Image src={x.img} alt="User" />
+                    <Image src={x.thumbnail} alt="User" />
                     <div className="flex flex-col w-full">
-                      <h1 className="pt-3 font-bold text-start ">{x.matkul}</h1>
-                      <p className="pt-3 text-gray-400 text-start">{x.jmlh_mahasiswa}</p>
+                      <h1 className="pt-3 font-bold text-start ">{x.name}</h1>
+                      <p className="pt-3 text-gray-400 text-start">{x.enrolled_count}</p>
                     </div>
                   </div>
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.kode_matkul}
+                  {x.subject_code}
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.jmlh_sks} SKS
+                  {x.credit} SKS
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.semester}
+                  {x.current_semester}
                 </div>
                 <div className="pt-3 border-t border-[#E5E5E5] dark:divide-gray-700 col-span-2 lg:text-[16px] md:text-[16px] text-[12px] lg:text-start text-center">
-                  {x.jmlh_pertemuan} Pertemuan
+                  {x.session_count}
                 </div>
               </>
             ))}

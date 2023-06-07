@@ -1,14 +1,12 @@
 import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-import { useRecoilState, useRecoilValue } from "recoil";
-import { filterOptionSubject, queryOptionSubject } from "../stores";
+import { useMajorById } from "./hooks";
 import Card from "../components/Card";
 
+import ImgChoiceFaculty from "../assets/choicefaculty2.svg";
 import DefaultView from "../assets/data-kosong.png";
 import Search from "../assets/search.svg";
-import { useMajorById } from "./hooks";
 
 export const StudyProgram: FC = (): ReactElement => {
   const router = useRouter();
@@ -16,11 +14,6 @@ export const StudyProgram: FC = (): ReactElement => {
   const { data } = useMajorById(id_fakultas as string);
   const majorData = data?.data;
   console.log(majorData);
-
-  // const getOptionSubject = useRecoilValue(
-  //   filterOptionSubject(q.slug as unknown as string)
-  // );
-  // const [query, setQuery] = useRecoilState(queryOptionSubject);
 
   const [isClose, setClose] = useState(false);
   return (
@@ -33,7 +26,7 @@ export const StudyProgram: FC = (): ReactElement => {
               type={"text"}
               // value={query}
               className="w-full bg-transparent focus:outline-none"
-              placeholder="Cari Mata Kuliah"
+              placeholder="Cari Program Studi"
               // onChange={(event) => setQuery(event.target.value)}
             />
           </div>
@@ -90,12 +83,12 @@ export const StudyProgram: FC = (): ReactElement => {
               <>
                 {majorData?.map((x, i) => (
                   <Card
-                    href={'/kontrak-krs/' + x.id}
+                    href={"/kontrak-krs/" + x.id}
                     key={i}
                     className="px-3 rounded-lg "
                     hasImage={true}
                     imgStyle="rounded-lg"
-                    // src={x.src}
+                    src={ImgChoiceFaculty}
                     titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
                     icon={
                       <div className="flex flex-row gap-2 px-4 space-x-1">

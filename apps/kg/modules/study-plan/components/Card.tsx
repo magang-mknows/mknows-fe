@@ -25,7 +25,7 @@ const Card: FC<CardProps> = ({
             {hasImage && (
               <Image
                 className={`object-cover ${imgStyle}`}
-                src={src}
+                src={src as unknown as string}
                 alt="Picture of the author"
                 width={imgwidth}
                 height={imgheight}
@@ -41,7 +41,7 @@ const Card: FC<CardProps> = ({
           {hasImage && (
             <Image
               className={`w-full object-cover ${imgStyle}`}
-              src={src}
+              src={src as unknown as string}
               alt={title as string}
               width={imgwidth}
               height={imgheight}
