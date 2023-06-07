@@ -43,12 +43,17 @@ type TTeacherSubject = {
 export type TStudentProgress = {
   status: string;
   type: string;
-  score: any;
+  score: number;
   is_late: boolean;
-  assignment_answer: string[];
+  assignment_answer: string[] | null;
   timestamp_taken: string;
   timestamp_submitted: string;
   deadline: string;
 };
 
 export type TAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
+
+export type TAssignmentSubmissionPayload = {
+  files: File[];
+  filesToDelete: string[] | null;
+};
