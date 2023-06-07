@@ -3,6 +3,7 @@ import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
 import { TResultItem } from "../types";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table2: FC = (): ReactElement => {
   const getProcessData = [
@@ -96,27 +97,37 @@ const Table2: FC = (): ReactElement => {
   const columns: TableColumn<TResultItem>[] = [
     {
       name: "ID",
-      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+      width: "5%",
+      cell: (row, rowIndex) => <div className="">{rowIndex + 1}</div>,
       sortable: true,
     },
     {
       name: "Jenis Permintaan",
-      selector: (row) => row.feature,
+      width: "20%",
+      cell: (row) => <div className="font-semibold">{row.feature}</div>,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
-      selector: (row) => row.total_user,
+      width: "16%",
+      cell: (row) => <div className="font-semibold pl-10">{row.total_user}</div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-      selector: (row) => row.requested_at,
+
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Tanggal Selesai",
-      selector: (row) => row.finished_at,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.finished_at),
+        }),
       sortable: true,
     },
   ];
@@ -145,7 +156,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      selector: (row) => row.nama,
+      cell: (row) => <div className="font-semibold">{row.nama}</div>,
       sortable: true,
     },
     {

@@ -20,25 +20,30 @@ const Table: FC = (): ReactElement => {
   const columns: TableColumn<TReportDataDummy>[] = [
     {
       name: "No",
+      width: "6%",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
     {
       name: "No Permintaan",
+      width: "14.5%",
       selector: (row) => row.no,
       sortable: true,
     },
     {
       name: "Jenis Scoring",
+      width: "21%",
       cell: (row) => row.jenis_produk,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
-      cell: (row) => row.jumlah_user,
+      width: "15.8%",
+      cell: (row) => <div className="pl-10"> {row.jumlah_user} </div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
+      width: "18%",
       cell: (row) => row.tggl_permintaan,
       sortable: true,
     },

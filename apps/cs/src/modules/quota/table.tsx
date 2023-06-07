@@ -1,69 +1,118 @@
 import { FC, ReactElement } from "react";
-import { formatDate } from "@mknows-frontend-services/utils";
 import { useFilterAction, useQuota } from "./hooks";
+import { IconDropdown, IconEmptyState } from "../../components/atoms";
+import DataTable, { TableColumn } from "react-data-table-component";
+import { TQuotaItem } from "./types";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
   const { data } = useQuota(getFilterAction);
+  const paginationComponentOptions = {
+    rowsPerPageText: "Data per halaman",
+    rangeSeparatorText: "dari",
+  };
+
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
+  const columns: TableColumn<TQuotaItem>[] = [
+    {
+      name: "No Permintaan",
+      width: "13%",
+      cell: (row) => <div className="pl-6">{row.request_number}</div>,
+    },
+    {
+      name: "Jenis Scoring",
+      selector: (row) => row.feature,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Permintaan",
+      width: "24%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.created_at),
+        }),
+      sortable: true,
+    },
+    {
+      name: "Tanggal Jumlah Customer",
+      cell: (row) => <div className="pl-12">{row.quantity}</div>,
+      sortable: true,
+    },
+    {
+      name: "Status",
+      cell: (row) => (
+        <button
+          className={` ${
+            row.status === "SUCCESS"
+              ? "bg-success-500"
+              : row.status === "PROCESS"
+              ? "bg-secondary-600"
+              : "bg-error-400"
+          } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
+        >
+          {row.status}
+        </button>
+      ),
+    },
+  ];
+
+  const customStyles = {
+    rows: {
+      style: {
+        minHeight: "45px",
+      },
+    },
+    expanderButton: {
+      style: {
+        color: "white",
+        borderRadius: "100%",
+        backgroundColor: "#1B9984",
+        width: "50%",
+        height: "50%",
+        svg: {
+          width: "70%",
+        },
+      },
+    },
+    headCells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+        backgroundColor: "#F5F8FF",
+        textColor: "#A3A3A3",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "8px",
+        paddingRight: "8px",
+      },
+    },
+  };
 
   return (
-    <div className="overflow-x-scroll">
-      <table className="w-full text-sm border rounded-lg text-left text-gray-500  dark:text-gray-400">
-        <thead className="text-xs border text-gray-700 font-light bg-[#D0F9E3] ">
-          <tr>
-            <th scope="col" className="px-6 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>No Permintaan</p>
-              </div>
-            </th>
-            <th scope="col" className="px-6 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Jenis Produk</p>
-              </div>
-            </th>
-            <th scope="col" className=" px-6 py-2 cursor-default">
-              <div className=" flex gap-2 justify-center items-center">
-                <p>Tanggal Permintaan</p>
-              </div>
-            </th>
-            <th scope="col" className=" px-6 py-2 cursor-default">
-              <div className=" flex gap-2 justify-center items-center">
-                <p>Jumlah Kuota</p>
-              </div>
-            </th>
-            <th scope="col" className="px-6 py-2 cursor-default">
-              <div className="flex gap-2 justify-center items-center">
-                <p>Status</p>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        {data?.data.map((item, key) => {
-          return (
-            <tbody key={key}>
-              <tr className="bg-white border-b dark:bg-[#ffff]">
-                <td className="pl-12 py-1 text-[#262626]">{item.request_number}</td>
-                <td className="px-0 py-1 font-semibold text-neutral-800">{item.feature}</td>
-                <td className="pl-14 py-1">{formatDate({ date: new Date(item.created_at) })}</td>
-                <td className="pl-12 py-1">{item.quantity}</td>
-                <td className="pl-8 py-1 bg-green-400">
-                  <button
-                    className={` ${
-                      item.status === "SUCCESS"
-                        ? "bg-success-500"
-                        : item.status === "PROCESS"
-                        ? "bg-[#3B8BDB]"
-                        : "bg-[#EE2D24]"
-                    } text-white w-[100px] text-sm font-semibold uppercase py-1.5 rounded-md cursor-default`}
-                  >
-                    {item.status}
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          );
-        })}
-      </table>
+    <div>
+      <DataTable
+        columns={columns}
+        data={data?.data as TQuotaItem[]}
+        customStyles={customStyles}
+        fixedHeader={true}
+        sortIcon={sortIcon}
+        pagination
+        paginationComponentOptions={paginationComponentOptions}
+        noDataComponent={
+          <div className="flex flex-col w-full h-screen justify-center items-center">
+            <IconEmptyState />
+            <h1 className="font-bold my-2">Data Tidak Tersedia</h1>
+            <p>Table akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
+          </div>
+        }
+      />
     </div>
   );
 };

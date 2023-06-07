@@ -11,16 +11,19 @@ const Table2: FC = (): ReactElement => {
   const columns: TableColumn<TProcessItem>[] = [
     {
       name: "ID",
+      width: "6%",
       cell: (row, rowIndex) => <div>{rowIndex + 1}</div>,
       sortable: true,
     },
     {
       name: "No Permintaan",
+      width: "12.5%",
       selector: (row) => row.request_number,
       sortable: true,
     },
     {
       name: "NIK",
+      width: "18%",
       selector: (row) => row.nik,
       sortable: true,
     },
@@ -31,6 +34,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Permintaan",
+      width: "22%",
       selector: (row) =>
         formatDate({
           date: new Date(row.requested_at),
@@ -39,6 +43,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Input",
+      width: "25%",
       selector: (row) =>
         formatDate({
           date: new Date(row.finished_at),

@@ -1,7 +1,7 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import Search from "../../components/atoms/search";
 import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
-import Table from "./table2";
+import Table from "./table";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
