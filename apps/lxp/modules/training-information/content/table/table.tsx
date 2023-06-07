@@ -40,7 +40,7 @@ export const TrainingInformationTable: FC<TsubjectTableProps> = ({ subjectData }
                     scope="col"
                     className="px-6 py-3 text-center font-normal  text-neutral-800 text-base "
                   >
-                    Jumlah Poin
+                    Jumlah Kredit Poin
                   </th>
                   <th
                     scope="col"

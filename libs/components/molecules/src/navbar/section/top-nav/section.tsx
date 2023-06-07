@@ -12,6 +12,9 @@ import {
   NavbarUserMenu,
 } from "./dropdown-menu";
 import { useRouter } from "next/router";
+import { SearchInput } from "@mknows-frontend-services/components/atoms";
+import { useRecoilState } from "recoil";
+import { navSearchKeyword } from "./store";
 
 export const TopNav: FC<TNavbarProps> = ({
   logo,
@@ -19,11 +22,14 @@ export const TopNav: FC<TNavbarProps> = ({
   button,
   userData,
   withSearch,
+  topNavLinks,
   mobileMenuItems,
   ...props
 }): ReactElement => {
   const router = useRouter();
   const { data: session } = useSession();
+
+  const [getSearchingKeyword, setSearchingKeyword] = useRecoilState(navSearchKeyword);
 
   return (
     <header className="flex w-full justify-between bg-white">
@@ -47,7 +53,29 @@ export const TopNav: FC<TNavbarProps> = ({
           />
         )}
       </div>
+
       <div className="flex gap-2 md:gap-3 lg:gap-4 items-center ">
+        {topNavLinks?.length !== 0 ? (
+          <div className="gap-4 hidden lg:flex mr-2  w-full">
+            {topNavLinks?.map((item) => {
+              return (
+                <Link href={item.href} key={item.href}>
+                  <p className="text-sm text-neutral-900  hover:text-version3-500 ease-in-out duration-300 cursor-pointer hover:underline hover:underline-offset-4">
+                    {item.name}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+        ) : null}
+        {withSearch ? (
+          <SearchInput
+            value={getSearchingKeyword}
+            onChange={(e) => {
+              setSearchingKeyword(e.target.value);
+            }}
+          />
+        ) : null}
         <NavbarFeatureMenu features={props.features} />
         {session ? (
           <>

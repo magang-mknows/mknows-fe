@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 
 import DetailCard from "./DetailCard";
 import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
-import { myTrainingQuizBreadCumbs } from "../../../constant";
+import { myTrainingQuizBreadCumbs } from "../../../const";
 // import Button from "@/components/Common/Button";
 // import { useGetQuizReview } from "@/hooks/Quiz/useGetQuizReview";
 import { ClientProvider } from "../../../../common/provider";

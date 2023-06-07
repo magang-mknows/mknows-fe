@@ -9,6 +9,7 @@ export type TIdentityFile = {
   surat_nomor_akta_notaris?: File;
   surat_keterangan_domisili_usaha?: File;
   npwp?: File;
+  npwp_perusahaan?: File;
   surat_tanda_daftar_perusahaan?: File;
 };
 

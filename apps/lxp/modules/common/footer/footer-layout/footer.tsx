@@ -33,7 +33,7 @@ export const LayoutFooter: FC = (): ReactElement => {
       </section>
       <section className="flex gap-2 items-center">
         <AiFillCopyrightCircle className="text-xl" />
-        <h1 className="text-xs md:text-sm">2023 - Disusun oleh tim Kampus Gratis</h1>
+        <h1 className="text-xs md:text-sm">2023 - Disusun oleh tim LMS M-Knows</h1>
       </section>
     </div>
   );

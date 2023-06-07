@@ -3,9 +3,9 @@ import { HiOutlineTicket } from "react-icons/hi";
 import { TbCalendarStats } from "react-icons/tb";
 import { EventCardProps } from "./types";
 
-export const EventCard: FC<EventCardProps> = ({ isOrder }): ReactElement => {
+export const EventCard: FC<EventCardProps> = ({ isOrder, content }): ReactElement => {
   return (
-    <div className="bg-white shadow-sm rounded-md w-full px-7 py-10 mb-6">
+    <div className="w-full py-10 mb-6 bg-white rounded-md shadow-sm px-7">
       <header className="flex items-center gap-3 mb-10 text-neutral-800">
         {isOrder ? (
           <HiOutlineTicket className="text-[30px]" />
@@ -14,7 +14,7 @@ export const EventCard: FC<EventCardProps> = ({ isOrder }): ReactElement => {
         )}
         <p className="text-lg font-thin ">{isOrder ? "Pemesanan Tiket" : "Acara"}</p>
       </header>
-      <main className="text-neutral-500 text-sm">
+      <main className="text-sm text-neutral-500">
         {isOrder ? (
           <>
             <section className="mb-4">

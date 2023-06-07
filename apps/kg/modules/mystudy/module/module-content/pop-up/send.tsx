@@ -3,14 +3,21 @@ import { usePopupConfirmModul } from "../hooks";
 import { useConfirmModul } from "../../hooks";
 import { PopupModal } from "../../../discussion/components/modal/pop-up";
 import { ModuleButton } from "../../components/button";
+import { useSubmitModuleResumeById } from "./hooks";
+import { TModuleResumePayload } from "./types";
 
-export const ModulePopup: FC = (): ReactElement => {
+export const ModulePopup: FC<{ moduleId: string }> = ({ moduleId }): ReactElement => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { setPopupStatus, getPopupStatus } = usePopupConfirmModul();
   const { setConfirmModul } = useConfirmModul();
+  const { mutate } = useSubmitModuleResumeById(moduleId);
 
   function onSendHandler() {
-    console.log(inputRef.current?.value);
+    const temp: TModuleResumePayload = {
+      module_answer: inputRef.current?.value as string,
+    };
+    const moduleResumePayload = JSON.stringify(temp);
+    mutate(moduleResumePayload);
   }
 
   return (
