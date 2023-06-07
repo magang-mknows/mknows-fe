@@ -48,7 +48,7 @@ const Table: FC = (): ReactElement => {
               <tr key={key} className="text-[#262626] bg-white border-b dark:bg-[#ffff] ">
                 <td className="px-8">{key + 1}</td>
 
-                <td className="px-8 py-2 ">{item.nik}</td>
+                <td className="pl-12 py-2 ">{item.nik}</td>
                 <td className="px-4 py-2 font-semibold text-xs">{item.nama}</td>
 
                 <td className="px-4 py-2 bg-green-400">
