@@ -1,18 +1,16 @@
-import { IconBack } from "../../../components/atoms";
 import { FC, ReactElement, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../../components/molecules/card";
 import { useDataProcess, useRequestData } from "../hooks";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
-import Search from "../../../components/atoms/search";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import Table from "./table";
 import { useFilterAction } from "../../quota/hooks";
 import { useDebounce } from "../../common/hooks";
 import close from "/assets/request-page/close.webp";
 import alert from "/assets/alert-circle.webp";
-import Pagination from "../../../components/atoms/pagination";
-import { IConDelete } from "../../../components/atoms";
+import { IConDelete, IconBack } from "@mknows-frontend-services/components/atoms";
 import { NavLink } from "react-router-dom";
 
 const CheckResult: FC = (): ReactElement => {
@@ -246,9 +244,6 @@ const CheckResult: FC = (): ReactElement => {
                   </div>
                 </div>
                 <Table />
-                <div className="py-4">
-                  <Pagination />
-                </div>
               </div>
             </Card>
           </Dialog.Title>
