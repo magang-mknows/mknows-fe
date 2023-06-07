@@ -3,7 +3,7 @@ import { Search } from "@mknows-frontend-services/components/atoms";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
-import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
+import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
 import Table from "./table2";
 
 const RiwayatAlokasi: FC = (): ReactElement => {

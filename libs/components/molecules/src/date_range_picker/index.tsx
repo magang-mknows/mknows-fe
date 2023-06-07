@@ -17,7 +17,7 @@ interface DateRangePickerProps {
   onRangeChange: (range: DateRange) => void;
 }
 
-const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
+export const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
   const [ranges, setRanges] = useState<DateRange>({
     startDate: new Date(Date.now()),
     endDate: addDays(new Date(), 7),
@@ -79,5 +79,3 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChang
     </div>
   );
 };
-
-export default DateRangePickerComponent;
