@@ -165,7 +165,7 @@ export const ClientProvider: FC<TProviderProps> = ({
           </section>
         }
       />
-      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>{children}</section>
+      <section className={`bg-[#FAFAFA] min-h-[100vh] ${sectionClassName}`}>{children}</section>
       <Modal withClose lookup={getLoginPopup} onClose={() => setLoginPopup(false)}>
         <LoginFormPopup />
       </Modal>
