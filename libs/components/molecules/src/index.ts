@@ -1,4 +1,5 @@
 export * from "./navbar";
+export * from "./date_range_picker";
 export * from "./carousel";
 export * from "./accordion";
 export * from "./card";

@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { DateRangePicker } from "react-date-range";
+import { addDays } from "date-fns";
+import { IConCalendar } from "@mknows-frontend-services/components/atoms";
+import { DateTimeFormatOptions, formatDate } from "@mknows-frontend-services/utils";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { addDays } from "date-fns";
-import IConCalendar from "../../../atoms/icons/ic-calendar";
-import { DateTimeFormatOptions, formatDate } from "@mknows-frontend-services/utils";
 
 interface DateRange {
   startDate: Date;
@@ -17,7 +17,7 @@ interface DateRangePickerProps {
   onRangeChange: (range: DateRange) => void;
 }
 
-const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
+export const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
   const [ranges, setRanges] = useState<DateRange>({
     startDate: new Date(Date.now()),
     endDate: addDays(new Date(), 7),
@@ -79,5 +79,3 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChang
     </div>
   );
 };
-
-export default DateRangePickerComponent;
