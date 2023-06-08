@@ -27,10 +27,12 @@ export const Status: FC = (): ReactElement => {
 
   useEffect(() => {
     setMyStudyAssignmentItem(afterSubmissionData?.data as TMyStudyAssignmentItem);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [afterSubmissionData]);
 
   useEffect(() => {
     setMyStudyAssignmentItem(beforeSubmissionData?.data as TMyStudyAssignmentItem);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [beforeSubmissionData]);
 
   const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -195,7 +197,7 @@ export const Status: FC = (): ReactElement => {
                   </div>
                   <div
                     className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium ${
-                      row.namaTabel === "Pengiriman Tugas" && "text-[#106FA4]"
+                      row.namaTabel === "Pengiriman Tugas" && "text-[#106FA4] flex-col gap-y-2"
                     }
                   ${
                     row.response === "Belum Mengumpulkan"
