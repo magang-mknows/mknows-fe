@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { DropDownDashboard } from "../../molecules/dropdown";
-import { IconMap } from "../../atoms";
+import { IconMap } from "@mknows-frontend-services/components/atoms";
 
 const locationTrack: FC = (): ReactElement => {
   return (

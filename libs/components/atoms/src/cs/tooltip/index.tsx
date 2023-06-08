@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { TtoolTip } from "./type";
 
-const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement => {
+export const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement => {
   return (
     <div className="group relative inline-block">
       {children}
@@ -13,5 +13,3 @@ const ToolTip: FC<TtoolTip> = ({ children, tooltip, className }): ReactElement =
     </div>
   );
 };
-
-export default ToolTip;

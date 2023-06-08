@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement, useState } from "react";
+import { FC, ReactElement, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useUser, useFilterAction } from "./hooks";
 import { TUserItem } from "./types";
@@ -9,8 +9,8 @@ import {
   IconEdit,
   IconDropdown,
   IconEmptyState,
-} from "../../components/atoms";
-import ToolTip from "../../components/atoms/tooltip";
+} from "@mknows-frontend-services/components/atoms";
+import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Link } from "react-router-dom";
 
 const Table: FC = (): ReactElement => {

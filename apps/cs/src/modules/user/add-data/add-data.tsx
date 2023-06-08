@@ -1,6 +1,6 @@
 import { ReactElement, FC } from "react";
 import { Link } from "react-router-dom";
-import { IconBack } from "../../../components/atoms";
+import { IconBack } from "@mknows-frontend-services/components/atoms";
 import AiIdentityScoring from "./ai-identity-scoring";
 import AiCharacterScoring from "./ai-character-scoring";
 import AiCapabilityScoring from "./ai-capability-scoring";

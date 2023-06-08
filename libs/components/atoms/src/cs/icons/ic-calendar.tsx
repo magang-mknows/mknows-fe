@@ -36,4 +36,3 @@ export const IConCalendar: FC = (): ReactElement => {
     </svg>
   );
 };
-export default IConCalendar;

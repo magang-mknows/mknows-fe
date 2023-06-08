@@ -1,5 +1,5 @@
 import { formatDate } from "@mknows-frontend-services/utils";
-import { IconEmptyState } from "../../../components/atoms/icons";
+import { IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionProcess, useProcess } from "../hooks";
