@@ -4,11 +4,11 @@ import ListStudy from "./ListStudy";
 import YoutubeSection from "./YoutubeSection";
 import { useRouter } from "next/router";
 import { useGetMyWorkVideoModule } from "./hooks";
-import { params } from "../type";
+import { paramsVideoModule } from "../type";
 
 const ContentSection: FC = (): ReactElement => {
   const { query } = useRouter();
-  const params: params = {
+  const params: paramsVideoModule = {
     subjectID: query.subjectID as string,
     moduleID: query.moduleID as string,
     videoID: query.videoID as string,
@@ -26,9 +26,9 @@ const ContentSection: FC = (): ReactElement => {
         <div className="w-full">
           {videoModule?.map((item: any, index: number) => {
             const url = item.url.split("https://www.youtube.com/watch?v=").slice(1);
-            return <YoutubeSection key={index} videoId={url} />;
+            return <YoutubeSection key={index} url={url} />;
           }, [])}
-          <Description titleVideo={material?.title} descVideo={material?.description} />
+          <Description title={material?.title} description={material?.description} />
         </div>
         <div className="w-full">
           <ListStudy />

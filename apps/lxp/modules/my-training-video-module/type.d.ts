@@ -1,12 +1,18 @@
 export type videoMytrainingTypes = {
-  videoId?: string;
-  titleVideo?: string;
-  descVideo?: string;
-  imgVideo?: ReactNode | string;
+  url?: string;
+  title?: string;
+  description?: string;
 };
 
-export type params = {
+export type docMytrainingTypes = {
+  url?: string;
+  title?: string;
+  description?: string;
+};
+
+export type paramsVideoModule = {
   subjectID: string;
   moduleID: string;
   videoID: string;
 };
+
