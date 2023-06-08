@@ -3,14 +3,14 @@ import { ClientProvider } from "../common/provider";
 import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 import { ScoreSertificateBreadCumbs } from "./const";
 import { ScoreSertificateMain } from "./main";
+import { ContentFooter } from "../common/footer/footer-content";
 
 export const ScoreSertificateModule: FC = (): ReactElement => {
   return (
     <ClientProvider>
-      <section className="bg-neutral-50/60  h-full">
-        <BreadCrumb items={ScoreSertificateBreadCumbs} textColor="text-version2-400" />
-        <ScoreSertificateMain />
-      </section>
+      <BreadCrumb items={ScoreSertificateBreadCumbs} textColor="text-version2-400" />
+      <ScoreSertificateMain />
+      <ContentFooter />
     </ClientProvider>
   );
 };

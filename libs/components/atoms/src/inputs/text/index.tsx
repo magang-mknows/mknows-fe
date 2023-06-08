@@ -123,7 +123,7 @@ export const TextField = <T extends FieldValues>({
           <textarea
             rows={textAreaRow}
             {...{ ...props, ...field }}
-            className={`w-full ${inputStatus} `}
+            className={`w-full ${inputStatus}  ${props.className} `}
           />
         )}
 

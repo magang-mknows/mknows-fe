@@ -67,10 +67,8 @@ export const EventSection: FC = (): ReactElement => {
           return (
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
-                <h1 className="text-lg font-bold text-neutral-900">Acara Kampus</h1>
-                <p className="text-sm text-neutral-500 ">
-                  {dummyEvent.length} Acara kampus tersedia
-                </p>
+                <h1 className="text-lg font-bold text-neutral-900">Acara Unik</h1>
+                <p className="text-sm text-neutral-500 ">{dummyEvent.length} Acara unik tersedia</p>
               </section>
               <section className="flex items-center justify-start flex-wrap gap-4 mb-6 h-26 w-fit">
                 <figure className="flex items-center justify-start w-[96px]  md:w-[90px] bg-neutral-200 h-24 rounded-md ">
