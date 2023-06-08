@@ -2,7 +2,7 @@ import { FC, ReactElement, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
-import { IconDropdown, IconEmptyState } from "../../../components/atoms";
+import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -28,12 +28,12 @@ const Table: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "Jenis Permintaan",
+      name: "Jenis Scoring",
       cell: (row) => row.jenis_produk,
       sortable: true,
     },
     {
-      name: "Jumlah User",
+      name: "Jumlah Customer",
       cell: (row) => row.jumlah_user,
       sortable: true,
     },

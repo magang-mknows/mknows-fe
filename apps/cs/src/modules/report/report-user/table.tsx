@@ -2,7 +2,7 @@ import { FC, ReactElement, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
-import { IconDropdown, IconEmptyState } from "../../../components/atoms";
+import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -34,7 +34,7 @@ const Table: FC = (): ReactElement => {
     },
 
     {
-      name: "Berkas",
+      name: "Scoring",
       cell: (row) => (
         <button
           className={` ${
@@ -183,7 +183,7 @@ const Table: FC = (): ReactElement => {
           <div className="flex flex-col w-full h-screen justify-center items-center">
             <IconEmptyState />
             <h1 className="font-bold my-2">Data Tidak Tersedia</h1>
-            <p>Data akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
+            <p>Table akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
           </div>
         }
       />

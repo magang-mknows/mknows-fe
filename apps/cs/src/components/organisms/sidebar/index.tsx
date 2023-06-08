@@ -9,7 +9,7 @@ import {
   IconQuota,
   IconToggle,
   IconLogout,
-} from "../../atoms";
+} from "@mknows-frontend-services/components/atoms";
 import { useProfile } from "../../../modules/common/hooks";
 import { useLogout } from "./profile/hooks";
 

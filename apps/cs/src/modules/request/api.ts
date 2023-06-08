@@ -17,6 +17,7 @@ export const getDataProcess = async (): Promise<TProcessResponse> => {
   return data;
 };
 
+// process page
 export const getProcessResponse = async (params: TProcessParams): Promise<TProcessResponse> => {
   const { data } = await api({
     headers: {
@@ -28,6 +29,7 @@ export const getProcessResponse = async (params: TProcessParams): Promise<TProce
   return data;
 };
 
+// result page
 export const getResultResponse = async (params: TResultParams): Promise<TResultResponse> => {
   const { data } = await api({
     headers: {

@@ -1,11 +1,11 @@
 import { useRecoilState } from "recoil";
 import {
-  
   userSearch,
   CategoryStatusState,
   IdentityStatusState,
   CharacterStatusState,
   CapabilityStatusState,
+  filterActionUser,
 } from "./store";
 import {
   TUserQueryResponse,
@@ -20,7 +20,6 @@ import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { filterAction } from "../quota/store";
 import { getUserResponse } from "./api";
-
 
 export const useUserQuery = (): TUserQueryResponse => {
   const [get, set] = useRecoilState(userSearch);
@@ -63,7 +62,7 @@ export const useCapabilityStatus = (): ReturnTypesDataCapabiity => {
 };
 
 export const useFilterAction = () => {
-  const [get, set] = useRecoilState(filterAction);
+  const [get, set] = useRecoilState(filterActionUser);
   return {
     getFilterAction: get,
     setFilterAction: (params: TUserParams) => set(params),

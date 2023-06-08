@@ -1,10 +1,9 @@
 import { ReactElement, FC, useState, useEffect } from "react";
-import { useRequest } from "../hooks";
-import Search from "../../../components/atoms/search";
-import Pagination from "../../../components/atoms/pagination";
-import Table from "./table2";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";
+import { useRequest } from "../hooks";
+import Table from "./table";
 
 const ProcessModule: FC = (): ReactElement => {
   // const { setResultQuery, getResultQuery } = useResultQuery();

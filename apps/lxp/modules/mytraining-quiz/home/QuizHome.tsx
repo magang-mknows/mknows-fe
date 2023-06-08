@@ -3,7 +3,7 @@ import { FC, ReactElement } from "react";
 // import LayoutProvider from "@/providers/LayoutProvider";
 import Link from "next/link";
 import QuizHomeImage from "../assets/quiz-start.svg";
-import { useGetMyWorkQuizId } from "../hooks";
+import { useGetMyWorkQuizId } from "./hooks";
 import { useRouter } from "next/router";
 import { TModulParams } from "../../mytraining-module/type";
 

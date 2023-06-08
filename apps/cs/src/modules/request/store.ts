@@ -1,5 +1,11 @@
 import { atom, selector } from "recoil";
-import { TProcessItem, TProcessParams, TRequestResponse, TResultDataDummy } from "./types";
+import {
+  TProcessItem,
+  TProcessParams,
+  TRequestResponse,
+  TResultDataDummy,
+  TResultParams,
+} from "./types";
 
 export const icon = atom<string[]>({
   key: "request-data-icons",
@@ -170,6 +176,16 @@ export const tableDataState = atom<TRequestResponse[]>({
 
 export const filterActionProcess = atom<TProcessParams>({
   key: "process-filter-action",
+  default: {
+    search: "",
+    feature: "",
+    per_page: "",
+    page: "",
+  },
+});
+
+export const filterActionResult = atom<TResultParams>({
+  key: "result-filter-action",
   default: {
     search: "",
     feature: "",

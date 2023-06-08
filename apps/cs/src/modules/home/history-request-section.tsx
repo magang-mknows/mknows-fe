@@ -1,7 +1,7 @@
 import { FC, ReactElement, lazy } from "react";
+import { useCardData } from "./hooks";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useCardData } from "./hooks";
 
 const Card = lazy(() => import("../../components/molecules/card"));
 

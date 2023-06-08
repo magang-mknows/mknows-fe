@@ -10,7 +10,7 @@ export const TakenDepartment = () => {
 
   return (
     <main className="px-8 md:px-14 lg:px-16 pb-20 pt-6">
-      <h1 className="text-xl font-bold text-neutral-900 mb-8">Department Pilhan Anda</h1>
+      <h1 className="text-xl font-bold text-neutral-900 mb-8">Kompetensi Pilhan Anda</h1>
 
       <section className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {isLoading ? (

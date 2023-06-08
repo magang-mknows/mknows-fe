@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import TokenService from "../../../services/token";
 import { useLocation, Navigate } from "react-router-dom";
+import TokenService from "../../../services/token";
 
 export const Guest: FC<{ children: ReactNode }> = ({ children }) => {
   const isAuthenticated = !!TokenService.getToken();

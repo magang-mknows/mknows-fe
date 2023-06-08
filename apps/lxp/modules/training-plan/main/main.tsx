@@ -41,13 +41,13 @@ export const TrainingPlanMain: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <h1 className="text-xl font-bold text-neutral-900 mb-8">Pilihan Pelatihan</h1>
+      <h1 className="text-xl font-bold text-neutral-900 mb-8">Pilihan Kompetensi</h1>
 
       <section className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {isLoading ? (
           <CardLoading />
         ) : departmentsList?.data?.length === 0 ? (
-          <NotFound keyword={getKeyword} title="Pelatihan" />
+          <NotFound keyword={getKeyword} title="Kompetensi" />
         ) : (
           departmentsList?.data?.map((department, index) => {
             return (
