@@ -9,7 +9,7 @@ export const AdministrationModule: FC = (): ReactElement => {
   return (
     <ClientProvider>
       <BreadCrumb items={administrationBreadCumbs} textColor="text-version2-400" />
-      <div className="bg-[#FFFF] mx-6 md:mx-14 lg:mx-16 rounded-md p-10 mb-14 min-h-[100vh] ">
+      <div className="bg-white mx-6 md:mx-14 lg:mx-16 rounded-md p-10 mb-14 min-h-[100vh] ">
         <TitleAdministration />
         <ContentAdministration />
       </div>

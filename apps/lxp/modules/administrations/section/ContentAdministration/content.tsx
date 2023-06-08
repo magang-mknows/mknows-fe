@@ -5,7 +5,7 @@ export const ContentAdministration = (): ReactElement => {
   return (
     <div className="mt-[32px] ">
       <div className="flex justify-center">
-        <div className={"bg-[#FFFF] rounded-[8px] w-full"}>
+        <div className="bg-white rounded-[8px] w-full">
           <div className="w-full relative">
             <PrivateInformationAccordion />
           </div>

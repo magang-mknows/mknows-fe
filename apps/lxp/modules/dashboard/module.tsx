@@ -13,7 +13,7 @@ import { ContentFooter } from "../common/footer/footer-content";
 export const DashboardModule = () => {
   return (
     <ClientProvider>
-      <section className="bg-[#FAFAFA]  min-h-[120vh] pb-20">
+      <section className="bg-light  min-h-[120vh] pb-20">
         <BreadCrumb items={DashboardBreadCumbs} textColor="text-version2-400" />
         <div className="grid grid-cols-3 gap-x-10 px-8 md:px-14 lg:px-16">
           <div className="flex flex-col lg:col-span-3 xl:col-span-1 col-span-3">

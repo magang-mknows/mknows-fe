@@ -77,7 +77,7 @@ export const TopNav: FC<TNavbarProps> = ({
           />
         ) : null}
         <NavbarFeatureMenu features={props.features} />
-        {!session ? (
+        {session ? (
           <>
             <NavbarNotification />
             <NavbarUserMenu

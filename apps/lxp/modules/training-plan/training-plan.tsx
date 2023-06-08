@@ -21,7 +21,7 @@ export const TrainingPlanModule: FC = (): ReactElement => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <section className="bg-[#FAFAFA]  w-full h-full">
+        <section className="bg-light w-full h-full">
           {!workPlanStatus && !isSeeDeptList ? (
             <UnChoosenSection />
           ) : (
