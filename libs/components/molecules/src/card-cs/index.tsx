@@ -4,7 +4,7 @@ import { FC, ReactElement, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { TCardProps } from "./types";
 
-const Card: FC<TCardProps> = ({
+export const CardCS: FC<TCardProps> = ({
   className,
   bodyClassName,
   children,
@@ -60,4 +60,4 @@ const Card: FC<TCardProps> = ({
   );
 };
 
-export default Card;
+export default CardCS;

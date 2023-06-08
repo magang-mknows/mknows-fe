@@ -1,5 +1,5 @@
 import { formatDate } from "@mknows-frontend-services/utils";
-import { IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionProcess, useProcess } from "../hooks";
@@ -8,6 +8,11 @@ import { TProcessItem } from "../types";
 const Table2: FC = (): ReactElement => {
   const { getFilterActionProcess } = useFilterActionProcess();
   const { data } = useProcess(getFilterActionProcess);
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
   const columns: TableColumn<TProcessItem>[] = [
     {
       name: "ID",
@@ -16,26 +21,8 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "No Permintaan",
-      width: "12.5%",
-      selector: (row) => row.request_number,
-      sortable: true,
-    },
-    {
-      name: "NIK",
-      width: "18%",
-      selector: (row) => row.nik,
-      sortable: true,
-    },
-    {
-      name: "Nama",
-      width: "20%",
-      selector: (row) => row.name,
-      sortable: true,
-    },
-    {
-      name: "Tanggal Permintaan",
-      width: "22%",
+      name: "Tanggal Input",
+      width: "21%",
       selector: (row) =>
         formatDate({
           date: new Date(row.requested_at),
@@ -43,11 +30,29 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
     },
     {
-      name: "Tanggal Input",
+      name: "NIK",
+      width: "18%",
+      cell: (row) => <div className="font-semibold">{row.nik}</div>,
+      sortable: true,
+    },
+    {
+      name: "Nama",
+      width: "17%",
+      cell: (row) => <div className="font-semibold">{row.name}</div>,
+      sortable: true,
+    },
+    {
+      name: "No. Permintaan",
+      width: "14%",
+      cell: (row) => <div className="pl-4 font-semibold">{row.request_number}</div>,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Permintaan",
       width: "25%",
       selector: (row) =>
         formatDate({
-          date: new Date(row.finished_at),
+          date: new Date(row.requested_at),
         }),
       sortable: true,
     },
@@ -131,6 +136,7 @@ const Table2: FC = (): ReactElement => {
         }
         pagination
         paginationComponentOptions={paginationComponentOptions}
+        sortIcon={sortIcon}
       />
     </div>
   );

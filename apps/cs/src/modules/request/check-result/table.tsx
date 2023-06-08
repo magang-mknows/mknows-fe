@@ -4,8 +4,7 @@ import { IConDelete } from "@mknows-frontend-services/components/atoms";
 import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { Button } from "@mknows-frontend-services/components/atoms";
-import Card from "../../../components/molecules/card";
-
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 const Table: FC = (): ReactElement => {
   const { getFilterActionProcess } = useFilterActionProcess();
   const { data } = useProcess(getFilterActionProcess);
@@ -74,7 +73,7 @@ const Table: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
                   <IConDelete />
@@ -100,7 +99,7 @@ const Table: FC = (): ReactElement => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>

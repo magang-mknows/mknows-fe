@@ -2,7 +2,7 @@ import { FC, ReactElement, useState, Fragment } from "react";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog, Transition } from "@headlessui/react";
 import { useQuotaData } from "./hooks";
-import Card from "../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {
@@ -82,7 +82,7 @@ const AlokasiKuota: FC = (): ReactElement => {
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
               {dummyData.map((item, index) => {
                 return (
-                  <Card
+                  <CardCS
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
                     onClick={() => setProductName(item.feature)}
@@ -96,7 +96,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                         <p className="text-sm font-semibold">{item.feature}</p>
                       </div>
                     </div>
-                  </Card>
+                  </CardCS>
                 );
               })}
             </div>

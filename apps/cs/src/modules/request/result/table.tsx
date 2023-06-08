@@ -1,9 +1,10 @@
-import { IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { Button, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
 import { TResultItem } from "../types";
 import { formatDate } from "@mknows-frontend-services/utils";
+import DownloadIcon from "/assets/download-bottom.webp";
 
 const Table2: FC = (): ReactElement => {
   const getProcessData = [
@@ -102,6 +103,15 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
     },
     {
+      name: "Tanggal Input",
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
+      sortable: true,
+    },
+    {
       name: "Jenis Permintaan",
       width: "20%",
       cell: (row) => <div className="font-semibold">{row.feature}</div>,
@@ -109,13 +119,13 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Jumlah Customer",
-      width: "16%",
+      width: "14%",
       cell: (row) => <div className="font-semibold pl-10">{row.total_user}</div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-
+      width: "22%",
       selector: (row) =>
         formatDate({
           date: new Date(row.requested_at),
@@ -124,6 +134,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Selesai",
+      width: "22%",
       selector: (row) =>
         formatDate({
           date: new Date(row.finished_at),
@@ -133,8 +144,19 @@ const Table2: FC = (): ReactElement => {
   ];
 
   const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
-      <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
+    <div className="flex flex-col">
+      <div className="flex justify-center">
+        <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
+      </div>
+      <div className="flex justify-end w-full">
+        <Button
+          type="submit"
+          className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-[#E5E5E5] border-[1px] rounded-md items-center space-x-1"
+        >
+          <img src={DownloadIcon} alt="download-icon" className="w-full" />
+          <span className="font-semibold text-xs text-[#5E5E5E]">Unduh</span>
+        </Button>
+      </div>
     </div>
   );
 

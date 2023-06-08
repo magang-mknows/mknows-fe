@@ -9,7 +9,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import Table from "./table";
-import Card from "../../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 import close from "/assets/request-page/close.webp";
 import alert from "/assets/alert-circle.webp";
 
@@ -44,7 +44,7 @@ const CheckResult: FC = (): ReactElement => {
   );
   return (
     <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
-      <Card className="w-full h-fit rounded-lg bg-white">
+      <CardCS className="w-full h-fit rounded-lg bg-white">
         <div className="px-8 py-4 flex flex-col w-full ">
           <div className="flex flex-row gap gap-x-5 items-center border-b-[1px] border-solid w-full h-fit py-7 text-[#4AC1A2] font-bold text-base">
             <Link to={"/dashboard/request"}>
@@ -61,7 +61,7 @@ const CheckResult: FC = (): ReactElement => {
             <div className="pt-7 grid grid-cols-4 gap-x-4 h-fit border-b-[1px] border-solid pb-10">
               {data?.data.slice(0, 4).map((item, index) => {
                 return (
-                  <Card className="shadow-md min-h-[103px] max-h-[103px]" key={index}>
+                  <CardCS className="shadow-md min-h-[103px] max-h-[103px]" key={index}>
                     <div className="flex flex-row py-6 px-5 w-full gap-x-4">
                       <div className="">
                         <img
@@ -75,7 +75,7 @@ const CheckResult: FC = (): ReactElement => {
                         <div className="text-[#737373] ">(10/100)</div>
                       </div>
                     </div>
-                  </Card>
+                  </CardCS>
                 );
               })}
             </div>
@@ -138,7 +138,7 @@ const CheckResult: FC = (): ReactElement => {
             </Button>
           </div>
         </div>
-      </Card>
+      </CardCS>
 
       {/* Modal Alert */}
       <Dialog
@@ -148,7 +148,7 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#F9B7B4] rounded-full w-fit p-1">
                   <img src={alert} alt="alert-icon" />
@@ -176,7 +176,7 @@ const CheckResult: FC = (): ReactElement => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
@@ -189,7 +189,7 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
                   <IConDelete />
@@ -214,7 +214,7 @@ const CheckResult: FC = (): ReactElement => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
@@ -227,7 +227,7 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer h-screen shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer h-screen shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col">
                 <div className="w-full px-6 py-5 border-b">
                   <span className="pb-4 pt-2 pl-9 font-semibold text-lg">
@@ -245,7 +245,7 @@ const CheckResult: FC = (): ReactElement => {
                 </div>
                 <Table />
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>

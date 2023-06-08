@@ -1,10 +1,30 @@
-import { ReactElement, FC } from "react";
+import { ReactElement, FC, useState, useEffect } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
-import { useResultQuery } from "../hooks";
 import Table from "./table";
+import { useDebounce } from "../../common/hooks";
+import { useFilterActionResult } from "../hooks";
 
 const ResultModule: FC = (): ReactElement => {
-  const { setResultQuery, getResultQuery } = useResultQuery();
+  const [option, setOption] = useState({
+    feature: "",
+    per_page: "",
+    page: "",
+  });
+  const [deb, setDeb] = useState("");
+
+  const { setFilterActionResult } = useFilterActionResult();
+
+  useEffect(() => {
+    setFilterActionResult(option);
+  }, [option]);
+
+  useDebounce(
+    () => {
+      setOption((prev) => ({ ...prev, search: deb }));
+    },
+    [deb],
+    400,
+  );
   return (
     <div className="relative">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
@@ -27,9 +47,9 @@ const ResultModule: FC = (): ReactElement => {
             </div>
             <div className="w-full">
               <Search
-                value={getResultQuery}
-                onChange={(e: { target: { value: string } }) => setResultQuery(e.target.value)}
-                placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
+                value={deb}
+                onChange={(e) => setDeb(e.target.value)}
+                placeholder="Search NIK dan Nama"
               />
             </div>
           </div>

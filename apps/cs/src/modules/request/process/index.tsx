@@ -2,8 +2,7 @@ import { ReactElement, FC, useState, useEffect } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";
-import { useRequest } from "../hooks";
-import Table from "./table";
+import Table2 from "./table";
 
 const ProcessModule: FC = (): ReactElement => {
   // const { setResultQuery, getResultQuery } = useResultQuery();
@@ -13,8 +12,6 @@ const ProcessModule: FC = (): ReactElement => {
     per_page: "",
     page: "",
   });
-
-  const { data: featureId } = useRequest();
 
   const [deb, setDeb] = useState("");
 
@@ -45,7 +42,7 @@ const ProcessModule: FC = (): ReactElement => {
         </div>
       </div>
       {/* table */}
-      <Table />
+      <Table2 />
 
       <div className="flex gap-1 py-2 justify-end font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
