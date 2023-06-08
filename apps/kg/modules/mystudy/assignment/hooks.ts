@@ -1,32 +1,13 @@
 import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
-import { dataTabelState, mystudyAssignmentState } from "./stores";
+import { mystudyAssignmentState } from "./stores";
 import {
-  Instruction,
-  TMyStudyAssignmentItem,
   TMyStudyAssignmentResponse,
   TMyStudyAssignmentSubmissionPayload,
+  TuseMyStudyAssignmentItem,
 } from "./type";
 import { useRecoilState } from "recoil";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { assignmentGetRequest, assignmentSubmissionRequest } from "./api";
-
-type Instructions = {
-  setInstruction: (val: Array<Instruction>) => void;
-  getInstruction: Array<Instruction>;
-};
-
-type TuseMyStudyAssignmentItem = {
-  getMyStudyAssignmentItem: TMyStudyAssignmentItem | null;
-  setMyStudyAssignmentItem: (val: TMyStudyAssignmentItem) => void;
-};
-
-export const useInstruction = (): Instructions => {
-  const [getInstruction, setInstruction] = useRecoilState(dataTabelState);
-  return {
-    setInstruction: (val: Array<Instruction>) => setInstruction(val),
-    getInstruction: getInstruction,
-  };
-};
 
 export const useMyStudyAssignmentItem = (): TuseMyStudyAssignmentItem => {
   const [get, set] = useRecoilState(mystudyAssignmentState);

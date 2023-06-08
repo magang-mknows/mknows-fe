@@ -1,6 +1,6 @@
 import { FC, Fragment, ReactElement, ReactNode, useEffect } from "react";
 import { Button } from "@mknows-frontend-services/components/atoms";
-import { useGetMyStudyAssignmentById, useInstruction, useMyStudyAssignmentItem } from "./hooks";
+import { useGetMyStudyAssignmentById, useMyStudyAssignmentItem } from "./hooks";
 import { UploadDragbleField } from "@mknows-frontend-services/components/atoms";
 import { BaseLayout } from "../../common";
 import { useRouter } from "next/router";
@@ -19,7 +19,6 @@ import pdf from "./assets/pdf.svg";
 
 export const Status: FC = (): ReactElement => {
   const router = useRouter();
-  const { getInstruction } = useInstruction();
   const { data: beforeSubmissionData } = useGetMyStudyAssignmentById(
     router.query.assignmentId as string,
   );
@@ -127,7 +126,7 @@ export const Status: FC = (): ReactElement => {
     {
       namaTabel: "Terakhir diubah",
       response: getMyStudyAssignmentItem?.student_progress.timestamp_submitted
-        ? getMyStudyAssignmentItem?.student_progress.timestamp_submitted
+        ? getMyStudyAssignmentItem?.student_progress.timestamp_submitted + " WIB"
         : "",
     },
     {
@@ -160,19 +159,25 @@ export const Status: FC = (): ReactElement => {
               .full_name
           }
         </p>
-        <p className="text-[14px] mb-[35px] font-normal">{getInstruction[0].waktu}</p>
+        <p className="text-[14px] mb-[35px] font-normal">
+          {getMyStudyAssignmentItem?.assignment.timestamp_created} WIB
+        </p>
         <p className="text-[16px] font-normal">
           Silahkan baca dan kerjakan tugas pada modul berikut ini.
         </p>
         <div className="flex-col gap-y-2">
           {getMyStudyAssignmentItem?.assignment.documents.map((document, i) => (
-            <div key={i} className="flex items-center gap-x-1">
+            <div key={i} className="w-full flex items-center gap-x-1">
               <Image
                 src={pdf}
                 alt="File tugas"
                 className="inline-block mr-[8px] scale-[0.8] lg:scale-[1]"
               />
-              <Link href={document} className="inline hover:underline hover:text-[#106FA4]">
+              <Link
+                href={document}
+                target="_blank"
+                className="w-fit overflow-hidden whitespace-nowrap text-ellipsis hover:underline hover:text-[#106FA4]"
+              >
                 {document}
               </Link>
             </div>
@@ -189,7 +194,7 @@ export const Status: FC = (): ReactElement => {
                     {row.namaTabel}
                   </div>
                   <div
-                    className={`col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium ${
+                    className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium ${
                       row.namaTabel === "Pengiriman Tugas" && "text-[#106FA4]"
                     }
                   ${
@@ -208,7 +213,7 @@ export const Status: FC = (): ReactElement => {
                                 href={link as string}
                                 target="_blank"
                                 key={index}
-                                className="hover:underline"
+                                className="block w-full overflow-hidden whitespace-nowrap text-ellipsis hover:underline"
                               >
                                 {link}
                               </Link>
@@ -239,7 +244,7 @@ export const Status: FC = (): ReactElement => {
           </p>
           <Button
             type={"submit"}
-            className="mx-auto py-6 lg:py-0 w-full h-[27px] lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 duration-300"
+            className="mx-auto py-6 lg:py-0 w-full h-[27px] md:w-[160px] md:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 transition-opacity duration-300"
           >
             Unggah Tugas
           </Button>
