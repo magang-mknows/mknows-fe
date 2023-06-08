@@ -31,7 +31,7 @@ const Table: FC = (): ReactElement => {
   const columns: TableColumn<TUserItem>[] = [
     {
       name: "No",
-      width: "6%",
+      width: "7%",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
     {

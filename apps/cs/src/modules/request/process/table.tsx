@@ -29,6 +29,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Nama",
+      width: "20%",
       selector: (row) => row.name,
       sortable: true,
     },
