@@ -1,10 +1,10 @@
-import { IConDelete } from "../../../components/atoms";
-import ToolTip from "../../../components/atoms/tooltip";
 import { FC, ReactElement, useState } from "react";
 import { useFilterActionProcess, useProcess } from "../hooks";
+import { IConDelete } from "@mknows-frontend-services/components/atoms";
+import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
-import Card from "../../../components/molecules/card";
 import { Button } from "@mknows-frontend-services/components/atoms";
+import Card from "../../../components/molecules/card";
 
 const Table: FC = (): ReactElement => {
   const { getFilterActionProcess } = useFilterActionProcess();

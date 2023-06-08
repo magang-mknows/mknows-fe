@@ -1,6 +1,6 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import Search from "../../components/atoms/search";
-import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
+import { Search } from "@mknows-frontend-services/components/atoms";
+import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
 import Table from "./table";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";

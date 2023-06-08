@@ -1,8 +1,8 @@
 import { FC, Fragment, ReactElement, useState, Suspense } from "react";
-import LoadingRequest from "../../modules/request/loading";
-import Card from "../../components/molecules/card";
 import { Tab } from "@headlessui/react";
 import { NavLink, Outlet } from "react-router-dom";
+import LoadingRequest from "../../modules/request/loading";
+import Card from "../../components/molecules/card";
 
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");

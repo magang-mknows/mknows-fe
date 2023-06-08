@@ -9,8 +9,8 @@ import {
   IconEdit,
   IconDropdown,
   IconEmptyState,
-} from "../../components/atoms";
-import ToolTip from "../../components/atoms/tooltip";
+} from "@mknows-frontend-services/components/atoms";
+import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Link } from "react-router-dom";
 
 const Table: FC = (): ReactElement => {
@@ -61,7 +61,7 @@ const Table: FC = (): ReactElement => {
         <Link to={"/dashboard/user/detail-data"}>
           <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
             <p>Lihat Detail</p>
-            <div className="">
+            <div className="pt-1">
               {/* {item.berkas === 'success' ? (
           <ToolTip
             tooltip="3/3 Data Terisi"

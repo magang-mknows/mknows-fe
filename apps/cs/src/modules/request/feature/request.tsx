@@ -1,11 +1,11 @@
 import { FC, ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
-import Card from "../../../components/molecules/card";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { useRequestData } from "../hooks";
-import { IconWarning } from "../../../components/atoms";
+import { IconWarning } from "@mknows-frontend-services/components/atoms";
 import { useRequest } from "../hooks";
+import Card from "../../../components/molecules/card";
 
 const RequestModule: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
