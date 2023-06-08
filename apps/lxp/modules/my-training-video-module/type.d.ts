@@ -4,3 +4,9 @@ export type videoMytrainingTypes = {
   descVideo?: string;
   imgVideo?: ReactNode | string;
 };
+
+export type params = {
+  subjectID: string;
+  moduleID: string;
+  videoID: string;
+};

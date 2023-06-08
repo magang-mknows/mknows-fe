@@ -6,6 +6,7 @@ export interface MyTrainingModuleItem {
   is_all_video_seen: boolean;
   submitted: boolean;
   batch_id: string;
+  subject_session_id: string;
 }
 export type TModulParams = {
   subjectID: string;
