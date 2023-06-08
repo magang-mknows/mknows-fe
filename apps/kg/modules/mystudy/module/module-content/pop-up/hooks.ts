@@ -1,5 +1,5 @@
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { TModuleResumePayload, TModuleResumeResponse } from "./types";
+import { TModuleResumeResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { moduleResumeSubmitRequest } from "./api";
 
