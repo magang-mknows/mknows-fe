@@ -15,10 +15,10 @@ export interface IQuizItem {
 export interface IQuestionsAnswer {
   id: string;
   question: string;
-  answers: Answer[];
+  answers: TAnswers[];
 }
 
-export type IAnswer = {
+export type TAnswer = {
   id: string;
   answer: string;
 };

@@ -43,14 +43,14 @@ export const ContentSection: FC = (): ReactElement => {
       </section>
       {filteredFeatures.length === 0 && <FeaturesNotFound />}
 
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-8 md:px-14 lg:px-16 gap-6 md:gap-8 pb-20 md:pb-32 lg:pb-40">
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-8 md:px-14 lg:px-16 gap-6 md:gap-8 pb-20 md:pb-20 ">
         {filteredFeatures.map(({ desc, title, srcImg, isAvailable, link }, index) => {
           return (
             <div
               key={index}
               className={`${
                 isAvailable ? "bg bg-neutral-50" : "bg-neutral-200"
-              }  p-4 min-h-52 hover:bg-neutral-200 rounded-md shadow-sm transition-colors ease-in-out duration-300 cursor-pointer`}
+              }  px-4 py-6 min-h-52 hover:bg-neutral-200 rounded-md shadow-sm transition-colors ease-in-out duration-300 cursor-pointer`}
             >
               <Link href={link ? (link as unknown as string) : ""} passHref>
                 <Image
@@ -63,7 +63,7 @@ export const ContentSection: FC = (): ReactElement => {
                 />
 
                 <h1 className="font-bold mb-2 text-base text-neutral-900">{title}</h1>
-                <p className="text-sm text-neutral-600">{desc}</p>
+                <p className="text-sm text-neutral-500">{desc}</p>
               </Link>
             </div>
           );

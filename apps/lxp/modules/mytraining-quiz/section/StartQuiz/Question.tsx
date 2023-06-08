@@ -4,86 +4,24 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { currentQuestionState } from "./store";
 import { useCallback, useEffect, useState } from "react";
-import { TStoreQuestionAnswer } from "./types";
+import { TAnswer, TGetQuizParams, TStoreQuestionAnswer } from "./types";
 import { getFromLocalStorage, storeToLocalStorage } from "@mknows-frontend-services/utils";
+import { useRouter } from "next/router";
+import { useGetQuizQuestion } from "./hook";
 
 export const Question = () => {
   // ================================
-  // create dummy data for wating api
+  // questions data from api
   // =================================
-  const dummyResponse = {
-    type: "QUIZ",
-    questions_answers: [
-      {
-        id: "40de14c1-f155-4345-a9d0-03d3a6cfdc85",
-        question: "Seseorang yang melakukan santet disebut?",
-        answers: [
-          {
-            id: "eaa7e7b1-6bab-49ff-95f1-9bfb1ed50b66",
-            answer: "Dukun",
-          },
-          {
-            id: "1b14e9e1-2915-4861-938a-601eb4764a5f",
-            answer: "Pendekar",
-          },
-          {
-            id: "726790f5-6b9b-42db-9e6a-f6a85f93eb4f",
-            answer: "Pembunuh",
-          },
-          {
-            id: "7fd8339c-4087-4c86-9330-e6620797c5e5",
-            answer: "Pemadam Kebakaran",
-          },
-        ],
-      },
-      {
-        id: "e88efff6-2bd0-469b-bf3d-b7914476bc24",
-        question: "Apa yang terjadi jika kamu kena santet?",
-        answers: [
-          {
-            id: "aa4d6c27-35d7-4a61-9962-4f176f9b3a93",
-            answer: "Diam Saja",
-          },
-          {
-            id: "34a1bbf0-4c10-4cf2-894c-2ea79514ff73",
-            answer: "Turu Saja",
-          },
-          {
-            id: "a8273b3d-cec2-4f10-b9a0-ef12e311dcc7",
-            answer: "Santet Balik",
-          },
-          {
-            id: "67ad9980-200a-4c7e-914b-3ca6a17f1980",
-            answer: "Berdoa Kepada Tuhan",
-          },
-        ],
-      },
-      {
-        id: "7e756952-2131-4630-a1ce-e7c196e36af3",
-        question: "Ilmu santet terkuat?",
-        answers: [
-          {
-            id: "8526ade3-3204-4c46-989d-413ff7d0fe4b",
-            answer: "Santet Leak Bali",
-          },
-          {
-            id: "174ebcc0-51fa-4595-9f19-e1ef76e8fb9c",
-            answer: "Santet Banyuwangi",
-          },
-          {
-            id: "497580b4-e0d7-4bc9-8baa-49fb453326fa",
-            answer: "Santet Dayak",
-          },
-          {
-            id: "7e91dcec-71e2-4bc2-b8bc-6409abbb5795",
-            answer: "Santet Lawu",
-          },
-        ],
-      },
-    ],
-    duration: 3000,
+
+  const { query } = useRouter();
+  const params: TGetQuizParams = {
+    quizId: query.quizID as string,
+    batchId: query.batchID as string,
   };
-  const questions = dummyResponse.questions_answers;
+  const { data: QuizQuestion } = useGetQuizQuestion(params);
+  const quizQuestionData = QuizQuestion?.data;
+  const questions = quizQuestionData?.questions_answers;
 
   // =========================
   // set up necessary state
@@ -159,7 +97,7 @@ export const Question = () => {
   return (
     <div className="grid grid-cols-3 p-8  lg:gap-[52px]">
       <div className=" col-span-2 border-2 rounded-md w-full border-neutral-100  py-10 px-8">
-        {questions.map((question, index) => {
+        {questions?.map((question, index) => {
           return (
             <div key={index} className={`${index + 1 === getCurrentNumber ? "block" : "hidden"}`}>
               <div className="flex mb-6">
@@ -168,7 +106,7 @@ export const Question = () => {
                 </h1>
               </div>
               <div className="flex flex-col gap-3">
-                {question.answers.map((answer, index) => (
+                {question.answers.map((answer: TAnswer, index: number) => (
                   <label
                     key={answer.id}
                     className={`w-full h-10 text-sm px-2 rounded-md shadow-sm flex items-center border-[1px] border-version3-300 ${
@@ -189,7 +127,7 @@ export const Question = () => {
                         setSelectedOption(e.target.value);
                       }}
                     />
-                    {String.fromCharCode(96 + (index + 1)).toUpperCase()}. {answer.answer}
+                    {String.fromCharCode(96 + (index + 1)).toUpperCase()}. {answer?.answer}
                   </label>
                 ))}
               </div>
@@ -250,7 +188,7 @@ export const Question = () => {
       <div className=" border-2 rounded-md h-fit border-neutral-100 py-10 px-8">
         <h1 className="font-[700] text-base mb-6">Daftar Soal :</h1>
         <section className="flex flex-wrap gap-3">
-          {questions.map((item, index) => {
+          {questions?.map((item, index) => {
             return (
               <div
                 key={index}

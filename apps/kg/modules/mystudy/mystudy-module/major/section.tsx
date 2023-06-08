@@ -1,7 +1,6 @@
 import { FC, ReactElement } from "react";
 import Image from "next/image";
 import { constMajorValue } from "./const";
-import Dummy from "../assets/Dummy.svg";
 import { TDataMajor } from "../types";
 
 export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
@@ -21,7 +20,13 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
   return (
     <div className="flex md:flex-row flex-col w-full sm:w-[85%] mx-auto py-8 bg-white">
       <div className="min-w-[240px] min-h-[240px] mx-auto lg:mx-0">
-        <Image src={Dummy} alt={"dummy"} className="w-full" />
+        <Image
+          src={thumbnail}
+          alt={"thumbnail-images"}
+          width={240}
+          height={240}
+          className="w-full"
+        />
       </div>
       <div className="px-4 py-6 md:py-0 w-full flex flex-col gap-y-6 sm:gap-y-6 lg:justify-between">
         <div className="mx-auto md:mx-0">
