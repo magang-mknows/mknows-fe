@@ -47,7 +47,7 @@ export const ForgotModule: FC = (): ReactElement => {
             variant="lg"
             name={"email"}
             control={control}
-            placeholder="Masukan email"
+            placeholder="Masukan Email Anda"
             status={errors.email ? "error" : "none"}
             message={errors.email?.message}
           />
