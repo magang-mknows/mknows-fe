@@ -1,23 +1,24 @@
-import { IconBack } from "../../../components/atoms";
 import { FC, ReactElement, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Card from "../../../components/molecules/card";
+import { IConDelete, IconBack } from "@mknows-frontend-services/components/atoms";
 import { useDataProcess, useRequestData } from "../hooks";
-import { Button } from "@mknows-frontend-services/components/atoms";
-import { Dialog } from "@headlessui/react";
-import Search from "../../../components/atoms/search";
-import Table from "./table";
 import { useFilterAction } from "../../quota/hooks";
 import { useDebounce } from "../../common/hooks";
-import close from "assets/request-page/close.webp";
-import Pagination from "../../../components/atoms/pagination";
-import { IConDelete } from "../../../components/atoms";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { Dialog } from "@headlessui/react";
+import { Search } from "@mknows-frontend-services/components/atoms";
+import Table from "./table";
+import Card from "../../../components/molecules/card";
+import close from "/assets/request-page/close.webp";
+import alert from "/assets/alert-circle.webp";
 
 const CheckResult: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
   const { data } = useDataProcess();
   const [isOpen, setisOpen] = useState(false);
   const [isOpenDelete, setisOpenDelete] = useState(false);
+  const [isOpenAlert, setisOpenAlert] = useState(false);
 
   const [option, setOption] = useState({
     search: "",
@@ -70,7 +71,7 @@ const CheckResult: FC = (): ReactElement => {
                         />
                       </div>
                       <div className="flex flex-col w-full text-sm">
-                        <div className="font-semibold  text-[#09162E]">{item.name}</div>
+                        <div className="font-semibold  text-[#09162E]">{item.feature}</div>
                         <div className="text-[#737373] ">(10/100)</div>
                       </div>
                     </div>
@@ -131,13 +132,54 @@ const CheckResult: FC = (): ReactElement => {
             <Button
               type="button"
               className="w-1/4 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
-              onClick={() => setisOpen(true)}
+              onClick={() => setisOpenAlert(true)}
             >
               Cek Hasil
             </Button>
           </div>
         </div>
       </Card>
+
+      {/* Modal Alert */}
+      <Dialog
+        open={isOpenAlert}
+        onClose={() => setisOpenAlert(false)}
+        className="absolute lg:left-[45%] md:left-[30%] top-[40%] left-[20%]"
+      >
+        <Dialog.Panel>
+          <Dialog.Title>
+            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+              <div className="w-full flex flex-col gap gap-y-2">
+                <div className="bg-[#F9B7B4] rounded-full w-fit p-1">
+                  <img src={alert} alt="alert-icon" />
+                </div>
+                <p className="font-semibold text-[#262626]">
+                  Tidak Dapat Melanjutkan Proses Permintaan
+                </p>
+                <p className="font-base text-xs text-neutral-400 pb-2">
+                  Maaf, saat ini kuota anda tidak mencukupi. Silahkan isi kuota permintaan terlebih
+                  dahulu
+                </p>
+                <div className="flex flex-row w-full gap gap-x-3">
+                  <Button
+                    type="button"
+                    className="w-full text-sm py-1 border-full border-[#CD261E] text-[#CD261E] font-semibold border-solid border-2 rounded-md"
+                    onClick={() => setisOpenDelete(false)}
+                  >
+                    Kembali
+                  </Button>
+                  <Button
+                    type="button"
+                    className="w-full text-sm py-1 bg-[#CD261E] text-white rounded-md"
+                  >
+                    <NavLink to={"/dashboard/quota"}>Isi Kuota</NavLink>
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </Dialog.Title>
+        </Dialog.Panel>
+      </Dialog>
 
       {/* Modal Delete */}
       <Dialog
@@ -159,7 +201,7 @@ const CheckResult: FC = (): ReactElement => {
                 <div className="flex flex-row w-full gap gap-x-3">
                   <Button
                     type="button"
-                    className="w-full text-sm py-1 border-full border-[#102542] border-solid border-1"
+                    className="w-full text-sm py-1 border-full border-[#102542] text-[#102542] font-semibold border-solid border-2 rounded-md"
                     onClick={() => setisOpenDelete(false)}
                   >
                     Tidak
@@ -202,9 +244,6 @@ const CheckResult: FC = (): ReactElement => {
                   </div>
                 </div>
                 <Table />
-                <div className="py-4">
-                  <Pagination />
-                </div>
               </div>
             </Card>
           </Dialog.Title>

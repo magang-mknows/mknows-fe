@@ -1,6 +1,6 @@
 import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement, lazy } from "react";
-import { myTrainingQuizBreadCumbs } from "./constant";
+import { myTrainingQuizBreadCumbs } from "./const";
 import { ClientProvider } from "../common/provider";
 
 const QuizHome = lazy(() => import("./home/QuizHome"));

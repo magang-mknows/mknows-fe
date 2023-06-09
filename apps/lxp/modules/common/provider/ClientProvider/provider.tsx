@@ -116,6 +116,17 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
   ];
 
+  const topNavLinks = [
+    {
+      name: "Tentang",
+      href: "/tentang",
+    },
+    {
+      name: "Kontak Kami",
+      href: "/kontak",
+    },
+  ];
+
   return (
     <div className={`${montserrat.className} max-w-[2200px]  container mx-auto`}>
       <Navbar
@@ -126,6 +137,8 @@ export const ClientProvider: FC<TProviderProps> = ({
         logoStyle="w-auto h-auto"
         userData={_profile_user}
         bottomNavItems={_bottom_nav_items}
+        withSearch
+        topNavLinks={topNavLinks}
         bottomNavRules={_nav_rules}
         mobileMenuItems={_mobile_menu_item}
         bottomNavItemStyle={`w-auto h-auto p-2 text-[14px] rounded-lg bg-version3-500 text-white font-reguler`}
@@ -152,7 +165,7 @@ export const ClientProvider: FC<TProviderProps> = ({
           </section>
         }
       />
-      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>{children}</section>
+      <section className={`bg-light min-h-[100vh] ${sectionClassName}`}>{children}</section>
       <Modal withClose lookup={getLoginPopup} onClose={() => setLoginPopup(false)}>
         <LoginFormPopup />
       </Modal>

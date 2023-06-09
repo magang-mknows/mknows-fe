@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image Build Test
 
 on:
   push:
@@ -10,4 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker build . --file Dockerfile.kg --tag kg:$(date +%s)
+      
+  docker-build-lxp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.lxp --tag lxp:$(date +%s)
+      
+  docker-build-cs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.cs --tag cs:$(date +%s)
    

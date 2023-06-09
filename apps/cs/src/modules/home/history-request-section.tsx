@@ -1,7 +1,7 @@
 import { FC, ReactElement, lazy } from "react";
+import { useCardData } from "./hooks";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useCardData } from "./hooks";
 
 const Card = lazy(() => import("../../components/molecules/card"));
 
@@ -27,7 +27,7 @@ const CardSection: FC = (): ReactElement => {
           buttonText="Lihat Detail"
           buttonHref="/dashboard/request/result"
           buttonClassName={`flex py-1 justify-center rounded-sm text-white items-end my-2 ${x.bgButton} w-full`}
-          className="w-full m-3 h-[120px] absolute shadow-md px-4"
+          className="w-full m-3 min-h-[135px] absolute shadow-md px-4"
         >
           <div className="flex flex-row w-full h-full space-x-[10px] py-4">
             <div>

@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Control, FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
 import { UploadField, Button } from "@mknows-frontend-services/components/atoms";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
-import { IconUpload, IconDownload, IconNotif } from "../../../../components/atoms";
+import { IconUpload, IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
 
 const AiCharacterScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;

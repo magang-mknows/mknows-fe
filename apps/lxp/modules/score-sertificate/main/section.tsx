@@ -12,7 +12,7 @@ export const ScoreSertificateMain: FC = (): ReactElement => {
   const [getShowDetail, setShowDetail] = useRecoilState(showDetailState);
 
   return (
-    <main className=" min-h-[80vh] px-8 md:px-14 lg:px-16 ">
+    <main className=" min-h-[100vh] px-8 md:px-14 lg:px-16 ">
       <Tab.Group>
         <Tab.List
           as={"div"}

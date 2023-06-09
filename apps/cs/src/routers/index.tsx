@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Spinner from "../components/atoms/loading/spinner";
+import { Spinner } from "@mknows-frontend-services/components/atoms";
 import { AuthLayout } from "../layouts/auth";
 import { BaseLayout } from "../layouts/base";
 import { ErrorModules } from "../modules/common/errorpage";
@@ -121,7 +121,7 @@ export const routes = createBrowserRouter([
             element: <ResultModule />,
           },
           {
-            path: "/dashboard/request/choice",
+            path: "/dashboard/request/choice-feature",
             element: <ChoiceFeature />,
           },
         ],

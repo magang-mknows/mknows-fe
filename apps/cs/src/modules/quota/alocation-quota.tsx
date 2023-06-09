@@ -1,34 +1,54 @@
 import { FC, ReactElement, useState, Fragment } from "react";
 import { Button } from "@mknows-frontend-services/components/atoms";
-import Card from "../../components/molecules/card";
 import { Dialog, Transition } from "@headlessui/react";
-import { useQuotaData, useQuota } from "./hooks";
+import { useQuotaData } from "./hooks";
+import Card from "../../components/molecules/card";
 import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getQuotaData } = useQuotaData();
   const [Quota, setQuota] = useState<number>(0);
+  const [Estimation, setEstimation] = useState<number>(0);
   const [ProductName, setProductName] = useState<string>("default");
   const [isOpen, setIsOpen] = useState(false);
+
+  const dummyData = [
+    {
+      feature: "AI Identity Scoring",
+    },
+    {
+      feature: "AI Capability Scoring",
+    },
+    {
+      feature: "AI Character Scoring",
+    },
+    {
+      feature: "AI Credit Scoring",
+    },
+  ];
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah1000 = () => {
     setQuota(Quota * 0 + 1000);
+    setEstimation(Quota * 10000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah5000 = () => {
     setQuota(Quota * 0 + 5000);
+    setEstimation(Quota * 10000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah10000 = () => {
     setQuota(Quota * 0 + 10000);
+    setEstimation(Quota * 10000);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleTambah50000 = () => {
     setQuota(Quota * 0 + 50000);
+    setEstimation(Quota * 10000);
   };
 
   function closeModal() {
@@ -39,9 +59,13 @@ const AlokasiKuota: FC = (): ReactElement => {
     setIsOpen(true);
   }
 
-  const { data } = useQuota({
-    date_from: "",
-  });
+  const formatNumber = (number: number) => {
+    return number.toLocaleString();
+  };
+
+  // const { data } = useQuota({
+  //   date_from: "",
+  // });
 
   return (
     <section className="my-14 lg:mx-0 mx-0 w-full">
@@ -51,12 +75,12 @@ const AlokasiKuota: FC = (): ReactElement => {
         {/* content 1 */}
         <div className="flex flex-col">
           <div className="flex flex-col gap gap-y-2">
-            <span className="font-semibold text-base text-[#262626]">Jenis Produk</span>
+            <span className="font-semibold text-base text-[#262626]">Jenis Scoring</span>
             <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
-              {data?.data.slice(0, 4).map((item, index) => {
+              {dummyData.map((item, index) => {
                 return (
                   <Card
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
@@ -105,6 +129,13 @@ const AlokasiKuota: FC = (): ReactElement => {
               >
                 50.000
               </span>
+            </div>
+            <div className="flex flex-col pt-6 pb-3 gap gap-y-2">
+              <span className="font-semibold text-base text-[#262626]">Jumlah Estimasi</span>
+              <span className="font-semibold text-sm text-neutral-400">
+                Estimasi total pembayaran sebesar
+              </span>
+              <span className="font-bold">Rp. {formatNumber(Estimation)}</span>
             </div>
           </div>
         </div>

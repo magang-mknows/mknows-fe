@@ -1,8 +1,8 @@
 import { FC, Fragment, ReactElement, useState, Suspense } from "react";
 import { LoadingReport } from "./loading";
-import Card from "../../components/molecules/card";
 import { Tab } from "@headlessui/react";
 import { NavLink, Outlet } from "react-router-dom";
+import Card from "../../components/molecules/card";
 
 const ReportPage: FC = (): ReactElement => {
   const [active, setActive] = useState("laporan");

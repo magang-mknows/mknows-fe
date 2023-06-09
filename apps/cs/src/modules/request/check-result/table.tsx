@@ -1,11 +1,15 @@
-import { IConDelete } from "../../../components/atoms";
-import ToolTip from "../../../components/atoms/tooltip";
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { useFilterActionProcess, useProcess } from "../hooks";
+import { IConDelete } from "@mknows-frontend-services/components/atoms";
+import { ToolTip } from "@mknows-frontend-services/components/atoms";
+import { Dialog } from "@headlessui/react";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import Card from "../../../components/molecules/card";
 
 const Table: FC = (): ReactElement => {
   const { getFilterActionProcess } = useFilterActionProcess();
   const { data } = useProcess(getFilterActionProcess);
+  const [isOpenDelete, setisOpenDelete] = useState(false);
 
   return (
     <div className="pt-4 lg:mt-0">
@@ -47,7 +51,10 @@ const Table: FC = (): ReactElement => {
                 </td>
                 <td>
                   <div className="pl-1">
-                    <button className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
+                    <button
+                      className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
+                      onClick={() => setisOpenDelete(true)}
+                    >
                       <ToolTip className="bg-white z-50" tooltip="Delete">
                         <IConDelete />
                       </ToolTip>
@@ -59,6 +66,44 @@ const Table: FC = (): ReactElement => {
           })}
         </tbody>
       </table>
+      {/* Modal Delete */}
+      <Dialog
+        open={isOpenDelete}
+        onClose={() => setisOpenDelete(false)}
+        className="absolute lg:left-[45%] md:left-[30%] top-[40%] left-[20%]"
+      >
+        <Dialog.Panel>
+          <Dialog.Title>
+            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+              <div className="w-full flex flex-col gap gap-y-2">
+                <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
+                  <IConDelete />
+                </div>
+                <p className="font-semibold text-[#262626]">Hapus Data</p>
+                <p className="font-base text-xs text-neutral-400 pb-2">
+                  Apakah anda setuju untuk menghapus data ini ?
+                </p>
+                <div className="flex flex-row w-full gap gap-x-3">
+                  <Button
+                    type="button"
+                    className="w-full text-sm py-1 border-full border-[#102542] text-[#102542] font-semibold border-solid border-2 rounded-md"
+                    onClick={() => setisOpenDelete(false)}
+                  >
+                    Tidak
+                  </Button>
+                  <Button
+                    type="button"
+                    className="w-full text-sm py-1 bg-[#102542] text-white rounded-md"
+                    onClick={() => setisOpenDelete(false)}
+                  >
+                    Iya
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </Dialog.Title>
+        </Dialog.Panel>
+      </Dialog>
     </div>
   );
 };

@@ -1,17 +1,13 @@
 import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
-export type Instruction = {
-  matkul: string;
-  pertemuan: number;
-  dosen: string;
-  waktu: string;
-  file: string;
-  deadline: string;
+export type TuseMyStudyAssignmentItem = {
+  getMyStudyAssignmentItem: TMyStudyAssignmentItem | null;
+  setMyStudyAssignmentItem: (val: TMyStudyAssignmentItem) => void;
 };
 
 // Service API
 
-export type TAssignmentItem = {
+export type TMyStudyAssignmentItem = {
   assignment: TAssignment;
   student_progress: TStudentProgress;
 };
@@ -23,6 +19,7 @@ export type TAssignment = {
   desc: string;
   duration_days: number;
   session_assignment: TSessionAssignment;
+  timestamp_created: string;
 };
 
 type TSessionAssignment = {
@@ -43,12 +40,22 @@ type TTeacherSubject = {
 export type TStudentProgress = {
   status: string;
   type: string;
-  score: any;
+  score: number;
   is_late: boolean;
-  assignment_answer: string[];
+  assignment_answer: string[] | null;
   timestamp_taken: string;
   timestamp_submitted: string;
   deadline: string;
 };
 
-export type TAssignmentResponse = TMetaResponseSingle<TAssignmentItem>;
+export type TMyStudyAssignmentResponse = TMetaResponseSingle<TMyStudyAssignmentItem>;
+
+export type TPayloadRequest = {
+  files: File[] | null;
+  filesToDelete?: string[] | string | null;
+};
+
+export type TMyStudyAssignmentSubmissionPayload = {
+  id: string;
+  req: TPayloadRequest;
+};
