@@ -6,7 +6,7 @@ import {
   TextField,
 } from "@mknows-frontend-services/components/atoms";
 import { useForm } from "react-hook-form";
-import { FC, ReactElement, Suspense, useEffect, useState } from "react";
+import { FC, ReactElement, Suspense, useState } from "react";
 import { lazily } from "react-lazily";
 import { ErrorBoundary } from "react-error-boundary";
 import Link from "next/link";
@@ -16,8 +16,9 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
 import { useRegister } from "./hook";
-import { usePopupOtp } from "../otp/hooks";
+import { useOtpRequest, usePopupOtp } from "../otp/hooks";
 import { OtpModule } from "../otp";
+import { request } from "http";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -63,11 +64,24 @@ export const RegisterModule: FC = (): ReactElement => {
     },
   });
 
+  const { mutate: request } = useOtpRequest();
+
   const { mutate, isLoading } = useRegister();
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => setPopupOtp(true),
+      onSuccess: () => {
+        request(
+          {
+            email: data.email,
+          },
+          {
+            onSuccess: () => {
+              setPopupOtp(true);
+            },
+          },
+        );
+      },
       onError: (e) => {
         console.log(e.response?.data.message);
         setError(e.response?.data.message as string);
@@ -80,10 +94,6 @@ export const RegisterModule: FC = (): ReactElement => {
       redirect: false,
     });
   };
-
-  useEffect(() => {
-    setPopupOtp(true);
-  }, []);
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
