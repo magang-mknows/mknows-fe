@@ -16,6 +16,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
 import { useRegister } from "./hook";
+import { usePopupOtp } from "../otp/hooks";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -43,6 +44,7 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 
 export const RegisterModule: FC = (): ReactElement => {
   const router = useRouter();
+  const { setPopupOtp } = usePopupOtp();
   const [getError, setError] = useState<string>("");
   const {
     control,
@@ -63,7 +65,7 @@ export const RegisterModule: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => router.push("/auth/login"),
+      onSuccess: () => setPopupOtp(true),
       onError: (e) => {
         console.log(e.response?.data.message);
         setError(e.response?.data.message as string);
