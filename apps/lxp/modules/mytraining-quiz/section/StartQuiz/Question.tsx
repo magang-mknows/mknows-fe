@@ -174,7 +174,7 @@ export const Question = () => {
                     handleDoubtAnswer(question.id, !isDoubt);
                   }}
                   type="reset"
-                  className="flex gap-2 w-full  items-center px-4 py-3 justify-center bg-[#FAB317] border-2 border-[#FAB317] rounded-md shadow-sm hover:bg-[#e1a015]"
+                  className="flex gap-2 w-full  items-center px-4 py-3 justify-center bg-version3-500 border-2 border-version3-500 rounded-md shadow-sm hover:bg-version2-500"
                 >
                   <AiOutlineQuestionCircle className=" text-neutral-50" />
                   <h1 className="text-neutral-50 text-sm font-bold">Ragu-ragu</h1>
