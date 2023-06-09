@@ -1,10 +1,9 @@
 import api from "../../../../services/api";
-import { TRoot, TDraftSubject } from "./type";
+import { TDraftSubject, TDraftPayload } from "./type";
 
 export const draftRequest = async (
-    id: string | number,
-    payload: TRoot,
+    payload: TDraftPayload,
   ): Promise<TDraftSubject> => {
-    const { data } = await api.post(`/student-subject/draft/${id}`, payload);
+    const { data } = await api.post(`/student-subject/draft/${payload.id}`, payload);
     return data;
   };

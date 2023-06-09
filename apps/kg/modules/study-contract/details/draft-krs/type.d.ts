@@ -1,6 +1,6 @@
 import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
-export type TRoot = {
+export type TDraftPayload = {
     pending: Pending
     ongoing: Ongoing
     draft: Draft

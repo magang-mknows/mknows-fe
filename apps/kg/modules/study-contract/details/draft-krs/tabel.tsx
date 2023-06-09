@@ -8,6 +8,7 @@ import { PopupModal } from "@mknows-frontend-services/components/molecules";
 const TabelDraft: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
   const { setPopupDelete, getPopupDelete } = usePopupDeleteStudy();
+  
 
   return (
     <>
