@@ -1,9 +1,8 @@
 import { FC, ReactElement, lazy } from "react";
+import { useCardData } from "./hooks";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useCardData } from "./hooks";
-
-const Card = lazy(() => import("../../components/molecules/card"));
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const CardSection: FC = (): ReactElement => {
   const { getCardData } = useCardData();
@@ -22,7 +21,7 @@ const CardSection: FC = (): ReactElement => {
     disableDotsControls: true,
     items: getCardData.map((x, i) => (
       <div key={i} className="flex max-w-screen">
-        <Card
+        <CardCS
           hasButton={true}
           buttonText="Lihat Detail"
           buttonHref="/dashboard/request/result"
@@ -39,7 +38,7 @@ const CardSection: FC = (): ReactElement => {
               <p className="text-neutral-400 font-normal text-xs">{x.desc}</p>
             </div>
           </div>
-        </Card>
+        </CardCS>
       </div>
     )),
     responsive: {

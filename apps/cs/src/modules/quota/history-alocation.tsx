@@ -1,7 +1,7 @@
 import { FC, ReactElement, useEffect, useState } from "react";
-import Search from "../../components/atoms/search";
-import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
-import Table from "./table2";
+import { Search } from "@mknows-frontend-services/components/atoms";
+import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
+import Table from "./table";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
@@ -40,7 +40,7 @@ const RiwayatAlokasi: FC = (): ReactElement => {
   };
   return (
     <section className="my-14 w-full">
-      <div className="font-bold text-2xl text-[#444444]">Riwayat Alokasi Kuota</div>
+      <div className="font-bold text-2xl text-BLACK-base">Riwayat Alokasi Kuota</div>
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center justify-between">
         <DateRangePickerComponent onRangeChange={(e) => handleRangeChange(e)} />
         <div className="w-[50%] ">

@@ -97,7 +97,7 @@ export const LoginModule: FC = (): ReactElement => {
               variant="lg"
               control={control}
               name={"email"}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukkan Email Anda"
               label="Email"
               status={errors.email ? "error" : "none"}
               message={errors.email?.message}

@@ -2,7 +2,8 @@ import { FC, ReactElement, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
-import { IconDropdown, IconEmptyState } from "../../../components/atoms";
+import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import DownloadIcon from "/assets/download-bottom.webp";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -20,25 +21,30 @@ const Table: FC = (): ReactElement => {
   const columns: TableColumn<TReportDataDummy>[] = [
     {
       name: "No",
+      width: "6%",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
     {
       name: "No Permintaan",
+      width: "14.5%",
       selector: (row) => row.no,
       sortable: true,
     },
     {
       name: "Jenis Scoring",
+      width: "21%",
       cell: (row) => row.jenis_produk,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
-      cell: (row) => row.jumlah_user,
+      width: "15.8%",
+      cell: (row) => <div className="pl-10"> {row.jumlah_user} </div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
+      width: "18%",
       cell: (row) => row.tggl_permintaan,
       sortable: true,
     },
@@ -50,8 +56,17 @@ const Table: FC = (): ReactElement => {
   ];
 
   const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
+    <div className="flex flex-col">
       <DataTable columns={columnsExpand} data={getReportData} customStyles={ExpandRowStyle} />
+      <div className="flex justify-end w-full">
+        <Button
+          type="submit"
+          className="flex flex-row my-2 py-[6px] px-2 mr-[16%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
+        >
+          <img src={DownloadIcon} alt="download-icon" className="w-full" />
+          <span className="font-semibold text-xs text-neutral-700">Unduh</span>
+        </Button>
+      </div>
     </div>
   );
 
@@ -95,7 +110,7 @@ const Table: FC = (): ReactElement => {
     {
       name: "Semua",
       cell: (row) => (
-        <div className="mx-2">
+        <div className="pl-3">
           <input type="checkbox" />
         </div>
       ),

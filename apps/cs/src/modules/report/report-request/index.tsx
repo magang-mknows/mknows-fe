@@ -1,8 +1,8 @@
 import { ReactElement, FC } from "react";
-import Table from "./table";
-import Search from "../../../components/atoms/search";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import { useReportQuery } from "../hooks";
-import DateRangePickerComponent from "../../../components/molecules/input/date-range-picker";
+import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
+import Table from "./table";
 
 const ReportRequest: FC = (): ReactElement => {
   const { setReportQuery, getReportQuery } = useReportQuery();
@@ -42,7 +42,7 @@ const ReportRequest: FC = (): ReactElement => {
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
-        <span className="text-[#4FA0CF]">
+        <span className="text-secondary-500">
           {" "}
           <a href="/dashboard/report">Klik Disini</a>
         </span>

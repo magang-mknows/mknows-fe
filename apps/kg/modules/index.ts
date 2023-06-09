@@ -5,6 +5,7 @@ export * from "./landing-alternatif";
 export * from "./assignment";
 export * from "./semuafitur";
 export * from "./common";
+export * from "./event";
 export * from "./drill-simulasi";
 export * from "./discussion-room";
 export * from "./discussion-room-legacy";

@@ -26,7 +26,7 @@ export const PrivateInformation: FC = (): ReactElement => {
     nim: z.string().optional(),
     university: z.string().optional(),
     major: z.string().optional(),
-    semester: z.string().optional(),
+    semester: z.number().optional(),
   });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -56,7 +56,7 @@ export const PrivateInformation: FC = (): ReactElement => {
       nim: "",
       university: "",
       major: "",
-      semester: "",
+      semester: 0,
     },
   });
 
@@ -242,17 +242,13 @@ export const PrivateInformation: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label mb-3">
-              <TextField
-                variant="md"
-                control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
-                type="text"
-                label={"Semester (optional)"}
-                name={"semester"}
-                placeholder={"Masukkan semeter terakhir"}
+              <label className="text-[#000] text-[16px] font-bold">Semester (optional)</label>
+              <input
+                className="outline outline-none focus:outline-none !border-2 !border-[#c5c8ca] py-2 w-full rounded-md mt-2 px-3"
+                type="number"
+                name="semester"
                 required={false}
-                status={errors.semester ? "error" : "none"}
-                message={errors.semester?.message}
+                placeholder={"Masukkan semester terakhir"}
               />
             </div>
             <div className="flex w-full my-8 justify-end">

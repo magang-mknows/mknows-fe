@@ -1,8 +1,10 @@
-import { IconEmptyState } from "../../../components/atoms/icons";
+import { Button, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
 import { TResultItem } from "../types";
+import { formatDate } from "@mknows-frontend-services/utils";
+import DownloadIcon from "/assets/download-bottom.webp";
 
 const Table2: FC = (): ReactElement => {
   const getProcessData = [
@@ -96,34 +98,65 @@ const Table2: FC = (): ReactElement => {
   const columns: TableColumn<TResultItem>[] = [
     {
       name: "ID",
-      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+      width: "5%",
+      cell: (row, rowIndex) => <div className="">{rowIndex + 1}</div>,
+      sortable: true,
+    },
+    {
+      name: "Tanggal Input",
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Jenis Permintaan",
-      selector: (row) => row.feature,
+      width: "20%",
+      cell: (row) => <div className="font-semibold">{row.feature}</div>,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
-      selector: (row) => row.total_user,
+      width: "14%",
+      cell: (row) => <div className="font-semibold pl-10">{row.total_user}</div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-      selector: (row) => row.requested_at,
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Tanggal Selesai",
-      selector: (row) => row.finished_at,
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.finished_at),
+        }),
       sortable: true,
     },
   ];
 
   const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
-      <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
+    <div className="flex flex-col">
+      <div className="flex justify-center">
+        <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
+      </div>
+      <div className="flex justify-end w-full">
+        <Button
+          type="submit"
+          className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
+        >
+          <img src={DownloadIcon} alt="download-icon" className="w-full" />
+          <span className="font-semibold text-xs text-neutral-700">Unduh</span>
+        </Button>
+      </div>
     </div>
   );
 
@@ -145,7 +178,7 @@ const Table2: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      selector: (row) => row.nama,
+      cell: (row) => <div className="font-semibold">{row.nama}</div>,
       sortable: true,
     },
     {
@@ -155,9 +188,7 @@ const Table2: FC = (): ReactElement => {
       conditionalCellStyles: [
         {
           when: (row) => row.skor === "Sangat Buruk",
-          classNames: [
-            "bg-[#ff0000] flex items-center justify-center text-white my-1.5 rounded-[8px]",
-          ],
+          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
         },
         {
           when: (row) => row.skor === "Cukup Buruk",

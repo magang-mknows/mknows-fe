@@ -2,28 +2,56 @@ import React, { ReactElement, useState } from "react";
 import Image from "next/image";
 import VideoImage from "../assets/video.svg";
 import DocumentImage from "../assets/document.svg";
+import { useGetMyWorkVideoModule } from "./hooks";
+import { docMytrainingTypes, TVideoModuleParams, videoMytrainingTypes } from "../type";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { usePopupConfirmModul } from "../pop-up/hooks";
+import { ModulePopup } from "../pop-up";
 
 const ListStudy = (): ReactElement => {
-  const [popup, setpopup] = useState(false);
+  const { setPopupStatus } = usePopupConfirmModul();
+  // const [popup, setpopup] = useState(false);
+  const { query } = useRouter();
+  const params: TVideoModuleParams = {
+    subjectID: query.subjectID as string,
+    moduleID: query.moduleID as string,
+    videoID: query.videoID as string,
+  };
+  const { data } = useGetMyWorkVideoModule(params);
+  const videoModule = data?.data?.material?.module_moduleVideos;
+  const docModule = data?.data?.material?.module_moduleDocs;
   return (
     <div className="flex flex-col w-full shadow-lg rounded-lg p-6">
       <div className="flex flex-col h-[40%]">
         <h1 className="font-bold text-xl">Video Lainnya</h1>
         <div className="flex items-center gap-y-4 py-4 gap-x-2">
-          <Image src={VideoImage} width={200} height={200} className="w-auto" alt="icon" />
-          <p className="font-bold">Introduce Manajemen Keuangan</p>
+          {videoModule?.map((item: videoMytrainingTypes, index: number) => {
+            return (
+              <div key={index} className="flex items-center">
+                <Image src={VideoImage} width={200} height={200} className="w-auto" alt="icon" />
+                <p className="font-bold">Introduce Manajemen Keuangan</p>
+              </div>
+            );
+          }, [])}
         </div>
       </div>
       <div className="flex flex-col h-[60%]">
         <h1 className="font-bold text-xl">Dokumen Lainnya</h1>
         <div className="flex items-center gap-x-3  gap-y-4 py-4">
-          <Image src={DocumentImage} width={200} height={200} className="w-auto" alt="icon" />
-          <p className="font-bold">Fungsi Manajemen Keuangan</p>
+          {docModule?.map((item: docMytrainingTypes, index: number) => {
+            return (
+              <Link href={item.url as string} className="flex items-center gap-2" key={index}>
+                <Image src={DocumentImage} width={200} height={200} className="w-auto" alt="icon" />
+                <p className="font-bold">{item.title}</p>
+              </Link>
+            );
+          }, [])}
         </div>
       </div>
-      <div className="flex w-full justify-center items-center">
+      <div className="flex w-full justify-center items-center mt-2">
         <button
-          onClick={() => setpopup(true)}
+          onClick={() => setPopupStatus(true)}
           className="bg-[#F26800] flex items-center w-[217px] h-[48px] rounded-[8px] justify-center gap-2"
         >
           <svg
@@ -52,6 +80,7 @@ const ListStudy = (): ReactElement => {
           <h1 className="text-[#FFFF]">Selesaikan Modul</h1>
         </button>
       </div>
+      <ModulePopup />
     </div>
   );
 };

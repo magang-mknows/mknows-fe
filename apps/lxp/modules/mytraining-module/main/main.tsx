@@ -10,7 +10,7 @@ export const MtTrainingModuleMain: FC = (): ReactElement => {
   const { query } = useRouter();
   const params: TModulParams = {
     subjectID: query.subjectID as string,
-    batchID: query.batchID as string,
+    batchID: query.moduleID as string,
   };
   const { data } = useGetMyWorkModule(params);
   console.log("tes data", data);
@@ -26,7 +26,7 @@ export const MtTrainingModuleMain: FC = (): ReactElement => {
               <Card
                 hasImage={false}
                 className="border-[#E5E5E5] border-2 text-start rounded-lg shadow-sm"
-                href="/pelatihanku/modul/video-module/1"
+                href={`/pelatihanku/modul/${item.subject_session_id}/${item.id}/${item.batch_id}`}
                 key={index}
               >
                 <div className="flex flex-col p-4">

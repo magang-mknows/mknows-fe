@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement, useState, Suspense } from "react";
-import LoadingRequest from "../../modules/request/loading";
-import Card from "../../components/molecules/card";
 import { Tab } from "@headlessui/react";
+import LoadingRequest from "../../modules/request/loading";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 import AlokasiKuota from "./alocation-quota";
 import RiwayatAlokasi from "./history-alocation";
@@ -12,7 +12,7 @@ const QuotaPage: FC = (): ReactElement => {
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
         <section className="w-full flex h-fit relative py-2 justify-center lg:justify-end lg:pr-4">
-          <Card className="w-full h-fit rounded-lg bg-white">
+          <CardCS className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
@@ -58,7 +58,7 @@ const QuotaPage: FC = (): ReactElement => {
                 </Tab.Panel>
               </Tab.Panels>
             </div>
-          </Card>
+          </CardCS>
         </section>
       </Tab.Group>
     </Suspense>

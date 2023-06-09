@@ -1,6 +1,6 @@
 import { FC, ReactElement, Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import Spinner from "../../components/atoms/loading/spinner";
+import { Spinner } from "@mknows-frontend-services/components/atoms";
 import Sidebar from "../../components/organisms/sidebar";
 import SidebarSkeleton from "../../components/organisms/sidebar/sidebar-skeleton";
 
@@ -13,7 +13,7 @@ export const BaseLayout: FC = (): ReactElement => {
             <Sidebar />
           </Suspense>
         </div>
-        <div className="w-full lg:ml-[20%] ml-0 overflow-hidden p-4 max-screen-auto bg-[#F6FBFA]">
+        <div className="w-full lg:ml-[20%] ml-0 overflow-hidden p-4 max-screen-auto bg-add2">
           <Suspense fallback={<Spinner />}>
             <Outlet />
           </Suspense>

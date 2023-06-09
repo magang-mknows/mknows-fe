@@ -1,5 +1,5 @@
 import { formatDate } from "@mknows-frontend-services/utils";
-import { IconEmptyState } from "../../../components/atoms/icons";
+import { IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionProcess, useProcess } from "../hooks";
@@ -175,14 +175,12 @@ const Table2: FC = (): ReactElement => {
       conditionalCellStyles: [
         {
           when: (row) => row.status === "GAGAL",
-          classNames: [
-            "bg-[#ff0000] flex items-center justify-center text-white my-1.5 rounded-[8px]",
-          ],
+          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
         },
         {
           when: (row) => row.status === "MENUNGGU",
           classNames: [
-            "bg-[#F59E0B] flex items-center justify-center text-white my-1.5 rounded-[8px]",
+            "bg-warning-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],
         },
       ],

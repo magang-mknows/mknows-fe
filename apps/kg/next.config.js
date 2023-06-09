@@ -13,7 +13,13 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ["picsum.photos", "res.cloudinary.com", "lh3.googleusercontent.com", "i.ytimg.com"],
+    domains: [
+      "picsum.photos",
+      "res.cloudinary.com",
+      "lh3.googleusercontent.com",
+      "i.ytimg.com",
+      "images.unsplash.com",
+    ],
   },
   experimental: {},
 };
