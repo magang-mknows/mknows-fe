@@ -24,3 +24,12 @@ export type TAnswer = {
 };
 
 export type TQuizQuestionResponse = TMetaResponseSingle<IQuizItem>;
+
+export interface IQuizAnswerPayload {
+  questions_answers: QuestionsAnswer[];
+}
+
+export type TQuestionsAnswer = {
+  question: string;
+  answer: string;
+};
