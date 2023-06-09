@@ -1,10 +1,10 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
-import Table from "./table";
 import { useFilterAction } from "./hooks";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
+import Table from "./table";
 
 const RiwayatAlokasi: FC = (): ReactElement => {
   const [option, setOption] = useState({

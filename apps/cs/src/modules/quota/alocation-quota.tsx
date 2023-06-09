@@ -3,7 +3,6 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog, Transition } from "@headlessui/react";
 import { useQuotaData } from "./hooks";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
-import cursorLoading from "/assets/quota/cursor-loading.webp";
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getQuotaData } = useQuotaData();
@@ -144,7 +143,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         {ProductName === "default" ? (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
-              <img src={cursorLoading} alt="loading..." />
+              <img src="/assets/quota/cursor-loading.webp" alt="loading..." />
               <span className="font-semibold text-base text-black">
                 Silahkan pilih jenis produk terlebih dahulu
               </span>
@@ -160,7 +159,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 <div className="px-3 py-2 flex items-center flex-row rounded-[4px] lg:justify-between justify-normal bg-warning-100">
                   <div className="w-full flex flex-row items-center gap gap-x-3">
                     <img
-                      src="/assets/mdi_mobile-phone-information.webp"
+                      src="/assets/quota/phone-information.webp"
                       alt="information"
                       className="w-fit h-fit"
                     />

@@ -70,7 +70,7 @@ const Sidebar: FC = (): ReactElement => {
       >
         <div className="h-screen px-3 py-4  text-black bg-white border-b">
           <div>
-            <img src={"/assets/logo.webp"} alt="logo" className="w-[200px] h-auto p-6" />
+            <img src={"/assets/auth/logo.svg"} alt="logo" className="w-[200px] h-auto p-6" />
           </div>
 
           <div className="pt-4 font-medium w-full border-[#F5F5F5] ">

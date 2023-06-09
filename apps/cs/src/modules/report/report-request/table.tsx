@@ -3,7 +3,6 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
-import DownloadIcon from "/assets/download-bottom.webp";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
@@ -63,7 +62,7 @@ const Table: FC = (): ReactElement => {
           type="submit"
           className="flex flex-row my-2 py-[6px] px-2 mr-[16%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
         >
-          <img src={DownloadIcon} alt="download-icon" className="w-full" />
+          <img src="/download-bottom.webp" alt="download-icon" className="w-full" />
           <span className="font-semibold text-xs text-neutral-700">Unduh</span>
         </Button>
       </div>
