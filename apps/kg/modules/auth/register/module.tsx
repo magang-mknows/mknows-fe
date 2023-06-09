@@ -16,6 +16,9 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
 import { useRegister } from "./hook";
+import { useOtpRequest, usePopupOtp } from "../otp/hooks";
+import { OtpModule } from "../otp";
+import { request } from "http";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -43,9 +46,11 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 
 export const RegisterModule: FC = (): ReactElement => {
   const router = useRouter();
+  const { setPopupOtp } = usePopupOtp();
   const [getError, setError] = useState<string>("");
   const {
     control,
+    watch,
     formState: { isValid, errors },
     handleSubmit,
   } = useForm<ValidationSchema>({
@@ -59,11 +64,24 @@ export const RegisterModule: FC = (): ReactElement => {
     },
   });
 
+  const { mutate: request } = useOtpRequest();
+
   const { mutate, isLoading } = useRegister();
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => router.push("/auth/login"),
+      onSuccess: () => {
+        request(
+          {
+            email: data.email,
+          },
+          {
+            onSuccess: () => {
+              setPopupOtp(true);
+            },
+          },
+        );
+      },
       onError: (e) => {
         console.log(e.response?.data.message);
         setError(e.response?.data.message as string);
@@ -155,6 +173,7 @@ export const RegisterModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
+        <OtpModule email={watch("email")} />
       </Suspense>
     </ErrorBoundary>
   );
