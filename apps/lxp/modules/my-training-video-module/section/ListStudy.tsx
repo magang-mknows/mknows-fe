@@ -3,7 +3,7 @@ import Image from "next/image";
 import VideoImage from "../assets/video.svg";
 import DocumentImage from "../assets/document.svg";
 import { useGetMyWorkVideoModule } from "./hooks";
-import { docMytrainingTypes, paramsVideoModule, videoMytrainingTypes } from "../type";
+import { docMytrainingTypes, TVideoModuleParams, videoMytrainingTypes } from "../type";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { usePopupConfirmModul } from "../pop-up/hooks";
@@ -13,7 +13,7 @@ const ListStudy = (): ReactElement => {
   const { setPopupStatus } = usePopupConfirmModul();
   // const [popup, setpopup] = useState(false);
   const { query } = useRouter();
-  const params: paramsVideoModule = {
+  const params: TVideoModuleParams = {
     subjectID: query.subjectID as string,
     moduleID: query.moduleID as string,
     videoID: query.videoID as string,

@@ -55,7 +55,7 @@ export const ModulePopup: FC = (ReactElement) => {
       lookup={getPopupStatus}
       className="!h-60 !w-[800px]"
     >
-      <h1 className="flex p-4 pt-2 rounded-md bg-[#F26800] text-white w-full text-[18px]">
+      <h1 className="flex p-4 pt-2 rounded-md  bg-version2-500 text-white w-full text-[18px]">
         Apa Pelajaran yang kamu pelajari hari ini?
       </h1>
       <div className="shadow flex justify-start p-2 w-full my-3">
@@ -82,7 +82,7 @@ export const ModulePopup: FC = (ReactElement) => {
       </p>
       <div className="p-4 flex w-full justify-end items-end">
         <button
-          className="bg-[#F26800] h-[32px] text-white lg:w-[115px] w-full rounded-md"
+          className=" bg-version2-500 h-[32px] text-white lg:w-[115px] w-full rounded-md"
           onClick={() => {
             setPopupStatus(false);
             // setConfirmModul(true);

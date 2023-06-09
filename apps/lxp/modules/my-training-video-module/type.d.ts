@@ -10,9 +10,16 @@ export type docMytrainingTypes = {
   description?: string;
 };
 
-export type paramsVideoModule = {
+export type  TVideoModuleParams = {
   subjectID: string;
   moduleID: string;
   videoID: string;
 };
+
+export type TVideoModule = {
+  videoID: string;
+};
+
+export type TVideoModuleResponse = ICommonMetaResponse<TVideoModule>
+
 
