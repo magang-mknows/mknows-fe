@@ -128,7 +128,7 @@ export const ClientProvider: FC<TProviderProps> = ({
   ];
 
   return (
-    <div className={`${montserrat.className} max-w-[2200px]  container mx-auto`}>
+    <div className={` font-montserrat max-w-[2200px]  container mx-auto`}>
       <Navbar
         items={_pop_up_menu}
         features={_features}
@@ -165,7 +165,7 @@ export const ClientProvider: FC<TProviderProps> = ({
           </section>
         }
       />
-      <section className={`bg-neutral-100 min-h-[120vh] ${sectionClassName}`}>{children}</section>
+      <section className={`bg-light min-h-[100vh] ${sectionClassName}`}>{children}</section>
       <Modal withClose lookup={getLoginPopup} onClose={() => setLoginPopup(false)}>
         <LoginFormPopup />
       </Modal>

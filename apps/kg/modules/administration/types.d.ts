@@ -1,4 +1,5 @@
 import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
+import sr from "date-fns/locale/sr";
 
 export type T = {
   title: string;
@@ -37,7 +38,7 @@ export type TBiodataAdm = {
   nim?: string;
   university?: string;
   major?: string;
-  semester?: string;
+  semester?: number;
 };
 
 export type TFamilyAdm = {

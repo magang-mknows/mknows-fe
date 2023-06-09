@@ -22,10 +22,12 @@ export const CatalogSection: FC = (): ReactElement => {
 
   return (
     <div className="px-8 md:px-14 lg`:`px-16 py-12 md:py-14 lg:py-16 xl:py-20 bg-neutral-100">
-      <h1 className="font-bold  text-neutral-900 text-2xl md:text-3xl text-center mb-2 lg:mb-3">
-        Konten Katalog
-      </h1>
-      <p className="text-center text-neutral-400 font-normal text-xs md:text-sm lg:text-base px-0 md:px-2 lg:px-10 xl:px-24 mb-12">
+      <section className="w-full grid place-items-center mb-4 lg:mb-6">
+        <h1 className="font-bold bg-version2-400 px-6 py-2.5 text-neutral-50 text-2xl md:text-3xl text-center ">
+          Katalog Konten
+        </h1>
+      </section>
+      <p className="text-center text-neutral-400  font-normal text-xs md:text-sm lg:text-base px-0 md:px-2 lg:px-10 xl:px-10 mb-12">
         Dalam solusi kami, kami menyediakan konten interaktif yang mudah digunakan dan menyenangkan
         untuk digunakan yang akan membantu Anda dan tim Anda mencapai potensi maksimal dan terlibat
         sepenuhnya dalam proses pelatihan

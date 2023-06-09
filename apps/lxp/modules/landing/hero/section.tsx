@@ -21,17 +21,17 @@ export const HeroSection: FC = (): ReactElement => {
         />
       </div>
       {/* <LandingHeroHeadlineTitle /> */}
-      <div className="px-2 relative z-40 md:px-20 lg:px-32 xl:px-[250px] mb-6 md:mb-8 lg:mb-10">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl text-neutral-800 font-bold text-center leading-[38px] md:leading-[52px] lg:leading-[60px] xl:leading-[80px]">
-          Tingkatkan <span className="text-version3-500">Keahlianmu</span> Untuk Capai Kesuksesan
-          bersama <span className="text-version3-500">LMS M-Knows</span>
+      <div className="px-2 relative z-40 md:px-20 lg:px-32 xl:px-[260px] mb-6 md:mb-8 lg:mb-10">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl text-neutral-800 font-bold text-center leading-[38px] md:leading-[52px] lg:leading-[60px] xl:leading-[90px]">
+          Tingkatkan <span className="text-version3-500">Keahlianmu</span> Gapai Sukses Dengan{" "}
+          <span className="text-version3-500">LMS M-Knows</span>
         </h1>
       </div>
       {/* <LandingHeroHeadlineDesc /> */}
-      <div className="px-8 relative z-40 md:px-12 lg:px-16 xl:px-[280px] text-center mb-6 md:mb-8 lg:mb-10">
+      <div className="px-8 relative z-40 md:px-12 lg:px-16 xl:px-[340px] text-center mb-6 md:mb-8 lg:mb-10">
         <p className="text-neutral-700 text-sm lg:text-base">
-          LXP M-Knows adalah Platform pelatihan yang berbasis Web dan Mobile Apps. LXP digunakan
-          untuk mengelola Program pelatihan karyawan, yang bisa di akses kapanpun dan dimanapun.
+          M-Knows LMS adalah Platform pelatihan yang berbasis Web dan Mobile Apps yang digunakan
+          untuk mengelola Program pelatihan karyawan yang bisa di akses kapanpun dan dimanapun.
         </p>
       </div>
       {/* <Button type="primary" text="Get a demo" size="medium" /> */}

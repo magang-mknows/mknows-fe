@@ -12,9 +12,7 @@ export const FooterAddress: FC = (): ReactElement => {
             <span>Utama</span>
             <span>:</span>
           </section>
-          <span className="font-bold">
-            Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta Selatan 12130
-          </span>
+          <span>Jl. Radio IV No.8B, Kramat Pela,Kebayoran Baru, Kota Jakarta Selatan 12130</span>
         </li>
         <li className="flex gap-2 ">
           <section className="min-w-[70px] flex justify-between">

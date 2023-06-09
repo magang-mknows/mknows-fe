@@ -3,7 +3,7 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import { videoMytrainingTypes } from "../type";
 
 const YoutubeSection = (props: videoMytrainingTypes): ReactElement => {
-  const { videoId } = props;
+  const { url } = props;
 
   const onPlayerReady: YouTubeProps["onReady"] = (event: any) => {
     event.target.pauseVideo();
@@ -17,7 +17,7 @@ const YoutubeSection = (props: videoMytrainingTypes): ReactElement => {
     <div>
       <YouTube
         iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-full h-[320px] disabled "
-        videoId={videoId}
+        videoId={url}
         opts={opts}
         onReady={onPlayerReady}
       />
