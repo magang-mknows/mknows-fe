@@ -1,10 +1,10 @@
-import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
+import { TMetaErrorResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
 type TGetQuizParams = {
   quizId: string;
   batchId: string;
 };
 
-export type TStoreQuestionAnswer = { ans_id?: string; ques_id?: string; doubt?: boolean };
+export type TStoreQuestionAnswer = { answer?: string; question?: string; doubt?: boolean };
 
 export interface IQuizItem {
   type: string;
@@ -25,11 +25,26 @@ export type TAnswer = {
 
 export type TQuizQuestionResponse = TMetaResponseSingle<IQuizItem>;
 
-export interface IQuizAnswerPayload {
-  questions_answers: QuestionsAnswer[];
+export type TQuestionsAnswer = {
+  questions_answers: {
+    question?: string;
+    answer?: string;
+  }[];
+};
+
+export interface ISubmitQuizVariable {
+  quizAnswer: TQuestionsAnswer;
+  quizParams: TGetQuizParams;
 }
 
-export type TQuestionsAnswer = {
-  question: string;
-  answer: string;
+export type TSubmitQuizItem = {
+  right: number;
+  wrong: number;
+  total_question: number;
+  remaining_attempt: number;
+  time_elapsed: number;
+  score: number;
+  status: string;
 };
+
+export type TSubmitQuizResponse = TMetaErrorResponse<TSubmitQuizItem>;

@@ -4,10 +4,14 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { useRecoilState } from "recoil";
 import { currentQuestionState } from "./store";
 import { useCallback, useEffect, useState } from "react";
-import { TAnswer, TGetQuizParams, TStoreQuestionAnswer } from "./types";
-import { getFromLocalStorage, storeToLocalStorage } from "@mknows-frontend-services/utils";
+import { ISubmitQuizVariable, TAnswer, TGetQuizParams, TStoreQuestionAnswer } from "./types";
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  storeToLocalStorage,
+} from "@mknows-frontend-services/utils";
 import { useRouter } from "next/router";
-import { useGetQuizQuestion } from "./hook";
+import { useGetQuizQuestion, useSubmitQuizAnswer } from "./hook";
 
 export const Question = () => {
   // ================================
@@ -19,6 +23,7 @@ export const Question = () => {
     quizId: query.quizID as string,
     batchId: query.batchID as string,
   };
+
   const { data: QuizQuestion } = useGetQuizQuestion(params);
   const quizQuestionData = QuizQuestion?.data;
   const questions = quizQuestionData?.questions_answers;
@@ -48,21 +53,21 @@ export const Question = () => {
   // and doubt answer
   // =======================
   const handleAnswerChange = (questionId: string, answerId: string) => {
-    const asnweredQueston = questionsAnswer.filter((obj) => obj.ques_id === questionId);
+    const asnweredQueston = questionsAnswer.filter((obj) => obj.question === questionId);
     if (asnweredQueston.length > 0) {
-      asnweredQueston[0].ans_id = answerId;
+      asnweredQueston[0].answer = answerId;
     } else {
-      setQuestionsAnswer((prev) => [...prev, { ans_id: answerId, ques_id: questionId }]);
+      setQuestionsAnswer((prev) => [...prev, { answer: answerId, question: questionId }]);
     }
     storeAnswertoLocalStorage();
   };
 
   const handleDoubtAnswer = (questionId: string, doubt: boolean) => {
-    const answeredQueston = questionsAnswer.filter((obj) => obj.ques_id === questionId);
+    const answeredQueston = questionsAnswer.filter((obj) => obj.question === questionId);
     if (answeredQueston.length > 0) {
       answeredQueston[0].doubt = doubt;
     } else {
-      setQuestionsAnswer((prev) => [...prev, { doubt: doubt, ques_id: questionId }]);
+      setQuestionsAnswer((prev) => [...prev, { doubt: doubt, question: questionId }]);
     }
     storeAnswertoLocalStorage();
   };
@@ -94,6 +99,24 @@ export const Question = () => {
     storeCurrentNumber();
   }, [storeAnswertoLocalStorage, storeCurrentNumber]);
 
+  const { mutate } = useSubmitQuizAnswer();
+
+  const handleSubmitAnswer = ({ quizAnswer, quizParams }: ISubmitQuizVariable) => {
+    mutate(
+      { quizAnswer, quizParams },
+      {
+        onSuccess: () => {
+          removeFromLocalStorage("questions_answers");
+          removeFromLocalStorage("current_number");
+          console.log("berhasil kirim jabawan");
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      },
+    );
+  };
+
   return (
     <div className="grid grid-cols-3 p-8  lg:gap-[52px]">
       <div className=" col-span-2 border-2 rounded-md w-full border-neutral-100  py-10 px-8">
@@ -111,7 +134,7 @@ export const Question = () => {
                     key={answer.id}
                     className={`w-full h-10 text-sm px-2 rounded-md shadow-sm flex items-center border-[1px] border-version3-300 ${
                       questionsAnswer.some(
-                        (obj) => answer.id === obj.ans_id || selectedOption === answer.id,
+                        (obj) => answer.id === obj.answer || selectedOption === answer.id,
                       )
                         ? "bg-version3-300 text-neutral-100"
                         : " bg-neutral-50 text-neutral-800"
@@ -171,7 +194,16 @@ export const Question = () => {
                 ) : (
                   <Button
                     onClick={() => {
-                      console.log("hasil", questionsAnswer);
+                      const removedDoubt = {
+                        questions_answers: questionsAnswer.map((answer) => {
+                          const { doubt, ...rest } = answer;
+                          return rest;
+                        }),
+                      };
+                      handleSubmitAnswer({
+                        quizAnswer: removedDoubt,
+                        quizParams: params,
+                      });
                     }}
                     type="button"
                     className={`flex gap-2 w-full  items-center px-4 py-3 justify-center bg-warning-500 border-2 border-warning-500 rounded-md shadow-sm hover:bg-warning-600`}
@@ -198,10 +230,10 @@ export const Question = () => {
                 className={`${
                   index + 1 === (getCurrentNumber as number) ? "bg-neutral-200" : "bg-neutral-50 "
                 } ${
-                  questionsAnswer.some((obj) => obj.ques_id === item.id)
-                    ? questionsAnswer.some((obj) => obj.ques_id === item.id && obj.doubt)
+                  questionsAnswer.some((obj) => obj.question === item.id)
+                    ? questionsAnswer.some((obj) => obj.question === item.id && obj.doubt)
                       ? "bg-version3-500 text-white"
-                      : questionsAnswer.some((obj) => obj.ques_id === item.id && obj.ans_id)
+                      : questionsAnswer.some((obj) => obj.question === item.id && obj.answer)
                       ? "bg-version3-300 text-white"
                       : ""
                     : "bg-neutral-50"
