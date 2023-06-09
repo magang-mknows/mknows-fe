@@ -6,7 +6,7 @@ import {
   TextField,
 } from "@mknows-frontend-services/components/atoms";
 import { useForm } from "react-hook-form";
-import { FC, ReactElement, Suspense, useState } from "react";
+import { FC, ReactElement, Suspense, useEffect, useState } from "react";
 import { lazily } from "react-lazily";
 import { ErrorBoundary } from "react-error-boundary";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
 import { useRegister } from "./hook";
 import { usePopupOtp } from "../otp/hooks";
+import { OtpModule } from "../otp";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -48,6 +49,7 @@ export const RegisterModule: FC = (): ReactElement => {
   const [getError, setError] = useState<string>("");
   const {
     control,
+    watch,
     formState: { isValid, errors },
     handleSubmit,
   } = useForm<ValidationSchema>({
@@ -78,6 +80,10 @@ export const RegisterModule: FC = (): ReactElement => {
       redirect: false,
     });
   };
+
+  useEffect(() => {
+    setPopupOtp(true);
+  }, []);
 
   return (
     <ErrorBoundary fallback={<>{getError}</>}>
@@ -157,6 +163,7 @@ export const RegisterModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
+        <OtpModule email={watch("email")} />
       </Suspense>
     </ErrorBoundary>
   );

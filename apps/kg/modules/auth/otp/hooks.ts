@@ -1,19 +1,24 @@
-import { TMetaErrorResponse, TMetaItem } from "@mknows-frontend-services/utils";
-import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { TForgotPasswordPayload, TOtpPopup } from "./types";
-import { forgotPasswordRequest } from "./api";
 import { useRecoilState } from "recoil";
 import { PopupOtp } from "./store";
+import { TOTPPayload, TOtpPopup, TOTPRequestPayload } from "./types";
+import { UseMutationResult, useMutation } from "@tanstack/react-query";
+import { TMetaErrorResponse, TMetaItem } from "@mknows-frontend-services/utils";
+import { otpRequest, otpVerify } from "./api";
 
-export const useForgot = (): UseMutationResult<
+export const useOtpVerify = (): UseMutationResult<TMetaItem, TMetaErrorResponse, TOTPPayload> =>
+  useMutation({
+    mutationKey: ["otp-verify"],
+    mutationFn: async (payload) => otpVerify(payload),
+  });
+
+export const useOtpRequest = (): UseMutationResult<
   TMetaItem,
   TMetaErrorResponse,
-  TForgotPasswordPayload,
-  unknown
+  TOTPRequestPayload
 > =>
   useMutation({
-    mutationKey: ["forgot-password-post"],
-    mutationFn: async (payload) => await forgotPasswordRequest(payload),
+    mutationKey: ["otp-request"],
+    mutationFn: async (payload) => otpRequest(payload),
   });
 
 export const usePopupOtp = (): TOtpPopup => {
