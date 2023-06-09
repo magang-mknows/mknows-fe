@@ -42,7 +42,7 @@ const ReportRequest: FC = (): ReactElement => {
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
-        <span className="text-[#4FA0CF]">
+        <span className="text-secondary-500">
           {" "}
           <a href="/dashboard/report">Klik Disini</a>
         </span>

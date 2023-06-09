@@ -61,10 +61,10 @@ const Table: FC = (): ReactElement => {
       <div className="flex justify-end w-full">
         <Button
           type="submit"
-          className="flex flex-row my-2 py-[6px] px-2 mr-[16%] border-[#E5E5E5] border-[1px] rounded-md items-center space-x-1"
+          className="flex flex-row my-2 py-[6px] px-2 mr-[16%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
         >
           <img src={DownloadIcon} alt="download-icon" className="w-full" />
-          <span className="font-semibold text-xs text-[#5E5E5E]">Unduh</span>
+          <span className="font-semibold text-xs text-neutral-700">Unduh</span>
         </Button>
       </div>
     </div>

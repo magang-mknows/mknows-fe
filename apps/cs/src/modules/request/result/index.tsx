@@ -28,7 +28,7 @@ const ResultModule: FC = (): ReactElement => {
   return (
     <div className="relative">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
-        <p className="font-bold text-[#444444] text-[24px] lg:ml-8 ml-0 lg:w-[60%] w-full">
+        <p className="font-bold text-BLACK-base text-[24px] lg:ml-8 ml-0 lg:w-[60%] w-full">
           Permintaan Hari ini
         </p>
         <div className="w-full">
@@ -60,7 +60,7 @@ const ResultModule: FC = (): ReactElement => {
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
-        <span className="text-[#4FA0CF]">
+        <span className="text-secondary-500">
           {" "}
           <a href="/dashboard/report">Klik Disini</a>
         </span>

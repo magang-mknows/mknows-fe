@@ -86,14 +86,14 @@ export const PostCreateModal: FC = (): ReactElement => {
             name={"title"}
             placeholder="Ketik judul diskusi kamu"
             label="Judul Diskusi"
-            className="!h-[46px] text-sm !rounded-[8px] !border-[1px] !border-[#D4D4D4]"
+            className="!h-[46px] text-sm !rounded-[8px] !border-[1px] !border-neutral-300"
             status={errors.title ? "error" : undefined}
             message={errors.title?.message}
           />
           <p className="mb-5 -mt-2 text-xs text-neutral-400">Maks. 250 karakter</p>
 
           <h1 className="mb-2 text-sm text-left">Isi Diskusi</h1>
-          <section className="border-[1px] border-[#D4D4D4] rounded-md">
+          <section className="border-[1px] border-neutral-300 rounded-md">
             <TextField
               labelClassName="!text-sm text-left !font-normal"
               type="text"
@@ -106,7 +106,7 @@ export const PostCreateModal: FC = (): ReactElement => {
               status={errors.content ? "error" : undefined}
               message={errors.content?.message}
             />
-            <section className="border-[1px] p-2 -mt-2 border-[#D4D4D4] rounded-md flex flex-col justify-center items-center  m-4 gap-2">
+            <section className="border-[1px] p-2 -mt-2 border-neutral-300 rounded-md flex flex-col justify-center items-center  m-4 gap-2">
               <UploadDragbleField
                 className="border-none min-h-[110px]"
                 name={"images"}

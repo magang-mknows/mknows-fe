@@ -18,10 +18,10 @@ const SidebarSkeleton: FC = (): ReactElement => {
 
       <aside
         id="separator-sidebar"
-        className="absolute top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-screen transition-transform text-black bg-[#ffffff]"
+        className="absolute top-0 left-0 z-50 lg:sm:translate-x-0 w-64 h-screen transition-transform text-black bg-white"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-9 overflow-y-auto text-black bg-[#ffffff] shadow-lg">
+        <div className="h-full px-3 py-9 overflow-y-auto text-black bg-white shadow-lg">
           <ul>
             <li className="animate-pulse bg-neutral-200 flex items-center rounded-lg w-auto h-auto p-10"></li>
           </ul>

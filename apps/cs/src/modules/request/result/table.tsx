@@ -151,10 +151,10 @@ const Table2: FC = (): ReactElement => {
       <div className="flex justify-end w-full">
         <Button
           type="submit"
-          className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-[#E5E5E5] border-[1px] rounded-md items-center space-x-1"
+          className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
         >
           <img src={DownloadIcon} alt="download-icon" className="w-full" />
-          <span className="font-semibold text-xs text-[#5E5E5E]">Unduh</span>
+          <span className="font-semibold text-xs text-neutral-700">Unduh</span>
         </Button>
       </div>
     </div>
@@ -188,9 +188,7 @@ const Table2: FC = (): ReactElement => {
       conditionalCellStyles: [
         {
           when: (row) => row.skor === "Sangat Buruk",
-          classNames: [
-            "bg-[#ff0000] flex items-center justify-center text-white my-1.5 rounded-[8px]",
-          ],
+          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
         },
         {
           when: (row) => row.skor === "Cukup Buruk",

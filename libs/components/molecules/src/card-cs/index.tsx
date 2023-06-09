@@ -24,7 +24,7 @@ export const CardCS: FC<TCardProps> = ({
       {href ? (
         <Link to={`${href}`}>
           <div
-            className={`${className} flex auto p-4 flex-col rounded bg-[#ffffff]`}
+            className={`${className} flex auto p-4 flex-col rounded bg-white`}
             onClick={() => onClick}
           >
             <section className="flex">{children}</section>
@@ -34,7 +34,7 @@ export const CardCS: FC<TCardProps> = ({
       ) : (
         <div
           data-testid="card"
-          className={`${className} relative flex auto flex-col cursor-default rounded bg-[#ffffff]`}
+          className={`${className} relative flex auto flex-col cursor-default rounded bg-white`}
           onClick={onClick}
         >
           <div className={titleStyle}>
