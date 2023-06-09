@@ -5,7 +5,6 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUpdatePassword } from "./hooks";
-import { TPasswordPayload } from "./types";
 
 export const ChangePasswordSection: FC = (): ReactElement => {
   const { mutate, isLoading } = useUpdatePassword();
@@ -20,7 +19,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
     })
     .refine((data) => data.new_password === data.new_password_confirmation, {
       message: "Konfirmasi kata sandi tidak valid",
-      path: ["password_confirmation"],
+      path: ["new_password_confirmation"],
     });
 
   type ValidationSchema = z.infer<typeof validationSchema>;
@@ -41,8 +40,7 @@ export const ChangePasswordSection: FC = (): ReactElement => {
 
   const onSubmit = handleSubmit((data) => {
     try {
-      console.log(data);
-      mutate(data as TPasswordPayload);
+      mutate(data);
     } catch (err) {
       // throw handleError(err);
     }
@@ -67,7 +65,6 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           className="!h-[40px] text-sm !rounded-[8px] !border-2 !border-[#D4D4D4] mb-2 "
         />
         <span className="block w-full h-2 mb-6 border-b-2 border-b-neutral-100"></span>
-
         <TextField
           labelClassName="!text-sm text-left"
           type="password"
@@ -96,9 +93,9 @@ export const ChangePasswordSection: FC = (): ReactElement => {
           <Button
             disabled={!isValid}
             type="submit"
-            className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-neutral-300 disabled:border-none bg-[#106FA4] text-neutral-100 hover:border-version2-300 w-36"
+            className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out rounded-md disabled:bg-neutral-300 disabled:border-none bg-primary-base text-neutral-100 hover:border-version2-300 w-36"
           >
-            <h1>{isLoading ? "Loading" : "Reset Password"}</h1>
+            {isLoading ? "Loading" : "Reset Password"}
           </Button>
         </section>
       </form>
