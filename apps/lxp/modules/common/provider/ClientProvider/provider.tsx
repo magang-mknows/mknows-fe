@@ -128,7 +128,7 @@ export const ClientProvider: FC<TProviderProps> = ({
   ];
 
   return (
-    <div className={`${montserrat.className} max-w-[2200px]  container mx-auto`}>
+    <div className={` font-montserrat max-w-[2200px]  container mx-auto`}>
       <Navbar
         items={_pop_up_menu}
         features={_features}
