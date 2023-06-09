@@ -33,7 +33,7 @@ const SkorSection: FC = (): ReactElement => {
             <p className="text-xs">A (Sangat Baik)</p>
           </div>
           <div className="flex gap-3 my-2">
-            <div className="bg-[#4AC1A2] rounded-full w-5 h-5"></div>
+            <div className="bg-primary-base rounded-full w-5 h-5"></div>
             <p className="text-xs">B (Baik)</p>
           </div>
           <div className="flex gap-3 my-2">

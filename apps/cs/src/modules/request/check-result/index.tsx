@@ -9,7 +9,7 @@ import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import Table from "./table";
-import Card from "../../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 import close from "/assets/request-page/close.webp";
 import alert from "/assets/alert-circle.webp";
 
@@ -44,9 +44,9 @@ const CheckResult: FC = (): ReactElement => {
   );
   return (
     <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
-      <Card className="w-full h-fit rounded-lg bg-white">
+      <CardCS className="w-full h-fit rounded-lg bg-white">
         <div className="px-8 py-4 flex flex-col w-full ">
-          <div className="flex flex-row gap gap-x-5 items-center border-b-[1px] border-solid w-full h-fit py-7 text-[#4AC1A2] font-bold text-base">
+          <div className="flex flex-row gap gap-x-5 items-center border-b-[1px] border-solid w-full h-fit py-7 text-primary-base font-bold text-base">
             <Link to={"/dashboard/request"}>
               <div className="flex gap-3 items-center">
                 <div className="pl-2">
@@ -61,7 +61,7 @@ const CheckResult: FC = (): ReactElement => {
             <div className="pt-7 grid grid-cols-4 gap-x-4 h-fit border-b-[1px] border-solid pb-10">
               {data?.data.slice(0, 4).map((item, index) => {
                 return (
-                  <Card className="shadow-md min-h-[103px] max-h-[103px]" key={index}>
+                  <CardCS className="shadow-md min-h-[103px] max-h-[103px]" key={index}>
                     <div className="flex flex-row py-6 px-5 w-full gap-x-4">
                       <div className="">
                         <img
@@ -75,7 +75,7 @@ const CheckResult: FC = (): ReactElement => {
                         <div className="text-[#737373] ">(10/100)</div>
                       </div>
                     </div>
-                  </Card>
+                  </CardCS>
                 );
               })}
             </div>
@@ -87,7 +87,7 @@ const CheckResult: FC = (): ReactElement => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#F6FBFA] rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
+                    className="bg-add2 rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
                   >
                     <span>{item.feature}</span>
                     <button
@@ -108,7 +108,7 @@ const CheckResult: FC = (): ReactElement => {
                 return (
                   <div
                     key={index}
-                    className="bg-[#F6FBFA] rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
+                    className="bg-add2 rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
                   >
                     <span>{item.name}</span>
                     <button
@@ -122,7 +122,7 @@ const CheckResult: FC = (): ReactElement => {
               })}
               <div
                 onClick={() => setisOpen(true)}
-                className="bg-[#F6FBFA] cursor-pointer rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
+                className="bg-add2 cursor-pointer rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
               >
                 <span>+20</span>
               </div>
@@ -138,7 +138,7 @@ const CheckResult: FC = (): ReactElement => {
             </Button>
           </div>
         </div>
-      </Card>
+      </CardCS>
 
       {/* Modal Alert */}
       <Dialog
@@ -148,12 +148,12 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#F9B7B4] rounded-full w-fit p-1">
                   <img src={alert} alt="alert-icon" />
                 </div>
-                <p className="font-semibold text-[#262626]">
+                <p className="font-semibold text-gray-600">
                   Tidak Dapat Melanjutkan Proses Permintaan
                 </p>
                 <p className="font-base text-xs text-neutral-400 pb-2">
@@ -176,7 +176,7 @@ const CheckResult: FC = (): ReactElement => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
@@ -189,32 +189,32 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
                   <IConDelete />
                 </div>
-                <p className="font-semibold text-[#262626]">Hapus Data</p>
+                <p className="font-semibold text-gray-600">Hapus Data</p>
                 <p className="font-base text-xs text-neutral-400 pb-2">
                   Apakah anda setuju untuk menghapus data ini ?
                 </p>
                 <div className="flex flex-row w-full gap gap-x-3">
                   <Button
                     type="button"
-                    className="w-full text-sm py-1 border-full border-[#102542] text-[#102542] font-semibold border-solid border-2 rounded-md"
+                    className="w-full text-sm py-1 border-full border-secondary-blue-500 text-secondary-blue-500 font-semibold border-solid border-2 rounded-md"
                     onClick={() => setisOpenDelete(false)}
                   >
                     Tidak
                   </Button>
                   <Button
                     type="button"
-                    className="w-full text-sm py-1 bg-[#102542] text-white rounded-md"
+                    className="w-full text-sm py-1 bg-secondary-blue-500 text-white rounded-md"
                   >
                     Iya
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
@@ -227,7 +227,7 @@ const CheckResult: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer h-screen shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer h-screen shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col">
                 <div className="w-full px-6 py-5 border-b">
                   <span className="pb-4 pt-2 pl-9 font-semibold text-lg">
@@ -245,7 +245,7 @@ const CheckResult: FC = (): ReactElement => {
                 </div>
                 <Table />
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
