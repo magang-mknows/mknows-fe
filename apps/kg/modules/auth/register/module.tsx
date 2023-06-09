@@ -16,6 +16,9 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { IconGoogle } from "../icons/ic-google";
 import { useRegister } from "./hook";
+import { useOtpRequest, usePopupOtp } from "../otp/hooks";
+import { OtpModule } from "../otp";
+import { request } from "http";
 
 const { AuthLayout } = lazily(() => import("@mknows-frontend-services/modules"));
 
@@ -25,8 +28,14 @@ const validationSchema = z
       message: "Email harus valid",
     }),
     full_name: z.string().min(2, { message: "Nama Lengkap harus diisi" }),
-    password: z.string().min(1, { message: "Password harus diisi" }),
-    password_confirmation: z.string().min(1, { message: "Konfirmasi kata sandi harus disisi" }),
+    password: z
+      .string()
+      .min(1, { message: "Password harus diisi" })
+      .min(7, { message: "Password harus diisi" })
+      .min(8, { message: "Password setidaknya ada 8 karakter" })
+      .refine((data) => data.match(/[A-Z]/g), { message: "Password harus mengandung huruf besar" })
+      .refine((data) => data.match(/[0-9]/g), { message: "Password harus mengandung angka" }),
+    password_confirmation: z.string().min(1, { message: "Konfirmasi kata sandi harus diisi" }),
   })
   .refine((data) => data.password === data.password_confirmation, {
     message: "Konfirmasi kata sandi tidak valid",
@@ -37,9 +46,11 @@ type ValidationSchema = z.infer<typeof validationSchema>;
 
 export const RegisterModule: FC = (): ReactElement => {
   const router = useRouter();
+  const { setPopupOtp } = usePopupOtp();
   const [getError, setError] = useState<string>("");
   const {
     control,
+    watch,
     formState: { isValid, errors },
     handleSubmit,
   } = useForm<ValidationSchema>({
@@ -53,11 +64,24 @@ export const RegisterModule: FC = (): ReactElement => {
     },
   });
 
+  const { mutate: request } = useOtpRequest();
+
   const { mutate, isLoading } = useRegister();
 
   const onSubmit = handleSubmit((data) => {
     mutate(data, {
-      onSuccess: () => router.push("/auth/login"),
+      onSuccess: () => {
+        request(
+          {
+            email: data.email,
+          },
+          {
+            onSuccess: () => {
+              setPopupOtp(true);
+            },
+          },
+        );
+      },
       onError: (e) => {
         console.log(e.response?.data.message);
         setError(e.response?.data.message as string);
@@ -86,7 +110,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="lg"
               control={control}
               name={"full_name"}
-              placeholder="Maulana Sodiqin"
+              placeholder="Masukkan Nama Lengkap Anda"
               label="Nama Lengkap"
               status={errors.full_name ? "error" : "none"}
               message={errors.full_name?.message}
@@ -96,7 +120,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="lg"
               control={control}
               name={"email"}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukkan Email Anda"
               label="Email"
               status={errors.email ? "error" : "none"}
               message={errors.email?.message}
@@ -149,6 +173,7 @@ export const RegisterModule: FC = (): ReactElement => {
             </div>
           </form>
         </AuthLayout>
+        <OtpModule email={watch("email")} />
       </Suspense>
     </ErrorBoundary>
   );

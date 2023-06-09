@@ -9,11 +9,11 @@ import {
   IconEdit,
   IconDropdown,
   IconEmptyState,
-} from "../../components/atoms";
-import ToolTip from "../../components/atoms/tooltip";
+} from "@mknows-frontend-services/components/atoms";
+import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Link } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
-import Card from "../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 import { Button } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
@@ -266,33 +266,33 @@ const Table: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
                   <IConDelete />
                 </div>
-                <p className="font-semibold text-[#262626]">Hapus Data</p>
+                <p className="font-semibold text-gray-600">Hapus Data</p>
                 <p className="font-base text-xs text-neutral-400 pb-2">
                   Apakah anda setuju untuk menghapus data ini ?
                 </p>
                 <div className="flex flex-row w-full gap gap-x-3">
                   <Button
                     type="button"
-                    className="w-full text-sm py-1 border-full border-[#102542] text-[#102542] font-semibold border-solid border-2 rounded-md"
+                    className="w-full text-sm py-1 border-full border-secondary-blue-500 text-secondary-blue-500 font-semibold border-solid border-2 rounded-md"
                     onClick={() => setisOpen(false)}
                   >
                     Tidak
                   </Button>
                   <Button
                     type="button"
-                    className="w-full text-sm py-1 bg-[#102542] text-white rounded-md"
+                    className="w-full text-sm py-1 bg-secondary-blue-500 text-white rounded-md"
                     onClick={() => setisOpen(false)}
                   >
                     Iya
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>

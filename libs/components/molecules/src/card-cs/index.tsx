@@ -4,7 +4,7 @@ import { FC, ReactElement, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { TCardProps } from "./types";
 
-const Card: FC<TCardProps> = ({
+export const CardCS: FC<TCardProps> = ({
   className,
   bodyClassName,
   children,
@@ -24,7 +24,7 @@ const Card: FC<TCardProps> = ({
       {href ? (
         <Link to={`${href}`}>
           <div
-            className={`${className} flex auto p-4 flex-col rounded bg-[#ffffff]`}
+            className={`${className} flex auto p-4 flex-col rounded bg-white`}
             onClick={() => onClick}
           >
             <section className="flex">{children}</section>
@@ -34,7 +34,7 @@ const Card: FC<TCardProps> = ({
       ) : (
         <div
           data-testid="card"
-          className={`${className} relative flex auto flex-col cursor-default rounded bg-[#ffffff]`}
+          className={`${className} relative flex auto flex-col cursor-default rounded bg-white`}
           onClick={onClick}
         >
           <div className={titleStyle}>
@@ -60,4 +60,4 @@ const Card: FC<TCardProps> = ({
   );
 };
 
-export default Card;
+export default CardCS;

@@ -2,7 +2,7 @@ import { FC, Fragment, ReactElement, useState, Suspense } from "react";
 import { LoadingReport } from "./loading";
 import { Tab } from "@headlessui/react";
 import { NavLink, Outlet } from "react-router-dom";
-import Card from "../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const ReportPage: FC = (): ReactElement => {
   const [active, setActive] = useState("laporan");
@@ -10,7 +10,7 @@ const ReportPage: FC = (): ReactElement => {
     <Suspense fallback={<LoadingReport />}>
       <Tab.Group>
         <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
-          <Card className="w-full h-fit rounded-lg bg-white">
+          <CardCS className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">
               <Tab.List
                 className="flex flex-row gap lg:gap-x-8 md:gap-x-2 text-base font-semibold"
@@ -53,7 +53,7 @@ const ReportPage: FC = (): ReactElement => {
                 <Outlet />
               </Tab.Panels>
             </div>
-          </Card>
+          </CardCS>
         </section>
       </Tab.Group>
     </Suspense>

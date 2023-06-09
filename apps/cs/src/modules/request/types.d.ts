@@ -67,9 +67,7 @@ export type TResultItem = {
 export type TResultResponse = TMetaResponse<TResultItem>;
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
 export type TResultParams = {
-  search?: string;
   feature?: string;
   per_page?: string;
   page?: string;
-  sort_by?: string;
 };

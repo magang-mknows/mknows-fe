@@ -1,12 +1,11 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
-import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
-  const [isOpen, setisOpen] = useState(false);
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -52,8 +51,17 @@ const Table: FC = (): ReactElement => {
   ];
 
   const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
+    <div className="flex flex-col">
       <DataTable columns={columnsExpand} data={getReportData} customStyles={ExpandRowStyle} />
+      <div className="flex justify-end w-full">
+        <Button
+          type="submit"
+          className="flex flex-row my-2 py-[6px] px-2 mr-[16%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
+        >
+          <img src="/download-bottom.webp" alt="download-icon" className="w-full" />
+          <span className="font-semibold text-xs text-neutral-700">Unduh</span>
+        </Button>
+      </div>
     </div>
   );
 

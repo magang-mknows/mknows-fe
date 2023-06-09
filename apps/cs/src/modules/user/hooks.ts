@@ -18,7 +18,6 @@ import {
 } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { filterAction } from "../quota/store";
 import { getUserResponse } from "./api";
 
 export const useUserQuery = (): TUserQueryResponse => {
