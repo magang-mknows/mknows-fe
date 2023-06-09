@@ -8,10 +8,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { Search } from "@mknows-frontend-services/components/atoms";
-import Table from "./table";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
-import close from "/assets/request-page/close.webp";
-import alert from "/assets/alert-circle.webp";
+import Table from "./table";
 
 const CheckResult: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -94,7 +92,7 @@ const CheckResult: FC = (): ReactElement => {
                       onClick={() => setisOpenDelete(true)}
                       className="flex justify-center items-center w-4"
                     >
-                      <img src={close} alt="close-button" />
+                      <img src="/assets/request-page/close.webp" alt="close-button" />
                     </button>
                   </div>
                 );
@@ -115,7 +113,7 @@ const CheckResult: FC = (): ReactElement => {
                       onClick={() => setisOpenDelete(true)}
                       className="flex justify-center items-center w-4"
                     >
-                      <img src={close} alt="close-button" />
+                      <img src="/assets/request-page/close.webp" alt="close-button" />
                     </button>
                   </div>
                 );
@@ -151,7 +149,7 @@ const CheckResult: FC = (): ReactElement => {
             <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#F9B7B4] rounded-full w-fit p-1">
-                  <img src={alert} alt="alert-icon" />
+                  <img src="/assets/request-page/alert-circle.webp" alt="alert-icon" />
                 </div>
                 <p className="font-semibold text-gray-600">
                   Tidak Dapat Melanjutkan Proses Permintaan

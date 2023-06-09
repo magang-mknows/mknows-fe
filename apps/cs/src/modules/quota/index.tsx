@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactElement, useState, Suspense } from "react";
 import { Tab } from "@headlessui/react";
-import LoadingRequest from "../../modules/request/loading";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
+import LoadingRequest from "../../modules/request/loading";
 
 import AlokasiKuota from "./alocation-quota";
 import RiwayatAlokasi from "./history-alocation";
