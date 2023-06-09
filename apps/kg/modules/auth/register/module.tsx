@@ -92,7 +92,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="lg"
               control={control}
               name={"full_name"}
-              placeholder="Maulana Sodiqin"
+              placeholder="Masukkan Nama Lengkap Anda"
               label="Nama Lengkap"
               status={errors.full_name ? "error" : "none"}
               message={errors.full_name?.message}
@@ -102,7 +102,7 @@ export const RegisterModule: FC = (): ReactElement => {
               variant="lg"
               control={control}
               name={"email"}
-              placeholder="maulana@sodiqin.com"
+              placeholder="Masukkan Email Anda"
               label="Email"
               status={errors.email ? "error" : "none"}
               message={errors.email?.message}
