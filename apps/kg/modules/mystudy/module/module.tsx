@@ -8,22 +8,24 @@ import DoneIcon from "./assets/done-icon.svg";
 
 export const ModuleMyStudyModule: FC = (): ReactElement => {
   const router = useRouter();
-  const { data } = useGetModuleById(router.query.moduleId as string);
+  const { data } = useGetModuleById(router.query.sessionId as string);
   const splitedPath = router.asPath.split("/");
   const sessionIndex = splitedPath[splitedPath.length - 2].split("-")[1];
 
   const dataModules: Array<TModuleItem> = data?.data as Array<TModuleItem>;
 
   return (
-    <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
-      <div className="w-full mb-8">
-        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">Mata Kuliah</h3>
+    <div className="w-full justify-start lg:px-32 p-2 lg:p-10 mt-4">
+      <div className="w-full mb-12">
+        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">
+          {router.query.subjectName}
+        </h3>
       </div>
       <div className="flex flex-col gap-y-8">
         {dataModules?.map((module, index) => (
           <Link
             key={index}
-            href={`${router.asPath}/${module.id}`}
+            href={`${router.asPath}/konten-${index + 1}/${module.id}`}
             className="relative flex auto p-4 flex-col bg-neutral-300/30 shadow-[0_3px_22px_10px_rgba(229, 229, 229, 1)] text-start rounded-lg"
           >
             {module.is_all_video_seen && (

@@ -7,7 +7,9 @@ import { TDataSession } from "./type";
 
 export const SubjectDetailsModule: FC = (): ReactElement => {
   const { query } = useRouter();
-  const { data } = useGetSubjectDetailsById(query["detail-matkul"] as string);
+  const { data } = useGetSubjectDetailsById(query.subjectId as string);
+
+  console.log(query["mata-kuliah"]);
 
   const dataSubjectDetails = data?.data.dataSubject;
   const dataSessions = data?.data.dataSessions;

@@ -38,11 +38,11 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
         ) : (
           <>
             {dataSubjectProps?.length > 0 &&
-              dataSubjectProps?.map((subject, index) => {
+              dataSubjectProps?.map((subject) => {
                 const thumbnailImg = subject.thumbnail.includes(".") ? subject.thumbnail : "";
                 return (
                   <Card
-                    href={`/studi-ku/${subject.id}`}
+                    href={`/studi-ku/${subject.name}/${subject.id}`}
                     key={subject.id}
                     className="rounded-lg px-3"
                     hasImage={true}

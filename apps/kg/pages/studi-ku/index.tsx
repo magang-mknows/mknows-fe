@@ -5,7 +5,7 @@ import { ReactElement } from "react";
 
 const MyStudyPage: NextPage = (): ReactElement => {
   return (
-    <BaseLayout>
+    <BaseLayout title="Studi-ku">
       <MyStudyModule />
     </BaseLayout>
   );
