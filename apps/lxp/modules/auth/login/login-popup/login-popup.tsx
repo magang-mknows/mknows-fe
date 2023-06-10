@@ -60,7 +60,7 @@ export const LoginFormPopup: FC = (): ReactElement => {
         redirect: false,
       });
       if (response?.ok) {
-        router.push("/");
+        router.push("/dashboard");
         setLoginPopup(false);
       } else {
         setError(response?.error);
