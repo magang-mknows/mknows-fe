@@ -141,7 +141,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Kartu Tanda Penduduk (KTP)",
       message: errors.image_ktp?.message,
       status: errors.image_ktp ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif: "*Pastikan foto KTP dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
@@ -152,7 +152,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Foto Selfi Diri",
       message: errors.image_selfie?.message,
       status: errors.image_selfie ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif: "*Pastikan wajah Anda dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
     {
@@ -163,7 +163,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Nomor Induk Berusaha",
       message: errors.image_surat_nomor_induk_berusaha?.message,
       status: errors.image_surat_nomor_induk_berusaha ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Nomor Induk Berusha dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
@@ -175,7 +175,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Izin Usaha Perdagangan",
       message: errors.image_surat_izin_usaha_perdagangan?.message,
       status: errors.image_surat_izin_usaha_perdagangan ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Izin Usaha Perdagangan dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
@@ -187,7 +187,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Nomor Akta Notaris",
       message: errors.image_surat_nomor_akta_notaris?.message,
       status: errors.image_surat_nomor_akta_notaris ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Nomor Akta Notaris dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
@@ -199,7 +199,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Keterangan Domisili Usaha",
       message: errors.image_surat_keterangan_domisili_usaha?.message,
       status: errors.image_surat_keterangan_domisili_usaha ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Keterangan Domisili Usaha dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
@@ -211,7 +211,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Nomor Pokok Wajib Pajak",
       message: errors.image_surat_nomor_pokok_wajib_pajak?.message,
       status: errors.image_surat_nomor_pokok_wajib_pajak ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Nomor Pokok Wajib Pajak dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
@@ -223,7 +223,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
       label: "Surat Tanda Daftar Perusahaan ",
       message: errors.image_surat_tanda_daftar_perusahaan?.message,
       status: errors.image_surat_tanda_daftar_perusahaan ? "error" : "none",
-      files: "file.jpg",
+      files: "foto.jpg",
       notif:
         "*Pastikan foto Surat Tanda Daftar Perusahaan dapat terlihat dengan jelas dan pencahayaan yang baik",
     },
