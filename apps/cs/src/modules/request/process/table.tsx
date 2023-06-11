@@ -18,7 +18,6 @@ const Table2: FC = (): ReactElement => {
       name: "No",
       width: "8%",
       cell: (row, rowIndex) => <div>{rowIndex + 1}</div>,
-      sortable: true,
     },
     {
       name: "Tanggal Input",
@@ -29,23 +28,42 @@ const Table2: FC = (): ReactElement => {
         }),
       sortable: true,
     },
+
     {
       name: "NIK",
       width: "18%",
-      cell: (row) => <div className="font-semibold">{row.nik}</div>,
+      selector: (row) => row.nik,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.nik.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Nama",
       width: "17%",
-      cell: (row) => <div className="font-semibold">{row.name}</div>,
+      selector: (row) => row.name,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.name.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "No. Permintaan",
       width: "14%",
-      cell: (row) => <div className="pl-4 font-semibold">{row.request_number}</div>,
+      selector: (row) => row.request_number,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.request_number.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Tanggal Permintaan",
