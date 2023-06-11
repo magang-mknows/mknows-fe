@@ -1,6 +1,6 @@
 import { FC, ReactElement, useState } from "react";
 import { useFilterActionProcess, useProcess } from "../hooks";
-import { IConDelete } from "@mknows-frontend-services/components/atoms";
+import { IconDelete } from "@mknows-frontend-services/components/atoms";
 import { ToolTip } from "@mknows-frontend-services/components/atoms";
 import { Dialog } from "@headlessui/react";
 import { Button } from "@mknows-frontend-services/components/atoms";
@@ -55,7 +55,7 @@ const Table: FC = (): ReactElement => {
                       onClick={() => setisOpenDelete(true)}
                     >
                       <ToolTip className="bg-white z-50" tooltip="Delete">
-                        <IConDelete />
+                        <IconDelete />
                       </ToolTip>
                     </button>
                   </div>
@@ -76,7 +76,7 @@ const Table: FC = (): ReactElement => {
             <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
-                  <IConDelete />
+                  <IconDelete />
                 </div>
                 <p className="font-semibold text-gray-600">Hapus Data</p>
                 <p className="font-base text-xs text-neutral-400 pb-2">
