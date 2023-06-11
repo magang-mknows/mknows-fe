@@ -1,4 +1,4 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponse } from "@mknows-frontend-services/utils";
 
 type TQuizReviewAnswer = {
   answer: string;
@@ -9,6 +9,10 @@ type TQuizReviewAnswer = {
 export type TQuizReviewItem = {
   question: string;
   answers: TQuizReviewAnswer[];
+};
+
+export type TQuizReviewPayload = {
+  attemptId: string;
 };
 
 export type TQuizReviewResponse = TMetaResponse<TQuizReviewItem>;

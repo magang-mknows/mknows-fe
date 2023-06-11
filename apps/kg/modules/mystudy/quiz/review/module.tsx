@@ -1,12 +1,13 @@
 import { FC, ReactElement } from "react";
 import { TQuizReviewItem } from "./types";
-import { dummyQuizReview } from "./const";
-import { useCurrentQuizReviewNumber } from "./hooks";
+import { useCurrentQuizReviewNumber, useGetQuizReviewByAttemptId } from "./hooks";
+import { useRouter } from "next/router";
 
 export const QuizReviewModule: FC = (): ReactElement => {
+  const router = useRouter();
   const { getCurrNumber, setCurrNumber } = useCurrentQuizReviewNumber();
-
-  const dataQuizReview: Array<TQuizReviewItem> = dummyQuizReview;
+  const { data } = useGetQuizReviewByAttemptId({ attemptId: router.query.quizReviewId as string });
+  const dataQuizReview: Array<TQuizReviewItem> = data?.data as Array<TQuizReviewItem>;
 
   function handleAnswerColor(index: number) {
     if (dataQuizReview[getCurrNumber - 1].answers[index].is_correct) {

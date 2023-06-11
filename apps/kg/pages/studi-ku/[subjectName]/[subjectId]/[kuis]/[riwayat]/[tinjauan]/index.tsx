@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
-import { QuizReviewModule } from "../../../../../../../../modules/mystudy/quiz/review";
-import { BaseLayout } from "../../../../../../../../modules/common/layout/base";
+import { QuizReviewModule } from "../../../../../../../modules/mystudy/quiz/review";
+import { BaseLayout } from "../../../../../../../modules/common/layout/base";
 import { NextPage } from "next";
-import { useMyStudyBreadCrumbsItems } from "../../../../../../../../modules/mystudy/common/hooks";
-import { TuseMyStudyBreadCrumbsItemsProps } from "../../../../../../../../modules/mystudy/common/types";
+import { useMyStudyBreadCrumbsItems } from "../../../../../../../modules/mystudy/common/hooks";
+import { TuseMyStudyBreadCrumbsItemsProps } from "../../../../../../../modules/mystudy/common/types";
 import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 import { useRouter } from "next/router";
 

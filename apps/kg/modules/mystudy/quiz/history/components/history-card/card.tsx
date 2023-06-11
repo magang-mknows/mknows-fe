@@ -2,12 +2,13 @@ import { FC, ReactElement } from "react";
 import { DetailCard } from "../../../common/components/detail-card";
 import { TQuizHistoryData } from "../../types";
 import Link from "next/link";
+import { NextRouter } from "next/router";
 
 export const HistoryCard: FC<{
   dataQuizHistory: TQuizHistoryData;
-  quizPath: string;
+  router: NextRouter;
   key: number;
-}> = ({ dataQuizHistory, quizPath, key }): ReactElement => {
+}> = ({ dataQuizHistory, router, key }): ReactElement => {
   function changeFormatByDate(iso: string): string {
     const date = new Date(iso);
     const options: Intl.DateTimeFormatOptions = {
@@ -37,7 +38,7 @@ export const HistoryCard: FC<{
   const timeFormatted: string = changeFormatByTime(dataQuizHistory.timestamp_taken);
   const minutesFormatted: string = changeFormatByMinutes(dataQuizHistory.time_elapsed);
 
-  const quizReviewLink = `${quizPath}/review/${dataQuizHistory.id}`;
+  const quizReviewLink = `${router.asPath}/review/${dataQuizHistory.id}`;
 
   return (
     <section key={key} className="bg-white shadow-sm rounded-md px-5 py-4 w-full">

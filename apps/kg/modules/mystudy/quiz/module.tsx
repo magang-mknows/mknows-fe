@@ -74,7 +74,7 @@ export const QuizModule: FC = (): ReactElement => {
               </button>
             )}
 
-            {dataQuizDesc?.remaining_attempt > 0 && dataQuizDesc?.remaining_attempt < 3 && (
+            {dataQuizDesc?.remaining_attempt < 3 && (
               <Link href={`${router.asPath}/riwayat/${dataQuizDesc?.id}`}>
                 <button className="w-full h-[42px] lg:w-[328px] lg:h-[48px] text-[16px] font-medium border-2 border-[#106FA4] text-[#106FA4] flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
                   Lihat Riwayat
