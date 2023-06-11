@@ -34,19 +34,19 @@ export const QuizModule: FC = (): ReactElement => {
             </p>
             <p className="">Beberapa ketentuannya sebagai berikut:</p>
             <p className="">
-              Terdapat <span className="font-bold">{dataQuizDesc.total_questions} pertanyaan</span>{" "}
+              Terdapat <span className="font-bold">{dataQuizDesc?.total_questions} pertanyaan</span>{" "}
               yang harus dikerjakan dalam Quiz ini dan Setiap pertanyaan mempunyai bobot Nilai{" "}
-              <span className="font-bold">{dataQuizDesc.question_point} Poin</span>
+              <span className="font-bold">{dataQuizDesc?.question_point} Poin</span>
             </p>
-            <p className="font-bold">Syarat Nilai Kelulusan : {dataQuizDesc.kkm} Poin</p>
-            <p className="font-bold">Durasi Ujian : {dataQuizDesc.duration / 60} menit</p>
+            <p className="font-bold">Syarat Nilai Kelulusan : {dataQuizDesc?.kkm} Poin</p>
+            <p className="font-bold">Durasi Ujian : {dataQuizDesc?.duration / 60} menit</p>
             <p className="">
               Setelah dimulai, quiz tidak dapat dihentikan, anda harus menyelesaikan quiz hingga
               selesai
             </p>
             <p className="">
               Anda mempunyai{" "}
-              <span className="font-bold">{dataQuizDesc.remaining_attempt} kali kesempatan</span>{" "}
+              <span className="font-bold">{dataQuizDesc?.remaining_attempt} kali kesempatan</span>{" "}
               mengulang quiz
             </p>
             <p className="">
@@ -57,24 +57,24 @@ export const QuizModule: FC = (): ReactElement => {
           </div>
 
           <div className="w-full flex flex-col gap-y-2">
-            {dataQuizDesc.remaining_attempt > 0 && (
+            {dataQuizDesc?.remaining_attempt > 0 && (
               <Link href={`${router.asPath}/ambil/${dataQuizDesc?.id}`}>
                 <button className="w-full h-[42px] lg:w-[328px] lg:h-[48px] text-[16px] font-medium bg-[#106FA4] text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
-                  Mulai Quiz (Sisa {dataQuizDesc.remaining_attempt})
+                  Mulai Quiz (Sisa {dataQuizDesc?.remaining_attempt})
                 </button>
               </Link>
             )}
 
-            {dataQuizDesc.remaining_attempt === 0 && (
+            {dataQuizDesc?.remaining_attempt === 0 && (
               <button
-                disabled={dataQuizDesc.remaining_attempt === 0}
+                disabled={dataQuizDesc?.remaining_attempt === 0}
                 className="w-full h-[42px] lg:w-[328px] lg:h-[48px] text-[16px] font-medium bg-neutral-400 text-white  flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200"
               >
-                Mulai Quiz (Sisa {dataQuizDesc.remaining_attempt})
+                Mulai Quiz (Sisa {dataQuizDesc?.remaining_attempt})
               </button>
             )}
 
-            {dataQuizDesc.remaining_attempt > 0 && dataQuizDesc.remaining_attempt < 3 && (
+            {dataQuizDesc?.remaining_attempt > 0 && dataQuizDesc?.remaining_attempt < 3 && (
               <Link href={`${router.asPath}/skor/${dataQuizDesc?.id}`}>
                 <button className="w-full h-[42px] lg:w-[328px] lg:h-[48px] text-[16px] font-medium border-2 border-[#106FA4] text-[#106FA4] flex gap-x-2 rounded justify-center items-center hover:opacity-75 duration-200">
                   Lihat Riwayat
