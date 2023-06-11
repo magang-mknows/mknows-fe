@@ -9,7 +9,6 @@ import ProcessModule from "./process";
 import ResultModule from "./result";
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
-
   const query = useQueryParams();
   console.log(query.get("tab"));
   const navigate = useNavigate();
