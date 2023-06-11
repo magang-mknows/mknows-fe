@@ -2,14 +2,28 @@ import { FC, ReactElement } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Control, FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
-import { UploadField, Button } from "@mknows-frontend-services/components/atoms";
+import {
+  UploadField,
+  Button,
+  UploadDragbleField,
+} from "@mknows-frontend-services/components/atoms";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
-import { IconUpload, IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
+import { IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
 
 const AiCharacterScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
   const dataValidationSchema = z.object({
+    all_files_character: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+        "Only .jpg, .jpeg, and .png formats are supported",
+      ),
     image_ktp: z
       .any()
       .refine(
@@ -152,6 +166,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
     resolver: zodResolver(dataValidationSchema),
     mode: "all",
     defaultValues: {
+      all_files_character: undefined,
       image_ktp: undefined,
       image_selfie: undefined,
       image_credit_applicant: undefined,
@@ -340,22 +355,23 @@ const AiCharacterScoring: FC = (): ReactElement => {
   return (
     <div>
       <Accordion title="Ai Character Scoring" idAccordion={"file information"}>
-        <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
-          <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
-            <IconUpload />
-          </div>
-          <div className="flex gap-2 py-2 cursor-pointer">
-            <p className=" underline">Click to upload</p>
-            <span className="text-gray-500">or drag and drop</span>
-          </div>
-        </div>
+        <UploadDragbleField
+          variant="md"
+          label="Thumbnail"
+          control={control}
+          name="all_files_character"
+          status="error"
+          message="tidak bisa upload file"
+        />
         <div className="flex justify-between gap-2 py-2 pb-10">
           <div className="flex cursor-pointer">
             <IconDownload />
-            <p className="text-[#3D628D] font-bold cursor-auto">Unduh templete dokumen</p>
+            <p className="text-[#3D628D] font-bold cursor-pointer">Unduh templete dokumen</p>
           </div>
           <div>
-            <p className="text-xs py-2 text-gray-500">XLS, XLSX(MAXIMUM SIZE:50 MB)</p>
+            <p className="text-xs py-2 text-gray-500 cursor-default">
+              XLS, XLSX(MAXIMUM SIZE:50 MB)
+            </p>
           </div>
         </div>
         <form onSubmit={onSubmit}>
