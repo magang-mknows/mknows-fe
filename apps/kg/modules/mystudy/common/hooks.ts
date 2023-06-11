@@ -1,15 +1,20 @@
 import { TuseMyStudyBreadCrumbsItemsProps } from "./types";
 
+function capitalizeFirstLetter(val: string): string {
+  return val?.charAt(0).toUpperCase() + val?.slice(1);
+}
+
 export const useMyStudyBreadCrumbsItems = ({
-  subjectName,
-  subjectId,
-  sessionId,
-  competencyName,
   competencyDetailsName,
-  competencyDetailsId,
   edgeName,
+  router,
   type,
 }: TuseMyStudyBreadCrumbsItemsProps) => {
+  const sessionId = router?.query.sessionId as string;
+  const subjectName = router?.query.subjectName as string;
+  const subjectId = router?.query.subjectId as string;
+  const competencyDetailsId = router?.query.quizId as string;
+
   const items = [
     {
       name: "Home",
@@ -29,41 +34,40 @@ export const useMyStudyBreadCrumbsItems = ({
     });
   }
 
-  if (competencyName) {
+  if (type) {
+    const nameCapitalized = capitalizeFirstLetter(type);
     items.push({
-      name: competencyName,
+      name: nameCapitalized,
       link: "",
     });
   }
-  if (competencyName && competencyDetailsName) {
-    items[items.length - 1].link = `${
-      items[items.length - 2].link
-    }/${competencyName.toLowerCase()}/${sessionId}`;
+  if (type && competencyDetailsName) {
+    items[items.length - 1].link = `${items[items.length - 2].link}/${type}/${sessionId}`;
   }
-  if (competencyName && competencyDetailsName && type === "modul") {
-    const moduleContentIndex = competencyDetailsName.split("-")[1];
+  const competencyDetailsNameCapitalized = capitalizeFirstLetter(competencyDetailsName as string);
+  if (type === "modul" && competencyDetailsName) {
     items.push({
-      name: "Modul-" + moduleContentIndex,
+      name: competencyDetailsNameCapitalized,
       link: "",
     });
   }
-  if (competencyName && competencyDetailsName && type === "kuis") {
+  if (type === "kuis" && competencyDetailsName) {
+    const nameCapitalized = capitalizeFirstLetter(type);
     items.push({
-      name: competencyDetailsName + " " + competencyName,
+      name: competencyDetailsNameCapitalized + " " + nameCapitalized,
       link: "",
     });
   }
-  if (competencyName && competencyDetailsName && type === undefined) {
+  if (type === undefined && competencyDetailsName) {
     items.push({
-      name: competencyDetailsName,
+      name: competencyDetailsNameCapitalized,
       link: "",
     });
   }
-
   if (edgeName) {
     items[items.length - 1].link = `${
       items[items.length - 2].link
-    }/${competencyDetailsName?.toLowerCase()}/${competencyDetailsId}`;
+    }/${competencyDetailsName}/${competencyDetailsId}`;
     items.push({
       name: edgeName,
       link: "",

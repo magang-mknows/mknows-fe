@@ -25,7 +25,7 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
         {dataModules?.map((module, index) => (
           <Link
             key={index}
-            href={`${router.asPath}/konten-${index + 1}/${module.id}`}
+            href={`${router.asPath}/${module.title}/${module.id}`}
             className="relative flex auto p-4 flex-col bg-neutral-300/30 shadow-[0_3px_22px_10px_rgba(229, 229, 229, 1)] text-start rounded-lg"
           >
             {module.is_all_video_seen && (

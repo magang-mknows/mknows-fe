@@ -11,9 +11,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
   const router = useRouter();
-  const quizPath = router.asPath.split("/").slice(0, -2).join("/");
-  const { data: quizScoreData } = useGetQuizScoreById(router.query.quizScoreId as string);
+  const { data: quizScoreData } = useGetQuizScoreById(router.query.quizId as string);
   const dataQuizScores: TQuizScoreItem = quizScoreData?.data as TQuizScoreItem;
+  const prevPath = router.asPath.split("/").slice(0, -2).join("/");
 
   function convertNumberToTens(num: number): number {
     const tens = (num / dataQuizScores?.total_question) * 100;
@@ -78,7 +78,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">
         <div className="w-full lg:w-80 ">
-          <Link href={`${quizPath}/riwayat/${router.query.quizScoreId}`}>
+          <Link href={`${prevPath}/riwayat/${router.query.quizId}`}>
             <button
               type="button"
               className="text-primary-500 border-2 border-primary-500 bg-white hover:bg-neutral-50 w-full h-12 rounded-md shadow-sm font-bold transition-colors ease-out duration-300"
@@ -88,7 +88,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
           </Link>
         </div>
         <div className="w-full lg:w-80 ">
-          <Link href={quizPath}>
+          <Link href={prevPath}>
             <button
               type="button"
               className="bg-primary-500 border-2 border-primary-500 text-white hover:bg-primary-600  w-full h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"

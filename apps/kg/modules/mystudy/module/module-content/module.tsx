@@ -85,7 +85,9 @@ export const ModuleContentModule = (): ReactElement => {
       <ModulePopup moduleId={router.query.moduleContentId as string} />
       {dataModuleContents && (
         <div className="flex flex-col h-full w-full items-center px-4 lg:px-32 ">
-          <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">Mata Kuliah 1</h1>
+          <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">
+            {dataModuleContents?.title}
+          </h1>
           <div className="flex lg:flex-row flex-col w-full h-full gap-8">
             <section className="flex w-full md:w-fit">
               <div className="flex flex-col w-full h-auto gap-4 justify-center items-center">

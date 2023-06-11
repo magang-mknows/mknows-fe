@@ -7,9 +7,9 @@ import { useGetQuizHistoryById } from "./hooks";
 
 export const QuizHistoryModule: FC = (): ReactElement => {
   const router = useRouter();
-  const { data } = useGetQuizHistoryById(router.query.quizHistoryId as string);
+  const { data } = useGetQuizHistoryById(router.query.quizId as string);
   const dataQuizHistories = data?.data?.history_data as TQuizHistoryData[];
-  const prevPath = router.asPath.split("/").slice(0, -1).join("");
+  const prevPath = router.asPath.split("/").slice(0, -2).join("/");
 
   return (
     <div className="w-[90%] md:w-[85%] min-h-screen mx-auto my-20">
