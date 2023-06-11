@@ -273,34 +273,32 @@ const AiIdentityScoring: FC = (): ReactElement => {
 
   return (
     <section>
-      <div>
-        <Dialog
-          open={isOpen}
-          onClose={() => setisOpen(false)}
-          className="absolute  top-[30%] left-[30%]"
-        >
-          <Dialog.Panel>
-            <CardCS className="hover:cursor-pointer w-full  h-fit shadow-2xl py-4 px-6">
-              <div className="w-full flex flex-col gap gap-y-2">
-                <button onClick={() => setisOpen(false)} className="flex w-full justify-end">
-                  X
-                </button>
-                <div className="flex">
-                  <div className="w-[60%]">
-                    <h1 className="font-bold">Tata Cara Mengambil Foto</h1>
-                    <p>1. Pastikan Foto Pas di Layar</p>
-                    <p>2. Pastikan Foto yang diambil jelas dan tidak terlihat buram</p>
-                    <p>3. Pastikan teks terbaca</p>
-                  </div>
-                  <div>
-                    <img src="/exampe.png" alt="sample" />
-                  </div>
+      <Dialog
+        open={isOpen}
+        onClose={() => setisOpen(false)}
+        className="absolute  top-[30%] left-[30%]"
+      >
+        <Dialog.Panel>
+          <CardCS className="hover:cursor-pointer w-full  h-fit shadow-2xl py-4 px-6">
+            <div className="w-full flex flex-col gap gap-y-2">
+              <button onClick={() => setisOpen(false)} className="flex w-full justify-end">
+                X
+              </button>
+              <div className="flex">
+                <div className="w-[60%]">
+                  <h1 className="font-bold">Tata Cara Mengambil Foto</h1>
+                  <p>1. Pastikan Foto Pas di Layar</p>
+                  <p>2. Pastikan Foto yang diambil jelas dan tidak terlihat buram</p>
+                  <p>3. Pastikan teks terbaca</p>
+                </div>
+                <div>
+                  <img src="/exampe.png" alt="sample" />
                 </div>
               </div>
-            </CardCS>
-          </Dialog.Panel>
-        </Dialog>
-      </div>
+            </div>
+          </CardCS>
+        </Dialog.Panel>
+      </Dialog>
 
       <Accordion
         title="Ai Identity Scoring"
