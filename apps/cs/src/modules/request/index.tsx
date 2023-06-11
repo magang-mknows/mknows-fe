@@ -5,6 +5,7 @@ import LoadingRequest from "../../modules/request/loading";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
+
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
