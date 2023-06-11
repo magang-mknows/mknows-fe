@@ -355,7 +355,7 @@ const AiCapabilityScoring: FC = (): ReactElement => {
                 <div className="w-[95%] ">
                   <UploadField {...x} message={x.message as string} variant={"md"} />
                 </div>
-                <div className="flex group flex-col gap-2">
+                <div onClick={() => setisOpen(true)} className="flex group flex-col gap-2">
                   <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
                     ?
                   </button>
