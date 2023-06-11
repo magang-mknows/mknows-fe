@@ -5,23 +5,18 @@ import { DetailCard } from "../common/components/detail-card";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { TQuizScoreItem } from "./types";
+import { useGetQuizScoreById } from "./hooks";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const QuizScoreModule: FC = (): ReactElement => {
   const router = useRouter();
   const quizPath = router.asPath.split("/").slice(0, -2).join("/");
-  const dataQuizScores: TQuizScoreItem = {
-    right: 7,
-    wrong: 8,
-    total_question: 15,
-    remaining_attempt: 2,
-    time_elapsed: 360,
-    score: 80,
-  };
+  const { data: quizScoreData } = useGetQuizScoreById(router.query.quizScoreId as string);
+  const dataQuizScores: TQuizScoreItem = quizScoreData?.data as TQuizScoreItem;
 
   function convertNumberToTens(num: number): number {
-    const tens = (num / dataQuizScores.total_question) * 100;
+    const tens = (num / dataQuizScores?.total_question) * 100;
     return Math.round(tens);
   }
   function changeFormatByMinutes(second: number): string {
@@ -31,9 +26,9 @@ export const QuizScoreModule: FC = (): ReactElement => {
     return `${minutes} Menit ${remainingSeconds} Detik`;
   }
 
-  const rightAnswer = convertNumberToTens(dataQuizScores.right);
-  const wrongAnswer = convertNumberToTens(dataQuizScores.wrong);
-  const timeElapsed = changeFormatByMinutes(dataQuizScores.time_elapsed);
+  const rightAnswer = convertNumberToTens(dataQuizScores?.right);
+  const wrongAnswer = convertNumberToTens(dataQuizScores?.wrong);
+  const timeElapsed = changeFormatByMinutes(dataQuizScores?.time_elapsed);
 
   const data = {
     labels: ["Your Score"],
@@ -75,10 +70,10 @@ export const QuizScoreModule: FC = (): ReactElement => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 ">
-          <DetailCard type="trueAnswer" value={dataQuizScores.right} />
-          <DetailCard type="falseAnswer" value={dataQuizScores.wrong} />
+          <DetailCard type="trueAnswer" value={dataQuizScores?.right} />
+          <DetailCard type="falseAnswer" value={dataQuizScores?.wrong} />
           <DetailCard type="timeFinished" value={timeElapsed} />
-          <DetailCard type="totalQuestions" value={dataQuizScores.total_question} />
+          <DetailCard type="totalQuestions" value={dataQuizScores?.total_question} />
         </div>
       </section>
       <section className=" w-full flex justify-center gap-y-5 lg:justify-end mt-10 flex-wrap lg:flex-nowrap gap-x-5 ">
@@ -98,7 +93,7 @@ export const QuizScoreModule: FC = (): ReactElement => {
               type="button"
               className="bg-primary-500 border-2 border-primary-500 text-white hover:bg-primary-600  w-full h-12 rounded-md shadow-sm font-bold  transition-colors ease-out duration-300"
             >
-              Coba Kembali (Sisa {dataQuizScores.remaining_attempt})
+              Coba Kembali (Sisa {dataQuizScores?.remaining_attempt})
             </button>
           </Link>
         </div>
