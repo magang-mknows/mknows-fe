@@ -5,6 +5,7 @@ import {
   icon,
   resultSearch,
   filterActionResultbyId,
+  resultFilter,
 } from "./store";
 import {
   TProcessItem,
@@ -15,6 +16,7 @@ import {
   TRequestResponse,
   TResultByIdParams,
   TResultByIdResponse,
+  TResultDataResponse,
   TResultItem,
   TResultParams,
   TResultQueryResponse,
@@ -34,6 +36,13 @@ export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(icon);
   return {
     getRequestData: get,
+  };
+};
+
+export const useResultData = (): TResultDataResponse => {
+  const get = useRecoilValue(resultFilter);
+  return {
+    getResultData: get,
   };
 };
 

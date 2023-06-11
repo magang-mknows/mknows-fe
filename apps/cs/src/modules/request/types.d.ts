@@ -80,3 +80,20 @@ export type TResultByIdParams = {
   id?: string;
   order?: string;
 };
+
+export type TResultDataDummy = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  finished_at: string;
+  requested_at: string;
+  total_user: number;
+};
+
+export type TResultResponse = TMetaResponse<TResultItem>;
+export type TResultDataResponse = { getResultData: TResultDataDummy[] };
+export type TResultParams = {
+  feature?: string;
+  per_page?: string;
+  page?: string;
+};
