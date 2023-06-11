@@ -10,6 +10,7 @@ import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 const MyStudyQuizPage: NextPage = (): ReactElement => {
   const router = useRouter();
   const useMyStudyBreadCrumbsItemsProps: TuseMyStudyBreadCrumbsItemsProps = {
+    type: "kuis",
     sessionId: router.query.sessionId as string,
     subjectName: router.query.subjectName as string,
     subjectId: router.query.subjectId as string,

@@ -10,6 +10,7 @@ import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 const MyStudyModulePage: NextPage = (): ReactElement => {
   const router = useRouter();
   const useMyStudyBreadCrumbsItemsProps: TuseMyStudyBreadCrumbsItemsProps = {
+    type: "modul",
     sessionId: router.query.sessionId as string,
     subjectName: router.query.subjectName as string,
     subjectId: router.query.subjectId as string,

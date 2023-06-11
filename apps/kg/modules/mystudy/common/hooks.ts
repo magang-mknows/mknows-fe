@@ -7,7 +7,8 @@ export const useMyStudyBreadCrumbsItems = ({
   competencyName,
   competencyDetailsName,
   competencyDetailsId,
-  path,
+  edgeName,
+  type,
 }: TuseMyStudyBreadCrumbsItemsProps) => {
   const items = [
     {
@@ -21,9 +22,10 @@ export const useMyStudyBreadCrumbsItems = ({
   ];
 
   if (subjectName) {
+    const subjectNameEncoded = encodeURIComponent(subjectName as string);
     items.push({
       name: subjectName,
-      link: subjectId ? `/studi-ku/${subjectName}/${subjectId}` : "",
+      link: subjectId ? `/studi-ku/${subjectNameEncoded}/${subjectId}` : "",
     });
   }
 
@@ -34,22 +36,36 @@ export const useMyStudyBreadCrumbsItems = ({
     });
   }
   if (competencyName && competencyDetailsName) {
-    const subjectNameEncoded = encodeURIComponent(subjectName as string);
-    console.log(subjectNameEncoded);
-    items[
-      items.length - 1
-    ].link = `/studi-ku/${subjectNameEncoded}/${subjectId}/${competencyName}/${sessionId}`;
+    items[items.length - 1].link = `${
+      items[items.length - 2].link
+    }/${competencyName.toLowerCase()}/${sessionId}`;
   }
-  if (competencyName && competencyDetailsName && competencyDetailsName.includes("konten")) {
+  if (competencyName && competencyDetailsName && type === "modul") {
     const moduleContentIndex = competencyDetailsName.split("-")[1];
     items.push({
       name: "Modul-" + moduleContentIndex,
       link: "",
     });
   }
-  if (competencyName && competencyDetailsName && !competencyDetailsName.includes("konten")) {
+  if (competencyName && competencyDetailsName && type === "kuis") {
+    items.push({
+      name: competencyDetailsName + " " + competencyName,
+      link: "",
+    });
+  }
+  if (competencyName && competencyDetailsName && type === undefined) {
     items.push({
       name: competencyDetailsName,
+      link: "",
+    });
+  }
+
+  if (edgeName) {
+    items[items.length - 1].link = `${
+      items[items.length - 2].link
+    }/${competencyDetailsName?.toLowerCase()}/${competencyDetailsId}`;
+    items.push({
+      name: edgeName,
       link: "",
     });
   }
