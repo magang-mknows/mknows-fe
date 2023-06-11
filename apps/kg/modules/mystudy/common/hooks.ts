@@ -18,11 +18,14 @@ export const useMyStudyBreadCrumbsItems = ({
       name: "Studi-ku",
       link: "/studi-ku",
     },
-    {
-      name: subjectName,
-      link: `/studi-ku/${subjectName}/${subjectId}`,
-    },
   ];
+
+  if (subjectName) {
+    items.push({
+      name: subjectName,
+      link: subjectId ? `/studi-ku/${subjectName}/${subjectId}` : "",
+    });
+  }
 
   if (competencyName) {
     items.push({
