@@ -51,8 +51,6 @@ const ProcessModule: FC = (): ReactElement => {
           <a href="/dashboard/report">Klik Disini</a>
         </span>
       </div>
-
-      {/* <Pagination /> */}
     </section>
   );
 };

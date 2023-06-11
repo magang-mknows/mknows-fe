@@ -14,9 +14,6 @@ const AddDataPages = lazy(() => import("../pages/user/add-data"));
 const EditDataPages = lazy(() => import("../pages/user/edit-data"));
 const RequestPages = lazy(() => import("../pages/request"));
 const ChoiceFeature = lazy(() => import("../modules/request/feature/choice-feature"));
-const RequestModule = lazy(() => import("../modules/request/feature/request"));
-const ProcessModule = lazy(() => import("../modules/request/process"));
-const ResultModule = lazy(() => import("../modules/request/result"));
 const CheckResultModule = lazy(() => import("../modules/request/check-result"));
 const ReportPage = lazy(() => import("../pages/report"));
 const ReportModules = lazy(() => import("../modules/report/report-user/report"));
@@ -108,18 +105,6 @@ export const routes = createBrowserRouter([
           </Suspense>
         ),
         children: [
-          {
-            path: "/dashboard/request",
-            element: <RequestModule />,
-          },
-          {
-            path: "/dashboard/request/process",
-            element: <ProcessModule />,
-          },
-          {
-            path: "/dashboard/request/result",
-            element: <ResultModule />,
-          },
           {
             path: "/dashboard/request/choice-feature",
             element: <ChoiceFeature />,

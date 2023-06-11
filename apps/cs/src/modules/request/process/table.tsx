@@ -15,8 +15,8 @@ const Table2: FC = (): ReactElement => {
   );
   const columns: TableColumn<TProcessItem>[] = [
     {
-      name: "ID",
-      width: "6%",
+      name: "No",
+      width: "8%",
       cell: (row, rowIndex) => <div>{rowIndex + 1}</div>,
       sortable: true,
     },
