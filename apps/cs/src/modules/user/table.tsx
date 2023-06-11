@@ -42,7 +42,7 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      cell: (row) => <div className="font-semibold">{row.name}</div>,
+      selector: (row) => row.name,
       sortable: true,
     },
 
@@ -53,7 +53,6 @@ const Table: FC = (): ReactElement => {
         formatDate({
           date: new Date(row.createdAt),
         }),
-      sortable: true,
     },
     {
       name: "Berkas",
