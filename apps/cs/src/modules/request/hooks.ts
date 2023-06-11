@@ -1,5 +1,11 @@
 import { useRecoilValue, useRecoilState } from "recoil";
-import { filterActionProcess, filterActionResult, icon, resultFilter, resultSearch } from "./store";
+import {
+  filterActionProcess,
+  filterActionResult,
+  icon,
+  resultSearch,
+  filterActionResultbyId,
+} from "./store";
 import {
   TProcessItem,
   TProcessParams,
@@ -7,26 +13,27 @@ import {
   TRequestDataResponse,
   TRequestItem,
   TRequestResponse,
-  TResultDataResponse,
+  TResultByIdParams,
+  TResultByIdResponse,
+  TResultItem,
   TResultParams,
   TResultQueryResponse,
   TResultResponse,
 } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { getDataProcess, getDataRequest, getProcessResponse, getResultResponse } from "./api";
+import {
+  getDataProcess,
+  getDataRequest,
+  getProcessResponse,
+  getResultResponse,
+  getResultById,
+} from "./api";
 
 export const useRequestData = (): TRequestDataResponse => {
   const get = useRecoilValue(icon);
   return {
     getRequestData: get,
-  };
-};
-
-export const useResultData = (): TResultDataResponse => {
-  const get = useRecoilValue(resultFilter);
-  return {
-    getResultData: get,
   };
 };
 
@@ -41,6 +48,13 @@ export const useResultQuery = (): TResultQueryResponse => {
 export const useRequest = (): UseQueryResult<TRequestResponse, TRequestItem> => {
   return useQuery({
     queryKey: ["get-request"],
+    queryFn: async () => await getDataRequest(),
+  });
+};
+
+export const useOption = (): UseQueryResult<TResultResponse, TResultItem> => {
+  return useQuery({
+    queryKey: ["get-option"],
     queryFn: async () => await getDataRequest(),
   });
 };
@@ -86,5 +100,23 @@ export const useFilterActionResult = () => {
   return {
     getFilterActionResult: get,
     setFilterActionResult: (params: TResultParams) => set(params),
+  };
+};
+
+// result ById
+export const useResultById = (
+  params: TResultByIdParams,
+): UseQueryResult<TResultByIdResponse, TMetaErrorResponse> => {
+  return useQuery({
+    queryKey: ["get-process-id", params],
+    queryFn: async () => await getResultById(params),
+  });
+};
+
+export const useFilterActionResultById = () => {
+  const [get, set] = useRecoilState(filterActionResultbyId);
+  return {
+    getFilterActionResultId: get,
+    setFilterActionResultId: (params: TResultByIdParams) => set(params),
   };
 };
