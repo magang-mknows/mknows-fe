@@ -8,7 +8,7 @@ import {
   UploadDragbleField,
 } from "@mknows-frontend-services/components/atoms";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
-import { IconDownload, IconUpload, IconNotif } from "@mknows-frontend-services/components/atoms";
+import { IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
 
 const AiCapabilityScoring: FC = (): ReactElement => {
   const MAX_FILE_SIZE = 300000;
