@@ -1,6 +1,7 @@
 import { FC, Fragment, ReactElement, useState, Suspense, useEffect } from "react";
 import { Tab } from "@headlessui/react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useQueryParams } from "../common/hooks";
+import { useNavigate } from "react-router-dom";
 import LoadingRequest from "../../modules/request/loading";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
 import RequestModule from "./feature/request";
@@ -8,8 +9,8 @@ import ProcessModule from "./process";
 import ResultModule from "./result";
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
-  const useQuery = () => new URLSearchParams(useLocation().search);
-  const query = useQuery();
+
+  const query = useQueryParams();
   console.log(query.get("tab"));
   const navigate = useNavigate();
 

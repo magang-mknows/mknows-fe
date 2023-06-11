@@ -26,7 +26,7 @@ const ReportPage: FC = (): ReactElement => {
                       aria-current="page"
                       onClick={() => setActive("laporan")}
                     >
-                      Laporan User
+                      Laporan Customer
                     </NavLink>
                   </button>
                 </Tab>
