@@ -1,10 +1,10 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { useUser, useFilterAction } from "./hooks";
+import { useUser, useFilterAction, useDeleteUser } from "./hooks";
 import { TUserItem } from "./types";
 import { formatDate } from "@mknows-frontend-services/utils";
 import {
-  IConDelete,
+  IconDelete,
   IconCheck,
   IconEdit,
   IconDropdown,
@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
-  const { data } = useUser(getFilterAction);
-  const [isOpen, setisOpen] = useState(false);
+  const { data, refetch } = useUser(getFilterAction);
+  const { mutate: deleteUser } = useDeleteUser();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -42,7 +42,7 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      cell: (row) => <div className="font-semibold">{row.name}</div>,
+      selector: (row) => row.name,
       sortable: true,
     },
 
@@ -53,7 +53,6 @@ const Table: FC = (): ReactElement => {
         formatDate({
           date: new Date(row.createdAt),
         }),
-      sortable: true,
     },
     {
       name: "Berkas",
@@ -99,14 +98,19 @@ const Table: FC = (): ReactElement => {
               </ToolTip>
             </div>
           </Link>
-          <button
-            className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
-            onClick={() => setisOpen(true)}
-          >
-            <ToolTip className="bg-white" tooltip="Delete">
-              <IConDelete />
-            </ToolTip>
-          </button>
+
+          <ToolTip className="bg-white" tooltip="Delete">
+            <div
+              onClick={() =>
+                deleteUser(row._id, {
+                  onSuccess: () => refetch(),
+                })
+              }
+              className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
+            >
+              <IconDelete />
+            </div>
+          </ToolTip>
         </div>
       ),
     },

@@ -1,4 +1,4 @@
-import { Button, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { Button, IconEmptyState, IconDropdown } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
@@ -93,13 +93,17 @@ const Table2: FC = (): ReactElement => {
 
   const { getFilterActionResult } = useFilterActionResult();
   const { data } = useResult(getFilterActionResult);
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
 
   const columns: TableColumn<TResultItem>[] = [
     {
       name: "ID",
-      width: "5%",
+      width: "10%",
       cell: (row, rowIndex) => <div className="">{rowIndex + 1}</div>,
-      sortable: true,
     },
     {
       name: "Tanggal Input",
@@ -113,14 +117,26 @@ const Table2: FC = (): ReactElement => {
     {
       name: "Jenis Permintaan",
       width: "20%",
-      cell: (row) => <div className="font-semibold">{row.feature}</div>,
+      selector: (row) => row.feature,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.feature.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Jumlah Customer",
       width: "14%",
-      cell: (row) => <div className="font-semibold pl-10">{row.total_user}</div>,
+      selector: (row) => row.total_user,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.total_user !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Tanggal Permintaan",
@@ -282,6 +298,7 @@ const Table2: FC = (): ReactElement => {
         fixedHeader={true}
         expandableRows={true}
         expandableRowsComponent={ExpandedComponent}
+        sortIcon={sortIcon}
         noDataComponent={
           <div className="flex flex-col w-full h-screen justify-center items-center">
             <IconEmptyState />

@@ -15,7 +15,7 @@ root.render(
   <StrictMode>
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={routes} />
+        <RouterProvider fallbackElement="loading ...." router={routes} />
       </QueryClientProvider>
     </RecoilRoot>
   </StrictMode>,

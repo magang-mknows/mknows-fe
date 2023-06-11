@@ -1,14 +1,15 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Control, FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
-import { UploadField, Button } from "@mknows-frontend-services/components/atoms";
-import { Accordion } from "@mknows-frontend-services/components/molecules";
-import { IconNotif } from "@mknows-frontend-services/components/atoms";
+import { UploadField, Button, IconNotif } from "@mknows-frontend-services/components/atoms";
+import { Accordion, CardCS } from "@mknows-frontend-services/components/molecules";
 import { useCategoryStatus, useIdentityStatus } from "../../hooks";
 import { useIdentityInformation } from "../hooks";
 import { z } from "zod";
+import { Dialog } from "@headlessui/react";
 
 const AiIdentityScoring: FC = (): ReactElement => {
+  const [isOpen, setisOpen] = useState(false);
   const MAX_FILE_SIZE = 30000000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
   const dataValidationSchema = z.object({
@@ -271,7 +272,34 @@ const AiIdentityScoring: FC = (): ReactElement => {
   ];
 
   return (
-    <div>
+    <section>
+      <Dialog
+        open={isOpen}
+        onClose={() => setisOpen(false)}
+        className="absolute  top-[30%] left-[30%]"
+      >
+        <Dialog.Panel>
+          <CardCS className="hover:cursor-pointer w-full  h-fit shadow-2xl py-4 px-6">
+            <div className="w-full flex flex-col gap gap-y-2">
+              <button onClick={() => setisOpen(false)} className="flex w-full justify-end">
+                X
+              </button>
+              <div className="flex">
+                <div className="w-[60%]">
+                  <h1 className="font-bold">Tata Cara Mengambil Foto</h1>
+                  <p>1. Pastikan Foto Pas di Layar</p>
+                  <p>2. Pastikan Foto yang diambil jelas dan tidak terlihat buram</p>
+                  <p>3. Pastikan teks terbaca</p>
+                </div>
+                <div>
+                  <img src="/exampe.png" alt="sample" />
+                </div>
+              </div>
+            </div>
+          </CardCS>
+        </Dialog.Panel>
+      </Dialog>
+
       <Accordion
         title="Ai Identity Scoring"
         idAccordion={getDataIdentity ? "" : "identity-status-state"}
@@ -284,7 +312,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
                 <div className="w-[95%] ">
                   <UploadField {...x} message={x.message as string} variant={"md"} />
                 </div>
-                <div className="flex group flex-col gap-2">
+                <div onClick={() => setisOpen(true)} className="flex group flex-col gap-2">
                   <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
                     ?
                   </button>
@@ -314,7 +342,7 @@ const AiIdentityScoring: FC = (): ReactElement => {
           </div>
         </form>
       </Accordion>
-    </div>
+    </section>
   );
 };
 
