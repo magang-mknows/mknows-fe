@@ -28,7 +28,7 @@ export const FeaturesModule: FC<TFeaturesPageProps> = ({ accessFrom }): ReactEle
         <div className="max-w-[720px] text-center">
           <h1 className="font-bold text-neutral-900 text-3xl mb-4">Fitur LMS M-Knows</h1>
           <p className="text-neutral-400 text-sm font-medium">
-            Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
+            Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di LMS M-Knows.
             Berbagai macam jenis materi tersedia.
           </p>
         </div>

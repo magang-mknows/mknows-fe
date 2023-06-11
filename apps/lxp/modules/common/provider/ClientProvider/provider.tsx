@@ -41,7 +41,7 @@ export const ClientProvider: FC<TProviderProps> = ({
     },
     {
       name: "Profile",
-      onClick: () => router.push("/user/profile"),
+      onClick: () => router.push("/profile"),
       icon: <FaUserCircle size={20} className="text-[#FAB317]" />,
     },
     {
@@ -128,7 +128,7 @@ export const ClientProvider: FC<TProviderProps> = ({
   ];
 
   return (
-    <div className={` font-montserrat max-w-[2200px]  container mx-auto`}>
+    <div className={` ${montserrat.className} max-w-[2200px]  container mx-auto`}>
       <Navbar
         items={_pop_up_menu}
         features={_features}
