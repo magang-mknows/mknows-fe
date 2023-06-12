@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import HistoryCard from "./HistoryCard";
 import { BreadCrumb } from "@mknows-frontend-services/components/atoms";
 import { myTrainingQuizBreadCumbs } from "../../../const";
