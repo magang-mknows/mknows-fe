@@ -45,12 +45,6 @@ export const useMyStudyBreadCrumbsItems = ({
     items[items.length - 1].link = `${items[items.length - 2].link}/${type}/${sessionId}`;
   }
   const competencyDetailsNameCapitalized = capitalizeFirstLetter(competencyDetailsName as string);
-  if (type === "modul" && competencyDetailsName) {
-    items.push({
-      name: competencyDetailsNameCapitalized,
-      link: "",
-    });
-  }
   if (type === "kuis" && competencyDetailsName) {
     const nameCapitalized = capitalizeFirstLetter(type);
     items.push({
@@ -58,7 +52,7 @@ export const useMyStudyBreadCrumbsItems = ({
       link: "",
     });
   }
-  if (type === undefined && competencyDetailsName) {
+  if ((type === undefined || type === "modul") && competencyDetailsName) {
     items.push({
       name: competencyDetailsNameCapitalized,
       link: "",
