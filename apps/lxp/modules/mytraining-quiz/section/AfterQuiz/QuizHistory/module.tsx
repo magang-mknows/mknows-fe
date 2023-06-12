@@ -7,14 +7,12 @@ import { ClientProvider } from "../../../../common/provider";
 export const QuizHistory: FC = (): ReactElement => {
   return (
     <ClientProvider>
-      <BreadCrumb items={myTrainingQuizBreadCumbs} />
-      <div className="px-6 md:px-8 lg:px-10 w-full min-h-screen my-20">
-        <section className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-          <HistoryCard />
-          <HistoryCard />
-          <HistoryCard />
-        </section>
-      </div>
+      <BreadCrumb items={myTrainingQuizBreadCumbs} textColor="text-version2-400" />
+      <section className="grid grid-cols-1 gap-10 lg:grid-cols-2 px-16 py-10 w-full">
+        <HistoryCard />
+        <HistoryCard />
+        <HistoryCard />
+      </section>
     </ClientProvider>
   );
 };
