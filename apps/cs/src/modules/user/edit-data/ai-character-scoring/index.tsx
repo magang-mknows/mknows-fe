@@ -1,15 +1,31 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Control, FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
-import { UploadField, Button } from "@mknows-frontend-services/components/atoms";
-import { Accordion } from "@mknows-frontend-services/components/molecules";
-import { IconUpload, IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
+import {
+  UploadField,
+  Button,
+  UploadDragbleField,
+} from "@mknows-frontend-services/components/atoms";
+import { Accordion, CardCS } from "@mknows-frontend-services/components/molecules";
+import { IconDownload, IconNotif } from "@mknows-frontend-services/components/atoms";
+import { Dialog } from "@headlessui/react";
 
 const AiCharacterScoring: FC = (): ReactElement => {
+  const [isOpen, setisOpen] = useState(false);
   const MAX_FILE_SIZE = 300000;
   const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
   const dataValidationSchema = z.object({
+    all_files_character: z
+      .any()
+      .refine(
+        (files: File[]) => files !== undefined && files?.[0]?.size <= MAX_FILE_SIZE,
+        "Ukuran maksimun adalah 3mb.",
+      )
+      .refine(
+        (files: File[]) => files !== undefined && ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+        "Only .jpg, .jpeg, and .png formats are supported",
+      ),
     image_ktp: z
       .any()
       .refine(
@@ -152,6 +168,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
     resolver: zodResolver(dataValidationSchema),
     mode: "all",
     defaultValues: {
+      all_files_character: undefined,
       image_ktp: undefined,
       image_selfie: undefined,
       image_credit_applicant: undefined,
@@ -338,24 +355,51 @@ const AiCharacterScoring: FC = (): ReactElement => {
     },
   ];
   return (
-    <div>
+    <section>
+      <Dialog
+        open={isOpen}
+        onClose={() => setisOpen(false)}
+        className="absolute  top-[30%] left-[30%]"
+      >
+        <Dialog.Panel>
+          <CardCS className="hover:cursor-pointer w-full  h-fit shadow-2xl py-4 px-6">
+            <div className="w-full flex flex-col gap gap-y-2">
+              <button onClick={() => setisOpen(false)} className="flex w-full justify-end">
+                X
+              </button>
+              <div className="flex">
+                <div className="w-[60%]">
+                  <h1 className="font-bold">Tata Cara Mengambil Foto</h1>
+                  <p>1. Pastikan Foto Pas di Layar</p>
+                  <p>2. Pastikan Foto yang diambil jelas dan tidak terlihat buram</p>
+                  <p>3. Pastikan teks terbaca</p>
+                </div>
+                <div>
+                  <img src="/exampe.png" alt="sample" />
+                </div>
+              </div>
+            </div>
+          </CardCS>
+        </Dialog.Panel>
+      </Dialog>
       <Accordion title="Ai Character Scoring" idAccordion={"file information"}>
-        <div className="flex flex-col border border-dashed w-full h-24 rounded-md items-center text-center justify-center">
-          <div className="flex w-8 h-8 justify-center bg-gray-100 items-center rounded-full">
-            <IconUpload />
-          </div>
-          <div className="flex gap-2 py-2 cursor-pointer">
-            <p className=" underline">Click to upload</p>
-            <span className="text-gray-500">or drag and drop</span>
-          </div>
-        </div>
+        <UploadDragbleField
+          variant="md"
+          label="Thumbnail"
+          control={control}
+          name="all_files_character"
+          status="error"
+          message="tidak bisa upload file"
+        />
         <div className="flex justify-between gap-2 py-2 pb-10">
           <div className="flex cursor-pointer">
             <IconDownload />
-            <p className="text-[#3D628D] font-bold cursor-auto">Unduh templete dokumen</p>
+            <p className="text-[#3D628D] font-bold cursor-pointer">Unduh templete dokumen</p>
           </div>
           <div>
-            <p className="text-xs py-2 text-gray-500">XLS, XLSX(MAXIMUM SIZE:50 MB)</p>
+            <p className="text-xs py-2 text-gray-500 cursor-default">
+              XLS, XLSX(MAXIMUM SIZE:50 MB)
+            </p>
           </div>
         </div>
         <form onSubmit={onSubmit}>
@@ -365,7 +409,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
                 <div className="w-[95%] ">
                   <UploadField {...x} message={x.message as string} variant={"md"} />
                 </div>
-                <div className="flex group flex-col gap-2">
+                <div onClick={() => setisOpen(true)} className="flex group flex-col gap-2">
                   <button className="flex justify-end items-center rounded-full text-center text-white font-bold p-4 text-[20px] w-10 h-10 bg-gray-200 mt-8 group-hover:bg-primary-300">
                     ?
                   </button>
@@ -394,7 +438,7 @@ const AiCharacterScoring: FC = (): ReactElement => {
           </div>
         </form>
       </Accordion>
-    </div>
+    </section>
   );
 };
 

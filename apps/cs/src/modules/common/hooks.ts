@@ -1,5 +1,6 @@
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
 import { useEffect, useCallback, DependencyList } from "react";
 import { getProfileMe } from "../../components/organisms/sidebar/profile/api";
 import { TProfileResponse } from "../../components/organisms/sidebar/profile/types";
@@ -33,6 +34,8 @@ export function useDebounce(
     return () => clearTimeout(timeout);
   }, [callback, delay]);
 }
+
+export const useQueryParams = () => new URLSearchParams(useLocation().search);
 
 export const useProfile = (): UseQueryResult<TProfileResponse, TMetaErrorResponse> => {
   return useQuery({
