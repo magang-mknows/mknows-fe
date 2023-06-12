@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 
-export const IConDelete: FC = (): ReactElement => {
+export const IconDelete: FC = (): ReactElement => {
   return (
     <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

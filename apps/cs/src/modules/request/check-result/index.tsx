@@ -1,5 +1,5 @@
 import { FC, ReactElement, useState, useEffect } from "react";
-import { IConDelete, IconBack } from "@mknows-frontend-services/components/atoms";
+import { IconDelete, IconBack } from "@mknows-frontend-services/components/atoms";
 import { useDataProcess, useRequestData } from "../hooks";
 import { useFilterAction } from "../../quota/hooks";
 import { useDebounce } from "../../common/hooks";
@@ -190,7 +190,7 @@ const CheckResult: FC = (): ReactElement => {
             <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-[#D0E6F5] rounded-full w-fit p-1">
-                  <IConDelete />
+                  <IconDelete />
                 </div>
                 <p className="font-semibold text-gray-600">Hapus Data</p>
                 <p className="font-base text-xs text-neutral-400 pb-2">

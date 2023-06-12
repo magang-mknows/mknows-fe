@@ -4,7 +4,6 @@ import { Spinner } from "@mknows-frontend-services/components/atoms";
 import { AuthLayout } from "../layouts/auth";
 import { BaseLayout } from "../layouts/base";
 import { ErrorModules } from "../modules/common/errorpage";
-import ReportRequest from "../modules/report/report-request";
 import { Guest, Protected } from "../modules/auth/middleware";
 
 const LoginPages = lazy(() => import("../pages/auth/login"));
@@ -14,12 +13,8 @@ const AddDataPages = lazy(() => import("../pages/user/add-data"));
 const EditDataPages = lazy(() => import("../pages/user/edit-data"));
 const RequestPages = lazy(() => import("../pages/request"));
 const ChoiceFeature = lazy(() => import("../modules/request/feature/choice-feature"));
-const RequestModule = lazy(() => import("../modules/request/feature/request"));
-const ProcessModule = lazy(() => import("../modules/request/process"));
-const ResultModule = lazy(() => import("../modules/request/result"));
 const CheckResultModule = lazy(() => import("../modules/request/check-result"));
 const ReportPage = lazy(() => import("../pages/report"));
-const ReportModules = lazy(() => import("../modules/report/report-user/report"));
 const QuotaPages = lazy(() => import("../pages/quota"));
 
 export const routes = createBrowserRouter([
@@ -109,18 +104,6 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            path: "/dashboard/request",
-            element: <RequestModule />,
-          },
-          {
-            path: "/dashboard/request/process",
-            element: <ProcessModule />,
-          },
-          {
-            path: "/dashboard/request/result",
-            element: <ResultModule />,
-          },
-          {
             path: "/dashboard/request/choice-feature",
             element: <ChoiceFeature />,
           },
@@ -134,24 +117,6 @@ export const routes = createBrowserRouter([
             <ReportPage />
           </Suspense>
         ),
-        children: [
-          {
-            path: "/dashboard/report",
-            element: (
-              <Suspense fallback={<Spinner />}>
-                <ReportModules />
-              </Suspense>
-            ),
-          },
-          {
-            path: "/dashboard/report/request",
-            element: (
-              <Suspense fallback={<Spinner />}>
-                <ReportRequest />
-              </Suspense>
-            ),
-          },
-        ],
       },
       {
         path: "/dashboard/quota",

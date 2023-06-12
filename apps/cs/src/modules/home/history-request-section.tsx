@@ -24,7 +24,7 @@ const CardSection: FC = (): ReactElement => {
         <CardCS
           hasButton={true}
           buttonText="Lihat Detail"
-          buttonHref="/dashboard/request/result"
+          buttonHref="/dashboard/request?tab=hasil"
           buttonClassName={`flex py-1 justify-center rounded-sm text-white items-end my-2 ${x.bgButton} w-full`}
           className="w-full m-3 min-h-[135px] absolute shadow-md px-4"
         >

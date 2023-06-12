@@ -48,11 +48,9 @@ const ProcessModule: FC = (): ReactElement => {
         Untuk melihat riwayat permintaan sebelumnya{" "}
         <span className="text-secondary-500">
           {" "}
-          <a href="/dashboard/report">Klik Disini</a>
+          <a href="/dashboard/report?tab=laporan-user">Klik Disini</a>
         </span>
       </div>
-
-      {/* <Pagination /> */}
     </section>
   );
 };

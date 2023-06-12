@@ -17,8 +17,8 @@ import {
   TUserResponse,
 } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { getUserResponse } from "./api";
+import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
+import { deleteUserResponse, getUserResponse } from "./api";
 
 export const useUserQuery = (): TUserQueryResponse => {
   const [get, set] = useRecoilState(userSearch);
@@ -74,3 +74,14 @@ export const useUser = (params: TUserParams): UseQueryResult<TUserResponse, TMet
     queryFn: async () => await getUserResponse(params),
   });
 };
+
+export const useDeleteUser = (): UseMutationResult<
+  TUserResponse,
+  TMetaErrorResponse,
+  string,
+  unknown
+> =>
+  useMutation({
+    mutationKey: ["delete-user"],
+    mutationFn: async (id) => await deleteUserResponse(id),
+  });
