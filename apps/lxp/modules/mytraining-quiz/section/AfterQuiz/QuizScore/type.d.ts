@@ -1,4 +1,4 @@
 export type DetailCardProps = {
-  value: string;
-  type: "trueAnswer" | "falseAnswer" | "timeFinished" | "totalQuestions";
+  value: number;
+  type: "correct" | "wrong" | "total_question" | "time_elapsed";
 };
