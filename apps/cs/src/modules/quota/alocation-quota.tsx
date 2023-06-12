@@ -175,7 +175,7 @@ const AlokasiKuota: FC = (): ReactElement => {
         ) : (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">
-              <span className="lg:px-28 px-10 pt-7 w-full justify-center font-bold text-lg">
+              <span className="pt-7 w-full flex justify-center font-bold text-lg">
                 Request Summary
               </span>
               <div className="px-8 py-11 flex justify-between flex-col">
