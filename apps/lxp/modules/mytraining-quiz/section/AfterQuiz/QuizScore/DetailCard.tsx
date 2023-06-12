@@ -7,7 +7,7 @@ import { DetailCardProps } from "./type";
 import { formatElapsedTime } from "@mknows-frontend-services/utils";
 
 const DetailCard: FC<DetailCardProps> = ({ type, value }): ReactElement => {
-  const { minutes, seconds } = formatElapsedTime(value);
+  const timeElapsed = type === "time_elapsed" ? formatElapsedTime(value) : null;
 
   return (
     <section
@@ -44,7 +44,7 @@ const DetailCard: FC<DetailCardProps> = ({ type, value }): ReactElement => {
           <MdAccessTimeFilled className=" text-version3-500  text-4xl" />
           <div className="text-neutral-900 ">
             <h1 className="font-bold text-sm">
-              {minutes} Menit {seconds} detik
+              {timeElapsed?.minutes} Menit {timeElapsed?.seconds} detik
             </h1>
             <h1 className="text-xs">Waktu Selesai</h1>
           </div>
