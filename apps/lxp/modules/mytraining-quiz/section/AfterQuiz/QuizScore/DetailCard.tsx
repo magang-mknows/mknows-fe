@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, Fragment, ReactElement } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaTimesCircle } from "react-icons/fa";
 import { MdAccessTimeFilled } from "react-icons/md";
@@ -18,19 +18,42 @@ const DetailCard: FC<DetailCardProps> = ({ type, value }): ReactElement => {
           : type === "totalQuestions" && "bg-neutral-200 hover:bg-neutral-300"
       } flex gap-3 min-h-[80px] md:min-h-[100px] lg:min-h-[80px] items-center px-4 w-full  rounded-md shadow-sm transition-colors ease-in duration-300 cursor-pointer`}
     >
-      {type === "trueAnswer" && <BsCheckCircleFill className="text-version2-300  text-4xl" />}
-      {type === "falseAnswer" && <FaTimesCircle className="text-warning-500  text-4xl" />}
-      {type === "timeFinished" && <MdAccessTimeFilled className=" text-version3-500  text-4xl" />}
-      {type === "totalQuestions" && <AiFillInfoCircle className="text-neutral-500  text-4xl" />}
-      <div className="text-neutral-900 ">
-        <h1 className="font-bold text-sm">{value}</h1>
-        <h1 className="text-xs">
-          {type === "trueAnswer" && "Jawaban Benar"}
-          {type === "falseAnswer" && "Jawaban Salah"}
-          {type === "timeFinished" && "Waktu selesai"}
-          {type === "totalQuestions" && "Total Soal"}
-        </h1>
-      </div>
+      {type === "trueAnswer" ? (
+        <Fragment>
+          <BsCheckCircleFill className="text-version2-300  text-4xl" />{" "}
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{value}</h1>
+            <h1 className="text-xs">Jawaban Benar</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "falseAnswer" ? (
+        <Fragment>
+          <FaTimesCircle className="text-warning-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{value}</h1>
+            <h1 className="text-xs">Jawaban Salah</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "timeFinished" ? (
+        <Fragment>
+          <MdAccessTimeFilled className=" text-version3-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{value}</h1>
+            <h1 className="text-xs">Waktu Selesai</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "totalQuestions" ? (
+        <Fragment>
+          <AiFillInfoCircle className="text-neutral-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{value}</h1>
+            <h1 className="text-xs">Total Soal</h1>
+          </div>
+        </Fragment>
+      ) : null}
     </section>
   );
 };
