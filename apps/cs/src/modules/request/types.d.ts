@@ -23,11 +23,8 @@ export type TResultQueryResponse = {
 export type TRequestItem = {
   _id: string;
   name: string;
-  number: number;
-  is_primary: boolean;
-  created_at: string;
-  updated_at: string;
-  __v: number;
+  total_data: number;
+  price_per_unit:number;
 };
 
 export type TRequestResponse = TMetaResponse<TRequestItem>;
