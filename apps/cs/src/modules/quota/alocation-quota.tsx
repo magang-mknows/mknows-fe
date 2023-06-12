@@ -106,7 +106,7 @@ const AlokasiKuota: FC = (): ReactElement => {
             <span className="font-semibold text-base text-gray-700">Jenis Scoring</span>
             <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
           </div>
-          <div className="w-fit justify-center">
+          <div className="w-full justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
               {dummyData.map((item, index) => {
                 return (
@@ -164,7 +164,7 @@ const AlokasiKuota: FC = (): ReactElement => {
 
         {/* content 2 */}
         {ProductName === "default" ? (
-          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg min-h-[200px]">
             <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
               <img src="/assets/quota/cursor-loading.webp" alt="loading..." />
               <span className="font-semibold text-base text-black">

@@ -24,7 +24,7 @@ export type TRequestItem = {
   _id: string;
   name: string;
   total_data: number;
-  price_per_unit:number;
+  price_per_unit: number;
 };
 
 export type TRequestResponse = TMetaResponse<TRequestItem>;
@@ -41,6 +41,7 @@ export type TProcessItem = {
   finished_at: string;
   name: string;
   nik: string;
+  company: string;
 };
 
 export type TProcessResponse = TMetaResponse<TProcessItem>;
@@ -68,3 +69,17 @@ export type TResultParams = {
   per_page?: string;
   page?: string;
 };
+
+export type TResultExpandItem = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  company: string;
+  __v: number;
+  requested_at: string;
+  finished_at: string;
+  status: string;
+  name: string;
+  nik: string;
+};
+export type TResultExpandResponse = TMetaResponse<TResultExpandItem>;

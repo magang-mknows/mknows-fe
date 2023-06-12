@@ -3,6 +3,7 @@ import {
   TProcessParams,
   TProcessResponse,
   TRequestResponse,
+  TResultExpandResponse,
   TResultParams,
   TResultResponse,
 } from "./types";
@@ -40,3 +41,16 @@ export const getResultResponse = async (params: TResultParams): Promise<TResultR
   });
   return data;
 };
+
+// export const getResultExpandResponse = async (
+//   params: TResultParams,
+// ): Promise<TResultExpandResponse> => {
+//   const { data } = await api({
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     url: "/requests/user/",
+//     params,
+//   });
+//   return data;
+// };

@@ -4,8 +4,14 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult } from "../hooks";
 import { TResultItem } from "../types";
 import { formatDate } from "@mknows-frontend-services/utils";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CheckedIcon from "/assets/checked.webp";
 
 const Table2: FC = (): ReactElement => {
+  const notify = () => toast("Detail Report.pdf berhasil terunduh",{
+    icon:<img src={CheckedIcon} alt="checked-icon" />
+  });
   const getProcessData = [
     {
       no: 10002345,
@@ -165,6 +171,7 @@ const Table2: FC = (): ReactElement => {
       </div>
       <div className="flex justify-end w-full">
         <Button
+          onClick={notify}
           type="submit"
           className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
         >
