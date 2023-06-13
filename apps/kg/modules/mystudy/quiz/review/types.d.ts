@@ -1,6 +1,6 @@
 import { TMetaResponse } from "@mknows-frontend-services/utils";
 
-type TQuizReviewAnswer = {
+export type TQuizReviewAnswer = {
   answer: string;
   is_correct: boolean;
   is_selected: boolean;
@@ -9,6 +9,7 @@ type TQuizReviewAnswer = {
 export type TQuizReviewItem = {
   question: string;
   answers: TQuizReviewAnswer[];
+  is_correct_item?: boolean;
 };
 
 export type TQuizReviewPayload = {

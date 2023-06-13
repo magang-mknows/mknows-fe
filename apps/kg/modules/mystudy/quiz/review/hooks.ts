@@ -1,5 +1,9 @@
-import { useRecoilState } from "recoil";
-import { currentQuizReviewNumberState, quizReviewQuestionAnswerState } from "./store";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  currentQuizReviewNumberState,
+  quizReviewDataWithCorrectItemState,
+  quizReviewdataState,
+} from "./store";
 import { TQuizReviewPayload, TuseQuizReviewQuestionsAnswers } from "./types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { TQuizReviewResponse } from "./types";
@@ -15,51 +19,13 @@ export const useCurrentQuizReviewNumber = () => {
 };
 
 export const useQuizReviewQuestionsAnswers = (): TuseQuizReviewQuestionsAnswers => {
-  const [get, set] = useRecoilState(quizReviewQuestionAnswerState);
+  const setReviewData = useSetRecoilState(quizReviewdataState);
+  const quizReviewWithCorrectItem = useRecoilValue(quizReviewDataWithCorrectItemState);
 
   return {
-    getQuizReviewQuestionsAnswers: get,
-    setQuizReviewQuestionsAnswers: (val) => set(val),
+    getQuizReviewQuestionsAnswers: quizReviewWithCorrectItem,
+    setQuizReviewQuestionsAnswers: (val) => setReviewData(val),
   };
-};
-
-export type TuseHandleQuizReviewBreadCrumbProps = {
-  subjectDetailPath: string;
-  quizPath: string;
-  quizHistoryPath: string;
-};
-
-export const useHandleQuizReviewBreadCrumb = ({
-  subjectDetailPath,
-  quizPath,
-  quizHistoryPath,
-}: TuseHandleQuizReviewBreadCrumbProps) => {
-  return [
-    {
-      name: "Beranda",
-      link: "/",
-    },
-    {
-      name: "Studi-ku",
-      link: "/studi-ku",
-    },
-    {
-      name: "Mata-Kuliah",
-      link: subjectDetailPath,
-    },
-    {
-      name: "Quiz",
-      link: quizPath,
-    },
-    {
-      name: "Riwayat Quiz",
-      link: quizHistoryPath,
-    },
-    {
-      name: "Tinjauan",
-      link: "",
-    },
-  ];
 };
 
 // SERVICE API
