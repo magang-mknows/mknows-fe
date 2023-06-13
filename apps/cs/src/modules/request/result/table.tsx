@@ -82,6 +82,8 @@ const Table2: FC = (): ReactElement => {
           <DataTable
             columns={columnsExpand}
             data={data?.data as TResultById[]}
+            selectableRows
+            selectableRowsHighlight
             customStyles={ExpandRowStyle}
             sortIcon={sortIcon}
           />
@@ -152,10 +154,6 @@ const Table2: FC = (): ReactElement => {
         },
       ],
       width: "100px",
-    },
-    {
-      name: "Semua",
-      cell: (row) => <input className="ml-4" type="checkbox" />,
     },
   ];
 

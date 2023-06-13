@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportDataDummy } from "../type";
 import { useReportData } from "../hooks";
@@ -6,7 +6,6 @@ import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
-  const [isOpen, setisOpen] = useState(false);
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -56,7 +55,13 @@ const Table: FC = (): ReactElement => {
 
   const ExpandedComponent = () => (
     <div className="flex flex-col">
-      <DataTable columns={columnsExpand} data={getReportData} customStyles={ExpandRowStyle} />
+      <DataTable
+        columns={columnsExpand}
+        data={getReportData}
+        customStyles={ExpandRowStyle}
+        selectableRows
+        selectableRowsHighlight
+      />
       <div className="flex justify-end w-full">
         <Button
           type="submit"
@@ -103,15 +108,6 @@ const Table: FC = (): ReactElement => {
         >
           {row.status}
         </button>
-      ),
-    },
-
-    {
-      name: "Semua",
-      cell: (row) => (
-        <div className="pl-3">
-          <input type="checkbox" />
-        </div>
       ),
     },
   ];
