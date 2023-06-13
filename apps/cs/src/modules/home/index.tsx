@@ -14,10 +14,10 @@ const HomeModules: FC = (): ReactElement => {
       <div className="flex flex-col">
         <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
           <RequestSection />
-          <AgeTrack />
+          <SkorSection />
         </div>
         <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
-          <SkorSection />
+          <AgeTrack />
           <LocationTrack />
         </div>
 
