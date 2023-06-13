@@ -1,14 +1,34 @@
-import { ReactElement, FC } from "react";
+import { ReactElement, FC, useState, useEffect } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
-import { useResultQuery } from "../hooks";
 import Table from "./table";
+import { useDebounce } from "../../common/hooks";
+import { useFilterActionResult } from "../hooks";
 
 const ResultModule: FC = (): ReactElement => {
-  const { setResultQuery, getResultQuery } = useResultQuery();
+  const [option, setOption] = useState({
+    feature: "",
+    per_page: "",
+    page: "",
+  });
+  const [deb, setDeb] = useState("");
+
+  const { setFilterActionResult } = useFilterActionResult();
+
+  useEffect(() => {
+    setFilterActionResult(option);
+  }, [option]);
+
+  useDebounce(
+    () => {
+      setOption((prev) => ({ ...prev, search: deb }));
+    },
+    [deb],
+    400,
+  );
   return (
     <div className="relative">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
-        <p className="font-bold text-[#444444] text-[24px] lg:ml-8 ml-0 lg:w-[60%] w-full">
+        <p className="font-bold text-BLACK-base text-[24px] lg:ml-8 ml-0 lg:w-[60%] w-full">
           Permintaan Hari ini
         </p>
         <div className="w-full">
@@ -27,9 +47,9 @@ const ResultModule: FC = (): ReactElement => {
             </div>
             <div className="w-full">
               <Search
-                value={getResultQuery}
-                onChange={(e: { target: { value: string } }) => setResultQuery(e.target.value)}
-                placeholder="Search No Permintaan, Jenis Permintaan, Tanggal, Status"
+                value={deb}
+                onChange={(e) => setDeb(e.target.value)}
+                placeholder="Search NIK dan Nama"
               />
             </div>
           </div>
@@ -40,9 +60,9 @@ const ResultModule: FC = (): ReactElement => {
       <Table />
       <div className="flex gap-1 justify-end py-2 font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
-        <span className="text-[#4FA0CF]">
+        <span className="text-secondary-500">
           {" "}
-          <a href="/dashboard/report">Klik Disini</a>
+          <a href="/dashboard/report?tab=laporan-user">Klik Disini</a>
         </span>
       </div>
 

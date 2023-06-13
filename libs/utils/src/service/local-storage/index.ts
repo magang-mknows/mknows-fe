@@ -19,3 +19,11 @@ export const storeToLocalStorage = (key: string, data: object[] | [] | number | 
   const stringValue = JSON.stringify(data);
   localStorage.setItem(key, stringValue);
 };
+
+// ============================
+//  remove data from local storage
+// ============================
+
+export const removeFromLocalStorage = (key: string) => {
+  localStorage.removeItem(key);
+};

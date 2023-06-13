@@ -2,8 +2,7 @@ import { FC, ReactElement, useState, Fragment } from "react";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { Dialog, Transition } from "@headlessui/react";
 import { useQuotaData } from "./hooks";
-import Card from "../../components/molecules/card";
-import cursorLoading from "/assets/quota/cursor-loading.webp";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const AlokasiKuota: FC = (): ReactElement => {
   const { getQuotaData } = useQuotaData();
@@ -69,20 +68,49 @@ const AlokasiKuota: FC = (): ReactElement => {
 
   return (
     <section className="my-14 lg:mx-0 mx-0 w-full">
-      <div className="font-bold text-2xl text-[#444444]">Alokasi Kuota</div>
+      <div className="font-bold text-2xl text-gray-600">Alokasi Kuota</div>
       {/* content */}
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">
         {/* content 1 */}
         <div className="flex flex-col">
+        <div className="flex flex-col pt-6 pb-3">
+              <span className="font-semibold text-base text-gray-700">Nama Departemen</span>
+              <div className="flex flex-row w-full space-x-2 py-6">
+                <select
+                id="category"
+                className="shadow-md cursor-pointer px-4 font-normal bg-white text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
+              >
+                <option defaultValue={""}>Pilih Departemen</option>
+                <option value="pm">Pengelolaan Moneter</option>
+                <option value="ssk">Surveilans Sistem Keuangan</option>
+                <option value="km">Kebijakan Makroprudential</option>
+                <option value="ks">Keuangan Syariah</option>
+                <option value="pu">Pembangunan UMKM</option>
+                <option value="pk">Perlindungan Konsumen</option>
+              </select>
+                <select
+                id="category"
+                className="shadow-md cursor-pointer px-4 font-normal bg-white text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
+              >
+                <option defaultValue={""}>Pilih Cabang</option>
+                <option value="kcp-bintaro">BCA KCP Bintaro Utama</option>
+                <option value="kcp-bintaro-3">BCA KCP Bintaro Sektor 3</option>
+                <option value="kcp-rempoa">BCA Kantor Kas Rempoa</option>
+                <option value="kcp-radal">BCA KCP Radio Dalam</option>
+                <option value="kcp-cirendeu">BCA KCP Cirendeu</option>
+                
+                </select>
+              </div>
+            </div>
           <div className="flex flex-col gap gap-y-2">
-            <span className="font-semibold text-base text-[#262626]">Jenis Scoring</span>
+            <span className="font-semibold text-base text-gray-700">Jenis Scoring</span>
             <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
           </div>
           <div className="w-fit justify-center">
             <div className="grid lg:gap-5 md:gap-4 md:grid-cols-2 grid-cols-1 gap-1 my-3">
               {dummyData.map((item, index) => {
                 return (
-                  <Card
+                  <CardCS
                     className="hover:cursor-pointer w-full h-[107px] relative shadow-md hover:shadow-xl py-8 px-4 items-center"
                     key={index}
                     onClick={() => setProductName(item.feature)}
@@ -96,47 +124,41 @@ const AlokasiKuota: FC = (): ReactElement => {
                         <p className="text-sm font-semibold">{item.feature}</p>
                       </div>
                     </div>
-                  </Card>
+                  </CardCS>
                 );
               })}
             </div>
             <div className="flex flex-col pt-6 pb-3 gap gap-y-2">
-              <span className="font-semibold text-base text-[#262626]">Jumlah Kuota</span>
+              <span className="font-semibold text-base text-gray-700">Jumlah Kuota</span>
               <span className="font-semibold text-sm text-neutral-400">Pilih Jumlah Kuota</span>
             </div>
             <div className="grid md:gap-2 lg:grid-cols-4 grid-cols-2 gap-1 mt-5 font-bold">
               <span
                 onClick={handleTambah1000}
-                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-[#D4D4D4] cursor-pointer hover:text-[#4AC1A2] hover:border-[#4AC1A2]"
+                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-neutral-300 cursor-pointer hover:text-white hover:bg-primary-base hover:border-0"
               >
                 1.000
               </span>
               <span
                 onClick={handleTambah5000}
-                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-[#D4D4D4] cursor-pointer hover:text-[#4AC1A2] hover:border-[#4AC1A2]"
+                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-neutral-300 cursor-pointer hover:text-white hover:bg-primary-base hover:border-0"
               >
                 5.000
               </span>
               <span
                 onClick={handleTambah10000}
-                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-[#D4D4D4] cursor-pointer hover:text-[#4AC1A2] hover:border-[#4AC1A2]"
+                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-neutral-300 cursor-pointer hover:text-white hover:bg-primary-base hover:border-0"
               >
                 10.000
               </span>
               <span
                 onClick={handleTambah50000}
-                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-[#D4D4D4] cursor-pointer hover:text-[#4AC1A2] hover:border-[#4AC1A2]"
+                className="flex justify-center border-[1px] rounded-md px-6 py-2 border-neutral-300 cursor-pointer hover:text-white hover:bg-primary-base hover:border-0"
               >
                 50.000
               </span>
             </div>
-            <div className="flex flex-col pt-6 pb-3 gap gap-y-2">
-              <span className="font-semibold text-base text-[#262626]">Jumlah Estimasi</span>
-              <span className="font-semibold text-sm text-neutral-400">
-                Estimasi total pembayaran sebesar
-              </span>
-              <span className="font-bold">Rp. {formatNumber(Estimation)}</span>
-            </div>
+            <div className="flex justify-end w-full text-primary-500 font-semibold text-xs mt-2">1 Token Rp 10.000,-</div>
           </div>
         </div>
 
@@ -144,8 +166,8 @@ const AlokasiKuota: FC = (): ReactElement => {
         {ProductName === "default" ? (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
-              <img src={cursorLoading} alt="loading..." />
-              <span className="font-semibold text-base text-[#000000]">
+              <img src="/assets/quota/cursor-loading.webp" alt="loading..." />
+              <span className="font-semibold text-base text-black">
                 Silahkan pilih jenis produk terlebih dahulu
               </span>
             </div>
@@ -153,14 +175,14 @@ const AlokasiKuota: FC = (): ReactElement => {
         ) : (
           <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col">
-              <span className="lg:px-28 px-10 pt-7 w-full justify-center font-bold text-lg">
+              <span className="pt-7 w-full flex justify-center font-bold text-lg">
                 Request Summary
               </span>
-              <div className="px-8 py-11">
+              <div className="px-8 py-11 flex justify-between flex-col">
                 <div className="px-3 py-2 flex items-center flex-row rounded-[4px] lg:justify-between justify-normal bg-warning-100">
                   <div className="w-full flex flex-row items-center gap gap-x-3">
                     <img
-                      src="/assets/mdi_mobile-phone-information.webp"
+                      src="/assets/quota/phone-information.webp"
                       alt="information"
                       className="w-fit h-fit"
                     />
@@ -175,9 +197,13 @@ const AlokasiKuota: FC = (): ReactElement => {
                   <span>AI Location & Movement</span>
                   <span>AI Digital FootPrint</span>
                 </div>
-                <div className="font-bold flex justify-between items-center mt-11 border-t-[1px] border-[#A3A3A3] pt-4">
+                <div className="font-bold flex justify-between items-center mt-11 border-t-[1px] border-neutral-400 pt-4">
                   <span className="text-primary-600">Total Request</span>
-                  <span className="text-[#000000]">{Quota}</span>
+                  <span className="text-black">{Quota}</span>
+                </div>
+                <div className="font-bold flex justify-between items-center pt-2">
+                  <span className="text-primary-600">Total bayar</span>
+                  <span className="text-black">Rp. {formatNumber(Estimation)}</span>
                 </div>
                 <div className="pt-20 w-full flex justify-center">
                   <Button
@@ -221,7 +247,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 <Dialog.Panel className="space-y-[9px] w-full max-w-[464px] transform overflow-hidden rounded-[4px] bg-white px-9 py-7 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="bg-[#EAFBD7] rounded-full w-[34px] h-[34px] flex items-center justify-center"
+                    className="bg-success-100 rounded-full w-[34px] h-[34px] flex items-center justify-center"
                   >
                     <img src="/assets/Vceort.webp" alt="check" />
                   </Dialog.Title>

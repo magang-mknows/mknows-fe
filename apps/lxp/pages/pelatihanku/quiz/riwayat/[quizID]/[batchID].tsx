@@ -1,4 +1,4 @@
-import { QuizHistory } from "../../../../modules/mytraining-quiz";
+import { QuizHistory } from "../../../../../modules";
 import React from "react";
 
 const page = () => {

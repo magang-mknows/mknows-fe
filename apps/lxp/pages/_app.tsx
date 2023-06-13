@@ -11,10 +11,10 @@ import { LoadingSpinner } from "@mknows-frontend-services/components/atoms";
 
 const queryClient = new QueryClient();
 
-const montserrat = Montserrat({
-  weight: "500",
-  subsets: ["latin"],
-});
+// const montserrat = Montserrat({
+//   weight: "500",
+//   subsets: ["latin"],
+// });
 
 function CustomApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
@@ -28,7 +28,7 @@ function CustomApp({ Component, pageProps: { session, ...pageProps } }: AppProps
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
         <RecoilRoot>
-          <main className={montserrat.className}>
+          <main className="font-montserrat">
             <Suspense fallback={<LoadingSpinner />}>
               <Component {...pageProps} />
             </Suspense>

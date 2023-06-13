@@ -22,7 +22,7 @@ export const BreadCrumb: FC<TBreadCrumbProps> = ({
                 <Link
                   href={crumb.link}
                   key={index}
-                  className={`inline-flex  font-[900] items-center ${textColor}`}
+                  className={`inline-flex  font-[600] items-center ${textColor}`}
                 >
                   {crumb.name}
                 </Link>

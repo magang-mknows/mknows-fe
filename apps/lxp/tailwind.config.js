@@ -100,6 +100,7 @@ module.exports = {
         900: "#6B100C",
       },
     },
+
     extend: {},
   },
   plugins: [],

@@ -54,9 +54,9 @@ export const PopupModal: FC<TPopupModalProps> = ({
             )}
           </>
         )}
-        <h1 className={`my-4 font-bold text-[23.4px] ${stylePopup}`}>{popupTitle}</h1>
-        <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10">{description}</h5>
-        {children}
+        <h1 className={`font-bold text-[23.4px] ${stylePopup}`}>{popupTitle}</h1>
+        <h5 className="font-medium text-[16px] text-[#A3A3A3] px-10 mb-4">{description}</h5>
+        <div className="flex w-full flex-col justify-center">{children}</div>
       </div>
     </Modal>
   );

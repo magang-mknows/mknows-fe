@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react";
 import { useRequestData } from "../hooks";
 import { IconWarning } from "@mknows-frontend-services/components/atoms";
 import { useRequest } from "../hooks";
-import Card from "../../../components/molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const RequestModule: FC = (): ReactElement => {
   const { getRequestData } = useRequestData();
@@ -23,7 +23,7 @@ const RequestModule: FC = (): ReactElement => {
       <div className="grid lg:gap-5 md:gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-1 my-3 w-full">
         {data?.data.map((item, index) => {
           return (
-            <Card
+            <CardCS
               className="hover:cursor-pointer w-full xl:h-[107px] lg:h-[107px] relative shadow-md hover:shadow-xl py-8 px-4"
               key={index}
             >
@@ -37,10 +37,10 @@ const RequestModule: FC = (): ReactElement => {
                   <p className="text-neutral-400 font-normal text-xs">Data Masuk 500</p>
                 </div>
                 <div className="text-center text-xs right-2 top-2 absolute rounded-full w-[22px] h-[22px] bg-neutral-200 font-semibold py-1">
-                  {item.number}
+                  {item.total_data}
                 </div>
               </div>
-            </Card>
+            </CardCS>
           );
         })}
       </div>
@@ -63,7 +63,7 @@ const RequestModule: FC = (): ReactElement => {
       >
         <Dialog.Panel>
           <Dialog.Title>
-            <Card className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
+            <CardCS className="hover:cursor-pointer md:w-[348px] w-[300px]  h-fit shadow-2xl py-4 px-6">
               <div className="w-full flex flex-col gap gap-y-2">
                 <div className="bg-error-100 rounded-full w-7 h-7 flex justify-center items-center">
                   <svg
@@ -114,7 +114,7 @@ const RequestModule: FC = (): ReactElement => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </CardCS>
           </Dialog.Title>
         </Dialog.Panel>
       </Dialog>
