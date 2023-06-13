@@ -20,9 +20,8 @@ const HomeModules: FC = (): ReactElement => {
           <SkorSection />
           <LocationTrack />
         </div>
-        <div className="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:px-0 px-4">
-          <SalaryTrack />
-        </div>
+
+        <SalaryTrack />
       </div>
     </section>
   );
