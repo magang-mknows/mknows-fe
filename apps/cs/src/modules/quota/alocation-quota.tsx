@@ -73,10 +73,10 @@ const AlokasiKuota: FC = (): ReactElement => {
       <div className="flex xl:flex-row flex-col gap gap-x-10 py-6">
         {/* content 1 */}
         <div className="flex flex-col">
-        <div className="flex flex-col pt-6 pb-3">
-              <span className="font-semibold text-base text-gray-700">Nama Departemen</span>
-              <div className="flex flex-row w-full space-x-2 py-6">
-                <select
+          <div className="flex flex-col pt-6 pb-3">
+            <span className="font-semibold text-base text-gray-700">Nama Departemen</span>
+            <div className="flex flex-row w-full space-x-2 py-6">
+              <select
                 id="category"
                 className="shadow-md cursor-pointer px-4 font-normal bg-white text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
@@ -88,7 +88,7 @@ const AlokasiKuota: FC = (): ReactElement => {
                 <option value="pu">Pembangunan UMKM</option>
                 <option value="pk">Perlindungan Konsumen</option>
               </select>
-                <select
+              <select
                 id="category"
                 className="shadow-md cursor-pointer px-4 font-normal bg-white text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
@@ -98,10 +98,9 @@ const AlokasiKuota: FC = (): ReactElement => {
                 <option value="kcp-rempoa">BCA Kantor Kas Rempoa</option>
                 <option value="kcp-radal">BCA KCP Radio Dalam</option>
                 <option value="kcp-cirendeu">BCA KCP Cirendeu</option>
-                
-                </select>
-              </div>
+              </select>
             </div>
+          </div>
           <div className="flex flex-col gap gap-y-2">
             <span className="font-semibold text-base text-gray-700">Jenis Scoring</span>
             <span className="font-semibold text-sm text-neutral-400">Pilih satu jenis</span>
@@ -158,13 +157,15 @@ const AlokasiKuota: FC = (): ReactElement => {
                 50.000
               </span>
             </div>
-            <div className="flex justify-end w-full text-primary-500 font-semibold text-xs mt-2">1 Token Rp 10.000,-</div>
+            <div className="flex justify-end w-full text-primary-500 font-semibold text-xs mt-2">
+              1 Token Rp 10.000,-
+            </div>
           </div>
         </div>
 
         {/* content 2 */}
         {ProductName === "default" ? (
-          <div className="lg:w-[60%] w-full lg:my-0 my-14 mr-8 shadow-lg">
+          <div className="lg:w-[60%] w-full h-[500px] lg:my-0 my-14 mr-8 shadow-lg">
             <div className="flex flex-col gap-y-5 h-full justify-center lg:my-0 my-20 px-10 items-center">
               <img src="/assets/quota/cursor-loading.webp" alt="loading..." />
               <span className="font-semibold text-base text-black">
