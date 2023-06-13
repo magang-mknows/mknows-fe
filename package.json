@@ -76,7 +76,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.22.3",
+    "@babel/runtime": "^7.22.5",
     "@builder.io/qwik": "~1.1.5",
     "@builder.io/qwik-city": "~1.1.5",
     "@nestjs/schematics": "^9.1.0",
