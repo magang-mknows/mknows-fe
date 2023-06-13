@@ -22,4 +22,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker build . --file Dockerfile.cs --tag cs:$(date +%s)
+      
+  docker-build-kg-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.kg-admin --tag kg-admin:$(date +%s)
+      
+  docker-build-lxp-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.lxp-admin --tag lxp-admin:$(date +%s)
+      
+  docker-build-cs-admin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build . --file Dockerfile.cs-admin --tag cs-admin:$(date +%s)
    
