@@ -10320,10 +10320,10 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-qwik-nx@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/qwik-nx/-/qwik-nx-1.0.5.tgz#9b79e75a0d25b4cbc27283f67178e09a85c122fc"
-  integrity sha512-YQBybQU1aOCafIGJlw46hELZUo8kjpTx0aJ0/W+7eW7GH184lzVhMj6oNOF7WRLHlEINKruNbxiXJJa5iUA5rA==
+qwik-nx@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/qwik-nx/-/qwik-nx-1.0.6.tgz#04da7c89832acea9b15b1afa576a380641168c2f"
+  integrity sha512-7xlYeQcjFnrrePkHiQAfuChBsTKo8Mk4ufUsdovzWGoU6rvy00Dzi4Rdc/0pE7uNwdeS2USn0eyoAfsIMr0OkQ==
   dependencies:
     "@nx/devkit" "^16.0.0"
     "@nx/js" "^16.0.0"
