@@ -4,7 +4,7 @@ import ChartDoughnut from "../../molecules/chart/chart-doughnut";
 
 const SkorSection: FC = (): ReactElement => {
   return (
-    <section className="bg-white h-fit w-full rounded-md md:py-5 py-0 my-4">
+    <section className="bg-white h-[500px] w-full rounded-md md:py-5 py-0 my-4">
       <h1 className="text-xl font-bold p-4">RIWAYAT NILAI SKOR</h1>
       <div className="flex justify-between py-3 px-4 md:flex-row flex-col md:space-y-0 space-y-4">
         <div className="px-4">
@@ -23,7 +23,7 @@ const SkorSection: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <div className="px-4 xl:space-x-10 lg:space-x-2 space-x-0 lg:justify-normal flex md:flex-row w-full flex-col">
+      <div className="px-4 xl:space-x-10 lg:space-x-2 space-x-0 lg:justify-normal flex md:flex-row w-full flex-col pt-14">
         <div className=" lg:w-[45%] w-[65%] flex lg:justify-normal justify-center">
           <ChartDoughnut />
         </div>

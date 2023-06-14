@@ -93,7 +93,7 @@ const Table: FC = (): ReactElement => {
         <div className="flex gap-2 ml-[-15px]">
           <Link to={"/dashboard/user/edit-data"}>
             <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
-              <ToolTip className="bg-white" tooltip="Edit">
+              <ToolTip className="bg-white z-50" tooltip="Edit">
                 <IconEdit />
               </ToolTip>
             </div>

@@ -7,6 +7,8 @@ import { CardCS } from "@mknows-frontend-services/components/molecules";
 import RequestModule from "./feature/request";
 import ProcessModule from "./process";
 import ResultModule from "./result";
+import { ToastContainer } from "react-toastify";
+
 const RequestPage: FC = (): ReactElement => {
   const [active, setActive] = useState("permintaan");
   const query = useQueryParams();
@@ -27,6 +29,7 @@ const RequestPage: FC = (): ReactElement => {
   return (
     <Suspense fallback={<LoadingRequest />}>
       <Tab.Group>
+      <ToastContainer theme="dark" autoClose={2000} className={"text-sm"} />
         <section className="w-full flex h-fit relative pt-2 overflow-hidden justify-center lg:justify-end lg:pr-4">
           <CardCS className="w-full h-fit rounded-lg bg-white">
             <div className="px-11 py-4 flex flex-col w-full ">

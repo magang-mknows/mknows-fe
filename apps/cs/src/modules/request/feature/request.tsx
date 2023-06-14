@@ -37,7 +37,7 @@ const RequestModule: FC = (): ReactElement => {
                   <p className="text-neutral-400 font-normal text-xs">Data Masuk 500</p>
                 </div>
                 <div className="text-center text-xs right-2 top-2 absolute rounded-full w-[22px] h-[22px] bg-neutral-200 font-semibold py-1">
-                  {item.number}
+                  {item.total_data}
                 </div>
               </div>
             </CardCS>
