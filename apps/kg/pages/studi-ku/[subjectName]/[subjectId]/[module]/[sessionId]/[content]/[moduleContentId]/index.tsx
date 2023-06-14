@@ -19,7 +19,7 @@ const MyStudyModulePage: NextPage = (): ReactElement => {
 
   return (
     <BaseLayout title="Rincian Modul">
-      <BreadCrumb items={items} />
+      <BreadCrumb items={items} bgColor="bg-white" />
       <ModuleContentModule />
     </BaseLayout>
   );

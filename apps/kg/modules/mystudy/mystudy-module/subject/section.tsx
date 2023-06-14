@@ -10,23 +10,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
 }): ReactElement => {
   return (
     <div className="w-[85%] mx-auto">
-      <div className="flex justify-center items-center flex-col">
-        <h1 className="font-bold text-2xl">Mata Kuliah</h1>
-        <div className="bg-gray-200 w-full mt-6 rounded-[8px] px-6 py-4">
-          <div className="flex gap-x-6">
-            <div className="text-4xl text-[#A3A3A3] font-bold">
-              <AiOutlineSearch />
-            </div>
-            <input
-              type={"text"}
-              value=""
-              className="bg-transparent w-full focus:outline-none"
-              placeholder="Cari Mata Kuliah"
-            />
-          </div>
-        </div>
-      </div>
-
+      <h1 className="w-fit mx-auto font-bold text-2xl">Mata Kuliah</h1>
       <div className="relative grid lg:grid-cols-3 grid-cols-1 gap-y-7 gap-x-9 mt-[30px] pb-40">
         {dataSubjectProps?.length === 0 ? (
           <div className="w-full absolute">
@@ -44,7 +28,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
                   <Card
                     href={`/studi-ku/${subject.name}/${subject.id}`}
                     key={subject.id}
-                    className="rounded-lg px-3"
+                    className="rounded-lg px-3 shadow-xl"
                     hasImage={true}
                     imgwidth={240}
                     imgheight={240}

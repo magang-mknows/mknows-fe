@@ -70,7 +70,7 @@ export const Status: FC = (): ReactElement => {
             : null,
       };
       const payload: TMyStudyAssignmentSubmissionPayload = {
-        id: router.query.assignmentId as string,
+        id: router.query.sessionId as string,
         req: payloadReq,
       };
       mutate(payload);

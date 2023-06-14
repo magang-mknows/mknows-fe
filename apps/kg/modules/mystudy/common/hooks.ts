@@ -17,8 +17,8 @@ export const useMyStudyBreadCrumbsItems = ({
 
   const items = [
     {
-      name: "Home",
-      link: "/",
+      name: "Dashboard",
+      link: "/dashboard",
     },
     {
       name: "Studi-ku",

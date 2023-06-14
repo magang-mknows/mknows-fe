@@ -10,7 +10,7 @@ const MyStudyPage: NextPage = (): ReactElement => {
 
   return (
     <BaseLayout title="Studi-ku">
-      <BreadCrumb items={items} />
+      <BreadCrumb items={items} bgColor="bg-white" />
       <MyStudyModule />
     </BaseLayout>
   );

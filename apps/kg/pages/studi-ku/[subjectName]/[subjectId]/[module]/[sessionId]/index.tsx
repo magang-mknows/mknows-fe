@@ -11,8 +11,8 @@ const MyStudyModulePage: NextPage = (): ReactElement => {
   const { items } = useMyStudyBreadCrumbsItems({ router, type: "modul" });
 
   return (
-    <BaseLayout title="Modul Mata Kuliah">
-      <BreadCrumb items={items} />
+    <BaseLayout title="Modul">
+      <BreadCrumb items={items} bgColor="bg-white" />
       <ModuleMyStudyModule />
     </BaseLayout>
   );
