@@ -1,10 +1,10 @@
-import { Sidebar } from "../../components/base/sidebar/sidebar";
+import {SidebarAdmin} from "@mknows-frontend-services/components/molecules";
 import { FC, ReactElement } from "react";
 
 export const DashboardModule: FC = (): ReactElement => {
   return (
-  <Sidebar>
+  <SidebarAdmin>
     <p>tes</p>
-  </Sidebar>
+  </SidebarAdmin>
   );
 };

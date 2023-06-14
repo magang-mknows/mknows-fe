@@ -1,10 +1,10 @@
 import { FC, ReactElement } from "react";
-import { Sidebar } from "./sidebar/sidebar";
+import { SidebarAdmin } from "@mknows-frontend-services/components/molecules";
 
 const BaseLayout: FC = (): ReactElement => {
-  return <Sidebar>
-    <p>tes</p>
-  </Sidebar>;
+  return <SidebarAdmin>
+    {/* belum lengkap */}
+  </SidebarAdmin>;
 };
 
 export default BaseLayout;

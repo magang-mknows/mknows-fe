@@ -12,7 +12,7 @@ import {
 } from "@mknows-frontend-services/components/atoms";
 import { TSidebarProp } from "./type";
 
-export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
+export const SidebarAdmin: FC<TSidebarProp> = ({ children }): ReactElement => {
   const DataSidebar = [
     {
       title: "Dashboard",
