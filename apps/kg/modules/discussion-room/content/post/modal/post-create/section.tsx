@@ -101,7 +101,7 @@ export const PostCreateModal: FC = (): ReactElement => {
               control={control}
               name={"content"}
               placeholder="Mau diskusi apa hari ini?"
-              className="h-[46px] !border-[0px] text-sm px-4 py-2"
+              className="h-[80px] border-none text-sm outline-none px-4 py-2"
               isTextArea={true}
               status={errors.content ? "error" : undefined}
               message={errors.content?.message}
