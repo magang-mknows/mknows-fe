@@ -42,17 +42,6 @@ export const TaskSection: FC = (): ReactElement => {
   ];
   return (
     <div className="bg-neutral-50  p-6 rounded-md shadow-sm">
-      {/* <section className="flex flex-col  h-full items-center justify-center ">
-        <Image
-          src={"/assets/dashboard/emptyTask.svg"}
-          alt="emptyTask"
-          width={150}
-          height={150}
-          loading="eager"
-          className="mb-2"
-        />
-        <h1 className="text-xs text-neutral-800 font-bold -mt-3">Yeyy..Belum ada penugasan</h1>
-      </section> */}
       <Carousel
         showThumbs={false}
         showArrows={false}

@@ -1,7 +1,8 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import { LabIcon, HomeIcon, ClockIcon, ThropyIcon } from "./assets";
+import { TResumeProps } from "./types";
 
-export const ResumeSection: FC = (): ReactElement => {
+export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
   const dummySidebarItems = [
     {
       desc: 0,
@@ -34,7 +35,7 @@ export const ResumeSection: FC = (): ReactElement => {
   return (
     <div className="w-full shadow-md  bg-neutral-50 shadow-neutral-100  rounded-md min-h-[540px] mb-10 overflow-hidden">
       <section className="text-neutral-50 bg-version2-400 rounded-md relative px-6 pt-12 pb-28">
-        <h1 className="font-bold text-2xl mb-2">Hello, Bandi</h1>
+        <h1 className="font-bold text-2xl mb-2">Hello, {props.full_name}</h1>
         <p className="text-base mb-2">
           <section>
             <span className="text-neutral-50/75">Kamu </span>
