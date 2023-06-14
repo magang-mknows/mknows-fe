@@ -5,7 +5,7 @@ export const ResumeSection: FC = (): ReactElement => {
   const dummySidebarItems = [
     {
       desc: 0,
-      title: "Kelas Terdaftar",
+      title: "Pelatihan",
     },
     {
       desc: 0,
@@ -13,7 +13,7 @@ export const ResumeSection: FC = (): ReactElement => {
     },
     {
       desc: 0,
-      title: "IPK Rata-rata",
+      title: "Poin Rata-rata",
     },
     {
       desc: 0,
@@ -39,9 +39,8 @@ export const ResumeSection: FC = (): ReactElement => {
           <section>
             <span className="text-neutral-50/75">Kamu </span>
             <span className="underline underline-offset-4 decoration-neutral-50/70">
-              Belum mengambil Mata Kuliah
+              Belum mengambil Pelatihan
             </span>
-            <span className="text-neutral-50/75"> Pada semester ini</span>
           </section>
         </p>
         <section className="absolute -bottom-64  grid grid-cols-2 gap-4 lg:gap-2">

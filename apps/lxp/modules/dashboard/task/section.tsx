@@ -6,21 +6,24 @@ import { AiFillWarning } from "react-icons/ai";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from "@mknows-frontend-services/components/atoms";
+import Image from "next/image";
+
+import dummTaskImage from "./dummy-assets/dummy-task.svg";
 
 export const TaskSection: FC = (): ReactElement => {
   const dummyPenugasan = [
     {
       id: 1,
-      image: "/assets/dashboard/acara.svg",
-      topic: "Japanese Culture",
-      title: "Introduction to Japanese Culture",
+      image: dummTaskImage,
+      topic: "Negotiation and Management",
+      title: "B2B Sales Management",
       milstone: "Tugas Pertemuan 1",
       teacher: "Bagas Saputra, M. Kom.",
       dueDate: "Terakhir 28 Februari 2023",
     },
     {
       id: 2,
-      image: "/assets/dashboard/acara.svg",
+      image: dummTaskImage,
       topic: "Indonesia Culture",
       title: "Introduction to Indonesia Culture",
       milstone: "Tugas Pertemuan 2",
@@ -29,7 +32,7 @@ export const TaskSection: FC = (): ReactElement => {
     },
     {
       id: 3,
-      image: "/assets/dashboard/acara.svg",
+      image: dummTaskImage,
       topic: "Bekasi Culture",
       title: "Introduction to Bekasi Culture",
       milstone: "Tugas Pertemuan 1",
@@ -78,11 +81,11 @@ export const TaskSection: FC = (): ReactElement => {
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
                 <h1 className="text-lg font-bold text-neutral-900 ">Penugasan</h1>
-                <p className="text-sm text-neutral-500 ">{item.topic}</p>
+                <p className="text-xs text-neutral-500 ">{item.topic}</p>
               </section>
               <section className="flex items-center justify-start gap-4 mb-6  w-fit">
                 <figure className="flex items-center justify-start w-[96px]  md:w-[90px] bg-neutral-200 h-24 rounded-md ">
-                  {/* <Image src={item.image} alt="test" height={90} width={100} /> */}
+                  <Image src={item.image} alt="test" height={90} width={100} />
                 </figure>
                 <div className="flex flex-col items-start text-left">
                   <h1 className="mb-2 font-bold">{item.title}</h1>
