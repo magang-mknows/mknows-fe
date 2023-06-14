@@ -15,7 +15,7 @@ export type TRequestItem = {
   _id: string;
   name: string;
   total_data: number;
-  price_per_unit:number;
+  price_per_unit: number;
 };
 
 export type TRequestResponse = TMetaResponse<TRequestItem>;
@@ -76,6 +76,7 @@ export type TResultByIdResponse = TMetaResponse<TResultById>;
 export type TResultByIdParams = {
   id?: string;
   order?: string;
+  checked?: boolean;
 };
 
 export type TResultDataDummy = {
