@@ -35,7 +35,7 @@
   "dependencies": {
     "@babel/core": "^7.22.5",
     "@headlessui/react": "^1.7.15",
-    "@hookform/resolvers": "^3.1.0",
+    "@hookform/resolvers": "^3.1.1",
     "@nestjs/common": "^9.1.1",
     "@nestjs/core": "^9.1.1",
     "@nestjs/platform-express": "^9.1.1",
