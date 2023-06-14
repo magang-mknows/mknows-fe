@@ -1,14 +1,5 @@
 import { TMetaResponse } from "@mknows-frontend-services/utils";
 
-export type TResultDataDummy = {
-  _id: string;
-  request_number: string;
-  feature: string;
-  finished_at: string;
-  requested_at: string;
-  total_user: number;
-};
-
 export type TIcons = {
   icon: string;
 };
@@ -54,6 +45,42 @@ export type TProcessParams = {
 };
 
 export type TResultItem = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  finished_at: string;
+  requested_at: string;
+  total_user: number;
+};
+
+export type TResultResponse = TMetaResponse<TResultItem>;
+export type TResultParams = {
+  feature?: string;
+  per_page?: string;
+  page?: string;
+};
+
+export type TResultById = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  company: string;
+  __v: number;
+  requested_at: string;
+  finished_at: string;
+  status: string;
+  name: string;
+  nik: string;
+};
+
+export type TResultByIdResponse = TMetaResponse<TResultById>;
+export type TResultByIdParams = {
+  id?: string;
+  order?: string;
+  checked?: boolean;
+};
+
+export type TResultDataDummy = {
   _id: string;
   request_number: string;
   feature: string;

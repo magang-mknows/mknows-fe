@@ -4,7 +4,7 @@ import ChartBar2 from "../../molecules/chart/chart-bar2";
 
 const AgeTrack: FC = (): ReactElement => {
   return (
-    <section className="bg-white h-fit w-full rounded-md md:py-5 py-0 my-4">
+    <section className="bg-white h-[500px] w-full rounded-md md:py-5 py-0 my-4">
       <h1 className="text-xl font-bold p-4">TRACK USIA</h1>
       <div className="flex justify-between py-3 px-4 md:flex-row flex-col md:space-y-0 space-y-4 ">
         <div className="px-4">
@@ -23,7 +23,7 @@ const AgeTrack: FC = (): ReactElement => {
           </select>
         </div>
       </div>
-      <div className="px-4 w-full h-full">
+      <div className="px-4 pt-20 w-full h-full">
         <ChartBar2 />
       </div>
     </section>

@@ -4,6 +4,7 @@
 
 - KampusGratis
 - KampusGratis Admin
+- KampusGratis Dosen
 - LXP
 - LXP Admin
 - CreditScoring
@@ -15,6 +16,8 @@
 - [Production Build KampusGratis](https://mknows-fe-kg.netlify.app/)
 - [Development Build KampusGratis Admin](https://mknows-fe-kg-admin.vercel.app/)
 - [Production Build KampusGratis Admin](https://mknows-fe-kg-admin.netlify.app/)
+- [Development Build KampusGratis Dosen](https://mknows-fe-kg-dosen.vercel.app/)
+- [Production Build KampusGratis Dosen](https://mknows-fe-kg-dosen.netlify.app/)
 
 - [Development Build LXP](https://mknows-fe-lxp.vercel.app/)
 - [Production Build LXP](https://mknows-fe-lxp.netlify.app/)
