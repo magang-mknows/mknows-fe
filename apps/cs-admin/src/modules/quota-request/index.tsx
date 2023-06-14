@@ -48,7 +48,7 @@ const RequestQuota: FC = (): ReactElement => {
                   <button>
                     <div
                       className={`inline-block p-2 ${
-                        active === "riwayat" ? "text-black bg-white rounded-lg" : ""
+                        active === "riwayat" ? "text-neutral-800 bg-white rounded-lg" : ""
                       }       text-neutral-400 text-xs md:text-base px-4 py-2`}
                       aria-current="page"
                       onClick={() => {
