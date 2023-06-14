@@ -1,7 +1,7 @@
 export const TrainingContractBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   { name: "Pelatihan", link: "/rencana-pelatihan" },
   { name: "Kontrak Pelatihan", link: "/rencana-pelatihan" },

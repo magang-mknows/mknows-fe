@@ -1,7 +1,7 @@
 export const ConsultingBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Konsultasi & Layanan",
