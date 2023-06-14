@@ -1,4 +1,4 @@
-import { Sidebar } from "apps/lxp-admin/components/base/sidebar/sidebar";
+import { Sidebar } from "../../components/base/sidebar/sidebar";
 import { FC, ReactElement } from "react";
 
 export const DashboardModule: FC = (): ReactElement => {
