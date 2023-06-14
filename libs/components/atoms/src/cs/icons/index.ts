@@ -22,3 +22,5 @@ export * from "./ic-user";
 export * from "./ic-upload";
 export * from "./ic-warning";
 export * from "./ic-empty-state";
+export * from "./ic-grafic";
+export * from "./ic-quota-admin";
