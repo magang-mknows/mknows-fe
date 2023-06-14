@@ -4,6 +4,9 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult, useResultById } from "../hooks";
 import { TResultItem, TResultById } from "../types";
 import { formatDate } from "@mknows-frontend-services/utils";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CheckedIcon from "/assets/checked.webp";
 
 const Table2: FC = (): ReactElement => {
   const { getFilterActionResult } = useFilterActionResult();
