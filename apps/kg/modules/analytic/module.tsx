@@ -7,7 +7,7 @@ import { MainSection } from "./main";
 export const AnalyticModule: FC = (): ReactElement => {
   return (
     <section className="min-h-[140vh]">
-      <BreadCrumb items={AnalyticBreadcumbs} textColor="text-version2-400" />
+      <BreadCrumb items={AnalyticBreadcumbs} bgColor="bg-[#FAFAFA]" />
       <section className="grid grid-cols-3 gap-6 px-8 md:px-14 lg:px-16">
         <SidebarSection />
         <MainSection />
