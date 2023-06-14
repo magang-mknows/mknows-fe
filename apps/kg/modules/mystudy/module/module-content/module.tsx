@@ -52,9 +52,6 @@ export const ModuleContentModule = (): ReactElement => {
     }
   }, [idVideoGroup, isExecuted]);
 
-  console.log(idVideoGroup);
-  console.log(videoItem);
-
   function handleSidebarVideosClicked(val: TVideoItem) {
     setVideoItem(val);
   }
@@ -80,7 +77,7 @@ export const ModuleContentModule = (): ReactElement => {
 
   return (
     <Fragment>
-      <ModulePopup moduleId={router.query.moduleContentId as string} />
+      <ModulePopup moduleId={dataModuleContents?.id as string} />
       {dataModuleContents && (
         <div className="flex flex-col h-full w-full items-center px-4 lg:px-32 ">
           <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">
