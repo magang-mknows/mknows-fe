@@ -7,7 +7,7 @@ import { useConfirmModul } from "../hooks";
 import Play from "../assets/button-play.svg";
 import Document from "../assets/iconDoc.svg";
 import { useRouter } from "next/router";
-import { TModuleContentItem } from "./types";
+import { TModuleContentItem, TVideoItem } from "./types";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { ModulePopup } from "./pop-up";
 
@@ -15,7 +15,10 @@ export const ModuleContentModule = (): ReactElement => {
   const router = useRouter();
   const { data } = useGetModuleContentById(router.query.moduleContentId as string);
   const { mutate } = useWatchedVideoSubmitById();
-  const dataModuleContents: TModuleContentItem = data?.data as TModuleContentItem;
+  const dataModuleContents: TModuleContentItem = useMemo(
+    () => data?.data as TModuleContentItem,
+    [data],
+  );
   const idVideoGroup = useMemo(() => {
     return dataModuleContents?.module_moduleVideos.map((video, i) => {
       return {
@@ -29,33 +32,28 @@ export const ModuleContentModule = (): ReactElement => {
     });
   }, [dataModuleContents]);
 
-  type TVideoItem = {
-    id: string;
-    title: string;
-    desc: string;
-    youtubeId: string;
-  };
-
   const [isExecuted, setIsExecuted] = useState(false);
   const [videoItem, setVideoItem] = useState<TVideoItem>({
-    title: "",
     id: "",
+    title: "",
     desc: "",
     youtubeId: "",
   });
 
   useEffect(() => {
-    setIsExecuted(true);
-    if (idVideoGroup && isExecuted) {
+    if (!isExecuted && idVideoGroup) {
       setVideoItem({
         id: idVideoGroup[0].id,
         title: idVideoGroup[0].title,
         desc: idVideoGroup[0].desc,
         youtubeId: idVideoGroup[0].youtubeId,
       });
-      setIsExecuted(false);
+      setIsExecuted(true);
     }
   }, [idVideoGroup, isExecuted]);
+
+  console.log(idVideoGroup);
+  console.log(videoItem);
 
   function handleSidebarVideosClicked(val: TVideoItem) {
     setVideoItem(val);
