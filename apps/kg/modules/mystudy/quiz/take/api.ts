@@ -9,6 +9,9 @@ export const quizTakeGetRequest = async (id: string | number): Promise<TQuizTake
 export const quizSubmitRequest = async (
   payload: TQuizSubmitPayload,
 ): Promise<TQuizSubmitResponse> => {
-  const { data } = await api.post(`/studi-ku/quiz/result/${payload.id}`, payload.req);
+  const { data } = await api.post(
+    `/studi-ku/quiz/submit/${payload.id}`,
+    JSON.stringify(payload.req),
+  );
   return data;
 };

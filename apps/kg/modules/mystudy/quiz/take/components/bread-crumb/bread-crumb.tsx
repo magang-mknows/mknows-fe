@@ -1,33 +1,31 @@
-import { FC, ReactElement, Fragment } from 'react';
-import { MdChevronRight } from 'react-icons/md';
-import { useQuizQuitPopup } from '../pop-up/quit/hooks';
+import { FC, ReactElement, Fragment } from "react";
+import { MdChevronRight } from "react-icons/md";
+import { useQuizQuitPopup } from "../pop-up/quit/hooks";
 
 export const QuizTakeBreadCrumb: FC = (): ReactElement => {
   const { getQuizQuitPopup, setQuizQuitPopup } = useQuizQuitPopup();
-  const subjectDetailPath = getQuizQuitPopup.prevPath
-    .split('/')
-    .slice(0, -1)
-    .join('/');
+  const subjectDetailPath = getQuizQuitPopup.prevPath.split("/").slice(0, -1).join("/");
+  const subjectName = decodeURI(getQuizQuitPopup.prevPath.split("/")[2]);
   const quizTakeBreadCrumb = [
     {
-      name: 'Beranda',
-      link: '/',
+      name: "Home",
+      link: "/",
     },
     {
-      name: 'Studi-ku',
-      link: '/studi-ku',
+      name: "Studi-ku",
+      link: "/studi-ku",
     },
     {
-      name: 'Mata-Kuliah',
+      name: subjectName,
       link: subjectDetailPath,
     },
     {
-      name: 'Quiz',
+      name: "Kuis",
       link: `${getQuizQuitPopup.prevPath}/${getQuizQuitPopup.quizTakeId}`,
     },
     {
-      name: 'Mulai Quiz',
-      link: '',
+      name: "Mulai Kuis",
+      link: "",
     },
   ];
   function onClickHandler(link: string) {

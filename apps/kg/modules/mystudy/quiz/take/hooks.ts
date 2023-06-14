@@ -62,6 +62,8 @@ export const useAutoSaveQuizAnswer = () => {
 
   function resetStoredAnswer() {
     localStorage.removeItem("quiz.answer");
+    localStorage.removeItem("targetTime");
+    localStorage.removeItem("timeRemaining");
   }
 
   return { storedAnswer, setNewStoredAnswer, resetStoredAnswer };

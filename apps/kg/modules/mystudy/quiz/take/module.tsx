@@ -4,6 +4,7 @@ import { useWindowSize } from "../../../common/hooks/use-window-size";
 import {
   useAutoSaveQuizAnswer,
   useCurrentQuizNumber,
+  useGetQuizTakeById,
   useQuizQuestion,
   useQuizRequestSubmit,
 } from "./hooks";
@@ -14,7 +15,7 @@ import { useRouter } from "next/router";
 import {
   TQuestionsAnswersPayloadItem,
   TQuizRequestSubmit,
-  TQuizSubmitPayload,
+  TQuizSubmitPayloadReq,
   TQuizTakeItem,
 } from "./type";
 import { QuizSubmitPopup } from "./components/pop-up/submit";
@@ -36,57 +37,9 @@ export const QuizTakeModule: FC = (): ReactElement => {
   const { getQuizQuitPopup, setQuizQuitPopup } = useQuizQuitPopup();
   const { getQuizSubmitPopup, setQuizSubmitPopup } = useQuizSubmitPopup();
   const { getAlreadyReturnQuizProp, setAlreadyReturnQuizProp } = useAlreadyReturnQuiz();
-
+  const { data } = useGetQuizTakeById(router.query.quizId as string);
+  const dataQuizTake = useMemo(() => data?.data as TQuizTakeItem, [data]);
   const prevPath = router.asPath.split("/").slice(0, -2).join("/");
-
-  const dataQuizTake: TQuizTakeItem = useMemo(() => {
-    return {
-      type: "QUIZ",
-      duration: 3200,
-      questions_answers: [
-        {
-          id: "question-1",
-          question: "Mengapa dibutuhkan dua ekor tupai untuk memasang satu buah bola lampu?",
-          answers: [
-            {
-              id: "memski4241",
-              answer: "karena memasang lampu itu sulit",
-            },
-            {
-              id: "kuntul123",
-              answer: "karena mereka jelek",
-            },
-          ],
-        },
-        {
-          id: "question-2",
-          question: "Siapakah presiden indonesisa ke-8",
-          answers: [
-            {
-              id: "imsama146463",
-              answer: "Mega-chan",
-            },
-            {
-              id: "imam124145r4",
-              answer: "Optimus-chan",
-            },
-            {
-              id: "yassalam145231",
-              answer: "Bumblebee-chan",
-            },
-            {
-              id: "yayaya124t234",
-              answer: "Starscream-chan",
-            },
-            {
-              id: "bleh141251",
-              answer: "Sam-chan",
-            },
-          ],
-        },
-      ],
-    };
-  }, []);
 
   useEffect(() => {
     setQuestionsData(dataQuizTake?.questions_answers);
@@ -99,7 +52,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
       setQuizQuitPopup({
         ...getQuizQuitPopup,
         prevPath: prevPath,
-        quizTakeId: router.query.quizTakeId as string,
+        quizTakeId: router.query.quizId as string,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -111,7 +64,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
   });
 
   useEffect(() => {
-    if (!storageAnswer || (storageAnswer.length === 0 && getQuestionsData.length > 0)) {
+    if (!storageAnswer || (storageAnswer?.length === 0 && getQuestionsData?.length > 0)) {
       setStorageAnswer(JSON.parse(localStorage.getItem("quiz.answer") as unknown as string));
       const temp: Array<TQuizRequestSubmit> = [];
       getQuestionsData.forEach(() => {
@@ -123,7 +76,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }, [storageAnswer]);
 
   useEffect(() => {
-    if (storedAnswer.length > 0) {
+    if (storedAnswer?.length > 0) {
       setAlreadyReturnQuizProp({ ...getAlreadyReturnQuizProp, status: false });
     } else {
       setAlreadyReturnQuizProp({ ...getAlreadyReturnQuizProp, status: true });
@@ -132,7 +85,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }, []);
 
   useEffect(() => {
-    if (getQuizRequestSubmit.length > 0) {
+    if (getQuizRequestSubmit?.length > 0) {
       setNewStoredAnswer(getQuizRequestSubmit);
     }
   }, [getQuizRequestSubmit, setNewStoredAnswer]);
@@ -147,11 +100,11 @@ export const QuizTakeModule: FC = (): ReactElement => {
     return temp;
   }
   function handleSaveAnswer(questionId: string, answerId: string) {
-    const isQuestionSame = getQuizRequestSubmit.some((req) => req.question === questionId);
-    const isAnswerSame = getQuizRequestSubmit.some((req) => req.answer === answerId);
+    const isQuestionSame = getQuizRequestSubmit?.some((req) => req.question === questionId);
+    const isAnswerSame = getQuizRequestSubmit?.some((req) => req.answer === answerId);
 
-    if (!isQuestionSame && !isAnswerSame) {
-      const newQuizSubmit = duplicateQuizRequestSubmit();
+    const newQuizSubmit = duplicateQuizRequestSubmit();
+    if (!isQuestionSame && !isAnswerSame && newQuizSubmit !== null) {
       newQuizSubmit[getCurrNumber - 1].answer = answerId;
       newQuizSubmit[getCurrNumber - 1].question = questionId;
       setQuizRequestSubmit(newQuizSubmit);
@@ -176,9 +129,9 @@ export const QuizTakeModule: FC = (): ReactElement => {
   }
 
   function isAnswerAlreadyExist(answerId: string) {
-    return getQuizRequestSubmit.some((req) => req.answer === answerId);
+    return getQuizRequestSubmit?.some((req) => req.answer === answerId);
   }
-  function handleReturnPayload(): TQuizSubmitPayload {
+  function handleReturnPayloadReq(): TQuizSubmitPayloadReq {
     const removedHelpKey: TQuestionsAnswersPayloadItem[] = getQuizRequestSubmit.map((quiz) => {
       return Object.keys(quiz).includes("help")
         ? {
@@ -194,18 +147,21 @@ export const QuizTakeModule: FC = (): ReactElement => {
       questions_answers: removedEmptyAnswer,
     };
   }
+
+  const payloadReqReturnValue = handleReturnPayloadReq();
+  console.log("payload object form: ", dataQuizTake);
+
   function handleNextButton() {
     if (getCurrNumber < getQuestionsData.length) {
       setCurrNumber(getCurrNumber + 1);
     } else {
-      const submitPayload = handleReturnPayload();
       const subjectDetailPath = prevPath.split("/")[2];
-      if (subjectDetailPath !== "[detail-matkul]") {
+      if (subjectDetailPath !== "[subjectName]") {
         const newQuizSubmitPopupValue: TQuizSubmitPopup = {
           ...getQuizSubmitPopup,
           prevPath: prevPath,
-          quizTakeId: router.query.quizTakeId as string,
-          payload: submitPayload,
+          quizTakeId: router.query.quizId as string,
+          payloadReq: payloadReqReturnValue,
           status: true,
         };
         setQuizSubmitPopup(newQuizSubmitPopupValue);
@@ -262,23 +218,23 @@ export const QuizTakeModule: FC = (): ReactElement => {
           <QuizTakeBreadCrumb />
           <div className="px-0 lg:px-[88px]">
             <div className="py-[52px] px-4 sm:px-[38px] flex flex-col-reverse xl:flex-row gap-x-[55px]">
-              <div className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
+              <section className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
                 {/* Question section */}
                 <p className="text-black text-center w-full text-xl font-semibold ">
                   {getCurrNumber}.{" "}
                   {dataQuizTake &&
                     dataQuizTake?.questions_answers.length > 0 &&
-                    getQuestionsData[getCurrNumber - 1]?.question}
+                    getQuestionsData?.[getCurrNumber - 1]?.question}
                 </p>
                 {/* Answer section */}
                 <div className="flex flex-col items-center gap-y-7 w-full min-h-[120px]">
                   {dataQuizTake &&
                     dataQuizTake?.questions_answers.length > 0 &&
-                    getQuestionsData[getCurrNumber - 1]?.answers.map((answers, index) => (
+                    getQuestionsData?.[getCurrNumber - 1]?.answers.map((answers, index) => (
                       <button
                         key={index}
                         onClick={() =>
-                          handleSaveAnswer(getQuestionsData[getCurrNumber - 1]?.id, answers.id)
+                          handleSaveAnswer(getQuestionsData?.[getCurrNumber - 1]?.id, answers.id)
                         }
                         className={`relative w-full sm:w-[70%] py-4 border-[#106FA4] border-2 text-base rounded-lg text-[#106FA4]  flex place-content-center hover:bg-primary-500 hover:text-neutral-200 ${
                           isAnswerAlreadyExist(answers.id) && "bg-primary-500 text-neutral-200"
@@ -323,20 +279,20 @@ export const QuizTakeModule: FC = (): ReactElement => {
                   >
                     <IoIosArrowForward />
                     {(windowSize?.width as number) > 640
-                      ? getCurrNumber >= getQuestionsData.length
+                      ? getCurrNumber >= getQuestionsData?.length
                         ? "Kirim"
                         : "Selanjutnya"
                       : ""}
                   </button>
                 </div>
-              </div>
+              </section>
               {/* Timer Section */}
-              <div className="flex flex-col h-[232px] gap-5 lg:w-[35%] w-full mx-auto">
+              <section className="flex flex-col h-[232px] gap-5 lg:w-[35%] w-full mx-auto">
                 <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
                   <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
                   {dataQuizTake && dataQuizTake?.questions_answers.length > 0 && (
                     <div className="flex flex-wrap gap-1">
-                      {[...Array(getQuestionsData.length)].map((_, index) => (
+                      {[...Array(getQuestionsData?.length)].map((_, index) => (
                         <div
                           key={index}
                           className="w-12 h-12 bg-transparent p-1"
@@ -359,12 +315,12 @@ export const QuizTakeModule: FC = (): ReactElement => {
                 <div className="flex justify-end">
                   <QuizTimer
                     prevPath={prevPath}
-                    quizTakeId={router.query.quizTakeId as string}
-                    payload={handleReturnPayload()}
-                    expiryTimestamp={2.5}
+                    quizTakeId={router.query.quizId as string}
+                    payloadReq={payloadReqReturnValue}
+                    expiryTimestamp={dataQuizTake?.duration / 60}
                   />
                 </div>
-              </div>
+              </section>
             </div>
           </div>
         </Fragment>

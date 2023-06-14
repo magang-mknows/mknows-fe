@@ -34,7 +34,7 @@ export type TQuizSubmitPayloadReq = {
 
 export type TQuizSubmitPayload = {
   id: string;
-  req: TQuizSubmitPayload;
+  req: TQuizSubmitPayloadReq;
 };
 
 export type TQuizSubmitItem = {

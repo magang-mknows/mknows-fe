@@ -1,48 +1,41 @@
-import { FC, ReactElement } from 'react';
-import { useQuizSubmitPopup } from './hooks';
-import ConfirmIcon from '../../../../assets/confirm.svg';
-import { Button } from '@mknows-frontend-services/components/atoms';
-import { CustomPopup } from '../custom';
-import Image from 'next/image';
-import { QuizStaticTimer } from '../../static-timer';
-import { useAutoSaveQuizAnswer, useSubmitQuiz } from '../../../hooks';
-import { useRouter } from 'next/router';
+import { FC, ReactElement } from "react";
+import { useQuizSubmitPopup } from "./hooks";
+import ConfirmIcon from "../../../../assets/confirm.svg";
+import { Button } from "@mknows-frontend-services/components/atoms";
+import { CustomPopup } from "../custom";
+import Image from "next/image";
+import { QuizStaticTimer } from "../../static-timer";
+import { useAutoSaveQuizAnswer, useSubmitQuiz } from "../../../hooks";
+import { useRouter } from "next/router";
+import { TQuizSubmitPayload } from "../../../type";
 
 export const QuizSubmitPopup: FC = (): ReactElement => {
   const router = useRouter();
   const { getQuizSubmitPopup, setQuizSubmitPopup } = useQuizSubmitPopup();
   const { resetStoredAnswer } = useAutoSaveQuizAnswer();
-  const { mutate } = useSubmitQuiz(getQuizSubmitPopup.quizTakeId);
+  const { mutate } = useSubmitQuiz();
 
-  function removeTimerItem() {
-    localStorage.removeItem('targetTime');
-    localStorage.removeItem('timeRemaining');
-  }
   function onClose() {
     setQuizSubmitPopup({ ...getQuizSubmitPopup, status: false });
   }
   function onSubmit() {
-    mutate(getQuizSubmitPopup.payload);
-    resetStoredAnswer();
-    removeTimerItem();
-    setQuizSubmitPopup({ ...getQuizSubmitPopup, status: false });
-    router.push(
-      `${getQuizSubmitPopup.prevPath}/skor/${getQuizSubmitPopup.quizTakeId}`
-    );
+    const payload: TQuizSubmitPayload = {
+      id: getQuizSubmitPopup.quizTakeId,
+      req: getQuizSubmitPopup.payloadReq,
+    };
+    mutate(payload);
+    // resetStoredAnswer();
+    // setQuizSubmitPopup({ ...getQuizSubmitPopup, status: false });
+    // router.push(`${getQuizSubmitPopup.prevPath}/nilai/${getQuizSubmitPopup.quizTakeId}`);
   }
 
   return (
-    <CustomPopup
-      lookup={getQuizSubmitPopup.status}
-      modalStyle="w-[800px] h-fit bg-white px-6 py-5"
-    >
+    <CustomPopup lookup={getQuizSubmitPopup.status} modalStyle="w-[800px] h-fit bg-white px-6 py-5">
       <section className="flex flex-col items-center gap-y-5">
         <Image src={ConfirmIcon} alt="confirm-icon" />
         <h5 className="text-xl font-semibold">Kirim</h5>
         <QuizStaticTimer isFromLocalStorage={false} />
-        <h5 className="text-xl">
-          Kamu akan menyelesaikan quiz ini. Apakah kamu yakin?
-        </h5>
+        <h5 className="text-xl">Kamu akan menyelesaikan quiz ini. Apakah kamu yakin?</h5>
       </section>
       <section className="w-full flex justify-between mt-5 px-6 py-5 text-base font-semibold">
         <Button
