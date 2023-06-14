@@ -8,9 +8,11 @@ export const HeroSection = (): ReactElement => {
     <div className="lg:grid lg:grid-cols-2 lg:gap-10 lg:mx-6 mt-[10px] px-6 md:px-8 lg:px-10 mb-[50px]">
       <div className="col-span-1 ">
         <div className="title">
-          <h1 className=" text-[50px] font-extrabold">Panduan</h1>
-          <p className="text-[20px] font-light text-[#737373] ">
-            Cari informasi penggunaan website Kampus Gratis di sini
+          <h1 className=" text-[50px] font-extrabold">Buku Panduan</h1>
+          <p className="text-[14px] font-light text-[#737373] ">
+            Berupa buku petunjuk penggunaan dan pengertian fitur- fitur yang ada di Website LMS
+            M-Knows secara terperinci (isinya lebih detail jika dibandingkan video tutorial).
+            Menjelaskan juga keunggulan dan manfaat fitur tersebut.
           </p>
         </div>
         <div className="seacrh lg:w-[700px] h-[56px]  bg-[#F5F5F5]  rounded-[8px] mt-[48px] flex items-center gap-4  ">
