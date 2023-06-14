@@ -49,11 +49,11 @@ const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement =
                 {x.no}
               </div>
               <div className="lg:w-[353px] md:w-[225px] w-[180px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
-                <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
+                <div className="w-full p-4 lg:flex lg:justify-center lg:gap-4">
                   <div>
                     <Image src={x.img} alt="User" />
                   </div>
-                  <div className="flex w-full flex-col w-auto">
+                  <div className="flex flex-col w-full">
                     <h1 className="font-bold text-start">{x.matkul}</h1>
                     <p className="text-gray-400 text-start">
                       {x.jmlh_mahasiswa} Mahasiswa Terdaftar
@@ -154,7 +154,7 @@ const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement =
           className="!h-80 !w-[100%] text-md py-10"
         >
           <h1 className="py-2 text-2xl">Apakah anda sudah mempelajari mata kuliah ini?</h1>
-          <div className="flex gap-3 my-2 py-4">
+          <div className="flex gap-3 py-4 my-2">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={() => {
@@ -189,7 +189,7 @@ const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement =
           <h1 className="py-2 text-2xl">
             Mata kuliah berhasil di tambah ke <span className="font-bold">Konversi</span>
           </h1>
-          <div className="flex gap-3 my-2 py-4">
+          <div className="flex gap-3 py-4 my-2">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={onMove}
@@ -218,7 +218,7 @@ const TabelDetailContract: FC<moveProps> = ({ onClick, onMove }): ReactElement =
           <h1 className="py-2 text-2xl">
             Mata kuliah berhasil di tambah ke <span className="font-bold">Draft KRS</span>
           </h1>
-          <div className="flex gap-3 my-2 py-4">
+          <div className="flex gap-3 py-4 my-2">
             <Button
               className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
               onClick={onClick}

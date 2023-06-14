@@ -53,9 +53,7 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
         </div>
       </div>
       <div className="flex items-center justify-end ">
-        <button className="mx-4 lg:text-center text-start text-md lg:ml-80 w-full h-[42px] lg:w-[328px] lg:h-[56px] text-[16px] font-medium bg-transparent text-[#3EB449] border-[#3EB449] border-2 disabled:text-[#A3A3A3] disabled:border-[#A3A3A3]">
-          Download Silabus {Download}
-        </button>
+        
       </div>
       <div className="px-4 mx-auto md:w-full">
         <div className="flex mx-4 my-6">
@@ -92,7 +90,7 @@ export const SubmissionContractStudy: FC = (): ReactElement => {
                 </div>
                 <div className="border-t border-[#E5E5E5] dark:divide-gray-700 col-span-3 lg:text-[16px] md:text-[16px] text-[12px]">
                   <div className="w-full p-4 lg:flex lg:justify-center lg:gap-4">
-                    <Image src={x.thumbnail} alt="User" />
+                    {/* <Image src={x.thumbnail} alt="User" /> */}
                     <div className="flex flex-col w-full">
                       <h1 className="pt-3 font-bold text-start ">{x.name}</h1>
                       <p className="pt-3 text-gray-400 text-start">{x.enrolled_count}</p>
