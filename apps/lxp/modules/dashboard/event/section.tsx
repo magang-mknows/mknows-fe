@@ -5,11 +5,14 @@ import { MdNavigateNext } from "react-icons/md";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import dummyEventImg from "./dummy-assets/dummy-event.svg";
+import Image from "next/image";
+
 export const EventSection: FC = (): ReactElement => {
   const dummyEvent = [
     {
       id: 1,
-      image: "/assets/dashboard/penugasan.svg",
+      image: dummyEventImg,
       topic: "Webinar Cyber Security",
       date: "27 Feb",
       time: "09.00 - 11.00 WIB",
@@ -19,7 +22,7 @@ export const EventSection: FC = (): ReactElement => {
     },
     {
       id: 2,
-      image: "/assets/dashboard/penugasan.svg",
+      image: dummyEventImg,
       topic: "Webinar Cyber Crime",
       date: "27 Feb",
       time: "09.00 - 11.00 WIB",
@@ -29,7 +32,7 @@ export const EventSection: FC = (): ReactElement => {
     },
     {
       id: 3,
-      image: "/assets/dashboard/penugasan.svg",
+      image: dummyEventImg,
       topic: "Webinar Mikrotik",
       date: "27 Feb",
       time: "09.00 - 11.00 WIB",
@@ -68,13 +71,13 @@ export const EventSection: FC = (): ReactElement => {
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
                 <h1 className="text-lg font-bold text-neutral-900">Event Pelatihan</h1>
-                <p className="text-sm text-neutral-500 ">
+                <p className="text-xs text-neutral-500 ">
                   {dummyEvent.length} Event Peletihan tersedia
                 </p>
               </section>
               <section className="flex items-center justify-start flex-wrap gap-4 mb-6 h-26 w-fit">
                 <figure className="flex items-center justify-start w-[96px]  md:w-[90px] bg-neutral-200 h-24 rounded-md ">
-                  {/* <Image src={item.image} alt="test" height={90} width={100} /> */}
+                  <Image src={item.image} alt="test" height={90} width={100} />
                 </figure>
                 <div className="flex flex-col items-start">
                   <h1 className="mb-2 text-start text-neutral-900 font-bold">{item.topic}</h1>
@@ -117,7 +120,7 @@ export const EventSection: FC = (): ReactElement => {
                   type="button"
                   className="font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2 border-version2-500 flex items-center justify-center gap-2 text-sm py-2 w-[200px]  disabled:bg-version2-200/70 disabled:border-none bg-version2-500 text-neutral-100 hover:bg-version2-300 hover:border-version2-300"
                 >
-                  <h1>Kerjakan Sekarang</h1>
+                  <h1>Daftar Sekarang</h1>
                 </Button>
               </section>
             </div>

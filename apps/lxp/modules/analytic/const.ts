@@ -1,7 +1,7 @@
 export const AnalyticBreadcumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Analitik",

@@ -6,37 +6,13 @@ import { AiFillWarning } from "react-icons/ai";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from "@mknows-frontend-services/components/atoms";
+import Image from "next/image";
 
-export const TaskSection: FC = (): ReactElement => {
-  const dummyPenugasan = [
-    {
-      id: 1,
-      image: "/assets/dashboard/acara.svg",
-      topic: "Japanese Culture",
-      title: "Introduction to Japanese Culture",
-      milstone: "Tugas Pertemuan 1",
-      teacher: "Bagas Saputra, M. Kom.",
-      dueDate: "Terakhir 28 Februari 2023",
-    },
-    {
-      id: 2,
-      image: "/assets/dashboard/acara.svg",
-      topic: "Indonesia Culture",
-      title: "Introduction to Indonesia Culture",
-      milstone: "Tugas Pertemuan 2",
-      teacher: "Bagas Saputra, M. Kom.",
-      dueDate: "Terakhir 28 April 2023",
-    },
-    {
-      id: 3,
-      image: "/assets/dashboard/acara.svg",
-      topic: "Bekasi Culture",
-      title: "Introduction to Bekasi Culture",
-      milstone: "Tugas Pertemuan 1",
-      teacher: "Bagas Saputra, M. Kom.",
-      dueDate: "Terakhir 28 Maret 2023",
-    },
-  ];
+import dummTaskImage from "./dummy-assets/dummy-task.svg";
+import { formatTime } from "@mknows-frontend-services/utils";
+import { TTaskProps } from "./types";
+
+export const TaskSection: FC<TTaskProps> = ({ items }): ReactElement => {
   return (
     <div className="bg-neutral-50  p-6 rounded-md shadow-sm">
       <Carousel
@@ -62,30 +38,49 @@ export const TaskSection: FC = (): ReactElement => {
           );
         }}
       >
-        {dummyPenugasan.map((item, index) => {
+        {items?.map((item, index) => {
+          const { formatedDate, formatedTime } = formatTime(item.deadline as string);
+
           return (
             <div className="block" key={index}>
               <section className="text-neutral-900 mb-4 text-start">
                 <h1 className="text-lg font-bold text-neutral-900 ">Penugasan</h1>
-                <p className="text-sm text-neutral-500 ">{item.topic}</p>
+                <p className="text-xs text-neutral-500 ">
+                  {item?.subject_session_progress?.subject_department?.name}
+                </p>
               </section>
               <section className="flex items-center justify-start gap-4 mb-6  w-fit">
                 <figure className="flex items-center justify-start w-[96px]  md:w-[90px] bg-neutral-200 h-24 rounded-md ">
-                  {/* <Image src={item.image} alt="test" height={90} width={100} /> */}
+                  <Image
+                    src={item?.subject_session_progress?.thumbnail || dummTaskImage}
+                    alt="test"
+                    height={90}
+                    width={100}
+                    className="w-full h-full"
+                    priority
+                  />
                 </figure>
                 <div className="flex flex-col items-start text-left">
-                  <h1 className="mb-2 font-bold">{item.title}</h1>
+                  <h1 className="mb-2 font-bold">{item.subject_session_progress.name}</h1>
                   <section className="flex gap-2 items-start lg:items-center mb-2">
                     <div className="w-4 h-4 rounded-full bg-primary-100 flex items-center justify-center">
                       <MdNavigateNext className="text-primary-500 " />
                     </div>
-                    <p className="text-xs text-neutral-400">{item.milstone}</p>
+                    <p className="text-xs text-neutral-400">
+                      Tugas Pertamuan {item?.session.session_number}
+                    </p>
                   </section>
                   <section className="flex gap-2 items-start lg:items-centers">
                     <div className="w-4 h-4 rounded-full bg-primary-100 flex items-center justify-center">
                       <MdNavigateNext className="text-primary-500" />
                     </div>
-                    <p className="text-xs text-neutral-400">{item.teacher}</p>
+                    {item.subject_session_progress.subject_batch.map((subject, index) => {
+                      return (
+                        <p className="text-xs text-neutral-400" key={index}>
+                          {subject.teacher_batch.full_name}
+                        </p>
+                      );
+                    })}
                   </section>
                 </div>
               </section>
@@ -98,7 +93,7 @@ export const TaskSection: FC = (): ReactElement => {
                 </Button>
                 <div className="text-warning-500 lg:justify-end flex items-center gap-2 text-xs lg:text-sm px-0">
                   <AiFillWarning />
-                  <h1 className="text-xs text-start ">{item.dueDate}</h1>
+                  <h1 className="text-xs text-start ">{`${formatedDate} ${formatedTime}`}</h1>
                 </div>
               </section>
             </div>

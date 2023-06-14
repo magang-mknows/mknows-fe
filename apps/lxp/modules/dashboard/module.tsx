@@ -13,6 +13,9 @@ import { useDashboard } from "./hook";
 
 export const DashboardModule = () => {
   const { data } = useDashboard();
+
+  console.log("dashboard : ", data);
+
   return (
     <ClientProvider>
       <section className="bg-light  min-h-[120vh] pb-20">
@@ -27,10 +30,10 @@ export const DashboardModule = () => {
           </div>
           <div className="flex flex-col w-full col-span-3 lg:col-span-3  xl:col-span-2">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-              <TaskSection />
+              <TaskSection items={data?.data?.dataAssignments} />
               <EventSection />
             </div>
-            <ProgressSection />
+            <ProgressSection items={data?.data?.dataMyWork} />
             <CalendarSection />
           </div>
         </div>

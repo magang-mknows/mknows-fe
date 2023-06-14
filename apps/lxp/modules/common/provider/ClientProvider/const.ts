@@ -15,6 +15,16 @@ export const _bottom_nav_items = [
     name: "Nilai & Sertifikat",
     link: "/nilai-sertifikat",
   },
+  {
+    name: "Konsultasi & Layanan",
+    link: "/konsultasi-layanan",
+  },
 ];
 
-export const _nav_rules = ["/dashboard", "/pelatihanku", "/nilai-sertifikat", "/rencana-pelatihan"];
+export const _nav_rules = [
+  "/dashboard",
+  "/pelatihanku",
+  "/nilai-sertifikat",
+  "/rencana-pelatihan",
+  "/konsultasi-layanan",
+];
