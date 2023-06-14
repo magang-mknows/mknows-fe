@@ -1,0 +1,14 @@
+fly.toml
+Dockerfile.kg
+Dockerfile.kg-admin
+Dockerfile.kg-dosen
+Dockerfile.cs
+Dockerfile.cs-admin
+Dockerfile.lxp
+Dockerfile.lxp-admin
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git

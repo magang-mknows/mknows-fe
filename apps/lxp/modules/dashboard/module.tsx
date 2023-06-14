@@ -9,8 +9,10 @@ import { EventSection } from "./event";
 import { ProgressSection } from "./progress";
 import { CalendarSection } from "./calendar";
 import { ContentFooter } from "../common/footer/footer-content";
+import { useDashboard } from "./hook";
 
 export const DashboardModule = () => {
+  const { data } = useDashboard();
   return (
     <ClientProvider>
       <section className="bg-light  min-h-[120vh] pb-20">
@@ -18,7 +20,7 @@ export const DashboardModule = () => {
         <div className="grid grid-cols-3 gap-x-10 px-8 md:px-14 lg:px-16">
           <div className="flex flex-col lg:col-span-3 xl:col-span-1 col-span-3">
             <div className="flex xl:flex-col gap-x-10 md:flex-row lg:flex-row flex-col ">
-              <ResumeSection />
+              <ResumeSection {...data?.data?.dataUser} />
               <LeaderBoardSection />
             </div>
             <ArticleSection />
