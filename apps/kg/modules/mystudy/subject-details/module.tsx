@@ -20,7 +20,7 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
     <div className="mx-auto px-[7%] my-8 flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-[30px] items-center">
         <h3 className="text-black text-[28px] text-center font-bold">{dataSubjectDetails?.name}</h3>
-        <div className="w-[95%] h-[253px]">
+        <div className="w-full h-[253px]">
           <Image
             src={thumbnailImg}
             alt={`${dataSubjectDetails?.name}-image`}
@@ -35,8 +35,8 @@ export const SubjectDetailsModule: FC = (): ReactElement => {
       </div>
 
       <div className="flex flex-col gap-[25px] select-none">
-        {dataSessions?.map((session, index) => (
-          <SessionSection key={index} index={index} session={session as TDataSession} />
+        {dataSessions?.map((session: TDataSession, index: number) => (
+          <SessionSection key={index} index={index} session={session} />
         ))}
       </div>
     </div>

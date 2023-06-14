@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { useRequest } from "../request/hooks";
 import { useDebounce } from "../common/hooks";
 import { useFilterAction } from "./hooks";
-import DateRangePickerComponent from "../../components/molecules/input/date-range-picker";
-import Search from "../../components/atoms/search";
+import { DateRangePickerComponent } from "@mknows-frontend-services/components/molecules";
+import { Search } from "@mknows-frontend-services/components/atoms";
 
 const UserModules: FC = (): ReactElement => {
   const [option, setOption] = useState({

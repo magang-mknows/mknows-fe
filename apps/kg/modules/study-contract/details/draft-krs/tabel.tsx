@@ -8,6 +8,7 @@ import { PopupModal } from "@mknows-frontend-services/components/molecules";
 const TabelDraft: FC = (): ReactElement => {
   const { getDataTable } = useDataTable();
   const { setPopupDelete, getPopupDelete } = usePopupDeleteStudy();
+  
 
   return (
     <>
@@ -36,13 +37,16 @@ const TabelDraft: FC = (): ReactElement => {
           </div>
           {/* ----------end-thead--------- */}
 
-          {getDataTable.map((x, i) => (
+          {getDataTable.map((x, i) => {
+          const index = 1+i;
+            const grey = "bg-[#F5F5F5]"
+            return(
             <div
               key={i}
-              className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]"
+              className={`${(i%2!=0)&&grey} grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]`}
             >
               <div className="w-[88px] text-center md:text-[16px] p-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
-                {x.no}
+                {index}
               </div>
               <div className="lg:w-[353px] md:w-[225px] w-[180px] md:text-[16px] lg:gap-[4px] lg:text-start text-center py-3 font-medium lg:text-[16px] text-[10px] dark:bg-transparent">
                 <div className="lg:flex lg:justify-center w-full lg:gap-4 p-4">
@@ -113,7 +117,7 @@ const TabelDraft: FC = (): ReactElement => {
                 </button>
               </div>
             </div>
-          ))}
+          )})}
           <div className="grid grid-flow-col auto-cols-min mx-auto border border-[#e5e7eb] rounded-t-lg divide-neutral-400 dark:divide-gray-700 w-full text-[16px]">
             <div className="lg:text-start text-center py-3 px-6 font-semibold col-span-6 md:text-[16px] lg:text-[16px] text-[10px] dark:bg-transparent">
               Total SKS

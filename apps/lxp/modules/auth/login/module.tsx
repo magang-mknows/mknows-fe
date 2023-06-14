@@ -47,6 +47,7 @@ export const LoginModule: FC = (): ReactElement => {
     },
   });
   const { setPopupStatus } = usePopupForgotPass();
+
   const onSubmit = handleSubmit(async (data) => {
     setLoading(true);
     try {
@@ -56,7 +57,7 @@ export const LoginModule: FC = (): ReactElement => {
         redirect: false,
       });
       if (response?.ok) {
-        router.push("/");
+        router.push("/dashboard");
       } else {
         setError(response?.error);
       }

@@ -14,7 +14,7 @@ const Table: FC = (): ReactElement => {
   return (
     <div className="overflow-x-scroll mt-20 lg:mt-0">
       <table className="w-full text-sm border rounded-lg text-left text-gray-500   overflow-x-scroll ">
-        <thead className="text-xs border text-[#A3A3A3] font-light bg-[#F6FBFA] dark:bg-[#F5F8FF] ">
+        <thead className="text-xs border text-neutral-400 font-light bg-add2 dark:bg-add3 ">
           <tr>
             <th scope="col" className="py-2 cursor-default ">
               <div className="flex gap-3 px-8 items-center">
@@ -45,11 +45,11 @@ const Table: FC = (): ReactElement => {
         <tbody>
           {getResultData.map((item, key) => {
             return (
-              <tr key={key} className="text-[#262626] bg-white border-b dark:bg-[#ffff] ">
+              <tr key={key} className="text-gray-600 bg-white border-b dark:bg-white ">
                 <td className="px-8">{key + 1}</td>
 
-                <td className="pl-12 py-2 ">{item.nik}</td>
-                <td className="px-4 py-2 font-semibold text-xs">{item.nama}</td>
+                <td className="pl-12 py-2 ">{item._id}</td>
+                <td className="px-4 py-2 font-semibold text-xs">{item.feature}</td>
 
                 <td className="px-4 py-2 bg-green-400">
                   <Checkbox name={"select"} variant={"lg"} control={control} />

@@ -1,172 +1,156 @@
-import { IconEmptyState } from "../../../components/atoms/icons";
+import { Button, IconEmptyState, IconDropdown } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { useFilterActionResult, useResult } from "../hooks";
-import { TResultItem } from "../types";
+import { useFilterActionResult, useResult, useResultById } from "../hooks";
+import { TResultItem, TResultById } from "../types";
+import { formatDate } from "@mknows-frontend-services/utils";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CheckedIcon from "/assets/checked.webp";
 
 const Table2: FC = (): ReactElement => {
-  const getProcessData = [
-    {
-      no: 10002345,
-      nik: 327000189266,
-      nama: "Albert Maniqueen",
-      tggl_permintaan: "11/2/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2021",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "-",
-      skor: "Sangat Baik",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Identity Scoring",
-      jumlah_kuota: 20,
-      status: "Menunggu",
-      jumlah_user: 4,
-    },
-    {
-      no: 11122334,
-      nik: 32356789,
-      nama: "Ludwig Bethoven",
-      tggl_permintaan: "15/3/2022",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2023",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "NIK salah",
-      skor: "Cukup Buruk",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Character Scoring",
-      jumlah_kuota: 50,
-      status: "Menunggu",
-      jumlah_user: 12,
-    },
-    {
-      no: 123578912,
-      nik: 3278532111,
-      nama: "Jawadal Al Hilal",
-      tggl_permintaan: "11/8/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2024",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "Kualitas KTP buruk",
-      skor: "-",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Capability Scoring",
-      jumlah_kuota: 200,
-      status: "Gagal",
-      jumlah_user: 20,
-    },
-    {
-      no: 10002345,
-      nik: 327000189266,
-      nama: "Yasmin Siahaan",
-      tggl_permintaan: "11/2/2021",
-      waktu_permintaan: "09:22:30",
-      tggl_selesai: "11/2/2021",
-      waktu_selesai: "09:22:30",
-      kendala_proses: "-",
-      skor: "Sangat Buruk",
-      detail: "Lihat Detail",
-      jenis_produk: "AI Credit Scoring",
-      jumlah_kuota: 250,
-      status: "Gagal",
-      jumlah_user: 10,
-    },
-  ];
-
-  type TDataDummy = {
-    no: number;
-    nik: number;
-    nama: string;
-    tggl_input: string;
-    tggl_permintaan: string;
-    waktu_permintaan: string;
-    tggl_selesai: string;
-    waktu_selesai: string;
-    kendala_proses: string;
-    skor: string;
-    detail: string;
-    jenis_produk: string;
-    jumlah_kuota: number;
-    status: string;
-    jumlah_user: number;
-  };
-
   const { getFilterActionResult } = useFilterActionResult();
   const { data } = useResult(getFilterActionResult);
 
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
+
   const columns: TableColumn<TResultItem>[] = [
     {
-      name: "ID",
-      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+      name: "No",
+      width: "10%",
+      cell: (row, rowIndex) => <div className="">{rowIndex + 1}</div>,
+    },
+    {
+      name: "Tanggal Input",
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Jenis Permintaan",
+      width: "20%",
       selector: (row) => row.feature,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.feature.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Jumlah Customer",
+      width: "14%",
       selector: (row) => row.total_user,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.total_user !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
     {
       name: "Tanggal Permintaan",
-      selector: (row) => row.requested_at,
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Tanggal Selesai",
-      selector: (row) => row.finished_at,
+      width: "22%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.finished_at),
+        }),
       sortable: true,
     },
   ];
 
-  const ExpandedComponent = () => (
-    <div className="flex justify-center overflow-x-scroll">
-      <DataTable columns={columnsExpand} data={getProcessData} customStyles={ExpandRowStyle} />
-    </div>
-  );
+  const ExpandedComponent = ({ id }: { id: string }) => {
+    const { data } = useResultById({ id });
+    return (
+      <div className="flex flex-col">
+        <div className="flex justify-center">
+          <DataTable
+            columns={columnsExpand}
+            data={data?.data as TResultById[]}
+            selectableRows
+            selectableRowsHighlight
+            customStyles={ExpandRowStyle}
+            sortIcon={sortIcon}
+          />
+        </div>
+        <div className="flex justify-end w-full">
+          <Button
+            type="submit"
+            className="flex flex-row my-2 py-[6px] px-[18px] mr-[11%] border-neutral-200 border-[1px] rounded-md items-center space-x-1"
+          >
+            <img src="/download-bottom.webp" alt="download-icon" className="w-full" />
+            <span className="font-semibold text-xs text-neutral-700">Unduh</span>
+          </Button>
+        </div>
+      </div>
+    );
+  };
 
-  const columnsExpand: TableColumn<TDataDummy>[] = [
+  const columnsExpand: TableColumn<TResultById>[] = [
     {
       name: "No",
-      selector: (row) => row.no,
-      sortable: true,
+      width: "10%",
+      cell: (row, rowIndex) => <div className="">{rowIndex + 1}</div>,
     },
     {
       name: "NIK",
-      selector: (row) => row.nik,
+      selector: (row) => row?.nik as string,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-      selector: (row) => row.tggl_permintaan,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Nama",
-      selector: (row) => row.nama,
-      sortable: true,
-    },
-    {
-      name: "Skor",
-      selector: (row) => row.skor,
+      selector: (row) => row.name,
       sortable: true,
       conditionalCellStyles: [
         {
-          when: (row) => row.skor === "Sangat Buruk",
-          classNames: [
-            "bg-[#ff0000] flex items-center justify-center text-white my-1.5 rounded-[8px]",
-          ],
+          when: (row) => row.name.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
+    },
+    {
+      name: "Hasil",
+      selector: (row) => row.status,
+      sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.status === "SANGAT BURUK",
+          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
         },
         {
-          when: (row) => row.skor === "Cukup Buruk",
+          when: (row) => row.status === "CUKUP BURUK",
           classNames: [
             "bg-warning-500 flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],
         },
         {
-          when: (row) => row.skor === "Sangat Baik",
+          when: (row) => row.status === "SANGAT BAIK",
           classNames: [
             "bg-success-400 flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],
@@ -251,7 +235,10 @@ const Table2: FC = (): ReactElement => {
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}
-        expandableRowsComponent={ExpandedComponent}
+        expandableRowsComponent={(data) => {
+          return <ExpandedComponent id={data?.data?._id} />;
+        }}
+        sortIcon={sortIcon}
         noDataComponent={
           <div className="flex flex-col w-full h-screen justify-center items-center">
             <IconEmptyState />

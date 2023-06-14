@@ -1,12 +1,11 @@
 import { FC, ReactElement } from "react";
 import { Suspense } from "react";
-import Card from "../../components/molecules/card";
-
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 const LoadingQuota: FC = (): ReactElement => {
   return (
     <Suspense fallback={<h1>Loading ...</h1>}>
       <section className="w-full flex h-fit relative pt-11 overflow-hidden justify-center lg:justify-end lg:pr-4">
-        <Card className="w-full h-fit rounded-lg bg-white">
+        <CardCS className="w-full h-fit rounded-lg bg-white">
           <div className="mx-11 my-4 flex flex-col w-full ">
             <div className="flex flex-row gap gap-x-2">
               <div className="animate-pulse bg-gray-200 h-[40px] w-[120px] rounded-lg"></div>
@@ -41,7 +40,7 @@ const LoadingQuota: FC = (): ReactElement => {
               <div className="flex justify-center w-[70%] my-4 pt-4"></div>
             </div>
           </div>
-        </Card>
+        </CardCS>
       </section>
     </Suspense>
   );

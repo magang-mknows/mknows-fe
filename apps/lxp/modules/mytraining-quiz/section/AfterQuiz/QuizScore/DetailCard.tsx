@@ -1,44 +1,64 @@
-import { FC, ReactElement } from "react";
+import { FC, Fragment, ReactElement } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaTimesCircle } from "react-icons/fa";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { AiFillInfoCircle } from "react-icons/ai";
 import { DetailCardProps } from "./type";
+import { formatElapsedTime } from "@mknows-frontend-services/utils";
 
 const DetailCard: FC<DetailCardProps> = ({ type, value }): ReactElement => {
+  const timeElapsed = type === "time_elapsed" ? formatElapsedTime(value) : null;
+
   return (
     <section
       className={`${
-        type === "trueAnswer"
+        type === "correct"
           ? " bg-[#E3FBDA]  hover:bg-secondary-green-200"
-          : type === "falseAnswer"
+          : type === "wrong"
           ? "bg-[#FEDBD7]  hover:bg-secondary-red-200"
-          : type === "timeFinished"
+          : type === "time_elapsed"
           ? "bg-[#FEF6D0] hover:bg-secondary-yellow-200"
-          : type === "totalQuestions" && "bg-neutral-200 hover:bg-neutral-300"
-      } flex gap-5 lg:gap-4 min-h-[80px] md:min-h-[100px] lg:min-h-[80px] items-center w-62 lg:w-62 xl:w-full px-4 rounded-md shadow-sm transition-colors ease-in duration-300 cursor-pointer`}
+          : type === "total_question" && "bg-neutral-200 hover:bg-neutral-300"
+      } flex gap-3 min-h-[80px] md:min-h-[100px] lg:min-h-[80px] items-center px-4 w-full  rounded-md shadow-sm transition-colors ease-in duration-300`}
     >
-      {type === "trueAnswer" && (
-        <BsCheckCircleFill className="text-[#3EB449] dark:text-green-50 mt-1 text-4xl" />
-      )}
-      {type === "falseAnswer" && (
-        <FaTimesCircle className="text-[#ED3768] dark:text-green-50 mt-1 text-4xl" />
-      )}
-      {type === "timeFinished" && (
-        <MdAccessTimeFilled className=" text-[#FAB317] dark:text-green-50 mt-1 text-4xl" />
-      )}
-      {type === "totalQuestions" && (
-        <AiFillInfoCircle className="text-neutral-500 dark:text-green-50 mt-1 text-4xl" />
-      )}
-      <div className="text-neutral-900 dark:text-white">
-        <h1 className="font-bold text-sm lg:text-base">{value}</h1>
-        <h1 className="text-sm lg:text-base">
-          {type === "trueAnswer" && "Jawaban Benar"}
-          {type === "falseAnswer" && "Jawaban Salah"}
-          {type === "timeFinished" && "Waktu selesai"}
-          {type === "totalQuestions" && "Total Soal"}
-        </h1>
-      </div>
+      {type === "correct" ? (
+        <Fragment>
+          <BsCheckCircleFill className="text-version2-300  text-4xl" />{" "}
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{Math.round(value)}</h1>
+            <h1 className="text-xs">Jawaban Benar</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "wrong" ? (
+        <Fragment>
+          <FaTimesCircle className="text-warning-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{Math.round(value)}</h1>
+            <h1 className="text-xs">Jawaban Salah</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "time_elapsed" ? (
+        <Fragment>
+          <MdAccessTimeFilled className=" text-version3-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">
+              {timeElapsed?.minutes} Menit {timeElapsed?.seconds} detik
+            </h1>
+            <h1 className="text-xs">Waktu Selesai</h1>
+          </div>
+        </Fragment>
+      ) : null}
+      {type === "total_question" ? (
+        <Fragment>
+          <AiFillInfoCircle className="text-neutral-500  text-4xl" />
+          <div className="text-neutral-900 ">
+            <h1 className="font-bold text-sm">{value}</h1>
+            <h1 className="text-xs">Total Soal</h1>
+          </div>
+        </Fragment>
+      ) : null}
     </section>
   );
 };

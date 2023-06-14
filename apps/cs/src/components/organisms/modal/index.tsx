@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import { createPortal } from "react-dom";
-import Card from "../../molecules/card";
+import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const Modal: FC = (): ReactElement => {
   return createPortal(
@@ -8,7 +8,7 @@ const Modal: FC = (): ReactElement => {
       <div>
         <span>Modal Title</span>
       </div>
-      <Card />
+      <CardCS />
     </section>,
     document.getElementById("modal") as HTMLElement,
   );

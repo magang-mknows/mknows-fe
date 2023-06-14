@@ -1,10 +1,9 @@
 import { FC, ReactElement } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { IconBack, IconWarning } from "../../../../components/atoms";
-import Search from "../../../../components/atoms/search";
-import Table from "./table";
+import { IconBack, IconWarning } from "@mknows-frontend-services/components/atoms";
+import { Search } from "@mknows-frontend-services/components/atoms";
 import { Button } from "@mknows-frontend-services/components/atoms";
-import Pagination from "../../../../components/atoms/pagination";
+import Table from "./table";
 
 const ChoiceFeature: FC = (): ReactElement => {
   return (
@@ -26,7 +25,7 @@ const ChoiceFeature: FC = (): ReactElement => {
             Anda telah memilih fitur AI Character Scoring dan AI Capability Scoring
           </p>
         </div>
-        <div className="py-8 w-[50%] px-4">
+        <div className="py-8 w-[80%] px-4">
           <Search
             value={""}
             onChange={(e: { target: { value: string } }) => console.log("ok")}
@@ -37,7 +36,7 @@ const ChoiceFeature: FC = (): ReactElement => {
       <div className="pb-4">
         <Table />
       </div>
-      <Pagination />
+
       <NavLink to={"/dashboard/request/check-result"} className="flex w-full justify-end">
         <Button
           type="button"

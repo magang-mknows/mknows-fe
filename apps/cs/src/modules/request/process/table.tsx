@@ -1,5 +1,5 @@
 import { formatDate } from "@mknows-frontend-services/utils";
-import { IconEmptyState } from "../../../components/atoms/icons";
+import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionProcess, useProcess } from "../hooks";
@@ -8,40 +8,69 @@ import { TProcessItem } from "../types";
 const Table2: FC = (): ReactElement => {
   const { getFilterActionProcess } = useFilterActionProcess();
   const { data } = useProcess(getFilterActionProcess);
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
   const columns: TableColumn<TProcessItem>[] = [
     {
-      name: "ID",
+      name: "No",
+      width: "8%",
       cell: (row, rowIndex) => <div>{rowIndex + 1}</div>,
-      sortable: true,
     },
     {
-      name: "No Permintaan",
-      selector: (row) => row.request_number,
-      sortable: true,
-    },
-    {
-      name: "NIK",
-      selector: (row) => row.nik,
-      sortable: true,
-    },
-    {
-      name: "Nama",
-      selector: (row) => row.name,
-      sortable: true,
-    },
-    {
-      name: "Tanggal Permintaan",
+      name: "Tanggal Input",
+      width: "21%",
       selector: (row) =>
         formatDate({
           date: new Date(row.requested_at),
         }),
       sortable: true,
     },
+
     {
-      name: "Tanggal Input",
+      name: "NIK",
+      width: "18%",
+      selector: (row) => row.nik,
+      sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.nik.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
+    },
+    {
+      name: "Nama",
+      width: "17%",
+      selector: (row) => row.name,
+      sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.name.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
+    },
+    {
+      name: "No. Permintaan",
+      width: "14%",
+      selector: (row) => row.request_number,
+      sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.request_number.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
+    },
+    {
+      name: "Tanggal Permintaan",
+      width: "25%",
       selector: (row) =>
         formatDate({
-          date: new Date(row.finished_at),
+          date: new Date(row.requested_at),
         }),
       sortable: true,
     },
@@ -52,14 +81,12 @@ const Table2: FC = (): ReactElement => {
       conditionalCellStyles: [
         {
           when: (row) => row.status === "GAGAL",
-          classNames: [
-            "bg-[#ff0000] flex items-center justify-center text-white my-1.5 rounded-[8px]",
-          ],
+          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
         },
         {
           when: (row) => row.status === "MENUNGGU",
           classNames: [
-            "bg-[#F59E0B] flex items-center justify-center text-white my-1.5 rounded-[8px]",
+            "bg-warning-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],
         },
       ],
@@ -125,6 +152,7 @@ const Table2: FC = (): ReactElement => {
         }
         pagination
         paginationComponentOptions={paginationComponentOptions}
+        sortIcon={sortIcon}
       />
     </div>
   );

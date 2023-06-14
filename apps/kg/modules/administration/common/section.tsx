@@ -15,10 +15,10 @@ export const Stepper: FC = (): ReactElement => {
   const getAll = data?.data;
   console.log("cek all adm: ", getAll);
   useEffect(() => {
-    if (getAll?.biodata === null && getAll?.familial === null && getAll?.file === null) {
-      setPrivateStatus(false);
-      setJobStatus(false);
-      setFileStatus(false);
+    if (getAll?.status === "PENDING") {
+      setPrivateStatus(true);
+      setJobStatus(true);
+      setFileStatus(true);
     }
   }, [data]);
 
