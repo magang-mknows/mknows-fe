@@ -1,4 +1,4 @@
-import { Status } from "apps/lxp/modules/my-training-assigment";
+import { Status } from "../../../modules/my-training-assigment";
 import React from "react";
 
 const AssigmentPage = () => {
