@@ -49,14 +49,14 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
   useEffect(() => {
     if (isComplete) {
       mutate(payload);
-      // resetStoredAnswer();
-      // router.push(`${prevPath}/nilai/${quizTakeId}`);
+      resetStoredAnswer();
+      router.push(`${prevPath}/nilai/${quizTakeId}`);
     }
   }, [isComplete, resetStoredAnswer, prevPath, quizTakeId, router, payload]);
 
   return (
-    <div className="bg-[#FEDBD7] rounded-md shadow-sm">
-      <p className="flex items-center gap-x-2 w-fit p-3 text-[#EE2D24] text-base font-normal">
+    <div className="bg-error-100 rounded-md shadow-sm">
+      <p className="flex items-center gap-x-2 w-fit p-3 text-warning-500 text-base font-normal">
         {!isComplete ? (
           <>
             <Image src={InfoIcon} alt="Timer Icon" className="w-5 h-5" />

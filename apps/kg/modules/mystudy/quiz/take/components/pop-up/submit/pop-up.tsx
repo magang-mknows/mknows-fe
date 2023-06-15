@@ -24,9 +24,9 @@ export const QuizSubmitPopup: FC = (): ReactElement => {
       req: getQuizSubmitPopup.payloadReq,
     };
     mutate(payload);
-    // resetStoredAnswer();
-    // setQuizSubmitPopup({ ...getQuizSubmitPopup, status: false });
-    // router.push(`${getQuizSubmitPopup.prevPath}/nilai/${getQuizSubmitPopup.quizTakeId}`);
+    resetStoredAnswer();
+    setQuizSubmitPopup({ ...getQuizSubmitPopup, status: false });
+    router.push(`${getQuizSubmitPopup.prevPath}/nilai/${getQuizSubmitPopup.quizTakeId}`);
   }
 
   return (
@@ -41,14 +41,14 @@ export const QuizSubmitPopup: FC = (): ReactElement => {
         <Button
           onClick={onClose}
           type="button"
-          className="w-[48%] border-2 border-[#106FA4] py-3 rounded-lg text-[#106FA4] hover:opacity-75"
+          className="w-[48%] border-2 border-primary-500 py-3 rounded-lg text-primary-500 hover:opacity-75"
         >
           Batal
         </Button>
         <Button
           type="button"
           onClick={onSubmit}
-          className="w-[48%] bg-[#106FA4] py-3 rounded-lg text-white hover:opacity-75"
+          className="w-[48%] bg-primary-500 py-3 rounded-lg text-white hover:opacity-75"
         >
           Yakin
         </Button>

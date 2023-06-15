@@ -218,7 +218,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
           <QuizTakeBreadCrumb />
           <div className="px-0 lg:px-[88px]">
             <div className="py-[52px] px-4 sm:px-[38px] flex flex-col-reverse xl:flex-row gap-x-[55px]">
-              <section className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
+              <section className="flex flex-col justify-between py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-neutral-200 rounded-lg">
                 {/* Question section */}
                 <p className="text-black text-center w-full text-xl font-semibold ">
                   {getCurrNumber}.{" "}
@@ -236,7 +236,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
                         onClick={() =>
                           handleSaveAnswer(getQuestionsData?.[getCurrNumber - 1]?.id, answers.id)
                         }
-                        className={`relative w-full sm:w-[70%] py-4 border-[#106FA4] border-2 text-base rounded-lg text-[#106FA4]  flex place-content-center hover:bg-primary-500 hover:text-neutral-200 ${
+                        className={`relative w-full sm:w-[70%] py-4 border-primary-500 border-2 text-base rounded-lg text-primary-500  flex place-content-center hover:bg-primary-500 hover:text-neutral-200 ${
                           isAnswerAlreadyExist(answers.id) && "bg-primary-500 text-neutral-200"
                         }`}
                       >
@@ -254,7 +254,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
               w-full lg:w-[160px] lg:h-[48px] text-[16px] font-medium flex gap-x-2 rounded justify-center items-center hover:bg-neutral-200 ${
                 getCurrNumber === 1
                   ? "border-neutral-400 text-neutral-400"
-                  : "text-[#106FA4] border-[#106FA4]"
+                  : "text-primary-500 border-primary-500"
               }`}
                     disabled={getCurrNumber === 1}
                     onClick={() => {
@@ -267,14 +267,14 @@ export const QuizTakeModule: FC = (): ReactElement => {
                   {/* Help Button */}
                   <button
                     onClick={handleHelpButton}
-                    className="h-12 w-full lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-[#FAB317] text-white flex gap-x-2 rounded justify-center items-center hover:opacity-75"
+                    className="h-12 w-full lg:w-[160px] lg:h-[48px] text-[16px] font-medium bg-yellow-500 text-white flex gap-x-2 rounded justify-center items-center hover:opacity-75"
                   >
                     <AiOutlineQuestionCircle />
                     {(windowSize?.width as number) > 640 ? "Ragu-Ragu" : undefined}
                   </button>
                   {/* Next Button */}
                   <button
-                    className="flex flex-row-reverse h-12 w-full lg:w-[160px] lg:h-[48px] text-sm sm:text-[16px] font-medium bg-[#106FA4] text-white gap-x-2 rounded justify-center items-center hover:opacity-75"
+                    className="flex flex-row-reverse h-12 w-full lg:w-[160px] lg:h-[48px] text-sm sm:text-[16px] font-medium bg-primary-500 text-white gap-x-2 rounded justify-center items-center hover:opacity-75"
                     onClick={handleNextButton}
                   >
                     <IoIosArrowForward />
@@ -288,7 +288,7 @@ export const QuizTakeModule: FC = (): ReactElement => {
               </section>
               {/* Timer Section */}
               <section className="flex flex-col h-[232px] gap-5 lg:w-[35%] w-full mx-auto">
-                <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
+                <div className="px-[22px] py-4 border border-solid border-neutral-200 rounded-lg">
                   <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
                   {dataQuizTake && dataQuizTake?.questions_answers.length > 0 && (
                     <div className="flex flex-wrap gap-1">

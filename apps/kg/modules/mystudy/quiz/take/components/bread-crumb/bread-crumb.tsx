@@ -8,8 +8,8 @@ export const QuizTakeBreadCrumb: FC = (): ReactElement => {
   const subjectName = decodeURI(getQuizQuitPopup.prevPath.split("/")[2]);
   const quizTakeBreadCrumb = [
     {
-      name: "Home",
-      link: "/",
+      name: "Dashboard",
+      link: "/dashboard",
     },
     {
       name: "Studi-ku",
@@ -46,17 +46,17 @@ export const QuizTakeBreadCrumb: FC = (): ReactElement => {
                 <button
                   key={index}
                   onClick={() => onClickHandler(crumb.link)}
-                  className="inline-flex text-[#106FA4] text-sm font-semibold items-center"
+                  className="inline-flex text-primary-500 text-sm font-semibold items-center"
                 >
                   {crumb.name}
                 </button>
-                <MdChevronRight className="text-xl text-[#9CA3AF]" />
+                <MdChevronRight className="text-xl text-neutral-400" />
               </Fragment>
             );
           } else {
             return (
               <button key={index}>
-                <span className="text-[#9CA3AF] text-sm font-semibold cursor-default">
+                <span className="text-neutral-400 text-sm font-semibold cursor-default">
                   {crumb.name}
                 </span>
               </button>

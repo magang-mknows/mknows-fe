@@ -1,16 +1,16 @@
-import { FC, ReactElement } from 'react';
-import InfoIcon from '../../../assets/info.svg';
-import Image from 'next/image';
-import { useTimerByGlobalState } from './hooks';
-import { TQuizStaticTimerProps } from './types';
+import { FC, ReactElement } from "react";
+import InfoIcon from "../../../assets/info.svg";
+import Image from "next/image";
+import { useTimerByGlobalState } from "./hooks";
+import { TQuizStaticTimerProps } from "./types";
 
 export const QuizStaticTimer: FC<TQuizStaticTimerProps> = ({
   isFromLocalStorage,
 }): ReactElement => {
   const { getTimerByGlobalState } = useTimerByGlobalState();
-  let hours = '',
-    minutes = '',
-    seconds = '',
+  let hours = "",
+    minutes = "",
+    seconds = "",
     isComplete = false;
   if (!isFromLocalStorage) {
     hours = getTimerByGlobalState.hours;
@@ -20,8 +20,8 @@ export const QuizStaticTimer: FC<TQuizStaticTimerProps> = ({
   }
 
   return (
-    <div className="bg-[#FEDBD7] rounded-md shadow-sm">
-      <p className="flex items-center gap-x-2 w-fit p-3 text-[#EE2D24] text-base font-normal">
+    <div className="bg-error-100 rounded-md shadow-sm">
+      <p className="flex items-center gap-x-2 w-fit p-3 text-warning-500 text-base font-normal">
         {!isComplete ? (
           <>
             <Image src={InfoIcon} alt="Timer Icon" className="w-5 h-5" />
