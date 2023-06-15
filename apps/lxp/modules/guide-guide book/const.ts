@@ -8,7 +8,7 @@ export const guideBreadCumbs = [
     link: "/panduan",
   },
   {
-    name: "Panduan",
+    name: "Buku Panduan",
     link: "/buku-panduan",
   },
 ];

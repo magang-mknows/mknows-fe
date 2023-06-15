@@ -1,6 +1,7 @@
 import { FC, Fragment, ReactElement } from "react";
 import Image from "next/image";
 import carrerPlaning from "../assets/carrer-planing.svg";
+import Link from "next/link";
 
 export const LandingCareer: FC = (): ReactElement => {
   return (
@@ -20,9 +21,11 @@ export const LandingCareer: FC = (): ReactElement => {
                   Akademik, mulai analisa sekarang untuk melihat karir yang cocok dengan kemampuan
                   kamu{" "}
                 </div>
-                <button className=" mt-6 text-[20px] font-[600] bg-[#106FA4] w-full text-white py-3 rounded-md">
-                  Mulai Analisa
-                </button>
+                <Link href={"/perencanaan-karir/hasil-analisa"}>
+                  <button className=" mt-6 text-[20px] font-[600] bg-primary-500 w-full text-white py-3 rounded-md">
+                    Mulai Analisa
+                  </button>
+                </Link>
               </div>
             </div>
             <Image src={carrerPlaning} alt="perusahaan" className="-mt-60 " />
