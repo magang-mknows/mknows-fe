@@ -15,7 +15,7 @@ export const ResumeSection: FC = (): ReactElement => {
   ];
 
   return (
-    <div className="w-full bg-white shadow-sm shadow-neutral-100  rounded-md min-h-[540px] mb-10 overflow-hidden">
+    <div className="w-full bg-white shadow-sm shadow-neutral-100 rounded-md min-h-[540px] mb-10 overflow-hidden">
       <section className="bg-[#106FA4] rounded-md relative px-6 pt-12 pb-28">
         <h1 className="text-white font-bold text-2xl">Hello, {profile?.full_name}</h1>
         <h2 className="text-white text-sm font-semibold my-2">
@@ -30,7 +30,7 @@ export const ResumeSection: FC = (): ReactElement => {
           </div>
           <span className="text-white/75">Pada semester ini</span>
         </p>
-        <section className="absolute -bottom-64  grid grid-cols-2 gap-2 lg:gap-4">
+        <section className="absolute -bottom-[216px]  grid grid-cols-2 gap-2 lg:gap-4">
           {resumeItems.map(({ src, title }, index) => {
             return (
               <div
