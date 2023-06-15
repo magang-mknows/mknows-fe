@@ -156,7 +156,7 @@ export const Status: FC = (): ReactElement => {
       <p className="text-[16px] font-medium mb-[8px]">
         {
           getMyStudyAssignmentItem?.assignment.session_assignment?.subject_session?.teacher_subject
-            .full_name
+            ?.full_name
         }
       </p>
       <p className="text-[14px] mb-[35px] font-normal">
