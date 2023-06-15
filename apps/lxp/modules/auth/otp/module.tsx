@@ -46,9 +46,9 @@ export const OtpModule: FC<TOTPProps> = (props): ReactElement => {
   }, [otp]);
 
   const inputStyle = clsx(
-    "!w-[64px] text-black focus:outline-none outline-none placeholder:text-black placeholder:p-2 !h-[64px] text-[28px] p-2 rounded-lg ",
+    "!w-[64px] text-black focus:outline-none outline-none placeholder:text-black placeholder:p-2 !h-[64px] text-[28px] p-2 rounded-lg w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  shadow-sm ",
     {
-      "border border-neutral-100  bg-neutral-200": !isError,
+      "border border-neutral-100  bg-neutral-100": !isError,
       "border border-error-base bg-error-100": isError,
     },
   );
@@ -57,9 +57,9 @@ export const OtpModule: FC<TOTPProps> = (props): ReactElement => {
     <PopupModal
       onClose={() => setPopupOtp(false)}
       lookup={getPopupOtp}
-      className="w-[659px] h-[455px] text-md"
+      className=" px-4 text-md"
       popupTitle="Verifikasi OTP"
-      description="Masukkan kode OTP yang telah dikirimkan ke email Anda"
+      description={`Masukkan kode OTP yang telah dikirimkan ke ${props.email}`}
     >
       <div className="flex flex-col w-full">
         <OtpInput
@@ -68,27 +68,27 @@ export const OtpModule: FC<TOTPProps> = (props): ReactElement => {
           numInputs={6}
           shouldAutoFocus
           inputStyle={inputStyle}
-          containerStyle={"w-full flex gap-x-6 items-center justify-center"}
+          containerStyle={"flex gap-x-5 items-center justify-center"}
           inputType="number"
           renderInput={(props) => <input {...props} />}
         />
-      </div>
-      <div className="flex w-full justify-end py-2 px-20">
-        <span>
-          Belum menerima kode?{" "}
-          <span
-            onClick={() => {
-              setTimer(60);
-              request({
-                email: props.email,
-              });
-            }}
-            ref={intervalRef}
-            className="text-primary-base font-bold"
-          >
-            {timer < 0 ? "Kirim Ulang" : timer}
+        <div className="flex w-full  justify-center pt-4 ">
+          <span>
+            Belum menerima kode?{" "}
+            <span
+              onClick={() => {
+                setTimer(60);
+                request({
+                  email: props.email,
+                });
+              }}
+              ref={intervalRef}
+              className="text-blue-600 cursor-pointer hover:underline font-bold"
+            >
+              {timer < 0 ? "kirim ulang" : timer}
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </PopupModal>
   );
