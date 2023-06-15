@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Card } from "@mknows-frontend-services/components/molecules";
 import { TDataSubject } from "../types";
 import OrangBingungIcon from "../assets/orang-bingung.svg";
-import { AiOutlineSearch } from "react-icons/ai";
 
 export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
   dataSubjectProps,
@@ -34,32 +33,32 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
                     imgheight={240}
                     imgStyle="rounded-lg lg:h-[240px] lg:w-full object-cover mx-auto md:mx-0"
                     src={thumbnailImg}
-                    titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
+                    titleStyle={"text-xl font-bold mt-0 text-primary-500"}
                     icon={
                       <div className="flex justify-end gap-2">
-                        <div className="text-[#FAB317] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#FEF6D0]">
+                        <div className="text-yellow-500 py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-yellow-100">
                           {subject.credit} SKS
                         </div>
-                        <div className="text-[#106FA4] py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-[#E9F6FD]">
+                        <div className="text-primary-500 py-1 px-2 my-3 text-[12px] font-semibold rounded-lg bg-primary-100">
                           {subject.session_count} Pertemuan
                         </div>
                       </div>
                     }
                   >
                     <div className="flex flex-col w-full">
-                      <p className="text-sm text-[#A3A3A3]">{subject.subject_code}</p>
-                      <h1 className="text-base font-bold mt-0 text-[#106FA4] w-full">
+                      <p className="text-sm text-neutral-base">{subject.subject_code}</p>
+                      <h1 className="text-base font-bold mt-0 text-primary-500 w-full">
                         Matkul {subject.name}
                       </h1>
-                      <p className="text-sm text-[#A3A3A3] pb-5">{subject.teacher_name}</p>
-                      <div className="flex w-[100%] bg-[#D9D9D9] rounded-full h-2.5">
+                      <p className="text-sm text-neutral-base pb-5">{subject.teacher_name}</p>
+                      <div className="flex w-full bg-[#D9D9D9] rounded-full h-2.5">
                         <div
-                          className="bg-[#3EB449] h-2.5 rounded-full"
+                          className="bg-success-500 h-2.5 rounded-full"
                           style={{ width: `${subject.progress_percentage}%` }}
                         />
                       </div>
                     </div>
-                    <p className="text-[#A3A3A3] text-base pt-[76px] pl-2">
+                    <p className="text-neutral-base text-base pt-[76px] pl-2">
                       {subject.progress_percentage}%
                     </p>
                   </Card>
