@@ -65,8 +65,8 @@ export const Status: FC = (): ReactElement => {
       const payloadReq: TPayloadRequest = {
         files: data.files[0],
         filesToDelete:
-          getMyStudyAssignmentItem?.student_progress.assignment_answer !== null
-            ? getMyStudyAssignmentItem?.student_progress.assignment_answer?.[0]
+          getMyStudyAssignmentItem?.student_progress?.assignment_answer !== null
+            ? getMyStudyAssignmentItem?.student_progress?.assignment_answer?.[0]
             : null,
       };
       const payload: TMyStudyAssignmentSubmissionPayload = {
@@ -96,8 +96,8 @@ export const Status: FC = (): ReactElement => {
   }
 
   const timestamp_remaining = timestampRemainingHandler(
-    getMyStudyAssignmentItem?.student_progress.timestamp_taken as string,
-    getMyStudyAssignmentItem?.student_progress.deadline as string,
+    getMyStudyAssignmentItem?.student_progress?.timestamp_taken as string,
+    getMyStudyAssignmentItem?.student_progress?.deadline as string,
   );
 
   const tabelState: {
@@ -107,8 +107,8 @@ export const Status: FC = (): ReactElement => {
     {
       namaTabel: "Status Pengumpulan",
       response:
-        getMyStudyAssignmentItem?.student_progress.assignment_answer === null ||
-        (getMyStudyAssignmentItem?.student_progress.assignment_answer.length as number) < 1
+        getMyStudyAssignmentItem?.student_progress?.assignment_answer === null ||
+        (getMyStudyAssignmentItem?.student_progress?.assignment_answer.length as number) < 1
           ? "Belum Mengumpulkan"
           : "Terkirim",
     },
@@ -148,25 +148,25 @@ export const Status: FC = (): ReactElement => {
   return (
     <section className="bg-white lg:py-[92px] md:py-[70px] py-[50px] lg:px-[109px] md:px-[70px] px-[50px] w-full">
       <p className="text-[20px] font-semibold mb-[8px]">
-        {getMyStudyAssignmentItem?.assignment.title}
+        {getMyStudyAssignmentItem?.assignment?.title}
       </p>
       <p className="text-[16px] font-medium mb-[8px]">
-        Tugas [Pertemuan ke-{getMyStudyAssignmentItem?.assignment.session_assignment.session_no}]
+        Tugas [Pertemuan ke-{getMyStudyAssignmentItem?.assignment?.session_assignment?.session_no}]
       </p>
       <p className="text-[16px] font-medium mb-[8px]">
         {
-          getMyStudyAssignmentItem?.assignment.session_assignment.subject_session.teacher_subject
+          getMyStudyAssignmentItem?.assignment.session_assignment?.subject_session?.teacher_subject
             .full_name
         }
       </p>
       <p className="text-[14px] mb-[35px] font-normal">
-        {getMyStudyAssignmentItem?.assignment.timestamp_created} WIB
+        {getMyStudyAssignmentItem?.assignment?.timestamp_created} WIB
       </p>
       <p className="text-[16px] font-normal">
         Silahkan baca dan kerjakan tugas pada modul berikut ini.
       </p>
       <div className="flex-col gap-y-2">
-        {getMyStudyAssignmentItem?.assignment.documents.map((document, i) => (
+        {getMyStudyAssignmentItem?.assignment?.documents?.map((document, i) => (
           <div key={i} className="w-full flex items-center gap-x-1">
             <Image
               src={pdf}
