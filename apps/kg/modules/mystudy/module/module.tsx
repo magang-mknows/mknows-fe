@@ -17,7 +17,7 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
   return (
     <div className="w-full justify-start lg:px-32 p-2 lg:p-10 mt-4">
       <div className="w-full mb-12">
-        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">
+        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-neutral-900">
           {router.query.subjectName}
         </h3>
       </div>
@@ -41,7 +41,7 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
                 <span className="text-gray-400">{module.description}</span>
               </p>
               <div className="flex gap-3">
-                <div className=" flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px]  bg-[#E3FBDA]">
+                <div className=" flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px] bg-success-100">
                   <svg
                     width="16"
                     height="15"
@@ -56,7 +56,7 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
                   </svg>
                   <p>{module.total_videos} video</p>
                 </div>
-                <div className="flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
+                <div className="flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px] bg-yellow-100">
                   <svg
                     width="21"
                     height="21"

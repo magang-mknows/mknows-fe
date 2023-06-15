@@ -121,7 +121,7 @@ export const ModuleContentModule = (): ReactElement => {
                         <p className="font-bold">{video.title}</p>
                       </div>
                       {video.id === videoItem.id && (
-                        <div className="bg-[#A3A3A3] py-2 px-3 rounded-lg">
+                        <div className="bg-neutral-base py-2 px-3 rounded-lg">
                           <p className="text-white text-xs font-semibold">Sedang dibuka</p>
                         </div>
                       )}
