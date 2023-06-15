@@ -25,3 +25,5 @@ export * from "./ic-empty-state";
 export * from "./ic-grafic";
 export * from "./ic-quota-admin";
 export * from "./ic-filter";
+export * from "./ic-clock";
+export * from "./ic-close";

@@ -63,7 +63,7 @@ const RequestQuota: FC = (): ReactElement => {
                           setActive("riwayat");
                         }}
                       >
-                        Riwayat permintaan Kuota
+                        Riwayat Permintaan Kuota
                       </div>
                     </button>
                   </Tab>
