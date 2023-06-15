@@ -7,7 +7,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUpdateSubmissionMyStudyAssigment } from "./hooks";
-import { TMyStudyAssignmentSubmissionPayload, TPayloadRequest } from "./type";
+import { TAssigmentParams, TMyStudyAssignmentSubmissionPayload, TPayloadRequest } from "./type";
 import Image from "next/image";
 import Link from "next/link";
 import pdf from "./assets/pdf.svg";
@@ -15,7 +15,12 @@ import { ClientProvider } from "../common/provider";
 
 export const Status: FC = (): ReactElement => {
   const router = useRouter();
-  const { data } = useGetMyStudyAssignmentById(router.query.assignmentId as string);
+  const { query } = useRouter();
+  const params: TAssigmentParams = {
+    subjectID: query.subjectID as string,
+    batchID: query.batchID as string,
+  };
+  const { data } = useGetMyStudyAssignmentById(params);
   console.log("data get", data);
   const dataSubmission = data?.data?.employeeAssignmentProgress;
   const dataAssigment = data?.data?.dataAssignment;
@@ -69,7 +74,8 @@ export const Status: FC = (): ReactElement => {
         //     : null,
       };
       const payload: TMyStudyAssignmentSubmissionPayload = {
-        id: router.query.assignmentId as string,
+        subjectID: router.query.subjectId as string,
+        batchID: router.query.batchId as string,
         req: payloadReq,
       };
       mutate(payload);
@@ -101,7 +107,7 @@ export const Status: FC = (): ReactElement => {
 
   return (
     <ClientProvider>
-      <section className="bg-white dark:bg-[#222529]  lg:py-[92px] md:py-[70px] py-[50px] lg:px-[109px] md:px-[70px] px-[50px] w-full">
+      <section className="bg-white lg:py-[92px] md:py-[70px] py-[50px] lg:px-[109px] md:px-[70px] px-[50px] w-full">
         <p className="text-[20px] font-semibold mb-[8px]">{dataAssigment?.description}</p>
         <p className="text-[16px] font-medium mb-[8px]">Tugas Pertemuan ke-1</p>
         <p className="text-[16px] font-medium mb-[8px]">POST - {dataTeacher?.full_name}</p>
@@ -121,7 +127,7 @@ export const Status: FC = (): ReactElement => {
                 <Link
                   href={item}
                   target="_blank"
-                  className="w-fit overflow-hidden whitespace-nowrap text-ellipsis hover:underline hover:text-[#106FA4]"
+                  className="w-fit overflow-hidden whitespace-nowrap text-ellipsis hover:underline"
                 >
                   Tugas 1
                 </Link>
@@ -134,11 +140,11 @@ export const Status: FC = (): ReactElement => {
           <p className="text-[20px] font-semibold mb-[25px]">Status Penugasan</p>
           <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-5 lg:text-[12px] text-[10px]">
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Status Penugasan
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>
                   {dataSubmission?.assignment_answer == null
@@ -148,41 +154,41 @@ export const Status: FC = (): ReactElement => {
               </div>
             </Fragment>
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Status Penilian
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>{dataSubmission?.score == null ? "Belum Dinilai" : dataSubmission?.score}</h1>
               </div>
             </Fragment>
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Tanggal batas pengumpulan
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>{new Date(dataSubmission?.deadline as string).toUTCString()}</h1>
               </div>
             </Fragment>
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Waktu tersisa
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>{timestamp_remaining}</h1>
               </div>
             </Fragment>
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Terakhir Diubah
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>
                   {dataSubmission?.timestamp_submitted
@@ -192,11 +198,11 @@ export const Status: FC = (): ReactElement => {
               </div>
             </Fragment>
             <Fragment>
-              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-[#F5F5F5] dark:bg-[#1B1E21] py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-semibold">
+              <div className="lg:col-span-1 md:col-span-1 col-span-2 bg-neutral-100  py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-semibold">
                 Pengiriman tugas
               </div>
               <div
-                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-[#D4D4D4] font-medium `}
+                className={`flex items-center col-span-3 py-[20px] px-[20px] border-solid border-b-[1px] border-neutral-300 font-medium `}
               >
                 <h1>
                   {" "}
@@ -212,7 +218,7 @@ export const Status: FC = (): ReactElement => {
           <UploadDragbleField
             control={control}
             name="files"
-            className="border-dashed border-2 border-[#D4D4D4] mt-[28px]"
+            className="border-dashed border-2 border-neutral-300 mt-[28px]"
             variant={"sm"}
           />
           <p className="text-[#A3A3A3] text-[14px] font-medium my-[24px]">
@@ -221,7 +227,7 @@ export const Status: FC = (): ReactElement => {
           </p>
           <Button
             type={"submit"}
-            className="mx-auto py-6 lg:py-0 w-full h-[27px] md:w-[160px] md:h-[48px] text-[16px] font-medium bg-version2-500 text-white disabled:bg[#D4D4D4] disabled:text-[#A3A3A3] flex gap-x-2 rounded justify-center items-center hover:opacity-50 transition-opacity duration-300"
+            className="mx-auto py-6 lg:py-0 w-full h-[27px] md:w-[160px] md:h-[48px] text-[16px] font-medium bg-version2-500 text-white disabled:bg[#D4D4D4] disabled:text-neutral-400 flex gap-x-2 rounded justify-center items-center hover:opacity-50 transition-opacity duration-300"
           >
             Unggah Tugas
           </Button>

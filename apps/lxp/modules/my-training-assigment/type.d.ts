@@ -56,6 +56,12 @@ export type TPayloadRequest = {
 };
 
 export type TMyStudyAssignmentSubmissionPayload = {
-  id: string;
+  subjectID:string;
+  batchID:string;
   req: TPayloadRequest;
 };
+
+export type TAssigmentParams = {
+  subjectID?:string;
+  batchID?:string;
+}

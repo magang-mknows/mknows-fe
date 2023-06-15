@@ -9,18 +9,18 @@ export const HeroSection = (): ReactElement => {
       <div className="col-span-1 ">
         <div className="title">
           <h1 className=" text-[50px] font-extrabold">Video Panduan</h1>
-          <p className="text-[14px] font-light text-[#737373] ">
+          <p className="text-[14px] font-light text-neutral-500 ">
             Berupa video tutorial penggunaan dan fungsi fitur yang ada di Website LMS
           </p>
         </div>
-        <div className="seacrh lg:w-[700px] h-[56px]  bg-[#F5F5F5]  rounded-[8px] mt-[48px] flex items-center gap-4  ">
+        <div className="seacrh lg:w-[700px] h-[56px]  bg-neutral-100  rounded-[8px] mt-[48px] flex items-center gap-4  ">
           <Image src={search} alt={"search"} className={"ml-[24px]"} />
           <input
             type="text"
             name=""
             id=""
             placeholder="Cari informasi"
-            className="w-full focus:outline-none bg-[#F5F5F5]"
+            className="w-full focus:outline-none bg-neutral-100"
           />
         </div>
       </div>

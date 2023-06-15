@@ -1,6 +1,7 @@
 import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
 import { mystudyAssignmentState } from "./stores";
 import {
+  TAssigmentParams,
   TMyStudyAssignmentResponse,
   TMyStudyAssignmentSubmissionPayload,
   TuseMyStudyAssignmentItem,
@@ -18,11 +19,11 @@ export const useMyStudyAssignmentItem = (): TuseMyStudyAssignmentItem => {
 };
 
 export const useGetMyStudyAssignmentById = (
-  id: string | number,
+  params:TAssigmentParams,
 ): UseQueryResult<TMyStudyAssignmentResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ["mystudy-assignment-get", id],
-    queryFn: async () => await assignmentGetRequest(id),
+    queryKey: ["mystudy-assignment-get", params.subjectID,params.batchID],
+    queryFn: async () => await assignmentGetRequest(params),
   });
 
 export const useUpdateSubmissionMyStudyAssigment = (): UseMutationResult<
@@ -35,3 +36,4 @@ export const useUpdateSubmissionMyStudyAssigment = (): UseMutationResult<
     mutationKey: ["update-submission-assignment"],
     mutationFn: async (payload) => await assignmentSubmissionRequest(payload),
   });
+
