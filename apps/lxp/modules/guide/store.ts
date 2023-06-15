@@ -4,11 +4,11 @@ import Kamus from "./assets/kamus.svg";
 
 export const dummyTopik = [
   {
-    title: "Cara mendaftar di Kampus Gratis",
+    title: "Cara mendaftar di LMS M-Knows",
     href: "/panduan/buku-panduan/panduan-pendaftaran",
   },
   {
-    title: "Cara login website kampus gratis",
+    title: "Cara mendaftar di LMS M-Knows",
     href: "/",
   },
   {
@@ -16,7 +16,7 @@ export const dummyTopik = [
     href: "/",
   },
   {
-    title: "Cara mengakases fitur studi-ku  ",
+    title: "Cara mengakases fitur Pelatihan-ku",
     href: "/",
   },
   {
@@ -43,9 +43,9 @@ export const dummyGuide = [
     href: "/panduan/video-panduan",
   },
   {
-    title: "Kamus Kampus Gratis",
-    desc: "Panduan ini berisi konten kampus gratis.",
+    title: "Kamus LMS",
+    desc: "Panduan ini berisi konten LMS M-Knows.",
     img: Kamus,
-    href: "/panduan/kamus-kampus-gratis",
+    href: "/panduan/kamus",
   },
 ];

@@ -1,10 +1,10 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { useUser, useFilterAction } from "./hooks";
+import { useUser, useFilterAction, useDeleteUser } from "./hooks";
 import { TUserItem } from "./types";
 import { formatDate } from "@mknows-frontend-services/utils";
 import {
-  IConDelete,
+  IconDelete,
   IconCheck,
   IconEdit,
   IconDropdown,
@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 
 const Table: FC = (): ReactElement => {
   const { getFilterAction } = useFilterAction();
-  const { data } = useUser(getFilterAction);
-  const [isOpen, setisOpen] = useState(false);
+  const { data, refetch } = useUser(getFilterAction);
+  const { mutate: deleteUser } = useDeleteUser();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -31,10 +31,12 @@ const Table: FC = (): ReactElement => {
   const columns: TableColumn<TUserItem>[] = [
     {
       name: "No",
+      width: "7%",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
     {
       name: "NIK",
+      width: "19%",
       selector: (row) => row.nik,
       sortable: true,
     },
@@ -46,11 +48,11 @@ const Table: FC = (): ReactElement => {
 
     {
       name: "Tanggal",
+      width: "26%",
       selector: (row) =>
         formatDate({
           date: new Date(row.createdAt),
         }),
-      sortable: true,
     },
     {
       name: "Berkas",
@@ -58,7 +60,7 @@ const Table: FC = (): ReactElement => {
         <Link to={"/dashboard/user/detail-data"}>
           <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
             <p>Lihat Detail</p>
-            <div className="">
+            <div className="pt-1">
               {/* {item.berkas === 'success' ? (
           <ToolTip
             tooltip="3/3 Data Terisi"
@@ -88,22 +90,27 @@ const Table: FC = (): ReactElement => {
     {
       name: "Action",
       cell: (row) => (
-        <div className="flex gap-2">
+        <div className="flex gap-2 ml-[-15px]">
           <Link to={"/dashboard/user/edit-data"}>
             <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer">
-              <ToolTip className="bg-white" tooltip="Edit">
+              <ToolTip className="bg-white z-50" tooltip="Edit">
                 <IconEdit />
               </ToolTip>
             </div>
           </Link>
-          <button
-            className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
-            onClick={() => setisOpen(true)}
-          >
-            <ToolTip className="bg-white" tooltip="Delete">
-              <IConDelete />
-            </ToolTip>
-          </button>
+
+          <ToolTip className="bg-white" tooltip="Delete">
+            <div
+              onClick={() =>
+                deleteUser(row._id, {
+                  onSuccess: () => refetch(),
+                })
+              }
+              className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full cursor-pointer"
+            >
+              <IconDelete />
+            </div>
+          </ToolTip>
         </div>
       ),
     },
@@ -124,8 +131,8 @@ const Table: FC = (): ReactElement => {
     },
     cells: {
       style: {
-        paddingLeft: "4px",
-        paddingRight: "2px",
+        paddingLeft: "16px",
+        paddingRight: "16px",
       },
     },
   };

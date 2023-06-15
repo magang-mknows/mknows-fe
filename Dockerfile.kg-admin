@@ -9,7 +9,7 @@ RUN yarn --production=false
 
 COPY . .
 RUN yarn nx reset \
-    && yarn kg-admin:build:${APP_ENV}
+    && yarn kg-admin:build --prod
 
 FROM node:18-alpine AS Service
 

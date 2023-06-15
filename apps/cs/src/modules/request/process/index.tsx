@@ -2,8 +2,7 @@ import { ReactElement, FC, useState, useEffect } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import { useFilterActionProcess } from "../hooks";
 import { useDebounce } from "../../common/hooks";
-import { useRequest } from "../hooks";
-import Table from "./table";
+import Table2 from "./table";
 
 const ProcessModule: FC = (): ReactElement => {
   // const { setResultQuery, getResultQuery } = useResultQuery();
@@ -13,8 +12,6 @@ const ProcessModule: FC = (): ReactElement => {
     per_page: "",
     page: "",
   });
-
-  const { data: featureId } = useRequest();
 
   const [deb, setDeb] = useState("");
 
@@ -33,10 +30,10 @@ const ProcessModule: FC = (): ReactElement => {
   );
 
   return (
-    <section>
-      <div className="my-9 flex lg:flex-row flex-col h-[40px]  items-center">
-        <p className="font-bold text-[#444444] text-[24px] ml-8 w-full">Permintaan Hari ini</p>
-        <div className="flex flex-row gap gap-x-3 w-[50%] mt-4 lg:mt-0 ">
+    <section className="flex flex-col">
+      <div className="my-8 flex lg:flex-row flex-col h-fit lg:ml-8 ml-0 space-y-8 items-center">
+        <p className="font-bold text-BLACK-base text-[24px] w-full">Permintaan Hari ini</p>
+        <div className="w-full ">
           <Search
             value={deb}
             onChange={(e) => setDeb(e.target.value)}
@@ -44,18 +41,16 @@ const ProcessModule: FC = (): ReactElement => {
           />
         </div>
       </div>
+      <Table2 />
       {/* table */}
-      <Table />
 
       <div className="flex gap-1 py-2 justify-end font-semibold text-neutral-500 text-xs ">
         Untuk melihat riwayat permintaan sebelumnya{" "}
-        <span className="text-[#4FA0CF]">
+        <span className="text-secondary-500">
           {" "}
-          <a href="/dashboard/report">Klik Disini</a>
+          <a href="/dashboard/report?tab=laporan-user">Klik Disini</a>
         </span>
       </div>
-
-      {/* <Pagination /> */}
     </section>
   );
 };

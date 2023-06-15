@@ -31,34 +31,35 @@ export const ContactForm = () => {
 
   return (
     <form className="w-full flex flex-col ">
-      <section className="flex flex-col gap-2 mb-4 text-base">
+      <section className="flex flex-col gap-1 mb-4 text-base">
         <TextField
           type="text"
-          variant="sm"
+          variant="md"
           control={control}
           name={"name"}
           placeholder="Masukan Nama"
-          label="Name"
-          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-xs !ring-0 "
+          label="Nama"
+          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-sm !ring-0 "
         />
         <TextField
           type="email"
-          variant="sm"
+          variant="md"
           control={control}
           name={"email"}
           placeholder="Masukan Email"
           label="Email"
-          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-xs !ring-0 "
+          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-sm !ring-0 "
         />
         <TextField
           type="text"
-          variant="sm"
+          variant="md"
           control={control}
           name={"question"}
           placeholder="Masukan Pertanyaan"
           label="Pertanyaan"
           isTextArea={true}
-          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-xs !ring-0 "
+          textAreaRow={7}
+          className="!border-[0.5px] !border-neutral-500 !rounded-md px-3 py-3 text-sm !ring-0 "
         />
       </section>
       <Button

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { FC, ReactElement } from "react";
-// import LayoutProvider from "@/providers/LayoutProvider";
 import Link from "next/link";
 import QuizHomeImage from "../assets/quiz-start.svg";
-import { useGetMyWorkQuizId } from "./hooks";
 import { useRouter } from "next/router";
 import { TModulParams } from "../../mytraining-module/type";
+import { useGetQuizBySessionId } from "./hooks";
+import { Button } from "@mknows-frontend-services/components/atoms";
 
 const QuizHome: FC = (): ReactElement => {
   const { query } = useRouter();
@@ -13,8 +13,11 @@ const QuizHome: FC = (): ReactElement => {
     subjectID: query.subjectID as string,
     batchID: query.batchID as string,
   };
-  const { data } = useGetMyWorkQuizId(params);
-  console.log("tes", data);
+  const { data: QuizBySession } = useGetQuizBySessionId(params);
+  const quizBySessionData = QuizBySession?.data;
+
+  const remainingAttempt = quizBySessionData?.result?.remaining_attempt as number;
+
   return (
     <div className="flex flex-col pt-10 items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] ">
       <div className="flex flex-col items-center gap-y-4 text-center">
@@ -39,11 +42,16 @@ const QuizHome: FC = (): ReactElement => {
             </p>
             <p className="mb-2">Beberapa ketentuannya sebagai berikut:</p>
             <p className="mb-1">
-              Terdapat <span className="font-bold">10 pertanyaan</span> yang harus dikerjakan dalam
-              Quiz ini dan Setiap pertanyaan mempunyai bobot Nilai{" "}
-              <span className="font-bold">10 Poin</span>
+              Terdapat{" "}
+              <span className="font-bold">
+                {quizBySessionData?.result?.total_questions} pertanyaan
+              </span>{" "}
+              yang harus dikerjakan dalam Quiz ini dan Setiap pertanyaan mempunyai bobot Nilai{" "}
+              <span className="font-bold">{quizBySessionData?.result?.score_per_point} Poin</span>
             </p>
-            <p className="font-bold mb-1">Syarat Nilai Kelulusan : 80 Poin</p>
+            <p className="font-bold mb-1">
+              Syarat Nilai Kelulusan : {quizBySessionData?.result?.kkm}
+            </p>
             <p className="font-bold mb-4">Durasi Ujian : 10 menit</p>
             <p className="mb-4">
               Setelah dimulai, quiz tidak dapat dihentikan, anda harus menyelesaikan quiz hingga
@@ -58,11 +66,25 @@ const QuizHome: FC = (): ReactElement => {
             </p>
             <p className="">Selamat Mengerjakan!</p>
           </div>
-          <Link href={`/pelatihanku/quiz/mulai-quiz/${data?.data?.quiz?.id}/${query.batchID}`}>
-            <button className="bg-version3-500 hover:bg-version2-500 transition-all ease-in-out duration-150 text-neutral-100 px-8 py-2.5 w-fit rounded-md">
-              Mulai Quiz (Sisa {data?.data?.countQuiz})
-            </button>
-          </Link>
+          <section className="flex flex-col gap-y-4">
+            <Button
+              disabled={remainingAttempt === 0}
+              href={`/pelatihanku/quiz/mulai-quiz/${quizBySessionData?.quiz?.id}/${query.batchID}`}
+              type="button"
+              className="bg-version3-500 border-version3-500 border-2 hover:bg-version2-500 transition-all ease-in-out duration-150 text-neutral-100 px-8 py-2.5 w-[240px] text-sm rounded-md"
+            >
+              <h1>Mulai Quiz (Sisa {remainingAttempt})</h1>
+            </Button>
+            <Button
+              href={`/pelatihanku/quiz/riwayat/${quizBySessionData?.quiz?.id}/${query.batchID}`}
+              type="button"
+              className={`border-version3-500 hover:bg-neutral-100 bg-neutral-50 border-2 transition-all ease-in-out duration-150 text-version3-500 px-8 py-2.5 w-[240px]  text-sm rounded-md ${
+                remainingAttempt < 3 ? "block" : "hidden"
+              }`}
+            >
+              <h1>Lihat Riwayat Kuis</h1>
+            </Button>
+          </section>
         </div>
       </div>
     </div>

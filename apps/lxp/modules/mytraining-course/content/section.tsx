@@ -47,13 +47,17 @@ export const ContentSection: FC = (): ReactElement => {
                           ? "Modul"
                           : item.type == "ASSIGNMENT"
                           ? "Penugasan"
+                          : item.type == "QUIZ"
+                          ? "quiz"
                           : ""
                       }
                       href={
                         item.type == "MODULE"
                           ? `/pelatihanku/modul/${items.id}/${params.batchID}`
                           : item.type == "ASSIGNMENT"
-                          ? "Penugasan"
+                          ? "/pelatihanku/penugasan"
+                          : item.type == "QUIZ"
+                          ? `/pelatihanku/quiz/${items.id}/${query.batchID}`
                           : ""
                       }
                       icon={
@@ -61,31 +65,20 @@ export const ContentSection: FC = (): ReactElement => {
                           <HiDocumentText className="text-xl text-[#40A0C8]" />
                         ) : item.type == "ASSIGNMENT" ? (
                           <RiTodoLine className="text-xl text-[#F4677F]" />
+                        ) : item.type == "QUIZ" ? (
+                          <MdOutlineQuiz className="text-xl text-[#FAB317]" />
                         ) : (
                           ""
                         )
                       }
                     />
-
-                    {/* <PanelSection
-                      title="Tugas"
-                      href="/penugasan"
-                      icon={<RiTodoLine className="text-xl text-[#F4677F]" />}
-                    />
-                    <PanelSection
-                      title="Diskusi"
-                      href="/pelatihanku/diskusi"
-                      icon={
-                        <HiOutlineChatBubbleBottomCenterText className="text-xl text-[#3EB449]" />
-                      }
-                    />  */}
                   </>
                 );
               })}
               <PanelSection
-                title="Quiz"
-                href={`/pelatihanku/quiz/${items.id}/${query.batchID}`}
-                icon={<MdOutlineQuiz className="text-xl text-[#FAB317]" />}
+                title="Diskusi"
+                href="/pelatihanku/diskusi"
+                icon={<HiOutlineChatBubbleBottomCenterText className="text-xl text-[#3EB449]" />}
               />
             </Disclosure.Panel>
           </Disclosure>

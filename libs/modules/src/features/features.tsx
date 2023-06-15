@@ -22,13 +22,13 @@ export const FeaturesModule: FC<TFeaturesPageProps> = ({ accessFrom }): ReactEle
   }, [accessFrom, setFeatures]);
 
   return (
-    <section className=" bg-neutral-100/40 min-h-[100vh]">
+    <section className="bg-light min-h-[100vh]">
       <BreadCrumb items={FeaturesBreadCumbs} textColor="text-version2-400" />
       <section className=" px-8 md:px-14 lg:px-16 py-2 md:py-4 lg:py-8 flex flex-col justify-center items-center mb-3 ">
         <div className="max-w-[720px] text-center">
           <h1 className="font-bold text-neutral-900 text-3xl mb-4">Fitur LMS M-Knows</h1>
           <p className="text-neutral-400 text-sm font-medium">
-            Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di Kampus Gratis.
+            Kembangkan keterampilan Kamu dengan kursus dan sertifikasi online di LMS M-Knows.
             Berbagai macam jenis materi tersedia.
           </p>
         </div>

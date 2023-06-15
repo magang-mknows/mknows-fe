@@ -10,7 +10,7 @@ module.exports = {
 
   theme: {
     fontFamily: {
-      primary: ["Inter", "sans-serif"],
+      montserrat: ["Montserrat, sans-serif"],
     },
     colors: {
       white: "#FFFF",
@@ -93,6 +93,13 @@ module.exports = {
         700: "#AC1F18",
         800: "#8C1712",
         900: "#6B100C",
+      },
+      grey: {
+        base: "#999AA4",
+        100: "#FAFAFA",
+      },
+      blue: {
+        base: "#34364A",
       },
     },
   },

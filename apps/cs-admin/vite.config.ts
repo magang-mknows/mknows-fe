@@ -3,8 +3,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   cacheDir: "../../node_modules/.vite/cs-admin",
+
+  define: {
+    "process.env.NODE_ENV": mode === "production" ? '"production"' : '"development"',
+    "process.env": {},
+  },
 
   server: {
     port: 4200,
@@ -40,4 +45,4 @@ export default defineConfig({
     environment: "jsdom",
     include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
   },
-});
+}));

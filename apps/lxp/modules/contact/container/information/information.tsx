@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 export const ContactInformation: FC = (): ReactElement => {
   return (
     <Fragment>
-      <h1 className="text-left px-2 lg:text-center pt-10 md:pt-12 lg:pt-16 font-bold mb-4 text-sm lg:text-lg">
+      <h1 className="text-left px-2 lg:text-center pt-10 md:pt-12 lg:pt-10 font-bold mb-8 text-sm lg:text-xl">
         Kontak Kami
       </h1>
       <div className="px-2 text-sm md:text-base xl:px-16">
@@ -19,7 +19,7 @@ export const ContactInformation: FC = (): ReactElement => {
         <section>
           <h1 className="font-bold mb-1 text-neutral-900">Alamat</h1>
           <p className="mb-4 text-neutral-800">
-            Jl. Raya Cirendeu No.59, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan, Banten
+            Jl. Raya Cirendeu No.60, Cireundeu, Kec. Ciputat Timur., Kota Tangerang Selatan, Banten
             15419
           </p>
         </section>

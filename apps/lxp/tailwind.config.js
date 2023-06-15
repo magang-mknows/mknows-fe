@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     colors: {
       white: "#FFFF",
+      light: "#FAFAFA",
       black: "#000000",
       primary: {
         100: "#ECF9CA",
@@ -99,6 +100,7 @@ module.exports = {
         900: "#6B100C",
       },
     },
+
     extend: {},
   },
   plugins: [],
