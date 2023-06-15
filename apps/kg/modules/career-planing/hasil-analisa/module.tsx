@@ -7,7 +7,7 @@ import { AnalysisResult } from "./hasil";
 export const AnalysisResultModules = (): ReactElement => {
   return (
     <BaseLayout title="Analisis Hasil">
-      <BreadCrumb items={AnalysisResultBreadcrumb} bgColor="bg-[#FAFAFA]" />
+      <BreadCrumb items={AnalysisResultBreadcrumb} bgColor=" bg-grey-100" />
       <AnalysisResult />
     </BaseLayout>
   );

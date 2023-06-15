@@ -22,7 +22,7 @@ export const LandingCareer: FC = (): ReactElement => {
                   kamu{" "}
                 </div>
                 <Link href={"/perencanaan-karir/hasil-analisa"}>
-                  <button className=" mt-6 text-[20px] font-[600] bg-[#106FA4] w-full text-white py-3 rounded-md">
+                  <button className=" mt-6 text-[20px] font-[600] bg-primary-500 w-full text-white py-3 rounded-md">
                     Mulai Analisa
                   </button>
                 </Link>
