@@ -11,7 +11,7 @@ export const EmpttyState: FC<TEmptyStateProps> = ({
   return (
     <div className={`flex justify-center flex-col  items-center  w-full h-full ${classname} `}>
       {image ? (
-        <figure className="w-full grid place-items-center ">
+        <figure className="w-full grid place-items-center mb-2 ">
           <Image
             alt="empty-state"
             src={image}

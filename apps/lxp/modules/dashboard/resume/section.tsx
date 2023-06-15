@@ -1,18 +1,8 @@
-import { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement } from "react";
 import { LabIcon, HomeIcon, ClockIcon, ThropyIcon } from "./assets";
 import { TResumeProps } from "./types";
 
 export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
-  const [isMounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return <h1>loading...</h1>;
-  }
-
   return (
     <div className="w-full shadow-md  bg-neutral-50 shadow-neutral-100  rounded-md min-h-[540px] mb-10 overflow-hidden">
       <section className="text-neutral-50 bg-version2-400 rounded-md relative px-6 pt-12 pb-28">
@@ -21,8 +11,11 @@ export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
           <section>
             <span className="text-neutral-50/75">Kamu </span>
             <span className="underline underline-offset-4 decoration-neutral-50/70">
-              Belum mengambil Pelatihan
+              {props?.active_subject_counts === "0"
+                ? "Belum mengambil Pelatihan"
+                : `Mengambil ${props.active_subject_counts} Pelatihan`}
             </span>
+            <span className="text-neutral-50/75"> Pada Batch ini</span>
           </section>
         </p>
         <section className="absolute -bottom-64  grid grid-cols-2 gap-4 lg:gap-2">

@@ -28,7 +28,7 @@ export const DashboardModule = () => {
           <div className="flex flex-col w-full col-span-3 lg:col-span-3  xl:col-span-2">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
               <TaskSection items={data?.data?.dataAssignments} />
-              <EventSection />
+              <EventSection items={data?.data?.dataEvents} />
             </div>
             <ProgressSection items={data?.data?.dataMyWork} />
             <CalendarSection />
