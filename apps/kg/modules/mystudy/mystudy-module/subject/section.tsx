@@ -51,7 +51,7 @@ export const SubjectSection: FC<{ dataSubjectProps: Array<TDataSubject> }> = ({
                         Matkul {subject.name}
                       </h1>
                       <p className="text-sm text-neutral-base pb-5">{subject.teacher_name}</p>
-                      <div className="flex w-full bg-[#D9D9D9] rounded-full h-2.5">
+                      <div className="flex w-full bg-neutral-350 rounded-full h-2.5">
                         <div
                           className="bg-success-500 h-2.5 rounded-full"
                           style={{ width: `${subject.progress_percentage}%` }}
