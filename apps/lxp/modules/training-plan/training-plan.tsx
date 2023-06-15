@@ -29,7 +29,7 @@ export const TrainingPlanModule: FC = (): ReactElement => {
               <h1>Anda belum menyelesaikan proses Administrasi</h1>
               <p>
                 Lengkapi administrasi anda{" "}
-                <Link href={"/admiistrasi"} className="font-bold text-blue-500 underline">
+                <Link href={"/administrasi"} className="font-bold text-blue-500 underline">
                   disini{" "}
                 </Link>
               </p>

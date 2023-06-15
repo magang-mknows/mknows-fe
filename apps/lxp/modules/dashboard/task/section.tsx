@@ -16,7 +16,7 @@ import { EmpttyState } from "../../common/empty-state";
 
 export const TaskSection: FC<TTaskProps> = ({ items }): ReactElement => {
   return (
-    <div className="bg-neutral-50 relative  p-6 rounded-md shadow-sm">
+    <div className="bg-neutral-50 relative min-h-[240px]  p-6 rounded-md shadow-sm">
       {items?.length === 0 ? (
         <EmpttyState
           description="Belum Ada Penugasan"

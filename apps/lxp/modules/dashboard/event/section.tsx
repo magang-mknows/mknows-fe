@@ -45,7 +45,7 @@ export const EventSection: FC<{ items?: unknown[] }> = ({ items }): ReactElement
     },
   ];
   return (
-    <div className="bg-neutral-50 relative  p-6 rounded-md shadow-sm">
+    <div className="bg-neutral-50 min-h-[240px] relative  p-6 rounded-md shadow-sm">
       {items?.length === 0 ? (
         <EmpttyState
           description="Belum Ada Event Pelatihan"
