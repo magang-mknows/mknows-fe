@@ -92,6 +92,13 @@ module.exports = {
         800: "#8C1712",
         900: "#6B100C",
       },
+      grey: {
+        base: "#999AA4",
+        100: "#FAFAFA",
+      },
+      blue: {
+        base: "#34364A",
+      },
     },
   },
   plugins: [],

@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn run nx run-many --target=lint --projects=kg,lxp,cs,kg-admin,lxp-admin,cs-admin,sample
+      - run: yarn run nx run-many --target=lint --projects=kg,lxp,cs,kg-admin,lxp-admin,cs-admin,sample,kg-dosen
 
   format-write:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn run nx run-many --target=build --projects=kg,lxp,cs,kg-admin,lxp-admin,cs-admin,sample
+      - run: yarn run nx run-many --target=build --projects=kg,lxp,cs,kg-admin,lxp-admin,cs-admin,sample,kg-dosen
 
   clean:
     runs-on: ubuntu-latest

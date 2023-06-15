@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { AuthLayout } from "../layout/auth";
+import { AuthLayout } from "../layout/auth/auth";
+import { BaseLayout } from "../layout/base";
 
-const LoginPages = lazy(() => import("../pages/auth/login"));
+const LoginPages = lazy(() => import("../pages/auth/login"));    
+const RequestQuotaPages = lazy(() => import("../pages/request-quota/"));    
 
 export const routes = createBrowserRouter([
   {
@@ -19,4 +21,16 @@ export const routes = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"/admin",
+    element: <BaseLayout/>,
+    children: [{
+      path:"/admin/quota-request",
+      element: (
+          <Suspense fallback="Loading">
+            <RequestQuotaPages />
+          </Suspense>
+      )
+    }]
+  }
 ]);

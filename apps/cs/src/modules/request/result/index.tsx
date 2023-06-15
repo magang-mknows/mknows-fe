@@ -2,6 +2,7 @@ import { ReactElement, FC, useState, useEffect } from "react";
 import { Search } from "@mknows-frontend-services/components/atoms";
 import Table from "./table";
 import { useDebounce } from "../../common/hooks";
+import { useRequest } from "../hooks";
 import { useFilterActionResult } from "../hooks";
 
 const ResultModule: FC = (): ReactElement => {
@@ -14,6 +15,8 @@ const ResultModule: FC = (): ReactElement => {
 
   const { setFilterActionResult } = useFilterActionResult();
 
+  const { data: featureId } = useRequest();
+
   useEffect(() => {
     setFilterActionResult(option);
   }, [option]);
@@ -25,6 +28,7 @@ const ResultModule: FC = (): ReactElement => {
     [deb],
     400,
   );
+
   return (
     <div className="relative">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center">
@@ -35,21 +39,26 @@ const ResultModule: FC = (): ReactElement => {
           <div className="flex flex-row gap lg:gap-x-3 gap-x-4 w-full mt-4 lg:mt-0">
             <div className="w-[50%]">
               <select
+                onChange={(e) => setOption((prev) => ({ ...prev, feature: e.target.value }))}
+                value={option.feature}
                 id="category"
                 className="cursor-pointer px-4 font-semibold bg-neutral-200 border border-gray-300 text-neutral-700 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full h-[40px] "
               >
-                <option defaultValue={""}>Semua</option>
-                <option value="US">AI Identity</option>
-                <option value="CA">AI Document Verification</option>
-                <option value="FR">AI Condition Analysis</option>
-                <option value="DE">AI Location & Movement</option>
+                <option value="" defaultValue={"Semua"}>
+                  Semua
+                </option>
+                {featureId?.data?.map((item, key) => (
+                  <option key={key} value={item._id}>
+                    {item.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="w-full">
               <Search
                 value={deb}
                 onChange={(e) => setDeb(e.target.value)}
-                placeholder="Search NIK dan Nama"
+                placeholder="Search NIK ,Nama dan Jenis Permintaan"
               />
             </div>
           </div>

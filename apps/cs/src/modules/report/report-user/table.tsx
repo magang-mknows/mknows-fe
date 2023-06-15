@@ -52,7 +52,13 @@ const Table: FC = (): ReactElement => {
 
   const ExpandedComponent = () => (
     <div className="flex flex-col">
-      <DataTable columns={columnsExpand} data={getReportData} customStyles={ExpandRowStyle} />
+      <DataTable
+        columns={columnsExpand}
+        data={getReportData}
+        customStyles={ExpandRowStyle}
+        selectableRows
+        selectableRowsHighlight
+      />
       <div className="flex justify-end w-full">
         <Button
           type="submit"
@@ -106,10 +112,6 @@ const Table: FC = (): ReactElement => {
       cell: (row) => (
         <button className="mx-2 bg-primary-300 text-white rounded-md p-2">Lihat</button>
       ),
-    },
-    {
-      name: "Semua",
-      cell: (row) => <input type="checkbox" />,
     },
   ];
 

@@ -10,11 +10,9 @@ export const ConsultingAndServiceProduct: FC = (): ReactElement => {
     {
       title: "Konsultasi",
       detailList: [
-        { text: "Konsultasi Karir dan Cita-Cita", link: "konsultasi-karir" },
-        { text: "Konsultasi Masalah Keluarga dan Keuangan", link: "dokumen" },
-        { text: "Konsultasi Masalah Pribadi", link: "dokumen" },
+        { text: "Konsultasi Karir dan Mentoring", link: "konsultasi-karir" },
         { text: "Konsultasi Kinerja", link: "dokumen" },
-        { text: "Konsultasi Lainnya", link: "dokumen" },
+        { text: "Konsultasi Masalah Pribadi", link: "dokumen" },
       ],
       icon: <BsPersonCheck />,
     },
