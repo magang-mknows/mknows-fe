@@ -162,7 +162,7 @@ const Table: FC = (): ReactElement => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="space-y-[9px] w-full max-w-[484px] transform overflow-hidden rounded-[4px] bg-white py-7 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title className="pb-5 border-b-2 font-bold text-lg flex flex-row items-center justify-between px-9">
+                  <Dialog.Title className="pb-5 border-b-[1px] border-neutral-400 font-bold text-lg flex flex-row items-center justify-between px-9">
                     <span>PT Menara Indonesia</span>
                     <div onClick={closeModal} className="hover:cursor-pointer">
                       <IconClose />
@@ -247,7 +247,7 @@ const Table: FC = (): ReactElement => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row justify-end gap-x-3 pt-5 px-9 border-t-2 border-neutral-400">
+                  <div className="flex flex-row justify-end gap-x-3 pt-5 px-9 border-t-[1px] border-neutral-400">
                     <Button
                       type="submit"
                       onClick={closeModal}
