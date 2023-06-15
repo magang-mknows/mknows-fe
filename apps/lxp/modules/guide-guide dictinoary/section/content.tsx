@@ -12,20 +12,20 @@ const ContentSection = (): ReactElement => {
     <div className="flex flex-col px-6 mt-[30px] mb-[50px]">
       <div className="col-span-1 ">
         <div className="title">
-          <h1 className=" text-[50px] font-[700]">Kamus Kampus Gratis </h1>
-          <p className="text-[14px] font-[400] text-[#737373] ">
+          <h1 className=" text-[50px] font-[700]">Kamus LMS </h1>
+          <p className="text-[14px] font-[400] text-neutral-500 ">
             Berupa kumpulan istilah yang sering digunakan yang berkaitan dengan penggunaan dan
             fungsi fitur <br /> yang ada di Website LMS M-Knows
           </p>
         </div>
-        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-[#F5F5F5]  rounded-[8px] my-5 flex items-center gap-4  ">
+        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-neutral-100  rounded-[8px] my-5 flex items-center gap-4  ">
           <Image src={search} alt={"search"} className={"ml-[24px]"} />
           <input
             type="text"
             name=""
             id=""
             placeholder="Cari informasi"
-            className=" bg-[#F5F5F5] w-full focus:outline-none"
+            className=" bg-neutral-100 w-full focus:outline-none"
           />
         </div>
       </div>
