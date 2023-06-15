@@ -1,4 +1,4 @@
-import { TMetaResponse } from "@mknows-frontend-services/utils";
+import { TMetaResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export type TRequestDummyData = {
   icon: string;
@@ -48,3 +48,10 @@ export interface FeatureId {
 }
 
 export type TQuotaResponse = TMetaResponse<TQuotaItem>;
+
+export type TRequestQuota = {
+  choosed_feature: string[];
+  quantity: number;
+};
+
+export type TRequestQuotaResponse = TMetaResponseSingle<TRequestQuota>;

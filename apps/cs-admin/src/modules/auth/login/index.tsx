@@ -1,5 +1,6 @@
 import { FC, ReactElement } from "react";
 import { Button, TextField, Checkbox } from "@mknows-frontend-services/components/atoms";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,14 +65,16 @@ const LoginModules: FC = (): ReactElement => {
         />
         <Checkbox name="remember" variant="md" control={control} label="Ingatkan Saya" />
       </div>
-      <Button
-        type="submit"
-        loading="Sedang Masuk..."
-        className="flex disabled:bg-neutral-200 justify-center w-full p-3 mt-8 rounded-md border bg-primary-400 text-white font-bold"
-        disabled={!formState.isValid}
-      >
-        Masuk
-      </Button>
+      <Link to="/admin/quota-request">
+        <Button
+          type="submit"
+          loading="Sedang Masuk..."
+          className="flex disabled:bg-neutral-200 justify-center w-full p-3 mt-8 rounded-md border bg-primary-400 text-white font-bold"
+          disabled={!formState.isValid}
+        >
+          Masuk
+        </Button>
+      </Link>
     </form>
   );
 };

@@ -1,4 +1,4 @@
-import { FC, ReactElement, lazy } from "react";
+import { FC, ReactElement } from "react";
 import { useCardData } from "./hooks";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -7,7 +7,10 @@ import { CardCS } from "@mknows-frontend-services/components/molecules";
 const CardSection: FC = (): ReactElement => {
   const { getCardData } = useCardData();
   const prevButton = (
-    <button className="rotate-180">
+    <button
+      className="rotate-180
+    \"
+    >
       <img src="/assets/dashboard/next.svg" alt="next" />
     </button>
   );
