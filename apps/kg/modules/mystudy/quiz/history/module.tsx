@@ -20,7 +20,7 @@ export const QuizHistoryModule: FC = (): ReactElement => {
       </section>
       <div className="w-full flex justify-center mt-9">
         <Link href={prevPath} className="w-full md:w-1/4 mx-auto">
-          <button className="w-full bg-[#106FA4] py-4 rounded-lg text-base font-bold text-white">
+          <button className="w-full bg-primary-500 py-4 rounded-lg text-base font-bold text-white">
             Coba Kembali (Sisa {data?.data?.remaining_attempt})
           </button>
         </Link>
