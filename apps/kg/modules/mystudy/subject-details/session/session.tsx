@@ -2,7 +2,6 @@ import { FC, ReactElement, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowDropDown } from "react-icons/md";
-
 import { TDataSession } from "../type";
 import imgModuleIcon from "../assets/module-icon.svg";
 import imgQuizIcon from "../assets/quiz-icon.svg";
@@ -45,7 +44,7 @@ export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
       {/* CONTENT */}
       {isOpen === `Accordion-${session.session_no}` ? (
         <div className="w-[94%] mx-auto">
-          <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
+          <div className="h-[60px] items-center flex justify-between border-b border-neutral-300 pl-[21px] pr-[40.5px]">
             <div className="flex gap-x-6">
               <Image src={imgModuleIcon} alt="" />
               <Link
@@ -59,7 +58,7 @@ export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
               {isProgressFinished("MODULE") && <Image src={imgDoneIcon} alt="" />}
             </div>
           </div>
-          <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
+          <div className="h-[60px] items-center flex justify-between border-b border-neutral-300 pl-[21px] pr-[40.5px]">
             <div className="flex gap-x-6">
               <Image src={imgQuizIcon} alt="" />
               <Link
@@ -73,7 +72,7 @@ export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
               {isProgressFinished("QUIZ") && <Image src={imgDoneIcon} alt="" />}
             </div>
           </div>
-          <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
+          <div className="h-[60px] items-center flex justify-between border-b border-neutral-300 pl-[21px] pr-[40.5px]">
             <div className="flex gap-x-6">
               <Image src={imgAssignmentIcon} alt="" />
               <Link
@@ -87,7 +86,7 @@ export const SessionSection: FC<{ session: TDataSession; index: number }> = ({
               {isProgressFinished("ASSIGNMENT") && <Image src={imgDoneIcon} alt="" />}
             </div>
           </div>
-          <div className="h-[60px] items-center flex justify-between border-b border-[#D4D4D4] pl-[21px] pr-[40.5px]">
+          <div className="h-[60px] items-center flex justify-between border-b border-neutral-300 pl-[21px] pr-[40.5px]">
             <div className="flex gap-x-6">
               <Image src={imgDiscussionIcon} alt="" />
               <Link
