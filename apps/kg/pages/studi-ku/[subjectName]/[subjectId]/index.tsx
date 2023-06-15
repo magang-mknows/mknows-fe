@@ -11,7 +11,7 @@ const SubjectDetailsPage: FC = (): ReactElement => {
 
   return (
     <BaseLayout title={`${router.query.subjectName}`}>
-      <BreadCrumb items={items} />
+      <BreadCrumb items={items} bgColor="bg-white" />
       <SubjectDetailsModule />
     </BaseLayout>
   );
