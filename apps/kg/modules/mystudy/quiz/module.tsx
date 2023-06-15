@@ -15,10 +15,10 @@ export const QuizModule: FC = (): ReactElement => {
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-[705px] px-[20px] md:px-[88px] mt-8 mb-15">
       <div className="flex flex-col items-center gap-y-[18px] text-center">
-        <h1 className="text-4xl font-semibold text-[#171717]">Quiz {router.query.subjectName}</h1>
-        <p className="text-2xl font-normal text-[#737373]">Pertemuan 1</p>
+        <h1 className="text-4xl font-semibold text-neutral-900">Quiz {router.query.subjectName}</h1>
+        <p className="text-2xl font-normal text-neutral-500">Pertemuan 1</p>
       </div>
-      <div className="flex flex-col md:flex-row min-h-[550px] items-center gap-11 text-[#171717]">
+      <div className="flex flex-col md:flex-row min-h-[550px] items-center gap-11 text-neutral-900">
         <div className="h-[220px] md:h-[550px] w-[220px] md:w-[550px] relative overflow-hidden">
           <Image
             src={quizHomeImg}
@@ -28,32 +28,32 @@ export const QuizModule: FC = (): ReactElement => {
         </div>
         <div className="flex flex-col gap-y-[39px] h-[475px]">
           <div className="flex flex-col justify-between text-sm h-[380px]">
-            <p className="">
+            <p>
               Quiz ini bertujuan untuk menguji pengetahuan Anda tentang materi yang telah dipelajari
               di pertemuan ini.
             </p>
-            <p className="">Beberapa ketentuannya sebagai berikut:</p>
-            <p className="">
+            <p>Beberapa ketentuannya sebagai berikut:</p>
+            <p>
               Terdapat <span className="font-bold">{dataQuizDesc?.total_questions} pertanyaan</span>{" "}
               yang harus dikerjakan dalam Quiz ini dan Setiap pertanyaan mempunyai bobot Nilai{" "}
               <span className="font-bold">{dataQuizDesc?.question_point} Poin</span>
             </p>
             <p className="font-bold">Syarat Nilai Kelulusan : {dataQuizDesc?.kkm} Poin</p>
             <p className="font-bold">Durasi Ujian : {dataQuizDesc?.duration / 60} menit</p>
-            <p className="">
+            <p>
               Setelah dimulai, quiz tidak dapat dihentikan, anda harus menyelesaikan quiz hingga
               selesai
             </p>
-            <p className="">
+            <p>
               Anda mempunyai{" "}
               <span className="font-bold">{dataQuizDesc?.remaining_attempt} kali kesempatan</span>{" "}
               mengulang quiz
             </p>
-            <p className="">
+            <p>
               Apabila tidak memenuhi syarat kelulusan, maka Anda harus menunggu selama 1 menit untuk
               mengulang pengerjaan Quiz kembali.
             </p>
-            <p className="">Selamat Mengerjakan!</p>
+            <p>Selamat Mengerjakan!</p>
           </div>
 
           <div className="w-full flex flex-col gap-y-2">
