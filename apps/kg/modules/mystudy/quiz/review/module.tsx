@@ -22,25 +22,25 @@ export const QuizReviewModule: FC = (): ReactElement => {
 
   function handleAnswerColor(index: number) {
     if (getQuizReviewQuestionsAnswers[getCurrNumber - 1].answers[index].is_correct) {
-      return "bg-[#C2F7B6] text-neutral-900";
+      return "bg-success-200 text-neutral-900";
     }
     if (getQuizReviewQuestionsAnswers[getCurrNumber - 1].answers[index].is_selected) {
-      return "bg-[#F9B7B4] text-neutral-900";
+      return "bg-warning-100 text-neutral-900";
     }
-    return "bg-[#D4D4D4] text-[#A3A3A3]";
+    return "bg-neutral-300 text-neutral-base";
   }
 
   function handleColorButtonGroup(index: number) {
     if (!getQuizReviewQuestionsAnswers[index].is_correct_item) {
-      return `bg-[#F14F48] border-2 border-[#F14F48] text-neutral-200 hover:opacity-75 ${
+      return `bg-warning-400 border-2 border-warning-400 text-neutral-200 hover:opacity-75 ${
         index + 1 === getCurrNumber
-          ? "bg-white hover:bg-neutral-200 border-[#F14F48] text-neutral-900"
+          ? "bg-white hover:bg-neutral-200 border-warning-400 text-neutral-900"
           : "border-none"
       }`;
     }
-    return `bg-[#3EB449] border-2 border-[#3EB449] text-neutral-200 hover:opacity-75 ${
+    return `bg-success-500 border-2 border-success-500 text-neutral-200 hover:opacity-75 ${
       index + 1 === getCurrNumber
-        ? "bg-white hover:bg-neutral-200 border-[#3EB449] text-neutral-900"
+        ? "bg-white hover:bg-neutral-200 border-success-500 text-neutral-900"
         : "border-none"
     }`;
   }
@@ -48,7 +48,7 @@ export const QuizReviewModule: FC = (): ReactElement => {
   return (
     <div className="px-0 lg:px-[88px]">
       <div className="py-[52px] px-4 sm:px-[38px] flex flex-col-reverse xl:flex-row gap-x-[55px]">
-        <div className="flex flex-col py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-[#E5E5E5] rounded-lg">
+        <div className="flex flex-col py-[44px] mx-auto lg:mx-0 px-5 lg:px-[51px] w-full min-h-[550px] gap-[70px] border border-solid border-neutral-200 rounded-lg">
           {/* Question section */}
           <p className="text-black text-center w-full text-xl font-semibold ">
             {getCurrNumber}.{" "}
@@ -76,7 +76,7 @@ export const QuizReviewModule: FC = (): ReactElement => {
         </div>
         {/* Timer Section */}
         <div className="flex flex-col h-[232px] gap-5 lg:w-[35%] w-full mx-auto">
-          <div className="px-[22px] py-4 border border-solid border-[#E5E5E5] rounded-lg">
+          <div className="px-[22px] py-4 border border-solid border-neutral-200 rounded-lg">
             <p className="text-base text-black font-bold mb-6">Daftar Soal :</p>
             {getQuizReviewQuestionsAnswers && getQuizReviewQuestionsAnswers.length > 0 && (
               <div className="flex flex-wrap gap-1">
