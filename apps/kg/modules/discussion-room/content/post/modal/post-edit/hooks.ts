@@ -1,5 +1,5 @@
 import { UseMutationResult, useMutation, UseQueryResult, useQuery } from "@tanstack/react-query";
-import { CreateDiscussion, DiscussionByIdRequest } from "./api";
+import { UpdateDiscussion, DiscussionByIdRequest } from "./api";
 import { TDiscussionPayload, TDiscussionDetailResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 
@@ -12,14 +12,16 @@ export const useDiscussionById = (
   });
 };
 
-export const useCreateDiscussion = (): UseMutationResult<
+export const useUpdateDiscussion = (
+  id: string,
+): UseMutationResult<
   TDiscussionDetailResponse,
   TMetaErrorResponse,
   TDiscussionPayload,
   unknown
 > => {
   return useMutation({
-    mutationKey: ["create-discussion"],
-    mutationFn: async (payload) => await CreateDiscussion(payload),
+    mutationKey: ["update-discussion", id],
+    mutationFn: async (payload) => await UpdateDiscussion(id, payload),
   });
 };
