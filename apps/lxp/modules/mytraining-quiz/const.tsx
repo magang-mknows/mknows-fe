@@ -1,7 +1,7 @@
 export const myTrainingQuizBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Pelatihan-Ku",

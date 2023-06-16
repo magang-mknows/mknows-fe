@@ -5,3 +5,15 @@ export const AssigmentStatus = [
   "Sedang Dinilai",
   "Selesai",
 ];
+
+
+export const assigmentBreadCumbs = [
+  {
+    name: "Home",
+    link: "/dashboard",
+  },
+  {
+    name: "Penugasan",
+    link: "/penugasan",
+  },
+];

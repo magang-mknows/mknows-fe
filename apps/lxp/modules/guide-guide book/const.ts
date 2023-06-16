@@ -1,7 +1,7 @@
 export const guideBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Panduan",

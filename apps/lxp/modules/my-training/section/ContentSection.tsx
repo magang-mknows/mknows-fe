@@ -49,13 +49,13 @@ const ContentSection = (): ReactElement => {
   return (
     <Fragment>
       <div className="flex justify-center items-center flex-col mt-10">
-        <h1 className="text-[#171717] text-[24px] font-[700]">Mata Kuliah</h1>
-        <div className="bg-[#FAFAFA] dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
+        <h1 className=" text-neutral-900 text-[24px] font-[700]">Pelatihan-Ku</h1>
+        <div className="bg-light dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
           <div className="flex lg:ml-5 px-3 py-4">
             <Image src={Search} alt={"search"} className="w-auto" width={100} height={100} />
             <input
               type={"text"}
-              className="bg-[#FAFAFA] w-full focus:outline-none"
+              className="bg-light w-full focus:outline-none"
               placeholder="Cari Mata Kuliah"
             />
           </div>
@@ -74,7 +74,7 @@ const ContentSection = (): ReactElement => {
                   alt="simulasi-null"
                 />
               </div>
-              <h1 className="text-xl font-bold">Tidak Ada Data Mata Kuliah</h1>
+              <h1 className="text-xl font-bold">Tidak Ada Data Pelatihan</h1>
             </div>
           ) : (
             data?.data?.finalProgressSubject.map((x: TFinalProgressSubject, i: number) => (
