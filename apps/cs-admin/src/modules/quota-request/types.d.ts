@@ -6,7 +6,6 @@ export type TQuotaParams = {
   per_page?: string;
   page?: string;
 };
-
 export type TQuotaItem = {
   _id: string;
   request_number: string;

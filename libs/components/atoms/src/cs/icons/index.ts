@@ -27,3 +27,4 @@ export * from "./ic-quota-admin";
 export * from "./ic-filter";
 export * from "./ic-clock";
 export * from "./ic-close";
+export * from "./ic-arrow";
