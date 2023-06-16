@@ -5,6 +5,13 @@ export type TusePopupConfirmModul = {
   getPopupStatus: boolean;
 };
 
+export type TVideoItem = {
+  id: string;
+  title: string;
+  desc: string;
+  youtubeId: string;
+};
+
 type TModuleModuleVideo = {
   id: string;
   module_id: string;

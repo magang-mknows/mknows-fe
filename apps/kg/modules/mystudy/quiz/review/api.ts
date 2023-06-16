@@ -1,9 +1,18 @@
-import api from '../../../../services/api';
-import { TQuizReviewResponse } from './types';
+import api from "../../../../services/api";
+import { TQuizReviewPayload, TQuizReviewResponse } from "./types";
 
 export const quizReviewGetRequest = async (
-  id: string | number
+  payload: TQuizReviewPayload,
 ): Promise<TQuizReviewResponse> => {
-  const { data } = await api.get(`/studi-ku/quiz/review/${id}`);
+  const { data } = await api({
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    params: {
+      attempt: payload.attemptId,
+    },
+    url: "/studi-ku/quiz/review",
+  });
   return data;
 };

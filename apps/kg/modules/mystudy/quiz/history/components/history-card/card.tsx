@@ -1,28 +1,29 @@
-import { FC, ReactElement } from 'react';
-import { DetailCard } from '../../../common/components/detail-card';
-import { TQuizHistoryItem } from '../../types';
-import Link from 'next/link';
+import { FC, ReactElement } from "react";
+import { DetailCard } from "../../../common/components/detail-card";
+import { TQuizHistoryData } from "../../types";
+import Link from "next/link";
+import { NextRouter } from "next/router";
 
 export const HistoryCard: FC<{
-  dataQuizHistory: TQuizHistoryItem;
-  quizPath: string;
+  dataQuizHistory: TQuizHistoryData;
+  router: NextRouter;
   key: number;
-}> = ({ dataQuizHistory, quizPath, key }): ReactElement => {
+}> = ({ dataQuizHistory, router, key }): ReactElement => {
   function changeFormatByDate(iso: string): string {
     const date = new Date(iso);
     const options: Intl.DateTimeFormatOptions = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     };
-    return date.toLocaleDateString('id-ID', options);
+    return date.toLocaleDateString("id-ID", options);
   }
   function changeFormatByTime(iso: string): string {
     const time = new Date(iso);
 
-    const hour = String(time.getHours()).padStart(2, '0');
-    const minute = String(time.getMinutes()).padStart(2, '0');
-    const second = String(time.getSeconds()).padStart(2, '0');
+    const hour = String(time.getHours()).padStart(2, "0");
+    const minute = String(time.getMinutes()).padStart(2, "0");
+    const second = String(time.getSeconds()).padStart(2, "0");
 
     return `${hour}:${minute}:${second}`;
   }
@@ -33,23 +34,14 @@ export const HistoryCard: FC<{
     return `${minutes} Menit ${remainingSeconds} Detik`;
   }
 
-  const dateFormatted: string = changeFormatByDate(
-    dataQuizHistory.timestamp_taken
-  );
-  const timeFormatted: string = changeFormatByTime(
-    dataQuizHistory.timestamp_taken
-  );
-  const minutesFormatted: string = changeFormatByMinutes(
-    dataQuizHistory.time_elapsed
-  );
+  const dateFormatted: string = changeFormatByDate(dataQuizHistory.timestamp_taken);
+  const timeFormatted: string = changeFormatByTime(dataQuizHistory.timestamp_taken);
+  const minutesFormatted: string = changeFormatByMinutes(dataQuizHistory.time_elapsed);
 
-  const quizReviewLink = `${quizPath}/review/${dataQuizHistory.id}`;
+  const quizReviewLink = `${router.asPath}/${dataQuizHistory.id}`;
 
   return (
-    <section
-      key={key}
-      className="bg-white shadow-sm rounded-md px-5 py-4 w-full"
-    >
+    <section key={key} className="bg-white shadow-sm rounded-md px-5 py-4 w-full">
       <section className="flex justify-between text-xs">
         <div className="flex flex-col md:flex-row md:gap-x-1 font-bold">
           <h1>Percobaan</h1>
@@ -67,27 +59,13 @@ export const HistoryCard: FC<{
         >
           <button>
             <h1 className="text-3xl font-bold">{dataQuizHistory.score}</h1>
-            <p>
-              {dataQuizHistory.status === 'FINISHED' ? 'Lulus' : 'Tidak Lulus'}
-            </p>
+            <p>{dataQuizHistory.status === "FINISHED" ? "Lulus" : "Tidak Lulus"}</p>
           </button>
         </Link>
         <div className="gap-2 grid grid-cols-1 md:grid-cols-2">
-          <DetailCard
-            type="trueAnswer"
-            value={dataQuizHistory.correct}
-            link={quizReviewLink}
-          />
-          <DetailCard
-            type="timeFinished"
-            value={minutesFormatted}
-            link={quizReviewLink}
-          />
-          <DetailCard
-            type="falseAnswer"
-            value={dataQuizHistory.wrong}
-            link={quizReviewLink}
-          />
+          <DetailCard type="trueAnswer" value={dataQuizHistory.correct} link={quizReviewLink} />
+          <DetailCard type="timeFinished" value={minutesFormatted} link={quizReviewLink} />
+          <DetailCard type="falseAnswer" value={dataQuizHistory.wrong} link={quizReviewLink} />
           <DetailCard
             type="totalQuestions"
             value={dataQuizHistory.total_question}
