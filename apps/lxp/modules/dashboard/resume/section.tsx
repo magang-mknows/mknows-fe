@@ -13,7 +13,7 @@ export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
             <span className="underline underline-offset-4 decoration-neutral-50/70">
               {props?.active_subject_counts === "0"
                 ? "Belum mengambil Pelatihan"
-                : `Mengambil ${props.active_subject_counts} Pelatihan`}
+                : `Mengambil ${props?.active_subject_counts} Pelatihan`}
             </span>
             <span className="text-neutral-50/75"> Pada Batch ini</span>
           </section>
@@ -24,7 +24,7 @@ export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
               <LabIcon />
               <section>
                 <h1 className=" text-4xl font-black text-neutral-500 mb-2">
-                  {props.active_subject_counts}
+                  {props?.active_subject_counts}
                 </h1>
                 <h1 className="text-xs lg:text-sm text-neutral-500 ">Pelatihan</h1>
               </section>
@@ -35,7 +35,7 @@ export const ResumeSection: FC<TResumeProps> = (props): ReactElement => {
               <HomeIcon />
               <section>
                 <h1 className=" text-4xl font-black text-neutral-500 mb-2">
-                  {props.certificate_counts}
+                  {props?.certificate_counts}
                 </h1>
                 <h1 className="text-xs lg:text-sm text-neutral-500 ">Sertifikat</h1>
               </section>

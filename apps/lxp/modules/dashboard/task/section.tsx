@@ -48,7 +48,7 @@ export const TaskSection: FC<TTaskProps> = ({ items }): ReactElement => {
           }}
         >
           {items?.map((item, index) => {
-            const { formatedDate, formatedTime } = formatTime(item.deadline as string);
+            const { formatedDate, formatedTime } = formatTime(item?.deadline as string);
 
             return (
               <div className="block" key={index}>
@@ -70,23 +70,23 @@ export const TaskSection: FC<TTaskProps> = ({ items }): ReactElement => {
                     />
                   </figure>
                   <div className="flex flex-col items-start text-left">
-                    <h1 className="mb-2 font-bold">{item.subject_session_progress.name}</h1>
+                    <h1 className="mb-2 font-bold">{item?.subject_session_progress?.name}</h1>
                     <section className="flex gap-2 items-start lg:items-center mb-2">
                       <div className="w-4 h-4 rounded-full bg-primary-100 flex items-center justify-center">
                         <MdNavigateNext className="text-primary-500 " />
                       </div>
                       <p className="text-xs text-neutral-400">
-                        Tugas Pertamuan {item?.session.session_number}
+                        Tugas Pertamuan {item?.session?.session_number}
                       </p>
                     </section>
                     <section className="flex gap-2 items-start lg:items-centers">
                       <div className="w-4 h-4 rounded-full bg-primary-100 flex items-center justify-center">
                         <MdNavigateNext className="text-primary-500" />
                       </div>
-                      {item.subject_session_progress.subject_batch.map((subject, index) => {
+                      {item?.subject_session_progress.subject_batch?.map((subject, index) => {
                         return (
                           <p className="text-xs text-neutral-400" key={index}>
-                            {subject.teacher_batch.full_name}
+                            {subject?.teacher_batch?.full_name}
                           </p>
                         );
                       })}
