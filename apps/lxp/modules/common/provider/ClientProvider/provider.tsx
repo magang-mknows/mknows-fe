@@ -56,6 +56,7 @@ export const ClientProvider: FC<TProviderProps> = ({
         await logoutRequest({
           refresh_token: data?.user?.token?.refresh_token as string,
         });
+        router.push("/");
       },
     },
   ];

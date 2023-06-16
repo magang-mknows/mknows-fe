@@ -5,6 +5,7 @@ export type TQuizScoreItem = {
   remaining_attempt: number;
   time_elapsed: number;
   score: number;
+  status: string;
 };
 
 export type TQuizScoreResponse = TMetaResponseSingle<TQuizScoreItem>;

@@ -5,16 +5,10 @@ import { AppProps } from "next/app";
 import { RecoilEnv, RecoilRoot } from "recoil";
 import { SessionProvider } from "next-auth/react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { Montserrat } from "next/font/google";
 import { Suspense, useEffect, useState } from "react";
 import { LoadingSpinner } from "@mknows-frontend-services/components/atoms";
 
 const queryClient = new QueryClient();
-
-// const montserrat = Montserrat({
-//   weight: "500",
-//   subsets: ["latin"],
-// });
 
 function CustomApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;

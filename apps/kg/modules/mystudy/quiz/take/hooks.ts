@@ -62,6 +62,8 @@ export const useAutoSaveQuizAnswer = () => {
 
   function resetStoredAnswer() {
     localStorage.removeItem("quiz.answer");
+    localStorage.removeItem("targetTime");
+    localStorage.removeItem("timeRemaining");
   }
 
   return { storedAnswer, setNewStoredAnswer, resetStoredAnswer };
@@ -77,10 +79,13 @@ export const useGetQuizTakeById = (
     queryFn: async () => await quizTakeGetRequest(id),
   });
 
-export const useSubmitQuiz = (
-  id: string,
-): UseMutationResult<TQuizSubmitResponse, TMetaErrorResponse, TQuizSubmitPayload, unknown> =>
+export const useSubmitQuiz = (): UseMutationResult<
+  TQuizSubmitResponse,
+  TMetaErrorResponse,
+  TQuizSubmitPayload,
+  unknown
+> =>
   useMutation({
     mutationKey: ["submit-quiz"],
-    mutationFn: async (payload) => await quizSubmitRequest(id, payload),
+    mutationFn: async (payload) => await quizSubmitRequest(payload),
   });

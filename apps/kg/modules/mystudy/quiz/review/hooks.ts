@@ -1,13 +1,14 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   currentQuizReviewNumberState,
-  quizReviewQuestionAnswerState,
-} from './store';
-import { TuseQuizReviewQuestionsAnswers } from './types';
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { TQuizReviewResponse } from './types';
-import { TMetaErrorResponse } from '@mknows-frontend-services/utils';
-import { quizReviewGetRequest } from './api';
+  quizReviewDataWithCorrectItemState,
+  quizReviewdataState,
+} from "./store";
+import { TQuizReviewPayload, TuseQuizReviewQuestionsAnswers } from "./types";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { TQuizReviewResponse } from "./types";
+import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
+import { quizReviewGetRequest } from "./api";
 
 export const useCurrentQuizReviewNumber = () => {
   const [get, set] = useRecoilState(currentQuizReviewNumberState);
@@ -17,61 +18,22 @@ export const useCurrentQuizReviewNumber = () => {
   };
 };
 
-export const useQuizReviewQuestionsAnswers =
-  (): TuseQuizReviewQuestionsAnswers => {
-    const [get, set] = useRecoilState(quizReviewQuestionAnswerState);
+export const useQuizReviewQuestionsAnswers = (): TuseQuizReviewQuestionsAnswers => {
+  const setReviewData = useSetRecoilState(quizReviewdataState);
+  const quizReviewWithCorrectItem = useRecoilValue(quizReviewDataWithCorrectItemState);
 
-    return {
-      getQuizReviewQuestionsAnswers: get,
-      setQuizReviewQuestionsAnswers: (val) => set(val),
-    };
+  return {
+    getQuizReviewQuestionsAnswers: quizReviewWithCorrectItem,
+    setQuizReviewQuestionsAnswers: (val) => setReviewData(val),
   };
-
-export type TuseHandleQuizReviewBreadCrumbProps = {
-  subjectDetailPath: string;
-  quizPath: string;
-  quizHistoryPath: string;
-};
-
-export const useHandleQuizReviewBreadCrumb = ({
-  subjectDetailPath,
-  quizPath,
-  quizHistoryPath,
-}: TuseHandleQuizReviewBreadCrumbProps) => {
-  return [
-    {
-      name: 'Beranda',
-      link: '/',
-    },
-    {
-      name: 'Studi-ku',
-      link: '/studi-ku',
-    },
-    {
-      name: 'Mata-Kuliah',
-      link: subjectDetailPath,
-    },
-    {
-      name: 'Quiz',
-      link: quizPath,
-    },
-    {
-      name: 'Riwayat Quiz',
-      link: quizHistoryPath,
-    },
-    {
-      name: 'Tinjauan',
-      link: '',
-    },
-  ];
 };
 
 // SERVICE API
 
-export const useGetQuizReviewById = (
-  id: string | number
+export const useGetQuizReviewByAttemptId = (
+  payload: TQuizReviewPayload,
 ): UseQueryResult<TQuizReviewResponse, TMetaErrorResponse> =>
   useQuery({
-    queryKey: ['quiz-review-get', id],
-    queryFn: async () => await quizReviewGetRequest(id),
+    queryKey: ["quiz-review-get", payload],
+    queryFn: async () => await quizReviewGetRequest(payload),
   });

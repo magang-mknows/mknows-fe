@@ -1,4 +1,4 @@
-import { useAutoSaveQuizAnswer } from "../../hooks";
+import { useAutoSaveQuizAnswer, useSubmitQuiz } from "../../hooks";
 import { useCountdownTimer } from "./hooks";
 import { FC, ReactElement, useEffect } from "react";
 import InfoIcon from "../../../assets/info.svg";
@@ -6,19 +6,21 @@ import Image from "next/image";
 import { TRemainingTimeProps } from "./types";
 import { useTimerByGlobalState } from "../static-timer/hooks";
 import { useRouter } from "next/router";
+import { TQuizSubmitPayload } from "../../type";
 
 export const QuizTimer: FC<TRemainingTimeProps> = ({
   expiryTimestamp,
   prevPath,
   quizTakeId,
-  payload,
+  payloadReq,
 }): ReactElement => {
   const router = useRouter();
+  const { setTimerByGlobalState } = useTimerByGlobalState();
+  const { resetStoredAnswer } = useAutoSaveQuizAnswer();
+  const { mutate } = useSubmitQuiz();
   const { hours, minutes, seconds, isComplete } = useCountdownTimer({
     targetHours: expiryTimestamp,
   });
-  const { setTimerByGlobalState } = useTimerByGlobalState();
-  const { resetStoredAnswer } = useAutoSaveQuizAnswer();
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -39,16 +41,22 @@ export const QuizTimer: FC<TRemainingTimeProps> = ({
     };
   }, [hours, seconds, minutes, isComplete, setTimerByGlobalState]);
 
+  const payload: TQuizSubmitPayload = {
+    id: quizTakeId,
+    req: payloadReq,
+  };
+
   useEffect(() => {
     if (isComplete) {
+      mutate(payload);
       resetStoredAnswer();
-      router.push(`${prevPath}/skor/${quizTakeId}`);
+      router.push(`${prevPath}/nilai/${quizTakeId}`);
     }
-  }, [isComplete, resetStoredAnswer, prevPath, quizTakeId, router]);
+  }, [isComplete, resetStoredAnswer, prevPath, quizTakeId, router, payload]);
 
   return (
-    <div className="bg-[#FEDBD7] rounded-md shadow-sm">
-      <p className="flex items-center gap-x-2 w-fit p-3 text-[#EE2D24] text-base font-normal">
+    <div className="bg-error-100 rounded-md shadow-sm">
+      <p className="flex items-center gap-x-2 w-fit p-3 text-warning-500 text-base font-normal">
         {!isComplete ? (
           <>
             <Image src={InfoIcon} alt="Timer Icon" className="w-5 h-5" />

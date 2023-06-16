@@ -11,8 +11,13 @@ type TModuleResumeItem = {
   timestamp_submitted: string;
 };
 
-export type TModuleResumePayload = {
+type TModuleResumePayloadReq = {
   module_answer: string;
+};
+
+export type TModuleResumePayload = {
+  id: number | string;
+  req: TModuleResumePayloadReq;
 };
 
 export type TModuleResumeResponse = TMetaResponseSingle<TModuleResumeItem>;

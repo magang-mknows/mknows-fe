@@ -1,12 +1,15 @@
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { TModuleResumeResponse } from "./types";
+import { TModuleResumePayload, TModuleResumeResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
 import { moduleResumeSubmitRequest } from "./api";
 
-export const useSubmitModuleResumeById = (
-  id: string,
-): UseMutationResult<TModuleResumeResponse, TMetaErrorResponse, string, unknown> =>
+export const useSubmitModuleResumeById = (): UseMutationResult<
+  TModuleResumeResponse,
+  TMetaErrorResponse,
+  TModuleResumePayload,
+  unknown
+> =>
   useMutation({
     mutationKey: ["submit-module-resume"],
-    mutationFn: async (payload) => await moduleResumeSubmitRequest(id, payload),
+    mutationFn: async (payload) => await moduleResumeSubmitRequest(payload),
   });

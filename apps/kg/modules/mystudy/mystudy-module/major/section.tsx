@@ -33,7 +33,7 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
           <h2 className="text-sm font-medium">Program Studi</h2>
           <h1 className="text-[28px] leading-9 font-bold my-1">{name || "unknown"}</h1>
           <p className="text-lg">{head_of_major || "unknown"}</p>
-          <p className="text-[#525252] text-sm my-2">{description || "unknown"}</p>
+          <p className="text-neutral-600 text-sm my-2">{description || "unknown"}</p>
         </div>
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-x-3 rounded-lg gap-y-4">
           {constMajorValue.map((x, i) => {
@@ -45,7 +45,7 @@ export const MajorSection: FC<TDataMajor> = (dataMajorProps): ReactElement => {
               >
                 <div className="flex min-w-[120px] md:min-w-fit">
                   <Image src={x.icon} alt={`${x.detail}-icon`} className="mr-3" />
-                  <div className="flex flex-col text-[#262626]">
+                  <div className="flex flex-col text-neutral-800">
                     <p className="font-semibold text-base">{majorDetailsAmount[i] || "-"}</p>
                     <p className="text-sm font-medium">{x.detail}</p>
                   </div>
