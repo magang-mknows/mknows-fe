@@ -14,10 +14,14 @@ interface DateRange {
 }
 
 interface DateRangePickerProps {
+  width: string;
   onRangeChange: (range: DateRange) => void;
 }
 
-export const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRangeChange }) => {
+export const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({
+  onRangeChange,
+  ...props
+}) => {
   const [ranges, setRanges] = useState<DateRange>({
     startDate: new Date(Date.now()),
     endDate: addDays(new Date(), 7),
@@ -42,26 +46,27 @@ export const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onRan
   return (
     <div>
       <div
-        className="flex bg-white p-1 justify-center items-center rounded-md text-gray-400 border border-gray-200 py-2 w-500px gap-1"
+        className={`flex bg-white justify-center text-xs items-center rounded-md text-gray-400 border border-gray-200 p-2  gap-x-2 ${
+          props.width ? props.width : "w-auto"
+        }`}
         onClick={() => setOpen((open) => !open)}
       >
-        <span className="text-xs">
+        <span className=" flex flex-row items-center">
           Dari{" "}
           {formatDate({
             date: ranges?.startDate,
             options,
           })}
+          <IConCalendar />
         </span>
-        <IConCalendar />
-        <span className="text-xs">
+        <span className="flex flex-row items-center">
           Sampai{" "}
           {formatDate({
             date: ranges?.endDate,
             options,
           })}
+          <IConCalendar />
         </span>
-        <IConCalendar />
-        <span className="text-xs">tt/bb/tahun</span>
       </div>
 
       <div ref={refOne}>
