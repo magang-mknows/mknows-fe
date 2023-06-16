@@ -29,7 +29,7 @@ export const CertificateSection = (): ReactElement => {
           </div>
           {open && (
             <div className="flex justify-end container mt-[10px] z-[9000] absolute w-[150px] -bottom-32 ease-in-out ">
-              <div className="w-[160px] h-[114px] rounded-[8px] text-center  overflow-hidden shadow-2xl ">
+              <div className="w-[160px] h-[114px] rounded-[8px] text-center overflow-hidden shadow-2xl ">
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-neutral-100 w-full bg-white "
                   onClick={() => setFilter("SEMUA")}
