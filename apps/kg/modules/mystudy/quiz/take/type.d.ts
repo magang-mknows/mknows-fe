@@ -28,8 +28,13 @@ export type TQuestionsAnswersPayloadItem = {
   answer: string;
 };
 
-export type TQuizSubmitPayload = {
+export type TQuizSubmitPayloadReq = {
   questions_answers: TQuestionsAnswersPayloadItem[];
+};
+
+export type TQuizSubmitPayload = {
+  id: string;
+  req: TQuizSubmitPayloadReq;
 };
 
 export type TQuizSubmitItem = {

@@ -26,7 +26,8 @@ const ContentSection: FC = (): ReactElement => {
         <div className="w-full">
           {videoModule?.map((item: any, index: number) => {
             console.log("data");
-            const url = item.url.split("https://www.youtube.com/watch?v=").slice(1);
+            // const url = item.url.split("https://www.youtube.com/watch?v=").slice(1);
+            const url = item.url.split("https://youtu.be/").slice(1);
             return <YoutubeSection key={index} url={url} />;
           }, [])}
           <Description title={material?.title} description={material?.description} />

@@ -1,7 +1,8 @@
 import { FC, ReactElement, useState, Fragment } from "react";
 import { Button } from "@mknows-frontend-services/components/atoms";
+import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
-import { useQuotaData } from "./hooks";
+import { useQuota, useQuotaData } from "./hooks";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
 
 const AlokasiKuota: FC = (): ReactElement => {
@@ -270,10 +271,10 @@ const AlokasiKuota: FC = (): ReactElement => {
                     >
                       Kembali
                     </button>
+
                     <button
                       type="button"
                       className="inline-flex bg-success-600 text-white justify-center items-center rounded-md border border-transparent px-[14px] py-2 text-xs font-medium w-full"
-                      onClick={closeModal}
                     >
                       Lihat Riwayat Alokasi Kuota
                     </button>

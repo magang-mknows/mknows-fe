@@ -10,7 +10,7 @@ export const AssignmentModule: FC = (): ReactElement => {
   const { data } = useGetAssignment();
 
   return (
-    <BaseLayout>
+    <BaseLayout title="Penugasan">
       <BreadCrumb items={assignmentBreadCumbs} bgColor={`bg-white`} />
       {data?.data?.length === 0 || undefined ? (
         <Empty />

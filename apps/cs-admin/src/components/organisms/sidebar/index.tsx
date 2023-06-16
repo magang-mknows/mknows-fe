@@ -2,6 +2,7 @@ import { FC, ReactElement, Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   IconGrafic,
+  IconLogout,
   IconQuotaAdmin,
   IconToggle,
 } from "@mknows-frontend-services/components/atoms";
@@ -15,8 +16,13 @@ const Sidebar: FC = (): ReactElement => {
     },
     {
       title: "Grafik Kuota",
-      path: "/quota-grafic",
+      path: "/admin/chart-quota",
       icon: <IconGrafic />,
+    },
+    {
+      title: "Keluar",
+      path: "/",
+      icon: <IconLogout />,
     },
   ];
   const activeLink =
@@ -62,7 +68,7 @@ const Sidebar: FC = (): ReactElement => {
                   </NavLink>
                 </div>
               );
-            })}            
+            })}
           </div>
         </div>
       </aside>

@@ -1,4 +1,4 @@
 export type TNotFoundProps = {
-  keyword: string;
-  title: string;
+  keyword?: string;
+  title?: string;
 };
