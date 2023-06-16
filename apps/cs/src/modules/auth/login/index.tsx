@@ -38,7 +38,6 @@ const LoginModules: FC = (): ReactElement => {
   }, [getError]);
 
   const onSubmit = handleSubmit((data) => {
-    // navigate('/dashboard/home');
     mutate(
       {
         email: data.email,
