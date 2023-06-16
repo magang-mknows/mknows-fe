@@ -50,7 +50,7 @@ export const EventSection: FC<{ items?: unknown[] }> = ({ items }): ReactElement
         <EmpttyState
           description="Belum Ada Event Pelatihan"
           image={emptyEvent}
-          classname="bg-version3-400/10 absolute top-0 left-0 rounded-md"
+          classname="bg-primary-400/20 absolute top-0 left-0 rounded-md"
         />
       ) : (
         <Carousel

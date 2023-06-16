@@ -11,7 +11,7 @@ export const EmpttyState: FC<TEmptyStateProps> = ({
   return (
     <div className={`flex justify-center flex-col  items-center  w-full h-full ${classname} `}>
       {image ? (
-        <figure className="w-full h-[120px] grid place-items-center mb-2 ">
+        <figure className="w-full h-[120px] grid place-items-center mb-3 ">
           <Image
             alt="empty-state"
             src={image}
@@ -22,7 +22,7 @@ export const EmpttyState: FC<TEmptyStateProps> = ({
           />
         </figure>
       ) : null}
-      <h1 className="text-sm text-neutral-800 font-bold">{description}</h1>
+      <h1 className="text-xs text-neutral-800">{description}</h1>
     </div>
   );
 };

@@ -53,7 +53,7 @@ export const ProgressCard: FC<TDataMyWorkItem> = (props): ReactElement => {
             <Button
               type="button"
               disabled
-              className="bg-neutral-300 text-neutral-400 py-2.5 disabled:bg-version2-200/70 disabled:border-none  hover:bg-version2-300 hover:border-version2-300 text-sm w-[200px] font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2  flex items-center justify-center gap-2"
+              className="bg-neutral-200 text-neutral-400 py-2.5 disabled:bg-version2-200/70 disabled:border-none cursor-default text-sm w-[200px] font-bold transition-colors ease-in-out relative z-10 rounded-md duration-300  border-2  flex items-center justify-center gap-2"
             >
               <h1>Lanjutkan Pelatihan</h1>
             </Button>

@@ -21,7 +21,7 @@ export const TaskSection: FC<TTaskProps> = ({ items }): ReactElement => {
         <EmpttyState
           description="Belum Ada Penugasan"
           image={emptyTask}
-          classname="bg-blue-100/40 absolute top-0 left-0 rounded-md"
+          classname="bg-version3-400/10 absolute top-0 left-0 rounded-md"
         />
       ) : (
         <Carousel
