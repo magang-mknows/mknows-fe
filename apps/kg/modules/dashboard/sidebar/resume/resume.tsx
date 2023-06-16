@@ -8,7 +8,7 @@ export const ResumeSection: FC = (): ReactElement => {
   const profile = getDashboardData?.profile;
 
   const ItemAmounts = [
-    profile?.current_subjects,
+    profile?.finished_subjects,
     profile?.total_certificates,
     profile?.ipk,
     profile?.poin,
