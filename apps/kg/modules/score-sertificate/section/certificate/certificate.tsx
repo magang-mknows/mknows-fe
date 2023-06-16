@@ -2,21 +2,18 @@ import { ReactElement, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RxSlider } from "react-icons/rx";
-import dummyCertificate from "../../assets/dummy-certificate.svg";
 import download from "../../assets/download.svg";
 import ImageNull from "../../../assignment/assets/data-null.svg";
 import { usePopupCertificate } from "./hooks";
 import { Card, PopupModal } from "@mknows-frontend-services/components/molecules";
 import { useGetAllCertificate } from "../../hook";
-import { TCertificate, TItemCertificate } from "../../type";
+import { TItemCertificate } from "../../type";
 
 export const CertificateSection = (): ReactElement => {
   const { data } = useGetAllCertificate();
-  const getCertif = data?.data?.certificates;
-  console.log("cek certificate", getCertif);
-
+  const getCertif = data?.data;
   const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState("semua");
+  const [filter, setFilter] = useState("SEMUA");
   const { setPopupStatus, getPopupStatus } = usePopupCertificate();
 
   return (
@@ -35,33 +32,33 @@ export const CertificateSection = (): ReactElement => {
               <div className="w-[160px] h-[114px] rounded-[8px] text-center  overflow-hidden shadow-2xl ">
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter("semua")}
+                  onClick={() => setFilter("SEMUA")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == "semua" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
+                      filter == "SEMUA" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
                   ></div>
                   <p className="text-[#262626] text-[14px] my-auto ml-3">Semua</p>
                 </button>
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter("mata-kuliah")}
+                  onClick={() => setFilter("SUBJECT")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == "mata-kuliah" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
+                      filter == "SUBJECT" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
                   ></div>
                   <p className="text-[#262626] text-[14px] my-auto ml-3">Mata Kuliah</p>
                 </button>
                 <button
                   className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
-                  onClick={() => setFilter("webinar")}
+                  onClick={() => setFilter("EVENT")}
                 >
                   <div
                     className={`h-full w-[5px] ${
-                      filter == "webinar" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
+                      filter == "EVENT" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
                     } absolute left-0 overflow-hidden`}
                   ></div>
                   <p className="text-[#262626] text-[14px] my-auto ml-3">Webinar</p>
@@ -73,99 +70,47 @@ export const CertificateSection = (): ReactElement => {
       </div>
 
       <div className={"lg:grid grid-cols-12 gap-[36px] relative mt-4"}>
-        {getCertif?.map((item: TItemCertificate) => {
-          return (
-            <div className="lg:col-span-4 w-full h-full" key={item?.id}>
-              <Card
-                hasImage={true}
-                src={item?.thumbnail_link}
-                imgwidth={100}
-                imgheight={100}
-                className={
-                  "container mx-auto w-full h-full rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] "
-                }
-                onClick={() => setPopupStatus(true)}
-              >
-                <div className="w-full mt-[12px]">
-                  <h1 className="text-center text-[#171717] text-[18px] font-[500] dark:text-white">
-                    {item?.subject_certificate?.name}
-                  </h1>
-                  <p className="text-center text-[#A3A3A3] dark:text-white text-[16px] font-[500]">
-                    {/* {item.type} */} Webinar
-                  </p>
-                </div>
-              </Card>
-              <div className="w-[1000px]">
-                <PopupModal
-                  lookup={getPopupStatus}
-                  image={item?.thumbnail_link}
-                  hasImg
-                  onClose={() => setPopupStatus(false)}
-                  className={"!py-2"}
-                >
-                  <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
-                    <Link href={item?.link} download>
-                      <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
-                        <div className=" flex justify-center gap-3">
-                          <div>
-                            <Image src={download} alt={"download-icon"} />
-                          </div>
-
-                          <div>Unduh</div>
-                        </div>
-                      </button>
-                    </Link>
-
-                    <button
-                      className="w-[230px] h-[56px] border-[#106FA4] border-2 rounded-[8px] text-[#106FA4] "
-                      onClick={() => setPopupStatus(false)}
-                    >
-                      Kembali
-                    </button>
-                  </div>
-                </PopupModal>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* <div className={'lg:grid grid-cols-12 gap-[36px] relative mt-4'}>
-        {filter == 'semua' ? (
-          getCertificate.map((item: certificateTypes) => {
+        {filter === "SEMUA" ? (
+          getCertif?.map((item: TItemCertificate) => {
             return (
-              <div className="lg:col-span-4 w-full h-full " key={item.id}>
+              <div className="lg:col-span-4 w-full h-full" key={item?.id}>
                 <Card
                   hasImage={true}
-                  src={dummyCertificate}
+                  src={item?.thumbnail_link}
+                  imgwidth={100}
+                  imgheight={100}
                   className={
-                    'container mx-auto w-full h-full  rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] '
+                    "container mx-auto w-full h-full rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] "
                   }
                   onClick={() => setPopupStatus(true)}
                 >
                   <div className="w-full mt-[12px]">
                     <h1 className="text-center text-[#171717] text-[18px] font-[500] dark:text-white">
-                      {item.name}
+                      {item?.event_certificate?.name}
                     </h1>
                     <p className="text-center text-[#A3A3A3] dark:text-white text-[16px] font-[500]">
-                      {item.type}
+                      {item?.type === "EVENT"
+                        ? "Webinar"
+                        : item?.type === "SUBJECT"
+                        ? "Mata Kuliah"
+                        : ""}
                     </p>
                   </div>
                 </Card>
                 <div className="w-[1000px]">
                   <PopupModal
                     lookup={getPopupStatus}
-                    image={dummyCertificate}
+                    image={item?.thumbnail_link}
                     hasImg
                     onClose={() => setPopupStatus(false)}
-                    className={'!py-2'}
+                    className={"!py-2"}
                   >
                     <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
-                      <Link href={item.urlDownload}>
+                      <Link href={item?.link} download>
                         <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
                           <div className=" flex justify-center gap-3">
                             <div>
-                              <Image src={download} alt={'download-icon'} />
+                              <Image src={download} alt={"download-icon"} />
                             </div>
 
                             <div>Unduh</div>
@@ -185,51 +130,62 @@ export const CertificateSection = (): ReactElement => {
               </div>
             );
           })
-        ) : getCertificate.filter((item) => item.type.includes(filter))
-            .length == 0 ? (
+        ) : getCertif?.filter((x) => x?.type.includes(filter)).length === 0 ? (
           <div className=" col-span-12 grid place-content-center  ">
             <Image src={ImageNull} alt="image-null" className="w-full" />
+            {filter === "SUBJECT" ? (
+              <p className="text-center text-[#171717] text-[18px] font-[500] dark:text-white">
+                Belum ada matakuliah yang diselesaikan
+              </p>
+            ) : (
+              <p className="text-center text-[#171717] text-[18px] font-[500] dark:text-white">
+                Kamu belum mengikuti webinar
+              </p>
+            )}
           </div>
         ) : (
-          getCertificate
-            .filter((item: certificateTypes) => item.type.includes(filter))
-            .map((item: certificateTypes) => {
+          getCertif
+            ?.filter((item: TItemCertificate) => item?.type.includes(filter))
+            .map((item: TItemCertificate) => {
               return (
-                <div
-                  className="lg:col-span-4 w-full h-full mb-10 lg:mb-0 "
-                  key={item.id}
-                >
+                <div className="lg:col-span-4 w-full h-full mb-10 lg:mb-0 " key={item.id}>
                   <Card
                     hasImage={true}
-                    src={dummyCertificate}
+                    src={item?.thumbnail_link}
+                    imgwidth={100}
+                    imgheight={100}
                     className={
-                      'container mx-auto w-full h-full  rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] '
+                      "container mx-auto w-full h-full rounded-[8px] p-[12px] bg-white dark:bg-[#08405e] "
                     }
                     onClick={() => setPopupStatus(true)}
                   >
                     <div className="w-full mt-[12px]">
                       <h1 className="text-center text-[#171717] text-[18px] font-[500] dark:text-white">
-                        {item.name}
+                        {item?.event_certificate?.name}
                       </h1>
                       <p className="text-center text-[#A3A3A3] text-[16px] font-[500] dark:text-white">
-                        {item.type}
+                        {item?.type === "EVENT"
+                          ? "Webinar"
+                          : item?.type === "SUBJECT"
+                          ? "Mata Kuliah"
+                          : ""}
                       </p>
                     </div>
                   </Card>
                   <div className="w-[1000px]">
                     <PopupModal
                       lookup={getPopupStatus}
-                      image={dummyCertificate}
+                      image={item?.thumbnail_link}
                       hasImg
                       onClose={() => setPopupStatus(false)}
-                      className={'!py-2'}
+                      className={"!py-2"}
                     >
                       <div className="flex md:flex-row flex-col md:gap-3 gap-0 items-center ">
-                        <Link href={item.urlDownload}>
+                        <Link href={item?.link} download>
                           <button className="w-[230px] h-[56px]  bg-[#106FA4] rounded-[8px] text-white mb-3 md:mb-0">
                             <div className=" flex justify-center gap-3">
                               <div>
-                                <Image src={download} alt={'download-icon'} />
+                                <Image src={download} alt={"download-icon"} />
                               </div>
 
                               <div>Unduh</div>
@@ -250,7 +206,7 @@ export const CertificateSection = (): ReactElement => {
               );
             })
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
