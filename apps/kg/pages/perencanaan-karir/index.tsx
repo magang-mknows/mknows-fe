@@ -1,4 +1,4 @@
-import { CareerPlaningModules } from "../../../kg/modules/career-planing/module";
+import { CareerPlaningModules } from "../../modules/career-planing/career-planing/module";
 import { NextPage } from "next";
 import { ReactElement } from "react";
 

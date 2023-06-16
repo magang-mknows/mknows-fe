@@ -4,6 +4,9 @@ import { BsDot } from "react-icons/bs";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import dummyArticleImage from "./dummy-assets/dummy-article.svg";
+import Image from "next/image";
+
 export const ArticleCarousel: FC = (): ReactElement => {
   const dummyArticle = [
     {
@@ -12,6 +15,7 @@ export const ArticleCarousel: FC = (): ReactElement => {
       catogory: "Technologi",
       type: "Article",
       date: "29 Feb 2023",
+      image: dummyArticleImage,
     },
     {
       id: 2,
@@ -19,6 +23,7 @@ export const ArticleCarousel: FC = (): ReactElement => {
       catogory: "Technologi",
       type: "Article",
       date: "34 Feb 2023",
+      image: dummyArticleImage,
     },
   ];
 
@@ -52,7 +57,9 @@ export const ArticleCarousel: FC = (): ReactElement => {
             <div className="block " key={index}>
               <section key={index} className="block">
                 <div className="max-h-[400px] overflow-hidden object-cover">
-                  <figure className="w-full h-80 bg-neutral-200 rounded-md"></figure>
+                  <figure className="w-full h-72 bg-neutral-200 rounded-md">
+                    <Image src={article.image} alt="test" height={90} width={100} />
+                  </figure>
                 </div>
                 <div className="px-4 py-4 flex bg-neutral-50   flex-col  justify-start">
                   <h1 className="text-base font-bold text-neutral-900 text-start mb-1">

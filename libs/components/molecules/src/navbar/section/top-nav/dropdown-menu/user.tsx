@@ -6,16 +6,16 @@ import Image from "next/image";
 
 export const NavbarUserMenu: FC<TNavbarUserProps> = ({ items, userData }): ReactElement => {
   return (
-    <Menu as="div" className={"relative hidden lg:inline-block text-left z-50 left-0 "}>
+    <Menu as="div" className="hidden lg:inline-block h-9 w-9 z-50">
       <Menu.Button>
-        <div className="bg-neutral-100 h-9 w-9 flex items-center justify-center  overflow-hidden rounded-md cursor-pointer group">
+        <div className="bg-neutral-100  flex items-center justify-center  overflow-hidden rounded-md h-9 w-9 cursor-pointer group">
           {userData?.avatar ? (
             <Image
               src={userData.avatar}
               alt={"user avatar"}
               width={36}
               height={36}
-              className="bg-white  flex text-neutral-600 items-center justify-center font-[700]"
+              className="bg-white h-9 w-9  flex text-neutral-600 items-center justify-center font-[700]"
             />
           ) : (
             <Avatar

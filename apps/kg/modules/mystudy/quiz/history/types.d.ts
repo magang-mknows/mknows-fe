@@ -1,6 +1,6 @@
-import { TMetaResponse } from '@mknows-frontend-services/utils';
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
-export type TQuizHistoryItem = {
+export type TQuizHistoryData = {
   id: string;
   timestamp_taken: string;
   score: number;
@@ -11,4 +11,9 @@ export type TQuizHistoryItem = {
   time_elapsed: number;
 };
 
-export type TQuizHistoryResponse = TMetaResponse<TQuizHistoryItem>;
+export type TQuizHistoryItem = {
+  history_data: TQuizHistoryData[];
+  remaining_attempt: number | string;
+};
+
+export type TQuizHistoryResponse = TMetaResponseSingle<TQuizHistoryItem>;

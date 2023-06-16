@@ -1,14 +1,8 @@
-import { FC, ReactElement, useEffect } from "react";
+import { FC, Fragment, ReactElement, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  usePrivateInformationStatus,
-  useAdministrationStatus,
-  useGetAllAdministration,
-  usePrivateInformation,
-} from "../hooks";
-import { Accordion } from "@mknows-frontend-services/components/molecules";
+import { useAdministrationStatus, useGetAllAdministration, usePrivateInformation } from "../hooks";
 import { Button, TextField } from "@mknows-frontend-services/components/atoms";
 
 const PrivateInformationAccordion: FC = (): ReactElement => {
@@ -28,7 +22,6 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
 
   type ValidationSchema = z.infer<typeof validationSchema>;
   const { mutate } = usePrivateInformation();
-  const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
 
   const {
@@ -56,13 +49,12 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
         },
         {
           onSuccess: () => {
-            setPrivateStatus(true);
             setAdministrationStatus("finished");
           },
         },
       );
     } catch (err) {
-      setPrivateStatus(false);
+      console.log(err);
     }
   });
   useEffect(() => {
@@ -72,12 +64,11 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
       : setAdministrationStatus("finished");
   }, [reset, administrationData]);
   return (
-    <Accordion
-      idAccordion={getPrivateStatus ? "" : "privat-information"}
-      title="Informasi Pribadi"
-      disabled={getPrivateStatus ? true : false}
-    >
-      <form onSubmit={onSubmit}>
+    <Fragment>
+      <section className="bg-neutral-200 font-bold w-full py-3.5 mb-2 px-4 rounded-md shadow-sm">
+        <h1>Informasi Pribadi</h1>
+      </section>
+      <form onSubmit={onSubmit} className="p-4">
         <div className="lg:flex w-full gap-[55px]">
           <div className="w-full">
             <div className="form-label">
@@ -180,9 +171,9 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
             </div>
             <div className="flex w-full my-8 justify-end">
               <Button
-                className={`my-4 w-[211px] rounded-[8px] disabled:bg-gray-400  
-                  bg-[#F26800]
-                 font-bold p-3 text-1xl text-[#FFFF] disabled:bg-neutral-200 `}
+                className={`my-4 w-[240px] rounded-[8px] disabled:bg-gray-400  
+                  bg-version3-500
+                 font-bold p-3 text-1xl text-white disabled:bg-neutral-200 `}
                 type={"submit"}
                 disabled={!isValid}
               >
@@ -192,7 +183,7 @@ const PrivateInformationAccordion: FC = (): ReactElement => {
           </div>
         </div>
       </form>
-    </Accordion>
+    </Fragment>
   );
 };
 

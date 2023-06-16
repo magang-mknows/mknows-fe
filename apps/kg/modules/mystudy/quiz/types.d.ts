@@ -6,6 +6,7 @@ export type TQuizDescItem = {
   kkm: number;
   duration: number;
   remaining_attempt: number;
+  question_point: string;
 };
 
 export type TQuizDescResponse = TMetaResponseSingle<TQuizDescItem>;
