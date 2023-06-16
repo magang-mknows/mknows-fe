@@ -8,7 +8,7 @@ import { LayoutFooter } from "../common/footer/footer-layout";
 export const RegistrationVideoModule = (): ReactElement => {
   return (
     <ClientProvider>
-      <BreadCrumb items={guideVideoBreadCumbs} />
+      <BreadCrumb items={guideVideoBreadCumbs} textColor="text-version2-400 !bg-white" />
       <ContentSection />
       <LayoutFooter />
     </ClientProvider>

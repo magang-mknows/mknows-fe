@@ -1,7 +1,7 @@
 export const administrationBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Administrasi",

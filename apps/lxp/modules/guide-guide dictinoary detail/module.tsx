@@ -9,8 +9,8 @@ import { LayoutFooter } from "../common/footer/footer-layout";
 export const GuideDictinoaryModule = (): ReactElement => {
   return (
     <div>
-      <ClientProvider sectionClassName="!bg-[#fff]">
-        <BreadCrumb items={guideDictinoaryBreadCumbs} />
+      <ClientProvider sectionClassName="!bg-white">
+        <BreadCrumb items={guideDictinoaryBreadCumbs} textColor="text-version2-400 !bg-white" />
         <div className="  flex flex-col-reverse lg:flex-row justify-start px-8 md:px-14 lg:px-16 w-full gap-36">
           <Sidebar />
           <ContentSection />
