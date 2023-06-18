@@ -12,7 +12,7 @@ export const ProgressSection: FC<TProgressProps> = ({ items }) => {
   const [isViewMore, setViewMore] = useState<boolean>(false);
   return (
     <section className="bg-neutral-50 min-h-[76vh] w-full px-6 py-4 rounded-md mb-10">
-      {items?.length !== 0 ? (
+      {items?.length === 0 ? (
         <section className="w-full h-full flex flex-col gap-y-2 items-center justify-center">
           <figure className="h-[280px] mb-4">
             <Image
