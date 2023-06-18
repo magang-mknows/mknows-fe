@@ -37,7 +37,7 @@ export const TrainingPlanModule: FC = (): ReactElement => {
           </section>
         </section>
       ) : (
-        <section className="bg-light w-full h-full">
+        <section className="bg-light w-full h-full min-h-screen">
           {!workPlanStatus && !isSeeDeptList ? (
             <UnChoosenSection />
           ) : (
