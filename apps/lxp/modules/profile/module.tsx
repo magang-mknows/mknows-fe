@@ -11,6 +11,7 @@ import {
 } from "./main";
 import { ContentFooter } from "../common/footer/footer-content";
 import { useRouter } from "next/router";
+import { useProfile } from "./hooks";
 
 export const ProfileModule: FC = (): ReactElement => {
   const router = useRouter();
@@ -27,6 +28,10 @@ export const ProfileModule: FC = (): ReactElement => {
     router.push("/profile");
   }
 
+  const { data } = useProfile();
+  const userData = data?.data;
+  console.log("user data :", data);
+
   return (
     <ClientProvider>
       <section className="min-h-[120vh] bg-neutral-50/40 pb-20">
@@ -37,7 +42,13 @@ export const ProfileModule: FC = (): ReactElement => {
         <section className="grid grid-cols-1 gap-20 px-8 lg:grid-cols-3 md:px-14 lg:px-16">
           <ProfileSidebar />
           <section className="col-span-2">
-            {pathname === "/profile" && <ViewProfileSection />}
+            {pathname === "/profile" && (
+              <ViewProfileSection
+                avatar={userData?.avatar}
+                full_name={userData?.full_name}
+                user_administration={userData?.user_administration}
+              />
+            )}
             {pathname === "/profile/edit-profile" && <EditProfileSection />}
             {pathname === "/profile/ubah-password" && <ChangePasswordSection />}
             {pathname === "/profile/cv-portofolio" && <CVPortofolioSection />}
