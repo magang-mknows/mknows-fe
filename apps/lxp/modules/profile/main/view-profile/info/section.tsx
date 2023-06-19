@@ -4,9 +4,9 @@ import { BsDot } from "react-icons/bs";
 import { TViewProfilInfoProps } from "./types";
 
 export const ViewProfilInfo: FC<TViewProfilInfoProps> = ({
-  full_name,
+  full_name = "",
   user_administration,
-  batch,
+  batch = 1,
 }): ReactElement => {
   return (
     <section className="w-full  -mt-8 pl-2">

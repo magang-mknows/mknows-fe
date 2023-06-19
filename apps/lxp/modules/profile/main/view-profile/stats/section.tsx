@@ -4,10 +4,10 @@ import { BsBuildingsFill, BsClockFill, BsFillChatLeftFill } from "react-icons/bs
 import { TViewProfileStatsProps } from "./types";
 
 export const ViewProfileStats: FC<TViewProfileStatsProps> = ({
-  certificateCount,
-  likeCount,
-  totalDiscussion,
-  totalFinalScore,
+  certificateCount = 0,
+  likeCount = 0,
+  totalDiscussion = 0,
+  totalFinalScore = 0,
 }): ReactElement => {
   return (
     <main className="w-full pl-2 pt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
