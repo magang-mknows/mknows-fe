@@ -13,7 +13,7 @@ export const GuideDictinoaryModuleId: NextPage = (): ReactElement => {
   const BreadCrumbEndpoint = [
     {
       name: "Home",
-      link: "/",
+      link: "/dashboard",
     },
     {
       name: "Panduan",
@@ -31,7 +31,7 @@ export const GuideDictinoaryModuleId: NextPage = (): ReactElement => {
 
   return (
     <ClientProvider sectionClassName="!bg-[#FAFAFA]">
-      <BreadCrumb items={BreadCrumbEndpoint} />
+      <BreadCrumb items={BreadCrumbEndpoint} textColor="text-version2-400 !bg-white" />
       <div className="w-full flex flex-col-reverse lg:flex-row justify-start px-8 md:px-14 lg:px-16 gap-36">
         <Sidebar />
         <ContentSection />

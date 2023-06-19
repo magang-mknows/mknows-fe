@@ -1,7 +1,7 @@
 export const UniqueEventBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Acara Unik",

@@ -1,7 +1,7 @@
 export const myTrainingModuleBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Pelatihan-Ku",

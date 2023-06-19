@@ -8,38 +8,40 @@ import DoneIcon from "./assets/done-icon.svg";
 
 export const ModuleMyStudyModule: FC = (): ReactElement => {
   const router = useRouter();
-  const { data } = useGetModuleById(router.query.moduleId as string);
+  const { data } = useGetModuleById(router.query.sessionId as string);
   const splitedPath = router.asPath.split("/");
   const sessionIndex = splitedPath[splitedPath.length - 2].split("-")[1];
 
   const dataModules: Array<TModuleItem> = data?.data as Array<TModuleItem>;
 
   return (
-    <div className="w-full justify-start lg:px-32 p-2 lg:p-10">
-      <div className="w-full mb-8">
-        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-[#171717]">Mata Kuliah</h3>
+    <div className="w-full justify-start lg:px-32 p-2 lg:p-10 mt-4">
+      <div className="w-full mb-12">
+        <h3 className="w-fit mx-auto text-[28px] font-extrabold text-neutral-900">
+          {router.query.subjectName}
+        </h3>
       </div>
       <div className="flex flex-col gap-y-8">
         {dataModules?.map((module, index) => (
           <Link
             key={index}
-            href={`${router.asPath}/${module.id}`}
+            href={`${router.asPath}/${module?.title}/${module?.id}`}
             className="relative flex auto p-4 flex-col bg-neutral-300/30 shadow-[0_3px_22px_10px_rgba(229, 229, 229, 1)] text-start rounded-lg"
           >
-            {module.is_all_video_seen && (
+            {module?.is_all_video_seen && (
               <div className="absolute top-7 right-7 w-5 h-5">
                 <Image src={DoneIcon} alt="done-icon" className="w-full" />
               </div>
             )}
             <div className="flex flex-col p-4">
-              <h1 className="font-bold text-xl">{module.title}</h1>
+              <h1 className="font-bold text-xl">{module?.title}</h1>
 
               <p className="text-md text-gray-600 py-4">
                 Pertemuan {sessionIndex} |{" "}
-                <span className="text-gray-400">{module.description}</span>
+                <span className="text-gray-400">{module?.description}</span>
               </p>
               <div className="flex gap-3">
-                <div className=" flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px]  bg-[#E3FBDA]">
+                <div className=" flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px] bg-success-100">
                   <svg
                     width="16"
                     height="15"
@@ -52,9 +54,9 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
                       fill="#3EB449"
                     />
                   </svg>
-                  <p>{module.total_videos} video</p>
+                  <p>{module?.total_videos} video</p>
                 </div>
-                <div className="flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
+                <div className="flex gap-3 text-black px-2 py-2 my-[10px] text-[12px] rounded-[5px] bg-yellow-100">
                   <svg
                     width="21"
                     height="21"
@@ -72,7 +74,7 @@ export const ModuleMyStudyModule: FC = (): ReactElement => {
                     />
                   </svg>
 
-                  <p>{module.total_documents} Dokumen</p>
+                  <p>{module?.total_documents} Dokumen</p>
                 </div>
               </div>
             </div>

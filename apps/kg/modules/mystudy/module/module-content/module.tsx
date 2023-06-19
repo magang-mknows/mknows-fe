@@ -7,7 +7,7 @@ import { useConfirmModul } from "../hooks";
 import Play from "../assets/button-play.svg";
 import Document from "../assets/iconDoc.svg";
 import { useRouter } from "next/router";
-import { TModuleContentItem } from "./types";
+import { TModuleContentItem, TVideoItem } from "./types";
 import { Button } from "@mknows-frontend-services/components/atoms";
 import { ModulePopup } from "./pop-up";
 
@@ -15,45 +15,40 @@ export const ModuleContentModule = (): ReactElement => {
   const router = useRouter();
   const { data } = useGetModuleContentById(router.query.moduleContentId as string);
   const { mutate } = useWatchedVideoSubmitById();
-  const dataModuleContents: TModuleContentItem = data?.data as TModuleContentItem;
+  const dataModuleContents: TModuleContentItem = useMemo(
+    () => data?.data as TModuleContentItem,
+    [data],
+  );
   const idVideoGroup = useMemo(() => {
     return dataModuleContents?.module_moduleVideos.map((video, i) => {
       return {
-        id: video.id,
-        title: video.title,
-        desc: video.description,
-        youtubeId: video.url.match(
+        id: video?.id,
+        title: video?.title,
+        desc: video?.description,
+        youtubeId: video?.url.match(
           /(?<=v=|v\/|vi\/|vi=|youtu\.be\/|\/v\/|\/embed\/|\/shorts\/|\/youtu.be\/|\/v=|\/e\/|\/u\/\w\/|\/embed\/|\/v\/|\/watch\?v=|youtube.com\/watch\?v=|youtu.be\/)([^#&?\n]*)/,
         )?.[0] as string,
       };
     });
   }, [dataModuleContents]);
 
-  type TVideoItem = {
-    id: string;
-    title: string;
-    desc: string;
-    youtubeId: string;
-  };
-
   const [isExecuted, setIsExecuted] = useState(false);
   const [videoItem, setVideoItem] = useState<TVideoItem>({
-    title: "",
     id: "",
+    title: "",
     desc: "",
     youtubeId: "",
   });
 
   useEffect(() => {
-    setIsExecuted(true);
-    if (idVideoGroup && isExecuted) {
+    if (!isExecuted && idVideoGroup) {
       setVideoItem({
-        id: idVideoGroup[0].id,
-        title: idVideoGroup[0].title,
-        desc: idVideoGroup[0].desc,
-        youtubeId: idVideoGroup[0].youtubeId,
+        id: idVideoGroup?.[0]?.id,
+        title: idVideoGroup?.[0]?.title,
+        desc: idVideoGroup?.[0]?.desc,
+        youtubeId: idVideoGroup?.[0]?.youtubeId,
       });
-      setIsExecuted(false);
+      setIsExecuted(true);
     }
   }, [idVideoGroup, isExecuted]);
 
@@ -82,10 +77,12 @@ export const ModuleContentModule = (): ReactElement => {
 
   return (
     <Fragment>
-      <ModulePopup moduleId={router.query.moduleContentId as string} />
+      <ModulePopup moduleId={dataModuleContents?.id as string} />
       {dataModuleContents && (
         <div className="flex flex-col h-full w-full items-center px-4 lg:px-32 ">
-          <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">Mata Kuliah 1</h1>
+          <h1 className="mx-auto lg:text-3xl text-lg font-bold mt-4 mb-8">
+            {dataModuleContents?.title}
+          </h1>
           <div className="flex lg:flex-row flex-col w-full h-full gap-8">
             <section className="flex w-full md:w-fit">
               <div className="flex flex-col w-full h-auto gap-4 justify-center items-center">
@@ -97,8 +94,8 @@ export const ModuleContentModule = (): ReactElement => {
                   iframeClassName="xl:w-[728px] lg:w-full  xl:h-[398px] lg:h-[508px] w-[360px] h-[320px]"
                 />
                 <div className="shadow-md rounded-lg lg:p-10 w-full h-full">
-                  <h1 className="font-bold text-xl">{videoItem.title}</h1>
-                  <p className="text-gray-500 py-4">{videoItem.desc}</p>
+                  <h1 className="font-bold text-xl">{videoItem?.title}</h1>
+                  <p className="text-gray-500 py-4">{videoItem?.desc}</p>
                 </div>
               </div>
             </section>
@@ -106,7 +103,7 @@ export const ModuleContentModule = (): ReactElement => {
               <section className="flex flex-col">
                 <h1 className="font-bold text-xl">Video Lainnya</h1>
                 <div className="flex flex-col gap-y-4 py-4">
-                  {idVideoGroup.map((video, index) => (
+                  {idVideoGroup?.map((video, index) => (
                     <button
                       key={index}
                       onClick={() =>
@@ -123,8 +120,8 @@ export const ModuleContentModule = (): ReactElement => {
                         <Image src={Play} alt="icon" />
                         <p className="font-bold">{video.title}</p>
                       </div>
-                      {video.id === videoItem.id && (
-                        <div className="bg-[#A3A3A3] py-2 px-3 rounded-lg">
+                      {video?.id === videoItem?.id && (
+                        <div className="bg-neutral-base py-2 px-3 rounded-lg">
                           <p className="text-white text-xs font-semibold">Sedang dibuka</p>
                         </div>
                       )}
@@ -139,11 +136,11 @@ export const ModuleContentModule = (): ReactElement => {
                     <Button
                       key={i}
                       type="button"
-                      href={doc.document_file}
+                      href={doc?.document_file}
                       className="flex items-center gap-x-2"
                     >
                       <Image src={Document} alt="icon" />
-                      <p className="font-bold">{doc.title}</p>
+                      <p className="font-bold">{doc?.title}</p>
                     </Button>
                   ))}
                 </div>

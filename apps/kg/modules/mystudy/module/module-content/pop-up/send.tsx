@@ -10,14 +10,16 @@ export const ModulePopup: FC<{ moduleId: string }> = ({ moduleId }): ReactElemen
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { setPopupStatus, getPopupStatus } = usePopupConfirmModul();
   const { setConfirmModul } = useConfirmModul();
-  const { mutate } = useSubmitModuleResumeById(moduleId);
+  const { mutate } = useSubmitModuleResumeById();
 
   function onSendHandler() {
-    const temp: TModuleResumePayload = {
-      module_answer: inputRef.current?.value as string,
+    const payload: TModuleResumePayload = {
+      id: moduleId,
+      req: { module_answer: inputRef.current?.value as string },
     };
-    const moduleResumePayload = JSON.stringify(temp);
-    mutate(moduleResumePayload);
+    mutate(payload);
+    setPopupStatus(false);
+    setConfirmModul(true);
   }
 
   return (
@@ -42,16 +44,7 @@ export const ModulePopup: FC<{ moduleId: string }> = ({ moduleId }): ReactElemen
         sesuai!
       </p>
       <div className="p-4 flex w-full justify-end items-end">
-        <ModuleButton
-          onClick={() => {
-            setPopupStatus(false);
-            setConfirmModul(true);
-            onSendHandler();
-          }}
-          text="Kirim"
-          color="yellow"
-          size="base"
-        />
+        <ModuleButton onClick={onSendHandler} text="Kirim" color="yellow" size="base" />
       </div>
     </PopupModal>
   );

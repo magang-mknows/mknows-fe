@@ -1,33 +1,22 @@
 import { TMetaResponse, TMetaResponseSingle } from "@mknows-frontend-services/utils";
-// certificate
 
-type TCertificate = {
-  certificates: TItemCertificate[];
-};
 type TItemCertificate = {
   id: string;
   student_id: string;
-  subject_id: string;
+  subject_id: any;
+  event_id: string;
+  type: string;
   id_certificate: string;
   file: string;
   link: string;
   thumbnail: string;
   thumbnail_link: string;
-  subject_certificate: SubjectCertificate;
-  user_certificate: UserCertificate;
+  subject_certificate: string;
+  event_certificate: EventCertificate;
 };
 
-type SubjectCertificate = {
+type EventCertificate = {
   name: string;
-  subject_code: string;
-  degree: string;
-  level: number;
 };
 
-type UserCertificate = {
-  email: string;
-  full_name: string;
-  user_name: string;
-};
-
-export type TCertificateResponse = TMetaResponseSingle<TCertificate>;
+export type TCertificateResponse = TMetaResponse<TItemCertificate>;

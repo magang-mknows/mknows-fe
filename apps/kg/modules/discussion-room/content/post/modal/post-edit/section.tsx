@@ -8,7 +8,7 @@ import { RxCross1 } from "react-icons/rx";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isModalOpen, selectedPostId } from "../../../store";
-import { useCreateDiscussion, useDiscussionById } from "./hooks";
+import { useUpdateDiscussion, useDiscussionById } from "./hooks";
 import Image from "next/image";
 
 export const PostEditModal: FC = (): ReactElement => {
@@ -20,7 +20,7 @@ export const PostEditModal: FC = (): ReactElement => {
   const { data, refetch } = useDiscussionById(getSeletedPostId as string);
   const discussionData = data?.data;
 
-  const { mutate, isLoading } = useCreateDiscussion();
+  const { mutate, isLoading } = useUpdateDiscussion(getSeletedPostId as string);
 
   const MAX_FILE_SIZE = 3 * 1024 * 1024;
   const ACCEPTED_MEDIA_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "video/mp4"];
@@ -60,9 +60,15 @@ export const PostEditModal: FC = (): ReactElement => {
     },
   });
 
-  const onSubmit = handleSubmit(async (data) => {
-    await mutate(data);
-    await refetch();
+  // const onSubmit = handleSubmit(async (data) => {
+  //   console.log("dsaasdaa");
+
+  //   // await mutate(data);
+  //   // await refetch();
+  // });
+
+  const onSubmit = handleSubmit(async () => {
+    console.log("dsaasdaa");
   });
 
   // console.log(!!data?.data?.images);
@@ -83,7 +89,7 @@ export const PostEditModal: FC = (): ReactElement => {
           }}
         />
       </header>
-      <main className="px-4 py-8">  
+      <main className="px-4 py-8">
         <form onSubmit={onSubmit}>
           <TextField
             required
@@ -128,7 +134,6 @@ export const PostEditModal: FC = (): ReactElement => {
                   variant={"lg"}
                   control={control}
                   status={errors.images ? "error" : undefined}
-                  // message={errors.images?.message}
                 />
               )}
             </section>
@@ -136,8 +141,9 @@ export const PostEditModal: FC = (): ReactElement => {
           <p className="mt-2 mb-4 text-xs text-neutral-400">Maks. 250 karakter</p>
           <section className="grid mt-2 place-items-end">
             <Button
+              onClick={onSubmit}
               disabled={!isValid}
-              type="submit"
+              type="button"
               className="relative z-10 flex items-center justify-center gap-2 py-2 text-sm font-bold transition-colors duration-300 ease-in-out border-2 rounded-md border-version2-500 disabled:bg-neutral-300 bg-[#3EB449] text-neutral-100 hover:opacity-75 w-28"
             >
               <RiSendPlaneFill />

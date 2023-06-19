@@ -40,7 +40,7 @@ export const CardCS: FC<TCardProps> = ({
           <div className={titleStyle}>
             <h1>{title}</h1>
           </div>
-          <div className="flex flex-col justify-between w-full h-full">
+          <div className="flex flex-col w-full h-full">
             <div className="flex w-full ">{children}</div>
             <div className={bodyClassName}>
               {hasButton && (

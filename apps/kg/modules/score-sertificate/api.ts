@@ -1,7 +1,7 @@
 import api from "../../services/api";
-import { TCertificate } from "./type";
+import { TCertificateResponse } from "./type";
 
-export const certificateGetRequest = async (): Promise<TCertificate> => {
+export const certificateGetRequest = async (): Promise<TCertificateResponse> => {
   const { data } = await api.get(`/certificate`);
   return data;
 };
