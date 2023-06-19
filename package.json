@@ -62,7 +62,7 @@
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "react-error-boundary": "^4.0.10",
-    "react-hook-form": "^7.44.3",
+    "react-hook-form": "^7.45.0",
     "react-icons": "^4.9.0",
     "react-lazily": "^0.9.2",
     "react-otp-input": "^3.0.2",
