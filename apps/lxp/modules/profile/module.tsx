@@ -46,6 +46,11 @@ export const ProfileModule: FC = (): ReactElement => {
                 avatar={profileData?.dataUser?.avatar}
                 full_name={profileData?.dataUser?.full_name}
                 user_administration={profileData?.dataUser?.user_administration}
+                batch={profileData?.batch}
+                certificateCount={profileData?.certificateCount}
+                totalFinalScore={profileData?.totalFinalScore}
+                likeCount={profileData?.likeCount}
+                totalDiscussion={profileData?.totalDiscussion}
               />
             )}
             {pathname === "/profile/edit-profile" && <EditProfileSection />}

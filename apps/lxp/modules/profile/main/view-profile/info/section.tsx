@@ -6,6 +6,7 @@ import { TViewProfilInfoProps } from "./types";
 export const ViewProfilInfo: FC<TViewProfilInfoProps> = ({
   full_name,
   user_administration,
+  batch,
 }): ReactElement => {
   return (
     <section className="w-full  -mt-8 pl-2">
@@ -19,7 +20,7 @@ export const ViewProfilInfo: FC<TViewProfilInfoProps> = ({
       <main className="w-full flex gap-0 items-center">
         <h1 className="text-neutral-500 text-sm">{user_administration?.type}</h1>
         <BsDot className="text-version2-400 text-2xl" />
-        <h1 className="text-neutral-500 text-sm">Batch I</h1>
+        <h1 className="text-neutral-500 text-sm">Batch {batch}</h1>
       </main>
       <footer className="w-full flex gap-0 items-center">
         <h1 className="text-neutral-600 text-base">{user_administration?.department}</h1>
