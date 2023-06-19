@@ -1,5 +1,4 @@
 import { FC, ReactElement, Fragment, useState } from "react";
-import { NavLink } from "react-router-dom";
 import Avatar from "react-avatar";
 import {
   IconDashboard,

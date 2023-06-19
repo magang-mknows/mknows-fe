@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy } from "../type";
+import { TReportDataDummy } from "../types";
 import { useReportData } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 

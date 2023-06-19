@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { TReportDataDummy } from "./type";
+import { TReportDataDummy } from "./types";
 
 export const reportSearch = atom({
   key: "report-query",

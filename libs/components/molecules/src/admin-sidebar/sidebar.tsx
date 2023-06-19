@@ -1,4 +1,4 @@
-import { FC, ReactElement, Fragment, useState } from "react";
+import { FC, ReactElement, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Avatar from "react-avatar";
 import {
@@ -12,7 +12,7 @@ import {
 } from "@mknows-frontend-services/components/atoms";
 import { TSidebarProp } from "./type";
 
-export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
+export const Sidebar: FC<TSidebarProp> = ({ children, items }): ReactElement => {
   const DataSidebar = [
     {
       title: "Dashboard",
@@ -78,7 +78,7 @@ export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
                 </div>
                 <div className="font-semibold text-sm text-neutral-500">Salsa</div>
               </div>
-              {DataSidebar.map((x, i) => {
+              {items.map((x, i) => {
                 return (
                   <div key={i} className="my-4">
                     <div

@@ -17,3 +17,19 @@ export type TReportQueryResponse = {
   getReportQuery: string;
   setReportQuery: (val: string) => void;
 };
+
+export type TReportCustitems = {
+  _id?: string;
+  name: string;
+  nik: string;
+  requests: Array[{
+    id: string;
+    request_number: string;
+    feature_name: string;
+    requested_at: string;
+    result: string;
+    document: string;
+  }];
+};
+
+export type TReportCustResponse = TMetaResponse<TReportCustitems>;

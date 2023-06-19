@@ -1,6 +1,8 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { reportFilter, reportSearch } from "./store";
-import { TReportDataResponse, TReportQueryResponse } from "./type";
+import { TReportCustResponse, TReportDataResponse, TReportQueryResponse } from "./types";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { getDataReportCust } from "./api";
 
 export const useReportData = (): TReportDataResponse => {
   const get = useRecoilValue(reportFilter);
@@ -15,4 +17,11 @@ export const useReportQuery = (): TReportQueryResponse => {
     getReportQuery: get,
     setReportQuery: (val: string) => set(val),
   };
+};
+
+export const useReportCust = (): UseQueryResult<TReportCustResponse> => {
+  return useQuery({
+    queryKey: ["get-report-cust"],
+    queryFn: async () => await getDataReportCust(),
+  });
 };
