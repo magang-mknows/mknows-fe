@@ -3,7 +3,10 @@ import { TViewProfileHeroProps } from "./type";
 import Image from "next/image";
 import Avatar from "react-avatar";
 
-export const ViewProfileHero: FC<TViewProfileHeroProps> = ({ avatar, full_name }): ReactElement => {
+export const ViewProfileHero: FC<TViewProfileHeroProps> = ({
+  avatar,
+  full_name = "-",
+}): ReactElement => {
   return (
     <section className="relative w-full">
       <figure className="w-full min-h-[260px] bg-neutral-200 rounded-md shadow-sm"></figure>

@@ -1,12 +1,21 @@
 import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export interface IUserItem {
+  likeCount: number;
+  certificateCount: number;
+  totalFinalScore: number;
+  dataUser: IDataUser;
+  totalDiscussion: number;
+  batch: number;
+}
+export interface IDataUser {
   id: string;
   email: string;
   full_name: string;
   user_name: string;
   avatar: string;
   gender: string;
+  cover_photo: string;
   phone_number: string;
   email_verified_at: string;
   user_role: IUserRole;
