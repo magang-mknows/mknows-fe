@@ -29,8 +29,7 @@ export const ProfileModule: FC = (): ReactElement => {
   }
 
   const { data } = useProfile();
-  const userData = data?.data;
-  console.log("user data :", data);
+  const profileData = data?.data;
 
   return (
     <ClientProvider>
@@ -44,9 +43,9 @@ export const ProfileModule: FC = (): ReactElement => {
           <section className="col-span-2">
             {pathname === "/profile" && (
               <ViewProfileSection
-                avatar={userData?.avatar}
-                full_name={userData?.full_name}
-                user_administration={userData?.user_administration}
+                avatar={profileData?.dataUser?.avatar}
+                full_name={profileData?.dataUser?.full_name}
+                user_administration={profileData?.dataUser?.user_administration}
               />
             )}
             {pathname === "/profile/edit-profile" && <EditProfileSection />}
