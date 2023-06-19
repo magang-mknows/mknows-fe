@@ -12,7 +12,7 @@ import {
 } from "@mknows-frontend-services/components/atoms";
 import { TSidebarProp } from "./type";
 
-export const SidebarAdmin: FC<TSidebarProp> = ({ children }): ReactElement => {
+export const SidebarAdmin: FC<TSidebarProp> = ({ children, contentStyle }): ReactElement => {
   const DataSidebar = [
     {
       title: "Dashboard",
@@ -58,7 +58,7 @@ export const SidebarAdmin: FC<TSidebarProp> = ({ children }): ReactElement => {
       >
         <IconToggle />
       </button>
-      <div className="flex justify-normal">
+      <div className="flex justify-normal w-full">
         <aside
           id="separator-sidebar"
           className={` ${
@@ -101,7 +101,7 @@ export const SidebarAdmin: FC<TSidebarProp> = ({ children }): ReactElement => {
             </div>
           </div>
         </aside>
-        <section>{children}</section>
+        <section className={`${contentStyle}`}>{children}</section>
       </div>
     </>
   );
