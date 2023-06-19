@@ -58,29 +58,24 @@ export const ModulePopup: FC = (ReactElement) => {
       <h1 className="flex p-4 pt-2 rounded-md  bg-version2-500 text-white w-full text-[18px]">
         Apa Pelajaran yang kamu pelajari hari ini?
       </h1>
-      <div className="shadow flex justify-start p-2 w-full my-3">
-        {/* <input
-          className="w-full h-auto lg:p-5 p-2 rounded-md outline-none"
-          type="text"
-          placeholder="Tulis materi yang kamu dapat disini..."
-        /> */}
-        <TextField
-          variant="md"
-          control={control}
-          type={"text"}
-          name={"module_answer"}
-          required={true}
-          placeholder="Tulis materi yang kamu dapat disini..."
-          className="!w-full !h-auto !lg:p-5 !p-2 !rounded-md !outline-none"
-          labelClassName="block  mb-2  text-sm font-medium text-gray-900 "
-          status={errors.module_answer ? "error" : "none"}
-          message={errors.module_answer?.message}
-        />
-      </div>
+
+      <TextField
+        isTextArea={true}
+        variant="md"
+        control={control}
+        type={"text"}
+        name={"module_answer"}
+        required={true}
+        placeholder="Tulis materi yang kamu dapat disini..."
+        className="!w-full !h-24 !lg:p-5 !p-2 !rounded-md !outline-none text-sm bg-neutral-100"
+        labelClassName="block  mb-2  text-sm font-medium text-gray-900 "
+        status={errors.module_answer ? "error" : "none"}
+        message={errors.module_answer?.message}
+      />
       <p className="text-[#737373] lg:text-[12px] text-sm">
         Materi kamu akan di-review oleh Admin kamu. Pastikan kamu mengisi dengan sesuai!
       </p>
-      <div className="p-4 flex w-full justify-end items-end">
+      <div className="flex items-end justify-end w-full p-4">
         <button
           className=" bg-version2-500 h-[32px] text-white lg:w-[115px] w-full rounded-md"
           onClick={() => {
