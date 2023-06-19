@@ -120,8 +120,8 @@ export const EditProfileSection = () => {
   });
 
   useEffect(() => {
-    informationReset(userData);
-    avatarReset(userData);
+    informationReset(userData?.dataUser);
+    avatarReset(userData?.dataUser);
   }, [informationReset, userData, avatarReset]);
 
   return (
@@ -132,9 +132,9 @@ export const EditProfileSection = () => {
       <main className="w-full">
         <section className="grid w-full py-16 place-items-center">
           <figure className="bg-neutral-200 h-[140px] border-2 border-neutral-100 w-[140px] rounded-full relative">
-            {userData?.avatar !== null && userData?.avatar !== undefined ? (
+            {userData?.dataUser?.avatar !== null && userData?.dataUser?.avatar !== undefined ? (
               <Image
-                src={userData?.avatar}
+                src={userData?.dataUser?.avatar}
                 alt="avatar"
                 height={100}
                 width={"100"}

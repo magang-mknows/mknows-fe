@@ -48,15 +48,15 @@ const ContentSection = (): ReactElement => {
   ];
   return (
     <Fragment>
-      <div className="flex justify-center items-center flex-col mt-10">
-        <h1 className="text-[#171717] text-[24px] font-[700]">Mata Kuliah</h1>
-        <div className="bg-[#FAFAFA] dark:bg-gray-300 dark:text-white  w-full h-[56px] mt-10 mb-10 rounded-[8px]">
+      <div className="flex  flex-col ">
+        <h1 className=" text-neutral-900 text-[24px] mb-4 font-[700]">Pelatihan-Ku</h1>
+        <div className="bg-neutral-100  w-full h-[56px] mb-10 rounded-[8px]">
           <div className="flex lg:ml-5 px-3 py-4">
             <Image src={Search} alt={"search"} className="w-auto" width={100} height={100} />
             <input
               type={"text"}
-              className="bg-[#FAFAFA] w-full focus:outline-none"
-              placeholder="Cari Mata Kuliah"
+              className=" w-full bg-neutral-100 focus:outline-none px-4"
+              placeholder="Cari Pelatihan"
             />
           </div>
         </div>
@@ -74,7 +74,7 @@ const ContentSection = (): ReactElement => {
                   alt="simulasi-null"
                 />
               </div>
-              <h1 className="text-xl font-bold">Tidak Ada Data Mata Kuliah</h1>
+              <h1 className="text-xl font-bold">Tidak Ada Data Pelatihan</h1>
             </div>
           ) : (
             data?.data?.finalProgressSubject.map((x: TFinalProgressSubject, i: number) => (
@@ -87,13 +87,13 @@ const ContentSection = (): ReactElement => {
                 imgheight={100}
                 className="rounded-lg shadow-lg lg:w-full md:w-[47%] w-full"
                 imgwidth={100}
-                titleStyle={"text-xl font-bold mt-0 text-[#106FA4]"}
+                titleStyle={"text-xl font-bold mt-0 text-blue-600"}
                 icon={
                   <div className="flex justify-end gap-2 py-2">
-                    <div className="lg:h-[22px] text-[#FAB317] px-2 my-[10px] text-[12px] rounded-[5px]  bg-[#FEF6D0]">
+                    <div className="lg:h-[22px] text-version3-500 px-3 my-[10px] text-[12px] rounded-[5px]  bg-version3-400/10 grid place-items-center">
                       {x.credit} SKS
                     </div>
-                    <div className="lg:h-[22px] text-[#106FA4] px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-[#E9F6FD]">
+                    <div className="lg:h-[22px] text-blue-600 px-2 my-[10px] text-[12px] rounded-[5px] justify-center bg-blue-100 grid place-items-center">
                       {x.session_total_number} Pertemuan
                     </div>
                   </div>
@@ -101,7 +101,9 @@ const ContentSection = (): ReactElement => {
               >
                 <div className="flex flex-col w-full">
                   <p className="text-md text-gray-500">{x.subject_code}</p>
-                  <h1 className="text-lg font-bold mt-0 text-[#106FA4] w-full">Matkul {x.name}</h1>
+                  <h1 className="text-lg font-bold mt-0 text-blue-600 w-full">
+                    Pelatihan {x.name}
+                  </h1>
                   <p className="text-md text-gray-500 pb-4">{x.teacherName}</p>
                   <div className="flex w-[100%] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                     <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "45%" }}></div>

@@ -1,7 +1,7 @@
 export const ViewProfileBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   { name: "Profile", link: "/profile" },
 ];
