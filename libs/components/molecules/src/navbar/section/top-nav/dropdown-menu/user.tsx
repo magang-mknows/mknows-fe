@@ -76,7 +76,7 @@ export const NavbarUserMenu: FC<TNavbarUserProps> = ({ items, userData }): React
               }
             >
               {icon}
-              <button type="submit" onClick={onClick}>
+              <button type="button" onClick={onClick}>
                 <h1 className="text-[#171717] font-bold group:hover:text-neutral-100 text-[12px] text-center">
                   {name}
                 </h1>

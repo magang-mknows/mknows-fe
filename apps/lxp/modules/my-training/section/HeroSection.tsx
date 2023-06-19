@@ -28,17 +28,17 @@ const HeroSection = (): ReactElement => {
     },
   ];
   return (
-    <div className="flex lg:flex-row flex-col gap-6 ">
-      <div className="lg:basis-1/4 lg:justify-start justify-center sm:hidden lg:inline-block xs:inline-block">
+    <div className="grid lg:grid-cols-6 grid-cols-1 gap-8 justify-center place-content-center mb-10">
+      <figure className="col-span-2 ">
         <Image
           src={data?.data?.dataDepartment.Department.thumbnail}
           alt={"dummy"}
-          className=" object-cover h-44 w-full lg:w-full lg:h-auto rounded-lg "
+          className=" object-cover w-full h-full rounded-lg "
           width={100}
           height={100}
         />
-      </div>
-      <div className="flex flex-col">
+      </figure>
+      <div className="flex flex-col col-span-4">
         <h1 className="md:text-[28px] text-[22px] font-[700] text-[#171717]">
           {data?.data?.dataDepartment.Department.name}
         </h1>
