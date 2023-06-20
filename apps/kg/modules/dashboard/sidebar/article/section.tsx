@@ -31,6 +31,20 @@ export const ArticleSection: FC = (): ReactElement => {
           showIndicators={true}
           showStatus={false}
           showArrows={false}
+          renderIndicator={(onClickHandler, isSelected, index) => {
+            return (
+              <li
+                key={index}
+                onClick={onClickHandler}
+                role="button"
+                className={`w-2 h-2 inline-block rounded-full mx-3 cursor-pointer ${
+                  isSelected ? "bg-error-500" : "bg-neutral-350"
+                }`}
+                tabIndex={0}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            );
+          }}
         >
           {articles?.map((article, i) => (
             <div key={i} className="flex flex-col shadow-md">
