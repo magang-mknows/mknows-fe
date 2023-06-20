@@ -176,7 +176,7 @@ export const EditProfileSection = () => {
             label="Email"
             status={errors.email ? "error" : "none"}
             message={errors.email?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] disabled:!bg-neutral-100 disabled:!text-neutral-500"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-neutral-200 disabled:!bg-neutral-100 disabled:!text-neutral-500"
           />
           <SelectField
             placeholder="Laki-Laki"
@@ -199,7 +199,7 @@ export const EditProfileSection = () => {
             label="Nama Lengkap"
             status={errors.full_name ? "error" : "none"}
             message={errors.full_name?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3]"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-neutral-200"
           />
           <TextField
             labelClassName="!text-sm text-left"
@@ -211,7 +211,7 @@ export const EditProfileSection = () => {
             label="Nomer Handphone"
             status={errors.phone_number ? "error" : "none"}
             message={errors.phone_number?.message}
-            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-[#A3A3A3] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="!h-[40px] text-sm !rounded-[8px] !border-[0.5px] !border-neutral-200 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
           <section className="flex justify-end w-full col-span-2">
             <Button
