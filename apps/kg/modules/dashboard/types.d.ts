@@ -112,8 +112,8 @@ export type TDashboardCalendar = {
 };
 
 export type TDashboardSubjectProgress = {
-  dataMajor: DataMajor;
-  dataSubjects: DataSubject[];
+  dataMajor: TDashboardDataMajor;
+  dataSubjects: TDashboardDataSubject[];
 };
 
 export type TDashboardDataMajor = {
