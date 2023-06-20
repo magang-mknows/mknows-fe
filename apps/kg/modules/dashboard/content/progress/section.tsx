@@ -21,8 +21,8 @@ export const ProgressSection: FC = (): ReactElement => {
   };
   return (
     <section className="bg-white w-full pt-[28px] px-[24px] rounded-md pb-[44px] mb-[48px]">
-      <p className="font-semibold text-xl text-[#171717] mb-[8px] ">Lanjutkan Mata Kuliah Kamu</p>
-      <p className="text-sm font-normal text-[#171717]">Semester 1</p>
+      <p className="font-semibold text-xl text-neutral-900 mb-[8px] ">Lanjutkan Mata Kuliah Kamu</p>
+      <p className="text-sm font-normal text-neutral-900">Semester 1</p>
       <div className="wrapper mt-5 grid gap-y-[20px] mb-[20px]">
         {subjectProgress?.dataSubjects?.slice(0, lengthData)?.map((subject, i) => {
           return (
@@ -40,16 +40,16 @@ export const ProgressSection: FC = (): ReactElement => {
               <div className=" lg:col-span-10 lg:flex lg:justify-between items-center w-full col-span-12">
                 <div>
                   <p className="mb-[12px]">{subject?.name}</p>
-                  <p className="text-[#737373] text-[12px] font-normal mb-[17px] mt-0">
+                  <p className="text-neutral-500 text-[12px] font-normal mb-[17px] mt-0">
                     Semester {subject?.subject_semester}
                   </p>
-                  <div className="bg-[#D9D9D9] w-[200px] md:w-[300px] rounded-lg h-[10px] lg:inline-block md:inline-block lg:relative lg:bottom-2 md:relative md:bottom-2 mt-0 mr-[12px] mb-0">
+                  <div className="bg-neutral-350 w-[200px] md:w-[300px] rounded-lg h-[10px] lg:inline-block md:inline-block lg:relative lg:bottom-2 md:relative md:bottom-2 mt-0 mr-[12px] mb-0">
                     <span
                       style={{ width: `${subject?.progress_percentage}%` }}
-                      className="inline-block bg-[#106FA4] rounded-lg h-[10px] text-[0px]"
+                      className="inline-block bg-primary-500 rounded-lg h-[10px] text-[0px]"
                     />
                   </div>{" "}
-                  <p className="text-[14px] text-[#737373] font-normal inline mt-0 leading-none">
+                  <p className="text-[14px] text-neutral-500 font-normal inline mt-0 leading-none">
                     {subject?.current_session}/{subject?.session_count}
                     <span className="text-[12px]">Pertemuan</span>
                   </p>
@@ -72,7 +72,7 @@ export const ProgressSection: FC = (): ReactElement => {
         })}
         {(subjectProgress?.dataSubjects?.length as number) > 3 && (
           <button onClick={handleMore}>
-            <p className="text-center text-[12px] text-[#737373] font-normal mb-[16px]">
+            <p className="text-center text-[12px] text-neutral-500 font-normal mb-[16px]">
               {more ? "Lihat Lebih Sedikit" : "Lihat Semua"}
             </p>
             <Image className={`mx-auto ${more && "rotate-180"}`} src={moreIcon} alt="Lihat Semua" />
