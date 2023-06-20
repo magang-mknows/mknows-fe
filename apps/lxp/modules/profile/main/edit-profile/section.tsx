@@ -31,7 +31,7 @@ export const EditProfileSection = () => {
 
   const profileDataValidationSchema = z.object({
     avatar: z.union([
-      z.string(), // Allow string data type
+      z.string(), //allow profile link from API so its still valid at first load
       z
         .any()
         .refine(
