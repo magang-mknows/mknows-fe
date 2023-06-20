@@ -1,4 +1,4 @@
-export const myTrainingModuleBreadCumbs = [
+export const myTrainingModuleBreadCumbs = (data: string)=> [
   {
     name: "Home",
     link: "/dashboard",
@@ -8,7 +8,7 @@ export const myTrainingModuleBreadCumbs = [
     link: "/pelatihanku",
   },
   {
-    name: "Pelatihan ",
+    name: data,
     link: "/Course",
   },
   {

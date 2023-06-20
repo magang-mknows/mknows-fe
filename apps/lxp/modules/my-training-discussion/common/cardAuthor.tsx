@@ -76,9 +76,9 @@ export const CardAuthor: FC<cardAuthor> = ({
             <TextField
               placeholder="Ketikan Balasan disini"
               name={"content"}
-              variant={"lg"}
+              variant={"md"}
               control={control}
-              className="w-full px-3 outline-none text-[14px] font-[400]"
+              className=" px-3 outline-none text-[14px] font-[400] flex justify-start"
             />
 
             <div className="flex flex-row items-center gap-4">
