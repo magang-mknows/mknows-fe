@@ -40,6 +40,7 @@ export type IUpdateUserPayload = {
   full_name?: string;
   phone_number?: string;
   gender?: string;
+  avatar?: string;
 };
 
 export type TUserDataResponse = TMetaResponseSingle<IUserItem>;
