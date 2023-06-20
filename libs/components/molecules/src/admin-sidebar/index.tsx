@@ -11,35 +11,24 @@ import {
   IconLogout,
 } from "@mknows-frontend-services/components/atoms";
 import { TSidebarProp } from "./type";
+import Link from "next/link";
 
-export const SidebarAdmin: FC<TSidebarProp> = ({ children, contentStyle }): ReactElement => {
-  const DataSidebar = [
-    {
-      title: "Dashboard",
-      path: "/dashboard",
-      icon: <IconDashboard />,
-    },
-    {
-      title: "User",
-      path: "/dashboard",
-      icon: <IconUser />,
-    },
-    {
-      title: "Permintaan",
-      path: "/dashboard",
-      icon: <IconRequest />,
-    },
-    {
-      title: "Laporan",
-      path: "/dashboard",
-      icon: <IconReport />,
-    },
-    {
-      title: "Kuota",
-      path: "/dashboard",
-      icon: <IconQuota />,
-    },
-  ];
+export const SidebarAdmin: FC<TSidebarProp> = ({ children, contentStyle, dataSidebar }): ReactElement => {
+  
+  // contoh dataSidebar :
+  // const DataSidebar = [
+  //   {
+  //     title: "Dashboard",
+  //     path: "/dashboard",
+  //     icon: <IconDashboard />,
+  //   },
+  //   {
+  //     title: "User",
+  //     path: "/dashboard",
+  //     icon: <IconUser />,
+  //   },
+  // ];
+
   const activeLink =
     "flex rounded-md cursor-pointer gap-2 p-2 items-center bg-primary-400 text-white";
   const normalLink =
@@ -78,16 +67,13 @@ export const SidebarAdmin: FC<TSidebarProp> = ({ children, contentStyle }): Reac
                 </div>
                 <div className="font-semibold text-sm text-neutral-500">Salsa</div>
               </div>
-              {DataSidebar.map((x, i) => {
+              {dataSidebar.map((x:any, i:any) => {
                 return (
                   <div key={i} className="my-4">
-                    <div
-                      // to={x.path}
-                      className={normalLink}
-                    >
+                    <Link className={normalLink} href={x.path}>
                       <span className="p-1">{x.icon}</span>
                       <span>{x.title}</span>
-                    </div>
+                    </Link>
                   </div>
                 );
               })}
