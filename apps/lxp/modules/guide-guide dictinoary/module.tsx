@@ -30,8 +30,8 @@ export const GuideDictinoaryModuleId: NextPage = (): ReactElement => {
   ];
 
   return (
-    <ClientProvider sectionClassName="!bg-[#FAFAFA]">
-      <BreadCrumb items={BreadCrumbEndpoint} textColor="text-version2-400 !bg-white" />
+    <ClientProvider sectionClassName="!bg-light">
+      <BreadCrumb items={BreadCrumbEndpoint} textColor="text-version2-400" bgColor="!bg-white" />
       <div className="w-full flex flex-col-reverse lg:flex-row justify-start px-8 md:px-14 lg:px-16 gap-36">
         <Sidebar />
         <ContentSection />
