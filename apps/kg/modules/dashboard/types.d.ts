@@ -107,7 +107,7 @@ export type TDashboardCalendar = {
   endAt: string;
   summary: string;
   place: string;
-  speaker?: string;
+  speaker?: string | null;
   allDay: boolean;
 };
 
