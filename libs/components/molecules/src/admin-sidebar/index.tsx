@@ -11,39 +11,32 @@ import {
   IconLogout,
 } from "@mknows-frontend-services/components/atoms";
 import { TSidebarProp } from "./type";
+import Link from "next/link";
 
-export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
-  const DataSidebar = [
-    {
-      title: "Dashboard",
-      path: "/dashboard",
-      icon: <IconDashboard />,
-    },
-    {
-      title: "User",
-      path: "/dashboard",
-      icon: <IconUser />,
-    },
-    {
-      title: "Permintaan",
-      path: "/dashboard",
-      icon: <IconRequest />,
-    },
-    {
-      title: "Laporan",
-      path: "/dashboard",
-      icon: <IconReport />,
-    },
-    {
-      title: "Kuota",
-      path: "/dashboard",
-      icon: <IconQuota />,
-    },
-  ];
+export const SidebarAdmin: FC<TSidebarProp> = ({
+  children,
+  contentStyle,
+  dataSidebar,
+  hasAvatar,
+}): ReactElement => {
+  // contoh dataSidebar :
+  // const DataSidebar = [
+  //   {
+  //     title: "Dashboard",
+  //     path: "/dashboard",
+  //     icon: <IconDashboard />,
+  //   },
+  //   {
+  //     title: "User",
+  //     path: "/dashboard",
+  //     icon: <IconUser />,
+  //   },
+  // ];
+
   const activeLink =
     "flex rounded-md cursor-pointer gap-2 p-2 items-center bg-primary-400 text-white";
   const normalLink =
-    "flex rounded-md cursor-pointer gap-2 p-2 items-center bg-white text-[#9E9E9E] hover:bg-neutral-300 hover:text-white";
+    "flex gap-[6px] rounded-md cursor-pointer p-[8px] items-center bg-white text-neutral-600 hover:bg-neutral-300 hover:text-white";
   const [open, setOpen] = useState(true);
   const toggleSidebar = (): void => {
     setOpen(!open);
@@ -58,7 +51,7 @@ export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
       >
         <IconToggle />
       </button>
-      <div className="flex justify-normal">
+      <div className="flex justify-normal w-full">
         <aside
           id="separator-sidebar"
           className={` ${
@@ -72,36 +65,28 @@ export const Sidebar: FC<TSidebarProp> = ({ children }): ReactElement => {
             </div>
 
             <div className="pt-4 font-medium w-full border-[#F5F5F5] ">
-              <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
-                <div className=" rounded-full border-primary-base border-2 items-center flex">
-                  <Avatar name="admin" className="rounded-full w-[36px] h-[36px]" size="36" />
+              {hasAvatar && (
+                <div className="flex border-b-2 rounded-md cursor-pointer gap-2 px-2 pt-6 pb-6 items-center">
+                  <div className=" rounded-full border-primary-base border-2 items-center flex">
+                    <Avatar name="admin" className="rounded-full w-[36px] h-[36px]" size="36" />
+                  </div>
+                  <div className="font-semibold text-sm text-neutral-500">Salsa</div>
                 </div>
-                <div className="font-semibold text-sm text-neutral-500">Salsa</div>
-              </div>
-              {DataSidebar.map((x, i) => {
+              )}
+              {dataSidebar.map((x: any, i: any) => {
                 return (
-                  <div key={i} className="my-4">
-                    <div
-                      // to={x.path}
-                      className={normalLink}
-                    >
+                  <div key={i} className="my-[3px]">
+                    <Link className={normalLink} href={x.path}>
                       <span className="p-1">{x.icon}</span>
                       <span>{x.title}</span>
-                    </div>
+                    </Link>
                   </div>
                 );
               })}
-
-              <div className="flex h-full gap-2 p-5 rounded-md text-neutral-400 hover:bg-neutral-300 hover:text-white cursor-pointer items-end">
-                <span>
-                  <IconLogout />
-                </span>
-                <span className="flex justify-center ">Keluar</span>
-              </div>
             </div>
           </div>
         </aside>
-        <section>{children}</section>
+        <section className={`${contentStyle}`}>{children}</section>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ export const AuthLayout: FC = (): ReactElement => {
   return (
     <section className="flex flex-col lg:w-screen z-0 lg:h-screen bg-neutral-100 overflow-hidden bg-white">
       <div className="lg:p-8 lg:w-full w-full overflow-hidden">
-        <img src="/logo.svg" alt="logo" width={120} />
+        <img src="/logo.svg" alt="logo" width={100} />
       </div>
       <div className="flex flex-col h-screen w-full justify-center items-center z-50">
         <Outlet />

@@ -1,4 +1,4 @@
-export const myTrainingCourseBreadCumbs = [
+export const myTrainingCourseBreadCumbs = (data: string) => [
   {
     name: "Home",
     link: "/dashboard",
@@ -8,7 +8,7 @@ export const myTrainingCourseBreadCumbs = [
     link: "/pelatihanku",
   },
   {
-    name: "Pelatihan Keterampilan Komunikasi",
+    name: data,
     link: "/pelatihanku",
   },
 ];
