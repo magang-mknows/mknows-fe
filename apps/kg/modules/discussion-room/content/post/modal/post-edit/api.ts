@@ -7,9 +7,10 @@ export const DiscussionByIdRequest = async (id: string): Promise<TDiscussionDeta
   return data;
 };
 
-export const CreateDiscussion = async (
+export const UpdateDiscussion = async (
+  id: string,
   payload: TDiscussionPayload,
 ): Promise<TDiscussionDetailResponse> => {
-  const { data } = await api.post("/discussion", serialize(payload));
+  const { data } = await api.post(`/discussion/forum/${id}`, serialize(payload));
   return data;
 };

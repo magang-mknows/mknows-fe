@@ -1,14 +1,14 @@
-export const myTrainingCourseBreadCumbs = [
+export const myTrainingCourseBreadCumbs = (data: string) => [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Pelatihan-Ku",
     link: "/pelatihanku",
   },
   {
-    name: "Pelatihan Keterampilan Komunikasi",
+    name: data,
     link: "/pelatihanku",
   },
 ];

@@ -7,8 +7,12 @@ import { LayoutFooter } from "../common/footer/footer-layout";
 
 export const GuideVideoHomeModule: FC = (): ReactElement => {
   return (
-    <ClientProvider sectionClassName="!bg-[#FFFF]">
-      <BreadCrumb items={guideBreadCumbs} />
+    <ClientProvider sectionClassName="!bg-white">
+      <BreadCrumb
+        items={guideBreadCumbs}
+        textColor="text-version2-400 bg-white"
+        bgColor="!bg-white"
+      />
       <HeroSection />
       <ContentSection />
       <LayoutFooter />

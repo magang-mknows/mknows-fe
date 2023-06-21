@@ -64,7 +64,7 @@ export const DiscussionPostOption: FC<TSelectedOptionId> = ({ id }): ReactElemen
               >
                 {icon}
                 <h1 id="post-option" className="text-xs text-center text-neutral-800">
-                  {title} {id}
+                  {title}
                 </h1>
               </Menu.Item>
             ))}

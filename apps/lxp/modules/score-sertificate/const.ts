@@ -1,7 +1,7 @@
 export const ScoreSertificateBreadCumbs = [
   {
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     name: "Nilai & Sertikat",

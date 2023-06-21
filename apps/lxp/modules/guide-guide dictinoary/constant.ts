@@ -1,5 +1,5 @@
 export const guideDictinoaryBreadCumbs = [
-  { name: "Home", link: "/" },
+  { name: "Home", link: "/dashboard" },
   { name: "Panduan", link: "/panduan" },
   { name: "Kamus LMS MKnows", link: "/panduan/video-panduan/kamus" },
 ];

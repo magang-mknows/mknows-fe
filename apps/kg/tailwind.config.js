@@ -100,6 +100,7 @@ module.exports = {
       },
       blue: {
         base: "#34364A",
+        100: "#67A5C8",
       },
     },
   },

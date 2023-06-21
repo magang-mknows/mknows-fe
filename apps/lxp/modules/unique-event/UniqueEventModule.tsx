@@ -11,10 +11,14 @@ export const UniqueEventModule: FC = (): ReactElement => {
   const router = useRouter();
   const pathname = router.asPath;
 
-  const eventPath = ["/acara-unik", "/acara-unik/terdaftar", "/acara-unik/riwayat"];
+  const eventPath = [
+    "/event-pelatihan?tab=daftar",
+    "/event-pelatihan?tab=terdaftar",
+    "/event-pelatihan?tab=riwayat",
+  ];
 
   if (!eventPath.includes(pathname)) {
-    router.push("/acara-unik");
+    router.push("/event-pelatihan?tab=daftar");
   }
 
   return (

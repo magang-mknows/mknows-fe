@@ -1,25 +1,7 @@
-import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
-import {
-  IUpdateUserPayload,
-  TUpdateUserResponse,
-  TUserProfilePayload,
-  TUserProfileResponse,
-} from "./types";
+import { UseMutationResult, useMutation } from "@tanstack/react-query";
+import { IUpdateUserPayload, TUpdateUserResponse } from "./types";
 import { TMetaErrorResponse } from "@mknows-frontend-services/utils";
-import { updateUserData, updateUserProfile } from "./api";
-
-export const useUpdateUserProfile = (): UseMutationResult<
-  TUserProfileResponse,
-  TMetaErrorResponse,
-  TUserProfilePayload,
-  unknown
-> =>
-  useMutation({
-    mutationKey: ["update-user-profile-lxp"],
-    mutationFn: async (payload) => {
-      return await updateUserProfile(payload);
-    },
-  });
+import { updateUserData } from "./api";
 
 export const useUpdateUserData = (): UseMutationResult<
   TUpdateUserResponse,
