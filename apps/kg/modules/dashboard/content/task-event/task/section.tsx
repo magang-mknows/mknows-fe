@@ -64,7 +64,13 @@ export const TaskSection: FC = (): ReactElement => {
                   </section>
                   <section className="flex gap-4 mb-4 h-fit">
                     <div className="w-[90px] h-[110px]">
-                      <Image src="" alt="assignment-thumbnail" />
+                      <Image
+                        src=""
+                        width={90}
+                        height={110}
+                        className="h-full w-full object-cover rounded-lg"
+                        alt="assignment-thumbnail"
+                      />
                     </div>
                     <div className="flex flex-col justify-center">
                       <h1 className="mb-2 text-start">{assignment?.assignment_title}</h1>

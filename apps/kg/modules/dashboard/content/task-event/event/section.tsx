@@ -67,7 +67,7 @@ export const EventSection: FC = (): ReactElement => {
                           src={event.thumbnail}
                           width={90}
                           height={110}
-                          className="h-full w-full object-cover"
+                          className="h-full w-full object-cover rounded-lg"
                           alt="event thumbnail"
                         />
                       </div>
