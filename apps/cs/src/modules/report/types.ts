@@ -24,17 +24,17 @@ export type TReportCustItems = {
   _id?: string;
   name: string;
   nik: string;
-  requests: {
+  requests: Array<{
     id: string;
     request_number: string;
     feature_name: string;
     requested_at: string;
     result: string;
     document: string;
-  }[];
+  }>;
 };
 
-export type TReportCustResponse = TMetaResponse<TReportCustItems[]>;
+export type TReportCustResponse = TMetaResponse<TReportCustItems>;
 
 export type TReportRequestItems = {
   _id: string;
