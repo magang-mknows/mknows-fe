@@ -94,9 +94,9 @@ export const ClientProvider: FC<TProviderProps> = ({
   ];
 
   const _profile_user = {
-    email: profileData?.data?.email as string,
-    full_name: profileData?.data?.full_name as string,
-    avatar: profileData?.data?.avatar as string,
+    email: profileData?.data?.dataUser?.email as string,
+    full_name: profileData?.data?.dataUser?.full_name as string,
+    avatar: profileData?.data?.dataUser?.avatar as string,
   };
 
   const _mobile_menu_item = [
@@ -133,7 +133,7 @@ export const ClientProvider: FC<TProviderProps> = ({
       <Navbar
         items={_pop_up_menu}
         features={_features}
-        avatar={profileData?.data?.avatar as string}
+        avatar={profileData?.data?.dataUser.avatar as string}
         logo={logo}
         logoStyle="w-auto h-auto"
         userData={_profile_user}
