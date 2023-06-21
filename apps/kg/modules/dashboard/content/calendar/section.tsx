@@ -82,9 +82,10 @@ export const CalendarSection: FC = (): ReactElement => {
                 </p>
                 {items && items?.length > 0 && (
                   <div className="absolute flex w-fit bottom-1 left-1/2 -translate-x-1/2">
-                    {removeSameType(items)?.map((calendar) => {
+                    {removeSameType(items)?.map((calendar, index) => {
                       return (
                         <span
+                          key={index}
                           className={`block w-2 h-2 rounded-full 
                         ${calendar?.type === "ASSIGNMENT" && "bg-warning-500"}
                         ${calendar?.type === "MIDTERM" && "bg-primary-500"}
@@ -105,11 +106,12 @@ export const CalendarSection: FC = (): ReactElement => {
       </section>
       {getMatchedCalendar?.length > 0 && (
         <section className="text-sm">
-          {getMatchedCalendar?.map((calendar) => {
+          {getMatchedCalendar?.map((calendar, index) => {
             const startAt = formatDateToHoursMinute(calendar?.startAt);
             const endAt = formatDateToHoursMinute(calendar?.endAt);
             return (
               <div
+                key={index}
                 className={`border-l-4  cursor-pointer hover:border-opacity-50 transition-all ease-in-out duration-500 group py-3 hover:shadow-lg px-3 rounded-md mb-4
                 ${calendar?.type === "ASSIGNMENT" && "border-warning-500"}
                 ${calendar?.type === "MIDTERM" && "border-primary-500"}
