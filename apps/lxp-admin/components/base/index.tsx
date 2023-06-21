@@ -24,23 +24,43 @@ const BaseLayout: FC<TBaseLayout> = ({ children }): ReactElement => {
       icon: <IconUser />,
     },
     {
-      title: "Permintaan",
+      title: "Rencana Pelatihan",
       path: "/dashboard",
       icon: <IconRequest />,
     },
     {
-      title: "Laporan",
+      title: "Nilai & Sertifikat",
       path: "/dashboard",
       icon: <IconReport />,
     },
     {
-      title: "Kuota",
+      title: "Konsultasi & Layanan",
+      path: "/dashboard",
+      icon: <IconQuota />,
+    },
+    {
+      title: "Sekilas Ilmu",
+      path: "/dashboard",
+      icon: <IconQuota />,
+    },
+    {
+      title: "Event Pelatihan",
+      path: "/dashboard",
+      icon: <IconQuota />,
+    },
+    {
+      title: "Sekilas Ilmu",
+      path: "/dashboard",
+      icon: <IconQuota />,
+    },
+    {
+      title: "Event Pelatihan",
       path: "/dashboard",
       icon: <IconQuota />,
     },
   ];
   return (
-    <SidebarAdmin contentStyle="bg-neutral-50 w-full" dataSidebar={DataSidebar}>
+    <SidebarAdmin contentStyle="bg-neutral-50 w-full" dataSidebar={DataSidebar} hasAvatar={false}>
       {/* belum lengkap */}
       <div className="ml-[8px]">
         <div className="bg-white w-[100%] flex justify-end py-[11px] pr-[52px] shadow-[0_3px_23px_10px_rgb(150,150,150,0.1)]">
