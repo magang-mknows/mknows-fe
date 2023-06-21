@@ -2,14 +2,6 @@ import { TMetaResponse } from "@mknows-frontend-services/utils";
 import { ReactNode } from "react";
 import { Control } from "react-hook-form";
 
-export type TUserDataDummy = {
-  no: number;
-  nik: number;
-  nama: string;
-  tanggal: string;
-  berkas: string;
-};
-
 export type TDataUploader = {
   name: string;
   hasLabel: boolean;
@@ -33,6 +25,7 @@ export type TUserItem = {
   createdAt: string;
   updatedAt: string;
   file?: string;
+  completed_document: number;
   __v: number;
 };
 
@@ -44,8 +37,6 @@ export type TUserParams = {
 };
 
 export type TUserResponse = TMetaResponse<TUserItem>;
-
-export type TUserDataResponse = { getUserData: TUserDataDummy[] };
 
 export type TUserQueryResponse = {
   getUserQuery: string;

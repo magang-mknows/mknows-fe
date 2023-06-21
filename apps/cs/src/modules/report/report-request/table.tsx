@@ -1,10 +1,12 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy } from "../types";
-import { useReportData } from "../hooks";
+import { TReportDataDummy, TReportRequestItems } from "../types";
+import { useReportData, useReportRequest } from "../hooks";
+import { formatDate } from "@mknows-frontend-services/utils";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
+  const { data: getDataReportRequest } = useReportRequest();
   const { getReportData } = useReportData();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
@@ -16,7 +18,7 @@ const Table: FC = (): ReactElement => {
       <IconDropdown />
     </div>
   );
-  const columns: TableColumn<TReportDataDummy>[] = [
+  const columns: TableColumn<TReportRequestItems>[] = [
     {
       name: "No",
       width: "6%",
@@ -25,30 +27,36 @@ const Table: FC = (): ReactElement => {
     {
       name: "No Permintaan",
       width: "14.5%",
-      selector: (row) => row.no,
+      selector: (row) => row.request_number,
       sortable: true,
     },
     {
       name: "Jenis Scoring",
       width: "21%",
-      cell: (row) => row.jenis_produk,
+      cell: (row) => row.feature,
       sortable: true,
     },
     {
       name: "Jumlah Customer",
       width: "15.8%",
-      cell: (row) => <div className="pl-10"> {row.jumlah_user} </div>,
+      cell: (row) => <div className="pl-10"> {row.total_user} </div>,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
       width: "18%",
-      cell: (row) => row.tggl_permintaan,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Tanggal Selesai",
-      cell: (row) => row.tggl_selesai,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.finished_at),
+        }),
       sortable: true,
     },
   ];
@@ -178,7 +186,7 @@ const Table: FC = (): ReactElement => {
     <div>
       <DataTable
         columns={columns}
-        data={getReportData}
+        data={getDataReportRequest?.data ?? []}
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}

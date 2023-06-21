@@ -1,3 +1,5 @@
+import { TMetaResponse } from "@mknows-frontend-services/utils";
+
 export type TReportDataDummy = {
   no: number;
   nik: number;
@@ -18,18 +20,37 @@ export type TReportQueryResponse = {
   setReportQuery: (val: string) => void;
 };
 
-export type TReportCustitems = {
+export type TReportCustItems = {
   _id?: string;
   name: string;
   nik: string;
-  requests: Array[{
+  requests: {
     id: string;
     request_number: string;
     feature_name: string;
     requested_at: string;
     result: string;
     document: string;
-  }];
+  }[];
 };
 
-export type TReportCustResponse = TMetaResponse<TReportCustitems>;
+export type TReportCustResponse = TMetaResponse<TReportCustItems[]>;
+
+export type TReportRequestItems = {
+  _id: string;
+  request_number: string;
+  feature: string;
+  finished_at: string;
+  requested_at: string;
+  total_user: number;
+  user_requests: Array<{
+    _id: string;
+    nik: string;
+    name: string;
+    date_requested: string;
+    result: string;
+    document: string;
+  }>;
+};
+
+export type TReportRequestResponse = TMetaResponse<TReportRequestItems>;

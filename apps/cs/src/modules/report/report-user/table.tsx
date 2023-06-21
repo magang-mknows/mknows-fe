@@ -1,13 +1,11 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportCustitems, TReportDataDummy } from "../types";
-import { useReportCust, useReportData } from "../hooks";
+import { TReportDataDummy } from "../types";
+import { useReportData } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
-  const { data: getDataReportCust } = useReportCust();
-  console.log(getDataReportCust);
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -18,7 +16,7 @@ const Table: FC = (): ReactElement => {
       <IconDropdown />
     </div>
   );
-  const columns: TableColumn<TReportCustitems>[] = [
+  const columns: TableColumn<TReportDataDummy>[] = [
     {
       name: "No",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
@@ -30,7 +28,7 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      selector: (row) => row.name,
+      selector: (row) => row.nama,
       sortable: true,
     },
 
@@ -38,15 +36,15 @@ const Table: FC = (): ReactElement => {
       name: "Scoring",
       cell: (row) => (
         <button
-        // className={` ${
-        //   row.status === "Sangat Baik"
-        //     ? "bg-success-400"
-        //     : row.status === "Cukup Buruk"
-        //     ? "bg-warning-500"
-        //     : "bg-error-400"
-        // } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
+          className={` ${
+            row.status === "Sangat Baik"
+              ? "bg-success-400"
+              : row.status === "Cukup Buruk"
+              ? "bg-warning-500"
+              : "bg-error-400"
+          } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
         >
-          BAIK
+          {row.status}
         </button>
       ),
     },
@@ -183,7 +181,7 @@ const Table: FC = (): ReactElement => {
     <div>
       <DataTable
         columns={columns}
-        data={getDataReportCust}
+        data={getReportData}
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}
