@@ -70,8 +70,10 @@ export const ArticleSection: FC = (): ReactElement => {
                   >
                     <circle cx="1.5" cy="1" r="1" fill="#A3A3A3" />
                   </svg>
-                  {article.tags.map((tag) => (
-                    <span className="">{tag}</span>
+                  {article.tags.map((tag, i) => (
+                    <span key={i} className="">
+                      {tag}
+                    </span>
                   ))}
                 </p>
                 <p className="font-normal text-end text-[12px] text-[#A3A3A3]">
