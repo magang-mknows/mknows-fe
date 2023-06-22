@@ -4,9 +4,6 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { useFilterActionResult, useResult, useResultById } from "../hooks";
 import { TResultItem, TResultById } from "../types";
 import { formatDate } from "@mknows-frontend-services/utils";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import CheckedIcon from "/assets/checked.webp";
 
 const Table2: FC = (): ReactElement => {
   const { getFilterActionResult } = useFilterActionResult();
@@ -140,17 +137,19 @@ const Table2: FC = (): ReactElement => {
       sortable: true,
       conditionalCellStyles: [
         {
-          when: (row) => row.status === "SANGAT BURUK",
-          classNames: ["bg-red flex items-center justify-center text-white my-1.5 rounded-[8px]"],
+          when: (row) => row.status === "GAGAL",
+          classNames: [
+            "bg-error-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
         },
         {
-          when: (row) => row.status === "CUKUP BURUK",
+          when: (row) => row.status === "MENUNGGU",
           classNames: [
             "bg-warning-500 flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],
         },
         {
-          when: (row) => row.status === "SANGAT BAIK",
+          when: (row) => row.status === "SELESAI",
           classNames: [
             "bg-success-400 flex items-center justify-center text-white my-1.5 rounded-[8px]",
           ],

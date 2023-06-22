@@ -1,65 +1,91 @@
 import { FC, ReactElement } from "react";
-import { useResultData } from "../../hooks";
-import { Checkbox } from "@mknows-frontend-services/components/atoms";
-import { useForm } from "react-hook-form";
+import { useFilterActionResultById, useResultById } from "../../hooks";
+import { IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { TResultById } from "../../types";
+import { formatDate } from "@mknows-frontend-services/utils";
+import DataTable, { TableColumn } from "react-data-table-component";
 
 const Table: FC = (): ReactElement => {
-  const { getResultData } = useResultData();
-  const { control } = useForm({
-    defaultValues: {
-      select: false,
+  const { getFilterActionResultId } = useFilterActionResultById();
+  const { data } = useResultById(getFilterActionResultId);
+
+  const sortIcon = (
+    <div className="m-2">
+      <IconDropdown />
+    </div>
+  );
+
+  const columns: TableColumn<TResultById>[] = [
+    {
+      name: "No",
+      width: "7%",
+      cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
-  });
+    {
+      name: "Tanggal",
+      width: "26%",
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
+    },
+    {
+      name: "NIK",
+      width: "19%",
+      selector: (row) => row.nik,
+      sortable: true,
+    },
+    {
+      name: "Nama",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+  ];
+
+  const customStyles = {
+    rows: {
+      style: {
+        minHeight: "45px",
+      },
+    },
+
+    headCells: {
+      style: {
+        backgroundColor: "#F5F8FF",
+        textColor: "#A3A3A3",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      },
+    },
+  };
+  const paginationComponentOptions = {
+    rowsPerPageText: "Data per halaman",
+    rangeSeparatorText: "dari",
+  };
 
   return (
-    <div className="overflow-x-scroll mt-20 lg:mt-0">
-      <table className="w-full text-sm border rounded-lg text-left text-gray-500   overflow-x-scroll ">
-        <thead className="text-xs border text-neutral-400 font-light bg-add2 dark:bg-add3 ">
-          <tr>
-            <th scope="col" className="py-2 cursor-default ">
-              <div className="flex gap-3 px-8 items-center">
-                <p>No.</p>
-              </div>
-            </th>
-
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 px-8 items-center">
-                <p>NIK</p>
-                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-              </div>
-            </th>
-            <th scope="col" className="px-6 py-2 cursor-default">
-              <div className=" flex gap-2  items-center">
-                <p>Nama</p>
-                <img src="/assets/request-page/markdown-icon.svg" alt="markdown icon" />
-              </div>
-            </th>
-            <th scope="col" className="px-4 py-2 cursor-default">
-              <div className="flex gap-2 items-center">
-                <Checkbox name={"select"} variant={"lg"} control={control} />
-                <p>Semua</p>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {getResultData.map((item, key) => {
-            return (
-              <tr key={key} className="text-gray-600 bg-white border-b dark:bg-white ">
-                <td className="px-8">{key + 1}</td>
-
-                <td className="pl-12 py-2 ">{item._id}</td>
-                <td className="px-4 py-2 font-semibold text-xs">{item.feature}</td>
-
-                <td className="px-4 py-2 bg-green-400">
-                  <Checkbox name={"select"} variant={"lg"} control={control} />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <DataTable
+      columns={columns}
+      data={data?.data as TResultById[]}
+      sortIcon={sortIcon}
+      customStyles={customStyles}
+      fixedHeader={true}
+      selectableRows
+      selectableRowsHighlight
+      pagination
+      paginationComponentOptions={paginationComponentOptions}
+      noDataComponent={
+        <div className="flex flex-col w-full h-screen justify-center items-center">
+          <IconEmptyState />
+          <h1 className="font-bold my-2">Data Tidak Tersedia</h1>
+          <p>Data akan ditampilkan apabila sudah tersedia data yang diperlukan</p>
+        </div>
+      }
+    />
   );
 };
 export default Table;

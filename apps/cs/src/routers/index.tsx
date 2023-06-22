@@ -96,18 +96,20 @@ export const routes = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/request/choice-feature",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <ChoiceFeature />
+          </Suspense>
+        ),
+      },
+      {
         path: "/dashboard/request",
         element: (
           <Suspense fallback={<Spinner />}>
             <RequestPages />
           </Suspense>
         ),
-        children: [
-          {
-            path: "/dashboard/request/choice-feature",
-            element: <ChoiceFeature />,
-          },
-        ],
       },
 
       {
