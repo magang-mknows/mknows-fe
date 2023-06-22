@@ -1,11 +1,11 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy, TReportCustItems } from "../types";
-import { useReportData, useReportCust } from "../hooks";
+import { TReportCustItems, TReportCustRequestItems } from "../types";
+import { useReportCust } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
-  const { getReportData } = useReportData();
   const { data: getDataReportCust } = useReportCust();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
@@ -21,6 +21,7 @@ const Table: FC = (): ReactElement => {
     {
       name: "No",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
+      width: "14%",
     },
     {
       name: "Nik",
@@ -31,31 +32,29 @@ const Table: FC = (): ReactElement => {
       name: "Nama",
       selector: (row) => row.name,
       sortable: true,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.name.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
     },
 
     {
       name: "Scoring",
       cell: (row) => (
-        <button
-        // className={` ${
-        //   row.requests.result === "Sangat Baik"
-        //     ? "bg-success-400"
-        //     : row.status === "Cukup Buruk"
-        //     ? "bg-warning-500"
-        //     : "bg-error-400"
-        // } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
-        >
+        <button className="bg-success-base flex items-center justify-center text-white my-1.5 rounded-[8px] p-2">
           Sangat Baik
         </button>
       ),
     },
   ];
 
-  const ExpandedComponent = () => (
+  const ExpandedComponent = (data: TReportCustRequestItems[]) => (
     <div className="flex flex-col">
       <DataTable
         columns={columnsExpand}
-        data={getReportData}
+        data={data ?? []}
         customStyles={ExpandRowStyle}
         selectableRows
         selectableRowsHighlight
@@ -72,41 +71,53 @@ const Table: FC = (): ReactElement => {
     </div>
   );
 
-  const columnsExpand: TableColumn<TReportDataDummy>[] = [
+  const columnsExpand: TableColumn<TReportCustRequestItems>[] = [
     {
       name: "No",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
     },
     {
       name: "No Permintaan",
-      selector: (row) => row.no,
+      selector: (row) => row.request_number,
       sortable: true,
     },
     {
       name: "Tanggal Permintaan",
-      cell: (row) => row.tggl_permintaan,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {
       name: "Jenis Permintaan",
-      cell: (row) => row.jenis_produk,
+      cell: (row) => row.feature_name,
       sortable: true,
     },
     {
       name: "Status",
-      cell: (row) => (
-        <button
-          className={` ${
-            row.status === "Sangat Baik"
-              ? "bg-success-400"
-              : row.status === "Cukup Buruk"
-              ? "bg-warning-500"
-              : "bg-error-400"
-          } text-white w-[120px] text-sm p-1 rounded-md cursor-default`}
-        >
-          {row.status}
-        </button>
-      ),
+      cell: (row) => row.result,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.result === "SANGAT BURUK" || row.result === "BURUK",
+          classNames: [
+            "bg-error-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+
+        {
+          when: (row) => row.result === "CUKUP BAIK",
+          classNames: [
+            "bg-warning-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+        {
+          when: (row) => row.result === "BAIK" || row.result === "SANGAT BAIK",
+          classNames: [
+            "bg-success-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+      ],
     },
     {
       name: "Lihat Detail",
@@ -186,7 +197,7 @@ const Table: FC = (): ReactElement => {
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}
-        expandableRowsComponent={ExpandedComponent}
+        expandableRowsComponent={(data) => ExpandedComponent(data.data.requests)}
         sortIcon={sortIcon}
         pagination
         paginationComponentOptions={paginationComponentOptions}

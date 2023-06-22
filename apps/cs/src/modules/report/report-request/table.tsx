@@ -1,20 +1,19 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy, TReportRequestItems } from "../types";
-import { useReportData, useReportRequest } from "../hooks";
+import { TReportRequestItems, TReportRequestUsersItem } from "../types";
+import { useReportRequest } from "../hooks";
 import { formatDate } from "@mknows-frontend-services/utils";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { data: getDataReportRequest } = useReportRequest();
-  const { getReportData } = useReportData();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
   };
 
   const sortIcon = (
-    <div className="m-2">
+    <div className="m-2 " aria-hidden="false">
       <IconDropdown />
     </div>
   );
@@ -34,12 +33,24 @@ const Table: FC = (): ReactElement => {
       name: "Jenis Scoring",
       width: "21%",
       cell: (row) => row.feature,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.feature.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
       sortable: true,
     },
     {
       name: "Jumlah Customer",
       width: "15.8%",
       cell: (row) => <div className="pl-10"> {row.total_user} </div>,
+      sortable: true,
+    },
+    {
+      name: "No. Permintaan",
+      width: "15%",
+      cell: (row) => row.request_number,
       sortable: true,
     },
     {
@@ -58,14 +69,15 @@ const Table: FC = (): ReactElement => {
           date: new Date(row.finished_at),
         }),
       sortable: true,
+      width: "20%,",
     },
   ];
 
-  const ExpandedComponent = () => (
+  const ExpandedComponent = (data: TReportRequestUsersItem[]) => (
     <div className="flex flex-col">
       <DataTable
         columns={columnsExpand}
-        data={getReportData}
+        data={data ?? []}
         customStyles={ExpandRowStyle}
         selectableRows
         selectableRowsHighlight
@@ -82,7 +94,7 @@ const Table: FC = (): ReactElement => {
     </div>
   );
 
-  const columnsExpand: TableColumn<TReportDataDummy>[] = [
+  const columnsExpand: TableColumn<TReportRequestUsersItem>[] = [
     {
       name: "No",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
@@ -94,29 +106,41 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Permintaan",
-      cell: (row) => row.tggl_permintaan,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.date_requested),
+        }),
       sortable: true,
     },
     {
       name: "Nama",
-      cell: (row) => row.nama,
+      cell: (row) => row.name,
       sortable: true,
     },
     {
       name: "Status",
-      cell: (row) => (
-        <button
-          className={` ${
-            row.status === "Sangat Baik"
-              ? "bg-success-400"
-              : row.status === "Cukup Buruk"
-              ? "bg-warning-500"
-              : "bg-error-400"
-          } text-white w-[120px] text-sm p-1 rounded-md cursor-default`}
-        >
-          {row.status}
-        </button>
-      ),
+      cell: (row) => row.result,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.result === "SANGAT BURUK" || row.result === "BURUK",
+          classNames: [
+            "bg-error-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+
+        {
+          when: (row) => row.result === "CUKUP BAIK",
+          classNames: [
+            "bg-warning-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+        {
+          when: (row) => row.result === "BAIK" || row.result === "SANGAT BAIK",
+          classNames: [
+            "bg-success-base flex items-center justify-center text-white my-1.5 rounded-[8px]",
+          ],
+        },
+      ],
     },
   ];
 
@@ -190,7 +214,7 @@ const Table: FC = (): ReactElement => {
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}
-        expandableRowsComponent={ExpandedComponent}
+        expandableRowsComponent={(data) => ExpandedComponent(data.data.user_requests)}
         sortIcon={sortIcon}
         pagination
         paginationComponentOptions={paginationComponentOptions}
