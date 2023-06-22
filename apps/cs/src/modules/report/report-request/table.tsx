@@ -13,7 +13,7 @@ const Table: FC = (): ReactElement => {
   };
 
   const sortIcon = (
-    <div className="m-2">
+    <div className="m-2 " aria-hidden="false">
       <IconDropdown />
     </div>
   );
@@ -33,12 +33,24 @@ const Table: FC = (): ReactElement => {
       name: "Jenis Scoring",
       width: "21%",
       cell: (row) => row.feature,
+      conditionalCellStyles: [
+        {
+          when: (row) => row.feature.length !== 0,
+          classNames: ["font-bold"],
+        },
+      ],
       sortable: true,
     },
     {
       name: "Jumlah Customer",
       width: "15.8%",
       cell: (row) => <div className="pl-10"> {row.total_user} </div>,
+      sortable: true,
+    },
+    {
+      name: "No. Permintaan",
+      width: "15%",
+      cell: (row) => row.request_number,
       sortable: true,
     },
     {
@@ -57,6 +69,7 @@ const Table: FC = (): ReactElement => {
           date: new Date(row.finished_at),
         }),
       sortable: true,
+      width: "20%,",
     },
   ];
 
