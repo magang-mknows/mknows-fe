@@ -13,7 +13,7 @@ const ReportModules: FC = (): ReactElement => {
   return (
     <div className="bg-white w-full h-full my-2 ">
       <div className="mt-9 lg:my-9 my-20  gap flex lg:flex-row flex-col h-[40px] items-center justify-between">
-        <DateRangePickerComponent onRangeChange={handleRangeChange} />
+        <DateRangePickerComponent width="100" onRangeChange={handleRangeChange} />
         <div className="w-[50%] ">
           <div className="flex flex-row gap lg:gap-x-3 gap-x-4 w-full mt-4 lg:mt-0">
             <div className="w-[50%]">

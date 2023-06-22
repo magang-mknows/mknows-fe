@@ -5,7 +5,7 @@ import { useQueryParams } from "../common/hooks";
 import { useNavigate } from "react-router-dom";
 import { CardCS } from "@mknows-frontend-services/components/molecules";
 import ReportRequest from "./report-request";
-import ReportModules from "./report-user/report";
+import ReportModules from "./report-user";
 
 const ReportPage: FC = (): ReactElement => {
   const [active, setActive] = useState("laporan user");

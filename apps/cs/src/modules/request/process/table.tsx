@@ -34,12 +34,6 @@ const Table2: FC = (): ReactElement => {
       width: "18%",
       selector: (row) => row.nik,
       sortable: true,
-      conditionalCellStyles: [
-        {
-          when: (row) => row.nik.length !== 0,
-          classNames: ["font-bold"],
-        },
-      ],
     },
     {
       name: "Nama",
@@ -58,12 +52,6 @@ const Table2: FC = (): ReactElement => {
       width: "14%",
       selector: (row) => row.request_number,
       sortable: true,
-      conditionalCellStyles: [
-        {
-          when: (row) => row.request_number.length !== 0,
-          classNames: ["font-bold"],
-        },
-      ],
     },
     {
       name: "Tanggal Permintaan",

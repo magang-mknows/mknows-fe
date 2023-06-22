@@ -24,14 +24,16 @@ export type TReportCustItems = {
   _id?: string;
   name: string;
   nik: string;
-  requests: Array<{
-    id: string;
-    request_number: string;
-    feature_name: string;
-    requested_at: string;
-    result: string;
-    document: string;
-  }>;
+  requests: TReportCustRequestItems[];
+};
+
+export type TReportCustRequestItems = {
+  id: string;
+  request_number: string;
+  feature_name: string;
+  requested_at: string;
+  result: string;
+  document: string;
 };
 
 export type TReportCustResponse = TMetaResponse<TReportCustItems>;
@@ -43,14 +45,16 @@ export type TReportRequestItems = {
   finished_at: string;
   requested_at: string;
   total_user: number;
-  user_requests: Array<{
-    _id: string;
-    nik: string;
-    name: string;
-    date_requested: string;
-    result: string;
-    document: string;
-  }>;
+  user_requests: TReportRequestUsersItem[];
+};
+
+export type TReportRequestUsersItem = {
+  _id: string;
+  nik: string;
+  name: string;
+  date_requested: string;
+  result: string;
+  document: string;
 };
 
 export type TReportRequestResponse = TMetaResponse<TReportRequestItems>;

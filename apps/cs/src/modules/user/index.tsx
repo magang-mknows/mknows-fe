@@ -43,7 +43,7 @@ const UserModules: FC = (): ReactElement => {
     <div className="bg-white w-full h-full my-2 rounded-md lg:px-8 px-4 py-2 ">
       <div className="flex flex-col lg:flex-row gap-y-2 justify-between pt-6">
         <div>
-          <DateRangePickerComponent onRangeChange={(e) => handleRangeChange(e)} />
+          <DateRangePickerComponent width="10%" onRangeChange={(e) => handleRangeChange(e)} />
         </div>
         <div className="flex gap-x-2 lg:w-[50%] w-full">
           <Search
