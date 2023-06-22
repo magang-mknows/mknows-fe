@@ -43,14 +43,16 @@ export type TReportRequestItems = {
   finished_at: string;
   requested_at: string;
   total_user: number;
-  user_requests: Array<{
-    _id: string;
-    nik: string;
-    name: string;
-    date_requested: string;
-    result: string;
-    document: string;
-  }>;
+  user_requests: TReportRequestUsersItem[];
+};
+
+export type TReportRequestUsersItem = {
+  _id: string;
+  nik: string;
+  name: string;
+  date_requested: string;
+  result: string;
+  document: string;
 };
 
 export type TReportRequestResponse = TMetaResponse<TReportRequestItems>;
