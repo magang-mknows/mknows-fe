@@ -1,13 +1,12 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy, TReportRequestItems, TReportRequestUsersItem } from "../types";
-import { useReportData, useReportRequest } from "../hooks";
+import { TReportRequestItems, TReportRequestUsersItem } from "../types";
+import { useReportRequest } from "../hooks";
 import { formatDate } from "@mknows-frontend-services/utils";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { data: getDataReportRequest } = useReportRequest();
-  const { getReportData } = useReportData();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
