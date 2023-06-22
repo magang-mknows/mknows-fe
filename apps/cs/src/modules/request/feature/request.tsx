@@ -47,7 +47,7 @@ const RequestModule: FC = (): ReactElement => {
         <div className="flex justify-center w-full my-4 pt-4">
           <Button
             type="button"
-            onClick={() => setisOpen(true)}
+            // onClick={() => setisOpen(true)}
             className="w-1/3 h-10 bg-primary-400 text-white rounded-[4px] font-bold"
           >
             Pilih Fitur

@@ -79,7 +79,7 @@ const CheckResult: FC = (): ReactElement => {
             </div>
           </div>
           <div className="flex flex-col  border-b mx-8 py-6 space-y-6">
-            <span className="font-semibold text-lg">Fitur yang telah dipilih</span>
+            <span className="font-semibold text-lg">Fitur telah dipilih</span>
             <div className="flex flex-row flex-wrap gap-x-4 gap-y-6">
               {data?.data.map((item, index) => {
                 return (
@@ -99,33 +99,7 @@ const CheckResult: FC = (): ReactElement => {
               })}
             </div>
           </div>
-          <div className="flex flex-col  border-b mx-8 py-6 space-y-6">
-            <span className="font-semibold text-lg">Fitur yang telah dipilih</span>
-            <div className="flex flex-row flex-wrap gap-x-4 gap-y-6">
-              {data?.data.map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-add2 rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
-                  >
-                    <span>{item.name}</span>
-                    <button
-                      onClick={() => setisOpenDelete(true)}
-                      className="flex justify-center items-center w-4"
-                    >
-                      <img src="/assets/request-page/close.webp" alt="close-button" />
-                    </button>
-                  </div>
-                );
-              })}
-              <div
-                onClick={() => setisOpen(true)}
-                className="bg-add2 cursor-pointer rounded-[20px] text-sm font-semibold flex flex-row items-center justify-between gap-x-4 px-4 py-2"
-              >
-                <span>+20</span>
-              </div>
-            </div>
-          </div>
+
           <div className="flex justify-end pt-14">
             <Button
               type="button"
