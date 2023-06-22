@@ -3,6 +3,7 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { TReportCustItems, TReportCustRequestItems } from "../types";
 import { useReportCust } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
+import { formatDate } from "@mknows-frontend-services/utils";
 
 const Table: FC = (): ReactElement => {
   const { data: getDataReportCust } = useReportCust();
@@ -82,7 +83,10 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Permintaan",
-      cell: (row) => row.requested_at,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.requested_at),
+        }),
       sortable: true,
     },
     {

@@ -93,7 +93,10 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Tanggal Permintaan",
-      cell: (row) => row.date_requested,
+      selector: (row) =>
+        formatDate({
+          date: new Date(row.date_requested),
+        }),
       sortable: true,
     },
     {
