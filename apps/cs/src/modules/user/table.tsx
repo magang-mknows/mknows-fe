@@ -7,6 +7,7 @@ import {
   IconDelete,
   IconCheck,
   IconEdit,
+  IconError,
   IconDropdown,
   IconEmptyState,
 } from "@mknows-frontend-services/components/atoms";
@@ -61,27 +62,18 @@ const Table: FC = (): ReactElement => {
           <div className="flex flex-row items-center gap-2 text-[#3D628D] cursor-pointer ">
             <p>Lihat Detail</p>
             <div className="pt-1">
-              {/* {item.berkas === 'success' ? (
-          <ToolTip
-            tooltip="3/3 Data Terisi"
-            className="border-[#54B435] text-[#54B435] bg-white"
-          >
-            <IconCheck />
-          </ToolTip>
-        ) : (
-          <ToolTip
-            tooltip="1/3 Data Terisi"
-            className=" border-[#EE2D24] text-[#EE2D24] bg-white"
-          >
-            <IconError />
-          </ToolTip>
-        )} */}{" "}
-              <ToolTip
-                tooltip="3/3 Data Terisi"
-                className="border-[#54B435] text-[#54B435] bg-white"
-              >
-                <IconCheck />
-              </ToolTip>
+              {row.completed_document === 1 ? (
+                <ToolTip tooltip="Data Terisi" className="border-[#54B435] text-[#54B435] bg-white">
+                  <IconCheck />
+                </ToolTip>
+              ) : (
+                <ToolTip
+                  tooltip="1/3 Data Terisi"
+                  className=" border-[#EE2D24] text-[#EE2D24] bg-white"
+                >
+                  <IconError />
+                </ToolTip>
+              )}
             </div>
           </div>
         </Link>

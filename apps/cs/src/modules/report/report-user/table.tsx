@@ -1,11 +1,12 @@
 import { FC, ReactElement } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TReportDataDummy } from "../type";
-import { useReportData } from "../hooks";
+import { TReportDataDummy, TReportCustItems } from "../types";
+import { useReportData, useReportCust } from "../hooks";
 import { Button, IconDropdown, IconEmptyState } from "@mknows-frontend-services/components/atoms";
 
 const Table: FC = (): ReactElement => {
   const { getReportData } = useReportData();
+  const { data: getDataReportCust } = useReportCust();
   const paginationComponentOptions = {
     rowsPerPageText: "Data per halaman",
     rangeSeparatorText: "dari",
@@ -16,7 +17,7 @@ const Table: FC = (): ReactElement => {
       <IconDropdown />
     </div>
   );
-  const columns: TableColumn<TReportDataDummy>[] = [
+  const columns: TableColumn<TReportCustItems>[] = [
     {
       name: "No",
       cell: (row, rowIndex) => <div className="px-2">{rowIndex + 1}</div>,
@@ -28,7 +29,7 @@ const Table: FC = (): ReactElement => {
     },
     {
       name: "Nama",
-      selector: (row) => row.nama,
+      selector: (row) => row.name,
       sortable: true,
     },
 
@@ -36,15 +37,15 @@ const Table: FC = (): ReactElement => {
       name: "Scoring",
       cell: (row) => (
         <button
-          className={` ${
-            row.status === "Sangat Baik"
-              ? "bg-success-400"
-              : row.status === "Cukup Buruk"
-              ? "bg-warning-500"
-              : "bg-error-400"
-          } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
+        // className={` ${
+        //   row.requests.result === "Sangat Baik"
+        //     ? "bg-success-400"
+        //     : row.status === "Cukup Buruk"
+        //     ? "bg-warning-500"
+        //     : "bg-error-400"
+        // } text-white w-[110px] text-sm p-2 rounded-md cursor-default`}
         >
-          {row.status}
+          Sangat Baik
         </button>
       ),
     },
@@ -181,7 +182,7 @@ const Table: FC = (): ReactElement => {
     <div>
       <DataTable
         columns={columns}
-        data={getReportData}
+        data={getDataReportCust?.data ?? []}
         customStyles={customStyles}
         fixedHeader={true}
         expandableRows={true}

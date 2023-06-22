@@ -89,13 +89,7 @@ export type TResultDataDummy = {
   total_user: number;
 };
 
-export type TResultResponse = TMetaResponse<TResultItem>;
 export type TResultDataResponse = { getResultData: TResultDataDummy[] };
-export type TResultParams = {
-  feature?: string;
-  per_page?: string;
-  page?: string;
-};
 
 export type TResultExpandItem = {
   _id: string;
