@@ -7,6 +7,7 @@ import {
   usePrivateInformationStatus,
   useAdministrationStatus,
   usePrivateInformation,
+  useGetAllAdministration,
 } from "../hooks";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 import { SelectField, TextField, Button } from "@mknows-frontend-services/components/atoms";
@@ -33,9 +34,11 @@ export const PrivateInformation: FC = (): ReactElement => {
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
-  const { data } = useProfile();
-  const getUserMe = data?.data?.user;
+  const { data: getProfil } = useProfile();
+  const getUserMe = getProfil?.data?.user;
   const { mutate } = usePrivateInformation();
+  const { data: getAll } = useGetAllAdministration();
+  const administrationData = getAll?.data?.biodata;
 
   const {
     control,
@@ -80,7 +83,8 @@ export const PrivateInformation: FC = (): ReactElement => {
   });
   useEffect(() => {
     reset(getUserMe);
-  }, [getUserMe]);
+    reset(administrationData);
+  }, [reset, getUserMe, administrationData]);
 
   return (
     <Accordion

@@ -1,9 +1,10 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   useFamilyInformation,
+  useGetAllAdministration,
   useJobInformationStatus,
   usePrivateInformationStatus,
 } from "../hooks";
@@ -28,6 +29,8 @@ export const JobsInformation: FC = (): ReactElement => {
   const { setJobStatus, getJobStatus } = useJobInformationStatus();
   const { getPrivateStatus } = usePrivateInformationStatus();
   const { mutate } = useFamilyInformation();
+  const { data } = useGetAllAdministration();
+  const administrationData = data?.data?.familial;
 
   type ValidationSchema = z.infer<typeof schema>;
 
@@ -35,6 +38,7 @@ export const JobsInformation: FC = (): ReactElement => {
     control,
     handleSubmit,
     formState: { isValid },
+    reset,
   } = useForm<ValidationSchema>({
     resolver: zodResolver(schema),
     mode: "all",
@@ -63,6 +67,9 @@ export const JobsInformation: FC = (): ReactElement => {
       setJobStatus(false);
     }
   });
+  useEffect(() => {
+    reset(administrationData);
+  }, [reset, administrationData]);
 
   return (
     <Accordion
