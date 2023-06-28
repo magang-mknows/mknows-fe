@@ -16,9 +16,9 @@ export const SubmissonSimulasion: FC = (): ReactElement => {
   return (
     <>
       {getSubmission?.length === 0 ? (
-        <div className="flex flex-col align-center items-center">
+        <div className="flex flex-col align-center items-center ">
           <Image src={simulasiNull} alt="simulasi-null" />
-          <h1 className="text-black">Belum ada simulasi yang tersedia.</h1>
+          <h1 className="text-black mb-20">Belum ada simulasi yang tersedia.</h1>
         </div>
       ) : (
         <div className="flex flex-wrap mb-20 lg:justify-start md:justify-around justify-center md:gap-10 lg:gap-20 gap-5">
