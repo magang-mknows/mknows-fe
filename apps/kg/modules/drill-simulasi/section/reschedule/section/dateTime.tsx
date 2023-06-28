@@ -66,7 +66,7 @@ const DateTime: FC = (): ReactElement => {
               <button
                 className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
                   getChooseSimulation === Day
-                    ? "bg-success-500 dark:bg-[#17A2B8] border-none"
+                    ? "bg-success-500 border-none"
                     : "border-2 border-neutral-500"
                 } `}
                 key={y}

@@ -23,7 +23,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
             <>
               <div
                 key={i}
-                className={`flex flex-col md:flex-row dark:bg-[#1B1E21] bg-white rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center lg:py-3 ${
+                className={`flex flex-col md:flex-row bg-white rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center lg:py-3 ${
                   items.status === "FINISHED" ? "cursor-pointer" : ""
                 }`}
                 onClick={
@@ -47,7 +47,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
                     <h1 className="md:text-[20px] text-[18px] font-[700] dark:text-white text-neutral-800">
                       {items.topic}
                     </h1>
-                    <p className="text-[#A3A3A3] font-[400] md:text-[16px] text-[14px] lg:mt-3 md:mt-2 mt-0">
+                    <p className="text-neutral-base font-[400] md:text-[16px] text-[14px] lg:mt-3 md:mt-2 mt-0">
                       {items.assessor_name}
                     </p>
                   </div>
@@ -70,9 +70,9 @@ export const HistorySimulasion: FC = (): ReactElement => {
                   )}
 
                   <div className="flex flex-row text-neutral-800  md:text-[16px] text-[14px] font-[400] mt-2  ">
-                    <p>{items.picked_schedule.slice(0, 10)}</p>
+                    <p>{items?.picked_schedule?.slice(0, 10)}</p>
                     <p className="px-2">|</p>
-                    <p>{items.picked_schedule.slice(11, 16)}</p>
+                    <p>{items?.picked_schedule?.slice(11, 16)}</p>
                   </div>
                 </div>
               </div>
