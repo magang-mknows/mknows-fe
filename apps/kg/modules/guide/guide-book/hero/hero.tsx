@@ -8,7 +8,7 @@ export const HeroSection = (): ReactElement => {
     <div className="lg:grid lg:grid-cols-2 px-6 md:px-8 lg:px-16 mt-[10px] mb-[50px] w-full">
       <div className="col-span-1 ">
         <div className="title">
-          <h1 className="text-[50px] -ml-1 font-extrabold">Buku panduan </h1>
+          <h1 className="text-[50px] -ml-1 font-[700]">Buku panduan </h1>
           <p className="text-[14px] font-[400] text-[#737373] dark:text-white">
             Berupa buku petunjuk penggunaan dan pengertian fitur- fitur yang ada di Website KG
             secara terperinci (isinya lebih detail jika dibandingkan video tutorial). Menjelaskan
