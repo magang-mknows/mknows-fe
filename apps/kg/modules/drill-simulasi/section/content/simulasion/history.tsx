@@ -23,7 +23,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
             <>
               <div
                 key={i}
-                className={`flex flex-col md:flex-row dark:bg-[#1B1E21] bg-[#ffffff] rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center lg:py-3 ${
+                className={`flex flex-col md:flex-row dark:bg-[#1B1E21] bg-white rounded-lg drop-shadow-lg relative justify-between  mb-5 md:items-center lg:py-3 ${
                   items.status === "FINISHED" ? "cursor-pointer" : ""
                 }`}
                 onClick={
@@ -34,7 +34,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
               >
                 <div
                   className={`flex absolute -left-0 top-0 rounded-tl-lg rounded-bl-lg h-full w-2 ${
-                    items.status === "FINISHED" ? "bg-[#3EB449]" : "bg-[#FAB317]"
+                    items.status === "FINISHED" ? "bg-success-500" : "bg-yellow-500"
                   }`}
                 />
                 <div className="flex lg:flex-row flex-col items-center ">
@@ -44,7 +44,7 @@ export const HistorySimulasion: FC = (): ReactElement => {
                     className="md:w-[217px] w-max object-contain md:ml-10 mx-auto mt-5 lg:mt-0 rounded-[8px]"
                   />
                   <div className="banner md:px-8 px-5 md:py-6 py-4">
-                    <h1 className="md:text-[20px] text-[18px] font-[700] dark:text-white text-[#262626]">
+                    <h1 className="md:text-[20px] text-[18px] font-[700] dark:text-white text-neutral-800">
                       {items.topic}
                     </h1>
                     <p className="text-[#A3A3A3] font-[400] md:text-[16px] text-[14px] lg:mt-3 md:mt-2 mt-0">
@@ -57,19 +57,19 @@ export const HistorySimulasion: FC = (): ReactElement => {
                     <div className="flex md:flex-col flex-row gap-3 md:gap-0 items-center ">
                       <Image alt="Image" src={Done} className="md:mt-3 mt-0 md:w-[21px] w-[19px]" />
 
-                      <p className="md:text-[16px] text-[14px] font-[600] text-[#3EB449]">
+                      <p className="md:text-[16px] text-[14px] font-[600] text-success-500">
                         Selesai
                       </p>
                     </div>
                   ) : (
                     <Link href={`/simulasi-drill-dan-assestment/perubahan-jadwal/${items.topic}`}>
-                      <button className="bg-[#FAB317] text-white md:text-[14px] text-[12px] font-[600] rounded-[8px] px-4 py-2 md:w-[230px] w-[200px] md:h-[36px] h-[30px] md:mt-3 mt-0">
+                      <button className="bg-yellow-500 text-white md:text-[14px] text-[12px] font-[600] rounded-[8px] px-4 py-2 md:w-[230px] w-[200px] md:h-[36px] h-[30px] md:mt-3 mt-0">
                         Ajukan Perubahan Jadwal
                       </button>
                     </Link>
                   )}
 
-                  <div className="flex flex-row text-[#262626] dark:text-[#A3A3A3] md:text-[16px] text-[14px] font-[400] mt-2  ">
+                  <div className="flex flex-row text-neutral-800  md:text-[16px] text-[14px] font-[400] mt-2  ">
                     <p>{items.picked_schedule.slice(0, 10)}</p>
                     <p className="px-2">|</p>
                     <p>{items.picked_schedule.slice(11, 16)}</p>
