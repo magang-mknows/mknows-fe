@@ -13,19 +13,19 @@ export const ContentSection = (): ReactElement => {
       <div className="col-span-1 ">
         <div className="title">
           <h1 className=" text-[50px] font-[700]">Kamus Kampus Gratis </h1>
-          <p className="text-[14px] font-[400] text-[#737373] ">
+          <p className="text-[14px] font-[400] text-neutral-500 ">
             Berupa kumpulan istilah yang sering digunakan yang berkaitan dengan penggunaan dan
             fungsi fitur <br /> yang ada di Website LMS M-Knows
           </p>
         </div>
-        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-[#F5F5F5]  rounded-[8px] my-5 flex items-center gap-4  ">
+        <div className="seacrh lg:w-[700px] h-[56px] w-full bg-neutral-100  rounded-[8px] my-5 flex items-center gap-4  ">
           <Image src={search} alt={"search"} className={"ml-[24px]"} />
           <input
             type="text"
             name=""
             id=""
             placeholder="Cari informasi"
-            className=" bg-[#F5F5F5] w-full focus:outline-none"
+            className=" bg-neutral-100 w-full focus:outline-none"
           />
         </div>
       </div>
@@ -33,7 +33,7 @@ export const ContentSection = (): ReactElement => {
         return (
           <div
             key={index}
-            className="lg:w-[700px] w-full rounded-[8px] flex flex-col place-content-center my-5 bg-[#F5F5F5] shadow-smdark:text-white  p-4"
+            className="lg:w-[700px] w-full rounded-[8px] flex flex-col place-content-center my-5 bg-neutral-100 shadow-smdark:text-white  p-4"
           >
             <div className="font-bold text-xl my-1">{item.title}</div>
             <div className="font-medium my-2 text-sm lg:text-base">{item.description}</div>
