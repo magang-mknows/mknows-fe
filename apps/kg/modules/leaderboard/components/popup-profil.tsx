@@ -16,8 +16,6 @@ export const PopupProfil: FC<PopupProfilProps> = ({
   widthModal,
   ...props
 }): ReactElement => {
-  const ipk = String(props.author?.ipk);
-
   const template = [
     {
       src: Like,
@@ -36,7 +34,7 @@ export const PopupProfil: FC<PopupProfilProps> = ({
     {
       src: Clock,
       title: "IPK",
-      desc: `${ipk === null ? 0 : parseFloat(ipk).toFixed(2)}`,
+      desc: `${props?.author?.ipk === null ? 0 : props?.author?.ipk}`,
 
       colorBg: "bg-[#E3FBDA]",
       colorText: "text-[#3EB449]",
@@ -72,13 +70,13 @@ export const PopupProfil: FC<PopupProfilProps> = ({
               <div className="flex flex-row text-[#737373] sm:text-[20px] text-[16px] font-[500] gap-2">
                 <p>{props.author?.major}</p>
                 <Image src={Circle} alt={"circle"} />
-                <p>2</p>
+                <p>{props?.author?.semester}</p>
               </div>
             </div>
           </div>
           <div className="flex item-center sm:ml-0 ml-8 sm:mt-0 -mt-8">
             <button className="bg-[#FAB317] text-white sm:text-[16px] text-[14px] font-[600] rounded-[8px] px-2 py-1 ">
-              {props.poin == null ? 0 : props.poin} Poin
+              {props?.author?.poin == null ? 0 : props?.author?.poin} Poin
             </button>
           </div>
         </div>

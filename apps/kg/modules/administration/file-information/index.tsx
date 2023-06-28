@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -8,6 +8,7 @@ import {
   usePrivateInformationStatus,
   useJobInformationStatus,
   useFileInformation,
+  useGetAllAdministration,
 } from "./hooks";
 import { Button, UploadField } from "@mknows-frontend-services/components/atoms";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
@@ -110,12 +111,15 @@ export const FileInformation: FC = (): ReactElement => {
 
   type ValidationSchema = z.infer<typeof validationSchema>;
   const { mutate } = useFileInformation();
+  const { data } = useGetAllAdministration();
+  const administrationData = data?.data?.file;
 
   const {
     control,
     handleSubmit,
     formState: { isValid, errors },
     watch,
+    reset,
   } = useForm<ValidationSchema>({
     mode: "all",
     resolver: zodResolver(validationSchema),
@@ -153,6 +157,9 @@ export const FileInformation: FC = (): ReactElement => {
       setFileStatus(false);
     }
   });
+  useEffect(() => {
+    reset(administrationData);
+  }, [reset, administrationData]);
 
   console.log(watch());
 
@@ -230,7 +237,7 @@ export const FileInformation: FC = (): ReactElement => {
           <div className="flex w-full my-8 justify-end">
             <Button
               disabled={!isValid}
-              className="my-4 w-[211px] rounded-[8px] disabled:bg-[#c5c3c3] disabled:text-white bg-[#106FA4] text-white font-bold p-3 text-1xl"
+              className="my-4 w-[211px] rounded-[8px] disabled:bg-grey-300 disabled:text-white bg-primary-500 text-white font-bold p-3 text-1xl"
               type={"submit"}
             >
               Simpan Informasi Berkas

@@ -7,6 +7,7 @@ import {
   usePrivateInformationStatus,
   useAdministrationStatus,
   usePrivateInformation,
+  useGetAllAdministration,
 } from "../hooks";
 import { Accordion } from "@mknows-frontend-services/components/molecules";
 import { SelectField, TextField, Button } from "@mknows-frontend-services/components/atoms";
@@ -33,9 +34,11 @@ export const PrivateInformation: FC = (): ReactElement => {
 
   const { setPrivateStatus, getPrivateStatus } = usePrivateInformationStatus();
   const { setAdministrationStatus } = useAdministrationStatus();
-  const { data } = useProfile();
-  const getUserMe = data?.data?.user;
+  const { data: getProfil } = useProfile();
+  const getUserMe = getProfil?.data?.user;
   const { mutate } = usePrivateInformation();
+  const { data: getAll } = useGetAllAdministration();
+  const administrationData = getAll?.data?.biodata;
 
   const {
     control,
@@ -80,7 +83,8 @@ export const PrivateInformation: FC = (): ReactElement => {
   });
   useEffect(() => {
     reset(getUserMe);
-  }, [getUserMe]);
+    reset(administrationData);
+  }, [reset, getUserMe, administrationData]);
 
   return (
     <Accordion
@@ -95,7 +99,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type="text"
                 label={"Nama Lengkap"}
                 name="full_name"
@@ -123,7 +127,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type="text"
                 label={"Tempat Lahir"}
                 name="birthplace"
@@ -137,7 +141,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type="text"
                 label={"Alamat Lengkap"}
                 name={"address"}
@@ -152,7 +156,7 @@ export const PrivateInformation: FC = (): ReactElement => {
                 variant="md"
                 control={control}
                 type={"text"}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 label={"NIM atau NPM (optional)"}
                 name={"nim"}
                 placeholder={"Masukkan NIM atau NPM (optional)"}
@@ -165,7 +169,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type={"text"}
                 label={"Program Studi (optional)"}
                 name={"major"}
@@ -181,7 +185,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <label className="text-[#000] text-[16px] font-bold">
                 Email <span className="ml-1 font-bold text-error-600">*</span>
               </label>
-              <div className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3] bg-[#DDE0E3] py-2 w-full rounded-md mt-3 ">
+              <div className="outline outline-none focus:outline-none !border-2 !border-grey-200 bg-grey-200 py-2 w-full rounded-md mt-3 ">
                 <div className="ml-4">{getUserMe?.email}</div>
               </div>
             </div>
@@ -190,7 +194,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type={"number"}
                 label={"Nomor Handphone"}
                 name={"phone_number"}
@@ -204,7 +208,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 variant="md"
                 control={control}
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 type={"date"}
                 label={"Tanggal Lahir"}
                 name={"birthdate"}
@@ -231,7 +235,7 @@ export const PrivateInformation: FC = (): ReactElement => {
               <TextField
                 control={control}
                 type="text"
-                className="outline outline-none focus:outline-none !border-2 !border-[#DDE0E3]"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-200"
                 variant="md"
                 label={"Universitas Asal (optional)"}
                 name={"university"}
@@ -242,9 +246,9 @@ export const PrivateInformation: FC = (): ReactElement => {
               />
             </div>
             <div className="form-label mb-3">
-              <label className="text-[#000] text-[16px] font-bold">Semester (optional)</label>
+              <label className="text-black text-[16px] font-bold">Semester (optional)</label>
               <input
-                className="outline outline-none focus:outline-none !border-2 !border-[#c5c8ca] py-2 w-full rounded-md mt-2 px-3"
+                className="outline outline-none focus:outline-none !border-2 !border-grey-400 py-2 w-full rounded-md mt-2 px-3"
                 type="number"
                 name="semester"
                 required={false}
@@ -254,7 +258,7 @@ export const PrivateInformation: FC = (): ReactElement => {
             <div className="flex w-full my-8 justify-end">
               <Button
                 disabled={!isValid}
-                className="my-4 w-[211px] rounded-[8px] disabled:bg-[#c5c3c3] disabled:text-white bg-[#106FA4] text-white font-bold p-3 text-1xl"
+                className="my-4 w-[211px] rounded-[8px] disabled:bg-grey-300 disabled:text-white bg-primary-500 text-white font-bold p-3 text-1xl"
                 type={"submit"}
               >
                 Simpan Informasi Pribadi

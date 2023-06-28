@@ -6,7 +6,7 @@ export const FaqSection: FC = (): ReactElement => {
   return (
     <section className="flex flex-col items-center bg-[#106FA4]/5  w-full ">
       <div className=" pt-14 flex flex-col items-center">
-        <h1 className="text-[24px] font-black text-slate-800 text-center dark:text-white mb-4">
+        <h1 className="text-[24px]  text-slate-800 text-center dark:text-white mb-4 font-[600]">
           Paling sering ditanyakan
         </h1>
       </div>

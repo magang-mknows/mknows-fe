@@ -24,45 +24,45 @@ export const Filter = (): ReactElement => {
         <div className="flex justify-end container mt-[10px] z-[9000] absolute w-[150px] -bottom-40 ease-in-out ">
           <div className="w-[160px] h-[154px] rounded-[8px] text-center  overflow-hidden shadow-2xl ">
             <button
-              className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
+              className="flex justify-start h-[38px] relative hover:bg-neutral-100 w-full bg-white "
               onClick={() => setFilter("global")}
             >
               <div
                 className={`h-full w-[5px] ${
-                  filter == "global" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
-                } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
+                  filter == "global" ? "bg-blue-100" : "bg-white"
+                } absolute left-0 overflow-hidden hover:hover:bg-neutral-100`}
               ></div>
               <p className="text-[#262626] md:text-[14px] text-[10px] my-auto ml-3">Global</p>
             </button>
             <button
-              className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
+              className="flex justify-start h-[38px] relative hover:bg-neutral-100 w-full bg-white "
               onClick={() => setFilter("fakultas")}
             >
               <div
                 className={`h-full w-[5px] ${
-                  filter == "fakultas" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
-                } absolute left-0 overflow-hidden hover:hover:bg-[#F5F5F5]`}
+                  filter == "fakultas" ? "bg-blue-100" : "bg-white"
+                } absolute left-0 overflow-hidden hover:hover:bg-neutral-100`}
               ></div>
               <p className="text-[#262626] md:text-[14px] text-[10px] my-auto ml-3">Fakultas</p>
             </button>
             <button
-              className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
+              className="flex justify-start h-[38px] relative hover:bg-neutral-100 w-full bg-white "
               onClick={() => setFilter("prodi")}
             >
               <div
                 className={`h-full w-[5px] ${
-                  filter == "prodi" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
+                  filter == "prodi" ? "bg-blue-100" : "bg-white"
                 } absolute left-0 overflow-hidden`}
               ></div>
               <p className="text-[#262626] md:text-[14px] text-[10px] my-auto ml-3">Prodi</p>
             </button>
             <button
-              className="flex justify-start h-[38px] relative hover:bg-[#F5F5F5] w-full bg-white "
+              className="flex justify-start h-[38px] relative hover:bg-neutral-100 w-full bg-white "
               onClick={() => setFilter("semester")}
             >
               <div
                 className={`h-full w-[5px] ${
-                  filter == "semester" ? "bg-[#67A5C8]" : "bg-[#FFFF]"
+                  filter == "semester" ? "bg-blue-100" : "bg-white"
                 } absolute left-0 overflow-hidden`}
               ></div>
               <p className="text-[#262626] md:text-[14px] text-[10px] my-auto ml-3">Semester</p>

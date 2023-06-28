@@ -7,24 +7,24 @@ export interface PopupProfilProps {
   widthModal?: string;
   onClose?: MouseEventHandler<HTMLDivElement | HTMLSpanElement>;
   stylePopup?: string;
-  student_id?: string;
-  student_name?: string;
-  subjectCount?: string;
-  averageScore?: number;
-  poin?: number;
-  author?: AuthorLead;
+  student_id: string;
+  author: AuthorLeaderboard;
 }
 
 export interface AuthorLead {
   avatar?: string;
-  discussion_likes?: number;
-  discussion_posted?: number;
-  full_name?: string;
-  ipk?: number;
-  major?: string;
-  poin?: string;
-  role?: string;
+  poin: number;
+  user_name: string;
+  discussion_likes: number;
+  discussion_posted: number;
+  full_name: string;
+  semester: number;
+  ipk: string;
+  major: string;
+  role: string;
   total_certificates: number;
+  current_subjects: number;
+  finished_subjects: number;
 }
 
 export interface StepLadderProps {

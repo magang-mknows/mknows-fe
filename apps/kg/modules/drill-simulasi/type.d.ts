@@ -1,4 +1,5 @@
 import { TMetaResponse } from "@/services/types";
+import { TMetaResponseSingle } from "@mknows-frontend-services/utils";
 
 export type T = {
   schedule: number;

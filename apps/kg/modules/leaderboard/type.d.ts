@@ -12,20 +12,23 @@ export type ReturnTypesPopupGetUser = {
 
 type TLeaderboardItem = {
   student_id: string;
-  subjectCount: string;
-  averageScore: number;
-  poin: number;
   author: AuthorLeaderboard;
 };
 
 type AuthorLeaderboard = {
   avatar: string;
+  poin: number;
+  user_name: string;
   discussion_likes: number;
   discussion_posted: number;
   full_name: string;
-  ipk: number;
+  semester: number;
+  ipk: string;
   major: string;
   role: string;
   total_certificates: number;
+  current_subjects: number;
+  finished_subjects: number;
 };
+
 export type TLeaderboardResponse = TMetaResponse<TLeaderboardItem>;
