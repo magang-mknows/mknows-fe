@@ -9,11 +9,11 @@ export const HeroSection = (): ReactElement => {
       <div className="col-span-1 ">
         <div className="title">
           <h1 className=" text-[50px] font-[700]">Panduan</h1>
-          <p className="text-[20px] font-light text-[#737373] dark:text-white">
+          <p className="text-[20px] font-light text-neutral-500 dark:text-white">
             Cari informasi penggunaan website Kampus Gratis di sini
           </p>
         </div>
-        <div className="seacrh lg:w-[700px] h-[56px]  bg-neutral-200 dark:bg-[#232529] rounded-[8px] mt-[48px] flex items-center gap-4  ">
+        <div className="seacrh lg:w-[700px] h-[56px]  bg-neutral-200  rounded-[8px] mt-[48px] flex items-center gap-4  ">
           <Image src={search} alt={"search"} className={"ml-[24px]"} />
           <input
             type="text"
