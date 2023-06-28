@@ -237,7 +237,7 @@ export const FileInformation: FC = (): ReactElement => {
           <div className="flex w-full my-8 justify-end">
             <Button
               disabled={!isValid}
-              className="my-4 w-[211px] rounded-[8px] disabled:bg-[#c5c3c3] disabled:text-white bg-[#106FA4] text-white font-bold p-3 text-1xl"
+              className="my-4 w-[211px] rounded-[8px] disabled:bg-grey-300 disabled:text-white bg-primary-500 text-white font-bold p-3 text-1xl"
               type={"submit"}
             >
               Simpan Informasi Berkas
