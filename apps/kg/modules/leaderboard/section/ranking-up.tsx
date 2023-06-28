@@ -10,14 +10,13 @@ import { useGetLeaderboard, usePopupGetUser, usePopupProfilLeaderboard } from ".
 export const StepRanking: FC = (): ReactElement => {
   const { data } = useGetLeaderboard();
   const getRank = data?.data;
-
   const { setPopupLeaderboardStatus } = usePopupProfilLeaderboard();
   const { setPopupUser } = usePopupGetUser();
   return (
     <div className="w-full flex justify-center items-end flex-row mt-10 md:px-0">
       {getRank
         ?.sort((a, b) => {
-          return b.poin - a.poin;
+          return b.author?.poin - a.author?.poin;
         })
         ?.map((item, index) => {
           return index == 1 ? (
@@ -48,7 +47,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317]  text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.poin === null ? "0" : item?.poin} Poin
+                    {item?.author?.poin === null ? "0" : item?.author?.poin} Poin
                   </button>
                 </div>
               </div>
@@ -86,7 +85,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.poin === null ? "0" : item?.poin} Poin
+                    {item?.author?.poin === null ? "0" : item?.author?.poin} Poin
                   </button>
                 </div>
               </div>
@@ -119,7 +118,7 @@ export const StepRanking: FC = (): ReactElement => {
                     {item?.author?.full_name}
                   </div>
                   <button className="bg-[#FAB317] text-white rounded-[8px] lg:text-[14px] md:text-[12px] text-[10px] px-2 py-1 mt-2">
-                    {item.poin === null ? "0" : item?.poin} Poin
+                    {item?.author?.poin === null ? "0" : item?.author?.poin} Poin
                   </button>
                 </div>
               </div>

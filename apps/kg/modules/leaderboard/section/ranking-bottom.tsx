@@ -17,7 +17,7 @@ export const RankingSection: FC = (): ReactElement => {
     <div className="relative lg:-top-56 md:-top-44 -top-36 ">
       {getRank
         ?.sort((a, b) => {
-          return b.poin - a.poin;
+          return b?.author?.poin - a?.author?.poin;
         })
         ?.map((x, index) => {
           console.log(x);
@@ -46,7 +46,7 @@ export const RankingSection: FC = (): ReactElement => {
                       </div>
                       <div className="flex items-center">
                         <h1 className="font-[600] lg:text-[16px] text-[14px] text-[#0B568D]">
-                          {x.poin === null ? "0" : x?.poin} Poin
+                          {x?.author?.poin === null ? "0" : x?.author?.poin} Poin
                         </h1>
                       </div>
                     </div>
