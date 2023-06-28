@@ -44,15 +44,15 @@ const DateTime: FC = (): ReactElement => {
     <section className="lg:basis-7/12">
       {getSchedule?.map((items: TSimulationItem, y: any) => (
         <div key={y}>
-          <h1 className="text-[#171717] text-[20px] font-[600] dark:text-white">{items.topic}</h1>
-          <p className="text-[#737373] text-[16px] font-[400] mt-2 mb-1">{items.assessor_name}</p>
-          <p className="text-[#737373] text-[16px] font-[400]">
+          <h1 className="text-neutral-900 text-[20px] font-[600] dark:text-white">{items.topic}</h1>
+          <p className="text-neutral-500 text-[16px] font-[400] mt-2 mb-1">{items.assessor_name}</p>
+          <p className="text-neutral-500 text-[16px] font-[400]">
             Lokasi : {items.place !== null ? items.place : "Tidak ada lokasi"}
           </p>
         </div>
       ))}
 
-      <p className="text-[#171717] text-[14px] font-[600] mt-3 mb-1 dark:text-white">
+      <p className="text-neutral-900 text-[14px] font-[600] mt-3 mb-1 dark:text-white">
         Pilih tanggal dan waktu Simulasi
       </p>
 
@@ -66,8 +66,8 @@ const DateTime: FC = (): ReactElement => {
               <button
                 className={` px-6 py-3 rounded-[8px] flex flex-row text-center justify-center mt-5 border w-full dark:text-white ${
                   getChooseSimulation === Day
-                    ? "bg-[#3EB449] dark:bg-[#17A2B8] border-none"
-                    : "border-2 border-[#737373]"
+                    ? "bg-success-500 dark:bg-[#17A2B8] border-none"
+                    : "border-2 border-neutral-500"
                 } `}
                 key={y}
                 onClick={() => {
@@ -76,7 +76,7 @@ const DateTime: FC = (): ReactElement => {
                 }}
               >
                 <div
-                  className={`flex items-center gap-2 text-[#737373] dark:text-white ${
+                  className={`flex items-center gap-2 text-neutral-500 dark:text-white ${
                     getChooseSimulation === Day ? "dark:text-white text-white" : ""
                   }`}
                 >
@@ -114,8 +114,8 @@ const DateTime: FC = (): ReactElement => {
                       key={i}
                       className={`flex flex-row text-center  gap-2 py-2 px-3 rounded-[8px]  ${
                         getChooseTimeSimulation === TimeShort
-                          ? "bg-[#3EB449] dark:bg-[#17A2B8] border border-[#3EB449]"
-                          : "border border-[#737373]"
+                          ? "bg-success-500  border border-success-500"
+                          : "border border-neutral-500"
                       } `}
                       onClick={() => {
                         setChooseTimeSimulation(TimeShort);
@@ -143,7 +143,7 @@ const DateTime: FC = (): ReactElement => {
             getChooseSimulation !== "" || (getChooseTimeSimulation !== "" && onSucces());
           }}
           className={` text-white text-[14px] font-[600] rounded-[8px] h-[45px] w-[289px] justify-center mt-4 ${
-            getCategorySimulation === "Active" ? "bg-[#FAB317]" : "bg-[#3EB449] dark:bg-[#17A2B8]"
+            getCategorySimulation === "Active" ? "bg-yellow-500" : "bg-success-500 "
           }`}
         >
           {getCategorySimulation == "Active"
@@ -182,7 +182,7 @@ const DateTime: FC = (): ReactElement => {
           className="!h-85 w-[100%] text-md py-10"
           onClose={() => setPopupStatus(false)}
         >
-          <p className="text-[#A3A3A3] font-[600] lg:text-[20px] md:text-[18px]">
+          <p className="text-neutral-base font-[600] lg:text-[20px] md:text-[18px]">
             Kamu telah mengajukan <br />
             {getCategorySimulation === "Reschedule"
               ? " Reschedule Jadwal pertemuan simulasi, silahkan menunggu jadwal simulasi terbaru."

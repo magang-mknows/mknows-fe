@@ -7,7 +7,7 @@ export const RescheduleContent: FC = (): ReactElement => {
   const { getCategorySimulation } = useCategorySimulation();
   return (
     <div className="px-6 md:px-8 lg:px-10">
-      <h1 className="text-[#262626] text-[28px] font-[700] mb-5 dark:text-white mt-5 ">
+      <h1 className="text-neutral-800 text-[28px] font-[700] mb-5 dark:text-white mt-5 ">
         {getCategorySimulation == "Active" ? "Reschedule " : ""}
         Simulasi, Drill & Assessment
       </h1>
