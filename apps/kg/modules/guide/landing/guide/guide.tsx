@@ -11,7 +11,7 @@ export const GuideSection = (): ReactElement => {
           return (
             <div
               key={index}
-              className="col-span-4 bg-white dark:bg-[#111D2D] shadow-md w-full h-full rounded-[8px] pr-7"
+              className="col-span-4 bg-white  shadow-md w-full h-full rounded-[8px] pr-7"
             >
               <Link href={item.href}>
                 <div className=" p-5">
