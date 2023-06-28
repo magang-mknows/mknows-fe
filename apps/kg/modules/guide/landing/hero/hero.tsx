@@ -8,7 +8,7 @@ export const HeroSection = (): ReactElement => {
     <div className="lg:grid lg:grid-cols-2 lg:gap-10 px-16 bg-neutral-100">
       <div className="col-span-1 ">
         <div className="title">
-          <h1 className=" text-[50px] font-extrabold">Panduan</h1>
+          <h1 className=" text-[50px] font-[700]">Panduan</h1>
           <p className="text-[20px] font-light text-[#737373] dark:text-white">
             Cari informasi penggunaan website Kampus Gratis di sini
           </p>
