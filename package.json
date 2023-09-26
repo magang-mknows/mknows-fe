@@ -93,7 +93,7 @@
     "@nx/nest": "16.3.2",
     "@nx/node": "16.3.2",
     "@nx/react": "16.3.2",
-    "@nx/vite": "16.3.2",
+    "@nx/vite": "16.9.1",
     "@nx/webpack": "16.3.2",
     "@nx/workspace": "16.4.0",
     "@swc/cli": "~0.1.62",
